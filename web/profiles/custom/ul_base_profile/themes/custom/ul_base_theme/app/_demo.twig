@@ -1,0 +1,322 @@
+{#
+  Temporary workspace to setup components for testing, will be replaced by component library eventually.
+#}
+{% extends '@ul_base_theme/1_core/layout.twig' %}
+
+{% block content %}
+  {% embed '@ul_base_theme/1_core/page.twig' %}
+    {% block page_top %}
+      {% include '@ul_base_theme/4_regions/hero--banner.twig' with hero_banner only %}
+      {% include '@ul_base_theme/3_components/nav--sub-bar.twig' with {
+        items: nav_sub_bar
+      } %}
+    {% endblock %}
+    {% block page %}
+      <div class="page--styleguide">
+
+        {% if navigation %}
+          <div class="wrapper">
+            <ul class="mt-4">
+              {% for item in navigation.items %}
+                <li><a href="{{ item.url }}">{{ item.title }}</a></li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+
+        <!-- Colors -->
+        <div class="anchor-target__container"><span class="anchor-target" id="colors"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Colors" } only %}
+          {% embed '@ul_base_theme/4_regions/section.twig' %}
+            {% block content %}
+              {% include '@ul_base_theme/1_core/style-guide/colors.twig' %}
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        <!-- Headings -->
+        <div class="anchor-target__container"><span class="anchor-target" id="headings"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Headings" } only %}
+          {% embed '@ul_base_theme/4_regions/section.twig' %}
+            {% block content %}
+              <h1>Heading 1</h1>
+              <h2>Heading 2</h2>
+              <h3>Heading 3</h3>
+              <h4>Heading 4</h4>
+              <h5>Heading 5</h5>
+              <h6>Heading 6</h6>
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        <!-- Icons -->
+        <div class="anchor-target__container"><span class="anchor-target" id="icons"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Icons" } only %}
+          {% embed '@ul_base_theme/4_regions/section.twig' %}
+            {% block content %}
+              {% include '@ul_base_theme/1_core/style-guide/icons.twig' %}
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        <!-- Forms -->
+        <div class="anchor-target__container"><span class="anchor-target" id="forms"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Forms" } only %}
+          {% embed '@ul_base_theme/4_regions/section.twig' %}
+            {% block content %}
+              {% include '@ul_base_theme/1_core/style-guide/forms.twig' %}
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        <!-- Buttons -->
+        <div class="anchor-target__container"><span class="anchor-target" id="buttons"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Buttons"} only %}
+          {% embed '@ul_base_theme/4_regions/section.twig' %}
+            {% block content %}
+              {% include '@ul_base_theme/1_core/style-guide/buttons.twig' %}
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        <!-- Heroes -->
+        <div class="anchor-target__container"><span class="anchor-target" id="heroes"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Heroes" } only %}
+        </div>
+        <br>
+        <div class="wrapper">
+          <h3>Hero Default</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--default.twig' with hero_default only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Default (Carousel)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--default.twig' with hero_default_carousel only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Default (with Local Navigation)</h3>
+        </div>
+        {% include '@ul_base_theme/3_components/nav--local.twig' with local_nav only %}
+        {% include '@ul_base_theme/4_regions/hero--default.twig' with hero_default_carousel only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Detail</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--detail.twig' with hero_detail only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Detail (No Image)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--detail.twig' with hero_detail|merge({image: ''}) only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Detail (Reverse Direction)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--detail.twig' with hero_detail_buttons|merge({direction_reverse: true}) only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Banner</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--banner.twig' with hero_banner only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Events</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--events.twig' with hero_events only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero News</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--news.twig' with hero_news only %}
+        <br>
+        <div class="wrapper">
+          <h3>Hero Static</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/hero--static.twig' with hero_static_1 only %}
+        <br>
+        {% include '@ul_base_theme/4_regions/hero--static.twig' with hero_static_2 only %}
+
+        <!-- Title Bars -->
+        <div class="anchor-target__container"><span class="anchor-target" id="title-bars"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Title Bars" } only %}
+          {% embed '@ul_base_theme/4_regions/section.twig' %}
+            {% block content %}
+              <p>Title Bar: Title only</p>
+              {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+              <p>Title Bar: Title &amp; Description</p>
+              {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar1 only %}
+              <p>Title Bar: No border</p>
+              {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar2 only %}
+              <p>Title Bar: H3 Heading level</p>
+              {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar3 only %}
+            {% endblock %}
+          {% endembed %}
+        </div>
+
+        <!-- Cards -->
+        <div class="anchor-target__container"><span class="anchor-target" id="cards"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Cards" } only %}
+        </div>
+
+        <br>
+
+        <div class="wrapper">
+          <h3>Cards (Default)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_default, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Default Large)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_default_large, per_row: 2 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Default with Buttons)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_default_buttons, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Default with Icon Button)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_default_buttons_icon, per_row: 4 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Banner)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_banner, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (CTA)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_cta, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Data)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_data, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Events)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_events, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Featured)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_featured, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Read More)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_read_more, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Solutions)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_solutions, per_row: 3 } only %}
+
+        <div class="wrapper">
+          <h3>Cards (Spotlight)</h3>
+        </div>
+        {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: cards_spotlight, per_row: 2 } only %}
+
+        <!-- Carousels -->
+        <div class="anchor-target__container"><span class="anchor-target" id="carousels"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Carousels" } only %}
+        </div>
+
+        <br>
+
+        <div class="wrapper">
+          <h3>Featured Card Carousel</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--cards-featured.twig' with { section: featured_carousel_2 } %}
+
+        <div class="wrapper">
+          <h3>Spotlight Carousel</h3>
+        </div>
+
+        {% include "@ul_base_theme/4_regions/section--spotlight.twig" with spotlight_1 only %}
+        {% include "@ul_base_theme/4_regions/section--spotlight.twig" with spotlight_1 only %}
+        {% include "@ul_base_theme/4_regions/section--spotlight.twig" with spotlight_1 only %}
+
+        <!-- Grid -->
+        <div class="anchor-target__container"><span class="anchor-target" id="grid"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Grid" } only %}
+        </div>
+        <br>
+        <div class="wrapper">
+          <h3>Grid (1 per row)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--grid.twig' with { items: section_row, per_row: 1 } only %}
+        <div class="wrapper">
+          <h3>Grid (2 per row)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--grid.twig' with { items: section_row, per_row: 2 } only %}
+        <div class="wrapper">
+          <h3>Grid (3 per row)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--grid.twig' with { items: section_row, per_row: 3 } only %}
+        <div class="wrapper">
+          <h3>Grid (4 per row)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--grid.twig' with { items: section_row, per_row: 4 } only %}
+        <div class="wrapper">
+          <h3>Grid Toggle (WIP)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--grid--toggle.twig' with { items: section_row } only %}
+
+        <!-- Section Promo Materials -->
+        <div class="anchor-target__container"><span class="anchor-target" id="section"></span></div>
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Section Promo" } only %}
+        </div>
+        <br>
+        <div class="wrapper">
+          <h3>Section Promotional Materials</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--promo-materials.twig' with section_promo_materials only %}
+
+        <!-- Section Featured -->
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Section Featured" } only %}
+        </div>
+
+        <br>
+
+        <div class="wrapper">
+          <h3>Section Featured (2 spotlights)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--featured.twig' with { items: section_featured_1 } only %}
+        <div class="wrapper">
+          <h3>Section Featured (5 items)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--featured.twig' with { items: section_featured_2 } only %}
+        <div class="wrapper">
+          <h3>Section Featured (4 items)</h3>
+        </div>
+        {% include '@ul_base_theme/4_regions/section--featured.twig' with { items: section_featured_3 } only %}
+
+        <!-- Section Link List -->
+        <div class="wrapper">
+          {% include '@ul_base_theme/4_regions/section--title.twig' with { title: "Section Link List" } only %}
+        </div>
+
+        <br>
+
+        {% include '@ul_base_theme/4_regions/section--icon-list.twig' with section_link_list only %}
+      </div>
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

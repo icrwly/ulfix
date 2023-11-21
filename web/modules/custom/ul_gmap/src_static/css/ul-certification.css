@@ -1,0 +1,61 @@
+/* ./src/css/PROJECT_NAME.css */
+@import "tailwind.css";
+
+@import "text.css";
+
+/* ------------------
+* Patterns
+* ------------------ */
+/* @import "./patterns/____.css"; */
+@import "./patterns/modal.css";
+@import "./patterns/intro-page.css";
+@import "./patterns/glossary-all.css";
+@import "./patterns/steps.css";
+@import "./patterns/ping-pong.css";
+
+
+html,
+body {
+  height: 100%;
+  width: 100%;
+  min-height: 100%;
+
+  /* background-color: #cA0123; */
+}
+
+/* 
+ * -------------------------------
+ * Colors
+ * -------------------------------
+ */
+:root {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+
+  --black: rgba(0, 0, 0, 1);
+  --white: rgba(255, 255, 255, 1);
+
+  /* Solid Colors */
+  --brand-ul-red: #cA0123;
+
+  /* Grayscale */
+  /* --gray-1: rgba(46, 46, 46, 1); */
+  /* --gray-2: rgba(78, 78, 78, 1); */
+  /* --gray-3: rgba(110, 110, 110, 1); */
+  /* --gray-4: rgba(142, 142, 142, 1); */
+  /* --gray-5: rgba(174, 174, 174, 1); */
+  /* --gray-6: rgba(206, 206, 206, 1); */
+  /* --gray-7: rgba(238, 238, 238, 1); */
+  /* --gray-8: rgba(244, 244, 244, 1); */
+
+  /* Hightlight Color */
+  /* --highlight-color: var(--orange); */
+
+  /* Text Color */
+  --text-color: var(--black);
+
+  /* Page Background Color */
+  --page-bg: rgba(255, 255, 255, 1);
+  background-color: var(--page-bg);
+}

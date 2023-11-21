@@ -1,0 +1,10 @@
+uuid: cfa40b6f-9106-47e5-8f1f-0ee9089f2a5a
+langcode: en
+status: true
+dependencies: {  }
+id: card_small_child
+label: 'Card, small (child)'
+icon_uuid: null
+icon_default: null
+description: 'Note: This is the child component for the <em>Cards, small</em> paragraph type.'
+behavior_plugins: {  }

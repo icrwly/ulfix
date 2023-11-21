@@ -1,0 +1,3 @@
+services:
+  ul_trustarc:
+    class: Drupal\ul_trustarc\TrustArcService

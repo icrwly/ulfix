@@ -1,0 +1,18 @@
+uuid: b7caf8c9-0c5c-40eb-9dea-10b55a51a4df
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_legal_hold
+id: ul_legal_hold.ul_legal_hold.metatag
+field_name: metatag
+entity_type: ul_legal_hold
+bundle: ul_legal_hold
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

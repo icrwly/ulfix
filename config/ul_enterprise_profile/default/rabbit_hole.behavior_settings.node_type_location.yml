@@ -1,0 +1,14 @@
+uuid: b140014a-d53d-41b8-af93-35dcbc24eb2a
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.location
+id: node_type_location
+entity_type_id: null
+entity_id: null
+action: page_redirect
+allow_override: 0
+redirect: /
+redirect_code: 301
+redirect_fallback_action: null

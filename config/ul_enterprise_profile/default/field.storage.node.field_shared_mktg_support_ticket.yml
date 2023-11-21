@@ -1,0 +1,21 @@
+uuid: c6dd1b58-1431-4e1f-a241-81a0702b01de
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_shared_mktg_support_ticket
+field_name: field_shared_mktg_support_ticket
+entity_type: node
+type: string
+settings:
+  max_length: 20
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

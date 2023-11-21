@@ -1,0 +1,20 @@
+ul_marketo.settings_form:
+  title: 'UL Marketo'
+  route_name: ul_marketo.settings_form
+  description: "Configure settings to connect to Marketo."
+  parent: system.admin_config_services
+  weight: 99
+
+entity.marketo_form_type.collection:
+  title: 'Marketo Form types'
+  route_name: entity.marketo_form_type.collection
+  description: 'Create and manage fields, forms and display settings for your marketo forms.'
+  parent: system.admin_structure
+  weight: 99
+
+entity.marketo_form.collection:
+  title: 'Marketo Form default forms'
+  route_name: entity.marketo_form.collection
+  description: 'List of default Marketo Forms: edit/translate the default forms'
+  parent: system.admin_content
+  weight: 100

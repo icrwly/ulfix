@@ -1,0 +1,27 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set cardId = "node--card-" ~ node.id() %}
+{% set class = class ~ ' card--default card--link card--person' %}
+{% set jobTitle = content.field_person_job_title %}
+{# {% set description = content.field_person_short_bio %} #}
+{% set description = content.field_shared_ref_description|render %}
+{% if content.field_shared_header_media[0] %}
+  {% set imageUrl = content.field_shared_header_media[0]['url']|render %}
+  {% set imageAlt = content.field_shared_header_media[0]['alt']|render %}
+{% endif %}
+
+{% block content %}
+  <a href="{{ url }}" title="{{ label }}" aria-label="{{ label }}">
+    {% if imageUrl %}
+      <div class="image-container--person">
+        <img src="{{ imageUrl }}" alt="{{ imageAlt }}" />
+      </div>
+    {% endif %}
+    <div class="content-container--person">
+      <dl>
+        <dt>{{ label }}</dt>
+        <dd>{{ jobTitle }}</dd>
+        <dd class="person--description">{{ description }}</dd>
+      </dl>
+    </div>
+  </a>
+{% endblock %}

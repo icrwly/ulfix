@@ -1,0 +1,45 @@
+uuid: 7b4b76a0-ebf3-480f-a1b0-4dd8bcf2d6c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.card_small_child.field_card_sm_child_description
+    - field.field.paragraph.card_small_child.field_card_sm_child_img
+    - field.field.paragraph.card_small_child.field_card_sm_child_title
+    - image.style.card_small
+    - paragraphs.paragraphs_type.card_small_child
+  module:
+    - ul_media
+id: paragraph.card_small_child.default
+targetEntityType: paragraph
+bundle: card_small_child
+mode: default
+content:
+  field_card_sm_child_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_card_sm_child_img:
+    type: media_url
+    label: hidden
+    settings:
+      image_style: card_small
+      alt_tag: '1'
+      title: 0
+      image_link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_card_sm_child_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

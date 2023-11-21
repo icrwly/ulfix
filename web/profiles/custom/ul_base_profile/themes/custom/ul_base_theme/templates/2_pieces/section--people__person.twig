@@ -1,0 +1,17 @@
+<div class="row-item span-6-m span-4-t span-3-d">
+{% block item_image %}
+    <div class="image-container">
+        <img src="{{ item.image }}" alt="{{ item.image_alt }}">
+    </div>
+{% endblock %}
+{% block item_name %}
+    {% if item.name  %}
+        <h3 class="person-name h4">{{ item.name }}</h3>
+    {% endif %}
+{% endblock %}
+{% block item_position %}
+    {% if item.position  %}
+        <p class="person-position">{{ item.position }}</p>
+    {% endif %}
+{% endblock %}
+</div>

@@ -1,0 +1,18 @@
+uuid: 814efe21-a95c-450c-915c-28313ae245c3
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.stakeholder_needs
+id: taxonomy_term.stakeholder_needs.name
+field_name: name
+entity_type: taxonomy_term
+bundle: stakeholder_needs
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

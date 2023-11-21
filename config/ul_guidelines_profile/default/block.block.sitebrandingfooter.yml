@@ -1,0 +1,25 @@
+uuid: 6a26c563-10c2-485a-95ee-e74d7d929bd3
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: ybyNMwOvBD249xdRuOSPNoDFXo0W0yGzNtjPuGqcKgM
+id: sitebrandingfooter
+theme: ul_guidelines_theme
+region: footer_first
+weight: -8
+provider: null
+plugin: system_branding_block
+settings:
+  id: system_branding_block
+  label: 'Site branding footer'
+  provider: system
+  label_display: '0'
+  use_site_logo: true
+  use_site_name: true
+  use_site_slogan: false
+visibility: {  }

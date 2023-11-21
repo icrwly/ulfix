@@ -1,0 +1,21 @@
+uuid: fe8ad079-aae7-4da1-8cfa-2a8209c97392
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: ojVZ_e9nBU-IRr-lDC3Tu_SeLt8-jm31t7GqAZE90As
+id: contact_message.field_request_priority_explain
+field_name: field_request_priority_explain
+entity_type: contact_message
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

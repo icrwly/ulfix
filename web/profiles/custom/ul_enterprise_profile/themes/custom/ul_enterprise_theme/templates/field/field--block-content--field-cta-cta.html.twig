@@ -1,0 +1,12 @@
+{% if items|length > 1 %}
+    {% set row_class = "row--gutter-l" %}
+    {% set span_class =  "span-6-lt" %}
+{% endif %}
+
+<div class="row {{ row_class }}">
+    {%- for item in items -%}
+        <div class="span-12 {{ span_class }}">
+            {{ item.content }}
+        </div>
+    {%- endfor -%}
+</div>

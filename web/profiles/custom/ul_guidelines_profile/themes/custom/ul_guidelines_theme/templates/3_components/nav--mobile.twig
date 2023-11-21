@@ -1,0 +1,105 @@
+<nav id="navMobile" class="nav--mobile" data-module="navMobile">
+	<div class="nav--mobile__inner">
+		<div class="nav--mobile__pages">
+			{% set mobileNavItems = page.mobile_nav_items.main %}
+			{% set accountMobileNavItems = page.mobile_nav_items.account %}
+			{% embed '@ul_guidelines_theme/3_components/nav--mobile__page.twig' with {level: 1} %}
+				{% block nav_page_id %}
+					{{- 'main' -}}
+				{% endblock %}
+				{% block nav_page_links %}
+					{% for item in mobileNavItems %}
+						{% if item.name %}
+							{% set nameLower = item.name | lower %}
+							<li><a data-target="{{ nameLower | replace({' ': ""}) }}" href="{{ item.menu ? '#' : item.link }}" class="nav--mobile__link{{ item.active ? ' nav--mobile__link--active' : '' }}{{ item.menu ? ' nav--mobile__link--has-children' : ''}}"><h2>{{ item.name }}</h2></a></li>
+						{% endif %}
+					{% endfor %}
+				{% endblock %}
+				{% block nav_page_footer %}
+					{% if accountMobileNavItems %}
+						<div class="nav--mobile__page__footer">
+							<a class="nav--mobile__link nav--mobile__link--footer nav--mobile__link--has-children footer" href="#" data-target="footer"><h2>{{ user.displayName() }}</h2></a>
+						</div>
+					{% endif %}
+				{% endblock %}
+			{% endembed %}
+			{% if accountMobileNavItems %}
+				{% embed '@ul_guidelines_theme/3_components/nav--mobile__page.twig' with {level: 2} %}
+					{% block nav_page_id %}
+						{{- 'footer' -}}
+					{% endblock %}
+					{% block nav_page_breadcrumb %}
+						<a class="nav--mobile__page__breadcrumb" href="#" data-target="footer">
+							<h3>User</h3>
+						</a>
+					{% endblock %}
+					{% block nav_page_links %}
+						{% for accountItem in accountMobileNavItems %}
+							<li><a href="{{- accountItem.nestedmenu ? '#' : accountItem.link -}}" class="nav--mobile__link{{ accountItem.active ? ' nav--mobile__link--active' : '' }}{{ accountItem.nestedmenu ? ' nav--mobile__link--has-children' : ''}}"><h2>{{ accountItem.name }}</h2></a></li>
+						{% endfor %}
+
+					{% endblock %}
+				{% endembed %}
+			{% endif %}
+			{% for item in mobileNavItems %}
+				{% if item.menu.submenu %}
+					{% set parentMenu = item.name %}
+					{% set parentMenuLower = item.name | lower %}
+					{% embed '@ul_guidelines_theme/3_components/nav--mobile__page.twig' with {level: 2} %}
+						{% block nav_page_id %}
+							{{- parentMenuLower | replace({' ': ""}) -}}
+						{% endblock %}
+						{% block nav_page_breadcrumb %}
+							<a class="nav--mobile__page__breadcrumb" href="#" data-target="{{- parentMenuLower | replace({' ': ""})  -}}">
+								<h3>{{- parentMenu -}}</h3>
+							</a>
+						{% endblock %}
+						{% block nav_page_links %}
+							<a href="{{- item.menu.link -}}" class="nav--mobile__link{{ item.menu.active ? ' nav--mobile__link--active' : '' }}"><h2>Overview</h2></a>
+							{% for subItem in item.menu.submenu %}
+								{% if subItem.name %}
+									{% set nameLower = subItem.name | lower %}
+									<li><a data-target="{{- nameLower | replace({' ': ""}) -}}" href="{{- subItem.nestedmenu ? '#' : subItem.link -}}" class="nav--mobile__link{{ subItem.active ? ' nav--mobile__link--active' : '' }}{{ subItem.nestedmenu ? ' nav--mobile__link--has-children' : ''}}"><h2>{{ subItem.name }}</h2></a></li>
+								{% endif %}
+							{% endfor %}
+						{% endblock %}
+					{% endembed %}
+				{% endif %}
+			{% endfor %}
+			{% for item in mobileNavItems %}
+				{% for subItem in item.menu.submenu %}
+					{% if subItem.nestedmenu %}
+						{% set parentMenu = subItem.name  %}
+						{% set parentMenuLower = subItem.name | lower %}
+						{% embed '@ul_guidelines_theme/3_components/nav--mobile__page.twig' with {level: 3} %}
+							{% block nav_page_id %}
+								{{- parentMenuLower | replace({' ': ""}) -}}
+							{% endblock %}
+							{% block nav_page_breadcrumb %}
+								<a class="nav--mobile__page__breadcrumb" href="#" data-target="{{- parentMenuLower | replace({' ': ""}) -}}">
+									<h3>{{- parentMenu -}}</h3>
+								</a>
+							{% endblock %}
+							{% block nav_page_links %}
+								{# {{ dump(subItem) }} #}
+								<li><a href="{{- subItem.link -}}" class="nav--mobile__link{{ subItem.menu.active ? ' nav--mobile__link--active' : '' }}"><h2>Overview</h2></a></li>
+								{% for nestedItem in subItem.nestedmenu %}
+									{% if nestedItem.name %}
+										<li><a href="{{- nestedItem.link -}}" class="nav--mobile__link{{- nestedItem.active ? ' nav--mobile__link--active' : '' -}}"><h2>{{ nestedItem.name }}</h2></a></li>
+									{% endif %}
+									{% if nestedItem.nestedmenu %}
+										{% for subNestedItem in nestedItem.nestedmenu %}
+											{% if subNestedItem.name %}
+												<li><a href="{{- subNestedItem.link -}}" class="nav--mobile__link subNested{{- subNestedItem.active ? ' nav--mobile__link--active' : '' -}}"><h2>{{ subNestedItem.name }}</h2></a></li>
+											{% endif %}
+										{% endfor %}
+									{% endif %}
+								{% endfor %}
+							{% endblock %}
+						{% endembed %}
+					{% endif %}
+				{% endfor %}
+			{% endfor %}
+		</div>
+	</div>
+</nav>

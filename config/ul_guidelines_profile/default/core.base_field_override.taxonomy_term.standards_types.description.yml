@@ -1,0 +1,20 @@
+uuid: 8571f786-ea39-45ae-8f4e-5540a8574f86
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.standards_types
+  module:
+    - text
+id: taxonomy_term.standards_types.description
+field_name: description
+entity_type: taxonomy_term
+bundle: standards_types
+label: Description
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

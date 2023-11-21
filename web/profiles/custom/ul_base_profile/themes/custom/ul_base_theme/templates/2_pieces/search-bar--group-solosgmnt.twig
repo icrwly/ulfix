@@ -1,0 +1,26 @@
+{# @file: search-bar--group-solosgmnt.twig #}
+{# @usage: Creates a search bar governed by SoloSegment Search. #}
+{% extends "@ul_base_theme/2_pieces/search-bar--group.twig" %}
+{% set solosegment_class = 'solosegment-wrap' %}
+
+{% block text_input %}{% endblock %}
+{% block submit_input %}{% endblock %}
+{% block cancel_btn %}{% endblock %}
+{% block solosegment_js %}
+  {# Use JS to add the form elements, because #}
+  {# the form must only work if browser has JS. #}
+  <script>
+  if (typeof jQuery != "undefined"){
+    jQuery('.solosegment-wrap').each(function(){
+      if(!jQuery(this).hasClass('form-loaded')){
+        jQuery(this).addClass('form-loaded');
+        var theForm = jQuery(this).find('form');
+        var theInput = '<input type="search" placeholder="{{ placeholder }}" name="{{ name }}" aria-label="{{ name }}" data-solosearchbox="solosearchbox" autocomplete="off" />';
+        var theSubmit = '<label for="search-submit" class="sr-only">{{ search_input_label }}</label><input type="submit" name="search-submit" value="{{ value }}" class="search-submit" aria-label="{{ name }}" />';
+        theForm.find('.input-query-wrap').append(theInput);
+        theForm.find('.form-action').append(theSubmit);
+      }
+    });
+  }
+  </script>
+{% endblock %}

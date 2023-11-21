@@ -1,0 +1,13 @@
+<div class="global-header__row global-header__row--top">
+  <div class="wrapper">
+    <div class="global-header__row-inner row">
+      <a href="https://www.ul.com" class="ul-link" aria-label="Explore UL" title="Explore UL">
+        {% include '@ul_base_theme/2_pieces/ul-logo-red.twig' only %}
+      </a>
+      {% block content %}
+        {% include '@ul_base_theme/3_components/nav--global.twig' with { items: global_nav } only %}
+      {% endblock %}
+
+    </div>
+  </div>
+</div>

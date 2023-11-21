@@ -1,0 +1,25 @@
+uuid: b5cabf3c-0d5d-4573-bf27-1e8e9f5688f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.person
+  module:
+    - text
+_core:
+  default_config_hash: UMFm8Fbp8RyGGy5mKqmUfi301_zKFU2_Y6eDO0IsZFs
+id: node.person.body
+field_name: body
+entity_type: node
+bundle: person
+label: About/Bio
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

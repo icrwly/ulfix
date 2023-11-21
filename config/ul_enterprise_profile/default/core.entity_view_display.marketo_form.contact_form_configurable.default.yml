@@ -1,0 +1,124 @@
+uuid: 81dda200-0364-4ae5-a023-b0efdb89ce91
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.contact_form_configurable.field__customer_comments
+    - field.field.marketo_form.contact_form_configurable.field__department
+    - field.field.marketo_form.contact_form_configurable.field__job_title
+    - field.field.marketo_form.contact_form_configurable.field__phone_number
+    - field.field.marketo_form.contact_form_configurable.field__preferred_language
+    - field.field.marketo_form.contact_form_configurable.field__purchase_timeframe
+    - field.field.marketo_form.contact_form_configurable.field_shared_button_text
+    - field.field.marketo_form.contact_form_configurable.field_shared_cta_button_text
+    - field.field.marketo_form.contact_form_configurable.field_shared_custom_title
+    - field.field.marketo_form.contact_form_configurable.field_shared_form_description
+    - field.field.marketo_form.contact_form_configurable.field_shared_thank_you_page
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - options
+    - user
+id: marketo_form.contact_form_configurable.default
+targetEntityType: marketo_form
+bundle: contact_form_configurable
+mode: default
+content:
+  field__customer_comments:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field__department:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field__job_title:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field__phone_number:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field__preferred_language:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field__purchase_timeframe:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_shared_button_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_shared_cta_button_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_shared_custom_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_form_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_shared_thank_you_page:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -6
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

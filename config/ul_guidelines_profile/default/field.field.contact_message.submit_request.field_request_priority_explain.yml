@@ -1,0 +1,21 @@
+uuid: 2f3470cf-4711-4a20-bbd2-dafd9ec6b1ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_priority_explain
+_core:
+  default_config_hash: hvW4evw-BLQFIbg50VSRQNuORyk0RM1702rSUJ8xwAU
+id: contact_message.submit_request.field_request_priority_explain
+field_name: field_request_priority_explain
+entity_type: contact_message
+bundle: submit_request
+label: 'Please Explain Priority'
+description: 'Please provide further details for priority'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

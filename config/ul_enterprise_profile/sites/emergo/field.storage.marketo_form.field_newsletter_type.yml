@@ -1,0 +1,30 @@
+uuid: cf0ccdf3-3e65-4111-902e-f619eda9219a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - ul_marketo
+id: marketo_form.field_newsletter_type
+field_name: field_newsletter_type
+entity_type: marketo_form
+type: list_string
+settings:
+  allowed_values:
+    - 
+      value: 'Emergo Talking Points'
+      label: 'Emergo Talking Points'
+    -
+      value: 'Emergo RADAR'
+      label: 'Emergo RADAR'
+    -
+      value: 'Emergo Other'
+      label: 'Emergo Other'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

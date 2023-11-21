@@ -1,0 +1,23 @@
+<div class="page--offline">
+    <div class="page--offline__logo">
+    {% include '@ul_base_theme/2_pieces/ul-logo-red.twig' with {
+      class: 'brand-logo'
+    } %}
+    </div>
+    <div class="section">
+    {% if title %}
+        <div class="text-center">
+            {% block title %}
+            <h1>{{ title|default("Site Offline") }}</h1>
+            {% endblock %}
+        </div>
+    {% endif %}
+    {% if sub_title %}
+        <div class="text-center">
+          {% block bottom_msg %}
+            <p>{{ sub_title|default("The site is currently under maintenance. We should be back shortly. Thank you for your patience.") }}</p>
+          {% endblock %}
+        </div>
+    {% endif %}
+    </div>
+</div>

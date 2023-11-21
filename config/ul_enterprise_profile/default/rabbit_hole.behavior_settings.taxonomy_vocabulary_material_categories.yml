@@ -1,0 +1,14 @@
+uuid: 40e6fae2-3abb-4d8c-8efb-69596abc5dd7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.material_categories
+id: taxonomy_vocabulary_material_categories
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

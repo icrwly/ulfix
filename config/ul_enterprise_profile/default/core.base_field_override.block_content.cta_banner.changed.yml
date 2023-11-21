@@ -1,0 +1,18 @@
+uuid: 4b9bcc32-4d1c-4ebc-a5f4-934a28aa1c9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+id: block_content.cta_banner.changed
+field_name: changed
+entity_type: block_content
+bundle: cta_banner
+label: Changed
+description: 'The time that the custom block was last edited.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

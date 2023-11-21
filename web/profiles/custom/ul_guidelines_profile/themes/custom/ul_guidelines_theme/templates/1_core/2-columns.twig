@@ -1,0 +1,15 @@
+{# 2-column.twig #}
+{% extends '@ul_guidelines_theme/1_core/page.twig' %}
+
+{% block body_top %}
+    {{ parent() }}
+{% endblock %}
+{% block pre_page %}
+<div class="wrapper">
+    <main id="main-content" class="has-side-rail" role="main">
+{% endblock %}
+{% block post_page %}
+    {{ parent() }}
+    </main>
+</div>
+{% endblock %}

@@ -1,0 +1,6 @@
+.card.card--data h3 {
+  @include breakpoint(max-width $desktop - 1) {
+    font-size: 24px;
+    line-height: 32px;
+  }
+}

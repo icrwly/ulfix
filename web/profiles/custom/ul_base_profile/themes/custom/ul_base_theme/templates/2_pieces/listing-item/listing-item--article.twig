@@ -1,0 +1,43 @@
+{# TODO: This file may be replaced when lists are refactored #}
+{% extends "@ul_base_theme/2_pieces/listing-item/listing-item.twig" %}
+{% set class = "listing-item--article" %}
+
+{% block content %}
+  {% block content_container %}
+    <div class="content-container">
+  {% if link %}<a href="{{- link -}}" title="{{ title }}">{% endif %}
+      {% block listing_item_tags %}
+        {% if tags %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with {widget: tags} %}
+        {% endif %}
+      {% endblock %}
+      {% block listing_item_topic %}
+        {% if topics %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+        {% endif %}
+      {% endblock %}
+      {% block listing_item_title %}
+        <h3>{{ title }}</h3>
+      {% endblock %}
+      {% block listing_item_description %}
+        {% if description %}
+          <p>{{ description }}</p>
+        {% endif %}
+      {% endblock %}
+      {% block listing_item_bottom %}
+        <div class="bottom-row">
+          {% include '@ul_base_theme/2_pieces/author-meta.twig' with {
+            class: 'pull-left'
+          } %}
+          {% block listing_item_read_time %}
+            {% if readTime %}
+              <h4 class="read-time pull-right">{{ readTime }}
+                Read</h4>
+            {% endif %}
+          {% endblock %}
+        </div>
+        {% endblock %}
+      {% if link %}</a>{% endif %}
+    </div>
+  {% endblock %}
+{% endblock %}

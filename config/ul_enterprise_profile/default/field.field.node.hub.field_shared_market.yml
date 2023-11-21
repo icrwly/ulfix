@@ -1,0 +1,31 @@
+uuid: 564348f9-f27d-4dab-8db3-2093beceaf62
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_market
+    - node.type.hub
+    - taxonomy.vocabulary.markets
+_core:
+  default_config_hash: iw5gHaUNiSXvI4rSxzIJKjoFNbmCxnXE0_Ke6ROIZRM
+id: node.hub.field_shared_market
+field_name: field_shared_market
+entity_type: node
+bundle: hub
+label: Market
+description: 'The market related to this experience hub.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

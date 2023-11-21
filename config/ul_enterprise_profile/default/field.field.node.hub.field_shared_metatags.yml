@@ -1,0 +1,25 @@
+uuid: 8174d60b-2d54-4866-afa6-2f5260ae2df9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_metatags
+    - node.type.hub
+  module:
+    - metatag
+_core:
+  default_config_hash: ekS2lndDSHBU21gJq8GYTQCeSxDT-dyfaRl8t32AqfQ
+id: node.hub.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+bundle: hub
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

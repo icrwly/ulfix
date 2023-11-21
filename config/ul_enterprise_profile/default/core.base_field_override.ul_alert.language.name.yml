@@ -1,0 +1,20 @@
+uuid: 5179e2d4-e121-483c-a816-4c08a4525844
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.language
+id: ul_alert.language.name
+field_name: name
+entity_type: ul_alert
+bundle: language
+label: Name
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

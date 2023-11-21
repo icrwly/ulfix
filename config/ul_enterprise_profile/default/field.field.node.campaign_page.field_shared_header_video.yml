@@ -1,0 +1,30 @@
+uuid: fb0e9de8-b7ed-40ce-98d4-ff6e86bbe3f3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_header_video
+    - node.type.campaign_page
+  module:
+    - tmgmt_content
+    - video_embed_field
+third_party_settings:
+  tmgmt_content:
+    excluded: true
+id: node.campaign_page.field_shared_header_video
+field_name: field_shared_header_video
+entity_type: node
+bundle: campaign_page
+label: 'Header Video'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    wistia: wistia
+    vimeo: '0'
+    youtube: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

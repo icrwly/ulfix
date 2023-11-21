@@ -1,0 +1,5 @@
+name: UL Drush Command Duplicate Aliases.
+description: Provide a command to remove duplicate path_aliases.
+core_version_requirement: ^9 || ^10
+type: module
+package: User authentication

@@ -1,0 +1,21 @@
+uuid: 86de3950-182e-4f59-87c0-570641d725be
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_section_title
+    - paragraphs.paragraphs_type.section
+_core:
+  default_config_hash: yGbSbVHExYAK1CyF_enbTXB2Ob_egP2c7RUZ55PuVas
+id: paragraph.section.field_section_title
+field_name: field_section_title
+entity_type: paragraph
+bundle: section
+label: Title
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

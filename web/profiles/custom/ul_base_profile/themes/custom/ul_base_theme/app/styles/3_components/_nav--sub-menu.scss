@@ -1,0 +1,35 @@
+.nav--sub-menu {
+  background: $background-color;
+  border-bottom: 1px solid $border-color;
+  left: 0;
+  padding-bottom: $spacing-unit;
+  padding-top: $spacing-unit;
+  position: relative;
+  top: 0;
+  width: 100%;
+  z-index: index($globalIndex, section);
+
+  @include breakpoint($tablet) {
+    border-color: rgba($border-color, 0.5);
+    box-shadow: $box-shadow--level-2;
+    padding: $spacing-unit--l $spacing-unit;
+    position: absolute;
+    top: calc(100% + 1px);
+  }
+
+  .menu-list {
+    margin-bottom: -$spacing-unit; // offset margin-bottom of list-items
+
+    @include breakpoint($desktop) {
+      margin-bottom: -$spacing-unit * 1.5; // offset margin-bottom of list-items
+    }
+  }
+
+  li {
+    margin-bottom: $spacing-unit;
+
+    @include breakpoint($desktop) {
+      margin-bottom: $spacing-unit * 1.5;
+    }
+  }
+}

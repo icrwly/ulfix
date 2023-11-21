@@ -1,0 +1,8 @@
+{% extends '@ul_base_theme/1_core/1-column.twig' %}
+{% set mainClass = 'wrapper' %}
+
+{% block page %}
+  {% block card_list %}
+    {% include "@ul_base_theme/4_regions/section--grid--cards.twig" with { items: card_list, per_row: 3 } %}
+  {% endblock %}
+{% endblock %}

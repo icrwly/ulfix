@@ -1,0 +1,42 @@
+uuid: 5c62c221-17b5-4a58-b3d9-937ad71bdea5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_approval_process
+    - node.type.guideline
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: xMDB1pQpTKF3S78-RDM-fQAkPMkHOwb1PW-dVq_ohS0
+id: node.guideline.field_shared_approval_process
+field_name: field_shared_approval_process
+entity_type: node
+bundle: guideline
+label: 'Approval Process'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      list_item: list_item
+    negate: 0
+    target_bundles_drag_drop:
+      cta:
+        weight: 4
+        enabled: false
+      list_item:
+        weight: 5
+        enabled: true
+      section:
+        weight: 5
+        enabled: false
+      slide:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

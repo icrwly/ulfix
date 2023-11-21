@@ -1,0 +1,10 @@
+# Add the Administration page route.
+ul_onetrust.settings_form:
+  path: '/admin/config/services/onetrust'
+  defaults:
+    _form: '\Drupal\ul_onetrust\Form\SettingsForm'
+    _title: 'UL OneTrust Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

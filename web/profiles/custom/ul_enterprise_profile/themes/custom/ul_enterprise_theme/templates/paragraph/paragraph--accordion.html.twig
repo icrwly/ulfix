@@ -1,0 +1,11 @@
+{% embed '@ul_enterprise_theme/4_regions/section--accordion.twig'  %}
+    {% set accordion_name = content.field_accrdn_heading %}
+    {% set description = content.field_accrdn_description %}
+    {% set items = content.field_accrdn_items %}
+    {% if content.field_hash_target %}
+        {% set field_hash_target = content.field_hash_target %}
+    {% endif %}
+    {% if content.field_shared_bg_color.0 is not empty %}
+        {% set bgclass = 'section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+    {% endif %}
+{% endembed %}

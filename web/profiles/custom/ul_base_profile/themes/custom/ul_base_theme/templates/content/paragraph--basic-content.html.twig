@@ -1,0 +1,14 @@
+{% extends "@ul_base_theme/4_regions/section--wysiwyg.twig" %}
+{% set gutterclass = 'paragraph-gutter' %}
+{% if content.field_shared_full_width.0|render == 'On' %}
+    {% set gutterclass = gutterclass ~ ' paragraph-basic-fullwidth' %}
+{% endif %}
+
+{% if content.field_shared_bg_color.0 is not empty %}
+  {# Example: From "Light gray" to "light-gray" #}
+  {% set bgclass = 'section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+
+{% block content %}
+  {{- content.field_basic_content_content.0 -}}
+{% endblock %}

@@ -1,0 +1,7 @@
+uuid: 4bd600e3-a636-4057-84a4-77668596f2f8
+langcode: en
+status: true
+dependencies: {  }
+id: critical
+label: Critical
+description: 'Use <em>critical</em> for providing alerts about legal/compliance updates, site terms, privacy policy etc. '

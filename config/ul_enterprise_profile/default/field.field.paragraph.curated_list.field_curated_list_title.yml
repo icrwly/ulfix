@@ -1,0 +1,19 @@
+uuid: 166bc971-8a56-4d9a-b8d6-9e12122fcbdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_curated_list_title
+    - paragraphs.paragraphs_type.curated_list
+id: paragraph.curated_list.field_curated_list_title
+field_name: field_curated_list_title
+entity_type: paragraph
+bundle: curated_list
+label: Heading
+description: "&bull; The title for the referenced content (list items).\r\n<br />&bull; Limit to 120 characters."
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

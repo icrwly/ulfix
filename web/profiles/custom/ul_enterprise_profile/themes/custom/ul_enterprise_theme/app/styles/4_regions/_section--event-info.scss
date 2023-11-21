@@ -1,0 +1,44 @@
+.section--event-info {
+  margin: 0 auto;
+  padding: 0 $spacing-unit;
+  @include breakpoint($desktop) {
+    padding: 0 $spacing-unit--l;
+  }
+  .section-gutter--event-info {
+    padding: 0;
+    border-bottom: solid 1px $gray-light;
+    padding-top: $spacing-unit;
+    padding-bottom: $spacing-unit;
+    max-width: $text-field-max;
+    margin: 0 auto;
+    .item-container {
+      max-width: 650px;
+      @include breakpoint(max-width $tablet - 1) {
+        display: block;
+      }
+      &.flex-grid .grid-item {
+        margin-bottom: 0;
+      }
+      h4 {
+        margin: 0;
+        font-size: 1.8rem;
+        font-weight: 600;
+      }
+    }
+    address p {
+      margin-bottom: .75rem;
+      font-style: normal;
+    }
+  }
+
+
+  .flex-grid .grid-item.grid-meeting {
+    max-width: 50%;
+    @include breakpoint(max-width $tablet - 1) {
+      max-width: 100%;;
+    }
+  }
+  .flex-grid .grid-odd {
+    min-width: 374px;
+  }
+}

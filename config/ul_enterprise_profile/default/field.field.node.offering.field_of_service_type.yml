@@ -1,0 +1,29 @@
+uuid: fc9b8cc6-20df-4510-a2e2-b530ad6f64da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_of_service_type
+    - node.type.offering
+    - taxonomy.vocabulary.service_types
+id: node.offering.field_of_service_type
+field_name: field_of_service_type
+entity_type: node
+bundle: offering
+label: 'Service Type'
+description: '&bull; The service type related to this offering.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_types: service_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

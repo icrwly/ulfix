@@ -1,0 +1,17 @@
+{% if grid %}
+<div class="grid-item">
+{% endif %}
+
+{% if card.type == 'banner' %}
+  {% include '@ul_base_theme/2_pieces/card/card--banner.twig' with card only %}
+{% elseif card.type == 'events' %}
+  {% include '@ul_base_theme/2_pieces/card/card--events.twig' with card only %}
+{% elseif card.type == 'read-more' %}
+  {% include '@ul_base_theme/2_pieces/card/card--read-more.twig' with card only %}
+{% else %}
+  {% include '@ul_base_theme/2_pieces/card/card--default.twig' with card only %}
+{% endif %}
+
+{% if grid %}
+</div>
+{% endif %}

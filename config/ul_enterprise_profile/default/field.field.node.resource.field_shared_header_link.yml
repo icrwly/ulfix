@@ -1,0 +1,23 @@
+uuid: 11c1fd9c-556c-4cd8-9cca-9f89bbabae4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_header_link
+    - node.type.resource
+  module:
+    - link
+id: node.resource.field_shared_header_link
+field_name: field_shared_header_link
+entity_type: node
+bundle: resource
+label: 'Header Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

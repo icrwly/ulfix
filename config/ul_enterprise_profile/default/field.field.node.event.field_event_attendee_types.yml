@@ -1,0 +1,31 @@
+uuid: 02f16a22-2c53-4c1e-9da8-1f15a31ad0bc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_attendee_types
+    - node.type.event
+    - taxonomy.vocabulary.attendee_types
+_core:
+  default_config_hash: l6efWpe52P5GvRuiT8aPYMGhHSzGSprg1cXvN90x1eE
+id: node.event.field_event_attendee_types
+field_name: field_event_attendee_types
+entity_type: node
+bundle: event
+label: 'Attendee Types - deprecated'
+description: 'The groups of audiences for which this event is best suited.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      attendee_types: attendee_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,18 @@
+uuid: a96e6fff-a87c-46bf-a3f0-56359799dd92
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_marketo.marketo_form_type.mkto_pref_ctr
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: marketo_form.mkto_pref_ctr
+target_entity_type_id: marketo_form
+target_bundle: mkto_pref_ctr
+default_langcode: site_default
+language_alterable: true

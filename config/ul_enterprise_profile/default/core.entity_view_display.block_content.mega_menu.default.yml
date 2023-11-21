@@ -1,0 +1,26 @@
+uuid: 18ed9a30-a73b-4553-a508-80fadd57d280
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu
+    - field.field.block_content.mega_menu.field_mega_menu_sections
+  module:
+    - entity_reference_revisions
+id: block_content.mega_menu.default
+targetEntityType: block_content
+bundle: mega_menu
+mode: default
+content:
+  field_mega_menu_sections:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

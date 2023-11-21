@@ -1,0 +1,18 @@
+uuid: 0a858a79-9ab1-434b-abf9-1300b2352798
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+name: 'Landing Pages'
+type: landing_page
+description: 'Use <em>Landing Pages</em> for creating free-form one-off content.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

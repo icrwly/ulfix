@@ -1,0 +1,70 @@
+// TODO: Temporarily renaming to avoid conflict with platform "featured" card
+.card--featured-item {
+	@include box-shadow();
+	background-color: $white;
+	border-radius: 4px;
+	display: flex !important; // TODO: Temp fix, conflicting with platform section card styles
+	padding: 17px 20px;
+	white-space: nowrap;
+
+	.image-container,
+	.content-container {
+		white-space: normal;
+		@include breakpoint($large-tablet) {
+			display: inline-block;
+			vertical-align: top;
+		}
+	}
+
+	.image-container {
+		margin: 0 0 21px 0;
+		width: 200px;
+		overflow: hidden;
+		img{
+			width:100%;
+		}
+
+		@include breakpoint($large-tablet) {
+			margin: 0 21px 0 0;
+		}
+	}
+
+	.content-container {
+		width: 100%;
+
+		.image-container &{
+			@include breakpoint($large-tablet) {
+				width: calc(100% - 221px);
+			}
+		}
+
+		&__title {
+			@extend .clearfix;
+			display: block;
+			margin-bottom: $spacing-unit;
+
+			h3 {
+				margin-top: 0;
+				float: none;
+
+				@include breakpoint($large-tablet) {
+					float: left;
+				}
+			}
+			a {
+				float: none;
+
+				@include breakpoint($large-tablet) {
+					float: right;
+				}
+			}
+		}
+
+		&__description {
+			h4 {
+				// font-weight: 400;
+				margin-top: 20px;
+			}
+		}
+	}
+}

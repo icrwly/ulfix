@@ -1,0 +1,8 @@
+uuid: f4c2c770-dead-4658-a497-d2f0f6ed6b80
+langcode: en
+status: true
+dependencies: {  }
+id: policy-menu
+label: 'Policy Menu'
+description: 'Contains links to policies and legal regulatory statements.'
+locked: false

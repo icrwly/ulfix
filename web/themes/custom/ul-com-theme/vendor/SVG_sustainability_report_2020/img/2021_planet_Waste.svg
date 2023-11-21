@@ -1,0 +1,132 @@
+<svg  id ="svg_waste" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 764.3 559.8">
+  <style type="text/css">
+    @font-face {
+      font-family: 'OpenSans-Bold';
+      src: url('../fonts/opensans-bold-webfont.eot');
+      src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+            url('../fonts/opensans-bold-webfont.woff') format('woff'),
+            url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'OpenSans';
+      src: url('../fonts/opensans-regular-webfont.eot');
+      src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+            url('../fonts/opensans-regular-webfont.woff') format('woff'),
+            url('../fonts/opensans-regular-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'OpenSans-Light';
+      src: url('../fonts/opensans-light-webfont.eot');
+      src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/opensans-light-webfont.woff2') format('woff2'),
+            url('../fonts/opensans-light-webfont.woff') format('woff'),
+            url('../fonts/opensans-light-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <g id="waste_base" visibility="hidden">
+  <g id="dates">
+    <text transform="translate(414.4 379.9)" font-size="14" fill="#585858" font-family="OpenSans">2020</text>
+    <text transform="translate(136.7 379.9)" font-size="14" fill="#585858" font-family="OpenSans">2019</text>
+  </g>
+  <g id="m4"></g>
+  <g id="m3">
+    <g>
+      <path d="M89,436.7a21,21,0,0,0-17-8.6,21.2,21.2,0,0,0-20.6,16,13.3,13.3,0,0,0,.7,26.6H88a17,17,0,0,0,1-34Z" fill="none" stroke="#92c83e" stroke-miterlimit="10" stroke-width="2"/>
+      <g>
+        <polyline points="81.3 470.7 81.3 497.4 23.9 497.4 23.9 440 52.6 440" fill="none" stroke="#92c83e" stroke-miterlimit="10" stroke-width="2"/>
+        <rect x="20.2" y="436.3" width="7.4" height="7.44" fill="#fff" stroke="#92c83e" stroke-miterlimit="10" stroke-width="2"/>
+        <rect x="77.6" y="493.7" width="7.4" height="7.44" fill="#fff" stroke="#92c83e" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+    <g>
+      <path d="M420.4,443.7a34.5,34.5,0,1,1-34.5,34.5,34.6,34.6,0,0,1,34.5-34.5h0" fill="#92c83e"/>
+      <text transform="translate(402.6 483.2)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-30%</text>
+    </g>
+    <text transform="translate(131 453.8)" font-size="14" fill="#585858" font-family="OpenSans">Waste generated per sq. ft. in 2020</text>
+    <g id="kgs">
+      <text transform="translate(219.7 500.7)" font-size="25" fill="#92c83e" font-family="OpenSans-Light" font-weight="300">kgs</text>
+    </g>
+    <g >
+      <text id="m3_txt_1" transform="translate(131 501)" font-size="40" fill="#92c83e" font-family="OpenSans-Light" font-weight="300">0.90</text>
+    </g>
+  </g>
+  <g id="c4"></g>
+  <g id="c3">
+    <path d="M687.3,341.4h-4.2a4.3,4.3,0,1,1,4.2,4.2,4.2,4.2,0,0,1-4.2-4.2h4.2Z" fill="#185635"/>
+    <text transform="translate(671.8 367)" font-size="15" fill="#185635" font-family="OpenSans-Bold" font-weight="700">+1%</text>
+  </g>
+  <g id="c2">
+    <g>
+      <path d="M687.3,266.8H646.6a40.8,40.8,0,1,1,40.7,40.7,40.8,40.8,0,0,1-40.7-40.7h40.7Z" fill="#4c9e45"/>
+      <text transform="translate(668.6 271)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-65%</text>
+    </g>
+  </g>
+  <g id="c1">
+    <g>
+      <path d="M687.3,169H659.9a27.5,27.5,0,1,1,27.4,27.4A27.4,27.4,0,0,1,659.9,169h27.4Z" fill="#92c83e"/>
+      <text transform="translate(669.2 173.2)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-30%</text>
+    </g>
+  </g>
+  <g id="m0">
+    <text transform="translate(18.5 32.4)" font-size="18" fill="#92c83e" font-family="OpenSans">Non-hazardous waste**</text>
+    <text transform="translate(18.3 550.6)" font-size="10" fill="#585858" font-family="OpenSans">** Waste data only reflects values from global HQ in Northbrook, IL.</text>
+    <text transform="translate(18.5 96.4)" font-size="14" fill="#585858" font-family="OpenSans">In metric tonnes of CO</text>
+    <text transform="translate(165.3 101.1) scale(0.58)" font-size="14" fill="#585858" font-family="OpenSans">2</text>
+    <text transform="translate(170 96.4)" font-size="14" fill="#585858" font-family="OpenSans">e</text>
+    <g>
+      <text transform="translate(38.8 67.6)" font-size="14" fill="#585858" font-family="OpenSans">Total landfill</text>
+      <rect x="20.1" y="56.3" width="12.5" height="12.54" fill="#185635"/>
+    </g>
+    <g>
+      <text transform="translate(164.9 67.6)" font-size="14" fill="#585858" font-family="OpenSans">Total recycled</text>
+      <rect x="146" y="56.3" width="12.5" height="12.54" fill="#4c9e45"/>
+    </g>
+    <g>
+      <text transform="translate(300.1 67.6)" font-size="14" fill="#585858" font-family="OpenSans">YoY change</text>
+      <circle cx="281.6" cy="62.6" r="9.2" fill="#585858"/>
+    </g>
+  </g>
+  <g id="m1">
+    <g id="m1_total">
+      <g >
+        <text id="m1_txt" transform="translate(88.5 190.5)" font-size="35" fill="#92c83e" font-family="OpenSans-Light" font-weight="300">2,417.10</text>
+      </g>
+      <text transform="translate(142.5 147.5)" font-size="14" fill="#92c83e" font-family="OpenSans">Total</text>
+    </g>
+    <rect id="m1bar_2" x="20.1" y="207.4" width="265.4" height="71.15" fill="#4c9e45"/>
+    <rect id="m1bar_1" x="20.1" y="278.6" width="265.4" height="81.5" fill="#185635"/>
+    <g>
+      <text  id="m1bar_2_txt" transform="translate(122.7 237.9)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">1,126.61</text>
+    </g>
+    <g >
+      <text id="m1bar_1_txt" transform="translate(122.7 309.5)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">1,290.49</text>
+    </g>
+  </g>
+  <g id="m2">
+    <g id="m2_total">
+      <g >
+        <text id="m2_txt" transform="translate(362.5 238.1)" font-size="35" fill="#92c83e" font-family="OpenSans-Light" font-weight="300">1,696.15</text>
+      </g>
+      <text transform="translate(414.1 196.7)" font-size="14" fill="#92c83e" font-family="OpenSans">Total</text>
+    </g>
+    <rect id="m2bar_2" x="297.7" y="253" width="265.4" height="24.99" fill="#4c9e45"/>
+    <rect id="m2bar_1" x="297.7" y="278" width="265.4" height="82.08" fill="#185635"/>
+    <g >
+      <text id="m2bar_1_txt" transform="translate(400.4 309.5)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">1,299.66</text>
+    </g>
+    <g >
+      <text id="m2bar_2_txt" transform="translate(406.8 271.8)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">396.49</text>
+    </g>
+  </g>
+  </g>
+</svg>

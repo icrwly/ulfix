@@ -1,0 +1,16 @@
+#block-claro-content #edit-actions .dropbutton__item:first-of-type ~ .dropbutton__item {
+    max-width: none;
+}
+#block-claro-content #edit-actions .dropbutton__item:first-of-type ~ .dropbutton__item > .button {
+    background: #d3d4d9;
+    font-weight: 700;
+    color: #232429;
+}
+#block-claro-content #edit-actions .dropbutton__item:first-of-type ~ .dropbutton__item > .button:hover {
+    background: #c1c2c7;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+#block-claro-content #edit-actions .dropbutton__item:first-of-type ~ .dropbutton__item > .button:disabled {
+    color: #55565b;
+    box-shadow: none;
+}

@@ -1,0 +1,5 @@
+name: UL TrustArc
+type: module
+description: 'TrustArc GDPR Cookie Banner / Consent Manager'
+package: Web services
+core_version_requirement: ^9.5 || ^10

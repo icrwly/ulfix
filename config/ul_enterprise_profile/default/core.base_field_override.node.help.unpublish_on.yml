@@ -1,0 +1,18 @@
+uuid: f1c89d9e-0bac-4374-a91b-618ccf4ca64c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.help
+id: node.help.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: help
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,20 @@
+<div class="wrapper max-width--large-desktop">
+  {% block title %}
+    {% include '@ul_base_theme/4_regions/section--title.twig' with { title: title, pageTitle: true } only %}
+  {% endblock %}
+
+  {% set grid_content %}
+    {% block content %}
+      {% include '@ul_base_theme/1_core/grid.twig' %}
+    {% endblock %}
+  {% endset %}
+
+  {% block body %}
+    {% embed '@ul_base_theme/4_regions/section.twig' with { grid_content: grid_content } %}
+      {% set class = 'section--styleguide' %}
+      {% block content %}
+        {{ grid_content }}
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+</div>

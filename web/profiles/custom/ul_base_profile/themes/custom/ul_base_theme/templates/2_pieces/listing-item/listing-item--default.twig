@@ -1,0 +1,64 @@
+{% extends "@ul_base_theme/2_pieces/listing-item/listing-item.twig" %}
+{% set class = "listing-item--default" %}
+
+{% if grid %}
+  {% set class = class ~ " flex-grid" %}
+{% endif %}
+
+{% block content %}
+
+  {% block image_container %}
+    {% if image %}
+      <div class="image-container{% if grid %} grid-item{% endif %}">
+      {% block listing_item_tags %}
+        {% if tags %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with {widget: tags}
+          only %}
+        {% endif %}
+      {% endblock %}
+        {% block listing_item_image %}
+          {% if image %}
+            <img src="{{- image -}}" alt="{{- imageAlt -}}"/>
+          {% endif %}
+        {% endblock %}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block content_container %}
+    <div class="content-container{% if grid %} grid-item{% endif %}">
+      {% block listing_item_topic %}
+        {% if topics %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+        {% endif %}
+      {% endblock %}
+      {% block listing_item_title %}
+        <h3>{{ title }}</h3>
+      {% endblock %}
+      {% block listing_item_description %}
+        <p>{{ description }}</p>
+      {% endblock %}
+      {% block listing_item_bottom %}
+        {% if date or readTime or meta %}
+          <div class="bottom-row">
+            {% block listing_item_meta %}
+              <p class="meta pull-left">{{- meta -}}</p>
+            {% endblock %}
+            {% block listing_item_date %}
+              {% if date %}
+                <h4 class="date pull-left">{{- date|date("M d, Y") -}}</h4>
+              {% endif %}
+            {% endblock %}
+            {% block listing_item_read_time %}
+              {% if readTime %}
+                <h4 class="read-time pull-right">{{ readTime }}
+                  Read</h4>
+              {% endif %}
+            {% endblock %}
+          </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% endblock %}
+
+{% endblock %}

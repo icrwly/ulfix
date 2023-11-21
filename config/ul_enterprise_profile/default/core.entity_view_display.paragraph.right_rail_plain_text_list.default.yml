@@ -1,0 +1,34 @@
+uuid: 0d49e47e-0f90-4026-b2a1-3cb4728eefb2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.right_rail_plain_text_list.field_plain_text_list_heading
+    - field.field.paragraph.right_rail_plain_text_list.field_plain_text_list_item
+    - paragraphs.paragraphs_type.right_rail_plain_text_list
+  module:
+    - entity_reference_revisions
+id: paragraph.right_rail_plain_text_list.default
+targetEntityType: paragraph
+bundle: right_rail_plain_text_list
+mode: default
+content:
+  field_plain_text_list_heading:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_plain_text_list_item:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,17 @@
+uuid: 1519cdec-75fe-423f-87ad-640ea30fdfa6
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_report
+title: 'Default cron handler'
+id: ul_report_cron
+weight: 0
+module: ul_report
+callback: ul_report_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

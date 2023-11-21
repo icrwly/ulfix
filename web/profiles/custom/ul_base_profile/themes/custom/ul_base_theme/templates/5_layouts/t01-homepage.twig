@@ -1,0 +1,10 @@
+{% extends '@ul_base_theme/1_core/1-column.twig' %}
+{% set mainClass = '' %}
+
+{% block page %}
+  {% block body %}
+    {% include '@ul_base_theme/4_regions/section--homepage-intro.twig' with  { section: t01Intro } %}
+    {% include "@ul_base_theme/4_regions/section--spotlight.twig" with spotlight_1 only %}
+    {% include '@ul_base_theme/4_regions/section--homepage-articles.twig' with t01Articles only %}
+  {% endblock %}
+{% endblock %}

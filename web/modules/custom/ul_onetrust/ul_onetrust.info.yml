@@ -1,0 +1,8 @@
+name: UL OneTrust
+type: module
+description: "Integration with OneTrust's Privacy Management Services."
+package: Web services
+core_version_requirement: ^9 || ^10
+dependencies:
+  - node
+  - block

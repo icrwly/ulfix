@@ -1,0 +1,14 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_crc_asset
+id: crc_asset
+label: 'CRC Asset'
+description: "Use <em>CRC Asset</em> for images hosted in UL's Collateral Library."
+source: crc_asset
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_crc_asset
+field_map: {  }

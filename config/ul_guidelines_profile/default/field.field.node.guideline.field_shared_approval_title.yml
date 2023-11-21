@@ -1,0 +1,21 @@
+uuid: 566166cf-7277-4a47-82a6-64dad72415c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_approval_title
+    - node.type.guideline
+_core:
+  default_config_hash: 2kk933feoCU4EFatx3F0u27705DpNDfcrOTLbOV1858
+id: node.guideline.field_shared_approval_title
+field_name: field_shared_approval_title
+entity_type: node
+bundle: guideline
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

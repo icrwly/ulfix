@@ -1,0 +1,21 @@
+/**
+ * Thank You page
+ */
+
+.customer-service-thank-you-image {
+  background-image: url('/modules/custom/ul_salesforce/css/img/request-confirmation-icon_75x80.svg');
+  background-repeat: no-repeat;
+  background-position: top;
+  display: block;
+  width: 77px;
+  height: 81px;
+  margin: auto;
+}
+
+.customer-service-thank-you .section--paragraph .paragraph-gutter {
+  text-align: center;
+}
+
+.customer-service-thank-you a.back-link {
+  text-align: center;
+}

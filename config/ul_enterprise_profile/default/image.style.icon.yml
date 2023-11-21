@@ -1,0 +1,17 @@
+uuid: b4da9310-b6b4-4eac-87b7-dd9bdfcaeecb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Zo1b3529SrX_hAwEbPtIncaQISHWsjqxR72jskflqZ8
+name: icon
+label: 'Icon (30 x 30)'
+effects:
+  1ba0f458-fb0a-4e73-a2fb-6b8e8672646f:
+    uuid: 1ba0f458-fb0a-4e73-a2fb-6b8e8672646f
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 30
+      height: 30
+      anchor: center-center

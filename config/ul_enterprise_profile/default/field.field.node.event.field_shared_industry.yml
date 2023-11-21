@@ -1,0 +1,31 @@
+uuid: e951ff03-2e7c-4785-aa8e-ecd8343387f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_industry
+    - node.type.event
+    - taxonomy.vocabulary.industries
+_core:
+  default_config_hash: IFC474Sw-G9LaHZMQe5XO5NJaRIYqS7xHWpEBqB52UM
+id: node.event.field_shared_industry
+field_name: field_shared_industry
+entity_type: node
+bundle: event
+label: Industry
+description: "&bull; The industry related to this event.\r\n<br />&bull; If selecting a sub-industry, you must also select the associated parent-industry\r\n"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      industries: industries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,24 @@
+uuid: 8e6ca7f2-f10c-4fc2-bc79-29b7b7492288
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_item.field_list_item_body
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - text
+_core:
+  default_config_hash: w1KJ3OZ_rSPkgbiqr6ZKPAut4LX9tOS28-Q10O5M7ds
+id: paragraph.list_item.default
+targetEntityType: paragraph
+bundle: list_item
+mode: default
+content:
+  field_list_item_body:
+    weight: 0
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: text_default
+    region: content
+hidden: {  }

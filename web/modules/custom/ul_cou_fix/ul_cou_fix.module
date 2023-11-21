@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for ul_cou_fix module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_cou_fix_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // For all Node Forms, disable both field_shared_marketo_forms fields.
+  // Disabled fields show the value of the field as non-editable.
+  /** @var \Drupal\Core\Entity\ContentEntityForm $form_object */
+  $form_object = $form_state->getFormObject();
+  /** @var \Drupal\Core\Entity\ContentEntityInterface $entity */
+  $entity = $form_object->getEntity();
+
+  // We only care about non-original node (translations):
+  if (!$entity->isDefaultTranslation()) {
+    $form['field_shared_marketo_forms']['widget'][0]['sub_cou']['#options'] = [
+      'last_interests' => 'last_interests',
+    ];
+    $form['field_shared_marketo_forms']['widget'][0]['last_interest']['#description'] = t("Value only editable in the original language.");
+    $last_interest_options = $form['field_shared_marketo_forms']['widget'][0]['last_interest']['#options'];
+    $last_interest_value = $form['field_shared_marketo_forms']['widget'][0]['last_interest']['#default_value'];
+
+    // If there is a Last Interest value:
+    if (!empty($last_interest_value)) {
+      // Save the Last Interest value:
+      $form['field_shared_marketo_forms']['widget'][0]['last_interest']['#options'] = [
+        $last_interest_value => $last_interest_options[$last_interest_value],
+      ];
+      // Remove all the other options!
+      unset($form['field_shared_marketo_forms']['widget'][0]['last_interest']['#empty_option']);
+    }
+    // Else, there is no Last Interest:
+    else {
+      $form['field_shared_marketo_forms']['widget'][0]['last_interest']['#options'] = $last_interest_options;
+    }
+
+    \Drupal::logger('ul_cou_fix')->notice("Translation is not original so field_shared_marketo_forms fields are disabled.");
+    $form['field_shared_marketo_custom']['#multilingual'] = TRUE;
+    $form['field_shared_marketo_forms']['#multilingual'] = TRUE;
+  }
+
+}

@@ -1,0 +1,4 @@
+services:
+  ul_disable_content:
+    class: Drupal\ul_disable_content\DisableContentService
+    arguments: ['@config.factory', '@database', '@entity_type.manager', '@current_route_match', '@language_manager']

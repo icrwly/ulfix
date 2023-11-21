@@ -1,0 +1,18 @@
+<a href="{{- card.linkHref -}}" class="card card--default">
+  {% block card_image %}
+    <img src="{{- card.image -}}" alt="{{- card.imageAlt -}}">
+  {% endblock %}
+  <div class="content-container">
+    {% block card_title %}
+      <h3>{{- card.title -}}</h3>
+    {% endblock %}
+    {% block card_description %}
+      <p>{{- card.description -}}</p>
+    {% endblock %}
+    {% if card.author is not empty %}
+      {% block card_author %}
+        {{ card.author }}
+      {% endblock %}
+    {% endif %}
+  </div>
+</a>

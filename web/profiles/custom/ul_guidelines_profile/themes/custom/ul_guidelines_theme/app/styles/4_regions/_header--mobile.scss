@@ -1,0 +1,253 @@
+@mixin hamburgTransition() {
+	transition: 0.3s ease, opacity 0.3s ease-in-out, transform-origin 0.3s ease-in-out;
+}
+@mixin hamburgLine() {
+	@include hamburgTransition();
+  background: $white;
+  display: inline-block;
+  height: 2px;
+  width: 22px;
+}
+
+.header--mobile {
+	background-color: $blueDark;
+	color: $white;
+	display: block;
+	font-family: $sans;
+	position: relative;
+
+	@include breakpoint($large-tablet) {
+		display: none;
+	}
+	&__inner {
+		align-items: center;
+		display: flex;
+		justify-content: space-between;
+	}
+	&__end {
+		display: flex;
+	}
+	&__search {
+		height: 56px;
+		opacity: 0;
+		transform: translate3d(56px, 0, 0);
+		transition: opacity 0.3s, transform 0.3s, visibility 0s 0.3s;
+		visibility: hidden;
+		width: 56px;
+		z-index: 1;
+
+		a {
+			align-items: center;
+			background-color: $blueSecondary;
+			color: $white;
+			display: flex;
+			height: 100%;
+			justify-content: center;
+			width: 100%;
+
+			span {
+				@include font-size(16, 16);
+				pointer-events: none;
+			}
+		}
+	}
+	&__hamburger {
+		background-color: transparent;
+		height: 56px;
+		line-height: 0;
+		transition: background-color 0.3s;
+		width: 56px;
+		z-index: 2;
+		a {
+			@include hamburgTransition();
+			background: none;
+			border: none;
+			box-sizing: border-box;
+			cursor: pointer;
+			display: block;
+			font-size: 0;
+			height: 100%;
+			left: 0;
+			line-height: 0;
+			margin: 0 auto;
+			outline: none;
+			position: relative;
+			text-align: center;
+			top: 0;
+			user-select: none;
+			width: 100%;
+
+			span {
+				@include hamburgLine();
+				background-color: $white;
+				font-size: 0;
+				line-height: 14px;
+				position: relative;
+				text-indent: -99999px;
+				top: calc(50% - 2px);
+
+				&:after,
+				&:before {
+					@include hamburgLine();
+					backface-visibility: hidden;
+					background-color: $white;
+					content: '';
+					left: 0;
+					position: absolute;
+				}
+
+				&:before {
+					top: 6px;
+				}
+
+				&:after {
+					top: -6px;
+				}
+			}
+
+			&[aria-expanded="true"] {
+				span {
+					background-color: transparent;
+
+					&:after,
+					&:before {
+						top: 0;
+					}
+
+					&:before {
+						transform: rotate3d(0,0,1,45deg);
+					}
+
+					&:after {
+						transform: rotate3d(0,0,1,-45deg);
+					}
+				}
+			}
+		}
+	}
+	&__logo {
+		.header__logo {
+			margin-left: 1.5rem;
+		}
+	}
+}
+
+.header--mobile.nav-active {
+	.header--mobile__search {
+		opacity: 1;
+		transform: translate3d(0, 0, 0);
+		transition: opacity 0.3s 0.3s, transform 0.3s 0.3s, visibility 0s;
+		visibility: visible;
+	}
+	.header--mobile__hamburger {
+		background-color: $blue;
+	}
+}
+
+.header--mobile--guideline {
+	margin-left: 1.5rem;
+	background: $graySideRail;
+
+	&.nav-active {
+		.header--mobile__hamburger {
+			background: $blue;
+		}
+	}
+
+	.header--mobile__hamburger {
+		a {
+			span {
+				background: $blueDark;
+				
+				&:after,
+				&:before {
+					background: $blueDark;
+				}
+			}
+
+			&[aria-expanded=true] {
+				span {
+					background: transparent;
+
+					&:after,
+					&:before {
+						background: $white;
+					}
+				}
+			}
+		}
+	}
+}
+
+.nav--mobile--guideline {
+	background-color: $graySideRail !important;
+	height: auto !important;
+	margin-left: 1.5rem;
+  padding: 0;
+	
+	.nav--mobile__inner {
+		height: auto !important;
+
+		.nav--mobile__pages {
+			border: 1px solid $graySideRail !important;
+  		border-top: 0 !important;
+			height: auto !important;
+
+			.book-list {
+				background-color: $graySideRail;
+				display: block;
+				margin: 0;
+				padding: 0;
+
+				li ul {
+					li ul {
+						padding-left: 2rem;
+					}
+				}
+			}
+		}
+
+		.first-level {
+			+ ul {
+				margin-left: 1.5rem;
+			}
+			
+			&.accordion {
+				+ ul {
+					padding-left: 2rem;
+				}
+			}
+		}
+
+		.first-level,
+		.second-level {
+			.title {
+				font-size: 1.5rem !important;
+				font-weight: 200;
+				line-height: 1.5rem !important;
+				margin: 0.5rem 0;
+			}
+
+			+ ul {
+				margin: 0;
+				/*margin: 1rem 0;*/
+				padding: 0;
+				list-style: none;
+			}
+
+			&.accordiion {
+				+ ul {
+					margin: 0 0 0 3rem;
+					padding: 0;
+					list-style: none;
+				}
+			}
+		}
+
+		.nav--side-rail {
+			display: block;
+			margin: 0;
+			width: 100%;
+		}
+	}
+}

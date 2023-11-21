@@ -1,0 +1,121 @@
+$button-padding: 12px;
+
+.button {
+  background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+  border-radius: 4px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 1.4rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  line-height: 1.3;
+  margin-bottom: 0; // For input.button
+  margin-left: 0; // override Classy
+  margin-right: 0; // override Classy
+  padding: $button-padding $button-padding * 4;
+  text-align: center;
+  transition: all 0.3s ease-out;
+  vertical-align: middle;
+
+  &:hover,
+  &:focus,
+  &.focus {
+    text-decoration: none;
+  }
+
+  &:active,
+  &.active {
+    background-image: none;
+    outline: 0;
+  }
+
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    cursor: disabled;
+    opacity: .65;
+  }
+
+  &--l {
+    font-size: 1.8rem;
+    letter-spacing: .05em;
+    padding-bottom: $button-padding * 1.25;
+    padding-top: $button-padding * 1.25;
+  }
+
+  &--m {
+    font-size: 1.6rem;
+    letter-spacing: .05em;
+    padding-bottom: $button-padding;
+    padding-top: $button-padding;
+  }
+
+  &--s {
+    font-size: 1.4rem;
+    letter-spacing: .01em;
+    padding: $button-padding/2 $button-padding * 3;
+  }
+
+  &--xs {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    padding: $button-padding/2 $button-padding;
+  }
+}
+
+a.button {
+  &.disabled,
+  fieldset[disabled] & {
+    pointer-events: none; // Future-proof disabling of clicks on `<a>` elements
+  }
+}
+
+// Button Variants
+// button-variant($color, $background, $border);
+.button--white {
+  @include button-variant($text-color, $white, $white);
+}
+
+.button--white-outline {
+  @include button-variant($white, transparent, $white);
+}
+
+.button--gray {
+  @include button-variant($black, $gray-lighter, $gray-lighter);
+}
+
+.button--gray-outline {
+  @include button-variant($black, transparent, $gray-medium);
+}
+
+.button--blue {
+  @include button-variant($white, $blue, $blue);
+}
+
+.button--blue-outline {
+  @include button-variant($blue, transparent, $blue);
+}
+
+.button--red {
+  @include button-variant($white, $red, $red);
+}
+
+.button--red-outline {
+  @include button-variant($red, transparent, $red);
+}
+
+.button--black-outline {
+  @include button-variant($black, transparent, $black);
+}
+
+.button--teal {
+  @include button-variant($white, $teal, $teal);
+}
+
+.button--link {
+  @include button-variant($blue, transparent, transparent);
+  &:hover {
+    text-decoration: underline;
+  }
+}

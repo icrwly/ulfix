@@ -1,0 +1,76 @@
+$arrowOffset: 38px;
+$arrowHover: -5px;
+.nav--book{
+  @include margin-control($size: 'l', $type: 'margin');
+  border-top:1px solid $gray;
+  padding-top:$spacing-unit--l;
+  &__inner{
+    align-items: center;
+    background-color:$grayLighter;
+    display: flex;
+    padding:5%;
+    @include breakpoint($tablet){
+      padding:3%;
+    }
+  }
+  .arrow-nav-container{
+    position:relative;
+    width:50%;
+  }
+  .arrow-nav{
+    @include font-size(14, 20);
+    color:$blueDark;
+    display: block;
+    position: relative;
+    &:before{
+      color:$blue;
+      display: inline-block;
+      font-family: $iconfont;
+      font-size: 30px;
+      font-style: normal;
+      margin: 0;
+      position: absolute;
+      speak: none;
+      top: 50%;
+      transition:all 0.5s ease-in-out;
+      transform:translateY(-50%);
+    }
+    &:hover{
+      color:$blue;
+    }
+    @include breakpoint($desktop){
+      @include font-size(16, 24);
+    }
+    &__previous{
+      padding-left:$arrowOffset;
+      &:before{
+        @extend %icon-arrow-left;
+        left: 0;
+      }
+      &:hover{
+        &:before{
+          left: $arrowHover;
+        }
+      }
+    }
+    &__next{
+      text-align:right;
+      padding-right:$arrowOffset;
+      &:before{
+        @extend %icon-arrow-right;
+        right: 0;
+      }
+      &:hover{
+        &:before{
+          right: $arrowHover;
+        }
+      }
+    }
+  }
+  .nav-label{
+    @include font-size(12, 16);
+    color:$gray;
+    display: block;
+    width:100%;
+  }
+}

@@ -1,0 +1,11 @@
+name: 'UL Global Market Access'
+type: module
+description: "Creates Global Market Access pages & experience for UL.com"
+core_version_requirement: ^9 || ^10
+libraries:
+  - ul_gmap/ul_gmap
+dependencies:
+  - migrate
+  - migrate_drupal
+  - migrate_plus
+  - migrate_tools

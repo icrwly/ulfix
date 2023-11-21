@@ -1,0 +1,36 @@
+uuid: 81fa058c-36be-4274-9bfd-16eb2cf7f54d
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+id: contact_message.field_request_business
+field_name: field_request_business
+entity_type: contact_message
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Commercial & Industrial'
+      label: 'Commercial & Industrial'
+    -
+      value: Consumer
+      label: Consumer
+    -
+      value: Software
+      label: Software
+    -
+      value: Enterprise
+      label: Enterprise
+    -
+      value: NFP
+      label: NFP
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

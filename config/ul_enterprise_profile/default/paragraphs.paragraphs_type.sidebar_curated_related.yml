@@ -1,0 +1,10 @@
+uuid: b68220e4-ae4e-4f9d-8318-cf1809274207
+langcode: en
+status: true
+dependencies: {  }
+id: sidebar_curated_related
+label: 'Right Rail Curated Related'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Right Rail Curated Related</em> to add a single section of curated related content with a short heading to the Right Rail.'
+behavior_plugins: {  }

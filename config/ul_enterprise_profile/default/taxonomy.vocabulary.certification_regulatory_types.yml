@@ -1,0 +1,8 @@
+uuid: fb7982f8-de52-44cf-a728-23f1cec6a487
+langcode: en
+status: true
+dependencies: {  }
+name: 'Certification Market Access Requirements'
+vid: certification_regulatory_types
+description: 'Used for certification content type'
+weight: 0

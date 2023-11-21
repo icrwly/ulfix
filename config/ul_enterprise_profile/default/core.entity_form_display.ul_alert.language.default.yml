@@ -1,0 +1,68 @@
+uuid: 8162b2ba-0d00-4992-8bec-223c4d4f07b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.ul_alert.language.field_languages
+    - field.field.ul_alert.language.field_shared_dismiss
+    - field.field.ul_alert.language.field_shared_message
+    - ul_alerts.ul_alert_type.language
+  module:
+    - text
+id: ul_alert.language.default
+targetEntityType: ul_alert
+bundle: language
+mode: default
+content:
+  field_languages:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_dismiss:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_message:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 4
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    weight: 5
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  dismiss_timer: true
+  user_id: true

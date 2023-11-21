@@ -1,0 +1,4 @@
+entity.ul_crc_asset.canonical:
+  route_name: entity.ul_crc_asset.canonical
+  base_route: entity.ul_crc_asset.canonical
+  title: 'View'

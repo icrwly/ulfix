@@ -1,0 +1,68 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--cards-featured" %}
+{% set dataModule = "cardCarousel" %}
+
+{% set carousel_grid_class = section.intro ? 'span-9-d' : 'span-12' %}
+
+{% block content %}
+  <div class="wrapper">
+    {% if section.titleBar %}
+      {% include '@ul_base_theme/3_components/title-bar.twig' with section.titleBar only %}
+    {% endif %}
+
+    <div class="row">
+      {% if section.intro %}
+        <div class="span-3-d align-items-center">
+          <div class="section__intro">
+            {% block intro_title %}
+              {% if section.intro.title %}
+                <h2 class="section__intro-title">{{- section.intro.title -}}</h2>
+              {% endif %}
+            {% endblock %}
+
+            {% block intro_description %}
+              {% if section.intro.description %}
+                <div class="section__intro-description">
+                  <p>{{- section.intro.description -}}</p>
+                </div>
+              {% endif %}
+            {% endblock %}
+
+            {% block intro_cta %}
+              {% if section.intro.cta %}
+                <div class="section__intro-cta">
+                  {% include '@ul_base_theme/2_pieces/button.twig' with {
+                    link: section.intro.cta.url,
+                    color: section.intro.cta.color,
+                    name: section.intro.cta.title
+                  } only %}
+                </div>
+              {% endif %}
+            {% endblock %}
+          </div>
+        </div>
+      {% endif %}
+      <div class="{{ carousel_grid_class }}">
+        <div class="section__carousel swiper-outer-container bottom-pagination">
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+              {% block section_card_list %}
+                {% if section.cardList %}
+                  {% for card in section.cardList %}
+                    {% include '@ul_base_theme/3_components/section--featured-cards-slide.twig' with card %}
+                  {% endfor %}
+                {% endif %}
+              {% endblock %}
+            </div>
+          </div>
+          <div class="swiper-controls">
+            <div class="swiper-button-prev"></div>
+            <div class="swiper-button-next"></div>
+            <div class="swiper-pagination"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+{% endblock %}

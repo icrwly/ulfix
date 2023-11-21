@@ -1,0 +1,15 @@
+{% extends "@ul_base_theme/3_components/descriptive-link.twig" %}
+
+{% if content.field_descript_link_title|render %}
+    {% set title = content.field_descript_link_title %}
+{% endif %}
+{% block description %}
+    {{ content.field_descript_link_description }}
+{% endblock %}
+{% if content.field_descript_link_link|render %}
+    {% set cta = {
+        title: content.field_descript_link_link.0['#title'],
+        url: content.field_descript_link_link.0['#url'],
+    } %}
+{% endif %}
+

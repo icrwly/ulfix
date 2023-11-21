@@ -1,0 +1,30 @@
+{#
+    This template replaces the 404 page.
+    @see ul_brandhub.theme::ul_brandhub_theme_suggestions_page_alter().
+#}
+{% extends '@ul_guidelines_theme/5_layouts/t07-landing.twig' %}
+
+{% set t07Header= {
+    logo: {
+        image: 'path to image',
+        imageAlt: 'Logo',
+        imageHref: '#',
+        brandTitle: 'UL Brand Hub',
+        brandHref: '/',
+        content: 'Brand Hub'
+    }
+} %}
+
+{% set content_description %}
+    <h1>404 {{ 'Page Not Found'|t}}</h1>
+    <p>{{ 'Uh oh, the page you were looking for could not be found.'|t }}</p>
+{% endset %}
+
+{% set t07Content = {
+    logo: '',
+    description: content_description,
+    buttons: [{
+        buttonText: 'UL Brandhub Homepage'|t,
+        buttonHref: url('<front>')
+    }],
+} %}

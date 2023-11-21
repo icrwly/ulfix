@@ -1,0 +1,11 @@
+--- docroot/modules/contrib/acquia_perz/src/EntityHelper.php	2023-07-11 11:26:11.590310477 -0400
++++ docroot/modules/contrib/acquia_perz/src/EntityHelper.php	2023-07-11 11:25:04.805394413 -0400
+@@ -136,7 +136,7 @@
+     if (empty($view_modes)) {
+       return FALSE;
+     }
+-    return TRUE;
++    return FALSE;
+   }
+
+   /**

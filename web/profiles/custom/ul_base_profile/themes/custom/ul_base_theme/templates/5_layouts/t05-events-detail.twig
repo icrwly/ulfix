@@ -1,0 +1,61 @@
+{% extends '@ul_base_theme/1_core/2-column.twig' %}
+{% set mainClass = 'wrapper max-width--large-desktop main--events' %}
+{% set columnClass = 'direction-reverse--max-desktop' %}
+
+{% block page %}
+  {% block topics %}
+    {% if t05Meta %}
+      {% embed '@ul_base_theme/4_regions/section--topics.twig' with t05Meta %}
+        {% block section_topic %}
+          {% if topics %}
+            {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {
+              widget: topics
+            } %}
+          {% endif %}
+        {% endblock %}
+      {% endembed %}
+    {% endif %}
+  {% endblock %}
+
+  {% set wysiwig_content %}
+    {% block content %}
+      {% include '@ul_base_theme/1_core/wysiwyg-sample.twig' %}
+    {% endblock %}
+  {% endset %}
+
+  {% block body %}
+    {% embed '@ul_base_theme/4_regions/section--wysiwyg.twig' with { wysiwyg_content: wysiwyg_content } %}
+      {% block content %}
+        <div class="editor-content">
+          {{ wysiwyg_content }}
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+
+  {% block meta %}
+    {% block published %}
+      {% if t05Published %}
+        {% include '@ul_base_theme/4_regions/section--published.twig' with t05Published only %}
+      {% endif %}
+    {% endblock %}
+    {% if t05Topic %}
+      {% embed '@ul_base_theme/4_regions/section--topics.twig' with t05Topic %}
+        {% block section_topic %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {
+            widget: topics
+          } %}
+        {% endblock %}
+      {% endembed %}
+    {% endif %}
+    {% block tags %}
+      {% if t05Tags %}
+        {% include '@ul_base_theme/4_regions/section--tags.twig' with { tags: t05Tags } only %}
+      {% endif %}
+    {% endblock %}
+  {% endblock %}
+{% endblock %}
+
+{% block aside %}
+  {% include '@ul_base_theme/3_components/aside.twig' with t05Aside only %}
+{% endblock %}

@@ -1,0 +1,15 @@
+uuid: 4969eab5-e6b8-485d-bcd1-5215c8f34bc4
+langcode: en
+status: true
+dependencies:
+  module:
+    - video_embed_media
+id: video
+label: Video
+description: 'Use embedded videos for reusable media.'
+source: video_embed_field
+queue_thumbnail_downloads: false
+new_revision: true
+source_configuration:
+  source_field: field_media_video_embed_field
+field_map: {  }

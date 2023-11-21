@@ -1,0 +1,14 @@
+.section--filter-bar {
+  padding-bottom: $spacing-unit--l;
+  margin-bottom: $spacing-unit--l;
+  padding: 0 !important;
+  .title-bar {
+    margin-bottom: $spacing-unit;
+    margin-top: $spacing-unit;
+    &__title {
+      @include breakpoint($tablet) {
+        font-size: 2.8rem;
+      }
+    }
+  }
+}

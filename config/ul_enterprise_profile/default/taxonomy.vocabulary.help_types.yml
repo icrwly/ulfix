@@ -1,0 +1,8 @@
+uuid: d3841638-762f-4b47-9efc-bb55765bb063
+langcode: en
+status: true
+dependencies: {  }
+name: 'Help Types'
+vid: help_types
+description: 'Used for grouping Help.'
+weight: 0

@@ -1,0 +1,19 @@
+uuid: b9e7a94d-3179-47dc-894f-ad075fb9924d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cmpgn_cards_title
+    - paragraphs.paragraphs_type.campaign_cards
+id: paragraph.campaign_cards.field_cmpgn_cards_title
+field_name: field_cmpgn_cards_title
+entity_type: paragraph
+bundle: campaign_cards
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

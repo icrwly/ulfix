@@ -1,0 +1,24 @@
+en:
+  no_results_message: 'We''re having trouble with your search right now. Please try again later.'
+es:
+  no_results_message: 'Estamos teniendo problemas con su búsqueda en este momento. Intente nuevamente más tarde.'
+fr:
+  no_results_message: 'Nous rencontrons des difficultés avec votre recherche pour le moment. Veuillez réessayer plus tard.'
+fr-ca:
+  no_results_message: 'Nous rencontrons des difficultés avec votre recherche pour le moment. Veuillez réessayer plus tard.'
+de:
+  no_results_message: 'Ihre Suche kann gerade nicht durchgeführt werden. Versuchen Sie es später erneut.'
+it:
+  no_results_message: 'Al momento non riusciamo a completare la ricerca. Prova più tardi.'
+ja:
+  no_results_message: '検索エラーが発生しました。恐れ入りますが、時間をおいてからもう一度お試しください。'
+ko:
+  no_results_message: '현재 검색에 문제가 발생했습니다. 나중에 다시 시도해 주세요.'
+pt-br:
+  no_results_message: 'Houve um problema temporário com sua busca. Tente novamente mais tarde.'
+zh-hans:
+  no_results_message: '目前我们在搜索时遇到问题。请稍后重试。'
+zh-hant:
+  no_results_message: '您的搜尋目前遇到問題。請稍後重試。'
+vi:
+  no_results_message: 'Chúng tôi đang gặp sự cố với yêu cầu tìm kiếm của bạn. Vui lòng thử lại sau.'

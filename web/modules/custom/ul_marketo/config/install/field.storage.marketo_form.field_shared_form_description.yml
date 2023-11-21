@@ -1,0 +1,19 @@
+uuid: a5d4baa4-21cf-4b13-ab2e-41dc6959231a
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_marketo
+id: marketo_form.field_shared_form_description
+field_name: field_shared_form_description
+entity_type: marketo_form
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

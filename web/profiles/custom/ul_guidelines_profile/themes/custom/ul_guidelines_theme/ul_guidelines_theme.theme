@@ -1,0 +1,463 @@
+<?php
+
+/**
+ * @file
+ * UL Guidelines Theme file.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\node\Entity\Node;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Ajax\AjaxResponse;
+use Drupal\Core\Ajax\BeforeCommand;
+use Drupal\Core\Ajax\ReplaceCommand;
+use Drupal\Core\Ajax\RemoveCommand;
+
+/**
+ * Implements hook_theme().
+ */
+function ul_guidelines_theme_theme() {
+  return [
+    'ul_guidelines_theme_form_success' => [
+      'variables' => [
+        'title' => NULL,
+        'description' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements hook_preprocess_HOOK().
+ */
+function ul_guidelines_theme_preprocess_menu__account(&$variables) {
+  // Disabling the caching for this menu because in some cases the menu was
+  // not updating when users logged in.
+  $variables['#cache']['max-age'] = 0;
+
+  $variables['user_display_name'] = '';
+  if ($variables['logged_in']) {
+    $user = \Drupal::currentUser();
+    $account = \Drupal::entityTypeManager()->getStorage('user')->load($user->id());
+    $first_name = $account->get('field_first_name')->value;
+    $last_name = $account->get('field_last_name')->value;
+    if ($first_name || $last_name) {
+      $variables['user_display_name'] = trim($first_name . ' ' . $last_name);
+    }
+    else {
+      $variables['user_display_name'] = $account->getAccountName();
+    }
+  }
+}
+
+/**
+ * Implements hook_FORM_ID_alter().
+ */
+function ul_guidelines_theme_form_views_exposed_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // Add placeholder text to search field.
+  if ($form['#id'] == 'views-exposed-form-search-results-search-block') {
+    $form['keyword']['#attributes']['placeholder'] = t('What are you searching for?');
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ */
+function ul_guidelines_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if ($hook == 'form') {
+    $hook_form_id = $variables['element']['#form_id'];
+    $suggestions[] = $hook . '__' . $hook_form_id;
+    if (isset($variables['element']['#id'])) {
+      $hook_id = str_replace('-', '_', $variables['element']['#id']);
+      $hook_id = str_replace($hook_form_id . '_', '', $hook_id);
+      if ($hook_form_id != $hook_id) {
+        $suggestions[] = $hook . '__' . $hook_form_id . '__' . $hook_id;
+      }
+    }
+  }
+
+  if ($hook == 'views_exposed_form') {
+    if (isset($variables['form']['#id'])) {
+      $hook_id = str_replace('-', '_', $variables['form']['#id']);
+      $hook_id = str_replace($hook . '_', '', $hook_id);
+      $suggestions[] = $hook . '__' . $hook_id;
+    }
+  }
+
+  if ($hook == 'block') {
+    // Add theme suggestions to blocks based on region.
+    if (!empty($variables['elements']['#id'])) {
+      $block = Block::load($variables['elements']['#id']);
+      $region = $block->getRegion();
+
+      foreach ($suggestions as $s => $suggestion) {
+        $region_suggestion = $suggestion . '__' . $region;
+        array_splice($suggestions, ($s == 0 ? 1 : $s * 3), 0, $region_suggestion);
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_views_view()
+ *
+ * @param array $vars
+ *   Array of views variables.
+ */
+function ul_guidelines_theme_preprocess_views_view(array &$vars) {
+  // Add count to View More link in search results block.
+  if ($vars['id'] == 'search_results') {
+    if ($vars['display_id'] == 'search_block') {
+      $view = $vars['view'];
+      $shown = $view->getItemsPerPage();
+
+      // Creating more link for CRC Assets and page results.
+      // This code is grabbed from DisplayPluginBase::renderMoreLink().
+      $url = $view->getUrl(NULL, 'search_page');
+      $url_options = [];
+      if (!empty($view->exposed_raw_input)) {
+        $url_options['query'] = $view->exposed_raw_input;
+      }
+      $url->setOptions($url_options);
+
+      // Make a new 'more' link for attachments a.k.a assets.
+      $attach_total = count($view->attachment_after);
+      $attach_diff = ($attach_total > $shown) ? $shown : $attach_total;
+      $count = $attach_total - $attach_diff;
+
+      if ($count > 0) {
+
+        $vars['more_attach'] = [
+          '#type' => 'more_link',
+          '#url' => $url,
+          '#title' => t('View (@count) More', ['@count' => $count]),
+          '#view' => $view,
+        ];
+      }
+
+      // Alter the default more link for normal content results.
+      $skipped = 1;
+      $total_pages = $vars['view']->total_rows - $attach_total;
+      $count = $total_pages - ($shown + $skipped);
+      // Note: Sometimes there's a caching bug that prevents the more link from
+      // rendering. Make sure that we always render the more link even if
+      // $vars['more'] is empty.
+      // https://www.drupal.org/project/drupal/issues/1819538
+      if ($count > 0 || (!is_null($vars['more']) && !empty($vars['rows'][0]))) {
+        $vars['more'] = [
+          '#type' => 'more_link',
+          '#url' => $url,
+          '#title' => t('View (@count) More', ['@count' => $count]),
+          '#view' => $view,
+        ];
+      }
+      // Because we're skipping the first record the 'More' link will still render
+      // in some cases.
+      else {
+        unset($vars['more']);
+      }
+    }
+  }
+  // Add search string to "[#] Results for "Search Results" heading.
+  if ($vars['display_id'] == 'search_page') {
+    $search_string = $vars['view']->args[0];
+    $results_string = $vars['header']['result']['#markup'];
+    $vars['header']['result']['#markup'] = preg_replace('/Search Results/', $search_string, $results_string);
+  }
+}
+
+/**
+ * Implements template_preprocess_node()
+ *
+ * @param array $variables
+ *   Theme variables.
+ */
+function ul_guidelines_theme_preprocess_node(array &$variables) {
+  $node = $variables['node'];
+  // Add content.url_path to all node Twig templates.
+  if ($node->id() && !empty($variables['content'])) {
+    $alias = $node->toUrl()->toString();
+    $variables['content']['url_path'] = $alias;
+  }
+
+  // Preprocessing Popular Page node display for Search overlay.
+  if ($variables['view_mode'] == 'popular_page') {
+    // TODO: move this to twig template.
+    $changed_date = $node->get('changed')->value;
+    $date = \Drupal::service('date.formatter')->format($changed_date, 'date_short');
+    // Add updated_date to node--view--popular-content.html.twig.
+    $variables['content']['updated_date'] = t('Updated @date', ['@date' => $date]);
+  }
+
+  // Getting the book's node title.
+  if ($node->getType() == 'guideline') {
+    if (isset($node->book) && $node->book['bid'] != 0) {
+      $bid = $node->book['bid'];
+      $variables['content']['book_title'] = Node::load($bid)->getTitle();
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function ul_guidelines_theme_preprocess_block(&$variables) {
+  $variables['content']['#attributes']['block'] = $variables['attributes']['id'];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function ul_guidelines_theme_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  // Remove the block and replace dashes with underscores in the block ID to
+  // use for the hook name.
+  if (isset($variables['attributes']['block'])) {
+    $hook = str_replace(['block-', '-'], ['', '_'], $variables['attributes']['block']);
+    $block = Block::load($hook);
+    $region = $block->getRegion();
+    $suggestions[] = $variables['theme_hook_original'] . '__' . $region;
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_guidelines_theme_form_contact_message_submit_request_form_alter(array &$form, FormStateInterface $form_state, $form_id) {
+  // For the submit request form, need to move field descriptions to before the fields.
+  foreach ($form as $element_name => &$element) {
+    // Is this element a field matching 'field_request_...'? and has a description?
+    if ((substr($element_name, 0, 13) == 'field_request') && isset($element['widget']['#description'])) {
+      // Set description position.
+      $element['widget']['#description_display'] = 'before';
+    }
+  }
+
+  // Add ajax to submit button.
+  $form['actions']['submit']['#attributes']['class'][] = 'use-ajax-submit';
+  // Attach custom submit handler to display ajax message.
+  $form['actions']['submit']['#ajax'] = [
+    'callback' => 'ul_guidelines_site_contact_message_submit_request_ajax_response',
+    'wrapper' => $form['#id'],
+    'effect' => 'fade',
+  ];
+}
+
+/**
+ * Custom Ajax callback on contact message - submit request form submit.
+ *
+ * @param array $form
+ *   Form.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   Form State Interface.
+ *
+ * @return \Drupal\Core\Ajax\AjaxResponse
+ *   Form AJAX reponse.
+ */
+function ul_guidelines_site_contact_message_submit_request_ajax_response(array $form, FormStateInterface $form_state) {
+  // If form is valid then render a success modal.
+  $ajax_response = new AjaxResponse();
+  $messages = [
+    '#type' => 'status_messages',
+  ];
+
+  // Remove any error message that might already be showing and replace them
+  // with new ones if necessary.
+  $ajax_response->addCommand(new RemoveCommand('.messages'));
+
+  if (empty($form_state->getErrors())) {
+    // Return command to invoke a trigger of the submission successful modal.
+    // Note: This command doesn't seem to be firing.
+    // See ul_guidelines_theme/app/scripts/app.js instead.
+    // $ajax_response->addCommand(new InvokeCommand(NULL, 'triggerClick', ['#submitResponseSuccessModalTrigger']));
+    // $ajax_response->addCommand(new BeforeCommand('.form-page__footer', \Drupal::service('renderer')->renderRoot($messages)));
+    $render = [
+      '#theme' => 'ul_guidelines_theme_form_success',
+      '#title' => t('Submission Successful!'),
+      '#description' => t('Your request was successfully submitted. Please allow a minimum of 2 to 3 business days for review and note that some lengthy or complex requests may require additional time.')
+    ];
+    $ajax_response->addCommand(new ReplaceCommand('.form-page', $render));
+  }
+  // Otherwise render a validation message.
+  // Note: If front-end validation is working correctly then they shouldn't ever
+  // see this message.
+  else {
+    $ajax_response->addCommand(new BeforeCommand('.form-page__footer', \Drupal::service('renderer')->renderRoot($messages)));
+  }
+
+  // $ajax_response->addCommand(new InvokeCommand(NULL, 'scrollToElement', ['.form-page__header']));
+
+  return $ajax_response;
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ *
+ * @param array $suggestions
+ *   Array of theme suggestions.
+ * @param array $variables
+ *   Theme variables for this hook to consider when making suggestions.
+ * @param string $hook
+ *   Relevant hook.
+ */
+function ul_guidelines_theme_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+
+  // Create template suggestion for front page and user role.
+  // This will allow anonymous users (or any role) to see different
+  // markup on the home page.
+  $user = \Drupal::currentUser();
+  $roles = $user->getRoles();
+  if (in_array('page__front', $suggestions)) {
+    foreach ($roles as $role) {
+      $suggestions[] = 'page__front__' . $role;
+    }
+  }
+  $path_args = explode('/', trim(\Drupal::service('path.current')->getPath(), '/'));
+  $http_error_suggestions = [
+    'system.403' => 'page__403',
+    'system.404' => 'page__404',
+  ];
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (isset($http_error_suggestions[$route_name])) {
+    $suggestions[] = $http_error_suggestions[$route_name];
+  }
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function ul_guidelines_theme_preprocess_page(&$variables) {
+  $variables['current_page_uri'] = \Drupal::request()->getRequestUri();
+  $variables['authenticated'] = \Drupal::currentUser()->isAuthenticated();
+
+  // Which menus should have mobile menus.
+  $menus = ['main', 'account'];
+
+  // The menu tree.
+  $menu_tree = \Drupal::menuTree();
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters(trim($menus[0]));
+  $manipulators = [
+    // Show links to nodes that are accessible for the current user.
+    ['callable' => 'menu.default_tree_manipulators:checkNodeAccess'],
+    // Only show links that are accessible for the current user.
+    ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+    // Use the default sorting of menu links.
+    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+  ];
+  // Force the entire tree to be build by setting expandParents to an
+  // empty array.
+  $parameters->expandedParents = [];
+
+  // Iterate over the menus.
+  foreach ($menus as $menu_name) {
+    $tree_items = $menu_tree->load(trim($menu_name), $parameters);
+    $tree_transformed = $menu_tree->transform($tree_items, $manipulators);
+
+    foreach ($tree_transformed as $id => $item) {
+
+      $params = $item->link->getRouteParameters();
+
+      // Account menu.
+      if (empty($params['node'])) {
+
+        // Right now the id is prefixed with the menu link title which is easily
+        // changed. Remove that to make the uuid consistent.
+        $uuid = explode(' ', $id);
+        $uuid = array_shift($uuid);
+
+        // Get the URL alias if it exists. If it doesn't it will return the
+        // system path.
+        $link = $item->link->getUrlObject()->toString();
+
+        $variables['page']['mobile_nav_items'][$menu_name][$uuid] = [
+          'id' => $uuid,
+          'name' => $item->link->getTitle(),
+          'active' => $item->inActiveTrail,
+          'link' => $link,
+        ];
+      }
+
+      // Content menu.
+      if (!empty($params['node'])) {
+        // Right now the id is prefixed with the menu link title which is easily
+        // changed. Remove that to make the uuid consistent.
+        $uuid = explode(':', $id);
+        $uuid = array_pop($uuid);
+
+        $node = \Drupal::entityTypeManager()
+          ->getStorage('node')
+          ->load($params['node']);
+
+        // Check to see if this menu has a book.
+        // If it does then use that information.
+        $bookManager = \Drupal::service('book.manager');
+        $book_link = $bookManager->loadBookLink($node->id());
+        if (!empty($book_link) && $node->access('view')) {
+
+          // Load  full tree for this link.
+          $subtree = $bookManager->bookSubtreeData($book_link);
+          $menu_links = [];
+          foreach ($subtree as $tree_item) {
+            if ($link = create_mobile_book_link($tree_item)) {
+              $menu_links = $link;
+            }
+          }
+          $variables['page']['mobile_nav_items'][$menu_name][$uuid] = [
+            'id' => $uuid,
+            'parent' => $item->link->getTitle(),
+            'name' => $item->link->getTitle(),
+            'active' => $item->inActiveTrail,
+            'menu' => $menu_links,
+          ];
+        }
+        // Normal menu item.
+        else {
+          // Get the URL alias if it exists. If it doesn't it will return the
+          // system path.
+          $link = $item->link->getUrlObject()->toString();
+
+          $variables['page']['mobile_nav_items'][$menu_name][$uuid] = [
+            'id' => $uuid,
+            'name' => $item->link->getTitle(),
+            'active' => $item->inActiveTrail,
+            'link' => $link,
+          ];
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Recursive function for generating mobile navigation items.
+ *
+ * @param array $tree_item
+ *   Menu tree item.
+ */
+function create_mobile_book_link(array $tree_item) {
+  $link = FALSE;
+  $node = Node::load($tree_item['link']['nid']);
+  if ($node->access('view')) {
+    $link = [
+      'name' => $tree_item['link']['title'],
+      'link' => $node->toUrl()->toString(),
+      'active' => $tree_item['link']['in_active_trail'],
+    ];
+
+    if (!empty($tree_item['below'])) {
+      $link['id'] = $tree_item['link']['title'];
+      foreach ($tree_item['below'] as $below_item) {
+        if ($below_item['link']['depth'] > 2) {
+          $key = 'nestedmenu';
+        }
+        else {
+          $key = 'submenu';
+        }
+        if ($sub_link = create_mobile_book_link($below_item)) {
+          $link[$key][] = $sub_link;
+        }
+      }
+    }
+  }
+
+  return $link;
+}

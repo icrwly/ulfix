@@ -1,0 +1,206 @@
+.global-header {
+  &--fix {
+    position: sticky;
+    top: 0;
+    z-index: index($globalIndex, header);
+    will-change: transform;
+  }
+
+  a {
+    &:focus,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  &__container {
+    background: $white;
+    border-bottom: 1px solid $border-color--medium;
+    box-shadow: $box-shadow--level-1;
+  }
+
+  &__row {
+    position: relative;
+    + .global-header__row {
+      border-top: 1px solid $border-color;
+    }
+  }
+
+  &__row-inner {
+    align-items: center;
+  }
+
+  &__main {
+    height: $global-header-height--mobile;
+    @include breakpoint($desktop) {
+      height: $global-header-height--desktop;
+      position: relative;
+    }
+  }
+
+  &__hamburger {
+    height: 100%;
+    position: relative;
+    z-index: index($globalIndex, header);
+    @include breakpoint($desktop) {
+      padding: 0 !important;
+    }
+
+    .hamburger {
+      margin-#{$end-direction}: -$spacing-unit--s;
+      @include breakpoint($desktop) {
+        margin-#{$end-direction}: $spacing-unit--s * .75;
+      }
+    }
+  }
+
+  &__hamburger-inner {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    @include breakpoint($desktop) {
+      #{$end-direction}: 0;
+      opacity: 0;
+      pointer-events: none;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity $transition;
+      z-index: -1;
+    }
+
+    .title-menu-is-open & {
+      opacity: 1;
+      pointer-events: auto;
+      z-index: index($globalIndex, header);
+    }
+  }
+
+  &__logo {
+    margin-#{$start-direction}: 0;
+    position: relative;
+    transition: margin $transition;
+    z-index: index($globalIndex, header);
+
+    a {
+      align-items: center;
+      display: flex;
+    }
+
+    img,
+    svg {
+      fill: $red;
+    }
+
+    .brand-logo {
+      background: $white;
+      height: $global-header-logo-height--mobile;
+      width: $global-header-logo-width--mobile;
+
+      @include breakpoint($desktop) {
+        height: $global-header-logo-height--desktop;
+        width: $global-header-logo-width--desktop;
+      }
+    }
+  }
+
+  &__primary-nav {
+    @include breakpoint(max-width $desktop - 1) {
+      background-color: $white;
+      border-top: 1px solid $border-color;
+      height: 0;
+      left: 0;
+      opacity: 0;
+      overflow-y: auto;
+      padding: 0;
+      position: absolute;
+      top: 100%;
+      transform: translateX(-100%);
+      width: 100%;
+      &.mobile-is-setup {
+        transition: opacity $transition, transform $transition;
+      }
+      &.is-open {
+        opacity: 1;
+        transform: translateX(0);
+        height: calc(100vh - #{$global-header-height--mobile});
+      }
+
+      .has-top-row & {
+        @include breakpoint(max-width $desktop - 1) {
+          height: calc(100vh - #{$global-header-height--mobile + $global-header-height--top});
+        }
+      }
+    }
+  }
+
+  &__secondary-nav {
+    margin-#{$start-direction}: $spacing-unit;
+    @include breakpoint(max-width $large-desktop - 1) {
+      // use hidden mixin instead of display none,
+      // otherwise interferes with title menu animation
+      @include hidden;
+    }
+    @include breakpoint(max-width $desktop - 1) {
+      display: none;
+    }
+  }
+
+  &__search {
+    margin-#{$start-direction}: auto;
+
+    @include breakpoint(max-width $desktop - 1) {
+      max-width: 25px;
+    }
+
+    .title-menu-is-open & {
+      padding-right: $hamburger-button-size + $spacing-unit;
+    }
+
+    .accordion{
+      align-items: center;
+    }
+  }
+
+  &__title-container {
+    @include breakpoint(max-width $desktop - 1) {
+      display: none;
+    }
+    @include breakpoint($desktop) {
+      left: calc(#{$global-header-logo-width--desktop + $spacing-unit--xl});
+      margin-#{$end-direction}: auto;
+      opacity: 0;
+      overflow: hidden;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      transition: opacity $transition;
+      white-space: nowrap;
+      width: 0;
+
+      .title-menu-is-toggled & {
+        opacity: 1;
+        width: calc(100% - 18rem);
+      }
+
+      .global-header__title {
+        margin: 0;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        width: 100%;
+      }
+    }
+  }
+}
+
+.title-menu-will-toggle {
+  @include breakpoint($desktop) {
+    opacity: 1;
+    transition: opacity $transition;
+    .title-menu-is-toggled & {
+      opacity: 0;
+      pointer-events: none;
+      z-index: -1;
+    }
+  }
+}

@@ -1,0 +1,14 @@
+{% set item = {
+    linkHref: url,
+    title: label,
+    section: 'Page'|t,
+    sectionIcon: 'file'
+} %}
+
+{% embed '@ul_guidelines_theme/2_pieces/listing-item/listing-item.twig' with { item: item } %}
+
+    {% block listingItem_image %}
+        {{ content.field_shared_ref_image }}
+    {% endblock %}
+
+{% endembed %}

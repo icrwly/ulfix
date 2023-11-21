@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ *
+ * Redirects author when accessing disabled content type's node add form.
+ */
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_prepprocess_page().
+ *
+ * Redirect user if they try to add content type that's disabled.
+ */
+function ul_disable_content_preprocess_page(&$variables) {
+  // Get current saved values:
+  $disabled_list = \Drupal::service('ul_disable_content')->getDisabledContentTypes();
+  // If there are currently saved (disabled) content types:
+  if ($disabled_list && is_array($disabled_list) && count($disabled_list) > 0) {
+    // Get the current URI:
+    $current_uri = \Drupal::request()->getRequestUri();
+    foreach ($disabled_list as $val) {
+      $add_uri = '/node/add/' . $val;
+      // If user is trying to add a new node that has
+      // been disabled, redirect user to error page:
+      if ($current_uri == $add_uri || str_contains($current_uri, $add_uri)) {
+        (new RedirectResponse('/admin/disabled_content_type'))->send();
+        exit();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_prepprocess_node_add_list().
+ *
+ * Removed disabled content types from Admin menu.
+ */
+function ul_disable_content_preprocess_node_add_list(&$variables) {
+  // Get current saved values:
+  $disabled_list = \Drupal::service('ul_disable_content')->getDisabledContentTypes();
+  // If there are currently saved (disabled) content types:
+  if ($disabled_list && is_array($disabled_list) && count($disabled_list) > 0) {
+    foreach ($variables['content'] as $key => $type) {
+      if (in_array($key, $disabled_list)) {
+        // Remove the disabled content type.
+        unset($variables['content'][$key], $variables['types'][$key]);
+      }
+    }
+  }
+}

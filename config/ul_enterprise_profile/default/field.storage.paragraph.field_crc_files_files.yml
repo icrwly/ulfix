@@ -1,0 +1,22 @@
+uuid: 1f4d0601-a141-4e0a-a81b-b2f20f337607
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - ul_crc_asset
+id: paragraph.field_crc_files_files
+field_name: field_crc_files_files
+entity_type: paragraph
+type: crc_asset_item
+settings:
+  target_type: crc_asset
+  display_field: false
+  display_default: false
+module: ul_crc_asset
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

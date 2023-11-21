@@ -1,0 +1,32 @@
+uuid: ad9db089-a663-4429-993e-0efbc878a55c
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.guideline_author.body
+    - node.type.guideline_author
+  module:
+    - text
+    - user
+id: node.guideline_author.teaser
+targetEntityType: node
+bundle: guideline_author
+mode: teaser
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+hidden:
+  langcode: true
+  links: true
+  search_api_excerpt: true

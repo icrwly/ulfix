@@ -1,0 +1,87 @@
+.section--promo-materials {
+  .section__image {
+    @include breakpoint(max-width $large-tablet) {
+      margin-bottom: $spacing-unit--l * 1.5;
+    }
+  }
+
+  .section__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .section__title {
+    margin-bottom: $spacing-unit;
+  }
+
+  .section__meta {
+    font-weight: 300;
+  }
+
+  .section__buttons {
+    @include breakpoint($tablet) {
+      max-width: 420px;
+    }
+
+    .button-row {
+      &:not(:last-child){
+        margin-bottom: $spacing-unit;
+      }
+
+      &--half {
+        @include breakpoint($large-tablet) {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .button {
+          @include breakpoint($large-tablet) {
+            align-items: center;
+            display: flex !important;
+            flex-basis: calc(50% - #{$spacing-unit/2});
+            flex-direction: column;
+            justify-content: center;
+            padding-left: $button-padding * 2;
+            padding-right: $button-padding * 2;
+            width: calc(50% - #{$spacing-unit/2});
+          }
+          &:not(:last-child){
+            @include breakpoint(max-width $large-tablet - 1) {
+              margin-bottom: $spacing-unit;
+            }
+          }
+        }
+      }
+
+      .button {
+        display: block;
+      }
+    }
+  }
+
+  .section__description {
+    margin-bottom: $spacing-unit;
+  }
+
+  .image-container {
+    width: 100%;
+
+    img {
+      @include center-block;
+    }
+  }
+
+  .widget {
+    margin-bottom: $spacing-unit;
+  }
+
+  .button {
+    // TODO: refactor into default button styles
+    .icon {
+      font-size: 1.4rem;
+      margin-#{$start-direction}: $spacing-unit--s;
+    }
+  }
+}

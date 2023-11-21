@@ -1,0 +1,20 @@
+<nav class="nav--book">
+  <div class="nav--book__inner">
+    <div class="arrow-nav-container">
+      {% if nav.previous %}
+        <a href="{{ nav.previousUrl ?:'#' }}" class="arrow-nav arrow-nav__previous">
+          <span class="nav-label">Previous</span>
+          {{- nav.previous -}}
+        </a>
+      {% endif %}
+    </div>
+    <div class="arrow-nav-container">
+      {% if nav.next %}
+        <a href="{{ nav.nextUrl ?:'#' }}" class="arrow-nav arrow-nav__next">
+          <span class="nav-label">Next</span>
+          {{- nav.next -}}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+</nav>

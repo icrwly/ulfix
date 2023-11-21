@@ -1,0 +1,113 @@
+.section--spotlight {
+  max-width: 1400px;
+
+  @include breakpoint($tablet){
+    &:nth-child(odd){
+      .paragraph-gutter .row .span-12,
+      .row .span-12 {
+        order: 0;
+        &:first-child {
+          order: 1;
+        }
+      }
+    }
+    .image-left {
+      .row .span-5-t {
+        order: 0 !important;
+        &:first-child {
+          order: 0 !important;
+        }
+      }
+    }
+    .image-right {
+      .row .span-5-t {
+        order: 1 !important;
+        &:first-child {
+          order: 1 !important;
+        }
+      }
+    }
+  }
+
+  + .section--spotlight {
+    padding-top: $spacing-unit;
+    @include breakpoint($desktop){
+      padding-top: 0;
+    }
+  }
+
+  .paragraph-gutter .row,
+  .row {
+    align-items: center;
+  }
+
+  .section__content {
+    @include trim-margin;
+    @include breakpoint($desktop){
+      padding-left: $spacing-unit--xl;
+      padding-right: $spacing-unit--xl;
+    }
+    @include breakpoint($large-desktop){
+      padding-left: $spacing-unit--xxl;
+      padding-right: $spacing-unit--xxl;
+    }
+
+    .button {
+      padding-left: $button-padding * 2;
+      padding-right: $button-padding * 2;
+    }
+  }
+
+  .section__title {
+    font-size: 2.8rem;
+    margin-bottom: $spacing-unit--l;
+    @include breakpoint($tablet) {
+      font-size: 3.2rem;
+    }
+    @include breakpoint($large-desktop) {
+      font-size: 3.6rem;
+    }
+  }
+
+  .section__description {
+    margin-bottom: $spacing-unit--l;
+    @include breakpoint($large-desktop){
+      font-size: 1.8rem;
+    }
+  }
+
+  .swiper-container {
+    @include breakpoint(max-width $tablet - 1) {
+      margin-bottom: $spacing-unit--l;
+    }
+
+    // Must apply padding by default and override with "not-loaded" selector or Swiper does not calculate height properly
+    // Drupal template assumes it's always a carousel
+    &.not-loaded,
+    &.hidden-pagination {
+      .card {
+        padding-bottom: 0;
+      }
+    }
+
+    .card {
+      margin-bottom: 0;
+      padding-bottom: calc($spacing-unit--xl - $spacing-unit--xs);
+      width: 100%;
+    }
+  }
+
+  /* Swiper Carousel inside of Paragraph/Spotlight */
+  .swiper-slide .card {
+    border: none;
+  }
+  .swiper-container {
+    border: 1px solid $border-color;
+    overflow: hidden;
+  }
+}
+.section--spotlight.images_no_border {
+  .swiper-container {
+    border: 0;
+  }
+}

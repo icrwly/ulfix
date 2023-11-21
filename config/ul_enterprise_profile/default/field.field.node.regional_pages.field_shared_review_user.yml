@@ -1,0 +1,44 @@
+uuid: 0aaf13b3-ae69-41b6-9a42-aec58cce16fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_review_user
+    - node.type.regional_pages
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.regional_pages.field_shared_review_user
+field_name: field_shared_review_user
+entity_type: node
+bundle: regional_pages
+label: Reviewer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: role
+      role:
+        content_approver: content_approver
+        administrator: '0'
+        site_manager: '0'
+        content_author: '0'
+        content_editor: '0'
+        event_author: '0'
+        news_author: '0'
+        event_approver: '0'
+        news_approver: '0'
+    include_anonymous: true
+field_type: entity_reference

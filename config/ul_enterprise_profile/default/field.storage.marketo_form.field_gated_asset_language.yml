@@ -1,0 +1,75 @@
+uuid: 435d6355-eafe-4452-8a99-b1b85b2e654a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - ul_marketo
+id: marketo_form.field_gated_asset_language
+field_name: field_gated_asset_language
+entity_type: marketo_form
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ar
+      label: Arabic
+    -
+      value: zh-hans
+      label: 'Chinese (Simplified)'
+    -
+      value: zh-hant
+      label: 'Chinese (Traditional)'
+    -
+      value: nl
+      label: Dutch
+    -
+      value: en
+      label: English
+    -
+      value: fr
+      label: French
+    -
+      value: fr-ca
+      label: French-Canadian
+    -
+      value: de
+      label: German
+    -
+      value: it
+      label: Italian
+    -
+      value: ja
+      label: Japanese
+    -
+      value: ko
+      label: Korean
+    -
+      value: pl
+      label: Polish
+    -
+      value: pt-br
+      label: 'Portuguese (Brazil)'
+    -
+      value: es
+      label: Spanish
+    -
+      value: th
+      label: Thai
+    -
+      value: tr
+      label: Turkish
+    -
+      value: vi
+      label: Vietnamese
+    -
+      value: Other
+      label: Other
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

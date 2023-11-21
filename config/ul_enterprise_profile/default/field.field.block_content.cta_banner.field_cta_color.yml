@@ -1,0 +1,22 @@
+uuid: b5641ab1-ee50-473f-9241-90ee06bff1ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.storage.block_content.field_cta_color
+  module:
+    - color_field
+id: block_content.cta_banner.field_cta_color
+field_name: field_cta_color
+entity_type: block_content
+bundle: cta_banner
+label: Color
+description: 'Choose the color you want for this CTA.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 1
+field_type: color_field_type

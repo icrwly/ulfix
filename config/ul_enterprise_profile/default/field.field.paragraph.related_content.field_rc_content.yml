@@ -1,0 +1,25 @@
+uuid: 0f4eaba7-741a-498f-9d1e-a651f0b9ec9e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rc_content
+    - paragraphs.paragraphs_type.related_content
+id: paragraph.related_content.field_rc_content
+field_name: field_rc_content
+entity_type: paragraph
+bundle: related_content
+label: 'Related Content'
+description: 'Search for content to relate to this page.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: published_nodes_for_paragraphs
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

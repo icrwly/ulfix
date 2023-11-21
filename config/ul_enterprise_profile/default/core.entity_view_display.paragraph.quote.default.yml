@@ -1,0 +1,98 @@
+uuid: 639e2886-df32-4059-965a-f6ccb00172f9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote.field_hash_target
+    - field.field.paragraph.quote.field_quote_company
+    - field.field.paragraph.quote.field_quote_icon
+    - field.field.paragraph.quote.field_quote_link
+    - field.field.paragraph.quote.field_quote_location
+    - field.field.paragraph.quote.field_quote_name
+    - field.field.paragraph.quote.field_quote_text
+    - field.field.paragraph.quote.field_shared_bg_color
+    - image.style.icon
+    - paragraphs.paragraphs_type.quote
+  module:
+    - image
+    - link
+    - options
+    - text
+_core:
+  default_config_hash: pjcsGOsGb1I2odZRRvzwQKS21sC5MuN58vSXZJgPF_I
+id: paragraph.quote.default
+targetEntityType: paragraph
+bundle: quote
+mode: default
+content:
+  field_hash_target:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_quote_company:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_quote_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: icon
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_quote_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_quote_location:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_quote_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_quote_text:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_shared_bg_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+hidden:
+  search_api_excerpt: true

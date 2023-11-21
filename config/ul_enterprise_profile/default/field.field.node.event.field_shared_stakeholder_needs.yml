@@ -1,0 +1,29 @@
+uuid: 1e2d8b03-bb3a-48da-b4e7-b081f9e256ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_stakeholder_needs
+    - node.type.event
+    - taxonomy.vocabulary.stakeholder_needs
+id: node.event.field_shared_stakeholder_needs
+field_name: field_shared_stakeholder_needs
+entity_type: node
+bundle: event
+label: 'Stakeholder Needs - deprecated'
+description: 'The stakeholder needs related to this event.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      stakeholder_needs: stakeholder_needs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

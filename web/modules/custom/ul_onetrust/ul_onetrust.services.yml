@@ -1,0 +1,3 @@
+services:
+  ul_onetrust:
+    class: Drupal\ul_onetrust\OneTrustService

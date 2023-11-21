@@ -1,0 +1,113 @@
+{# IF LOGGED IN: #}
+{% if logged_in %}
+  {% embed '@ul_guidelines_theme/4_regions/hero.twig' with { section: { type: 'default' } } %}
+    {% block hero_title %}
+      <h1>{{- label -}}</h1>
+    {% endblock %}
+    {% block hero_description_desktop %}
+      <p class="hidden-mobile">{{ content.field_homepage_subtitle }}</p>
+    {% endblock %}
+    {% block hero_slides %}
+        {{ content.field_homepage_background }}
+    {% endblock %}
+  {% endembed %}
+
+  {% embed '@ul_guidelines_theme/4_regions/section--featured-cards.twig' with { section: { type: 'default' } } %}
+    {% block card_list %}
+    {{ content.field_homepage_featured }}
+    {% endblock %}
+  {% endembed %}
+
+  {% if content.field_homepage_studio[0] %}
+  {%
+      set t01Studio = {
+      'title': 'My Studio'|t,
+      'sectionList': {
+      'type' : 'studio',
+      }
+  }
+  %}
+      {% embed '@ul_guidelines_theme/4_regions/section--studio.twig' with { section: t01Studio } %}
+        {% block listing_items %}
+          {{ content.field_homepage_studio }}
+        {% endblock %}
+        {% block section_image %}
+          {{ content.field_section_image }}
+        {% endblock %}
+      {% endembed %}
+  {% endif %}
+
+  {% if content.field_homepage_crc_assets[0] %}
+    {%
+      set t01Assets = {
+      'title': 'Featured Assets'|t,
+      'type' : 'file',
+    }
+    %}
+    {% embed '@ul_guidelines_theme/4_regions/section--featured-cards.twig' with { section: t01Assets } %}
+      {% block card_list %}
+        {{ content.field_homepage_crc_assets }}
+      {% endblock %}
+    {% endembed %}
+  {% endif %}
+
+{# ELSE, LOGGED OUT (Anonymous): #}
+{% else %}
+  {#
+    This template replaces the home page markup for anonymous users.
+    @see ul_brandhub.theme::ul_brandhub_theme_suggestions_page_alter().
+  #}
+  {% embed '@ul_guidelines_theme/5_layouts/t07-landing.twig' %}
+    {% set t07Header = {
+      logo: {
+        image: 'path to image',
+        imageAlt: 'Logo',
+        imageHref: '#',
+        brandTitle: 'UL Brand Hub',
+        brandHref: '#',
+        content: 'Brand Hub'
+      }
+    } %}
+    {% set loginUrl %}
+      {% if ul_samlauth_enabled %}
+        {{ path('samlauth.saml_controller_login') }}?return={{ current_page_uri ?: '/' }}
+      {% else %}
+        {{ path('user.login') }}?return={{ current_page_uri ?: '/' }}
+      {% endif %}
+    {% endset %}
+
+    {% set registerUrl %}
+      {% if ul_samlauth_enabled %}
+        {{ ul_samlauth_registration_url }}
+      {% else %}
+        {{ path('user.register') }}
+      {% endif %}
+    {% endset %}
+
+    {% set buttonList = [{
+        buttonText: 'Login with my UL ID'|t,
+        buttonHref: loginUrl
+      },
+      {
+        buttonText: 'Register'|t,
+        buttonHref: registerUrl
+      }]
+    %}
+
+    {% set t07Content = {
+      logo: '',
+      description: content.field_homepage_anon_message,
+      buttons: buttonList,
+      links: {
+        title: 'Need Help?'|t,
+        linkList: content.field_homepage_anon_help
+      }
+    } %}
+
+    {% block list_links %}
+      {% if content.field_homepage_anon_help %}
+        {{ content.field_homepage_anon_help }}
+      {% endif %}
+    {% endblock %}
+  {% endembed %}
+{% endif %}

@@ -1,0 +1,11 @@
+uuid: 34211435-e446-4887-aebb-292e64b41088
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: _NjLMeH_6P7nxEjdPFBq3hFPpNAtvWNqB5Jb_vjBgh4
+name: 'Content Domain'
+vid: content_domain
+description: 'Used for grouping content by domain e.g Legal, News etc. '
+hierarchy: 0
+weight: 0

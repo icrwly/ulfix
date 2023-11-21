@@ -1,0 +1,14 @@
+uuid: 8641d5ad-7e31-40e8-8603-e01a50fda425
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.certification_regulatory_types
+id: taxonomy_vocabulary_certification_regulatory_types
+entity_type_id: taxonomy_vocabulary
+entity_id: certification_regulatory_types
+action: page_not_found
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

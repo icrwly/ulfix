@@ -1,0 +1,19 @@
+uuid: 6829b030-df13-4825-b196-1120c964751a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_addr_company
+    - paragraphs.paragraphs_type.location
+id: paragraph.location.field_addr_company
+field_name: field_addr_company
+entity_type: paragraph
+bundle: location
+label: 'Address Name'
+description: 'Can be the city name such as "Barcelona" or a facility name such as "Lighting Test Laboratory".'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

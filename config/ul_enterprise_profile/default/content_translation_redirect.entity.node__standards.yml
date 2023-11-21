@@ -1,0 +1,8 @@
+uuid: 80b03628-d108-4fbe-a853-7ec1216f45d5
+langcode: en
+status: true
+dependencies: {  }
+id: node__standards
+label: 'Content: Standards'
+code: null
+message: ''

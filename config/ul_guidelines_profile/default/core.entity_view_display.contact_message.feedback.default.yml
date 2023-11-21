@@ -1,0 +1,23 @@
+uuid: 4f780a7b-e37d-4b54-8568-e7398a0b9aa6
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.feedback
+_core:
+  default_config_hash: RHvZVY8flBNwLM63fQSK6xzaroDY8y7SIpWrKH0DDFA
+id: contact_message.feedback.default
+targetEntityType: contact_message
+bundle: feedback
+mode: default
+content:
+  message:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

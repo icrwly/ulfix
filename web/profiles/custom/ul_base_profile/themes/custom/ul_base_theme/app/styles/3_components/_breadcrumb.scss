@@ -1,0 +1,58 @@
+.breadcrumb {
+  padding-bottom: 0 !important;
+  position: relative;
+
+  &__inner {
+    background: rgba(0,0,0,0.68);
+    border-radius: 1.75rem;
+    display: none;
+    position: absolute;
+    top: $spacing-unit--l;
+    z-index: 2;
+    @include breakpoint($desktop) {
+      display: block;
+    }
+  }
+
+  ul {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    padding: 0 $spacing-unit--s;
+  }
+
+  li {
+    display: block;
+    float: left;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: $spacing-unit--s;
+    position: relative;
+
+    &:before {
+      content: none !important;
+    }
+
+    &:after {
+      border-#{$start-direction}: 1px solid $border-color;
+      content: '';
+      height: 2rem;
+      left: 0;
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 1px;
+    }
+
+    &:first-child {
+      &:after {
+        border: 0;
+      }
+    }
+  }
+
+  a {
+    color: $white;
+    display: inline-block;
+  }
+}

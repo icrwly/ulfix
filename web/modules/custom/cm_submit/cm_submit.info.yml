@@ -1,0 +1,6 @@
+name: Content Moderation Submit buttons
+type: module
+description: 'Provide submit buttons for the content moderation.'
+core_version_requirement: ^9 || ^10
+dependencies:
+  - content_moderation

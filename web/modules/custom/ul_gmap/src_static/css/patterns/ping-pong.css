@@ -1,0 +1,131 @@
+/* Ping Pong component on contact us page */
+
+.ul {
+
+    &-ping-pong {
+        @apply w-full h-full flex justify-start items-center;
+        margin-top: 60px;
+        padding-bottom: 160px;
+        /* max-width: 1434px; */
+        padding-left: 160px;
+        padding-right: 24px;
+        gap: 95px;
+
+        @media(max-width: 1200px){
+            padding-left: 40px;
+        }
+
+        @media(max-width: 768px) {
+            flex-direction: column;
+        }
+        
+        &-section {
+            @apply w-full h-full flex flex-col justify-end;
+            max-width: 760px;
+        }
+
+        &-image {
+            @apply w-full h-auto;
+            object-fit: cover;
+            max-height: 386px;
+            max-width: 658px;
+
+            &-wrapper {
+                @apply w-full h-full flex justify-center items-center;
+                max-width: 658px;
+    
+            }
+        }
+
+        &-title {
+            font-weight: 400;
+            color: #585858;
+            margin-bottom: 30px;
+        }
+
+        &-descript {
+            font-weight: 400;
+            color: #585858;
+            margin-bottom: 24px;
+            max-width: 760px;
+        }
+
+        &-button {
+            @apply w-auto h-auto;
+            border: 1px solid #585858;
+            border-radius: 4px;
+            padding-top: 13px;
+            padding-bottom: 13px;
+            padding-left: 33px;
+            padding-right: 33px;
+            width: fit-content;
+            color: #585858;
+        }
+    }
+
+    &-start-over {
+
+        &-wrapper {
+            @apply w-full h-auto flex justify-end;
+            padding-right: 125px;
+            padding-top: 60px;
+            padding-bottom: 60px;
+            padding-left: 40px;
+
+            @media(max-width: 768px){
+                justify-content: flex-start !important;
+            }
+        }
+
+        &-button {
+            @apply w-fit flex justify-center items-center relative;
+            background-color: white;
+            font-weight: 600;
+            color: black;
+            height: 44px;
+            /* margin-top: 56px; */
+            /* max-width: 216px; */
+            border: 1px solid black;
+            border-radius: 4px;
+            cursor: pointer;
+            z-index: 5;
+            padding-top: 10px;
+            padding-bottom: 10px;
+            padding-left: 25px;
+            padding-right: 25px;
+            text-decoration: none !important;
+            transition: all .3s ease-out;
+
+            &::before {
+                content: '\e90f';
+                margin-right: 12px;
+                font-weight: 600;
+                -moz-osx-font-smoothing: grayscale;
+                -webkit-font-smoothing: antialiased;
+                display: inline-block;
+                font-family: icomoon;
+                font-size: inherit;
+                font-style: normal;
+                line-height: inherit;
+                speak: none;
+                text-transform: none;
+                vertical-align: baseline;
+                transform: scaleX(-1);
+                transition: all .3s ease-out;
+            }
+            /* &::before {
+                content: '';
+                width: 21px;
+                height: 24px;
+                color: white;
+                background-color: black;
+                mask-image: url('../../src_static/assets/right_white_arrow.svg');
+                mask-repeat: no-repeat;
+                mask-size: contain;
+                mask-position: center;
+                margin-right: 12px;
+                transform: scaleX(-1);
+            } */
+        }
+    }
+}

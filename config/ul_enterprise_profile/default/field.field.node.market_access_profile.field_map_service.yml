@@ -1,0 +1,34 @@
+uuid: 1f2ff758-110f-4709-87f6-fac11115b531
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_map_service
+    - node.type.market_access_profile
+    - taxonomy.vocabulary.service_types
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.market_access_profile.field_map_service
+field_name: field_map_service
+entity_type: node
+bundle: market_access_profile
+label: Service
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_types: service_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

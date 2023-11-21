@@ -1,0 +1,57 @@
+uuid: ec9a4426-b1c6-4ecb-9757-e7e8ea932de9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.event_form.field_shared_button_text
+    - field.field.marketo_form.event_form.field_shared_custom_title
+    - field.field.marketo_form.event_form.field_shared_form_description
+    - ul_marketo.marketo_form_type.event_form
+  module:
+    - user
+id: marketo_form.event_form.default
+targetEntityType: marketo_form
+bundle: event_form
+mode: default
+content:
+  field_shared_button_text:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_shared_custom_title:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_shared_form_description:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -6
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

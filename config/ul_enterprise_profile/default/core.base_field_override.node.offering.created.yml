@@ -1,0 +1,18 @@
+uuid: 6cb5103c-2ecb-4e78-9b41-cd9618595799
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.offering
+id: node.offering.created
+field_name: created
+entity_type: node
+bundle: offering
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

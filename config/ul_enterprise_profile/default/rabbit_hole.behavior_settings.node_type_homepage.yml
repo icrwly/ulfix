@@ -1,0 +1,14 @@
+uuid: 7f5c8895-d27c-4f98-bd50-2bc3ec8ba366
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.homepage
+id: node_type_homepage
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

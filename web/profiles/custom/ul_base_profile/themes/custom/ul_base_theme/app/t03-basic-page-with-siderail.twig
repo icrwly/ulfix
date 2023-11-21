@@ -1,0 +1,16 @@
+{# t03-basic-page-with-siderail.twig #}
+{% extends '@ul_base_theme/1_core/layout.twig' %}
+
+{% block content %}
+  {% embed '@ul_base_theme/1_core/page.twig' %}
+    {% block page_top %}
+      {% include '@ul_base_theme/4_regions/hero--detail.twig' with hero_detail only %}
+    {% endblock %}
+    {% block page %}
+      {% include '@ul_base_theme/5_layouts/t03-basic-page-with-siderail.twig' %}
+    {% endblock %}
+    {% block page_bottom %}
+      {% include '@ul_base_theme/4_regions/section--action-banner.twig' with t02ActionBanner only %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

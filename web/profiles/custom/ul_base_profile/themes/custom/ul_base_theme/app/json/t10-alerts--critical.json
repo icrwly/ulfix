@@ -1,0 +1,141 @@
+{
+  "hero_detail": {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "topics": [
+      {
+        "name": "Topic Name 1",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 2",
+        "href": "#"
+      }
+    ],
+    "primary_cta": {
+      "title": "Lorem ipsum dolor",
+      "url": "#"
+    },
+    "image": "http://via.placeholder.com/1000x715",
+    "image_alt": "PLACEHOLDER ALT"
+  },
+  "t03Cards": {
+    "titleBar": {
+      "title": "Related Articles",
+      "seeAll": {
+        "name": "See All",
+        "link": "https://www.google.com/"
+      }
+    },
+    "items": [
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "5 min Read"
+      },
+      {
+        "type": "banner",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "subtitle": "Excepteur sint occaecat",
+        "profile": {
+          "link": "https://www.google.com/",
+          "name": "Profile Name"
+        }
+      }
+    ]
+  },
+  "t03Title": {
+    "pageTitle": true,
+    "class": "wrapper max-width--large-tablet",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit ipsum dolor sit amet, consectetur adipisicing elit ipsum dolor sit amet.",
+    "topics": [
+      {
+        "name": "Topic Name 1",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 2",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 3",
+        "href": "#"
+      }
+    ]
+  },
+  "t03Wysiwyg": {
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+  },
+  "t03Published": {
+    "timeStamp": "1522497600"
+  },
+  "t03Tags": [
+    {
+      "name": "Tag Name 1"
+    },
+    {
+      "name": "Tag Name 2"
+    },
+    {
+      "name": "Tag Name 3"
+    }
+  ],
+  "t03References": {
+    "title": "References",
+    "references": [
+      {
+        "citation": "“Analysis of Pre-Market Review Times Under the 510(k) Program,” U.S. Food and Drug Administration, Center for Devices and Radiological Health, November 9, 2011. Web. 4 October 2017. <br><a href=\"#\">https://www.fda.gov/downloads/aboutfda/centersoffices/cdrh/cdrhreports/ucm263386.pdf</a>"
+      },
+      {
+        "citation": "“Analysis of Pre-Market Review Times Under the 510(k) Program,” U.S. Food and Drug Administration, Center for Devices and Radiological Health, November 9, 2011. Web. 4 October 2017. <br><a href=\"#\">https://www.fda.gov/downloads/aboutfda/centersoffices/cdrh/cdrhreports/ucm263386.pdf</a>"
+      },
+      {
+        "citation": "“Analysis of Pre-Market Review Times Under the 510(k) Program,” U.S. Food and Drug Administration, Center for Devices and Radiological Health, November 9, 2011. Web. 4 October 2017. <br><a href=\"#\">https://www.fda.gov/downloads/aboutfda/centersoffices/cdrh/cdrhreports/ucm263386.pdf</a>"
+      }
+    ]
+  },
+  "t03Author": {
+    "image": "http://via.placeholder.com/200x200",
+    "imageAlt": "PLACEHOLDER ALT",
+    "name": "Author Name",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  },
+  "alert": {
+    "id": "alert-critical-test-id",
+    "type": "critical",
+    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "primary_cta": {
+      "title": "Lorem ipsum dolor",
+      "url": "#"
+    },
+    "secondary_cta": {
+      "title": "Lorem ipsum dolor",
+      "url": "#"
+    }
+  }
+}

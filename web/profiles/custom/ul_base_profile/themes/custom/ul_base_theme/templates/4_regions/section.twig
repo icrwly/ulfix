@@ -1,0 +1,73 @@
+{% import "@ul_base_theme/1_core/macros.twig" as mac %}
+
+{% set attributes = {} %}
+
+{% if sectionId %}
+    {% set attributes = attributes|merge({'id': sectionId }) %}
+{% elseif titleBar.title %}
+    {% set name_title %}
+      {{- titleBar.title -}}
+    {% endset %}
+    {% set name_title %}
+        {% spaceless %}
+          {{- name_title|striptags|e|lower|replace({" ": '-'}) -}}
+        {% endspaceless %}
+    {% endset %}
+
+    {% set attributes = attributes|merge({'id': name_title|replace({" ": ''}) ~ '-section' }) %}
+{% endif %}
+
+{% if dataModule %}
+  {% set attributes = attributes|merge({'data-module': dataModule }) %}
+{% endif %}
+
+{% if backgroundColor or textColor %}
+  {% if backgroundColor %}
+    {% set style = style ~ ' background-color: ' ~ backgroundColor ~ ';' %}
+  {% endif %}
+  {% if textColor %}
+    {% set style = style ~ ' color: ' ~ textColor ~ ';' %}
+  {% endif %}
+  {% set attributes = attributes|merge({'style': style }) %}
+{% endif %}
+
+{% if backgroundImage %}
+  {% set attributes = attributes|merge({'style': 'background-image: url(' ~ image ~ ');' }) %}
+{% endif %}
+
+{% if 'associated-content-section' in  mac.attributes(attributes)  %}
+  {% set class = class ~ ' section--associated-content' %}
+{% endif %}
+
+{% set sectionGutterClass = 'section__inner' %}
+{% if inner_class %}
+  {% set sectionGutterClass = sectionGutterClass ~ ' ' ~ inner_class %}
+{% endif %}
+{% if gutterclass %}
+  {% set sectionGutterClass = gutterclass %}
+{% endif %}
+{% if miniCards %}
+  {% set sectionGutterClass = sectionGutterClass ~ ' ' ~ miniCards %}
+{% endif %}
+
+{% block section %}
+  <section class="section {{ class }}" {{ mac.attributes(attributes) }}>
+    {% block hash_target %}
+      {% if content.field_hash_target %}
+        {% include "@ul_base_theme/2_pieces/hash-target.twig" %}
+      {% endif %}
+    {% endblock %}
+    {% block content %}
+      <div class="{{ sectionGutterClass }}">
+        {% block section_header %}
+          {% if titleBar %}
+            {% include "@ul_base_theme/3_components/title-bar.twig" with titleBar only %}
+          {% endif %}
+        {% endblock %}
+        {% block section_body %}
+          {% block subsection %}{% endblock %}
+        {% endblock %}
+      </div>
+    {% endblock %}
+  </section>
+{% endblock %}

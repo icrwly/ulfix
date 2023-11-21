@@ -1,0 +1,19 @@
+{% set card = {
+    title: content.name,
+    image: content.med_thumbnail_url,
+    type: content.file_type,
+    imageAlt: content.name,
+    meta: content.file_type|render ~ ' / ' ~ content.updated_at|render|date('U')|format_date('date_short'),
+    linkHref: content.original_url,
+    linkName: content.name,
+} %}
+
+{% embed '@ul_guidelines_theme/2_pieces/card/card--file.twig' with {card: card} %}
+    {% if card.type|render != 'image' %}
+        {% set linkClass = 'icon-download' %}
+    {% endif %}
+    {% block card_download %}
+        {% set hoverText = card.type|render == 'image' ? 'View'|t : 'Download'|t %}
+        <p>{{ hoverText }} <span class="icon icon-arrow-right"></span></p>
+    {% endblock %}
+{% endembed %}

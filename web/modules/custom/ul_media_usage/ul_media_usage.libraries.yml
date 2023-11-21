@@ -1,0 +1,11 @@
+ul-media-usage:
+  version: 1.x
+  js:
+    js/csvExport_min.js: {}
+    js/ul_media_usage.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+  css:
+    theme:
+      css/ul_media_usage.css: {}

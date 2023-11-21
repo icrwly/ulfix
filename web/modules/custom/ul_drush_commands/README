@@ -1,0 +1,43 @@
+UL Drush 9 Commands
+
+#### Command 1. Reset the roles of users
+
+Provide a command to reset the roles of users:
+- assign *_approver roles to editors/authors on Sandbox environment.
+
+Provide a bash script in docksal Enviroment:
+- /.docksal/commands/sandbox-reset-roles
+- enable the module ul_drush_commands and reset/assign roles to users on Sandbox Env.
+
+Usage example to run command on Sandbox Env:
+- fin sandbox-reset-roles sandbox
+
+Usage example to run command to debug on the site of @local.enterprise:
+- fin sandbox-reset-roles enterprise
+
+
+##### Command 2. Export/Import Taxonomy terms & translations
+
+Export taxonomy terms into a CSV file:
+- command : ul_drush_commands:exportterms
+- aliases : ul-exterms
+- usage : ul-exterms zh-hans
+
+Import taxonomy terms & translations from the CSV file:
+- command : ul_drush_commands:importterms
+- aliases : ul-imterms
+- usage : ul-imterms ../taxonomy-terms-ouput.csv
+
+####
+
+REQUIREMENTS
+- The module requires Drupal core 8.9 or above.
+
+CONFIGURATION
+- Drush 10 is required fro Drupal 9.
+
+INSTALLATION
+- Install as independent Drupal module installation.
+
+FUTURE WORK
+- This module can be resued/extened if we need create more custom Drush commands.

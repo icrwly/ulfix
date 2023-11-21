@@ -1,0 +1,16 @@
+ignored_config_entities:
+  2: system.site
+  4: 'block.block.*'
+  6: language.negotiation
+  8: 'language.entity.*'
+  12: 'ul_samlauth.*'
+  14: 'ul_crc.*'
+  16: 'samlauth.*'
+  18: system.theme
+  20: 'block.block.*'
+  24: 'google_tag.*'
+  28: 'config_split.config_split.*:status'
+  30: 'system.action.book_add_node_action.*'
+  32: 'system.action.book_remove_node_action.*'
+_core:
+  default_config_hash: '-JNnJVs9jil6uMwbbzVzcEXo4TmW-J2tiixFOSIr9s0'

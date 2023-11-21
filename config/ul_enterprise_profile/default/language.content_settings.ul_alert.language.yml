@@ -1,0 +1,18 @@
+uuid: ebcdcdb3-a4cd-4847-b2fe-bf8e621697d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.language
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: ul_alert.language
+target_entity_type_id: ul_alert
+target_bundle: language
+default_langcode: site_default
+language_alterable: true

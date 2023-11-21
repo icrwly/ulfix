@@ -1,0 +1,26 @@
+uuid: ca4d50e4-1f05-4748-94ea-ff13aa45ac3b
+langcode: en
+status: true
+dependencies: {  }
+id: contact_form_configurable
+label: 'Contact Form (new)'
+description: ''
+marketo_form_id:
+  0:
+    value: '3611'
+    filters:
+      instance: Enterprise
+      env: prod
+      langcode: en
+  1:
+    value: '3612'
+    filters:
+      instance: Enterprise
+      env: stage
+      langcode: en
+  actions: {  }
+settings:
+  settings__active_tab: edit-page
+  page_enable: 1
+  path: /sales-inquiry
+  block_enable: 0

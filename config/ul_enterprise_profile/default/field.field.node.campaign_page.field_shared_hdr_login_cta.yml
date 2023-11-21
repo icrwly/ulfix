@@ -1,0 +1,27 @@
+uuid: 916ee3b6-17de-48a5-8e99-72cfdbaf5265
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_hdr_login_cta
+    - node.type.campaign_page
+  module:
+    - link
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_shared_hdr_login_cta
+field_name: field_shared_hdr_login_cta
+entity_type: node
+bundle: campaign_page
+label: 'Shared Header Login CTA'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

@@ -1,0 +1,64 @@
+.section {
+  padding-bottom: $spacing-unit--xl;
+  padding-top: $spacing-unit;
+  @include breakpoint($desktop) {
+    padding-bottom: $spacing-unit--xxl;
+    padding-top: $spacing-unit;
+  }
+
+  &.small-padding {
+    &:not(:last-child) {
+      padding-bottom: $spacing-unit;
+      @include breakpoint($desktop) {
+        padding-bottom: $spacing-unit--l;
+      }
+    }
+    &:not(:first-child) {
+      padding-top: $spacing-unit;
+      @include breakpoint($desktop) {
+        padding-top: $spacing-unit--l;
+      }
+    }
+  }
+
+  &--bg-gray {
+    background: #f8f8f8; // TODO: refactor gray palette, make this lightest
+  }
+
+  &--paragraph {
+    @include center-block;
+    max-width: $large-desktop;
+    &.wrapper:not(.has-bg) {
+      .wrapper & {
+        // Trim dupe padding when nested inside another wrapper
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  &--view {
+    // Nesting sections in sections
+    .section__inner.wrapper {
+      .section__inner.wrapper {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .view-content {
+      > .section:last-child {
+        // Already padding from containing section
+        padding-bottom: 0;
+        padding-top: 0;
+      }
+    }
+  }
+
+  &--link-wrapper {
+    color: inherit;
+    &:hover {
+      color: $red;
+      text-decoration: none;
+    }
+  }
+}

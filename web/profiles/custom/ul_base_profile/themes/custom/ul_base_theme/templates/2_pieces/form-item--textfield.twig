@@ -1,0 +1,8 @@
+<div class="js-form-item form-item js-form-type-textfield form-type-textfield form-group--textfield">
+    {% if label %}
+        <label for="{{ name }}" class="sr-only">{{ label }}</label>
+    {% endif %}
+    {% block textfield %}
+        <input {{ attributes }} class="{{ class }} form-text" name="{{ name }}" value="" size="{{ size }}" maxlength="128">
+    {% endblock %}
+</div>

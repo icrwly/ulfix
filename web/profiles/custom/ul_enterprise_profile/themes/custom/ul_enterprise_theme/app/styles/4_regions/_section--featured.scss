@@ -1,0 +1,14 @@
+.section.section--featured {
+  overflow: visible;
+  &:first-child {
+    @include breakpoint($desktop){
+      padding-top: $spacing-unit--xxxl;
+    }
+  }
+}
+
+// This corrects what is in base, and applies the same
+// padding rules as other sections to featured.
+.section.section--featured + .section--featured {
+  @include section-padding-rules;
+}

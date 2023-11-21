@@ -1,0 +1,15 @@
+<aside class="aside" data-module="sticky" data-breakpoint="min-width: 992px">
+  {% if titleBar %}
+    <div class="aside-top">
+      {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+    </div>
+  {% endif %}
+  {% block aside_widget_list %}
+    {% set grid = true %}
+    <div class="item-container flex-grid">
+      {% for item in widgetList %}
+        {% include '@ul_base_theme/3_components/aside--router.twig' with item %}
+      {% endfor %}
+    </div>
+  {% endblock %}
+</aside>

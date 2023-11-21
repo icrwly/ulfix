@@ -1,0 +1,19 @@
+<div data-view="results">
+    <div class="search-results">
+        <div class="search-results__featured">
+            {% block search_featured %}
+                {% include '@ul_guidelines_theme/4_regions/section--cards.twig' with {
+                    section: searchData.results.featured
+                } %}
+            {% endblock %}
+        </div>
+        <div class="search-results__page">
+            {% block search_pages %}
+            {% endblock %}
+        </div>
+        <div class="search-results__assets">
+            {% block search_assets %}
+            {% endblock %}
+        </div>
+    </div>
+</div>

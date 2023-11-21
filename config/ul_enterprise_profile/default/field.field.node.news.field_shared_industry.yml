@@ -1,0 +1,29 @@
+uuid: 63c9c080-6156-4280-944b-d4d1a9f49224
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_industry
+    - node.type.news
+    - taxonomy.vocabulary.industries
+id: node.news.field_shared_industry
+field_name: field_shared_industry
+entity_type: node
+bundle: news
+label: Industry
+description: "&bull; The industry related to this news item.\r\n<br />&bull; If selecting a sub-industry, you must also select the associated parent-industry"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      industries: industries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,77 @@
+uuid: b89af97f-76a1-4a0c-8e76-36dc47aebc5a
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.popular_page
+    - field.field.node.guideline.body
+    - field.field.node.guideline.field_guideline_crc_assets
+    - field.field.node.guideline.field_shared_approval_process
+    - field.field.node.guideline.field_shared_approval_title
+    - field.field.node.guideline.field_shared_country
+    - field.field.node.guideline.field_shared_domain
+    - field.field.node.guideline.field_shared_industry
+    - field.field.node.guideline.field_shared_market
+    - field.field.node.guideline.field_shared_metatags
+    - field.field.node.guideline.field_shared_ref_description
+    - field.field.node.guideline.field_shared_ref_image
+    - field.field.node.guideline.field_shared_sections
+    - field.field.node.guideline.field_shared_stakeholder_needs
+    - field.field.node.guideline.field_shared_topic
+    - node.type.guideline
+  module:
+    - media
+    - user
+_core:
+  default_config_hash: oH7B2lXhvcqdbKYl2gfkKvkvqqkAKvSRBLf2TW2PMnw
+id: node.guideline.popular_page
+targetEntityType: node
+bundle: guideline
+mode: popular_page
+content:
+  field_shared_approval_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_ref_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_ref_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_author_name: true
+  field_guideline_crc_assets: true
+  field_shared_approval_process: true
+  field_shared_content_access: true
+  field_shared_country: true
+  field_shared_domain: true
+  field_shared_industry: true
+  field_shared_market: true
+  field_shared_metatags: true
+  field_shared_sections: true
+  field_shared_stakeholder_needs: true
+  field_shared_topic: true
+  langcode: true
+  links: true
+  share: true

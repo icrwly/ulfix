@@ -1,0 +1,10 @@
+uuid: 000ac3d9-751e-4aa3-ac86-fd418d1de773
+langcode: en
+status: true
+dependencies: {  }
+id: interrupter_cta
+label: 'Interrupter CTA'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Interrupter CTA</em> for embedding a CTA block in the middle of your content. '
+behavior_plugins: {  }

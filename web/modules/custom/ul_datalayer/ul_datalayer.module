@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for UL Datalayer module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+use Drupal\Component\Serialization\Json;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function ul_datalayer_page_attachments(array &$attachments) {
+
+  // Attempt to get datalayer for page.
+  if ($datalayer = ul_datalayer_get_datalayer()) {
+
+    if (empty($attachments['#attached'])) {
+      $attachments['#attached'] = [];
+    }
+    if (empty($attachments['#attached']['html_head'])) {
+      $attachments['#attached']['html_head'] = [];
+    }
+
+    // Add a script tag to the page head with JSON encoded datalayer array.
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'script',
+        '#value' => 'window.dataLayer = window.dataLayer || []; window.dataLayer.push(' . Json::encode($datalayer) . ');',
+      ],
+      'datalayers-js',
+    ];
+  }
+}
+
+/**
+ * Helper function to return datalayer array for current page.
+ *
+ * @return mixed
+ *   Return associative array of datalayer values, boolean FALSE or NULL.
+ */
+function ul_datalayer_get_datalayer() {
+  $datalayer = &drupal_static(__FUNCTION__);
+
+  // Check that we do not already have the datalayer and not on an admin page.
+  if (empty($datalayer) && !\Drupal::service('router.admin_context')->isAdminRoute()) {
+    $datalayer_service = \Drupal::service('ul_datalayer');
+    if ($page_datalayer = $datalayer_service->getDatalayer()) {
+      $datalayer = $page_datalayer;
+    }
+  }
+
+  return $datalayer;
+}

@@ -1,0 +1,9 @@
+.highlight-card {
+  .content-container,
+  .submit-container {
+    padding:$spacing-unit;
+    @include breakpoint($tablet) {
+      padding:$spacing-unit--l;
+    }
+  }
+}

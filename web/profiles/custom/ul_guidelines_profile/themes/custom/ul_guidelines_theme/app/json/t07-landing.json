@@ -1,0 +1,36 @@
+{
+  "t07Header" : {
+    "logo" : {
+      "image" : "./logo.svg",
+      "alt" : "Image Alt",
+      "href" : "#"
+    },
+    "brand" : {
+      "title" : "Aria Label",
+      "href" : "#",
+      "content" : "Brand Hub"
+    }
+  },
+  "t07Content" : {
+    "description" : "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.",
+    "buttons" : [
+      {
+        "buttonText" : "Login with my UL ID",
+        "buttonHref" : "#"
+      }
+    ],
+    "links" : {
+      "title" : "Need Help?",
+      "linkList" : [
+        {
+          "linkName" : "For Customers",
+          "linkHref" : "#"
+        },
+        {
+          "linkName" : "For UL Employees",
+          "linkHref" : "#"
+        }
+      ]
+    }
+  }
+}

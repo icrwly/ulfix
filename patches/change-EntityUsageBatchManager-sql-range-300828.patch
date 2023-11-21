@@ -1,0 +1,13 @@
+--- docroot/modules/contrib/entity_usage/src/EntityUsageBatchManager.php	2022-12-06 16:35:37.910581260 -0500
++++ docroot/modules/contrib/entity_usage/src/EntityUsageBatchManager.php	2022-12-06 17:14:03.558820307 -0500
+@@ -172,7 +172,8 @@
+
+             ->condition($entity->getEntityType()->getKey('id'), $entity->id())
+             ->accessCheck(FALSE)
+             ->sort($entity->getEntityType()->getKey('revision'), 'DESC')
+-            ->range($start, static::REVISION_BATCH_SIZE)
++            // ->range($start, static::REVISION_BATCH_SIZE)
++            ->range(0, 1)
+             ->execute();
+           $revision_ids = array_keys($result);
+           if (count($revision_ids) === static::REVISION_BATCH_SIZE) {

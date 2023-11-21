@@ -1,0 +1,37 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set gutterclass = "paragraph-gutter paragraph--quote" %}
+
+{% block section_body %}
+    <blockquote>
+        {{ quote }}
+
+        {% if author %}
+            <cite>
+                <ul class="meta">
+                    {% if author.name %}
+                        <li>
+                            {% block author_image %}
+                                <img src="{{ author.image }}" alt="{{ author.name }}" />
+                            {% endblock %}
+                            {{ author.name }}
+                        </li>
+                    {% endif %}
+                    {% if author.location %}
+                        <li>{{ author.location }}</li>
+                    {% endif %}
+                    {% if author.company %}
+                        <li>{{ author.company }}</li>
+                    {% endif %}
+                </ul>
+            </cite>
+        {% endif %}
+    </blockquote>
+
+    {% if viewSource %}
+        <div class="view-source">
+            {% block source_link %}
+                <a href="{{ viewSource.link }}" class="button button--red-outline" title="{{ viewSource.name }}">{{ viewSource.name }}</a>
+            {% endblock %}
+        </div>
+    {% endif %}
+{% endblock %}

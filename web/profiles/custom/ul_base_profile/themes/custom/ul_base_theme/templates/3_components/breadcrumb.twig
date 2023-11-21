@@ -1,0 +1,21 @@
+{% if breadcrumb %}
+  <nav class="breadcrumb wrapper {{ class }}">
+    {% block content %}
+      <div class="breadcrumb__inner">
+        <ul>
+          {% for item in breadcrumb %}
+            <li>
+              {% block breadcrumb_link %}
+                {% if item.url %}
+                    <a href="{{ item.url }}" title="{{ item.text }}">{{ item.text }}</a>
+                {% else %}
+                    <span>{{ item.text }}</span>
+                {% endif %}
+              {% endblock %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+    {% endblock %}
+  </nav>
+{% endif %}

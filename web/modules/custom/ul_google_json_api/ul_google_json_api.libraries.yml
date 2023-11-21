@@ -1,0 +1,10 @@
+# Custom module library for general purposes.
+ul_google_json_api:
+  js:
+    js/ul-google-json-api.js: {}
+  css:
+    component:
+      css/ul-google-json-api.css: {}
+  dependencies:
+    - core/drupalSettings
+    - ul_google_json_api/jquery-labelauty

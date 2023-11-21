@@ -1,0 +1,21 @@
+.list--icon {
+  @include list-unstyled;
+
+  li:not(:last-child) {
+    margin-bottom: $spacing-unit;
+  }
+
+  &.row {
+    margin-bottom: -$grid-gutter;
+    @include breakpoint($large-mobile){
+      margin-bottom: -$grid-gutter * 2;
+    }
+
+    > [class*='span-'] {
+      margin-bottom: $grid-gutter;
+      @include breakpoint($large-mobile){
+        margin-bottom: $grid-gutter * 2;
+      }
+    }
+  }
+}

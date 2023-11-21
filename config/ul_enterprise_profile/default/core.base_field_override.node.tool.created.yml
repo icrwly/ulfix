@@ -1,0 +1,18 @@
+uuid: f1f46648-7bee-4b73-aba6-e4b12de9f5bf
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tool
+id: node.tool.created
+field_name: created
+entity_type: node
+bundle: tool
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

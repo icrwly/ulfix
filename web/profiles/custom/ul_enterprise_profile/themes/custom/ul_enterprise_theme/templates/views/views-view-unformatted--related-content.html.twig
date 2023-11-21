@@ -1,0 +1,17 @@
+{% set items = rows %}
+{% set itemsLength = rows|length %}
+{% embed "@ul_base_theme/4_regions/section--grid.twig" %}
+	{% if itemsLength == 1 %}
+		{% set grid_class = 'span-6-t' %}
+		{% set class = class ~ " section--related-content-single-view section--paragraph" %}
+	{% elseif itemsLength == 2 %}
+		{% set grid_class = 'span-6-t' %}
+	{% elseif itemsLength == 3 %}
+		{% set grid_class = 'span-6-t span-4-d' %}
+	{% elseif itemsLength == 4 %}
+		{% set grid_class = 'span-6-t span-3-d' %}
+	{% endif %}
+	{% set per_row = 'auto' %}
+	{% set class = class ~ " section--related-content section--paragraph section--grid--item" %}
+	{% set row_class = "row--gutter-s" %}
+{% endembed %}

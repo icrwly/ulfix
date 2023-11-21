@@ -1,0 +1,24 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ ' section--file-list' %}
+{% if titleBar %}
+    {% set titleBar = titleBar|merge({border: false}) %}
+{% endif %}
+{% if not item_wrap_class %}
+  {% set item_wrap_class = 'span-12 span-6-t span-4-d' %}
+{% endif %}
+
+{% block section_body %}
+  {% if items %}
+    <div class="row file-list">
+      {% block items %}
+        {% for item in items %}
+          <div class="{{ item_wrap_class }}">
+            {% block item %}
+              {% include '@ul_enterprise_theme/2_pieces/item/item--file.twig' with item only %}
+            {% endblock %}
+          </div>
+        {% endfor %}
+      {% endblock %}
+    </div>
+  {% endif %}
+{% endblock %}

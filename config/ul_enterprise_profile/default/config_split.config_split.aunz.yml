@@ -1,0 +1,17 @@
+uuid: 7c772df3-98c4-4054-81a8-2941026dc9cc
+langcode: en
+status: false
+dependencies: {  }
+id: aunz
+label: au-nz
+description: 'Split for au-nz.ul.com and the corresponding site on lower environments.'
+weight: 0
+folder: ../config/ul_enterprise_profile/sites/au-nz
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - search.page.google_json_api_search
+  - views.view.media
+graylist_dependents: true
+graylist_skip_equal: true

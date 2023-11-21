@@ -1,0 +1,29 @@
+uuid: f4acc281-154c-4349-8bca-2ebb656a103d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_solutions
+    - node.type.offering
+    - taxonomy.vocabulary.solutions
+id: node.offering.field_shared_solutions
+field_name: field_shared_solutions
+entity_type: node
+bundle: offering
+label: Solutions
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      solutions: solutions
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,25 @@
+///*------------------------------------*\
+//    #UTILITY - TRIM MARGIN
+//\*------------------------------------*/
+/* Note: This removes any top/bottom margin on immediate children, avoids extra space
+ * at top/bottom of section, most often caused by headers and paragraphs.
+ */
+
+@mixin trim-margin($position: '') {
+  @if $position == 'top' {
+    > :first-child {
+      margin-top: 0;
+    }
+  } @else if $position == 'bottom' {
+    > :last-child {
+      margin-bottom: 0;
+    }
+  } @else {
+    > :first-child {
+      margin-top: 0;
+    }
+    > :last-child {
+      margin-bottom: 0;
+    }
+  }
+}

@@ -1,0 +1,43 @@
+{
+  "title": "Front End Template Directory",
+  "utilityLinks": [
+      {
+        "name": "Grid Structure",
+        "link": "_grid.html"
+      },
+      {
+        "name": "Base Style Guide",
+        "link": "_styleguide.html"
+      }
+  ],
+  "layoutLinks": [
+    {
+      "name": "T01 - Homepage",
+      "link": "t01-homepage.html"
+    },
+    {
+      "name": "T02 - Brand",
+      "link": "t02-brand.html"
+    },
+    {
+      "name": "T03 - Application (Front End Purposes only)",
+      "link": "t03-application.html"
+    },
+    {
+      "name": "T04 - Studio",
+      "link": "t04-studio.html"
+    },
+    {
+      "name": "T05 - Submit",
+      "link": "t05-submit.html"
+    },
+    {
+      "name": "T06 - Search Results",
+      "link": "t06-search.html"
+    },
+    {
+      "name": "T07 - Logged Out",
+      "link": "t07-landing.html"
+    }
+  ]
+}

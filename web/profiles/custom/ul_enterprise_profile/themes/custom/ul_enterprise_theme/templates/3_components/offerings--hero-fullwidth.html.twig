@@ -1,0 +1,52 @@
+<section class="hero hero--default" style="opacity: 1;">
+  <style>
+
+    .offerings-fullwidth-hero {
+      background: url({{image}}) no-repeat center center;
+    }
+
+  </style>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      <div class="hero--default-slide swiper-slide offerings-fullwidth-hero {{ tall_hero_class }}">
+      {% if video_background %}
+        {{ attach_library('ul_base_theme/wistia') }}
+        <div class="hero--layout-block-view" id="wistiaBackground" data-vid-id="{{ video_background }}" data-fallback="">
+          <div id="video_container" style="">
+          <div id="wistia_{{ video_background }}" class="wistia_embed wistia_async_{{ video_background }} overlayVideo wistia-background-video" style="width:1920px;height:1080px;"></div>
+          </div>
+          <button class="header__background-video--controls" id="hero-video-controls" title="play" aria-pressed="false" aria-label="play">
+                <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 36 36">
+                  <path id="a" d="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26"><animate fill="freeze" attributename="d" attributetype="XML" begin="indefinite" dur="0.1s" from="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26" keysplines=".4 0 1 1" repeatcount="1" to="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28"/></path>
+                </svg>
+          </button>
+        </div>
+      {% else %}
+        <img src="{{- image -}}" class="hero_img_offerings" alt="{{- image_alt -}}" />
+      {% endif %}
+        <div class="wrapper">
+          <div class="content-container hero-content--background gray">
+            <h1>{{- title -}}</h1>
+            <p class="description">{{- description -}}</p>
+            {% block hero_slide_cta %}
+              {% if primary_cta %}
+                {% include '@ul_base_theme/2_pieces/button.twig' with {
+                  link: primary_cta.url,
+                  name: primary_cta.title
+                } %}
+              {% endif %}
+              {% if additional_cta %}
+                {% include '@ul_base_theme/2_pieces/button.twig' with {
+                  link: additional_cta.url,
+                  name: additional_cta.title,
+                  class: additional_cta.class ~ ' button--white-outline'
+                } %}
+              {% endif %}
+            {% endblock %}
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>

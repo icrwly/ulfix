@@ -1,0 +1,18 @@
+uuid: e2583465-5cee-48ca-911f-1481d9cb62e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.interrupter_cta
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.interrupter_cta
+target_entity_type_id: paragraph
+target_bundle: interrupter_cta
+default_langcode: site_default
+language_alterable: true

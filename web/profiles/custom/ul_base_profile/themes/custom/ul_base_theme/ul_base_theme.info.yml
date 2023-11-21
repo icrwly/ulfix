@@ -1,0 +1,28 @@
+name: UL Base Theme
+type: theme
+description: 'The default UL Platform theme that all other UL themes are based on.'
+core_version_requirement: ^9 || ^10
+base theme: classy
+dependencies:
+  - classy:classy
+libraries:
+  - ul_base_theme/global-scripts
+  - ul_base_theme/global-styles-lrt
+components:
+  namespaces:
+    base:
+      - templates
+regions:
+  header: 'Header'
+  breadcrumb: Breadcrumb
+  highlighted: Highlighted
+  content: Content
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  sidebar_first: 'First sidebar'
+  sidebar_second: 'Second sidebar'
+  footer: 'Footer'
+
+# Replace jQuery library.
+libraries-override:
+  core/jquery: ul_base_theme/jquery-custom

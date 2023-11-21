@@ -1,0 +1,8 @@
+uuid: 68c03890-675d-41f8-91f3-9db08fa94169
+langcode: en
+status: true
+dependencies: {  }
+name: 'Insight Types'
+vid: knowledge_types
+description: 'Used for grouping Insights.'
+weight: 0

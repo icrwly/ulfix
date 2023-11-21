@@ -1,0 +1,138 @@
+.section--cards-featured {
+  text-align: center;
+
+  .section__intro {
+    @include breakpoint(max-width $desktop - 1) {
+      margin-bottom: $spacing-unit--xl;
+    }
+    @include breakpoint($desktop) {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      justify-content: center;
+      padding-bottom: calc((#{$carousel-button-size} + #{$spacing-unit--xl}));
+      text-align: left;
+    }
+    .button {
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+    }
+  }
+
+  .swiper-outer-container {
+    opacity: 0;
+    transition: opacity 0.3s ease-out;
+    &.loaded {
+      opacity: 1;
+    }
+    &.resizing {
+      .swiper-slide {
+        height: auto !important;
+      }
+    }
+  }
+
+  .swiper-wrapper {
+    text-align: left;
+  }
+
+  .swiper-slide {
+    display: flex;
+    flex-direction: column;
+    height: 100% !important;
+    justify-content: space-between;
+
+    @include breakpoint($desktop) {
+      @include calc-slide-width($width: 25%, $count: 4);
+    }
+
+    > .grid-item {
+      // TODO: Temporary workaround, div.grid-item should not wrap these cards.
+      height:100%;
+    }
+
+    .card {
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+      width: 100%;
+    }
+
+    .image-container {
+      // TODO: Consider moving into base
+      flex-shrink: 0;
+    }
+
+    &.banner {
+      @include breakpoint($tablet) {
+        height: 100%;
+      }
+    }
+  }
+
+  .swiper-controls {
+    @include clearfix();
+    display: inline-block;
+    margin-top: $spacing-unit--l;
+    position: relative;
+
+    .swiper-button-next,
+    .swiper-button-prev {
+      background: none;
+      border: 1px solid $gray-lighter;
+      bottom: auto;
+      height: 56px;
+      left: auto;
+      margin: 0;
+      position: static;
+      right: auto;
+      text-align: center;
+      top: auto;
+      width: 56px;
+
+      &:after {
+        @include icon-settings();
+        bottom: auto;
+        color: $red;
+        font-size: 1rem;
+        left: auto;
+        line-height: 56px;
+        right: auto;
+        top: auto;
+      }
+    }
+
+    .swiper-button-prev {
+      float: left;
+
+      &:after {
+        content: $icon-bracket-r;
+        transform: rotate(180deg);
+      }
+    }
+
+    .swiper-button-next {
+      float: right;
+
+      &:after {
+        content: $icon-bracket-r;
+      }
+    }
+
+    .swiper-pagination {
+      display: inline-block;
+      margin: $spacing-unit $spacing-unit--l;
+      position: static;
+
+      .swiper-pagination-bullet {
+        background: $gray;
+        opacity: 1;
+        margin: 0 4px;
+      }
+
+      .swiper-pagination-bullet-active {
+        background: $red;
+      }
+    }
+  }
+}

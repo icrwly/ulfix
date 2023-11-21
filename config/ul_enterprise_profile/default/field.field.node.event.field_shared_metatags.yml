@@ -1,0 +1,25 @@
+uuid: 29d0daec-e23f-4f27-b15b-e32c9c445fa7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_metatags
+    - node.type.event
+  module:
+    - metatag
+_core:
+  default_config_hash: B2Fh-DVWjbtiv1dtqH8QQiagI9EKKQ4U-o6D_PLaptk
+id: node.event.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+bundle: event
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

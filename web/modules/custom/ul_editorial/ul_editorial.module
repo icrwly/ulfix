@@ -1,0 +1,202 @@
+<?php
+
+/**
+ * @file
+ * Custom module hooks for UL Editorial module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_alter().
+ */
+function ul_editorial_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $content_types_create_form_names = [
+    'node_campaign_page_form',
+    'node_event_form',
+    'node_help_form',
+    'node_hub_form',
+    'node_knowledge_form',
+    'node_landing_page_form',
+    'node_location_form',
+    'node_market_access_profile_form',
+    'node_news_form',
+    'node_offering_form',
+    'node_page_form',
+    'node_person_form',
+    'node_regional_pages_form',
+    'node_resource_form',
+    'node_tool_form',
+    'node_thankyou_pages_form',
+  ];
+
+  $content_types_edit_form_names = [
+    'node_campaign_page_edit_form',
+    'node_event_edit_form',
+    'node_help_edit_form',
+    'node_hub_edit_form',
+    'node_knowledge_edit_form',
+    'node_landing_page_edit_form',
+    'node_location_edit_form',
+    'node_market_access_profile_edit_form',
+    'node_news_edit_form',
+    'node_offering_edit_form',
+    'node_page_edit_form',
+    'node_person_edit_form',
+    'node_regional_pages_edit_form',
+    'node_resource_edit_form',
+    'node_tool_edit_form',
+    'node_thankyou_pages_edit_form',
+  ];
+
+  // Make field_shared_mktg_support_ticket read-only when editing one of
+  // these nodes and the user is not the superuser nor an admin.
+  if (in_array($form_id, $content_types_edit_form_names)) {
+    // Get the entity to be able to check if it has a value in it and make it
+    // read-only. If not, leave it open so the content author can fill it.
+    $node = $form_state->getFormObject()->getEntity();
+
+    // Allow only admins to be able to edit this field when editing the page.
+    $current_user = \Drupal::currentUser();
+    // If the current user is not the superuser nor an admin.
+    if ($current_user->id() != 1) {
+      $roles = $current_user->getRoles();
+      if (!in_array('administrator', $roles)) {
+        // If there is a value in this field and the user
+        // is not the superuser nor an admin, make the field read-only.
+        if ($node->get('field_shared_mktg_support_ticket')->getString()) {
+          $form['field_shared_mktg_support_ticket']['widget'][0]['value']['#attributes']['readonly'] = 'readonly';
+        }
+      }
+    }
+  }
+
+  // Add custom validation node add/edit forms:
+  if (in_array($form_id, array_merge($content_types_create_form_names, $content_types_edit_form_names))) {
+    $form['#validate'][] = '_ul_mktg_support_ticket_validation';
+    $form['#validate'][] = '_ul_owner_validation';
+  }
+
+  // Add custom validation for homepage add/edit forms:
+  if (in_array($form_id, ['node_homepage_form', 'node_homepage_edit_form'])) {
+    $form['#validate'][] = '_ul_owner_validation';
+  }
+}
+
+/**
+ * UL Marketing Support Ticket Number field custom validation.
+ */
+function _ul_mktg_support_ticket_validation($form, FormStateInterface $form_state) {
+  // The support number is not required to save a draft, but it's required when
+  // publishing a page for the first time. Cannot be modified after publishing.
+  // If updating existing node (an old one), then the field is not required.
+  // The only reliable way to do this is using the node creation date timestamp.
+  // After the page is published, the number cannot be edited.
+  // Allow only admins to update it.
+  // When creating or editing a page these are the possible values
+  // for moderation_state: draft, needs_review, published and archived.
+  // Setting up some variables, and flags to use them through the validation.
+  $ticket_field = 'field_shared_mktg_support_ticket';
+  $ticket = isset($form_state->getValue($ticket_field)[0]['value']) ? $form_state->getValue($ticket_field)[0]['value'] : NULL;
+  $moderation_state = isset($form_state->getTriggeringElement()['#moderation_state']) ? $form_state->getTriggeringElement()['#moderation_state'] : NULL;
+  $required_field_msg = 'Marketing Support Ticket Number is required.';
+  $validate_ticket = FALSE;
+  $require_ticket = TRUE;
+
+  // This whole validation function works for when you create or edit a page.
+  // We need a flag to know when it's editing.
+  $editing = strpos($form['#form_id'], 'edit_form') ? TRUE : FALSE;
+
+  if ($editing) {
+    // Get the node creation date (timestamp) to decide if it requires or not
+    // the field based on when this node was created and if it has been
+    // published before.
+    $node = $form_state->getFormObject()->getEntity();
+    $node_creation_date = $node->getCreatedTime();
+
+    // 1606867200 = Wednesday, December 2, 2020 12:00:00 AM GTM
+    if ($node_creation_date < 1606867200) {
+      // If editing an existing page, check if it has been published before
+      // based on the revisions, if so, it's an old one and does not require
+      // the marketing support number field.
+      $nid = $node->id();
+      $query = \Drupal::database()->select('node_field_revision', 'rev');
+      $query->leftJoin(
+        'content_moderation_state_field_data',
+        'cmsfd',
+        'cmsfd.content_entity_id = rev.nid'
+      );
+      $query->condition('rev.nid', $nid);
+      $query->condition('cmsfd.moderation_state', 'published');
+      $query->fields('rev', ['vid']);
+
+      $num_rows = $query->countQuery()->execute()->fetchField();
+      if ($num_rows > 0) {
+        $require_ticket = FALSE;
+      }
+    }
+  }
+
+  if ($moderation_state == 'published') {
+    // Before publish a page, check if there is already a ticket value
+    // (optionally provided when creating it as a draft, for example), if so,
+    // make sure it has a valid numeric value before it gets published.
+    if ($ticket) {
+      $validate_ticket = TRUE;
+    }
+    else {
+      // Only new pages requires this field, not old ones already created
+      // in the past.
+      if ($require_ticket) {
+        $form_state->setErrorByName($ticket_field, $required_field_msg);
+      }
+    }
+  }
+  // If the intention is NOT to publish the page now.
+  else {
+    // In this case, the ticket number is not required because the intention is
+    // not to publish it now (it's a 'draft' or a 'needs_review'), but if the
+    // content author provides one, make sure is a valid one.
+    if ($ticket) {
+      $validate_ticket = TRUE;
+    }
+  }
+
+  // Field should accept numbers only. Character limit of 20.
+  // If there should be any value in this field, then validate it.
+  if ($validate_ticket) {
+    if (!preg_match('/^\d{0,20}$/', $ticket)) {
+      $form_state->setErrorByName($ticket_field, 'Marketing Support Ticket Number field should contain only numbers.');
+    }
+  }
+}
+
+/**
+ * UL Owner field custom validation.
+ *
+ * CO and COU optional on Draft, required on Publish.
+ */
+function _ul_owner_validation($form, FormStateInterface $form_state) {
+  $input = $form_state->getUserInput();
+  if (is_array($input) && isset($input['op'])) {
+    if (str_contains($input['op'], 'Save and Publish')) {
+      // Content Owner - Check for value:
+      $co_field = 'field_shared_content_owner';
+      if ($input[$co_field] == '_none') {
+        $form_state->setErrorByName(
+          $co_field,
+          'The Content Owner is required'
+        );
+      }
+      // Customer Operating Unit - Check for value:
+      $cou_field = 'field_shared_cou';
+      if (!isset($input[$cou_field]) || !is_array($input[$cou_field])) {
+        $form_state->setErrorByName(
+          $cou_field,
+          'The Customer Operating Unit is required'
+        );
+      }
+    }
+  }
+}

@@ -1,0 +1,25 @@
+uuid: 67992e32-91a5-4e0f-bea9-c8c9de29c52b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.offering
+  module:
+    - text
+_core:
+  default_config_hash: '-3hy7_r0RSRZswHmSqjrKLvu3Oy6r1Oo6Ztyb_8tsFI'
+id: node.offering.body
+field_name: body
+entity_type: node
+bundle: offering
+label: 'Content - deprecated'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

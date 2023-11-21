@@ -1,0 +1,10 @@
+uuid: 5208a0b1-57fa-42f3-aec3-99887148279c
+langcode: en
+status: true
+dependencies: {  }
+id: list_item_plain_text
+label: 'List Item - plain text'
+icon_uuid: null
+icon_default: null
+description: 'Note: These are the required components for the <em>Right Rail Plain Text List</em>.'
+behavior_plugins: {  }

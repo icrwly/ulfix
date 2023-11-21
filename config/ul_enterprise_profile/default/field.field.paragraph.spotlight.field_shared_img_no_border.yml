@@ -1,0 +1,23 @@
+uuid: 28aed726-942b-42e9-85b6-59567b88339b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_img_no_border
+    - paragraphs.paragraphs_type.spotlight
+id: paragraph.spotlight.field_shared_img_no_border
+field_name: field_shared_img_no_border
+entity_type: paragraph
+bundle: spotlight
+label: 'Display image without border'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

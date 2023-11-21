@@ -1,0 +1,125 @@
+.card.card--file{
+  background-color: $white;
+  text-align:left;
+  @include breakpoint($tablet){
+    // text-align:center;
+  }
+  .image-container{
+    // border: solid 1px $graySideRail;
+    // border-radius: 4px;
+    height: 0;
+    overflow:hidden;
+    padding-bottom: 62.5%;
+    position: relative;
+    img{
+      left: 50%;
+      margin:0 auto;
+      max-width:100%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%,-50%);
+      width:auto;
+    }
+    p {
+      @include font-smoothing(false);
+      font-size: 1.4rem;
+      font-weight: 600;
+      .icon {
+        display: inline-block;
+        font-size: 125%;
+        font-weight: 400;
+        transform: translate(5%, 5%);
+      }
+    }
+  }
+  .download-hover{
+    background-color: transparent;
+    color:$white;
+    // cursor:Default;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition:background-color 0.3s ease-in-out;
+    width: 100%;
+    z-index: 10;
+    @include breakpoint($tablet){
+      // cursor:pointer;
+    }
+    &:before,
+    p{
+      color:$white;
+      opacity:0;
+      transition:opacity 0.3s ease-in-out;
+    }
+    &:before{
+      display: block;
+      position: absolute;
+      right:20px;
+      top: 20px;
+    }
+    p{
+      display: block;
+      position: absolute;
+      left: 50%;
+      margin: 0;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &:hover{
+      @include breakpoint($tablet){
+        background-color: rgba($blueSecondary, 0.9);
+        &:before,
+        p{
+          opacity:1;
+        }
+        &:before{
+          transition:background-color 0.3s ease-in-out;
+        }
+      }
+    }
+  }
+  img{
+    border-radius:0;
+  }
+  h3{
+    font-size: 1.6rem;
+    font-weight: 700;
+    margin: 0;
+  }
+  p{
+    @include font-smoothing();
+    font-size: 1.2rem;
+    color:$gray;
+    font-weight: 600;
+    margin: $spacing-unit/2 0;
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  .content-container{
+    padding: $spacing-unit * 1.5;
+    position: relative;
+    @include breakpoint(max-width $tablet - 1){
+      padding-right: calc(40px + #{$spacing-unit * 3});
+    }
+
+    h3,
+    p{
+      // width:calc(100% - 55px);
+      // @include breakpoint($tablet){
+      //   width:100%;
+      // }
+    }
+    a{
+      display: block;
+      position: absolute;
+      right: $spacing-unit * 1.5;
+      top: $spacing-unit * 1.5;
+      // float: right;
+      @include breakpoint($tablet){
+        display:none;
+      }
+    }
+  }
+}

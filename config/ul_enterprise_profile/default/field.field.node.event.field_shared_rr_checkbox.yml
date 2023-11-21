@@ -1,0 +1,23 @@
+uuid: c8e6d067-3a78-4cc2-9383-b1ffc8061eff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_rr_checkbox
+    - node.type.event
+id: node.event.field_shared_rr_checkbox
+field_name: field_shared_rr_checkbox
+entity_type: node
+bundle: event
+label: 'Use Right Rail display?'
+description: 'By selecting this checkbox, you are converting this content from the standard full-width layout to the Right Rail layout that will display the content in the Right Rail tab.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

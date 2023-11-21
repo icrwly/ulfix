@@ -1,0 +1,14 @@
+{% extends '@ul_base_theme/3_components/header--bottom--search.twig' %}
+{% set aria_label_link_search = "Search Site"|t %}
+{% block content %}
+    <a href="#" class="accordion" data-module="accordion" title="searchform" data-max-width="991" aria-label="{{ aria_label_link_search }}">
+        <span class="icon icon-search"></span>
+    </a>
+    <div class="global-header__search-container search-container">
+        <div class="wrapper">
+          <div class="form-group form-group--search search-bar-group form-loaded">
+          {{ content }}
+          </div>
+        </div>
+    </div>
+{% endblock %}

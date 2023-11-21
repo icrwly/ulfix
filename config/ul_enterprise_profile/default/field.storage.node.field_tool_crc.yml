@@ -1,0 +1,22 @@
+uuid: ccde00d9-fc6e-4349-9157-5a1f8de21fae
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - ul_crc_asset
+id: node.field_tool_crc
+field_name: field_tool_crc
+entity_type: node
+type: crc_asset_item
+settings:
+  target_type: crc_asset
+  display_field: false
+  display_default: false
+module: ul_crc_asset
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

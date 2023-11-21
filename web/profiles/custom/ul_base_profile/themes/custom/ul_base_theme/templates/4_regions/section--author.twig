@@ -1,0 +1,18 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--author has-border" %}
+
+{% block content %}
+  <div class="inner-wrapper">
+    {% block section_image %}
+      {% if image %}
+        <img class="circle-image" src="{{- image -}}" alt="{{- imageAlt -}}" />
+      {% endif %}
+    {% endblock %}
+    {% block section_author %}
+      <h3 class="h4">{{- name -}}</h3>
+    {% endblock %}
+    {% block section_description %}
+      <p>{{- description -}}</p>
+    {% endblock %}
+  </div>
+{% endblock %}

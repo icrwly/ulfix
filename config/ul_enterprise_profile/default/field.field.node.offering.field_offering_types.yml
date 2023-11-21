@@ -1,0 +1,29 @@
+uuid: 6b576293-4899-4406-a909-d95fc56e0e98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_offering_types
+    - node.type.offering
+    - taxonomy.vocabulary.offering_types
+id: node.offering.field_offering_types
+field_name: field_offering_types
+entity_type: node
+bundle: offering
+label: 'Offering Type'
+description: 'The offering type related to this offering.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      offering_types: offering_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

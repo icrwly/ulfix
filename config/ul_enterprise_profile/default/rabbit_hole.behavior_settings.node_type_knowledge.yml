@@ -1,0 +1,14 @@
+uuid: d33ca830-ae51-449f-9b1c-83df93f4a212
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.knowledge
+id: node_type_knowledge
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

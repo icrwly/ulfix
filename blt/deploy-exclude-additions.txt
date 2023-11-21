@@ -1,0 +1,24 @@
+#
+# Remove files from the artifact, where they are committed to the
+# UL Platform git repo.
+#
+# This is not suitable for removing files from dependencies
+# downloaded through composer. To remove these files, you should
+# use `baxter-post-deploy-build.sh`.
+#
+# @see https://blt.readthedocs.io/en/stable/readme/extending-blt/#deploybuild
+#
+
+# Development files
+.github
+.docksal
+.local_dbs
+.vs_code
+docroot/sites/ul_enterprise_profile
+docroot/sites/ul_guidelines_profile
+git-hooks
+factory-hooks/pre-sites-php/local-sites.php
+# Exclude everything in the custom themes folder. Themes will be added via the Theme Repository feature in Site Factory.
+docroot/themes/custom
+*.sql
+*.bak

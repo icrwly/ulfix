@@ -1,0 +1,110 @@
+.page--actions{
+  margin-top: $spacing-unit--l;
+  overflow: hidden;
+  text-align:right;
+  p,
+  a.icon:not(.icon-share):not(.icon-file){
+    color:$gray;
+  }
+  p{
+    @include font-size(14, 20);
+  }
+  .update{
+    float:left;
+  }
+  .action-container,
+  .action{
+    display: inline-block;
+  }
+  a.icon:not(.icon-share):not(.icon-file){
+    @include font-size(0, 50);
+    cursor:pointer;
+    font-weight:400;
+    margin-right: 3px;
+    @include breakpoint(1130px){
+      @include font-size(14, 20);
+      margin-right: 26px;
+    }
+    &:before{
+      font-size:20px;
+      @include breakpoint(1130px){
+        font-size:150%;
+        top:3px;
+      }
+    }
+    &:active,
+    &:hover{
+      color:$black;
+    }
+  }
+  a.icon-share,
+  a.icon-file{
+    display:block;
+    @include breakpoint(max-width $desktop - 1){
+      clear:both;
+      width: calc(100% - 2em);
+    }
+    @include breakpoint($desktop){
+      display: inline-block;
+      width:auto;
+    }
+  }
+
+  a.icon-file {
+    background-color: $gray;
+    &:hover,
+    &:active,
+    &:focus,
+    &.active{
+      background: $grayDark;
+    }
+  }
+
+  a.action--favorite{
+    &:hover,
+    &:active,
+    &:focus,
+    &.active{
+      &:before{
+        @extend %icon-heart;
+        color:$red;
+      }
+    }
+  }
+
+  .floating-action-bar {
+    display: flex;
+    justify-content: flex-end;
+
+    .button {
+      margin-left: 1rem;
+
+      @include breakpoint(min-width 1400px) {
+        background-color: transparent;
+        border-radius: 0 !important;
+        margin-left: 0;
+        text-align: left;
+        width: auto;
+        
+        &:hover,
+        &:active,
+        &:focus,
+        &.active{
+          background: $blue;
+        }
+      }
+    }
+
+    @include breakpoint(min-width 1400px) {
+      background-color: lighten($blue, 20);
+      border-radius: 6px 0 0 6px;
+      flex-direction: column;
+      // width: 175px;
+      position: fixed;
+      top: calc(30% + 5rem);
+      right: 0;
+      overflow: hidden;
+    }
+
+  }
+}

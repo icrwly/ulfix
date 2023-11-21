@@ -1,0 +1,16 @@
+{# t03-basic-detail--gated.twig #}
+{% extends '@ul_base_theme/1_core/layout.twig' %}
+
+{% block content %}
+  {% embed '@ul_base_theme/1_core/page.twig' %}
+    {% block page_top %}
+      {% include '@ul_base_theme/4_regions/hero--default.twig' with t03Hero only %}
+    {% endblock %}
+    {% block page %}
+      {% include '@ul_base_theme/5_layouts/t03-basic-detail.twig' with { gated: true } %}
+    {% endblock %}
+    {% block page_bottom %}
+      {% include '@ul_base_theme/4_regions/section--cards--related.twig' with t03Cards only %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

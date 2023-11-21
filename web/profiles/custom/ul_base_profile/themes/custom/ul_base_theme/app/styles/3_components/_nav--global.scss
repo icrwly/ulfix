@@ -1,0 +1,33 @@
+.nav--global {
+  a {
+    @include overline($color: $border-color);
+    color: $black;
+    display: block;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0 $spacing-unit--xs;
+    padding: ($spacing-unit--s + $spacing-unit--xs/2) 0 $spacing-unit--s; // add padding for top-border
+    text-transform: uppercase;
+    &:focus,
+    &:hover {
+      &:before {
+        opacity: 1;
+      }
+    }
+    &.active-trail {
+      color: $red;
+      &:before {
+        background-color: $red;
+        opacity: 1;
+      }
+    }
+  }
+
+  .menu-item--global-nav {
+    &:first-child {
+      a {
+        margin-#{$start-direction}: 0;
+      }
+    }
+  }
+}

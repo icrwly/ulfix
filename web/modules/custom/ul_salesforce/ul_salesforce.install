@@ -1,0 +1,44 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ul_salesforce module.
+ */
+
+use Drupal\redirect\Entity\Redirect;
+
+/**
+ * Update to automatically create/edit content for web to case.
+ */
+function ul_salesforce_update_8001(&$sandbox) {
+  // This is a placeholder.
+  // The generateWebToCaseContent is now handled in a drush command.
+}
+
+/**
+ * Redirect old web-to-case URLs to new Contact Us page.
+ */
+function ul_salesforce_update_8002(&$sandbox) {
+
+  $urls = [
+    'customer-service' => 'internal:/contact-us',
+    'give-feedback' => 'internal:/contact-us',
+  ];
+
+  /** @var \Drupal\redirect\RedirectRepository $repository */
+  $repository = \Drupal::service('redirect.repository');
+
+  foreach ($urls as $source_url => $destination) {
+    // If the redirect does not exist.
+    if (!$redirect_exists = $repository->findBySourcePath($source_url)) {
+      Redirect::create(
+        [
+          'redirect_source' => $source_url,
+          'redirect_redirect' => $destination,
+          'language' => 'und',
+          'status_code' => '301',
+        ]
+      )->save();
+    }
+  }
+}

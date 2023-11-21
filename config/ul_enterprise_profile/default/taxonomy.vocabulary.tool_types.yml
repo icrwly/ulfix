@@ -1,0 +1,10 @@
+uuid: 05cd4188-7182-4077-bb01-ccaff844644e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: MO73D8PtWpkW1s71WgN8K4EezEJkfHybI0MLmxYqUgU
+name: 'Tool Types'
+vid: tool_types
+description: 'Used for grouping Tools.'
+weight: 0

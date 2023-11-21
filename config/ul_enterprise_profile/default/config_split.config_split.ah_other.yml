@@ -1,0 +1,31 @@
+uuid: b660e87a-77b5-4fc1-8150-66789cead5ef
+langcode: en
+status: false
+dependencies: {  }
+id: ah_other
+label: ah_other
+description: 'Split for sbox and potentially CH2 environments.'
+weight: 0
+folder: ../config/ul_enterprise_profile/ah_other
+module:
+  acquia_connector: 0
+  admin_toolbar: 0
+  dblog: 0
+  devel: 0
+  devel_generate: 0
+  ul_testing: 0
+  acquia_purge: 0
+  acsf: 0
+  syslog: 0
+  masquerade: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - acsf.settings
+  - syslog.settings
+graylist:
+  - purge.logger_channels
+  - purge.plugins
+graylist_dependents: false
+graylist_skip_equal: true

@@ -1,0 +1,23 @@
+uuid: 0c16a07d-5d89-44ad-992b-76ce84d13bbd
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: hero_full_width
+label: 'Hero - full width (1920 x 380)'
+effects:
+  7656fcbf-b5a8-4a7e-9733-3d7b15d8db36:
+    uuid: 7656fcbf-b5a8-4a7e-9733-3d7b15d8db36
+    id: image_effects_auto_orient
+    weight: 1
+    data:
+      scan_exif: true
+  c48ca522-f315-4f49-b046-6058b3cfb9f1:
+    uuid: c48ca522-f315-4f49-b046-6058b3cfb9f1
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 1920
+      height: 380
+      anchor: center-center

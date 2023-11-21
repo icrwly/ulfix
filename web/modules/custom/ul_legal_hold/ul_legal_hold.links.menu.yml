@@ -1,0 +1,5 @@
+entity.ul_legal_hold.collection:
+  title: Legal Holds
+  description: List of legal holds
+  route_name: entity.ul_legal_hold.collection
+  parent: system.admin_content

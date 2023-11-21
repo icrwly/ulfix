@@ -1,0 +1,19 @@
+uuid: b73a8a4d-77ac-4f35-943a-8f0cf5264927
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_header_description
+    - node.type.news
+id: node.news.field_shared_header_description
+field_name: field_shared_header_description
+entity_type: node
+bundle: news
+label: Description
+description: "&bull; One or two descriptive sentences to augment the title\r\n<br />&bull; Please limit the description to no more than 277 characters"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

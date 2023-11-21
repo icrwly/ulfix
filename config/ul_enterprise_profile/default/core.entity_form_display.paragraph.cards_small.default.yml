@@ -1,0 +1,79 @@
+uuid: ca6b6fde-db5b-4023-9455-6752dc1b4188
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cards_small.field_cards_sm_cards
+    - field.field.paragraph.cards_small.field_cards_sm_description
+    - field.field.paragraph.cards_small.field_cards_sm_title
+    - field.field.paragraph.cards_small.field_shared_view_mode
+    - paragraphs.paragraphs_type.cards_small
+  module:
+    - field_group
+    - paragraphs
+    - text
+    - view_mode_selector
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_view_mode
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.cards_small.default
+targetEntityType: paragraph
+bundle: cards_small
+mode: default
+content:
+  field_cards_sm_cards:
+    type: entity_reference_paragraphs
+    weight: 2
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_cards_sm_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_cards_sm_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_view_mode:
+    type: view_mode_selector_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

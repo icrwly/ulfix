@@ -1,0 +1,106 @@
+.section--wysiwyg {
+  @include trim-margin();
+
+  @include breakpoint($tablet) {
+    // font-size: 2.1rem;
+    // line-height: 1.72;
+  }
+
+  &.is-gated {
+    max-height: 50vh;
+    overflow: hidden;
+    padding-bottom: 0;
+    position: relative;
+    &:before {
+      background: linear-gradient(to top, rgba($white,1) 0%,rgba($white,0) 100%);
+      content: '';
+      height: 100%;
+      left: 0;
+      position: absolute;
+      top: 0;
+      width: 100%;
+    }
+  }
+
+
+  // Editor Styles
+  // =============
+  // Duplicate styles set in editor-content.scss until
+  // all editor content is wrapped in .editor-content class
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 0.1em;
+  }
+
+  h1 {
+    @include breakpoint($tablet) {
+      // font-size: 5.4rem;
+    }
+  }
+
+  h2 {
+    @include breakpoint($tablet) {
+      // font-size: 4.2rem;
+    }
+  }
+
+  h3 {
+    @include breakpoint($tablet) {
+      // font-size: 3.6rem;
+    }
+  }
+
+  h4 {
+    @include breakpoint($tablet) {
+      // font-size: 2.6rem;
+    }
+  }
+
+  ul {
+    @include list-unordered;
+  }
+  ol {
+    @include list-ordered;
+  }
+
+  ul,
+  ol {
+    ul,
+    ol {
+      margin-top: $spacing-unit--l;
+    }
+  }
+
+  p {
+    line-height: 1.75;
+  }
+
+  blockquote {
+    p {
+      line-height: 1.25;
+    }
+  }
+
+  .media-wysiwyg-align-left {
+    @include breakpoint($tablet) {
+      display: block;
+      float: $start-direction;
+      margin: $spacing-unit--xl;
+      margin-#{$start-direction}: 0;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+  .media-wysiwyg-align-right {
+    @include breakpoint($tablet) {
+      display: block;
+      float: $end-direction;
+      margin: $spacing-unit--xl;
+      margin-#{$end-direction}: 0;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+}

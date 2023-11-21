@@ -1,0 +1,18 @@
+uuid: c2128499-19f6-4425-a1a2-e1308efc9b04
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_types
+id: taxonomy_term.news_types.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: news_types
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

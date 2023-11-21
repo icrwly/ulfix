@@ -1,0 +1,73 @@
+.listing-item {
+  &.listing-item--search {
+    background: $white;
+    border: 1px solid $gray-lighter!important;
+    display: inherit;
+    flex-wrap: inherit;
+    padding: 0 !important;
+    position: relative;
+    width: 100%;
+    a{
+      h3,
+      p{
+        color:$text-color;
+      }
+    }
+    .grid-item {
+      &.content {
+        @include breakpoint($tablet) {
+          flex-basis: 60%;
+          margin-bottom: 0;
+          max-width: 60%;
+          order: 1;
+        }
+      }
+      &.image {
+        @include breakpoint($tablet) {
+          flex-basis: 40%;
+          margin-bottom: 0;
+          max-width: 40%;
+          order: 2;
+          position: relative;
+        }
+      }
+    }
+    .widget--card-tags {
+      padding: 0;
+      z-index: index($globalIndex, base);
+      a {
+        color: $blue-light;
+      }
+    }
+    .image-container {
+      @include breakpoint($tablet) {
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        height: 100%;
+        padding: 0;
+        position: absolute;
+        right: ($spacing-unit / 2);
+        top: 0;
+        width: 100%;
+        img {
+          display: none;
+        }
+      }
+      @include breakpoint($desktop) {
+        right: $spacing-unit;
+      }
+      @include breakpoint(max-width ($tablet - 1)) {
+        background-image: none!important;
+        padding: 0;
+      }
+    }
+    .content-container {
+      margin: 0;
+      padding: $spacing-unit--l;
+      @include breakpoint($tablet) {
+        padding: ($spacing-unit--xl + .5) $spacing-unit--l ($spacing-unit--xl + .5) ($spacing-unit--xl + .5);
+      }
+    }
+  }
+}

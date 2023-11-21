@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Custom module hooks for UL Crop Image module.
+ */
+
+use Drupal\media\MediaInterface;
+use Drupal\file\Entity\File;
+
+/**
+ * Implements hook_media_presave().
+ */
+function ul_crop_image_media_presave(MediaInterface $entity) {
+  if ($entity->bundle() == 'file' && $entity->hasField('field_images_for_attachments')) {
+    $image = $entity->get("field_images_for_attachments")->getValue();
+    if ($image) {
+      $file = File::load($image['0']['target_id']);
+      // Recreate cropped image.
+      image_path_flush($file->getFileUri());
+    }
+  }
+}

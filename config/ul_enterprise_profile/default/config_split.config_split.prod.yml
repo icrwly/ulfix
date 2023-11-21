@@ -1,0 +1,23 @@
+uuid: 657dce00-7504-48be-a727-1a3ada9b2ea7
+langcode: en
+status: false
+dependencies: {  }
+id: prod
+label: prod
+description: ''
+weight: 0
+folder: ../config/ul_enterprise_profile/prod
+module:
+  advagg: 0
+  syslog: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - syslog.settings
+graylist:
+  - purge.logger_channels
+  - purge.plugins
+  - shield.settings
+graylist_dependents: false
+graylist_skip_equal: true

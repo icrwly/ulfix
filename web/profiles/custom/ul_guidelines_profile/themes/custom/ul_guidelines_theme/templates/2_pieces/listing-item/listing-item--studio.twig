@@ -1,0 +1,10 @@
+<div class="listing-item listing-item--studio">
+  {% block listingItem_link %}
+    <a href="{{- item.linkHref -}}" class="arrow-link arrow-link--right"><h3>{{- item.linkName -}}</h3></a>
+  {% endblock %}
+  {% block listingItem_description %}
+    {% if item.description %}
+      <p>{{- item.description -}}</p>
+    {% endif %}
+  {% endblock %}
+</div>

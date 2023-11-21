@@ -1,0 +1,45 @@
+uuid: 0f3a7389-b1c7-4d90-ae82-745096fbecec
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.hero
+  module:
+    - ctools
+    - views
+  theme:
+    - ul_enterprise_theme
+id: views_block__hero_block
+theme: ul_enterprise_theme
+region: content
+weight: -7
+provider: null
+plugin: 'views_block:hero-block'
+settings:
+  id: 'views_block:hero-block'
+  label: ''
+  label_display: '0'
+  provider: views
+  context_mapping: {  }
+  views_label: ''
+  items_per_page: none
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      event: event
+      help: help
+      knowledge: knowledge
+      news: news
+      offering: offering
+      person: person
+      resource: resource
+      tool: tool
+  request_path:
+    id: request_path
+    pages: "/about/leadership\r\n/about/leadership/*"
+    negate: true
+    context_mapping: {  }

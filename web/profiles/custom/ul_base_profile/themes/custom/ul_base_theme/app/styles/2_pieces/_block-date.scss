@@ -1,0 +1,19 @@
+.block-date {
+  @include font-smoothing();
+  font-size: 2.2rem;
+  line-height: 1;
+  padding: $spacing-unit * .75 $spacing-unit $spacing-unit--s;
+  text-align:center;
+  .day {
+    color: $red;
+    display: block;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .date {
+    color: $black !important; // TODO: fix with card refactor
+    display: block;
+    font-weight: 600;
+  }
+}

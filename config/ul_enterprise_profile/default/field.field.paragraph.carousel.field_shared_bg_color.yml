@@ -1,0 +1,25 @@
+uuid: c73aadc5-9a77-4741-89b2-fbaf32d10454
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_bg_color
+    - paragraphs.paragraphs_type.carousel
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.carousel.field_shared_bg_color
+field_name: field_shared_bg_color
+entity_type: paragraph
+bundle: carousel
+label: 'Background Color'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

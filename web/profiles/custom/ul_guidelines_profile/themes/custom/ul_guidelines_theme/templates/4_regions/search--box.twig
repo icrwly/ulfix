@@ -1,0 +1,11 @@
+{% set search_box_classes = search_box.classes ?:[] %}
+{% set search_box_classes = search_box_classes|merge(['search-box']) %}
+<div class="{{ search_box_classes|join(' ') }}">
+    {% set search_box_inner_classes = search_box.inner_classes ?:[] %}
+    {% set search_box_inner_classes = search_box_inner_classes|merge(['search-box__inner']) %}
+    <div class="{{ search_box_inner_classes|join(' ') }}">
+        {% block content %}
+            {% include '@ul_guidelines_theme/3_components/search--box--form.twig' %}
+        {% endblock %}
+    </div>
+</div>

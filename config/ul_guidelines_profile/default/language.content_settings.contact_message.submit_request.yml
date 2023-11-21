@@ -1,0 +1,11 @@
+uuid: 71faaf7d-c1c6-4bd2-bec1-d1421cc82542
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+id: contact_message.submit_request
+target_entity_type_id: contact_message
+target_bundle: submit_request
+default_langcode: site_default
+language_alterable: false

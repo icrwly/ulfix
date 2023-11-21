@@ -1,0 +1,238 @@
+{
+  "title": "T02 - Brand Template",
+  "sideRail": [
+    {
+      "linkHref": "#",
+      "linkName": "The UL Brand"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Visual",
+      "subMenu": [
+        {
+          "title": "UL Logo",
+          "linkHref": "#",
+          "linkName": "Clear space and minimum size"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Color presentation"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Incorrect usage"
+        },
+        {
+          "title": "Tagline ",
+          "linkHref": "#",
+          "linkName": "Clear space and minimum size "
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "title": "Color strategy ",
+          "linkHref": "#",
+          "linkName": " Color palette "
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Color blends"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "title": "Typography  ",
+          "linkHref": "#",
+          "linkName": " UL Typeface "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Default fonts for digital use"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Asian fonts"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "title": "Photography   ",
+          "linkHref": "#",
+          "linkName": " Style "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Subject matter"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Unacceptable imagery"
+        },
+        {
+          "title": "Icons / Infographic / Illustrations    ",
+          "linkHref": "#",
+          "linkName": " Icons "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Infographic"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Illustrations"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Image highlight"
+        },
+        {
+          "title": "Graphic elements     ",
+          "linkHref": "#",
+          "linkName": " Icons "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Frame and grid system"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Dynamic box"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Super graphic"
+        }
+      ]
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Voice and Tone"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Digital"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Brand Architecture"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Naming Guidelines"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Brand Strategy"
+    }
+  ],
+  "t02PageActions": {
+    "update": "Updated 7.12.17",
+    "approval": true,
+    "favorite": true,
+    "files": true,
+    "share": true
+  },
+  "wysiwyg": "<h2>Heading 2</h2><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><h3>Why do we use it?</h3><p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look like readable English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes by accident, sometimes on purpose (injected humour and the like).</p><img src=\"https://placeholdit.imgix.net/~text?txtsize=33&txt=720%C3%97478&w=720&h=478\" alt=\"Placeholder Image\">",
+  "t02Accordions1": {
+    "id": "mission",
+    "title": "Mission",
+    "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+  },
+  "t02Accordions2": {
+    "id": "promise",
+    "title": "Promise",
+    "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+  },
+  "t02Accordions3": {
+    "id": "valueProposition",
+    "title": "Value Proposition",
+    "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently</p>"
+  },
+  "t02Accordions4": {
+    "id": "brandPillars",
+    "title": "Brand Pillars",
+    "description": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p><p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>"
+  },
+  "t02Cards": {
+    "title": "Files",
+    "type": "file",
+    "cardList": [
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "Brochure_Enterprise_Overview_Digital_EN_8.5x11_1705",
+        "meta": "PDF / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "Logos for print",
+        "meta": "PDF / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "Logos for digital",
+        "meta": "PDF / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "Certification mark",
+        "meta": "PDF / Uploaded 7.12.17 / 12MB"
+      }
+    ]
+  },
+  "t02Cards2": {
+    "title": "Files",
+    "type": "card",
+    "cardList": [
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "UL Brand at a glance",
+        "description": "PDF / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "Logos for print",
+        "description": "PDF / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "Logos for digital",
+        "description": "PDF / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+        "imageAlt": "Image Alt String",
+        "title": "Certification mark",
+        "description": "PDF / Uploaded 7.12.17 / 12MB"
+      }
+    ]
+  },
+  "t02BookNav": {
+    "previous": "Visual",
+    "next": "Clear space and minimum size"
+  }
+}

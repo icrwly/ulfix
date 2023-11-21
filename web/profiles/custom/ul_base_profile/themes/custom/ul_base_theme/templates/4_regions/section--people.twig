@@ -1,0 +1,25 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--people section--paragraph wrapper" %}
+
+{% block content %}
+  <div class="section__header">
+    {% block title %}
+       {% if title %}
+        <h2 class="section__title display-3">{{ title }}</h2>
+       {% endif %}
+    {% endblock %}
+  </div>
+  <div class="section__body">
+    {% block items %}
+      {% if items %}
+        <div class="row">
+          {% for item in items %}
+            {% block item %}
+              {% include '@ul_base_theme/2_pieces/section--people__person.twig' %}
+            {% endblock %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

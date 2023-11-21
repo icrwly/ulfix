@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      filters:
+        field_shared_industry_target_id:
+          expose:
+            label: Settore
+        field_resource_type_target_id:
+          expose:
+            label: 'Tipo di risorsa'
+        title:
+          expose:
+            placeholder: Ricerca
+      empty:
+        area:
+          content:
+            value: "<div class=\"wrapper\">\r\n<div class=\"span-col-12\">\r\n<h2>Unable to find information matching your search.</h2>\r\n\r\n<p>We'd like to help you find what you are looking for. Please try again with a different term (or check your spelling), review our <a href=\"/customer-resources/faq\">FAQs</a> for answers to common questions, or <a href=\"/contact-us\">contact our Customer Support team</a>.</p>\r\n</div>\r\n</div>\r\n"
+            format: full_html

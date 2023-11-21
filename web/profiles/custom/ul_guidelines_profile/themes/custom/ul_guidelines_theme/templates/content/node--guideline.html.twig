@@ -1,0 +1,53 @@
+
+{% set page = {
+    update: 'Update'|t ~ ' ' ~ node.getChangedTime|format_date('date_short'),
+} %}
+
+{% if content.field_shared_approval_process|render|striptags|trim %}
+    {% set page = page|merge({'approval': 1}) %}
+{% endif %}
+
+{% embed '@ul_guidelines_theme/4_regions/page--actions.twig' with {
+    page: page
+} %}
+{% block page_approval %}
+    {# Approval process on Guideline is no longer a modal. #}
+{% endblock %}
+{% block page_share %}
+        {{ content.share }}
+    {% endblock %}
+{% endembed %}
+{% include '@ul_guidelines_theme/4_regions/section--main.twig' with {
+    title: label,
+    wysiwyg: content.body
+} %}
+{{ content.field_shared_sections }}
+
+{% if content.field_shared_approval_process|render|striptags|trim %}
+    {% set approvalList = {
+        'title': content.field_shared_approval_title,
+        'sectionList' :{'type': 'checklist'}
+    } %}
+    {% embed '@ul_guidelines_theme/4_regions/section--listing-items.twig' with { section: approvalList } %}
+        {% block list_items %}
+            {{ content.field_shared_approval_process }}
+        {% endblock %}
+        {% block view_more %}
+            <a href="/contact/submit_request" class="action button icon icon-request" role="button">{{ 'Submit Request'|t }}</a>
+        {% endblock %}
+    {% endembed %}
+{% endif %}
+
+{% if content.field_guideline_crc_assets[0] is not empty %}
+    <a name="files"></a>
+    {% set t02Assets = {
+    'title': 'Files'|t,
+    'type' : 'file'
+    } %}
+    {% embed '@ul_guidelines_theme/4_regions/section--cards.twig' with { section: t02Assets } %}
+      {% block card_list %}
+        {{ content.field_guideline_crc_assets }}
+      {% endblock %}
+    {% endembed %}
+{% endif %}
+{{ content.book_navigation }}

@@ -1,0 +1,51 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a view of unformatted rows.
+ *
+ * Available variables:
+ * - title: The title of this group of rows. May be empty.
+ * - rows: A list of the view's row items.
+ *   - attributes: The row's HTML attributes.
+ *   - content: The row's content.
+ * - view: The view object.
+ * - default_row_class: A flag indicating whether default classes should be
+ *   used on rows.
+ *
+ * @see template_preprocess_views_view_unformatted()
+ *
+ * @ingroup themeable
+ */
+#}
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = 'wrapper max-width--large-desktop search-page' %}
+{% set titleBar = {
+    'headingLevel': 'h1',
+    'border': false,
+    'title': 'Search'|t
+} %}
+
+{% block section_body %}
+    {% embed '@ul_base_theme/4_regions/section--listing-container.twig' %}
+         {% set class = "section--listing-container section--listing-container-search" %}
+         {% block section_listing_items %}
+             {{ exposed }}
+
+             {% if header %}
+                 <header>
+                     {{ header }}
+                 </header>
+             {% endif %}
+             {{ rows }}
+             {{ empty }}
+         {% endblock %}
+
+         {% block section_pagination %}
+             <div class="pagination--listing">
+                 <div class="pull-right">
+                     {{ pager }}
+                 </div>
+             </div>
+         {% endblock %}
+    {% endembed %}
+{% endblock %}

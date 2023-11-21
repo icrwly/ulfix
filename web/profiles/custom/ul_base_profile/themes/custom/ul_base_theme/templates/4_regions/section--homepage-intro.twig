@@ -1,0 +1,48 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "homepage--intro " ~ intro_items_class %}
+{% block content %}
+  <div class="wrapper display-flex">
+    {% if intro_items.title is defined %}
+      <div class="flex-item intro-title-wrap">
+        <div class="content-container">
+          {% block intro_title %}
+            <h2>{{- section.title -}}</h2>
+          {% endblock %}
+          {% block intro_description %}
+            {% if section.description %}
+              {% block intro_description_inner %}
+                <div class="editor-content">
+                  {{- section.description -}}
+                </div>
+              {% endblock %}
+            {% endif %}
+          {% endblock %}
+        </div>
+      </div>
+    {% endif %}
+    {% if intro_items.slides is defined %}
+      <div class="flex-item  intro-cards-wrap">
+        {% block intro_card_list %}
+          <div class="card-container" data-module="introCarousel">
+            <div class="swiper-container">
+              <div class="swiper-wrapper">
+                {% block intro_slides %}
+                  {% for slide in section.slides %}
+                    {% include '@ul_base_theme/3_components/homepage__intro-slide.twig' with slide only %}
+                  {% endfor %}
+                {% endblock %}
+              </div>
+            </div>
+          </div>
+        {% endblock %}
+      </div>
+    {% endif %}
+    {% if intro_items.cta is defined %}
+      <div class="flex-item hightlight-card-wrap">
+        {% block intro_hightlight_card %}
+          {% include '@ul_base_theme/3_components/highlight-card.twig' with section.hightlightCard only %}
+        {% endblock %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

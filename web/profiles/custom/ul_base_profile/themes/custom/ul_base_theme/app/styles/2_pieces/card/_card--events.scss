@@ -1,0 +1,81 @@
+.card.card--events {
+  background-color: $white;
+  display: flex; // TODO: refactor into base card styles
+  flex-direction: column; // TODO: refactor into base card styles
+
+  h3 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+  }
+
+  .card__title {
+    + .card__subtitle {
+      margin-top: -$spacing-unit;
+    }
+  }
+
+  .image-container {
+    min-height: 130px;
+  }
+
+  .card__subtitle {
+    color: $black;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    margin-bottom: $spacing-unit--l * .75;
+  }
+
+  .block-date {
+    #{$start-direction}: $spacing-unit;
+    background: $white;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+    bottom: 0;
+    position: absolute;
+    transition: background $transition;
+      .date {
+        text-align: center;
+        width: 100%;
+      }
+  }
+
+  .content-container {
+    padding: $spacing-unit * 1.5;
+
+    @include breakpoint($large-desktop) {
+      padding: $spacing-unit--l;
+    }
+  }
+
+  .bottom-row {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: auto;
+    padding: $spacing-unit/2 $spacing-unit * 1.5 $spacing-unit * 1.5;
+
+    &:after {
+      content: none !important; // TODO: can be removed after card refactor
+    }
+
+    a {
+      display: block;
+    }
+
+    .button {
+      @include font-smoothing;
+      text-transform: none;
+      &--link {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+  }
+
+  .widget--topics {
+    width: 100%;
+    display: block;
+  }
+}

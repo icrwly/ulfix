@@ -1,0 +1,18 @@
+uuid: 19fc5e94-086e-44f8-ba44-2582a16a1c81
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.service_categories
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.service_categories
+target_entity_type_id: taxonomy_term
+target_bundle: service_categories
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,7 @@
+{% include '@ul_guidelines_theme/4_regions/footer--copyright.twig' with {
+    footer: {
+        logo: site_logo,
+        logoAlt: site_name,
+        copyright: '&copy; @date UL LLC. All rights reserved.'|t({'@date': "now"|date("Y")})
+    }
+} %}

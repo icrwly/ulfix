@@ -1,0 +1,8 @@
+uuid: 2675f6e1-cad4-4a34-9bf4-1a5b52665675
+langcode: en
+status: true
+dependencies: {  }
+name: 'Help Categories'
+vid: help_categories
+description: 'Used for categorizing Help.'
+weight: 0

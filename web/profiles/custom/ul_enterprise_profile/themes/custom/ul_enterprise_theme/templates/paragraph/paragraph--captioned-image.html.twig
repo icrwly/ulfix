@@ -1,0 +1,33 @@
+{% set item = {
+    image: content.field_captioned_image_image.0.url,
+    image_alt: content.field_captioned_image_image.0.alt,
+    description: content.field_captioned_image_caption
+} %}
+{% block item %}
+    <div class="row-item span-4-t">
+        {% block item_image %}
+            <div class="image-container">
+                {# Lazy Load the image. #}
+                {% if '.svg' in item.image|render|render or '.gif' in item.image|render|render %}
+                  <a href="{{- item.image|render|render|replace({'/styles/hero_boxed_width/public/': '/'}) -}}" title="{{- item.image_alt -}}">
+                    <img class="lazy" data-src="{{- item.image|render|render|replace({'/styles/hero_boxed_width/public/': '/'}) -}}" alt="{{- item.image_alt -}}" />
+                    <span class="icon_popup"></span>
+                  </a>
+                {% else %}
+                  <a href="{{- item.image -}}" title="{{- item.image_alt -}}">
+                    <img class="lazy" data-src="{{- item.image -}}" alt="{{- item.image_alt -}}" />
+                    <span class="icon_popup"></span>
+                  </a>
+                {% endif %}
+            </div>
+        {% endblock %}
+        {% block item_description %}
+            {% if item.description  %}
+                <div class="description">
+                    <p>{{ item.description }}</p>
+                </div>
+            {% endif %}
+        {% endblock %}
+    </div>
+
+{% endblock %}

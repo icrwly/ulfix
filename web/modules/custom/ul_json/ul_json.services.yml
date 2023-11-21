@@ -1,0 +1,4 @@
+services:
+  ul_json.export:
+    class: Drupal\ul_json\Export
+    arguments: ['@logger.factory', '@renderer', '@file_system', '@database', '@config.factory', '@language_manager', '@request_stack', '@cache.default', '@entity_type.manager']

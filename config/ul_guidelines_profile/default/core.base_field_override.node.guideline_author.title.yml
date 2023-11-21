@@ -1,0 +1,18 @@
+uuid: 5efa7a78-9d9d-4b3c-b655-73952bd560e4
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.guideline_author
+id: node.guideline_author.title
+field_name: title
+entity_type: node
+bundle: guideline_author
+label: 'Guideline Author'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

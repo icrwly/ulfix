@@ -1,0 +1,6 @@
+ul_media_usage:
+  table_name: ul_media_usage
+  table_database: default
+  description: ''
+  column_relations: 'a:4:{s:9:"target_id";s:5:"media";s:6:"author";s:4:"user";s:9:"source_id";s:4:"node";s:10:"source_vid";s:4:"node";}'
+  created_by: '32001'

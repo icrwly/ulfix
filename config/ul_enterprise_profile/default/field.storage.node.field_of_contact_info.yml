@@ -1,0 +1,21 @@
+uuid: 8eccbcf6-06dc-4e8c-bed4-e8cfa723e9bd
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: D7-Vg_chzasYg7FzHE3nMZwE1Ai5BYQ1LBEJa5k6qbE
+id: node.field_of_contact_info
+field_name: field_of_contact_info
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

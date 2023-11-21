@@ -1,0 +1,48 @@
+///*------------------------------------*\
+//    #CORE/HTML - TABLES
+//\*------------------------------------*/
+
+table {
+  // Draggable overflow for smaller screens
+  // overflow-x: auto;
+  width: 100%;
+}
+
+caption {}
+
+colgroup {}
+
+col {}
+
+tbody {
+  // Helpful if zebra-striping
+  //   tr:nth-child(even) {
+  //     background-color: rgba(255, 255, 255, .5);
+  //   }
+}
+
+thead {}
+
+tfoot {}
+
+tr,
+td,
+th {
+  padding: 10px;
+}
+
+tr {}
+
+td {
+  padding: 10px;
+  line-height: 1.42857143;
+  vertical-align: top;
+  border-bottom: 1px solid $border-color;
+  font-size: 1.4rem;
+}
+
+th {
+  vertical-align: bottom;
+  border-bottom: 2px solid $border-color;
+  text-align: left;
+}

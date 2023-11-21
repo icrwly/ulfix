@@ -1,0 +1,23 @@
+uuid: 8cbdb5c3-762b-42bc-831b-382dfd4b9e16
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.guideline_author
+  module:
+    - text
+id: node.guideline_author.body
+field_name: body
+entity_type: node
+bundle: guideline_author
+label: 'Author biography'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: false
+  required_summary: false
+field_type: text_with_summary

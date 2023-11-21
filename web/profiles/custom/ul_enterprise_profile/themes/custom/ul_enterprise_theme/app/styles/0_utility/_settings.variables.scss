@@ -1,0 +1,61 @@
+// Text Color
+$text-color: $gray;
+$text-color--light: $gray-medium;
+
+
+// Text color
+$background-color: $gray-lightest;
+$background-color--hover: darken($gray-lightest, 2.5%);
+
+
+// Border Color
+$border-color: $gray-lighter;
+$border-color--medium: $gray-light;
+
+
+// Border Radius
+$border-radius: 4px;
+
+
+// Box Shadow
+$box-shadow--level-1: 0 2px 4px -1px rgba($black, 0.125);
+$box-shadow--level-1--hover: 0 2px 4px 0 rgba($black, 0.25);
+$box-shadow--level-2: 0 4px 8px -2px rgba($black, 0.125);
+$box-shadow--level-3: 0 2px 12px -2px rgba($black, 0.25);
+$box-shadow--level-3: 0 2px 24px -2px rgba(0,0,0,.375);
+
+
+// Easing
+// https://easings.net/#easeOutCubic
+$easeOutCubic: cubic-bezier(0.215, 0.61, 0.355, 1);
+
+
+// Transition defaults
+$transition-duration: .3s;
+$transition-duration--slow: .6s;
+$transition-timing: $easeOutCubic;
+$transition: $transition-duration $transition-timing;
+$transition--slow: $transition-duration--slow $transition-timing;
+
+
+// Hamburger Button
+$hamburger-button-size: 4.2rem;
+$hamburger-icon-height: 2.8rem;
+$hamburger-line-height: 2px;
+$hamburger-line-width: $hamburger-icon-height * .75;
+
+//Hero
+$hero-aspect-ratio: 0.5625;
+
+// Global Header
+$global-header-height--mobile: 50px;
+$global-header-height--desktop: 60px;
+$global-header-height--top: 40px;
+// Logo Mobile
+$global-header-logo-width--mobile: 8rem;
+$global-header-logo-height--mobile: 3.4rem;
+// Logo Desktop
+$global-header-logo-width--desktop: 10rem;
+$global-header-logo-height--desktop: 4rem;
+// Title position
+$global-header-title-position: $hamburger-button-size + $spacing-unit + $global-header-logo-width--desktop + $spacing-unit;

@@ -1,0 +1,7 @@
+name: COU Form Fix
+type: module
+description: Make Marketo-Shared-Forms fields show uneditable field values on all non-original translations.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - ul_marketo

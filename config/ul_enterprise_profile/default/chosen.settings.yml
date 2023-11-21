@@ -1,0 +1,22 @@
+_core:
+  default_config_hash: JUHKHJeHl1bWXY41HMIcDR-VmAWvJ4OJycDubCkIeDU
+minimum_single: 20
+minimum_multiple: 2
+disable_search_threshold: 25
+minimum_width: 250
+max_shown_results: null
+use_relative_width: false
+jquery_selector: 'select:visible'
+search_contains: false
+disable_search: false
+allow_single_deselect: false
+disabled_themes:
+  seven: '0'
+  ul_base_theme: '0'
+  ul_enterprise_theme: '0'
+  ul_com_theme: '0'
+  ul_emergo_theme: '0'
+chosen_include: 0
+placeholder_text_multiple: 'Choose some options'
+placeholder_text_single: 'Choose an option'
+no_results_text: 'No results match'

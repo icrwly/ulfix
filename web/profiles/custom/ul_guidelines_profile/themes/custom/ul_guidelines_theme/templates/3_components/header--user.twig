@@ -1,0 +1,18 @@
+<div class="header__user">
+    <span class="welcome">{{ user.userIntroduction }} </span>
+    <div class="dropdown dropdown--profile" data-module="dropdown" data-align="right">
+        <span class="dropdown__label">
+            <span class="name">
+                {% set uname = user.userName %}
+                {{ uname|length > 50 ? uname|slice(0, 50) ~ '...' : uname  }}
+            </span>
+        </span>
+        <div class="dropdown__menu dropdown__menu--right">
+            <div class="dropdown__menu__inner">
+                {% block user_menu %}
+                this is the content of the dropdown
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</div>

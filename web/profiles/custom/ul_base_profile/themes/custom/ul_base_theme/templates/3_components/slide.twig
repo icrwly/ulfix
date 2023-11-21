@@ -1,0 +1,51 @@
+<div class="slide swiper-slide {{ class }}"{% if bg_img %} style="background-image: url({{- image -}})"{% endif %}>
+  {% block content %}
+
+    <div class="slide__inner-wrapper {{ inner_wrapper_class }}">
+      <div class="slide__inner {{ inner_class }}">
+
+        {% block content_inner %}
+
+          {% block slide_image %}
+            <div class="slide__image-container {{ image_class }}">
+              <div class="content-wrapper">
+                <img class="slide__image" src="{{- image -}}" alt="{{- image_alt -}}" />
+              </div>
+            </div>
+          {% endblock %}
+
+          {% block slide_content %}
+            <div class="slide__content-container {{ content_class }}">
+              <div class="slide__content content-wrapper">
+                {% block slide_title %}
+                  <h1 class="slide__title">{{- title -}}</h1>
+                {% endblock %}
+
+                {% block slide_description %}
+                  {% if description %}
+                    <p class="slide__description">{{- description -}}</p>
+                  {% endif %}
+                {% endblock %}
+
+                {% block slide_cta %}
+                  {% if cta.link %}
+                    <div class="slide__cta">
+                      {% include '@ul_base_theme/2_pieces/button.twig' with {
+                        link: cta.link,
+                        color: cta.color,
+                        name: cta.name
+                      } %}
+                    </div>
+                  {% endif %}
+                {% endblock %}
+              </div>
+            </div>
+          {% endblock %}
+
+        {% endblock %}
+
+      </div>
+    </div>
+
+  {% endblock %}
+</div>

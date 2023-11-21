@@ -1,0 +1,26 @@
+{% extends '@ul_base_theme/5_layouts/t03-basic-detail-fullwidth.twig' %}
+{% set catch_cache = content|render %}
+{# If gated content. #}
+{% if marketo.gated_form %}
+  {% set mainClass = 'gated-content' %}
+{% endif %}
+
+{% block body %}
+  {% if content.body|render is not empty %}
+      {% embed '@ul_base_theme/4_regions/section.twig' with {'class': 'section--paragraph page--field--body', 'gutterclass': 'paragraph-gutter'}  %}
+        {% block section_body %}
+          <div class="editor-content">
+            {{ content.body }}
+          </div>
+        {% endblock %}
+      {% endembed %}
+  {% endif %}
+
+  {{ content.field_page_content }}
+  {{ content.marketo }}
+  {% embed "@ul_base_theme/4_regions/section--addtoany.twig" %}
+    {% block content %}
+      {{ content.addtoany }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

@@ -1,0 +1,20 @@
+uuid: 9970e97c-2a50-4963-8ee8-142bddefb212
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.info
+id: ul_alert.info.name
+field_name: name
+entity_type: ul_alert
+bundle: info
+label: Name
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

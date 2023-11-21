@@ -1,0 +1,15 @@
+uuid: d29a5fde-0ebb-447e-9de6-fe9bc0ea6aca
+langcode: en
+status: false
+dependencies: {  }
+id: brandhubstage
+label: hub
+description: 'Split for hub.ul.com and the corresponding site on lower environments.'
+weight: 0
+folder: ../config/ul_guidelines_profile/sites/hub
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

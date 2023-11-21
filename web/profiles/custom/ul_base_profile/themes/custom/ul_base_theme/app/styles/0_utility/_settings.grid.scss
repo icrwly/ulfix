@@ -1,0 +1,57 @@
+///*------------------------------------*\
+//    #UTILITY - BREAKPOINTS
+//\*------------------------------------*/
+/* Note: sets breakpoint variables and grid-breakpoints map. */
+
+$mobile: 480px;
+$large-mobile: 641px; // subject to change
+$tablet: 768px;
+$large-tablet: 892px; // subject to change
+$desktop: 992px;
+$large-desktop: 1200px;
+$xlarge-desktop: 1600px;
+$xxlarge-desktop: 1920px;
+
+// Optimal width for text fields
+// Added 5/5/2020 as part of the
+// "Paragraphs full-width" project
+$text-field-max: 850px;
+
+// 2k each uncompressed
+$grid-breakpoints: (
+  m: $mobile,
+  lm: $large-mobile,
+  t: $tablet,
+  lt: $large-tablet,
+  d: $desktop,
+  ld: $large-desktop,
+  // xxl: $xlarge-desktop
+);
+
+// Breakpoint map with full-name as key
+// TODO: Refactor templates to use short-name
+$grid-breakpoints-long: (
+  mobile: $mobile,
+  large-mobile: $large-mobile,
+  tablet: $tablet,
+  large-tablet: $large-tablet,
+  desktop: $desktop,
+  large-desktop: $large-desktop,
+  xlarge-desktop: $xlarge-desktop
+);
+
+// 5k each uncompressed
+$spacing-breakpoints: (
+  // xxs: $mobile,
+  // xs: $large-mobile,
+  t: $tablet,
+  lt: $large-tablet,
+  d: $desktop,
+  // xl: $large-desktop,
+  // xxl: $xlarge-desktop
+);
+
+$grid-columns: 12;
+$grid-gutter: $spacing-unit;
+$add-grid-breakpoints: true;
+$add-grid-offsets: true;

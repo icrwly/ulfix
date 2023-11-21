@@ -1,0 +1,21 @@
+<div class="card card--file">
+  <div class="image-container">
+    <a href="{{- card.linkHref -}}" class="download-hover icon {{ linkClass }}" role="button" aria-label="{{- card.linkName -}}">
+      {% block card_download %}
+        <p>View <span class="icon icon-arrow-right"></span></p>
+      {% endblock %}
+    </a>
+    {% block card_image %}
+      <img src="{{- card.image -}}" alt="{{- card.imageAlt -}}">
+    {% endblock %}
+  </div>
+  <div class="content-container">
+    {% block card_title %}
+      <h3>{{- card.title -}}</h3>
+    {% endblock %}
+    {% block card_meta %}
+      <p>{{- card.meta -}}</p>
+    {% endblock %}
+    <a href="{{- card.linkHref -}}" class="button icon {{ linkClass }}" role="button" aria-label="{{- card.linkName -}}"></a>
+  </div>
+</div>

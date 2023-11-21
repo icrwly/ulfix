@@ -1,0 +1,93 @@
+{
+  "bodyClass": "front",
+  "title": "T01 - Homepage",
+  "hero" : {
+    "imageSlides": [
+      {
+        "image": "http://via.placeholder.com/1600x400/3270de/000",
+        "imageAlt": "string"
+      },
+      {
+        "image": "http://via.placeholder.com/1600x400/ca3980/000",
+        "imageAlt": "string"
+      },
+      {
+        "image": "http://via.placeholder.com/1600x400/c49744/000",
+        "imageAlt": "string"
+      }
+    ],
+    "title" : "Welcome to UL’s Brand Studio",
+    "description" : "Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."    
+  },
+  "t01Featured": {
+    "type": "default",
+    "cardList": [
+      {
+        "linkHref": "#",
+        "image": "http://via.placeholder.com/414x271/001e38/ffffff",
+        "imageAlt": "Image Alt String",
+        "title": "Brand",
+        "description": "Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      },
+      {
+        "linkHref": "#",
+        "image": "http://via.placeholder.com/414x271/001e38/ffffff",
+        "imageAlt": "Image Alt String",
+        "title": "Application",
+        "description": "Donec ullamcorper nulla non metus auctor fringilla. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus."
+      }
+    ]
+  },
+  "t01Assets": {
+    "title": "Featured Assets",
+    "type" : "file",
+    "cardList": [
+      {
+        "linkHref": "#",
+        "image": "http://via.placeholder.com/320x200/001e38/ffffff",
+        "imageAlt": "Image Alt String",
+        "title": "Logos for print",
+        "meta": "Folder / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://via.placeholder.com/320x200/001e38/ffffff",
+        "imageAlt": "Image Alt String",
+        "title": "UL Enterprise Overview Info Sheet",
+        "meta": "Folder / Uploaded 7.12.17 / 12MB"
+      },
+      {
+        "linkHref": "#",
+        "image": "http://via.placeholder.com/320x200/001e38/ffffff",
+        "imageAlt": "Image Alt String",
+        "title": "UL Enterprise Overview Powerpoint Presentation",
+        "meta": "Folder / Uploaded 7.12.17 / 12MB"
+      }
+    ]
+  },
+  "t01Studio": {
+    "title": "My Studio",
+    "image": "http://via.placeholder.com/309x333/001e38/ffffff",
+    "imageAlt": "Image Alt Tag",
+    "sectionList": {
+      "type" : "studio",
+      "list": [
+        {
+          "linkHref": "#",
+          "linkName": "Submit Request",
+          "description": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod."
+        },
+        {
+          "linkHref": "#",
+          "linkName": "My Requests",
+          "description": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod."
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Brand Training",
+          "description": "Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Vestibulum id ligula porta felis euismod."
+        }
+      ]
+    }
+  }
+}

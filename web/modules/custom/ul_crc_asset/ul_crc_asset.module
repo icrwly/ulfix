@@ -1,0 +1,460 @@
+<?php
+
+/**
+ * @file
+ * Contains ul_crc_asset.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Acquia\ContentHubClient\Entity as ContentHubEntity;
+use Acquia\ContentHubClient\Attribute;
+use Drupal\ul_crc_asset\Entity\CRCAsset;
+
+/**
+ * Implements hook_help().
+ */
+function ul_crc_asset_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ul_crc_asset module.
+    case 'help.page.ul_crc_asset':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Media Entity support for CRC Assets.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ul_crc_asset_theme($existing, $type, $theme, $path) {
+  return [
+    'ul_crc_asset' => [
+      'variables' => ['id' => NULL, 'content' => []],
+      'template' => 'ul-crc-asset',
+    ],
+  ];
+}
+
+// phpcs:disable
+/**
+ * Implements hook_cron().
+ */
+function ul_crc_asset_cron() {
+  // Perform garbage collection on unused assets.
+  // Only delete temporary assets older than 6 hours.
+  $age = 21600;
+
+  // Query DB to get an array of Entity IDs.
+  $database = \Drupal::database();
+  // Check if the DB tables are different.
+  $schema = $database->schema();
+  $tbl_crc = 'crc_asset';
+  $tbl_crc_data = 'crc_asset_field_data';
+
+  // On Shimadzu site (D9), 2 DB tables are created,
+  // crc_asset & crc_asset_field_data.
+  if ($schema->tableExists($tbl_crc) && $schema->tableExists($tbl_crc_data)) {
+    $query_table = $tbl_crc_data;
+  }
+  else {
+    $query_table = $tbl_crc;
+  }
+
+  $query = $database->select($query_table, 'crc');
+  $query->condition('status', 1, '<>')
+    ->condition('changed', time() - $age, '<')
+    ->fields('crc', ['id'])
+    ->accessCheck(FALSE)
+    ->range(0, 100);
+
+  // Get the crc_asset entity id.
+  if ($result = $query->execute()) {
+    // Delete each crc_aaset entity.
+    while ($record = $result->fetchAssoc()) {
+      // Load CRCAsset entity.
+      $crcAsset = CRCAsset::load($record['id']);
+      // Do one last check to make sure that this asset isn't used anywhere.
+      $is_used = $crcAsset->getReferencingEntities();
+      if (empty($is_used)) {
+        try {
+          $crcAsset->delete();
+        } 
+        catch (Exception $e) {
+            \Drupal::logger('ul_crc_asset')->error(
+                'Encountered an error while trying to delete the crc_asset: @id.',
+                array('@id' => $record['id'])
+            );
+        }
+      }
+      
+    }
+  }
+
+}
+// phpcs:enable
+
+/**
+ * Allows modules to modify the drupal entity before its normalization to CDF.
+ *
+ * Common Data Format (CDF): https://docs.acquia.com/contenthub/cdf.
+ *
+ * This is very useful to add additional ad-hoc fields into the drupal entity
+ * before it is converted to CDF during the export process.
+ * Note that the changes will be reflected in the entity published in Content
+ * Hub, but the local Drupal entity will not be affected.
+ *
+ * @param string $entity_type_id
+ *   The Drupal Entity type ID.
+ * @param object $entity
+ *   The Drupal entity.
+ */
+function ul_crc_asset_acquia_contenthub_drupal_to_cdf_alter($entity_type_id, $entity) {
+
+  // The following example modifies the title of the node for all nodes
+  // exported to Content Hub and adds the string ' - By My Cool Site'.
+  // It does it by changing the drupal entity title before it is converted
+  // to Common Data Format (CDF).
+  if ($entity_type_id === 'node') {
+  }
+}
+
+/**
+ * Allows modules to modify the CDF before it is sent to the Content Hub.
+ *
+ * Common Data Format (CDF): https://docs.acquia.com/contenthub/cdf.
+ *
+ * This is very useful to modify the CDF (usually its attributes) before
+ * it is sent to the Content Hub during the normalization process.
+ * Note that the changes will be reflected in the entity published in Content
+ * Hub, but the local Drupal entity will not be affected.
+ *
+ * @param \Acquia\ContentHubClient\Entity $contenthub_entity
+ *   The Content Hub CDF.
+ */
+function ul_crc_asset_acquia_contenthub_cdf_from_drupal_alter(ContentHubEntity $contenthub_entity) {
+  // Get the Entity type and Bundle.
+  $entity_type = $contenthub_entity->getType();
+  list($bundle,) = ul_crc_asset_get_bundle_contenthub_entity($contenthub_entity);
+
+  // phpcs:disable
+  // Enitity type is node.
+  // if ($entity_type == 'node') {
+
+  //   // The field of entity reference to Paragrpahs: field_page_content for page.
+  //   $field_name = ul_crc_asset_get_node_fieldname_paragraph($bundle);
+  //   // Get the attribute of field_page_content: array of Paragraph UUIDs.
+  //   $paragraph_field_attr = $contenthub_entity->getAttribute($field_name);
+  //   $paragraph_fields = $paragraph_field_attr['value'];
+  //   // Get the paragraph UUIDs in en which is the same as in fr.
+  //   $uuid_array = $paragraph_fields[$langcode];
+
+  //   // Loop all paragraphs in the node.
+  //   foreach ($uuid_array as $uuid) {
+  //     // Add new attribute to contenthub_entity, CRC_Parent_UUID_5cf17e83-94a... .
+  //     _crc_add_new_attribute($contenthub_entity, $uuid);
+  //   }
+  // }
+  // phpcs:enable
+
+  // Entity type is paragarph and bundle is crc_files.
+  if ($entity_type == 'paragraph' && $bundle === 'crc_files') {
+    $uuid = $contenthub_entity->getUuid();
+    // Add new attribute to contenthub_entity, CRC_Parent_UUID_5cf17e83-94a... .
+    _crc_add_new_attribute($contenthub_entity, $uuid);
+  }
+}
+
+/**
+ * Add new attribute to contenthub_entity, CRC_Parent_UUID_5cf17e83-94a... .
+ *
+ * @param \Acquia\ContentHubClient\Entity $contenthub_entity
+ *   The Content Hub CDF.
+ * @param string $uuid
+ *   The entity uuid, a node or paragraph.
+ */
+function _crc_add_new_attribute(ContentHubEntity &$contenthub_entity, $uuid) {
+  // Store new CRC data for the new attribute.
+  $value_crc = ul_crc_asset_get_crc_asset_from_crc_files_paragraph($uuid);
+  if (!empty($value_crc)) {
+    $new_attribute = new Attribute(Attribute::TYPE_ARRAY_STRING);
+    $new_attribute->setValues($value_crc);
+    $contenthub_entity->setAttribute('CRC_Parent_UUID_' . $uuid, $new_attribute);
+    return TRUE;
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Allows modules to modify the CDF before converting to Drupal Entity.
+ *
+ * Common Data Format (CDF): https://docs.acquia.com/contenthub/cdf.
+ *
+ * This is useful to modify the CDF that has been fetched from the Content
+ * Hub before it has been converted to Drupal Entity during the denormalization
+ * process.
+ * Note that we these changes affect the local entity imported from Content Hub
+ * but do not affect the entity in Content Hub itself.
+ *
+ * @param \Acquia\ContentHubClient\Entity $contenthub_entity
+ *   The Content Hub CDF.
+ */
+function ul_crc_asset_acquia_contenthub_cdf_from_hub_alter(ContentHubEntity $contenthub_entity) {
+  // Get the Entity type and Bundle.
+  $entity_type = $contenthub_entity->getType();
+  list($bundle,) = ul_crc_asset_get_bundle_contenthub_entity($contenthub_entity);
+
+  // phpcs:disable
+  // Handle the CRC Assets if the node contains crc_files paragraphs.
+  // if ($entity_type == 'node') {
+  //   // The field of entity reference to Paragrpahs: field_page_content for page.
+  //   $field_name = ul_crc_asset_get_node_fieldname_paragraph($bundle);
+  //   // Get the attribute of field_page_content: array of Paragraph UUIDs.
+  //   $paragraph_field_attr = $contenthub_entity->getAttribute($field_name);
+  //   $paragraph_fields = $paragraph_field_attr['value'];
+
+  //   // Get the paragraph UUIDs in en which is the same as in fr.
+  //   // [
+  //   // "df795971-db4a-401d-bc79-ea34561518ab", paragraphs_type/crc_files
+  //   // "1460483f-3119-41f9-bca9-30b2e3a17a8e", paragraphs_type/basic_content
+  //   // ].
+  //   $uuid_array = $paragraph_fields[$langcode];
+
+  //   foreach ($uuid_array as $uuid) {
+  //     // Load paragraph entity by uuid.
+  //     $entity_paragraph = \Drupal::service('entity.repository')->loadEntityByUuid('paragraph', $uuid);
+
+  //     // The bundle of paragaph is crc_files.
+  //     if ($entity_paragraph && $entity_paragraph->getType() == 'crc_files') {
+  //       // Get the CRC_FIELD_crc_asset attribute from Contenthub Entity.
+  //       $target_ids = _wrapper_save_crc_asset_from_contenthub($contenthub_entity, $uuid);
+  //     }
+  //   }
+
+  // }
+
+  // phpcs:enable
+
+  // Handle the CRC Assets if Entity type is paragarph and bundle is crc_files.
+  if ($entity_type == 'paragraph' && $bundle === 'crc_files') {
+    $uuid = $contenthub_entity->getUuid();
+    _wrapper_save_crc_asset_from_contenthub($contenthub_entity, $uuid);
+  }
+
+}
+
+/**
+ * Save a new crc_asset enity into DB.
+ *
+ *  The values from Contenthub Enitty:
+ * ["en": {
+ * "1a3db50e-33ca-437a-bd3d-5f0030687208": "64,64,en",
+ * "38143029-401b-4bc3-b445-a020487530e6": "51,51,en" },
+ * "fr": {
+ * "d62795a6-ac22-496e-82e9-24e64b2319b0": "14567,1122,fr",
+ * "2b01bf74-7136-49e1-a1f0-aafb02fd39d5": "14566,1137,fr" }].
+ *
+ * @param \Acquia\ContentHubClient\Entity $contenthub_entity
+ *   ContentHubEntity object.
+ * @param string $uuid
+ *   The entity UUID.
+ */
+function _wrapper_save_crc_asset_from_contenthub(ContentHubEntity &$contenthub_entity, $uuid) {
+  $target_ids = [];
+  // Get the CRC_FIELD_crc_asset attribute from Contenthub Entity.
+  if ($crc_attr = $contenthub_entity->getAttribute('CRC_Parent_UUID_' . $uuid)) {
+    $crc_uuids = $crc_attr['value'];
+    foreach ($crc_uuids as $uuids) {
+      foreach ($uuids as $uuid => $data_str) {
+        list ($entity_id, $crc_id, $crc_lang) = explode(',', $data_str);
+        // Target EntityID of crc_asset Entity returned by the function.
+        $target_ids[] = ul_crc_asset_save_crc_asset_from_contenthub($entity_id, $crc_id, $crc_lang, $uuid);
+      }
+    }
+    $logStr = "#10 : {" . print_r($target_ids, TRUE) . "}, uuid={$uuid}";
+    \Drupal::logger('crc_import_from_hub')->notice($logStr);
+  }
+
+  return $target_ids;
+}
+
+/**
+ * Allow modules to modify the Drupal Entity after conversion from CDF.
+ *
+ * Common Data Format (CDF): https://docs.acquia.com/contenthub/cdf.
+ *
+ * This is useful to modify the Drupal Entity that came out as a result of its
+ * conversion from CDF fetched from Content Hub during the denormalization
+ * process.
+ * Note that we these changes affect the local entity imported from Content Hub
+ * but do not affect the entity in Content Hub itself.
+ *
+ * @param string $entity_type_id
+ *   The Drupal Entity type ID.
+ * @param object $entity
+ *   The Drupal entity.
+ */
+function ul_crc_asset_acquia_contenthub_drupal_from_cdf_alter($entity_type_id, $entity) {
+  if ($entity_type_id == 'crc_asset') {
+    // Set the owner id to the current logged in user.
+    $entity->setOwnerId(\Drupal::currentUser()->id());
+    // Set status as 1 so it is "published".
+    $entity->setPermanent();
+  }
+}
+
+/**
+ * Retrieve the field names of CRC asset fields for an entity bundle.
+ *
+ * @param string $entity_type
+ *   The entity type.
+ * @param string $bundle
+ *   The entity bundle name.
+ *
+ * @return array
+ *   Array of field names or empty array.
+ */
+function ul_crc_asset_get_entity_crc_fields($entity_type, $bundle) {
+  $entity_crc_fields = [];
+
+  // Get map of crc_asset fields.
+  $field_map = \Drupal::service('entity_field.manager')->getFieldMapByFieldType('crc_asset_item');
+  // Check if entity type is present.
+  if (isset($field_map[$entity_type])) {
+    foreach ($field_map[$entity_type] as $field_name => $field_data) {
+      // Check to see if field is present on current bundle.
+      if (isset($field_data['bundles'][$bundle])) {
+        $entity_crc_fields[] = $field_name;
+      }
+    }
+  }
+
+  return $entity_crc_fields;
+}
+
+/**
+ * Retrieve the field names of CRC asset fields for an entity bundle.
+ *
+ * @param string $id
+ *   The entity id.
+ * @param string $crc_id
+ *   The entity CRC id.
+ * @param string $langcode
+ *   The entity langcode.
+ * @param string $uuid
+ *   The entity uuid.
+ *
+ * @return string
+ *   The entity uuid.
+ */
+function ul_crc_asset_save_crc_asset_from_contenthub($id, $crc_id, $langcode, $uuid) {
+  // The target_id for the paragraph crc_files.
+  $target_id = $id;
+  // Create a new crc_asset entity and save to DB.
+  $user_id = \Drupal::currentUser()->id();
+  // Load the asset into this instance of Drupal.
+  $crcService = \Drupal::service('ul_crc');
+  $crc_results = $crcService->getAsset($crc_id, $langcode);
+  // Able to retrieve data?
+  if (!empty($crc_results['data'])) {
+    // Create the entity and save it.
+    $asset_entity = $crcService->saveNewCrcAssetFromHub($crc_results['data'], $user_id, $langcode, $uuid);
+    $target_id = isset($asset_entity) ? $asset_entity->id() : NULL;
+  }
+  return $target_id;
+}
+
+/**
+ * Retrieve the field names of CRC asset fields for an entity bundle.
+ *
+ * @param string $bundle
+ *   The node bundle.
+ *
+ * @return string
+ *   The field name of node for paragraph crc_files.
+ */
+function ul_crc_asset_get_node_fieldname_paragraph($bundle) {
+  $field_names = [
+    'page' => 'field_page_content',
+    'event' => 'field_event_content',
+    'hub' => 'field_hub_content',
+    'help' => 'field_help_content',
+    'homepage' => 'field_homepage_content',
+    'knowledge' => 'field_know_content',
+    'landing_page' => 'field_landing_page_content',
+    'news' => 'field_news_content',
+    'offering' => 'field_of_content',
+    'resource' => 'field_resource_content',
+    'tool' => 'field_tool_content',
+  ];
+  return isset($field_names[$bundle]) ? $field_names[$bundle] : FALSE;
+}
+
+/**
+ * Retrieve data from paragraph, field_crc_files_files and crc_asset.
+ *
+ * @param string $paragraph_uuid
+ *   The paragraph uuid.
+ *
+ * @return array
+ *   The entity uuid.
+ */
+function ul_crc_asset_get_crc_asset_from_crc_files_paragraph($paragraph_uuid) {
+  $database = \Drupal::database();
+  $query = $database->select('paragraphs_item', 'p');
+  $query->join('paragraphs_item_field_data', 'pd', 'p.id=pd.id and p.revision_id=pd.revision_id');
+  $query->join('paragraph__field_crc_files_files', 'pcrc', 'p.id=pcrc.entity_id and p.revision_id=pcrc.revision_id');
+  $query->join('crc_asset', 'crc', 'pcrc.field_crc_files_files_target_id=crc.id');
+  $query->addField('p', 'id', 'p_id');
+  $query->addField('p', 'type');
+  $query->addField('pd', 'parent_id');
+  $query->addField('pd', 'parent_field_name');
+  $query->addField('pcrc', 'langcode');
+  $query->addField('pcrc', 'delta');
+  $query->addField('crc', 'id');
+  $query->addField('crc', 'uuid', 'crc_uuid');
+  $query->addField('crc', 'crc_id');
+  $query->addField('crc', 'crc_language');
+  $query->condition('p.uuid', $paragraph_uuid, '=');
+  $query->isNotNull('crc.uuid');
+  $query->accessCheck(FALSE);
+
+  $result = $query->execute();
+  $value = [];
+  if ($result) {
+    foreach ($result as $row) {
+      // Object of record: $row.
+      $langcode = $row->crc_language;
+      $id = $row->id;
+      $crc_id = $row->crc_id;
+      $uuid = $row->crc_uuid;
+      $value[$langcode][$uuid] = "$id,$crc_id,$langcode";
+    }
+  }
+  return $value;
+}
+
+/**
+ * Get node bundle and langcode.
+ *
+ * @param \Acquia\ContentHubClient\Entity $contenthub_entity
+ *   The ContentHubEntity.
+ *
+ * @return array
+ *   The array($bundle, $langcode).
+ */
+function ul_crc_asset_get_bundle_contenthub_entity(ContentHubEntity $contenthub_entity) {
+  $bundle_attr = $contenthub_entity->getAttribute('type');
+  // Array ['en', 'fr', ...].
+  $languages = array_keys($bundle_attr['value']);
+  // Get the en as default language.
+  $langcode = reset($languages);
+  // The bundle of node.
+  $bundle = $bundle_attr['value'][$langcode];
+
+  return [$bundle, $langcode];
+}

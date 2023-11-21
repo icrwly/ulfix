@@ -1,0 +1,46 @@
+uuid: cc9613d9-a728-4311-b4a5-c0967ec2f69c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.curated_list.field_curated_list_link
+    - field.field.paragraph.curated_list.field_curated_list_references
+    - field.field.paragraph.curated_list.field_curated_list_title
+    - paragraphs.paragraphs_type.curated_list
+  module:
+    - link
+id: paragraph.curated_list.default
+targetEntityType: paragraph
+bundle: curated_list
+mode: default
+content:
+  field_curated_list_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_curated_list_references:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_curated_list_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

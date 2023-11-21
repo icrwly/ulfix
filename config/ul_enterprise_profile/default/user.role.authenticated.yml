@@ -1,0 +1,26 @@
+uuid: 3294a15a-09b6-48d0-9c2b-c3a64af46cdc
+langcode: en
+status: true
+dependencies:
+  module:
+    - google_cse
+    - graphql
+    - media
+    - search
+    - system
+    - ul_alerts
+    - ul_crc_asset
+_core:
+  default_config_hash: dJ0L2DNSj5q6XVZAGsuVDpJTh5UeYkIPwKrUOOpr8YI
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access content'
+  - 'execute perz arbitrary graphql requests'
+  - 'search Google CSE'
+  - 'search content'
+  - 'view media'
+  - 'view published alert entities'
+  - 'view published crc asset entities'

@@ -1,0 +1,32 @@
+<div class="descriptive-link">
+  <div class="descriptive-link__row row row--gutter-s">
+    <div class="descriptive-link__title-container span-12">
+      {% block title %}
+        {% if title %}
+          <span class="h2 descriptive-link__title">{{- title -}}</span>
+        {% endif %}
+      {% endblock %}
+    </div>
+    <div class="descriptive-link__description span-8">
+      {% block description %}
+        {# This block will be overridden by Drupal #}
+        <div class="editor-content">
+          <p>{{- description -}}</p>
+        </div>
+      {% endblock %}
+    </div>
+    <div class="descriptive-link__cta span-4">
+      {% block cta %}
+        {% if cta %}
+          {% include '@ul_base_theme/2_pieces/button.twig' with {
+            name: cta.title,
+            link: cta.url,
+            class: 'ul-ga-megamenu-cta button--red-outline button--xs',
+            icon: cta.icon,
+            icon_before: cta.icon_before
+          } %}
+        {% endif %}
+      {% endblock %}
+    </div>
+  </div>
+</div>

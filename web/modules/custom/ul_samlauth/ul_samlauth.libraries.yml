@@ -1,0 +1,3 @@
+redirect_js:
+  js:
+    js/redirect.js: {}

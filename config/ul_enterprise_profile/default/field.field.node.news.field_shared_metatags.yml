@@ -1,0 +1,23 @@
+uuid: 243e0134-9806-4034-801c-52d4abba11f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_metatags
+    - node.type.news
+  module:
+    - metatag
+id: node.news.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+bundle: news
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

@@ -1,0 +1,23 @@
+uuid: 71d0d633-fb24-44e3-a8f7-d16557c641ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_gate_content
+    - node.type.knowledge
+id: node.knowledge.field_shared_gate_content
+field_name: field_shared_gate_content
+entity_type: node
+bundle: knowledge
+label: 'Gated Content - deprecated'
+description: 'Require users to provide additional information before viewing this content.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

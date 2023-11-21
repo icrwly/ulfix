@@ -1,0 +1,26 @@
+<div
+	id="searchTakeover"
+	class="search-takeover"
+	data-module="searchTakeover"
+	data-active-class="search-takeover--active"
+	data-body-class="search-open"
+	>
+	{% set search_classes = search.classes ?:[] %}
+	{% set search_classes = search_classes|merge(['search']) %}
+	<section class="{{ search_classes|join(' ') }}">
+		<div class="search__wrap">
+			<a class="search-close" href="#" data-close>
+				<span class="sr-only">{{ search.closeText ?: 'Close Search' }}</span>
+				<span class="icon icon-add"></span>
+			</a>
+			{% set search_inner_classes = search.inner_classes ?:[] %}
+			{% set search_inner_classes = search_inner_classes|merge(['search__inner']) %}
+			<div class="{{ search_inner_classes|join(' ') }}">
+				{% block search_inner %}
+					{% include '@ul_guidelines_theme/4_regions/search--box.twig' %}
+					{% include '@ul_guidelines_theme/4_regions/search--views.twig' %}
+				{% endblock %}
+			</div>
+		</div>
+	</section>
+</div>

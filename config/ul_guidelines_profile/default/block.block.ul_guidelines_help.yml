@@ -1,0 +1,22 @@
+uuid: 5e729cbe-cc9a-4fef-880c-f068e0372ce6
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: vHW9WchJi-t0bXPqeMDLv2mU_BfrvSNCnsH_BrrF8Po
+id: ul_guidelines_help
+theme: ul_guidelines_theme
+region: content
+weight: -7
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

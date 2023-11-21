@@ -1,0 +1,8 @@
+{# Right Rail - Aside Top. #}
+{# If both a RR CTA and a Mkto RR CTA, the Mkto CTA takes precedence! #}
+
+{% if content.field_shared_rr_marketo_cta|render %}
+  {{ content.field_shared_rr_marketo_cta }}
+{% elseif content.field_shared_rr_cta_link|render %}
+  {{ content.field_shared_rr_cta_link }}
+{% endif %}

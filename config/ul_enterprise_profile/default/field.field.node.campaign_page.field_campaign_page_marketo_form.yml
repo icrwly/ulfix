@@ -1,0 +1,155 @@
+uuid: 3f739bfe-4f70-484b-868b-b5e6e7493f2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campaign_page_marketo_form
+    - node.type.campaign_page
+    - paragraphs.paragraphs_type.campaign_form
+  module:
+    - entity_reference_revisions
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_campaign_page_marketo_form
+field_name: field_campaign_page_marketo_form
+entity_type: node
+bundle: campaign_page
+label: 'Marketo Form'
+description: 'Select a Marketo form to display in the page''s right column.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      campaign_form: campaign_form
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 38
+        enabled: false
+      accordion_items:
+        weight: 39
+        enabled: false
+      basic_content:
+        weight: 40
+        enabled: false
+      call_to_action:
+        weight: 41
+        enabled: false
+      campaign_card:
+        weight: 42
+        enabled: false
+      campaign_cards:
+        weight: 43
+        enabled: false
+      campaign_form:
+        weight: 44
+        enabled: true
+      captioned_image:
+        weight: 45
+        enabled: false
+      card_small_child:
+        weight: 52
+        enabled: false
+      cards_small:
+        weight: 51
+        enabled: false
+      carousel:
+        weight: 53
+        enabled: false
+      carousel_slide:
+        weight: 54
+        enabled: false
+      crc_files:
+        weight: 46
+        enabled: false
+      curated_list:
+        weight: 47
+        enabled: false
+      curated_separate_list:
+        weight: 48
+        enabled: false
+      descript_link:
+        weight: 49
+        enabled: false
+      files:
+        weight: 50
+        enabled: false
+      hero:
+        weight: 51
+        enabled: false
+      image_gallery:
+        weight: 52
+        enabled: false
+      image_row:
+        weight: 53
+        enabled: false
+      interrupter_cta:
+        weight: 54
+        enabled: false
+      list_item:
+        weight: 55
+        enabled: false
+      list_item_plain_text:
+        weight: 56
+        enabled: false
+      location:
+        weight: 57
+        enabled: false
+      marketo_form:
+        weight: 58
+        enabled: false
+      menu_section:
+        weight: 59
+        enabled: false
+      people:
+        weight: 60
+        enabled: false
+      quote:
+        weight: 61
+        enabled: false
+      reference:
+        weight: 62
+        enabled: false
+      related_content:
+        weight: 63
+        enabled: false
+      right_rail_external_links:
+        weight: 64
+        enabled: false
+      right_rail_plain_content:
+        weight: 65
+        enabled: false
+      right_rail_plain_text_list:
+        weight: 66
+        enabled: false
+      sidebar_curated_related:
+        weight: 67
+        enabled: false
+      simple_menu:
+        weight: 68
+        enabled: false
+      single_related_content:
+        weight: 69
+        enabled: false
+      slide:
+        weight: 70
+        enabled: false
+      spotlight:
+        weight: 71
+        enabled: false
+      text_and_form:
+        weight: 72
+        enabled: false
+      video:
+        weight: 73
+        enabled: false
+      view:
+        weight: 74
+        enabled: false
+field_type: entity_reference_revisions

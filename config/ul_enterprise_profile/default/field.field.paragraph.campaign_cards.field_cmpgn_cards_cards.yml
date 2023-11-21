@@ -1,0 +1,139 @@
+uuid: 6951fbb2-4c25-4396-86a4-7393b5f0e1ee
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cmpgn_cards_cards
+    - paragraphs.paragraphs_type.campaign_card
+    - paragraphs.paragraphs_type.campaign_cards
+  module:
+    - entity_reference_revisions
+id: paragraph.campaign_cards.field_cmpgn_cards_cards
+field_name: field_cmpgn_cards_cards
+entity_type: paragraph
+bundle: campaign_cards
+label: Cards
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      campaign_card: campaign_card
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 37
+        enabled: false
+      accordion_items:
+        weight: 38
+        enabled: false
+      basic_content:
+        weight: 39
+        enabled: false
+      call_to_action:
+        weight: 40
+        enabled: false
+      campaign_card:
+        weight: 41
+        enabled: true
+      campaign_cards:
+        weight: 42
+        enabled: false
+      campaign_form:
+        weight: 44
+        enabled: false
+      captioned_image:
+        weight: 43
+        enabled: false
+      crc_files:
+        weight: 44
+        enabled: false
+      curated_list:
+        weight: 45
+        enabled: false
+      curated_separate_list:
+        weight: 46
+        enabled: false
+      descript_link:
+        weight: 47
+        enabled: false
+      files:
+        weight: 48
+        enabled: false
+      hero:
+        weight: 49
+        enabled: false
+      image_gallery:
+        weight: 50
+        enabled: false
+      image_row:
+        weight: 51
+        enabled: false
+      interrupter_cta:
+        weight: 52
+        enabled: false
+      list_item:
+        weight: 53
+        enabled: false
+      list_item_plain_text:
+        weight: 54
+        enabled: false
+      location:
+        weight: 55
+        enabled: false
+      marketo_form:
+        weight: 56
+        enabled: false
+      menu_section:
+        weight: 57
+        enabled: false
+      people:
+        weight: 58
+        enabled: false
+      quote:
+        weight: 59
+        enabled: false
+      reference:
+        weight: 60
+        enabled: false
+      related_content:
+        weight: 61
+        enabled: false
+      right_rail_external_links:
+        weight: 62
+        enabled: false
+      right_rail_plain_content:
+        weight: 63
+        enabled: false
+      right_rail_plain_text_list:
+        weight: 64
+        enabled: false
+      sidebar_curated_related:
+        weight: 65
+        enabled: false
+      simple_menu:
+        weight: 66
+        enabled: false
+      single_related_content:
+        weight: 67
+        enabled: false
+      slide:
+        weight: 68
+        enabled: false
+      spotlight:
+        weight: 69
+        enabled: false
+      text_and_form:
+        weight: 70
+        enabled: false
+      video:
+        weight: 71
+        enabled: false
+      view:
+        weight: 72
+        enabled: false
+field_type: entity_reference_revisions

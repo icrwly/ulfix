@@ -1,0 +1,81 @@
+{#
+    This template replaces the 403 page.
+    @see ul_brandhub.theme::ul_brandhub_theme_suggestions_page_alter().
+#}
+{% extends '@ul_guidelines_theme/5_layouts/t07-landing.twig' %}
+
+{% set t07Header= {
+    logo: {
+        image: 'path to image',
+        imageAlt: 'Logo',
+        imageHref: '#',
+        brandTitle: 'UL Brand Hub',
+        brandHref: '/',
+        content: 'Brand Hub'
+    }
+} %}
+
+{% set content_description %}
+    {# TODO: Move these to stylesheet after refactoring to be content managed. #}
+    <h1 style="font-size:16px !important;font-weight:bold !important;">{{ 'Please log in to view this page'|t }}</h1>
+    <p style="margin:10px 0;font-size:14px !important;">{{ 'The page you are attempting to access requires you to be logged in. Please login or register below.'|t }}</p>
+{% endset %}
+
+{% set loginUrl %}
+    {% if ul_samlauth_enabled %}
+        {{ path('samlauth.saml_controller_login') }}?destination={{ current_page_uri ?: '/' }}
+    {% else %}
+        {{ path('user.login') }}?destination={{ current_page_uri ?: '/' }}
+    {% endif %}
+{% endset %}
+
+{% set registerUrl %}
+    {% if ul_samlauth_enabled %}
+        {{ ul_samlauth_registration_url }}
+    {% else %}
+        {{ path('user.register') }}
+    {% endif %}
+{% endset %}
+
+{% set buttonList = [{
+        buttonText: 'Login with my UL ID'|t,
+        buttonHref: loginUrl
+    },
+    {
+        buttonText: 'Register'|t,
+        buttonHref: registerUrl
+    }]
+%}
+
+{% if authenticated %}
+  {% set buttonList = [{
+        buttonText: 'Return to Home Page'|t,
+        buttonHref: '/'
+    }] %}
+  {% set content_description %}
+    {# TODO: Move these to stylesheet after refactoring to be content managed. #}
+    <h1 style="font-size:16px !important;font-weight:bold !important;">{{ 'Access Denied'|t }}</h1>
+    <p style="margin:10px 0;font-size:14px !important;">{{ 'You do not have access to the content provided at this URL.'|t }}</p>
+  {% endset %}
+{% endif %}
+
+{% set linkList = [{
+        linkName: 'For Customers'|t,
+        linkHref: "https://ul.service-now.com/kb_view_customer.do?sysparm_article=KB0013469",
+    },
+    {
+        linkName: 'For UL Employees'|t,
+        linkHref: "https://ul.service-now.com/kb_view_customer.do?sys_kb_id=baa2aa2e0a0a3c5000356aa46deffd27&sysparm_stack=&sysparm_view="
+    }]
+%}
+
+{% set t07Content = {
+    logo: '',
+    description: content_description,
+    buttons: buttonList,
+    links: {
+        title: 'Need Help?'|t,
+        linkList: linkList
+    }
+} %}
+

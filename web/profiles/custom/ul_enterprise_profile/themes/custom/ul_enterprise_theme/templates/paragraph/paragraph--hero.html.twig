@@ -1,0 +1,47 @@
+{% set has_description = content.field_hero_description|render|striptags|trim is not empty %}
+{% set has_image = not paragraph.field_hero_media.isEmpty %}
+{% set has_link = (content.field_hero_link.0['#url'] is not empty) %}
+{% set show_logo = show_logo ?? false %}
+
+{% if has_description or has_image or has_link %}
+
+    {% set hero = {
+        slides: [{
+            'title': content.field_hero_title.0,
+            'image': has_image ? content.field_hero_media : '',
+            'description': has_description ? content.field_hero_description : ''
+        }]
+    } %}
+
+    {% if has_description or has_link %}
+        {% set slide = hero.slides|first|merge({
+            'content_bg': 'gray',
+            'cta': has_link ? content.field_hero_link : ''
+        }) %}
+        {% embed '@ul_base_theme/4_regions/hero--default.twig' with { slides: [slide] } %}
+            {% block logo %}
+              {% if show_logo %}
+                {% include '@ul_base_theme/2_pieces/ul-logo-red.twig' only %}
+              {% endif %}
+            {% endblock %}
+            {% block hero_slides %}
+                {% for slide in slides %}
+                    {% embed '@ul_base_theme/3_components/hero--default-slide.twig' with slide %}
+                        {% block hero_slide_cta %}
+                            {{ cta }}
+                        {% endblock %}
+                    {% endembed %}
+                {% endfor %}
+            {% endblock %}
+        {% endembed %}
+    {% else %}
+        {% include '@ul_base_theme/4_regions/hero--simple.twig' with { hero: hero } %}
+    {% endif %}
+{% else %}
+    <div class="wrapper">
+        {% embed '@ul_base_theme/4_regions/section--title.twig' %}
+            {% set pageTitle = true %}
+            {% set title = content.field_hero_title.0 %}
+        {% endembed %}
+    </div>
+{% endif %}

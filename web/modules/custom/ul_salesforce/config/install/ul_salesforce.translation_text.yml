@@ -1,0 +1,488 @@
+contact_us_landing:
+  lets_start_a_conversation:
+    en: 'Let''s start a conversation'
+    es: 'Comencemos una conversación'
+    pt-br: 'Vamos iniciar uma conversa'
+    fr-ca: 'Commençons une conversation'
+    de: 'Lassen Sie uns ein Gespräch beginnen'
+    it: 'Iniziamo una conversazione'
+    zh-hans: 让我们开始对话
+    zh-hant: 開始進行對話
+    ja: お問い合わせ
+    ko: '대화를 시작합니다.'
+  whether_you_have_a_sales:
+    en: 'Whether you have a sales inquiry, need help with a product or service, or any other issue, we want to connect you with the information as quickly as possible.'
+    es: 'Ya sea que tenga una consulta de ventas, necesite ayuda con un producto o servicio, o cualquier otro problema, queremos proveerle la información lo más rápido posible.'
+    pt-br: 'Se você tem dúvidas sobre vendas, precisa de ajuda com um produto, serviço ou qualquer outro problema, queremos te ajudar a conseguir essas informações o quanto antes.'
+    fr-ca: 'Que vous ayez une demande commerciale, que vous ayez besoin d''aide pour une produit ou un service, ou pour tout autre problème, nous souhaitons vous fournir les informations le plus rapidement possible.'
+    de: 'Egal, ob Sie eine Vertriebsanfrage haben, Hilfe zu einem Produkt oder einer Dienstleistung benötigen oder ein anderes Problem haben, wir möchten Ihnen so schnell wie möglich die Informationen geben, die Sie benötigen.'
+    it: 'Sia che abbiate una richiesta commerciale, oppure bisogno di aiuto per un prodotto o un servizio o qualsiasi altra necessità, vogliamo fornirvi le informazioni di cui avete bisogno il più rapidamente possibile.'
+    zh-hans: 无论您是否有业务咨询，需要关于产品或服务的帮助，或任何其他问题，我们希望尽快与您联系并提供相关信息。
+    zh-hant: 無論您有業務諮詢、需要產品或服務方面的幫助，還是任何其他問題，我們都希望盡快為您提供訊息。
+    ja: セールスへのお問い合わせ、製品やサービスへのサポート、その他のご相談について、速やかに対応いたします。
+    ko: '세일즈 문의, 제품 또는 서비스 관련 도움이 필요하신 경우 또는, 기타 이슈가 있으신 경우, 최대한 신속히 정보를 찾으시도록 연결해 드리겠습니다.'
+  how_can_we_help:
+    en: 'How can we help?'
+    es: '¿Cómo podemos ayudar?'
+    pt-br: 'Como nós podemos te ajudar?'
+    fr-ca: 'Comment pouvons nous vous aider?'
+    de: 'Wie können wir Ihnen helfen?'
+    it: 'Come possiamo aiutarvi?'
+    zh-hans: 我们能为您提供什么帮助？
+    zh-hant: '我們能提供甚麼幫助?'
+    ja: お問い合わせ内容
+    ko: '무엇을 도와드릴까요?'
+  sales_inquiries:
+    en: 'Sales Inquiries'
+    es: 'Consultas de ventas'
+    pt-br: 'Consultas de vendas'
+    fr-ca: 'Renseignements sur les ventes'
+    de: 'Vertriebliche Anfragen'
+    it: 'Richieste commerciali'
+    zh-hans: 业务咨询
+    zh-hant: 業務諮詢
+    ja: セールスへの問い合わせ
+    ko: '세일즈 문의'
+  customer_service:
+    en: 'Customer service'
+    es: 'Servicio al Cliente'
+    pt-br: 'Atendimento ao cliente'
+    fr-ca: 'Service personnalisé'
+    de: Kundendienst
+    it: 'Servizio clienti'
+    zh-hans: 客户服务
+    zh-hant: 客戶服務
+    ja: カスタマーサービス
+    ko: '고객 서비스'
+  general_feedback:
+    en: 'General feedback'
+    es: Retroalimentación
+    pt-br: 'Feedback geral'
+    fr-ca: 'Commentaires généraux'
+    de: 'Allgemeine Rückmeldung'
+    it: 'Feedback generico'
+    zh-hans: 一般反馈
+    zh-hant: 一般反饋
+    ja: 一般的なフィードバック
+    ko: '일반적인 피드백'
+  report_your_concerns:
+    en: 'Report suspicious or fraudulent activity'
+    es: 'Informe sus inquietudes'
+    pt-br: 'Relate suas dúvidas'
+    fr-ca: 'Signalez vos préoccupations'
+    de: 'Ein Problem melden'
+    it: 'Segnalare un problema'
+    zh-hans: 报告您的问题
+    zh-hant: 提交您的疑慮
+    ja: 懸念事項を報告する
+    ko: '우려되는 사항이 있으면 알려 주시기 바랍니다.'
+  if_you_wish_to_report:
+    en: 'If you wish to report a concern with a UL certified product or advertising concern, please submit a Market Surveillance Report.'
+    es: 'Si desea informar una inquietud con un producto certificado por UL o una inquietud sobre publicidad, por favor ingrese un Informe de Vigilancia del Mercado.'
+    pt-br: 'Se você deseja relatar um problema com um produto certificado pela UL ou em caso de dúvida sobre sua publicação, por favor insira o relatório de monitoramento de mercado.'
+    fr-ca: 'Si vous souhaitez signaler un problème concernant un produit certifié UL ou un problème de publicité, veuillez soumettre un rapport de surveillance du marché.'
+    de: 'Um Probleme mit einem UL Solutions-zertifizierten Produkt oder mit einer Werbung zu melden, reichen Sie bitte einen Bericht beim Market Surveillance Team ein.'
+    it: 'Se desiderate segnalare un problema rispetto un prodotto certificato UL o un problema di tipo pubblicitario, inviate una segnalazione al Market Surveillance.'
+    zh-hans: 如您希望报告UL Solutions认证产品或广告方面的问题，请提交市场监督报告。
+    zh-hant: '如果您希望報告有關 UL 認證產品或廣告問題，請提交市場產品監督報告。'
+    ja: 'UL Solutions認証品または広告に関する懸念事項を報告する場合は、Market Surveillance Report よりご連絡ください。'
+    ko: 'UL 인증 제품 또는 인증광고 관련 문제점에 대한 우려 사항을 보고하시려면, 시장 감시 보고서를 작성해 주시기 바랍니다.'
+  make_a_report:
+    en: 'Make a report'
+    es: 'Hacer un reporte'
+    pt-br: 'Fazer um relatório'
+    fr-ca: 'Faire un rapport'
+    de: 'Einen Bericht einreichen'
+    it: 'Invia una segnalazione'
+    zh-hans: 制作报告
+    zh-hant: 製作報告
+    ja: 報告する
+    ko: '리포트 작성'
+  global_contacts:
+    en: 'Global locations'
+    es: 'Ubicaciones globales'
+    pt-br: 'Locais globais'
+    fr-ca: 'Emplacements mondiaux'
+    de: 'Globale Standorte'
+    it: 'Località globali'
+    zh-hans: 全球据点
+    zh-hant: 全球據點
+    ja: グローバル拠点
+    ko: '글로벌 위치'
+  view_detailed_information_for_our:
+    en: 'View detailed information for our worldwide network of offices and laboratories.'
+    es: 'Vea información detallada de nuestra red mundial de oficinas y laboratorios.'
+    pt-br: 'Veja informações detalhadas de nossa rede oficial mundial de laboratórios e seus administradores.'
+    fr-ca: 'Consultez des informations détaillées sur notre réseau mondial de bureaux et de laboratoires'
+    de: 'Hier finden Sie detaillierte Informationen zu unserem weltweiten Netzwerk von Büros und Labors.'
+    it: 'Visualizza informazioni dettagliate sulla nostra rete mondiale di uffici e laboratori'
+    zh-hans: 查看我们全球办事处和实验室网络的详细信息。
+    zh-hant: 查看我們全球辦事處和實驗室網絡的詳細資訊。
+    ja: 世界各地のオフィスおよび試験所の詳細情報をご覧いただけます。
+    ko: '전세계 오피스 및 시험소 네트워크에 대한 상세한 정보를 확인하실 수 있습니다.'
+  find_contact_information:
+    en: 'Find location information'
+    es: 'Buscar información de ubicación'
+    pt-br: 'Encontrar informações de localização'
+    fr-ca: 'Rechercher des informations de localisation'
+    de: 'Standortinformationen finden'
+    it: 'Trova informazioni sulla posizione'
+    zh-hans: 查找位置信息
+    zh-hant: 查找位置信息
+    ja: 位置情報を探す
+    ko: '위치 정보 찾기'
+  help_and_support:
+    en: 'Help and support'
+    es: 'Ayuda y apoyo'
+    pt-br: 'Ajuda e suporte'
+    fr-ca: 'Aide et soutien'
+    de: 'Hilfe und Unterstützung'
+    it: 'Aiuto e supporto'
+    zh-hans: 帮助与支持
+    zh-hant: 幫助和支持
+    ja: ヘルプ・サポート
+    ko: '도움말 및 지원'
+  get_additional_assistance_and_information:
+    en: 'Get additional assistance and information or learn how to submit a revision to UL Solutions.'
+    es: 'Obtenga asistencia e información adicional o aprenda cómo enviar una solicitud de modificación a UL Solutions.'
+    pt-br: 'Obtenha assistência e informações adicionais ou saiba como enviar uma revisão à certificação UL Solutions.'
+    fr-ca: 'Obtenez de l''aide et des informations supplémentaires ou apprenez comment soumettre une révision à UL Solutions'
+    de: 'Holen Sie sich zusätzliche Unterstützung und Informationen oder erfahren Sie, wie Sie einen Änderungsantrag bei UL Solutions einreichen.'
+    it: 'Ottieni ulteriore assistenza e informazioni, o scopri come inviare una richiesta di revisione a UL Solutions.'
+    zh-hans: '获取其他帮助和信息，或了解如何向 UL Solutions 提交变更请求。'
+    zh-hant: '獲取更多幫助和訊息或了解如何向 UL Solutions 提交修訂'
+    ja: UL Solutionsへの変更申請の手続き、および、その他の情報をご案内します。
+    ko: '추가 지원 및 정보, 또는 유엘 리포트 수정 요청 방법을 안내받으실 수 있습니다.'
+  visit_the_help_and_support:
+    en: 'Visit the help and support center'
+    es: 'Visite el centro de ayuda y soporte'
+    pt-br: 'Visite o centro de ajuda e suporte'
+    fr-ca: 'Visitez le centre d''aide et de support'
+    de: 'Besuchen Sie das Service- und Supportcenter'
+    it: 'Visita il centro assistenza e supporto'
+    zh-hans: 访问帮助和支持中心
+    zh-hant: 訪問幫助和支持中心
+    ja: ヘルプ・サポートセンターはこちら
+    ko: '도움 및 지원 센터를 방문하십시오'
+web_to_case:
+  back:
+    en: Back
+    es: Atrás
+    pt-br: Voltar
+    fr-ca: Arrière
+    de: Zurück
+    it: Indietro
+    zh-hans: 返回
+    zh-hant: 返回
+    ja: 戻る
+    ko: 뒤로
+  get_customer_service_and_support:
+    en: 'Get customer service and support'
+    es: 'Obtener servicio al cliente y soporte'
+    pt-br: 'Obtenha atendimento e suporte ao cliente'
+    fr-ca: 'obtenir un service client et une assistance'
+    de: 'Kundendienst und Support erhalten'
+    it: 'Ottieni servizio al cliente e supporto'
+    zh-hans: 获得客户服务和支持
+    zh-hant: 取得客戶服務和支持
+    ja: カスタマーサービス・サポート
+    ko: '고객 서비스 및 지원 요청'
+  were_happy_to_help_you:
+    en: 'We''re happy to help you access the information and help that you need -- as quickly as possible.'
+    es: 'Nos complace ayudarlo a acceder a la información y la ayuda que necesita, lo más rápido posible.'
+    pt-br: 'Estamos felizes em ajudá-lo a acessar as informações e a ajuda de que você precisa -- o mais rápido possível.'
+    fr-ca: 'Nou sommes heureux de vous aider à accéder aux informations et à l''aide dont vous avez besoin, le plus rapidement possible'
+    de: 'Wir helfen Ihnen gerne dabei, so schnell wie möglich die Informationen und Hilfe zu erhalten, die Sie benötigen.'
+    it: 'Siamo felici di aiutarti ad ottenere le informazioni e l''aiuto di cui avete bisogno, il più rapidamente possibile.'
+    zh-hans: 我们很乐意帮助您尽快获取所需的信息和帮助。
+    zh-hant: 我們很樂意幫助您盡快獲得所需的資訊和幫助
+    ja: お客様のご相談について、速やかに対応いたします。
+    ko: '필요하신 정보와 지원을 최대한 신속히 찾으시도록 도와드리겠습니다.'
+  share_your_feedback:
+    en: 'Share your feedback'
+    es: 'Comparta sus comentarios'
+    pt-br: 'Compartilhe seu feedback'
+    fr-ca: 'Partager vos commentaires'
+    de: 'Teilen Sie uns Ihr Feedback mit'
+    it: 'Condividi il tuo feedback'
+    zh-hans: 分享您的反馈
+    zh-hant: 分享您的意見反饋
+    ja: お客様のお声をおきかせください
+    ko: '귀하의 피드백을 공유해 주세요'
+  we_want_to_hear_more:
+    en: 'We want to hear more about your experience with UL Solutions and how we can improve to support your organization better.'
+    es: 'Queremos saber más sobre su experiencia con UL Solutions y cómo podemos mejorar para brindar un mejor soporte a su organización.'
+    pt-br: 'Queremos saber mais sobre sua experiência com a UL Solutions e como podemos melhorar para oferecer um melhor suporte à sua organização.'
+    fr-ca: 'Nous voulons en savoir plus sur votre expérience avec UL Solutions et comment nous pouvons nous améliorer pour mieux soutenir votre organisation'
+    de: 'Wir freuen uns, mehr über Ihre Erfahrungen mit UL Solutions zu hören und auch, wie wir uns verbessern können, damit wir Ihr Unternehmen noch besser unterstützen können.'
+    it: 'Vogliamo saperne di più sulla tua esperienza con UL Solutions e su come possiamo migliorare per supportare meglio la tua azienda.'
+    zh-hans: '我们希望更多地了解您在 UL Solutions 的体验，以及我们如何改进以更好地支持您的组织。'
+    zh-hant: '我們想更了解您與 UL Solutions 的合作經驗以及我們如何改進以提供更好的支持給您的組織。'
+    ja: 'UL Solutionsをご利用いただいた経験に基づいて、ご意見や改善点などをおきかせください。'
+    ko: 'UL Solutions과의 경험  그리고, 어떠한 개선을 통해 귀사를 더욱 잘 지원 해 드릴 수 있을 지, 고객의 목소리를 들려 주시기 바랍니다.'
+  indicates_a_required_field:
+    en: '* Indicates a required field'
+    es: '* Indica un campo obligatorio'
+    pt-br: '* Indique um campo requerido'
+    fr-ca: '* indique un champ obligatoire'
+    de: 'Pflichtfelder sind mit * gekennzeichnet'
+    it: '* Indica un campo obbligatorio'
+    zh-hans: '* 表示必填字段'
+    zh-hant: '*表示必填欄位'
+    ja: 必須項目
+    ko: '* 는 필수 입력 항목입니다.'
+  subject:
+    en: Subject
+    es: Tema
+    pt-br: Assunto
+    fr-ca: Sujet
+    de: Betreff
+    it: Oggetto
+    zh-hans: 主题
+    zh-hant: 主題
+    ja: 件名
+    ko: 제목
+  how_can_we_help_you:
+    en: 'How can we help you?'
+    es: '¿Cómo podemos ayudarlo?'
+    pt-br: 'Como podemos te ajudar?'
+    fr-ca: 'Comment pouvons-nous vous aider?'
+    de: 'Wie können wir Ihnen helfen?'
+    it: 'Come possiamo aiutarti?'
+    zh-hans: 我们能为您提供什么帮助？
+    zh-hant: '您需要何種幫助或支持?'
+    ja: お問い合わせ内容
+    ko: '어떻게 도와드릴까요?'
+  inquiry_type:
+    en: 'Inquiry Type'
+    es: 'Tipo de Consulta'
+    pt-br: 'Tipo de consulta'
+    fr-ca: 'Type de Demande'
+    de: 'Art der Anfrage'
+    it: 'Tipo di Richiesta'
+    zh-hans: 咨询类型
+    zh-hant: 查詢類別
+    ja: お問合せの種類
+    ko: '문의 유형'
+  tell_us_about_your_experience:
+    en: 'Tell us about your experience with UL Solutions.'
+    es: 'Cuéntenos sobre su experiencia con UL Solutions.'
+    pt-br: 'Nos fale sobre sua experiência com a UL Solutions.'
+    fr-ca: 'Parlez-nous de votre expérience avec UL Solutions'
+    de: 'Berichten Sie uns über Ihre jüngste Erfahrung mit UL Solutions.'
+    it: 'Raccontaci della tua recente esperienza con UL Solutions'
+    zh-hans: '请告知我们您与UL Solutions合作的体验。'
+    zh-hant: '請告知我們您與UL Solutions合作的體驗'
+    ja: 'UL Solutionsへのご意見をおきかせください'
+    ko: 'UL Solutions과의 경험에 대해 알려 주시기 바랍니다.'
+  your_information:
+    en: 'Your information'
+    es: 'Su información'
+    pt-br: 'Suas informações'
+    fr-ca: 'Vos Informations'
+    de: 'Ihre Informationen'
+    it: 'Vostre informazioni'
+    zh-hans: 您的信息
+    zh-hant: 您的資料
+    ja: お客様情報
+    ko: '귀하의 정보'
+  first_name:
+    en: 'First name'
+    es: Nombre
+    pt-br: Nome
+    fr-ca: Prénom
+    de: Vorname
+    it: Nome
+    zh-hans: 名
+    zh-hant: 名字
+    ja: 名
+    ko: 이름
+  last_name:
+    en: 'Last name'
+    es: Apellido
+    pt-br: Sobrenome
+    fr-ca: Nom
+    de: Nachname
+    it: Cognome
+    zh-hans: 姓
+    zh-hant: 姓氏
+    ja: 姓
+    ko: 성
+  email_address:
+    en: 'Email address'
+    es: 'Dirección de Email'
+    pt-br: 'Endereço de e-mail'
+    fr-ca: 'Adresse e-mail'
+    de: E-Mail
+    it: 'Indirizzo email'
+    zh-hans: 电子邮箱
+    zh-hant: 電子郵箱
+    ja: メールアドレス
+    ko: '이메일 주소'
+  phone_number:
+    en: 'Phone number'
+    es: 'Número de teléfono'
+    pt-br: 'Número de telefone'
+    fr-ca: 'Numéro de téléphone'
+    de: Telefonnummer
+    it: 'Numero di telefono'
+    zh-hans: 电话号码
+    zh-hant: 電話號碼
+    ja: 電話番号
+    ko: 전화번호
+  company_name:
+    en: 'Company name'
+    es: 'Nombre de la empresa'
+    pt-br: 'Nome da empresa'
+    fr-ca: 'Nom de l’entreprise'
+    de: Firma
+    it: 'Nome dell''azienda'
+    zh-hans: 公司名称
+    zh-hant: 公司名稱
+    ja: 会社名
+    ko: 회사명
+  where_do_you_live:
+    en: 'Where do you live?'
+    es: '¿Dónde vive?'
+    pt-br: 'Onde você mora?'
+    fr-ca: 'Où habitez-vous?'
+    de: 'Wo wohnen Sie?'
+    it: 'Dove vivi?'
+    zh-hans: 居住地
+    zh-hant: 居住地？
+    ja: 居住地
+    ko: '어느 국가에 거주하시나요?'
+  what_is_your_preferred_language:
+    en: 'What is your preferred language?'
+    es: '¿Con qué idioma prefiere comunicarse?'
+    pt-br: 'Qual seu idioma preferido?'
+    fr-ca: 'Quelle est votre langue préférée'
+    de: 'Was ist Ihre bevorzugte Sprache'
+    it: 'Qual è la tua lingua preferita?'
+    zh-hans: '您首选何种语言?'
+    zh-hant: '您首選何種語言?'
+    ja: 'ご希望の言語'
+    ko: '선호하시는 언어를 선택해 주세요'
+  cust_fdback:
+    en: 'Customer Feedback'
+    es: 'Comentarios'
+    pt-br: 'Experiência do cliente'
+    fr-ca: 'Commentaires'
+    de: 'Kundenbewertung'
+    it: 'Opinione del cliente'
+    zh-hans: '客户反馈'
+    zh-hant: '客戶反饋'
+    ja: 'お客様の声'
+    ko: '고객의 소리'
+  cust_srv_inq:
+    en: 'Other Customer Service Inquiries'
+    es: 'Otras consultas de Servicio al Cliente'
+    pt-br: 'Outras consultas de atendimento ao cliente'
+    fr-ca: 'Autres demandes du Service Client'
+    de: 'Andere Kundendienst Anfragen'
+    it: 'Altre richieste di Customer Service'
+    zh-hans: '其他客户服务咨询'
+    zh-hant: '其他客户服務查詢'
+    ja: 'その他のカスタマーサービスへのお問合せ'
+    ko: '기타 고객 서비스 관련 문의'
+  ul_file_change:
+    en: 'Changes to existing UL File'
+    es: 'Cambios en el archivo UL existente'
+    pt-br: 'Alterações nos Files existentes da UL'
+    fr-ca: 'Modifications du dossier UL existant'
+    de: 'Änderungen zu bestehenden UL File'
+    it: 'Modifiche al File UL esistente'
+    zh-hans: '变更现有UL档案'
+    zh-hant: '更改現存UL檔案'
+    ja: '既存の UL ファイルへの変更'
+    ko: '기존 UL 인증 파일에 대한 변경 문의'
+  myul_portal_support:
+    en: 'myUL Portal Support'
+    es: 'Ayuda en el portal myUL'
+    pt-br: 'Suporte Portal myUL'
+    fr-ca: 'Assistance sur le portail myUL'
+    de: 'myUL Portal Unterstützung'
+    it: 'Supporto sul portale myUL'
+    zh-hans: 'myUL Portal支持'
+    zh-hant: 'myUL 支援服務'
+    ja: 'myUL ポータルに関するサポート'
+    ko: 'myUL 문의'
+  product_iq_support:
+    en: 'Product iQ Support'
+    es: 'Ayuda en Product iQ'
+    pt-br: 'Suporte Product iQ '
+    fr-ca: 'Assistance sur Product iQ'
+    de: 'Produkt iQ Unterstützung'
+    it: 'Supporto su Product iQ'
+    zh-hans: 'Product iQ支持'
+    zh-hant: 'Product iQ 支援服務'
+    ja: 'Product iQ に関するサポート'
+    ko: 'Product iQ 문의'
+  inv_qstns:
+    en: 'Invoice Questions'
+    es: 'Preguntas sobre facturas'
+    pt-br: 'Perguntas sobre faturas'
+    fr-ca: 'Questions sur les factures'
+    de: 'Rechnungsfragen'
+    it: 'Domande sulla fattura'
+    zh-hans: '发票问题'
+    zh-hant: '發票問題'
+    ja: '請求書に関するお問合せ'
+    ko: '인보이스 관련 문의'
+  submit:
+    en: Submit
+    es: Enviar
+    pt-br: Enviar
+    fr-ca: Soumettre
+    de: Senden
+    it: Invia
+    zh-hans: 提交
+    zh-hant: 提交
+    ja: 送信
+    ko: 제출
+marketo_form_intro:
+  get_connected_with_our_sales:
+    en: 'Get connected with our sales team'
+    es: 'Conéctese con nuestro equipo de ventas'
+    pt-br: 'Conecte-se com nossa equipe de vendas'
+    fr-ca: 'Connectez-vous avec notre équipe de vente'
+    de: 'Nehmen Sie Kontakt mit unserem Vertriebsteam auf'
+    it: 'Entra in contatto con il nostro team commerciale'
+    zh-hans: 与我们的销售团队联系
+    zh-hant: 与我们的销售团队联系
+    ja: セールスへのお問い合わせ
+    ko: '영업팀과 연결'
+  thanks_for_your_interest_in:
+    en: 'Thanks for your interest in UL Solutions''s products and services. Let''s collect some information so we can connect you with the right person.'
+    es: 'Gracias por su interés en los productos y servicios de UL Solutions. Recopilemos información para que podamos conectarlo con la persona adecuada.'
+    pt-br: 'Obrigado pelo seu interesse nos produtos e serviços da UL Solutions. Vamos processar as informações para que possamos conectar você com a pessoa certa.'
+    fr-ca: 'Merci de votre intérêt pour les produits et services d''UL Solutions.  Recueillons quelques informations afin que nous puission vous mettre en relation avec la bonne personne.'
+    de: 'Vielen Dank für Ihr Interesse an Produkten und Dienstleistungen von UL Solutions. Damit wir Sie mit der richtigen Person in Kontakt bringen können, brauchen wir noch ein paar Informationen von Ihnen.'
+    it: 'Grazie per il tuo interesse per i prodotti e i servizi di UL Solutions. Ti chiediamo alcune informazioni in modo da poterti mettere in contatto con la persona giusta'
+    zh-hans: '感谢您对 UL Solutions 产品和服务的关注。请允许我们收集相关信息，以便合适的销售与您联系。'
+    zh-hant: '感謝您對 UL Solutions 的產品和服務感興趣。讓我們收集一些訊息，以便我們可以派合適的人與您聯繫。'
+    ja: 'UL Solutionsの製品とサービスに関心をお寄せいただきありがとうございます。 ご記入いただいた内容に基づいて、適切な担当者におつなぎいたします。'
+    ko: 'UL Solutions의 제품과 서비스를 찾아 주셔서 감사합니다. 몇가지 정보를 입력하시면, 최적의 담당자를 연결해 드리겠습니다.'
+thank_you_web_to_case:
+  thank_you_weve_received_your:
+    en: 'Thank you. We''ve received your request.'
+    es: 'Gracias. Hemos recibido su solicitud.'
+    pt-br: 'Obrigado. Recebemos sua solicitação.'
+    fr-ca: 'Merci.  Nous avons bien reçu votre demande'
+    de: 'Vielen Dank. Wir haben Ihre Anfrage erhalten.'
+    it: 'Grazie. Abbiamo ricevuto la tua richiesta.'
+    zh-hans: 谢谢。我们已收到您的请求。
+    zh-hant: '謝謝。 我們已收到您的需求'
+    ja: お問い合わせありがとうございます。
+    ko: '감사합니다. 귀하의 요청이 접수 되었습니다.'
+  one_of_our_team_members:
+    en: 'One of our team members will respond to your request as soon as possible.'
+    es: 'Uno de los miembros de nuestro equipo responderá a su solicitud lo antes posible.'
+    pt-br: 'Um membro da nossa equipe entrará em contato com você em breve.'
+    fr-ca: 'Un membre de notre équipe répondra à votre demande aussitôt que possible.'
+    de: 'Ein Mitglied unseres Teams wird Ihre Anfrage so schnell wie möglich beantworten.'
+    it: 'Un membro del nostro team risponderà alla tua richiesta il prima possibile.'
+    zh-hans: 我们的团队成员将尽快回复您的请求。
+    zh-hant: 我們團隊的成員將盡快回覆您的需求。
+    ja: 担当者からご連絡いたします。
+    ko: '저희 팀원 중 한명이 최대한 신속히 응답할 예정입니다.'

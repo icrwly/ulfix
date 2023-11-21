@@ -1,0 +1,22 @@
+uuid: ee72fce2-b975-4e35-ae72-47be68cbb679
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.offering_types
+id: taxonomy_term.offering_types.status
+field_name: status
+entity_type: taxonomy_term
+bundle: offering_types
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

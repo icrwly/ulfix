@@ -1,0 +1,17 @@
+{% if type == 'page' %}
+  {% for card in cards %}
+    {% include '@ul_guidelines_theme/2_pieces/card/card--page.twig' %}
+  {% endfor %}
+{% elseif type == 'file' %}
+  {% for card in cards %}
+    {% include '@ul_guidelines_theme/2_pieces/card/card--file.twig' %}
+  {% endfor %}
+{% elseif type == 'featured' %}
+  {% for card in cards %}
+    {% include '@ul_guidelines_theme/2_pieces/card/card--featured.twig' %}
+  {% endfor %}
+{% else  %}
+  {% for card in cards %}
+    {% include '@ul_guidelines_theme/2_pieces/card/card.twig' %}
+  {% endfor %}
+{% endif %}

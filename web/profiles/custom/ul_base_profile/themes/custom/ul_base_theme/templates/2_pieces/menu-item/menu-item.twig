@@ -1,0 +1,53 @@
+{% import "@ul_base_theme/1_core/macros.twig" as mac %}
+
+{% set list_item_class = class %}
+{% set ga_class = link_class_ga %}
+{% set list_item_attr = attributes.storage.class %}
+
+{% set level_class = menu_level == 0 ? ' first-level' : ' second-level' %}
+
+
+{% set link_class = link_class ~ level_class %}
+
+{% if in_active_trail %}
+  {% set link_class = link_class ~ ' active-trail' %}
+  {% set list_item_class = list_item_class ~ ' active-trail' %}
+{% endif %}
+
+{% if ((below or is_collapsed) and is_accordion) %}
+  {% set link_class = link_class ~ ' accordion' %}
+{% endif %}
+
+{% set link_attributes = {
+  'class': link_class ~ ga_class
+} %}
+
+{% if ((below or is_collapsed) and is_accordion) %}
+  {% set link_attributes = link_attributes|merge({'data-module': 'accordion'}) %}
+{% endif %}
+
+{% if add_link_attr %}
+  {% set link_attributes = link_attributes|merge(add_link_attr) %}
+{% endif %}
+
+<li class="menu-item {{ list_item_class }} {{ list_item_attr }}">
+  {% block content %}
+    {% block item %}
+      {% if url is not defined or url.toString() is empty %}
+        <span class="menu-item-no-link">{{ title }}</span>
+      {% else  %}
+        {{ mac.link(url, title, link_attributes) }}
+      {% endif %}
+    {% endblock %}
+    {% block below %}
+      {% if below %}
+        {% include '@ul_base_theme/3_components/menu.twig' with {
+          items: below,
+          menu_class: menu_class,
+          link_class_ga: link_class_ga,
+          menu_level: menu_level + 1
+        } only %}
+      {% endif %}
+    {% endblock %}
+  {% endblock %}
+</li>

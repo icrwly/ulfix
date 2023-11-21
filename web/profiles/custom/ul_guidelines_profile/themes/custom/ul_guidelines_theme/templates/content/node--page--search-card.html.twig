@@ -1,0 +1,12 @@
+{% set card = {
+    title: label,
+    description: content.body,
+    linkHref: url,
+    linkName: 'Go to @label'|t({'@label': label.0['#context']['value']}),
+} %}
+
+{% embed '@ul_guidelines_theme/2_pieces/card/card--featured.twig' with { item: item } %}
+    {% block card_image %}
+        {# {{ content.field_shared_ref_image }} #}
+    {% endblock %}
+{% endembed %}

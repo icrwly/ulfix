@@ -1,0 +1,19 @@
+{# Override the "classy" theme breadcrumb tpl. #}
+{% if breadcrumb %}
+  <div class="breadcrumb--wrap breadcrumb--length-{{ breadcrumb|length}}">
+    <nav class="breadcrumb" role="navigation" aria-labelledby="system-breadcrumb">
+      <ul>
+        {% for item in breadcrumb %}
+          {% if item.url %}
+            <li><a href="{{ item.url }}" title="{{ item.text }}">{{ item.text }}</a></li>
+          {% else %}
+            {% if item.text == "About Ul" %}
+              {% set item = item|merge({'text': 'About UL'}) %}
+            {% endif %}
+            <li title="{{ item.text }}">{{ item.text }}</li>
+          {% endif %}
+        {% endfor %}
+      </ul>
+    </nav>
+  </div>
+{% endif %}

@@ -1,0 +1,17 @@
+uuid: b9aea2a7-6712-49c5-aef6-b03ef659d037
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_crc_asset
+title: 'Default cron handler'
+id: ul_crc_asset_cron
+weight: 0
+module: ul_crc_asset
+callback: ul_crc_asset_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

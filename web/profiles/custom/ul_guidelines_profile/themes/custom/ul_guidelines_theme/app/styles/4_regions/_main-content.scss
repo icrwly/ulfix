@@ -1,0 +1,30 @@
+#main-content {
+  max-width: none;
+  &.has-side-rail {
+    overflow: visible;
+    .column {
+      margin-bottom: 0;
+      max-width: 100%;
+    }
+    .main-column {
+      flex-basis: 100%;
+      max-width: 100%;
+      @include breakpoint($large-tablet) {
+        flex-basis: 66.66%;
+        max-width: 66.66%;
+      }
+    }
+  
+    .side-column {
+      @include breakpoint(max-width $large-tablet - 1) {
+        // display: none;
+        display: block;
+      }
+      @include breakpoint($large-tablet) {
+        flex-basis: 33.33%;
+        max-width: 33.33%;
+      }
+    }
+  
+  }
+}

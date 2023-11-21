@@ -1,0 +1,13 @@
+{% extends "@ul_base_theme/2_pieces/item/item.twig" %}
+{% set class = 'swiper-slide item--carousel-slide' %}
+
+{% block content %}
+    <div class="swiper-bullet-active"></div>
+    <div class="span-6 span-12-t slide_image">{{ slide_media }}</div>
+    <div class="span-12 slide-content">
+      <div class="span-12 slide_title">{{ (slide_title|render|striptags|length > 25 ? slide_title|render|striptags|truncate(25,true,'...')|raw : slide_title|render|striptags|raw) }}</div>
+      <div class="span-12 slide_subtitle">{{ (slide_subtitle|render|striptags|length > 75 ? slide_subtitle|render|striptags|truncate(75,true,'...')|raw : slide_subtitle|render|striptags|raw) }}</div>
+      <div class="span-12 slide_desc">{{ (slide_desc|render|striptags|length > 175 ? slide_desc|render|striptags|truncate(175,true,'...')|raw : slide_desc|render|striptags|raw)  }}</div>
+      <div class="span-12 slide_cta">{{ slide_cta }}</div>
+    </div>
+{% endblock %}

@@ -1,0 +1,11 @@
+{% extends '@ul_base_theme/1_core/1-column.twig' %}
+{% set mainClass = 'wrapper max-width--large-desktop' %}
+{% set grid = true %}
+
+{% block page %}
+  {% block listing %}
+    {% if listings %}
+      {% include '@ul_base_theme/4_regions/section--listing-container.twig' with listings %}
+    {% endif %}
+  {% endblock %}
+{% endblock %}

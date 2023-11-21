@@ -1,0 +1,24 @@
+uuid: 730226d9-dbee-40a3-a8b7-95c2c800c6b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.offering
+_core:
+  default_config_hash: 3AcYPRYgfAH8B8vsZG35O1jNLGH7_29IzBKq_DIcLZ4
+id: node.offering.status
+field_name: status
+entity_type: node
+bundle: offering
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

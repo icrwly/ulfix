@@ -1,0 +1,5 @@
+name: UL CRC Integration
+type: module
+description: Integrate with UL's Commercial Resource Center
+core_version_requirement: ^9 || ^10
+package: Web services

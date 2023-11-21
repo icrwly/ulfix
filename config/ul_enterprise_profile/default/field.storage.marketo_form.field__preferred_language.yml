@@ -1,0 +1,30 @@
+uuid: 50ae77dd-a9ca-4fa9-8a8a-0aa976198886
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - ul_marketo
+id: marketo_form.field__preferred_language
+field_name: field__preferred_language
+entity_type: marketo_form
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hidden
+      label: Hidden
+    -
+      value: optional
+      label: Optional
+    -
+      value: required
+      label: Required
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

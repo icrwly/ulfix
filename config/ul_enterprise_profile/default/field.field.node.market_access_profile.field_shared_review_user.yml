@@ -1,0 +1,34 @@
+uuid: f4050a0f-d4c5-44e4-9875-53b7a14ea704
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_review_user
+    - node.type.market_access_profile
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.market_access_profile.field_shared_review_user
+field_name: field_shared_review_user
+entity_type: node
+bundle: market_access_profile
+label: Reviewer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    filter:
+      type: _none
+    include_anonymous: true
+field_type: entity_reference

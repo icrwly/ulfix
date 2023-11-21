@@ -1,0 +1,103 @@
+/**
+ * Admin CSS styles for Marketo elements
+ * on the Admin Edit page form.
+ */
+.item-list ul.marketo-lang-ul {
+  position: absolute;
+  font-size: 1.2em;
+  margin: -8px 1px;
+  display: none;
+  background-color: #f5f5f2;
+  padding: 20px;
+  border: #eee solid 4px;
+}
+
+.item-list ul.marketo-lang-ul li {
+  list-style-type: circle;
+  list-style-image: unset;
+  margin-bottom: 10px;
+}
+
+.item-list ul.marketo-lang-ul li a {
+  padding: 5px;
+}
+
+.item-list ul.marketo-lang-ul li a:hover {
+  background-color: black;
+  color: white;
+}
+
+h3 {
+  clear: both;
+  padding: 10px;
+  transition: 0.2s;
+}
+
+.tableresponsive-toggle-columns {
+  clear: both;
+}
+
+h3.marketo-select-lang:hover {
+  background-color: black;
+  color: rgb(214, 211, 211);
+  cursor: pointer;
+  padding-left: 10px;
+  transition: color;
+}
+
+h3.marketo-select-lang::after {
+  position: absolute;
+  content: "+";
+  font-size: 24px;
+  padding-left: 14px;
+  margin-top: -1px;
+}
+
+h3.marketo-select-lang.opened::after {
+  content: "-";
+}
+
+h3.marketo-select-lang.opened {
+  background-color: #f5f5f2;
+}
+
+/**
+ * Files & Entities edit widget.
+ */
+ .entities-list .item-container {
+  display: block;
+  padding: 10px;
+  border: solid 1px #ecec;
+  font-size: 16px;
+  line-height: 1.3;
+}
+.entities-list .item-container > input {
+  margin: 10px 0;
+  display: block;
+  font-size: 12px;
+}
+
+/**
+ * Regional Pages' Custom Thank You Pages: Hide!
+ */
+.node-regional-pages-form .field--name-field-shared-thank-you-page,
+.node-regional-pages-edit-form .field--name-field-shared-thank-you-page {
+  display: none;
+}
+
+/**
+ * Icons: Vertical vs Horizontal Orientation.
+ */
+.toolbar .toolbar-toggle-orientation button.toolbar-icon-toggle-vertical::before {
+	background-image: url(/modules/custom/ul_marketo/css/icons/vert-align.png);
+}
+.toolbar .toolbar-toggle-orientation button.toolbar-icon-toggle-horizontal::before {
+	background-image: url(/modules/custom/ul_marketo/css/icons/horiz-align.png);
+}
+
+/* Revision Log counter */
+.rev-log-counter {
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: normal;
+}

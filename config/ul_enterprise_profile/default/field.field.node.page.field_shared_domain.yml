@@ -1,0 +1,31 @@
+uuid: 066116ef-bd03-45ea-a165-0810595932a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_domain
+    - node.type.page
+    - taxonomy.vocabulary.content_domain
+_core:
+  default_config_hash: U4r62JOQFI3sSj5wvqYf1aYHdALlKmO3Z4IEQ0YC0TQ
+id: node.page.field_shared_domain
+field_name: field_shared_domain
+entity_type: node
+bundle: page
+label: 'Content Domain'
+description: 'The content domain related to this page. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_domain: content_domain
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

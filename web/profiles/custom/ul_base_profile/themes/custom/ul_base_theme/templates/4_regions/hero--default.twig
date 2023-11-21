@@ -1,0 +1,33 @@
+{% extends "@ul_base_theme/4_regions/hero.twig" %}
+{% if slide.secondary_cta %}
+  {% set class = "hero--default has-secondary-cta" %}
+{% else %}
+  {% set class = "hero--default" %}
+{% endif %}
+{% set isCarousel = slides|length > 1 %}
+{% if isCarousel %}
+  {% set class = class ~ " is-carousel" %}
+{% endif %}
+
+{% block content %}
+  {% block logo %}
+    {% if logo %}
+      {% include '@ul_base_theme/2_pieces/ul-logo-red.twig' only %}
+    {% endif %}
+  {% endblock %}
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% block hero_slides %}
+        {% for slide in slides %}
+          {% include '@ul_base_theme/3_components/hero--default-slide.twig' with slide only %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  {% block footer %}
+    {% if footer %}
+      {% include '@ul_base_theme/3_components/hero__footer.twig' with footer only %}
+    {% endif %}
+  {% endblock %}
+{% endblock %}

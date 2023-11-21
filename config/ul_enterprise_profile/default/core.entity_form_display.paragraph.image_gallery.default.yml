@@ -1,0 +1,89 @@
+uuid: bb5fac6a-be50-48cf-bcdd-7c39354d2df0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_gallery.field_hash_target
+    - field.field.paragraph.image_gallery.field_image_gallery_images
+    - field.field.paragraph.image_gallery.field_image_gallery_title
+    - field.field.paragraph.image_gallery.field_shared_bg_color
+    - field.field.paragraph.image_gallery.field_shared_img_no_border
+    - field.field.paragraph.image_gallery.field_shared_view_mode
+    - paragraphs.paragraphs_type.image_gallery
+  module:
+    - field_group
+    - media_library
+    - view_mode_selector
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_view_mode
+        - field_shared_bg_color
+        - field_shared_img_no_border
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+id: paragraph.image_gallery.default
+targetEntityType: paragraph
+bundle: image_gallery
+mode: default
+content:
+  field_hash_target:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_image_gallery_images:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_image_gallery_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_img_no_border:
+    type: boolean_checkbox
+    weight: 4
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  field_shared_view_mode:
+    type: view_mode_selector_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

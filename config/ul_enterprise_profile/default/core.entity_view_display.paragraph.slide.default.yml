@@ -1,0 +1,42 @@
+uuid: 77956ef8-79e2-47c4-b543-24ac149748af
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slide.field_slide_body
+    - field.field.paragraph.slide.field_slide_image
+    - field.field.paragraph.slide.field_slide_title
+    - paragraphs.paragraphs_type.slide
+  module:
+    - text
+    - ul_media
+id: paragraph.slide.default
+targetEntityType: paragraph
+bundle: slide
+mode: default
+content:
+  field_slide_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_slide_image:
+    type: image_attributes
+    label: above
+    settings:
+      image_style: ''
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_slide_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

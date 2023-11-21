@@ -1,0 +1,10 @@
+uuid: 803531c4-c5cf-4742-8ed4-a75ab58fa466
+langcode: en
+status: true
+dependencies: {  }
+id: right_rail_plain_content
+label: 'Right Rail Plain Content'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Right Rail Plain Content</em> to add a plain text section to the Right Rail.'
+behavior_plugins: {  }

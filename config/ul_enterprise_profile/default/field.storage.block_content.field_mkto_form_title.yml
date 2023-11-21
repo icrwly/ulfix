@@ -1,0 +1,21 @@
+uuid: 1528f63a-56e2-48d9-ae34-a650c473b13e
+langcode: zh-hant
+status: true
+dependencies:
+  module:
+    - block_content
+id: block_content.field_mkto_form_title
+field_name: field_mkto_form_title
+entity_type: block_content
+type: string
+settings:
+  max_length: 120
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

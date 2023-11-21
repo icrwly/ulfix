@@ -1,0 +1,33 @@
+.card.card--data{
+  align-items: center;
+  border:0;
+  display:flex;
+  flex-direction:row;
+  &:hover{
+    transform:none !important;
+  }
+  .image-container{
+    text-align: center;
+    width:30%;
+    img{
+      display: inline-block;
+      width:70%;
+      height: auto;
+    }
+  }
+  .content-container{
+    padding-bottom:0;
+    padding-top:0;
+    width:70%;
+    @include breakpoint($tablet){
+      padding-left:$spacing-unit;
+      padding-right:$spacing-unit;
+    }
+  }
+  h3{
+    font-size:28px;
+    font-weight: 700;
+    line-height:38px;
+    margin-bottom: $spacing-unit / 1.5;
+  }
+}

@@ -1,0 +1,190 @@
+.pager {
+  display: flex;
+  line-height: 1;
+  font-weight: 300;
+
+  ul {
+    @include list-unstyled;
+  }
+
+  a {
+    color: $black;
+    display: block;
+    &:hover,
+    &:focus {
+      background-color: $background-color--hover;
+      text-decoration: none;
+    }
+  }
+
+  .pager__item {
+    display: block; // override styles from classy theme
+    padding: 0; // override styles from classy theme
+  }
+
+  .pager__select {
+    position: relative;
+    &.is-open {
+      .pager__menu {
+        display: block;
+      }
+      .pager__active-page {
+        background-color: $background-color--hover;
+        &:after {
+          transform: translate(50% * $transform-direction, -50%) scaleY(-1);
+        }
+      }
+    }
+  }
+
+  .pager__button {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    min-height: 60px;
+    min-width: 60px;
+    padding: $spacing-unit--s $spacing-unit;
+    text-align: center;
+  }
+
+  .pager__active-page {
+    border: 1px solid $border-color;
+    padding-#{$start-direction}: $spacing-unit * 1.5;
+    padding-#{$end-direction}: $spacing-unit--l * 1.5;
+    position: relative;
+    &:after {
+      @include icon-settings();
+      #{$end-direction}: $spacing-unit * 1.5;
+      content: $icon-solid-arrow-d;
+      font-size: 8px;
+      line-height: 1;
+      position: absolute;
+      top: 50%;
+      transform: translate(50% * $transform-direction, -50%);
+    }
+  }
+
+  .pager__menu {
+    #{$start-direction}: 0;
+    background: $white;
+    border: 1px solid $border-color;
+    bottom: calc(100% - 1px);
+    display: none;
+    max-height: 146px;
+    overflow-y: auto;
+    position: absolute;
+    width: 100%;
+    z-index: index($globalIndex, overlay);
+    &::-webkit-scrollbar {
+      -webkit-appearance: none;
+      background: $gray-lightest;
+      border-bottom: $gray-lightest;
+      border-#{$start-direction}: $gray-lightest;
+      width: 7px;
+    }
+    &::-webkit-scrollbar-thumb {
+      background-color: rgba($gray, 0.8);
+      border-radius: 4px;
+    }
+
+    a {
+      padding: $spacing-unit--s $spacing-unit;
+    }
+  }
+
+  .pager__navigation {
+    border: 1px solid $border-color--dark;
+    border-#{$start-direction}: none;
+    display: flex;
+
+    li + li {
+      border-#{$start-direction}: 1px solid $border-color--dark;
+    }
+
+    .icon {
+      font-size: 1rem;
+      font-weight: 600;
+    }
+  }
+}
+
+/* Mini Pager */
+.section.mini-pager-wrap {
+  background: $white !important;
+  padding: 0;
+  margin: -2*$spacing-unit 0 0 0;
+
+  .wrapper {
+    padding: 0;
+  }
+
+  .section.section--pager {
+    right: 0;
+    bottom: 0;
+    background-color: transparent;
+    padding-bottom: 0 !important;
+    padding-top: 0 !important;
+    position: relative;
+  }
+
+  .pager .pager__item {
+    display: block;
+    float: left;
+    padding: 0;
+
+    a {
+      color: $black;
+      display: block;
+      padding: 1rem 2rem;
+      border: solid 1px $gray-lighter;
+      position: relative;
+
+      span[aria-hidden="true"] {
+        position: relative;
+        top: -99999px;
+        left: -99999px;
+        z-index: 0;
+      }
+    }
+  }
+
+  .pager .pager__item.pager__item--previous a:before,
+  .pager .pager__item.pager__item--previous a:after {
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    bottom: 30%;
+    left: 30%;
+    content: " ";
+    border-style: solid;
+    border-width: 8px 13.9px 8px 0;
+    border-color: transparent $gray-medium transparent transparent;
+  }
+
+  .pager .pager__item.pager__item--next a:before,
+  .pager .pager__item.pager__item--next a:after {
+    position: absolute;
+    pointer-events: none;
+    width: 0;
+    height: 0;
+    bottom: 30%;
+    left: 40%;
+    content: " ";
+    border-style: solid;
+    border-width: 8px 0 8px 13.9px;
+    border-color: transparent transparent transparent $gray-medium;
+  }
+
+  .pager .pager__item.is-active {
+    padding: 1rem;
+    font-weight: 400;
+    color: $gray-medium;
+  }
+}
+
+.filter-bar--pager-fix .section--pager.mini-pager-wrap  {
+  background-color: transparent;
+  position: relative;
+}

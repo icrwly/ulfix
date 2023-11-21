@@ -1,0 +1,41 @@
+uuid: e00ac424-cc41-4f17-a572-b58f3961ba04
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.people.field_hash_target
+    - field.field.paragraph.people.field_people_people
+    - field.field.paragraph.people.field_people_title
+    - paragraphs.paragraphs_type.people
+id: paragraph.people.default
+targetEntityType: paragraph
+bundle: people
+mode: default
+content:
+  field_hash_target:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_people_people:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_people_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

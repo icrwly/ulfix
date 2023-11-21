@@ -1,0 +1,6 @@
+<span class="search-box__group__icon icon icon-search"></span>
+<label id="searchInputLabel" class="sr-only">{{ input.label ?: 'Search' }}</label>
+{% block input_field %}
+<input aria-labelledby="searchInputLabel" type="text" name="keyword" data-placeholder="{{ input.placeholder ?:'What are you searching for?' }}"/>
+{% endblock %}
+<a class="search-box__group__clear" data-clear>{{ input.clearText ?: 'Clear' }}</a>

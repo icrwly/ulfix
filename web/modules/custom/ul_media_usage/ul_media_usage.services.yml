@@ -1,0 +1,12 @@
+services:
+  ul_media_usage.batch_manager:
+    class: Drupal\ul_media_usage\EntityUsageBatchManager
+    arguments: ['@entity_type.manager', '@string_translation', '@ul_media_usage.usage', '@messenger', '@logger.factory']
+  ul_media_usage.usage:
+    class: Drupal\ul_media_usage\MediaUsage
+    arguments: ['@entity_type.manager', '@database', '@module_handler', '@language_manager', '@path_alias.manager', '@request_stack', '@logger.factory']
+  ul_media_usage_drush_command.commands:
+    class: Drupal\ul_media_usage\Commands\MediaUsageCommands
+    arguments: ['@ul_media_usage.batch_manager']
+    tags:
+      - { name: drush.command }

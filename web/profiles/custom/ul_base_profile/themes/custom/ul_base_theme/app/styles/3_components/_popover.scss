@@ -1,0 +1,8 @@
+.popover {
+  background: $white;
+  border-radius: $border-radius;
+  box-shadow: $box-shadow--level-3;
+  display: none;
+  position: absolute;
+  z-index: index($globalIndex, popover);
+}

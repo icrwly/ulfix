@@ -1,0 +1,30 @@
+uuid: 61a20922-26c8-46c9-8d27-3307dbe37e5f
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_shared_bg_color
+field_name: field_shared_bg_color
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Light gray'
+      label: 'Light Blue'
+    -
+      value: Red
+      label: 'Dark Blue'
+    -
+      value: Black
+      label: Green
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

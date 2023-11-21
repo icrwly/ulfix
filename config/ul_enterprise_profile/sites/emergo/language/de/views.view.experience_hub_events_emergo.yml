@@ -1,0 +1,21 @@
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: "<div class=\"wrapper\">\r\n<div class=\"span-col-12\">\r\n<h2>There are currently no upcoming events scheduled. Please check back at a later time.</h2>\r\n</div>\r\n</div>\r\n"
+            format: full_html
+      filters:
+        title:
+          expose:
+            placeholder: Suche
+        field_event_type_target_id:
+          expose:
+            label: Veranstaltungstypen
+        field_shared_service_type_target_id:
+          expose:
+            label: 'Leistungen '
+        field_shared_country_target_id:
+          expose:
+            label: Markt

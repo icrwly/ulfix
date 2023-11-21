@@ -1,0 +1,37 @@
+{% extends '@ul_base_theme/4_regions/section--video.twig' %}
+{% set class = "section--paragraph section--video" %}
+{% set gutterclass = "paragraph-gutter paragraph--video" %}
+{% set title = content.field_video_title %}
+{% set description = content.field_video_description %}
+{% set video = content.field_video_media %}
+{% set videoURL = content.field_video_media[0]['#media'].field_media_video_embed_field.0.value %}
+{% if content.field_shared_bg_color.0 is not empty %}
+    {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+    {% set color = 'red-outline' %}
+{% else %}
+    {% set color = 'black-outline' %}
+{% endif %}
+
+{% block description_inner %}
+    {{ content.field_video_description }}
+
+  {# Add CTA Link button to the Video paragraph #}
+  {% block cta_link %}
+      {% if content.field_spotlight_link.0 %}
+          <div class="section__link">
+          {#  button button--black-outline #}
+          {% include '@ul_base_theme/2_pieces/button.twig' with {
+          link: content.field_spotlight_link.0['#url'],
+          name: content.field_spotlight_link.0['#title'],
+          color: color
+          } only %}
+          </div>
+      {% endif %}
+  {% endblock %}
+
+{% endblock %}
+
+
+{% block embedded_video %}
+    {{ content.field_video_media }}
+{% endblock %}

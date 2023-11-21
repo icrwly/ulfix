@@ -1,0 +1,22 @@
+uuid: 4bcbfe31-c089-479e-aed5-20dc86c0c2de
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.training_category
+id: taxonomy_term.training_category.status
+field_name: status
+entity_type: taxonomy_term
+bundle: training_category
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

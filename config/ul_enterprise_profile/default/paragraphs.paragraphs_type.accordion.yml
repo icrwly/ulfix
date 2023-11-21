@@ -1,0 +1,10 @@
+uuid: 2389a09b-8b5b-46ef-8d35-d0f4f7bb01c2
+langcode: en
+status: true
+dependencies: {  }
+id: accordion
+label: 'Content Accordion'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Content Accordion</em> to create accordion interaction in your content.'
+behavior_plugins: {  }

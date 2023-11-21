@@ -1,0 +1,10 @@
+{# file: node--location.html.twig #}
+{% block page %}
+  {% embed '@ul_enterprise_theme/4_regions/section--location.twig' %}
+    {% set catch_cache = content|render %}
+    {% set region = content.field_location_region.0 %}
+    {% set location_name = label %}
+    {% set location_url = content.field_location_url.0 %}
+    {% set location_address = content.field_location_addresses %}
+  {% endembed %}
+{% endblock %}

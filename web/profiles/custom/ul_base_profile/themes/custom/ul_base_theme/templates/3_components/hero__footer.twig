@@ -1,0 +1,38 @@
+{% set class = class ~ ' wrapper' %}
+{% set inner_class = bg_color ? 'bg-' ~ bg_color %}
+
+<div class="hero__footer {{ class }}">
+  <div class="hero__footer-inner {{ inner_class }}">
+    <div class="hero__footer-row row">
+
+      {% if title or description %}
+        <div class="hero__footer-content span-7-t span-8-d">
+          <div class="content-wrapper">
+            {% block title %}
+              {% if title %}
+                <h3 class="hero__footer-title">{{ title }}</h3>
+              {% endif %}
+            {% endblock %}
+
+            {% block description %}
+              {% if description %}
+                <p class="hero__footer-description">{{ description }}</p>
+              {% endif %}
+            {% endblock %}
+          </div>
+        </div>
+      {% endif %}
+
+      {% block cta %}
+        {% if cta %}
+          <div class="hero__footer-cta span-5-t span-4-d">
+            <div class="content-wrapper">
+              <a href="{{ cta.url }}" class="button button--white-outline" title="{{ cta.title }}">{{ cta.title }}</a>
+            </div>
+          </div>
+        {% endif %}
+      {% endblock %}
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,9 @@
+{% if content.field_cta_link.0 is not empty %}
+  {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--studio.twig' with {
+    item : {
+      linkHref : content.field_cta_link.0['#url'],
+      linkName : content.field_cta_link.0['#title'],
+      description : content.field_cta_description
+    }
+  } %}
+{% endif %}

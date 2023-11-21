@@ -1,0 +1,10 @@
+ul-private-event:
+  version: 1.x
+  js:
+    js/ul_private_event.js: { minified: true }
+  dependencies:
+    - core/drupal
+    - core/jquery
+  css:
+    theme:
+      css/ul_private_event.css: { weight: 500 }

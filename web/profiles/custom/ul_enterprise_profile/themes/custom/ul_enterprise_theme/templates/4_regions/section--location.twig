@@ -1,0 +1,21 @@
+{# @file: section--locations.twig #}
+{% block content %}
+  <div class="section--location section--paragraph wrapper loc-accord">
+    <div class="section--location--header loc-accord-header">
+      <div class="span-7-m">
+        <h4 class="loc-accord-trigger">
+          <span class="icon-plus icon-plusmin"></span>
+          {{ location_name }}
+        </h4>
+      </div>
+      {% if location_url|render %}
+        <div class="span-5-m">
+          <a class="button button--location" href="{{ location_url }}">Local Site</a>
+        </div>
+      {% endif %}
+    </div>
+    <div class="row section--location--body loc-accord-body">
+      {{ location_address }}
+    </div>
+  </div>
+{% endblock %}

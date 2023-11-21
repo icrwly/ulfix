@@ -1,0 +1,118 @@
+uuid: f8e20e2a-58cc-4c21-adc9-49f0e803d084
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_person_secondary_content
+    - node.type.person
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - entity_reference_revisions
+id: node.person.field_person_secondary_content
+field_name: field_person_secondary_content
+entity_type: node
+bundle: person
+label: 'Associated Content'
+description: 'Link to pages authored by and referring to this person.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      related_content: related_content
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 31
+        enabled: false
+      accordion_items:
+        weight: 32
+        enabled: false
+      basic_content:
+        weight: 33
+        enabled: false
+      call_to_action:
+        weight: 34
+        enabled: false
+      captioned_image:
+        weight: 35
+        enabled: false
+      crc_files:
+        weight: 36
+        enabled: false
+      curated_list:
+        weight: 37
+        enabled: false
+      curated_separate_list:
+        weight: 38
+        enabled: false
+      descript_link:
+        weight: 39
+        enabled: false
+      files:
+        weight: 40
+        enabled: false
+      hero:
+        weight: 41
+        enabled: false
+      image_gallery:
+        weight: 42
+        enabled: false
+      image_row:
+        weight: 43
+        enabled: false
+      interrupter_cta:
+        weight: 44
+        enabled: false
+      list_item:
+        weight: 45
+        enabled: false
+      location:
+        weight: 46
+        enabled: false
+      marketo_form:
+        weight: 47
+        enabled: false
+      menu_section:
+        weight: 48
+        enabled: false
+      people:
+        weight: 49
+        enabled: false
+      quote:
+        weight: 50
+        enabled: false
+      reference:
+        weight: 51
+        enabled: false
+      related_content:
+        weight: 52
+        enabled: true
+      right_rail_external_links:
+        weight: 53
+        enabled: false
+      sidebar_curated_related:
+        weight: 54
+        enabled: false
+      simple_menu:
+        weight: 55
+        enabled: false
+      single_related_content:
+        weight: 56
+        enabled: false
+      slide:
+        weight: 57
+        enabled: false
+      spotlight:
+        weight: 58
+        enabled: false
+      video:
+        weight: 59
+        enabled: false
+      view:
+        weight: 60
+        enabled: false
+field_type: entity_reference_revisions

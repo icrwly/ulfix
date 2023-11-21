@@ -1,0 +1,32 @@
+administer legal holds:
+  title: 'Administer legal holds'
+  description: ''
+  restrict access: true
+add legal hold:
+  title: 'Add a legal hold'
+  description: ''
+  restrict access: true
+edit legal holds:
+  title: 'Edit legal holds'
+  description: ''
+  restrict access: true
+remove legal hold:
+  title: 'Remove a legal hold'
+  description: ''
+  restrict access: true
+view legal holds:
+  title: 'View legal holds'
+  description: 'View legal holds attached to a piece of content or all legal holds'
+  restrict access: true
+delete all legal hold revisions:
+  title: 'Delete legal hold revisions'
+  description: 'Delete revisions of legal holds attached to a piece of content'
+  restrict access: true
+access legal hold revisions:
+  title: 'View legal hold revisions'
+  description: 'View legal holds attached to a piece of content'
+  restrict access: true
+revert all legal hold revisions:
+  title: 'Revert legal holds'
+  description: 'Revert legal holds attached to a piece of content'
+  restrict access: true

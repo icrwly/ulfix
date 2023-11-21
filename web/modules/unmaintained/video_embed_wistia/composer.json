@@ -1,0 +1,10 @@
+{
+    "name": "drupal/video_embed_wistia",
+    "description": "This module adds support for Wistia to the video_embed_field module.",
+    "type": "drupal-module",
+    "homepage": "https://www.drupal.org/project/video_embed_wistia",
+    "license": "GPL-2.0-or-later",
+    "require": {
+        "drupal/video_embed_field": "^2.0"
+    }
+}

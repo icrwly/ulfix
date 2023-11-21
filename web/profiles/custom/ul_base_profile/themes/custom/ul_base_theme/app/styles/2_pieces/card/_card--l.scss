@@ -1,0 +1,42 @@
+.card.card--l {
+  p {
+    @include breakpoint($tablet) {
+      font-size: 1.6rem;
+      line-height: 1.5;
+    }
+  }
+
+  h3,
+  .card__title {
+    @include breakpoint($tablet) {
+      font-size: 2.8rem;
+    }
+    @include breakpoint($desktop) {
+      font-size: 3.4rem;
+    }
+  }
+
+  .content-container {
+    @include breakpoint($desktop) {
+      padding: $spacing-unit--l;
+    }
+    @include breakpoint($large-desktop) {
+      padding: $spacing-unit--xl;
+    }
+  }
+
+  .bottom-row {
+    @include breakpoint($desktop) {
+      padding: 0 $spacing-unit--l $spacing-unit--l;
+    }
+    @include breakpoint($large-desktop) {
+      padding: 0 $spacing-unit--xl $spacing-unit--xl;
+    }
+  }
+
+  .widget--topics {
+    @include breakpoint($large-desktop) {
+      margin-bottom: $spacing-unit--l * .75;
+    }
+  }
+}

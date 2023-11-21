@@ -1,0 +1,64 @@
+# Australia, New Zealand CSS (overrides to enterprise theme).
+ul-anz-styles:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/ul-anz-styles.css: { weight: 2000 }
+
+# Australia, New Zealand JS (global) scripts:
+global-scripts:
+  version: 1.x
+  js:
+    scripts/ul_anz.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# The Knightlab Timeline assets
+timeline:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css: { type: external, minified: true }
+      css/timeline.css: { }
+  js:
+    https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js: { type: external, attributes: { async: false } }
+
+# History
+history:
+  version: 1.x
+  js:
+    scripts/history.js: { preprocess: false, attributes: { async: false } }
+  dependencies:
+    - core/jquery
+    - ul_base_theme/global-scripts
+    - ul_base_theme/jquery-custom
+    - ul_com_theme/ul-com-timeline
+
+
+# ====================================== #
+# NOTE: The site admin can switch between
+# the PROD and TEST GnaaS scripts:
+# ====================================== #
+
+# "PROD":
+gnaas-prod:
+  version: 1.x
+  js:
+    https://commons.ul.com/gnaas/prod/index.js: { type: external }
+    scripts/gnaas.js: { preprocess: false, attributes: { defer: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# "TEST":
+gnaas-test:
+  version: 1.x
+  js:
+    https://commons.ul.com/gnaas/test/index.js: { type: external }
+    scripts/gnaas.js: { preprocess: false, attributes: { defer: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

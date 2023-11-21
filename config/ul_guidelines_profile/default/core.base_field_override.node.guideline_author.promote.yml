@@ -1,0 +1,22 @@
+uuid: 6cdadec1-5392-4a8a-abc4-96c97b16ecfe
+langcode: en
+status: false
+dependencies:
+  config:
+    - node.type.guideline_author
+id: node.guideline_author.promote
+field_name: promote
+entity_type: node
+bundle: guideline_author
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

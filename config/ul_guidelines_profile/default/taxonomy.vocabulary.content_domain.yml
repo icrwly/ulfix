@@ -1,0 +1,8 @@
+uuid: cea7d4cb-fa62-492f-b39f-b7c48555a6e7
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content Domain'
+vid: content_domain
+description: 'Used for grouping content by domain e.g Legal, News etc. '
+weight: 0

@@ -1,0 +1,18 @@
+uuid: 9fbcf4d2-0c3d-4a20-b876-fd22ad319fa9
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.crc_files
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.crc_files
+target_entity_type_id: paragraph
+target_bundle: crc_files
+default_langcode: site_default
+language_alterable: true

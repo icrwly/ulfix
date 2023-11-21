@@ -1,0 +1,10 @@
+uuid: b4493a2a-efe9-4bdc-8ecb-5270f6a79c20
+langcode: en
+status: true
+dependencies: {  }
+id: video
+label: Video
+icon_uuid: null
+icon_default: null
+description: 'Embedded <em>video</em> with a link and description.'
+behavior_plugins: {  }

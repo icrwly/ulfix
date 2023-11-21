@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Contains acsf_metadata.module.
+ */
+
+use Drupal\Component\Serialization\Yaml;
+use Acquia\Blt\Robo\Common\EnvironmentDetector;
+use Drupal\Core\File\FileSystemInterface;
+
+/**
+ * Implements hook_modules_installed().
+ */
+function acsf_metadata_modules_installed($modules) {
+  // Write initial site metadata file. If the file already exists, replace it.
+  $profile = \Drupal::installProfile();
+  if (in_array($profile, $modules)) {
+    $metadata = [
+      'site' => [
+        'profile' => $profile,
+      ],
+    ];
+    $result = Yaml::encode($metadata);
+    /** @var \Drupal\Core\File\FileSystemInterface $file_system */
+    $file_system = \Drupal::service('file_system');
+    $private_files_path = 'private://';
+    if (EnvironmentDetector::isLocalEnv()) {
+      // The local directory for private files might not exist, so create it.
+      $file_system->prepareDirectory($private_files_path, FileSystemInterface::CREATE_DIRECTORY);
+    }
+    $save = $file_system->saveData($result, "$private_files_path/site_metadata.yml", FileSystemInterface::EXISTS_REPLACE);
+    if (!empty($save)) {
+      \Drupal::logger('acsf_metadata')->info('Site metadata successfully written to private file storage.');
+    }
+    else {
+      // This is critical since importing configuration depends on this file
+      // being written.
+      \Drupal::logger('acsf_metadata')->critical('Failed to write site metadata to private file storage.');
+    }
+  }
+}

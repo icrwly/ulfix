@@ -1,0 +1,9 @@
+{% embed '@ul_base_theme/2_pieces/search-bar--group.twig' with {
+    value: 'search-basic-listing',
+    icon: true,
+    type: 'filter'
+} %}
+    {% block text_input %}
+        {{ children }}
+    {% endblock %}
+{% endembed %}

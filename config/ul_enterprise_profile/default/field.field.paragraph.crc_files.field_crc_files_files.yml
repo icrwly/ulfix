@@ -1,0 +1,23 @@
+uuid: dcc01685-1072-4741-9ffa-3be8b2f0c195
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_crc_files_files
+    - paragraphs.paragraphs_type.crc_files
+  module:
+    - ul_crc_asset
+id: paragraph.crc_files.field_crc_files_files
+field_name: field_crc_files_files
+entity_type: paragraph
+bundle: crc_files
+label: Files
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crc_asset'
+  handler_settings: {  }
+field_type: crc_asset_item

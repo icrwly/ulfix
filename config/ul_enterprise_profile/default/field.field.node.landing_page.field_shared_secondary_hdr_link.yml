@@ -1,0 +1,27 @@
+uuid: 834bff57-d32f-4bd7-ab8d-9e3d9e3a808b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_secondary_hdr_link
+    - node.type.landing_page
+  module:
+    - link
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.landing_page.field_shared_secondary_hdr_link
+field_name: field_shared_secondary_hdr_link
+entity_type: node
+bundle: landing_page
+label: 'Secondary Header Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

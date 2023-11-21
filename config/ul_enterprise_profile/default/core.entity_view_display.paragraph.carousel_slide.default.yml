@@ -1,0 +1,83 @@
+uuid: 90b01cfe-ecd7-4615-9b84-b4c3b8593021
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.carousel_slide.field_carousel_slide_cta
+    - field.field.paragraph.carousel_slide.field_carousel_slide_description
+    - field.field.paragraph.carousel_slide.field_carousel_slide_subtitle
+    - field.field.paragraph.carousel_slide.field_carousel_slide_title
+    - field.field.paragraph.carousel_slide.field_carousel_slide_video
+    - field.field.paragraph.carousel_slide.field_slide_media
+    - image.style.card
+    - paragraphs.paragraphs_type.carousel_slide
+  module:
+    - link
+    - ul_media
+    - video_embed_field
+id: paragraph.carousel_slide.default
+targetEntityType: paragraph
+bundle: carousel_slide
+mode: default
+content:
+  field_carousel_slide_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_carousel_slide_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_carousel_slide_subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_carousel_slide_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_carousel_slide_video:
+    type: video_embed_field_video
+    label: above
+    settings:
+      autoplay: false
+      responsive: true
+      width: 854
+      height: 480
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_slide_media:
+    type: media_url
+    label: above
+    settings:
+      image_style: card
+      alt_tag: '1'
+      image_loading:
+        attribute: lazy
+      title: 0
+      image_link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+hidden:
+  search_api_excerpt: true

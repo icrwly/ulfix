@@ -1,0 +1,381 @@
+uuid: 8c982faa-4d7d-46cf-ba25-70cdf3ee18a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - media.type.crc_asset
+    - media.type.file
+    - media.type.image
+    - media.type.video
+    - node.type.campaign_page
+    - node.type.event
+    - node.type.help
+    - node.type.homepage
+    - node.type.hub
+    - node.type.knowledge
+    - node.type.landing_page
+    - node.type.location
+    - node.type.market_access_profile
+    - node.type.news
+    - node.type.offering
+    - node.type.page
+    - node.type.person
+    - node.type.regional_pages
+    - node.type.resource
+    - node.type.thankyou_pages
+    - node.type.tool
+    - taxonomy.vocabulary.article_categories
+    - taxonomy.vocabulary.attendee_types
+    - taxonomy.vocabulary.categories
+    - taxonomy.vocabulary.certification_regulatory_types
+    - taxonomy.vocabulary.content_domain
+    - taxonomy.vocabulary.content_owner
+    - taxonomy.vocabulary.country
+    - taxonomy.vocabulary.customer_operating_unit
+    - taxonomy.vocabulary.deliverables
+    - taxonomy.vocabulary.event_types
+    - taxonomy.vocabulary.flagship_theme
+    - taxonomy.vocabulary.help_categories
+    - taxonomy.vocabulary.help_types
+    - taxonomy.vocabulary.industries
+    - taxonomy.vocabulary.knowledge_types
+    - taxonomy.vocabulary.location_types
+    - taxonomy.vocabulary.markets
+    - taxonomy.vocabulary.material_categories
+    - taxonomy.vocabulary.material_types
+    - taxonomy.vocabulary.news_types
+    - taxonomy.vocabulary.offering_types
+    - taxonomy.vocabulary.products_and_components
+    - taxonomy.vocabulary.resource_types
+    - taxonomy.vocabulary.service_categories
+    - taxonomy.vocabulary.service_types
+    - taxonomy.vocabulary.solutions
+    - taxonomy.vocabulary.stakeholder_needs
+    - taxonomy.vocabulary.standards_types
+    - taxonomy.vocabulary.strategic_solutions
+    - taxonomy.vocabulary.tool_categories
+    - taxonomy.vocabulary.tool_types
+    - taxonomy.vocabulary.topics
+    - taxonomy.vocabulary.training_category
+    - workflows.workflow.content_publication
+  module:
+    - block
+    - block_content
+    - cm_workbench
+    - content_moderation
+    - content_translation
+    - entity_browser
+    - environment_indicator
+    - file
+    - filter
+    - locale
+    - media
+    - menu_link_content
+    - node
+    - paragraphs
+    - path
+    - pathauto
+    - redirect
+    - rest
+    - role_delegation
+    - scheduler
+    - simple_sitemap
+    - system
+    - taxonomy
+    - tmgmt
+    - toolbar
+    - ul_legal_hold
+    - ul_marketo
+id: site_manager
+label: 'Site Manager'
+weight: -7
+is_admin: null
+permissions:
+  - 'accept translation jobs'
+  - 'access administration pages'
+  - 'access cm_workbench'
+  - 'access content overview'
+  - 'access crc_asset entity browser pages'
+  - 'access environment indicator'
+  - 'access file entity browser pages'
+  - 'access files overview'
+  - 'access image entity browser pages'
+  - 'access legal hold revisions'
+  - 'access media overview'
+  - 'access site in maintenance mode'
+  - 'access site reports'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access wysiwyg entity browser pages'
+  - 'add legal hold'
+  - 'add marketo_form entities'
+  - 'administer blocks'
+  - 'administer legal holds'
+  - 'administer marketo_form entities'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'administer pathauto'
+  - 'administer redirect settings'
+  - 'administer redirects'
+  - 'administer rest resources'
+  - 'administer sitemap settings'
+  - 'administer url aliases'
+  - 'administer users'
+  - 'assign content_approver role'
+  - 'assign content_author role'
+  - 'assign site_manager role'
+  - 'create campaign_page content'
+  - 'create content translations'
+  - 'create event content'
+  - 'create help content'
+  - 'create homepage content'
+  - 'create hub content'
+  - 'create knowledge content'
+  - 'create landing_page content'
+  - 'create location content'
+  - 'create market_access_profile content'
+  - 'create media'
+  - 'create news content'
+  - 'create offering content'
+  - 'create page content'
+  - 'create person content'
+  - 'create regional_pages content'
+  - 'create resource content'
+  - 'create terms in article_categories'
+  - 'create terms in attendee_types'
+  - 'create terms in categories'
+  - 'create terms in certification_regulatory_types'
+  - 'create terms in content_domain'
+  - 'create terms in content_owner'
+  - 'create terms in country'
+  - 'create terms in customer_operating_unit'
+  - 'create terms in deliverables'
+  - 'create terms in event_types'
+  - 'create terms in flagship_theme'
+  - 'create terms in help_categories'
+  - 'create terms in help_types'
+  - 'create terms in industries'
+  - 'create terms in knowledge_types'
+  - 'create terms in location_types'
+  - 'create terms in markets'
+  - 'create terms in material_categories'
+  - 'create terms in material_types'
+  - 'create terms in news_types'
+  - 'create terms in offering_types'
+  - 'create terms in products_and_components'
+  - 'create terms in resource_types'
+  - 'create terms in service_categories'
+  - 'create terms in service_types'
+  - 'create terms in solutions'
+  - 'create terms in stakeholder_needs'
+  - 'create terms in standards_types'
+  - 'create terms in strategic_solutions'
+  - 'create terms in tool_categories'
+  - 'create terms in tool_types'
+  - 'create terms in topics'
+  - 'create terms in training_category'
+  - 'create thankyou_pages content'
+  - 'create tool content'
+  - 'create translation jobs'
+  - 'create url aliases'
+  - 'delete all legal hold revisions'
+  - 'delete any media'
+  - 'delete marketo_form entities'
+  - 'delete media'
+  - 'delete translation jobs'
+  - 'edit any campaign_page content'
+  - 'edit any event content'
+  - 'edit any help content'
+  - 'edit any homepage content'
+  - 'edit any hub content'
+  - 'edit any knowledge content'
+  - 'edit any landing_page content'
+  - 'edit any location content'
+  - 'edit any market_access_profile content'
+  - 'edit any news content'
+  - 'edit any offering content'
+  - 'edit any page content'
+  - 'edit any person content'
+  - 'edit any regional_pages content'
+  - 'edit any resource content'
+  - 'edit any thankyou_pages content'
+  - 'edit any tool content'
+  - 'edit legal holds'
+  - 'edit marketo_form entities'
+  - 'edit own campaign_page content'
+  - 'edit own event content'
+  - 'edit own help content'
+  - 'edit own homepage content'
+  - 'edit own hub content'
+  - 'edit own knowledge content'
+  - 'edit own landing_page content'
+  - 'edit own location content'
+  - 'edit own market_access_profile content'
+  - 'edit own news content'
+  - 'edit own offering content'
+  - 'edit own page content'
+  - 'edit own person content'
+  - 'edit own regional_pages content'
+  - 'edit own resource content'
+  - 'edit own thankyou_pages content'
+  - 'edit own tool content'
+  - 'edit terms in article_categories'
+  - 'edit terms in attendee_types'
+  - 'edit terms in categories'
+  - 'edit terms in certification_regulatory_types'
+  - 'edit terms in content_domain'
+  - 'edit terms in content_owner'
+  - 'edit terms in country'
+  - 'edit terms in customer_operating_unit'
+  - 'edit terms in deliverables'
+  - 'edit terms in event_types'
+  - 'edit terms in flagship_theme'
+  - 'edit terms in help_categories'
+  - 'edit terms in help_types'
+  - 'edit terms in industries'
+  - 'edit terms in knowledge_types'
+  - 'edit terms in location_types'
+  - 'edit terms in markets'
+  - 'edit terms in material_categories'
+  - 'edit terms in material_types'
+  - 'edit terms in news_types'
+  - 'edit terms in offering_types'
+  - 'edit terms in products_and_components'
+  - 'edit terms in resource_types'
+  - 'edit terms in service_categories'
+  - 'edit terms in service_types'
+  - 'edit terms in solutions'
+  - 'edit terms in stakeholder_needs'
+  - 'edit terms in standards_types'
+  - 'edit terms in strategic_solutions'
+  - 'edit terms in tool_categories'
+  - 'edit terms in tool_types'
+  - 'edit terms in topics'
+  - 'edit terms in training_category'
+  - 'notify of path changes'
+  - 'purge_invalidation_form purge invalidation'
+  - 'remove legal hold'
+  - 'revert all legal hold revisions'
+  - 'revert all revisions'
+  - 'revert campaign_page revisions'
+  - 'revert event revisions'
+  - 'revert help revisions'
+  - 'revert hub revisions'
+  - 'revert knowledge revisions'
+  - 'revert landing_page revisions'
+  - 'revert location revisions'
+  - 'revert market_access_profile revisions'
+  - 'revert news revisions'
+  - 'revert offering revisions'
+  - 'revert page revisions'
+  - 'revert person revisions'
+  - 'revert regional_pages revisions'
+  - 'revert resource revisions'
+  - 'revert thankyou_pages revisions'
+  - 'revert tool revisions'
+  - 'schedule publishing of nodes'
+  - 'submit translation jobs'
+  - 'translate article_categories taxonomy_term'
+  - 'translate attendee_types taxonomy_term'
+  - 'translate block_content'
+  - 'translate campaign_page node'
+  - 'translate categories taxonomy_term'
+  - 'translate certification_regulatory_types taxonomy_term'
+  - 'translate content_domain taxonomy_term'
+  - 'translate content_owner taxonomy_term'
+  - 'translate country taxonomy_term'
+  - 'translate crc_asset media'
+  - 'translate customer_operating_unit taxonomy_term'
+  - 'translate deliverables taxonomy_term'
+  - 'translate event node'
+  - 'translate event_types taxonomy_term'
+  - 'translate file media'
+  - 'translate flagship_theme taxonomy_term'
+  - 'translate help node'
+  - 'translate help_categories taxonomy_term'
+  - 'translate help_types taxonomy_term'
+  - 'translate homepage node'
+  - 'translate hub node'
+  - 'translate image media'
+  - 'translate industries taxonomy_term'
+  - 'translate interface'
+  - 'translate knowledge node'
+  - 'translate knowledge_types taxonomy_term'
+  - 'translate landing_page node'
+  - 'translate location node'
+  - 'translate location_types taxonomy_term'
+  - 'translate market_access_profile node'
+  - 'translate marketo_form'
+  - 'translate markets taxonomy_term'
+  - 'translate material_categories taxonomy_term'
+  - 'translate material_types taxonomy_term'
+  - 'translate menu_link_content'
+  - 'translate news node'
+  - 'translate news_types taxonomy_term'
+  - 'translate offering node'
+  - 'translate offering_types taxonomy_term'
+  - 'translate page node'
+  - 'translate paragraph'
+  - 'translate person node'
+  - 'translate products_and_components taxonomy_term'
+  - 'translate regional_pages node'
+  - 'translate resource node'
+  - 'translate resource_types taxonomy_term'
+  - 'translate service_categories taxonomy_term'
+  - 'translate service_types taxonomy_term'
+  - 'translate solutions taxonomy_term'
+  - 'translate stakeholder_needs taxonomy_term'
+  - 'translate standards_types taxonomy_term'
+  - 'translate strategic_solutions taxonomy_term'
+  - 'translate thankyou_pages node'
+  - 'translate tool node'
+  - 'translate tool_categories taxonomy_term'
+  - 'translate tool_types taxonomy_term'
+  - 'translate topics taxonomy_term'
+  - 'translate training_category taxonomy_term'
+  - 'translate video media'
+  - 'update any media'
+  - 'update content translations'
+  - 'update media'
+  - 'use content_publication transition archive'
+  - 'use content_publication transition create_new_draft'
+  - 'use content_publication transition keep_in_review'
+  - 'use content_publication transition publish'
+  - 'use content_publication transition request_review'
+  - 'use content_publication transition send_back_for_revision'
+  - 'use content_publication transition send_back_to_draft'
+  - 'use content_publication transition send_back_to_review'
+  - 'use content_publication transition un_archive'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view campaign_page revisions'
+  - 'view event revisions'
+  - 'view help revisions'
+  - 'view hub revisions'
+  - 'view knowledge revisions'
+  - 'view landing_page revisions'
+  - 'view latest version'
+  - 'view legal holds'
+  - 'view location revisions'
+  - 'view market_access_profile revisions'
+  - 'view marketo_form entities'
+  - 'view news revisions'
+  - 'view offering revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view person revisions'
+  - 'view regional_pages revisions'
+  - 'view resource revisions'
+  - 'view scheduled content'
+  - 'view thankyou_pages revisions'
+  - 'view the administration theme'
+  - 'view tool revisions'
+  - 'view unpublished marketo_form entities'
+  - 'view unpublished paragraphs'

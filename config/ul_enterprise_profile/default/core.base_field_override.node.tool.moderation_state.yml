@@ -1,0 +1,20 @@
+uuid: 34eb6645-335f-4723-bed3-0028be1959ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tool
+id: node.tool.moderation_state
+field_name: moderation_state
+entity_type: node
+bundle: tool
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

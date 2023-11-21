@@ -1,0 +1,16 @@
+/**
+ * The News (full) "display date" section.
+ */
+.news--displaydate {
+  max-width: $text-field-max;
+  padding-top: $spacing-unit--l;
+  &.wrapper {
+    @include breakpoint($text-field-max + 40) {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+  p {
+    margin: 0;
+  }
+}

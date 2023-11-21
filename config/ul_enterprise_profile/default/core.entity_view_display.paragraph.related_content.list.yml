@@ -1,0 +1,90 @@
+uuid: 7862d27f-9c77-4b4e-a6b8-264c37146ed8
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.paragraph.list
+    - field.field.paragraph.related_content.field_hash_target
+    - field.field.paragraph.related_content.field_rc_content
+    - field.field.paragraph.related_content.field_rc_cta
+    - field.field.paragraph.related_content.field_rc_description
+    - field.field.paragraph.related_content.field_rc_row_limit
+    - field.field.paragraph.related_content.field_rc_title
+    - field.field.paragraph.related_content.field_shared_bg_color
+    - field.field.paragraph.related_content.field_shared_view_mode
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - link
+    - options
+    - view_mode_selector
+id: paragraph.related_content.list
+targetEntityType: paragraph
+bundle: related_content
+mode: list
+content:
+  field_hash_target:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_rc_content:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_rc_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_rc_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_rc_row_limit:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_rc_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_shared_bg_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_shared_view_mode:
+    type: view_mode_selector
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

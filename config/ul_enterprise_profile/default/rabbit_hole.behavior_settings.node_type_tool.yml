@@ -1,0 +1,14 @@
+uuid: bba1bcfe-20b1-4cf2-894a-c30d9bb5acf9
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tool
+id: node_type_tool
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

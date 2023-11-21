@@ -1,0 +1,83 @@
+///*------------------------------------*\
+//    #UTILITY - SPACING
+//\*------------------------------------*/
+/* Note: Add responsive spacing rules. Borrows heavily from Bootstrap 4
+/* spacing utilities: https://getbootstrap.com/docs/4.0/utilities/spacing/
+*/
+
+@mixin add-spacing-rules($abbr, $size, $prop, $length, $bp: '') {
+  // To avoid issues with RTL language support, only include top-bottom classes
+  .#{$abbr}#{$bp}-#{$size} { #{$prop}: $length !important; }
+  .#{$abbr}t#{$bp}-#{$size},
+  .#{$abbr}y#{$bp}-#{$size} {
+    #{$prop}-top: $length !important;
+  }
+  // .#{$abbr}r#{$bp}-#{$size},
+  // .#{$abbr}x#{$bp}-#{$size} {
+  //   #{$prop}-right: $length !important;
+  // }
+  .#{$abbr}b#{$bp}-#{$size},
+  .#{$abbr}y#{$bp}-#{$size} {
+    #{$prop}-bottom: $length !important;
+  }
+  // .#{$abbr}l#{$bp}-#{$size},
+  // .#{$abbr}x#{$bp}-#{$size} {
+  //   #{$prop}-left: $length !important;
+  // }
+}
+
+@mixin add-spacing-auto-rules($bp: '') {
+  // Some special margin utils
+  .m#{$bp}-auto { margin: auto !important; }
+  .mt#{$bp}-auto,
+  .my#{$bp}-auto {
+    margin-top: auto !important;
+  }
+  .mr#{$bp}-auto,
+  .mx#{$bp}-auto {
+    margin-right: auto !important;
+  }
+  .mb#{$bp}-auto,
+  .my#{$bp}-auto {
+    margin-bottom: auto !important;
+  }
+  .ml#{$bp}-auto,
+  .mx#{$bp}-auto {
+    margin-left: auto !important;
+  }
+}
+
+// Margin and Padding
+
+// add spacing rules
+@each $prop, $abbr in (margin: m, padding: p) {
+  @each $size, $length in $spacing-units {
+    @include add-spacing-rules($abbr, $size, $prop, $length);
+    @each $breakpoint in map-keys($spacing-breakpoints) {
+      @include breakpoint(map-get($spacing-breakpoints, $breakpoint)) {
+        $bp: '-#{$breakpoint}';
+        @include add-spacing-rules($abbr, $size, $prop, $length, $bp);
+      }
+    }
+  }
+}
+
+// add spacing auto rules
+@each $breakpoint in map-keys($spacing-breakpoints) {
+  @include breakpoint(map-get($spacing-breakpoints, $breakpoint)) {
+    $bp: '-#{$breakpoint}';
+    @include add-spacing-auto-rules($bp);
+  }
+}
+
+// IMPORTANT!
+// Section padding rules, as part of the "Full Width" project.
+@mixin section-padding-rules {
+  padding: $spacing-unit--l $spacing-unit;
+  @include breakpoint($tablet) {
+    padding: $spacing-unit--l;
+  }
+  @include breakpoint($desktop) {
+    padding: $spacing-unit+$spacing-unit--xs $spacing-unit--l;
+  }
+}

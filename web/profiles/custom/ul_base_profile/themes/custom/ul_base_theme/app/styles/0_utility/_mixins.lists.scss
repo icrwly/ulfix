@@ -1,0 +1,60 @@
+///*------------------------------------*\
+//    #UTILITY - LISTS
+//\*------------------------------------*/
+/* Note: Base styles for custom lists and unstyled lists */
+
+@mixin list-unstyled {
+  list-style: none;
+  margin-bottom: 0;
+  padding-#{$start-direction}: 0;
+}
+
+@mixin pseudo-list-item {
+  font-weight: 700;
+  #{$start-direction}: 0;
+  position: absolute;
+  text-align: center;
+  top: 0;
+  width: 4rem;
+}
+
+@mixin list-unordered {
+  @include list-unstyled;
+  margin-bottom: 2em;
+  > li {
+    margin-bottom: 1em;
+    padding-#{$start-direction}: 3rem;
+    position: relative;
+    @include breakpoint($tablet) {
+      padding-#{$start-direction}: 3rem;
+    }
+    &:before {
+      @include pseudo-list-item;
+      content: "\2022";
+    }
+  }
+}
+
+@mixin list-unordered-no-padding {
+  @include list-unstyled;
+  margin-bottom: 1em;
+  > li {
+    padding-#{$start-direction}: 0em;
+    position: relative;
+  }
+}
+
+@mixin list-ordered {
+  @include list-unstyled;
+  padding-#{$start-direction}: 3rem;
+  margin-bottom: 2em;
+  list-style-type: decimal;
+  > li {
+    margin-bottom: 1em;
+    padding-#{$start-direction}: 0;
+    position: relative;
+    @include breakpoint($tablet) {
+      padding-#{$start-direction}: 0;
+    }
+  }
+}

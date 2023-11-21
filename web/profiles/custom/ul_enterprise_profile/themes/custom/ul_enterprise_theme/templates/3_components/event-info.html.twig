@@ -1,0 +1,58 @@
+{# @file: event-info #}
+{% set start_date = info_date.start_date %}
+{% set end_date = info_date.end_date %}
+{# String to lowercase for ES or PT-BR: #}
+{% if language == 'es' or language == 'pt-br' %}
+  {% set start_date = info_date.start_date|lower %}
+  {% set end_date = info_date.end_date|lower %}
+{% endif %}
+{% set event_type = content.field_event_type.0['#plain_text'] %}
+
+<div class="section--event-info">
+  {# Legal Disclaimer: #}
+  {% if legal_disclaimer %}
+    {% include '@ul_enterprise_theme/2_pieces/legal-disclaimer.html.twig' %}
+  {% endif %}
+    <div class="section-gutter--event-info">
+      {# Date: #}
+      {% if info_date.title %}
+        <h3 class="eventinfo-title--date">{{info_date.title}}</h3>
+        <div class="item-container flex-grid event-info--dates">
+          <div class="grid-item grid-meeting grid-odd">
+            <h4>{{info_date.start_title}}</h4>
+            <p>{{start_date}} {{info_date.start_time}} {{info_date.timezone}}</p>
+          </div>
+          <div class="grid-item grid-meeting">
+            <h4>{{info_date.end_title}}</h4>
+            <p>{{end_date}} {{info_date.end_time}} {{info_date.timezone}}</p>
+          </div>
+        </div>
+      {% endif %}
+
+
+       <div class="item-container flex-grid event-info--dates">
+          <div class="grid-item grid-meeting grid-odd">
+            {# Location: #}
+            {% if info_location.title %}
+              <h3 class="eventinfo-title--location">{{info_location.title}}</h3>
+              <address>
+                {{info_location.content}}
+              </address>
+              {% if info_maplink|length %}
+                <p><a href="{{info_maplink.link.uri}}" title="{{info_maplink.title}}" target="_blank">{{info_maplink.title}}</a></p>
+              {% endif %}
+            {% endif %}
+          </div>
+          {% if word_lang_translation %}
+          <div class="grid-item grid-meeting">
+            {# Event Language: #}
+              <h3 class="eventinfo-title--location">{{ word_language }}</h3>
+              <p>{{ word_lang_translation }}</p>
+          </div>
+          {% endif %}
+        </div>
+
+
+
+    </div>
+</div>

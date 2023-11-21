@@ -1,0 +1,12 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--pager has-bg " ~ class %}
+
+{% block content %}
+  <div class="wrapper">
+    {% block pager %}
+      {% if pager %}
+        {% include '@ul_base_theme/2_pieces/pagination.twig' with { pager: pager } only %}
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

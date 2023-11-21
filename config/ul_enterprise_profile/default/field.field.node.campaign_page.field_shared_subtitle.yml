@@ -1,0 +1,19 @@
+uuid: a468837e-b9df-4f18-ba72-a127a897c9ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_subtitle
+    - node.type.campaign_page
+id: node.campaign_page.field_shared_subtitle
+field_name: field_shared_subtitle
+entity_type: node
+bundle: campaign_page
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

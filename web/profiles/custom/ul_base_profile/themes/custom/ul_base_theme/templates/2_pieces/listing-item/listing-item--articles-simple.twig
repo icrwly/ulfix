@@ -1,0 +1,42 @@
+{% extends "@ul_base_theme/2_pieces/listing-item/listing-item.twig" %}
+{% set class = "listing-item--articles-simple" %}
+{% set type = 'Article' %}
+
+{% block content %}
+  <div class="content-container">
+
+    {% block listing_item_topic %}
+      {% if topics %}
+        {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with { widget: topics } %}
+      {% endif %}
+    {% endblock %}
+
+    {% block listing_item_title %}
+      <h3>{{- title -}}</h3>
+    {% endblock %}
+
+    {% block listing_item_footer %}
+      {% if readTime or author_name or author_image %}
+        <div class="footer-container row">
+          {% block listing_item_meta %}
+            {% if author_name or author_image %}
+            {% endif %}
+            <p class="meta span-auto">
+              {% if author_image %}
+                <img src="{{ author_image }}" alt="{{ author_image_alt }}" />
+              {% endif %}
+              {% if author_name %}{{ author_name }}{% endif %}
+            </p>
+          {% endblock %}
+
+          {% block listing_item_read_time %}
+            {% if readTime %}
+              <h4 class="read-time span-auto">{{ readTime }}</h4>
+            {% endif %}
+          {% endblock %}
+        </div>
+      {% endif %}
+    {% endblock %}
+
+  </div>
+{% endblock %}

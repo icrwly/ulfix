@@ -1,0 +1,23 @@
+uuid: 380c7e4c-72c3-491e-ae74-10f7b17604ad
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: DQAFNDBe0Qf1yo1KlMUKHGc7FO6EAElcWNEP09BO4qw
+id: node.field_shared_subtitle
+field_name: field_shared_subtitle
+entity_type: node
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

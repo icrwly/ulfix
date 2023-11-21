@@ -1,0 +1,18 @@
+uuid: b74a4fb5-d9dd-45c5-8396-ba8aa4f2f0f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.offering
+id: node.offering.changed
+field_name: changed
+entity_type: node
+bundle: offering
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

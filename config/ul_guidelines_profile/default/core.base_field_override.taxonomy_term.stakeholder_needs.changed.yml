@@ -1,0 +1,18 @@
+uuid: e5440452-5905-496c-9843-ad76f893afb8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.stakeholder_needs
+id: taxonomy_term.stakeholder_needs.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: stakeholder_needs
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

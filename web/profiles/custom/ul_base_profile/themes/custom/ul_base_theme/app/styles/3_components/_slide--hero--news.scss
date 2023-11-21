@@ -1,0 +1,7 @@
+.slide--hero--news {
+  .slide__content-container {
+    @include breakpoint($desktop){
+      justify-content: flex-end;
+    }
+  }
+}

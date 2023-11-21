@@ -1,0 +1,51 @@
+uuid: 948eca79-e3f1-4602-8aa7-88266706f30a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_sfdc_area_of_interest
+field_name: field_sfdc_area_of_interest
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Chemical Policy Management Software'
+      label: 'Chemical Policy Management Software'
+    -
+      value: 'Chemical R&D Software'
+      label: 'Chemical R&D Software'
+    -
+      value: 'Chemical Toxicology'
+      label: 'Chemical Toxicology'
+    -
+      value: 'Electrical Insulation Materials and Systems'
+      label: 'Electrical Insulation Materials and Systems'
+    -
+      value: 'Environment – Other'
+      label: 'Environment – Other'
+    -
+      value: 'Facility Management'
+      label: 'Facility Management'
+    -
+      value: 'Learning & Talent Management Systems'
+      label: 'Learning & Talent Management Systems'
+    -
+      value: 'N/A - Performance Materials'
+      label: 'N/A - Performance Materials'
+    -
+      value: 'Occupational Health Software'
+      label: 'Occupational Health Software'
+    -
+      value: 'Performance Materials Automotive'
+      label: 'Performance Materials Automotive'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

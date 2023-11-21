@@ -1,0 +1,29 @@
+uuid: d1968e49-3027-4368-ac6a-cad5dc3a50d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_service_type
+    - node.type.landing_page
+    - taxonomy.vocabulary.service_types
+id: node.landing_page.field_shared_service_type
+field_name: field_shared_service_type
+entity_type: node
+bundle: landing_page
+label: 'Service Type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_types: service_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,28 @@
+{# @file: search-bar--grop.twig # }
+{# @usage: Search bar (also used in Exp. Hub as a filter). #}
+{% set name = name|default('Search') %}
+{% set placeholder = placeholder|default('Search') %}
+{% set value = value|default('Search') %}
+{% set button_text = button_text|default('Cancel') %}
+{% set search_input_label = search_input_label|default('Search Submit') %}
+{% set aria_label_link_search = aria_label_link_search|default('Search Site') %}
+
+<div class="form-group form-group--search {% if type %}{{ type }}{% endif %} search-bar-group {{ solosegment_class }}">
+  <form{% if attributes == true %} {{ attributes }}{% endif %} action="/search" method="get">
+    <div class="form-item form-input input-query-wrap">
+      {% block text_input %}
+        <input type="search" placeholder="{{ placeholder }}" name="{{ name }}" aria-label="{{ name }}" autocomplete="off" />
+      {% endblock %}
+    </div>
+    <div class="form-action search{% if icon is not defined or icon == true %} icon-search {% endif %} input-submit-wrap">
+      {% block submit_input %}
+        <label for="search-submit" class="sr-only">Search Submit</label>
+        <input type="submit" name="search-submit" value="{{ value }}" class="search-submit" aria-label="{{ name }}">
+      {% endblock %}
+    </div>
+    {% block cancel_btn %}
+      <button class="global-header__search-cancel button button--white button--xs">{{ button_text }}</button>
+    {% endblock %}
+    {% block solosegment_js %}{% endblock %}
+  </form>
+</div>

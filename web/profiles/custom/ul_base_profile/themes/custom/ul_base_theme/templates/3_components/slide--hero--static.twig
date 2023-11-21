@@ -1,0 +1,11 @@
+{% extends "@ul_base_theme/3_components/slide.twig" %}
+{% set class = class ~ " slide--hero--static" %}
+
+{% if bg_color %}
+  {% set class = class ~ " bg-" ~ bg_color %}
+{% endif %}
+
+{% set inner_wrapper_class = "max-width--xlarge-desktop" %}
+{% set inner_class = "row" %}
+{% set image_class = "span-6-t" %}
+{% set content_class = "span-6-t" %}

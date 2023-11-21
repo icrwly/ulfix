@@ -1,0 +1,272 @@
+{# @file: marketo-form--gated-content-form.html.twig #}
+{#
+ # 1) If user is NOT cookied, use regular form.
+ #  - Content is "gated"
+ #  - User must submit form to access content.
+ #
+ # 2) ELSE user IS cookied, use alternate form.
+ #  - Content is "un-gated"
+ #  - Form is hidden and automatically submitted.
+ #
+ # NOTE: Adding ".gated-content" class to the "#main-content"
+ # will hide all but the first paragraph content. Conversely,
+ # removing that class will show all of the paragraphs.
+ #
+ # NOTE: The alternate gate form IDs are in the
+ # "gated.alternateForms()" JS function below.
+ #
+ # NOTE: Un-hiding the form handled by marketo-countries.js.
+ #}
+{% embed '@ul_base_theme/4_regions/section.twig' %}
+  {% set class = 'section--gatedform section--marketo form--wrap section--paragraph ' ~ class %}
+  {% set forms_API = marketo.base_url ~ '/js/forms2/js/forms2.min.js' %}
+  {% set gutterclass = "paragraph-gutter" %}
+  {# Set the "alternate" form IDs. #}
+  {% set mkto_altFormId = 1541 %}
+  {# Number of paragraphs to preview above the form (default is 1): #}
+  {% if marketo.num_paragraphs %}
+    {% set paragraphs_preview = marketo.num_paragraphs %}
+  {% else %}
+    {% set paragraphs_preview = 1 %}
+  {% endif %}
+
+  {% block section_body %}
+    {% block markto_wrap %}
+      {# The success message (hidden by default). #}
+      <div style="display:none;" id="gated-success-mssg" class="messages messages--status">
+        <strong>{{ 'Thank you!'|t }}</strong> {{ 'You may now access all of the content.'|t }}
+      </div>
+
+      {# The form title, description, loading spinner. #}
+      <div id="mktoGatedForm_top">
+        {% if marketo.form_title %}
+          <h4>{{ marketo.form_title }}</h4>
+        {% endif %}
+        {% if marketo.form_description %}
+          <p>{{ marketo.form_description|nl2br }}</p>
+        {% endif %}
+        {# Add the progress loading indicator. #}
+        {% include '@ul_enterprise_theme/marketo/inc-progress-bar.html.twig' %}
+      </div>
+
+      {# Add the form element. #}
+      <form id="mktoForm_{{ marketo.form_id }}" class="activeForm mktoGatedForm">
+        <div class="recapWrap">
+          <div id="mkto_recaptcha" class="g-recaptcha" data-sitekey="{{ marketo.recaptcha_site_key }}"></div>
+        </div>
+      </form>
+
+      {# Gated content JS object. #}
+      <script id="gatedform-loader">
+        let mktoForm;
+        (function ($, drplMkto) {
+          // Add the class that rules the page.
+          $('#main-content').addClass('gated-content');
+
+          // Move success message to Top of main content.
+          $('#gated-success-mssg').prependTo('#main-content');
+
+          // Create new Object.
+          var gated = {};
+          gated.useFormID = {{ marketo.form_id }};
+          gated.numPreview = {{ paragraphs_preview }};
+          gated.showMessage = true;
+          gated.cookieExists = false;
+          gated.useAltForm = false;
+          gated.altFormId = false;
+          gated.cookieName = "mkto-gatedform";
+
+          gated.init = function(){
+            if($.cookie(gated.cookieName)){
+              gated.cookieExists = true;
+              gated.useAltForm = true;
+              gated.showMessage = false;
+              gated.removeGate();
+              gated.alternateForms();
+            }
+            gated.addGate();
+          };
+
+          gated.removeGate = function(){
+            if(gated.showMessage){
+              $('html, body').animate({
+                scrollTop: $("#main-content").offset().top - 200
+              }, 1000);
+              $("#gated-success-mssg").show().delay(10000).slideUp();
+              $(".section--gatedform").remove();
+            }
+            else {
+              $("#gated-success-mssg, #mktoGatedForm_top").remove();
+            }
+            $('#main-content').removeClass('gated-content');
+            $('#main-content .section').each(function(index){
+              var str = $(this).attr('class');
+              if(str.includes('gated_hidden')){
+                $(this).removeClass('hidden gated_hidden');
+              }
+            });
+          };
+
+          gated.addGate = function(){
+            // If using the Auto-submit form,
+            // set the form ID:
+            if(gated.useAltForm){
+              gated.useFormID = gated.altFormId;
+            }
+            // Else show gated regular form:
+            else {
+              // Right Rail layout?
+              if($('#main-content').hasClass('two-col')){
+                var content_wrap = '#main-content .col-main .col-gtr > .section';
+              }
+              // Regular layout.
+              else {
+                var content_wrap = '#main-content > .section';
+              }
+              $( content_wrap ).each(function(index){
+                var str = $(this).attr('class');
+                if(!str.includes('gatedform') && !str.includes('addtoany')){
+                  if(index >= gated.numPreview) {
+                    $(this).addClass('hidden gated_hidden');
+                  }
+                }
+              });
+            }
+            // Load the Marketo form.
+            MktoForms2.loadForm(drplMkto.base_url, drplMkto.munchkin_code, gated.useFormID, function(form){
+              mktoForm = form;
+              form.submittable(false);
+              if(gated.useAltForm == false){
+                $('.activeForm').addClass('formLoading');
+              }
+
+              // When the form is rendered:
+              MktoForms2.whenRendered(function(form){
+                // Is using the regular form.
+                if(gated.useAltForm == false){
+                  // Button text.
+                  if(drplMkto.button_text){
+                    $('.mktoButton').text(drplMkto.button_text);
+                  }
+                }
+              });
+
+              // When the form is ready:
+              MktoForms2.whenReady(function(form){
+
+                // Set form values.
+                form.vals({
+                  "assetLanguage": drplMkto.asset_lang,
+                  "assetTitle": drplMkto.asset_title,
+                  "formButtonText": drplMkto.button_text,
+                  "formDescription": drplMkto.form_description,
+                  "formLanguage": drplMkto.form_language,
+                  "formTitle": drplMkto.form_title,
+                  "lastInterest": drplMkto.last_interest,
+                  "pageCampaignAttribution": drplMkto.mkto_campaign,
+                  "pageNodeID": drplMkto.node_nid,
+                  "pageTitle": drplMkto.node_title,
+                  "pageURL": window.location.href,
+                  "pageURLReferral": document.referrer,
+                  "pageUUID": drplMkto.node_uuid,
+                  "websiteName": drplMkto.site_name,
+                });
+              });
+
+              // Validation callback.
+              form.onValidate(function(builtInValidation) {
+                // If using the alternate form:
+                if(gated.useAltForm){
+                  form.submittable(true);
+                  return;
+                }
+                if (!builtInValidation){
+                  return;
+                }
+                var recaptchaResponse = grecaptcha.getResponse( $('#mkto_recaptcha').attr('data-widget-id') );
+                if (!recaptchaResponse) {
+                  $('#reCaptcha_' + '{{ marketo.form_id }}').addClass('mktoInvalid');
+                  $('.recapWrap iframe').css('border', 'solid 1px red');
+                  form.submittable(false);
+                } else {
+                  $('#reCaptcha_' + '{{ marketo.form_id }}').removeClass('mktoInvalid');
+                  $('.recapWrap iframe').css('border', 'none');
+                  form.addHiddenFields({
+                    lastRecaptchaUserInput: recaptchaResponse
+                  });
+                  form.submittable(true);
+                }
+              });
+
+              // Success Handler.
+              form.onSuccess(function(values, followUpUrl){
+                if (typeof dataLayer !== 'undefined'){
+                  dataLayer.push({
+                    event: drplMkto.dataLayerEvent,
+                    mktoFormId: form.getId(),
+                    'FormValues': cleanFormVals(form.getValues()),
+                    'FormFields': form.allFieldsFilled(),
+                    'Submittable': form.submittable()
+                  });
+                }
+                gated.removeGate();
+                // Only set cookie if there is a Munchkin cookie.
+                if($.cookie("_mkto_trk")){
+                  gated.setCookie();
+                }
+                // If function exists, delete UTM cookie:
+                if(typeof _deleteUtmCookie === "function"){
+                  _deleteUtmCookie();
+                }
+                // IMPORTANT: Keep user on this page.
+                return false;
+              });
+
+              // If using the auto-submit/"alternate" form:
+              if(gated.useAltForm) {
+                setTimeout(function() {
+                  form.submit();
+                }, "2000");
+              }
+              // Else, we can load reCaptcha:
+              else {
+                var url = "https://www.recaptcha.net/recaptcha/api.js?hl=" + drupalSettings.marketo.form_language;
+                $.getScript( url, function() {
+                  $('.mktoButtonRow').prepend( $('.recapWrap') );
+                });
+              }
+            });
+          };
+
+          gated.alternateForms = function(){
+            // Stop timer, reset countDown obj:
+            clearInterval(cntDwn.interval);
+            cntDwn = {};
+            // Set "alternate" form ID:
+            gated.altFormId = {{ mkto_altFormId }};
+            if(gated.altFormId){
+              // Change form ID in HTML <form> markup, and add class (hides form):
+              $('.activeForm').attr("id","mktoForm_" + gated.altFormId).addClass('altMktoGatedForm');
+            }
+          };
+
+          gated.setCookie = function(){
+            var date = new Date();
+            date.setTime(date.getTime() + (90*24*60*60*1000));
+            $.cookie(gated.cookieName, 1, { path:'/;SameSite=Strict', expires:date });
+          };
+
+          // Call `gated.init()` after DOM is fully loaded.
+          if (
+              document.readyState === "complete" ||
+              (document.readyState !== "loading" && !document.documentElement.doScroll)
+          ){
+            gated.init();
+          } else {
+            document.addEventListener("DOMContentLoaded", gated.init);
+          }
+        })(jQuery, drupalSettings.marketo);
+      </script>
+    {% endblock markto_wrap %}
+  {% endblock section_body %}
+{% endembed %}

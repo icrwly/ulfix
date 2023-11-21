@@ -1,0 +1,8 @@
+uuid: aea8fe34-0c78-447e-9f33-0e13b8145be4
+langcode: en
+status: true
+dependencies: {  }
+id: node__article
+label: 'Content: Article'
+code: null
+message: ''

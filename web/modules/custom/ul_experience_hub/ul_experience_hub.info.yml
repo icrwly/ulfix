@@ -1,0 +1,5 @@
+name: 'UL Experience Hub'
+type: module
+description: 'Experience Hub view settings and functionality'
+package: UL
+core_version_requirement: ^9 || ^10

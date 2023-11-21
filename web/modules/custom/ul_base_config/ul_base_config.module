@@ -1,0 +1,57 @@
+<?php
+
+/**
+ * @file
+ * Module code for ul_base_config.
+ */
+
+use Drupal\config_split\Entity\ConfigSplitEntity;
+use Drupal\ul_base_config\UlConfigStorageFactory;
+
+/**
+ * Alter filter plugin definitions to reference site-specific config storages.
+ *
+ * @param array $definitions
+ *   The filter plugins currently available.
+ */
+function ul_base_config_config_filter_info_alter(array &$definitions) {
+  // For now, all active filters will affect the singular config storage
+  // directory, which has the same name as the active installation profile.
+  $storages = [
+    UlConfigStorageFactory::CONFIG_STORAGE_PREFIX . \Drupal::installProfile(),
+    'config.storage.sync',
+  ];
+  foreach ($definitions as &$definition) {
+    $definition['storages'] = $storages;
+  }
+}
+
+/**
+ * Implements hook_config_ignore_settings_alter().
+ */
+function ul_base_config_config_ignore_settings_alter(array &$settings) {
+  // Add dynamic config ignore settings here.
+}
+
+/**
+ * Implements hook_modules_installed().
+ */
+function ul_base_config_modules_installed($modules) {
+  // Get list of all splits.
+  $split_entities = ConfigSplitEntity::loadMultiple();
+
+  // Search through the splits. If this module is managed by it then enable the
+  // split.
+  if (!empty($split_entities)) {
+    foreach ($split_entities as $split) {
+      if ($split->status() == FALSE) {
+        foreach ($modules as $module) {
+          $managed_modules = $split->get('module');
+          if (isset($managed_modules[$module])) {
+            $split->enable()->save();
+          }
+        }
+      }
+    }
+  }
+}

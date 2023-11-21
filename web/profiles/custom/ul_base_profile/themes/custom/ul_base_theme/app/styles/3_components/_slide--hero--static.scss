@@ -1,0 +1,74 @@
+.slide--hero--static {
+  @include font-smoothing;
+  color: $white;
+
+  &:after {
+    @include fit;
+    content: '';
+    background-image: linear-gradient(rgba($black, 0) 87.5%, rgba($black, .125));
+  }
+
+  .is-carousel & {
+    padding-bottom: $spacing-unit--l; // allow space for pagination
+  }
+
+  .content-wrapper {
+    @include trim-margin;
+    padding: $spacing-unit--l;
+  }
+
+  .slide__inner {
+    align-items: center;
+    position: relative;
+    z-index: index($globalIndex, base);
+
+    @include breakpoint($tablet){
+      flex-direction: row-reverse;
+      min-height: 300px;
+    }
+    @include breakpoint($desktop){
+      min-height: 400px;
+    }
+  }
+
+  .slide__image-container {
+    display: flex;
+    justify-content: center;
+    @include breakpoint($tablet) {
+      justify-content: flex-end;
+    }
+
+    + .slide__content-container {
+      .content-wrapper {
+        @include breakpoint(max-width $tablet - 1) {
+          padding-top: 0;
+        }
+      }
+    }
+
+    .content-wrapper {
+      align-self: center;
+    }
+  }
+
+  .slide__image {
+    @include breakpoint($desktop) {
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+    }
+  }
+
+  .slide__title {
+    font-size: 3.2rem;
+    letter-spacing: .0125em;
+    line-height: 1.2;
+    @include breakpoint($tablet) {
+      font-size: 3.6rem;
+    }
+  }
+
+  .slide__description {
+    line-height: 1.75;
+    font-size: 1.8rem;
+  }
+}

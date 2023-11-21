@@ -1,0 +1,14 @@
+uuid: 7e412994-bf36-4875-be96-5b2fc353590b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.training_category
+id: taxonomy_vocabulary_training_category
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

@@ -1,0 +1,11 @@
+{% set title = content.field_campaign_card_title.0|render %}
+{% set description = content.field_campaign_card_description.0|render %}
+{% set img_src = content.field_campaign_card_image.0["url"]["#markup"] %}
+{% set img_alt = content.field_campaign_card_image.0["alt"]["#markup"] %}
+
+<div class="span-6-d span-4-ld campaign-card">
+  {# Lazy load the images. #}
+  <img class="lazy" data-src="{{ img_src }}" alt="{{ img_alt }}" />
+  <h3>{{ title }}</h3>
+  <p>{{ description }}</p>
+</div>

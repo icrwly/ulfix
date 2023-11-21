@@ -1,0 +1,23 @@
+uuid: 1f48cc34-53f6-4341-ac22-ca8176d545c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_node_is_gated
+    - ul_marketo.marketo_form_type.gated_content_form
+id: marketo_form.gated_content_form.field_node_is_gated
+field_name: field_node_is_gated
+entity_type: marketo_form
+bundle: gated_content_form
+label: 'Gate this node'
+description: 'Select this if the content should be gated.'
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

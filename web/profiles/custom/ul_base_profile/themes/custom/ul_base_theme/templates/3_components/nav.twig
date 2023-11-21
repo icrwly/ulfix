@@ -1,0 +1,22 @@
+{% import "@ul_base_theme/1_core/macros.twig" as mac %}
+
+{% if items %}
+  <nav class="nav {{ class }}"{{ mac.attributes(attributes) }}>
+    {% block content %}
+      <div class="nav__inner {{ inner_class }}">
+        {% block content_inner %}
+          {% block title %}
+          {% endblock %}
+          {% block menu %}
+            {% include '@ul_base_theme/3_components/menu.twig' with {
+              items: items,
+              type: type,
+              menu_class: menu_class,
+              back_title: back_title
+            } only %}
+          {% endblock %}
+        {% endblock %}
+      </div>
+    {% endblock %}
+  </nav>
+{% endif %}

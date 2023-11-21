@@ -1,0 +1,13 @@
+uuid: 6eb50634-624b-4a59-b17d-33b86b87fd6b
+langcode: en
+status: true
+dependencies: {  }
+id: node__homepage
+label: 'Content: Homepage'
+tags:
+  description: '[node:field_shared_subtitle]'
+  og_description: '[node:field_shared_subtitle]'
+  og_image: '[node:field_shared_header_media:entity:field_media_image:hero_boxed_width:url]'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title]'
+  og_url: '[current-page:url:absolute]'

@@ -1,0 +1,21 @@
+uuid: f0324235-b839-4944-9fbc-7c52243d8c90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_addr_phone
+    - paragraphs.paragraphs_type.location
+  module:
+    - telephone
+id: paragraph.location.field_addr_phone
+field_name: field_addr_phone
+entity_type: paragraph
+bundle: location
+label: Telephone
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

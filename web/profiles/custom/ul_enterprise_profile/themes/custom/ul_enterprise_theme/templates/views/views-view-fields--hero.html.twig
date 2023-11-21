@@ -1,0 +1,95 @@
+{# Does the hero have a "subtitle"? #}
+{% set has_subtitle = fields["field_shared_subtitle-revision_id"].content|striptags|trim is not empty %}
+{# Does the hero have an "image"? #}
+{% set has_image = (fields["field_shared_header_media-revision_id"].content is not empty) %}
+{# What is the content type? #}
+{% set content_type = row._entity.gettype|striptags|trim %}
+{# Does the hero have a "video"? #}
+{% set header_video = fields["field_shared_header_video-revision_id"].content|replace({ '<a href="https://ul.wistia.com/medias/': '','">':'' })|striptags|trim is not empty %}
+{# Marketo Header CTA: #}
+{% if fields["field_shared_marketo_link-revision_id"].content|striptags|trim is not empty %}
+  {% set header_link = fields["field_shared_marketo_link-revision_id"].content %}
+{# Header CTA (link): #}
+{% elseif fields["field_shared_header_link-revision_id"].content|striptags|trim is not empty %}
+  {% set header_link = fields["field_shared_header_link-revision_id"].content %}
+{% else %}
+  {% set header_link = '' %}
+{% endif %}
+{# Secondary Header CTA (link): #}
+{% if fields["field_shared_secondary_hdr_link-revision_id"].content|striptags|trim is not empty %}
+  {% set secondary_header_link = fields["field_shared_secondary_hdr_link-revision_id"].content %}
+{% else %}
+  {% set secondary_header_link = '' %}
+{% endif %}
+
+{# If there is a Subtitle or an Image: #}
+{% if has_subtitle or has_image %}
+  {% set hero = {
+    slides: [{
+      'title': fields.title.content,
+      'image': has_image ? fields["field_shared_header_media-revision_id"].content : '',
+      'description': has_subtitle ? fields["field_shared_subtitle-revision_id"].content : '',
+      'video_background': header_video ? fields["field_shared_header_video-revision_id"].content|replace({ '<a href="https://ul.wistia.com/medias/': '','">':'' })|striptags|trim : ''
+    }]
+  } %}
+
+  {# If there is either a subtitle or a header link: #}
+  {% if has_subtitle or header_link %}
+    {% if content_type != 'homepage' %}
+      {% set slide = hero.slides|first|merge({
+        'content_bg': 'gray',
+        'cta': header_link,
+        'secondary_cta': secondary_header_link
+      }) %}
+    {% else %}
+      {% set slide = hero.slides|first|merge({
+        'content_bg': 'black hero-homepage-content',
+        'cta': header_link,
+        'secondary_cta': secondary_header_link
+      }) %}
+    {% endif %}
+    {% embed '@ul_base_theme/4_regions/hero--default.twig' with { slides: [slide] } %}
+      {% block logo %}
+        {% if content_type == 'homepage' %}
+          {# Remove logo from homepage for launch #}
+        {% endif %}
+      {% endblock %}
+      {% block hero_slides %}
+        {% for slide in slides %}
+          {# If there is a header video: #}
+          {% if header_video %}
+            {% embed '@ul_base_theme/3_components/hero--default-videoslide.twig' with slide %}
+              {% block hero_slide_cta %}
+                {# Primary Header CTA #}
+                {{ cta }}
+                {# Secondary Header CTA #}
+                {{ secondary_cta }}
+              {% endblock %}
+            {% endembed %}
+          {# Else there is no header video: #}
+          {% else %}
+            {% embed '@ul_base_theme/3_components/hero--default-slide.twig' with slide %}
+              {% block hero_slide_cta %}
+                {# Primary Header CTA #}
+                {{ cta }}
+                {# Secondary Header CTA #}
+                {{ secondary_cta }}
+              {% endblock %}
+            {% endembed %}
+          {% endif %}
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  {# Else there is not a subtitle or a header link: #}
+  {% else %}
+    {% include '@ul_base_theme/4_regions/hero--simple.twig' with { hero: hero } %}
+  {% endif %}
+{# Else, there is no subtitle or image, just a basic title. #}
+{% else %}
+  <div class="wrapper">
+    {% embed '@ul_base_theme/4_regions/section--title.twig' %}
+      {% set pageTitle = true %}
+      {% set title = fields.title.content %}
+    {% endembed %}
+  </div>
+{% endif %}

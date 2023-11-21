@@ -1,0 +1,23 @@
+uuid: 1b01eba0-bf78-4e55-874f-510ec995fc65
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hub_featured_link
+    - node.type.hub
+  module:
+    - link
+id: node.hub.field_hub_featured_link
+field_name: field_hub_featured_link
+entity_type: node
+bundle: hub
+label: 'Link - deprecated'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

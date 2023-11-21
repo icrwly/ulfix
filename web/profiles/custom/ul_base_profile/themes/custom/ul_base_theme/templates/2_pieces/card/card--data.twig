@@ -1,0 +1,22 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = "card--data" %}
+
+{% block content %}
+  {% if image %}
+  <div class="image-container">
+    {% block card_image %}
+        <img src="{{- image -}}" alt="{{- imageAlt -}}"/>
+    {% endblock %}
+  </div>
+  {% endif %}
+  <div class="content-container">
+    {% block card_title %}
+      <h3>{{- title -}}</h3>
+    {% endblock %}
+    {% block card_description %}
+      {% if description %}
+        <p>{{- description -}}</p>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

@@ -1,0 +1,31 @@
+@mixin arrow-link(
+    $color: $red,
+    $icon: $icon-bracket-r,
+    $font-size: 1rem,
+    $right: $spacing-unit * 1.5,
+    $distance: $spacing-unit/2
+  ){
+  &:after {
+    @include icon-settings();
+    color: $color;
+    content: $icon;
+    font-size: $font-size;
+    position: absolute;
+    #{$end-direction}: $right;
+    top: 50%;
+    transform: translateY(-50%) scale($transform-direction);
+    @include breakpoint($tablet) {
+      transform: translate(0, -50%) scale($transform-direction);
+      transition: transform $transition;
+    }
+  }
+  &:focus,
+  &:hover {
+    text-decoration: none;
+    &:after {
+      @include breakpoint($tablet) {
+        transform: translate($distance * $transform-direction, -50%) scale($transform-direction);
+      }
+    }
+  }
+}

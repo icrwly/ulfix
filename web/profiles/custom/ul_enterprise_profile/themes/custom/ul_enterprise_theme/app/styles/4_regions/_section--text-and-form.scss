@@ -1,0 +1,25 @@
+/**
+ * Marketo styles when in the context of the
+ * "Text and Form" paragraph type.
+ */
+
+.section.section--text-and-form {
+
+  .row--gutter-l > .span-12.span-6-d:nth-child(1) {
+    @include breakpoint($desktop) {
+      padding-right: 1.5rem;
+    }
+  }
+  .row--gutter-l > .span-12.span-6-d:nth-child(2) {
+    @include breakpoint($desktop) {
+      padding-left: 1.5rem;
+    }
+  }
+
+  .h2, h2 {
+    font-size: 2.6rem;
+    @include breakpoint(max-width $desktop - 1) {
+      margin-top: 1.5rem;
+    }
+  }
+}

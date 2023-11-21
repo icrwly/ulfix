@@ -1,0 +1,7 @@
+{% extends '@ul_base_theme/2_pieces/footer--menu.twig' %}
+
+{% block content %}
+  {% for item in items %}
+    {{ link(item.title, item.url) }}
+  {% endfor %}
+{% endblock %}

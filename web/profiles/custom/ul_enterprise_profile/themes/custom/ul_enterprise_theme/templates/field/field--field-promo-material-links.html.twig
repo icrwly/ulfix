@@ -1,0 +1,7 @@
+{% for item in items %}
+    {% include '@ul_base_theme/2_pieces/button.twig' with {
+        link: item.content['#url'],
+        name: item.content['#title'],
+        class: 'button--gray-outline'
+    } %}
+{% endfor %}

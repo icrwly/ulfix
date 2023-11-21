@@ -1,0 +1,109 @@
+<?php
+
+/**
+ * @file
+ * Contains ul_tools.module.
+ */
+
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_preprocess_html().
+ */
+function ul_tools_preprocess_html(&$variables) {
+  // Get hostname.
+  global $base_url;
+  $base_url_parts = parse_url($base_url);
+  $host = $base_url_parts['host'];
+
+  // Do not override the canonical url on the latam site.
+  if (!stristr($host, 'latam') && $host !== "ulplatform.docksal") {
+    // Unset if set.
+    foreach ($variables['page']['#attached']['html_head'] as $key => $value) {
+      if ($value[0]['#tag'] == 'link' && $value[0]['#attributes']['rel'] == 'canonical') {
+        unset($variables['page']['#attached']['html_head'][$key]);
+        break;
+      }
+    }
+
+    // Add canonical of absolute URL.
+    $alias_path = Url::fromRoute('<current>', [], ['absolute' => 'true'])->toString();
+    $canonical = [
+      '#type' => 'html_tag',
+      '#tag' => 'link',
+      '#attributes' => [
+        'rel' => 'canonical',
+        'href' => $alias_path,
+      ],
+    ];
+    $variables['page']['#attached']['html_head'][] = [$canonical, 'canonical'];
+
+  }
+}
+
+/**
+ * Implements hook_entity_view_alter().
+ */
+function ul_tools_entity_view_alter(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display) {
+  // Checking view_mode for node.
+  if ($build['#view_mode'] !== 'full' && $entity instanceof NodeInterface) {
+    return;
+  }
+  _reset_header_link_canonical($build);
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function ul_tools_page_attachments_alter(array &$attachments) {
+  _reset_header_link_canonical($attachments);
+
+  $user = \Drupal::currentUser();
+  $user_roles = $user->getRoles();
+
+  // If in the Translation Management, include helper JS.
+  if (isset($user_roles[0]) && $user_roles[0] != 'anonymous') {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $pattern = "/\/admin\/tmgmt\/(items\/[0-9_]*|jobs\/[0-9_]*|job_items)/";
+
+    if (preg_match_all($pattern, $current_path)) {
+      $attachments['#attached']['library'][] = 'ul_tools/ul_tools.tmgmt';
+    }
+  }
+}
+
+/**
+ * Unset html_head_link canonical.
+ *
+ * @param array $attachments
+ *   The array of attachments.
+ */
+function _reset_header_link_canonical(array &$attachments) {
+  // Checking html_head_link on attached tags in head.
+  if (!isset($attachments['#attached']['html_head_link'])) {
+    return;
+  }
+  // Array to unset.
+  $ul_tools = ['canonical'];
+  // Unset loop.
+  foreach ($attachments['#attached']['html_head_link'] as $key => $value) {
+    if (isset($value[0]['rel']) && in_array($value[0]['rel'], $ul_tools)) {
+      // Unset the canonical URL.
+      unset($attachments['#attached']['html_head_link'][$key]);
+    }
+  }
+}
+
+/**
+ * Implements hook_module_implements_alter().
+ */
+function ul_tools_module_implements_alter(&$implementations, $hook) {
+  if ($hook === 'page_attachments_alter') {
+    $group = $implementations['ul_tools'];
+    unset($implementations['ul_tools']);
+    $implementations['ul_tools'] = $group;
+  }
+}

@@ -1,0 +1,8 @@
+.section.section--title {
+  @include trim-margin;
+  border-bottom: 1px solid $gray-lighter;
+
+  h1 {
+    margin-bottom: .5em;
+  }
+}

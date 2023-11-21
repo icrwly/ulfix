@@ -1,0 +1,130 @@
+uuid: ff7e9f3f-4670-497e-b16f-31cfa7e0ad33
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - core.entity_view_mode.contact_message.token
+    - field.field.contact_message.submit_request.field_request_attachments
+    - field.field.contact_message.submit_request.field_request_background_context
+    - field.field.contact_message.submit_request.field_request_business
+    - field.field.contact_message.submit_request.field_request_description
+    - field.field.contact_message.submit_request.field_request_division_group
+    - field.field.contact_message.submit_request.field_request_division_group_exp
+    - field.field.contact_message.submit_request.field_request_media
+    - field.field.contact_message.submit_request.field_request_priority
+    - field.field.contact_message.submit_request.field_request_priority_explain
+    - field.field.contact_message.submit_request.field_request_region
+    - field.field.contact_message.submit_request.field_request_region_explain
+    - field.field.contact_message.submit_request.field_request_subject
+    - field.field.contact_message.submit_request.field_request_type
+    - field.field.contact_message.submit_request.field_request_visibility
+  module:
+    - file
+    - options
+_core:
+  default_config_hash: Pf94-zZSheq1gOFjPckquCYQhy8cmT7BROhB_D7rpmY
+id: contact_message.submit_request.token
+targetEntityType: contact_message
+bundle: submit_request
+mode: token
+content:
+  field_request_attachments:
+    type: file_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_request_background_context:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_request_description:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_request_division_group:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_request_division_group_exp:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_request_priority:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_request_priority_explain:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_request_region:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_request_region_explain:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_request_subject:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_request_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_request_visibility:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  message:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_request_business: true
+  field_request_media: true
+  langcode: true

@@ -1,0 +1,32 @@
+{% extends "@ul_base_theme/2_pieces/feature/feature.twig" %}
+{% set class = 'feature--spotlight' %}
+
+{% block content %}
+  <div class="row {% if reverse_direction %}row--reverse{% endif %}">
+    <div class="span-6-d">
+      {% if primary_content %}
+        <div class="featured-container">
+          {% block primary_content %}
+            {% include '@ul_base_theme/1_core/switch--card.twig' with primary_content %}
+          {% endblock %}
+        </div>
+      {% endif %}
+    </div>
+    <div class="span-6-d">
+      {% if secondary_content.card %}
+        {% block secondary_content_card %}
+          {% include '@ul_base_theme/1_core/switch--card.twig' with
+            secondary_content.card only
+          %}
+        {% endblock %}
+      {% endif %}
+      {% if secondary_content.items %}
+        {% block secondary_content_items %}
+          {% include '@ul_base_theme/3_components/list--article.twig' with {
+            items: secondary_content.items
+          } only %}
+        {% endblock %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

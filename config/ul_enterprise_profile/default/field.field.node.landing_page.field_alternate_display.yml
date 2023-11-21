@@ -1,0 +1,28 @@
+uuid: b9bc8296-87d0-4b50-af58-d7e749d43132
+langcode: fr-ca
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_alternate_display
+    - node.type.landing_page
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.landing_page.field_alternate_display
+field_name: field_alternate_display
+entity_type: node
+bundle: landing_page
+label: 'Hide Page Elements'
+description: "Check this to hide the following page elements: \r\n<ul>\r\n<li>Main navigation & search bar (in the header)</li>\r\n<li>Top footer</li>\r\n</ul>"
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

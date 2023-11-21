@@ -1,0 +1,18 @@
+uuid: 2c439878-b5e3-450d-bf7e-834e24db9c2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.resource_types
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.resource_types
+target_entity_type_id: taxonomy_term
+target_bundle: resource_types
+default_langcode: site_default
+language_alterable: true

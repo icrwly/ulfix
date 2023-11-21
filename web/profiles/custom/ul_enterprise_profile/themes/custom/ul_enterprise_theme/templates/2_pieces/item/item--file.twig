@@ -1,0 +1,18 @@
+{% extends "@ul_base_theme/2_pieces/item/item.twig" %}
+{% set class = 'item--file' %}
+
+{% block content %}
+  <div class="row">
+    <div class="span-auto">
+      <div class="item__icon">
+        {# The SVG is now handled via CSS, and depends upon the section BG color. #}
+      </div>
+    </div>
+    <div class="span-auto">
+      <div class="item__content">
+        <h4 class="item__title">{{ title }}</h4>
+        <p class="item__meta">{{ meta }}</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

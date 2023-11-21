@@ -1,0 +1,45 @@
+{% set headingLevel = headingLevel|default('h2') %}
+
+{% if border is defined and border == false %}
+  {% set class = class ~ ' title-bar--no-border' %}
+{% endif %}
+
+{% if seeAll.link %}
+  {% set class = class ~ ' has-cta' %}
+{% endif %}
+
+<div class="title-bar {{ class }}">
+  {% block content %}
+
+    <div class="title-bar__inner row">
+
+      <div class="title-bar__title-wrapper span-auto">
+        {% block titleBar_title %}
+          {% if title %}
+            <div class="title-bar__title h2">{{- title -}}</div>
+          {% endif %}
+        {% endblock %}
+
+        {% block titleBar_description %}
+          {% if description is not empty %}
+            <div class="title-bar__description">
+              {{ description }}
+            </div>
+          {% endif %}
+        {% endblock %}
+      </div>
+
+      {% block titleBar_see_all %}
+        {% if seeAll.link %}
+          <div class="title-bar__cta-wrapper span-auto">
+            <a class="title-bar__cta button button--red button--s" href="{{- seeAll.link -}}">
+              {{- seeAll.name -}}
+            </a>
+          </div>
+        {% endif %}
+      {% endblock %}
+
+    </div>
+
+  {% endblock %}
+</div>

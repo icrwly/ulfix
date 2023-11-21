@@ -1,0 +1,19 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--title has-border" %}
+
+{% block content %}
+  {% block section_title %}
+    {% if pageTitle %}
+      <h1 data-page-title>{{- title -}}</h1>
+    {% else %}
+      <h2>{{- title -}}</h2>
+    {% endif %}
+  {% endblock %}
+  {% block section_topic %}
+    {% if topics %}
+      {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {
+        widget: topics
+      } %}
+    {% endif %}
+  {% endblock %}
+{% endblock %}

@@ -1,0 +1,29 @@
+uuid: f25e313e-c233-4128-b8d1-568d6122e2fb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_market
+    - node.type.knowledge
+    - taxonomy.vocabulary.markets
+id: node.knowledge.field_shared_market
+field_name: field_shared_market
+entity_type: node
+bundle: knowledge
+label: Market
+description: '&bull; The market related to this item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

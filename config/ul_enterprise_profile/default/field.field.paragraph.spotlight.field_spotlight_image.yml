@@ -1,0 +1,36 @@
+uuid: 7b34882c-3167-4006-b758-8da1ecbbf00a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_spotlight_image
+    - media.type.image
+    - media.type.svg
+    - paragraphs.paragraphs_type.spotlight
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.spotlight.field_spotlight_image
+field_name: field_spotlight_image
+entity_type: paragraph
+bundle: spotlight
+label: Image
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      svg: svg
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: true
+    auto_create_bundle: svg
+field_type: entity_reference

@@ -1,0 +1,21 @@
+uuid: dda8550f-f779-4f69-bc3f-b7c356859087
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote_location
+    - paragraphs.paragraphs_type.quote
+_core:
+  default_config_hash: rfCqMB6wPE5SEK7Rd6rfV0d3OyjCi31lHCl6DtnKyZU
+id: paragraph.quote.field_quote_location
+field_name: field_quote_location
+entity_type: paragraph
+bundle: quote
+label: Location
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

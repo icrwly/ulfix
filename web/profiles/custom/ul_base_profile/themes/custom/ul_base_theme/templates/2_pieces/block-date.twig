@@ -1,0 +1,11 @@
+{# General "date" block used for many content types. #}
+<div class="block-date">
+  {% block card_date %}
+    {% if formattedDate %}
+      <span class="day">{{- formattedDate.day -}}</span>
+      <span class="date">{{- formattedDate.date -}}</span>
+    {% else %}
+      <span class="date">{{- date -}}</span>
+    {% endif %}
+  {% endblock %}
+</div>

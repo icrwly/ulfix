@@ -1,0 +1,22 @@
+a.back-link {
+    color: #000000;
+    text-decoration: underline;
+    display: inline-block;
+    margin-top: 25px;
+    margin-bottom: 40px;
+}
+
+a.back-link:before {
+  padding-right: 10px;
+  font-weight: 600;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: icomoon;
+  font-size: inherit;
+  font-style: normal;
+  line-height: inherit;
+  text-transform: none;
+  vertical-align: baseline;
+  content: "\e90e";
+}

@@ -1,0 +1,19 @@
+{% extends "@ul_base_theme/4_regions/section--grid.twig" %}
+
+{% block section_body %}
+  {% embed "@ul_base_theme/3_components/grid-components.twig" with { items: items, per_row: per_row } only %}
+    {% block item %}
+      {% set grid_class = 'span-6-t span-4-d span-3-ld' %}
+      {% if loop.index == 1 %}
+        {% set grid_class = 'span-6-ld' %}
+      {% elseif loop.index == 8 %}
+        {% set grid_class = 'span-12' %}
+      {% endif %}
+      {% embed "@ul_base_theme/2_pieces/grid-item.twig" with { item: item, per_row: per_row, grid_class: grid_class } only %}
+        {% block content %}
+          {% include '@ul_base_theme/1_core/switch--card.twig' with item only %}
+        {% endblock %}
+      {% endembed %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

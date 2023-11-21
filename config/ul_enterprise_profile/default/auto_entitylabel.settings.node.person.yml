@@ -1,0 +1,9 @@
+_core:
+  default_config_hash: Tx7indPKbapeADSIdJaML5wxddHSzRXkETHMbBO8l3Y
+status: 1
+pattern: '[node:field_person_first_name]'
+escape: false
+dependencies:
+  config:
+    - node.type.person
+php: false

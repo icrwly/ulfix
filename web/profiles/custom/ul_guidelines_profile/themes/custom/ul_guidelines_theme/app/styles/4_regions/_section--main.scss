@@ -1,0 +1,9 @@
+.section--main{
+  img{
+    max-width: 100%;
+  }
+  > h1 {
+    margin-top: $spacing-unit--l;
+    margin-bottom: $spacing-unit--l;
+  }
+}

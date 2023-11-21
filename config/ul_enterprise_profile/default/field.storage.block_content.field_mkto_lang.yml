@@ -1,0 +1,78 @@
+uuid: a82bb610-de25-4080-a196-3e4d372508b5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - options
+id: block_content.field_mkto_lang
+field_name: field_mkto_lang
+entity_type: block_content
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: ar
+      label: Arabic
+    -
+      value: zh-hans
+      label: 'Chinese Simplified'
+    -
+      value: zh-hant
+      label: 'Chinese Traditional'
+    -
+      value: da
+      label: Danish
+    -
+      value: nl
+      label: Dutch
+    -
+      value: en
+      label: English
+    -
+      value: fr
+      label: French
+    -
+      value: fr-ca
+      label: 'French, Canadian'
+    -
+      value: de
+      label: German
+    -
+      value: it
+      label: Italian
+    -
+      value: ja
+      label: Japan
+    -
+      value: ko
+      label: Korean
+    -
+      value: pl
+      label: Polish
+    -
+      value: pt-br
+      label: 'Portuguese, Brazil'
+    -
+      value: es
+      label: Spanish
+    -
+      value: es-mx
+      label: 'Spanish, Mexican'
+    -
+      value: sv
+      label: Swedish
+    -
+      value: th
+      label: Thai
+    -
+      value: vi
+      label: VIetnamese
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

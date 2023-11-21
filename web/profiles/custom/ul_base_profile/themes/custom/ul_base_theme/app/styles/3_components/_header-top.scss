@@ -1,0 +1,58 @@
+.global-header {
+
+  &__row--top {
+    height: 42px;
+    background-color: $black;
+    display: flex;
+    flex-flow: nowrap row;
+
+    .ul-link {
+      height: 42px;
+
+      svg {
+        width: 29px;
+        height: 42px;
+        fill: #fff;
+        margin-right: 12px;
+      }
+    }
+
+    .wrapper {
+      flex-grow: 1;
+
+      .block-ul-haas-naas {
+        flex-grow: 1;
+      }
+
+      ul {
+        display: flex;
+        padding-left: 0;
+        margin: 0;
+
+        li {
+          display: inline-block;
+          list-style-type: none;
+          padding: 0 12px;
+
+          &.md-show {
+            display: none;
+            @include breakpoint($tablet) {
+              display: inline-block;
+            }
+          }
+
+          a {
+            color: $white;
+            font-size: 1.4rem;
+            font-weight: 600;
+          }
+
+          &.link--main-site {
+            margin-right: auto;
+            padding: 0;
+          }
+        }
+      }
+    }
+  }
+}

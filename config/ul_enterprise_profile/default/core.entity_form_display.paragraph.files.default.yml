@@ -1,0 +1,90 @@
+uuid: 35f53e23-2788-4624-9c7c-289f3d1e4e3f
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.file
+    - field.field.paragraph.files.field_files_description
+    - field.field.paragraph.files.field_files_files
+    - field.field.paragraph.files.field_files_title
+    - field.field.paragraph.files.field_hash_target
+    - field.field.paragraph.files.field_shared_bg_color
+    - paragraphs.paragraphs_type.files
+  module:
+    - entity_browser
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_bg_color
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.files.default
+targetEntityType: paragraph
+bundle: files
+mode: default
+content:
+  field_files_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_files_files:
+    type: entity_browser_entity_reference
+    weight: 2
+    region: content
+    settings:
+      entity_browser: file
+      field_widget_display: label
+      field_widget_edit: true
+      field_widget_remove: true
+      field_widget_replace: false
+      open: false
+      field_widget_display_settings: {  }
+      selection_mode: selection_append
+    third_party_settings: {  }
+  field_files_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_hash_target:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

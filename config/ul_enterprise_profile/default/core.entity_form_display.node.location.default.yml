@@ -1,0 +1,240 @@
+uuid: 4c1aba4d-c149-410f-b5bd-a76252bf7785
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.location.field_location_addresses
+    - field.field.node.location.field_location_region
+    - field.field.node.location.field_location_url
+    - field.field.node.location.field_shared_content_owner
+    - field.field.node.location.field_shared_cou
+    - field.field.node.location.field_shared_header_media
+    - field.field.node.location.field_shared_mktg_support_ticket
+    - field.field.node.location.field_shared_review_comments
+    - field.field.node.location.field_shared_review_user
+    - node.type.location
+  module:
+    - chosen_field
+    - field_group
+    - link
+    - paragraphs
+    - path
+    - scheduler
+    - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_content
+        - group_review_notes
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: horizontal
+    group_content:
+      children:
+        - field_location_region
+        - title
+        - field_location_url
+        - field_location_addresses
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 1
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_review_notes:
+      children:
+        - field_shared_review_comments
+        - field_shared_review_user
+      label: 'Review Notes'
+      region: content
+      parent_name: group_tabs
+      weight: 2
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: 'Use this section to set the approver and communicate during the review process.'
+        required_fields: true
+    group_marketing_support_ticket:
+      children:
+        - field_shared_mktg_support_ticket
+      label: 'Marketing Support Ticket #'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
+    group_owner_information:
+      children:
+        - field_shared_content_owner
+        - field_shared_cou
+      label: 'Owner Information'
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+id: node.location.default
+targetEntityType: node
+bundle: location
+mode: default
+content:
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_location_addresses:
+    type: entity_reference_paragraphs
+    weight: 6
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: location
+    third_party_settings: {  }
+  field_location_region:
+    type: options_select
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_location_url:
+    type: link_default
+    weight: 5
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_shared_content_owner:
+    type: chosen_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_cou:
+    type: chosen_select
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_mktg_support_ticket:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_review_comments:
+    type: text_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_review_user:
+    type: entity_reference_autocomplete
+    weight: 12
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_shared_header_media: true
+  promote: true
+  status: true
+  sticky: true

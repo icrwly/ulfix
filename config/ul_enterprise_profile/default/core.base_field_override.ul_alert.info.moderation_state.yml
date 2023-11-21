@@ -1,0 +1,20 @@
+uuid: 61d0a508-b9e0-4ae2-82a5-595d078958d6
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.info
+id: ul_alert.info.moderation_state
+field_name: moderation_state
+entity_type: ul_alert
+bundle: info
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,71 @@
+<?php
+
+/**
+ * @file
+ * The integration module between SamlAuth and the UL Drupal Platform.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function ul_samlauth_preprocess_node(&$variables) {
+
+  // Pass in boolean value to verify samlauth is enabled.
+  $variables['ul_samlauth_enabled'] = TRUE;
+  $variables['ul_samlauth_registration_url'] = \Drupal::config('ul_samlauth.settings')->get('registration_url');
+  $variables['ul_samlauth_profile_url'] = \Drupal::config('ul_samlauth.settings')->get('profile_url');
+}
+
+/**
+ * Implements hook_preprocess_page().
+ */
+function ul_samlauth_preprocess_page(&$variables) {
+
+  // Pass in boolean value to verify samlauth is enabled.
+  $variables['ul_samlauth_enabled'] = TRUE;
+  $variables['ul_samlauth_registration_url'] = \Drupal::config('ul_samlauth.settings')->get('registration_url');
+  $variables['ul_samlauth_profile_url'] = \Drupal::config('ul_samlauth.settings')->get('profile_url');
+  $variables['#attached']['library'][] = 'ul_samlauth/redirect_js';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_samlauth_form_samlauth_configure_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  $form['user_account'] = [
+    '#type' => 'fieldset',
+    '#title' => t('User Account'),
+  ];
+  $form['user_account']['ul_samlauth_account_url'] = [
+    '#type' => 'url',
+    '#title' => t('Account URL'),
+    '#description' => t('URL where users can access their user account.'),
+    '#default_value' => \Drupal::config('ul_samlauth.settings')->get('account_url'),
+  ];
+  $form['user_account']['ul_samlauth_registration_url'] = [
+    '#type' => 'url',
+    '#title' => t('Registration URL'),
+    '#description' => t('URL where new users can go to register an account.'),
+    '#default_value' => \Drupal::config('ul_samlauth.settings')->get('registration_url'),
+  ];
+  $form['#submit'][] = 'ul_samlauth_form_samlauth_configure_form_submit';
+}
+
+/**
+ * Form submit callback.
+ *
+ * @param array $form
+ *   The drupal form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form_state object.
+ */
+function ul_samlauth_form_samlauth_configure_form_submit(array $form, FormStateInterface $form_state) {
+
+  \Drupal::configFactory()->getEditable('ul_samlauth.settings')
+    ->set('registration_url', $form_state->getValue('ul_samlauth_registration_url'))
+    ->set('account_url', $form_state->getValue('ul_samlauth_account_url'))
+    ->save();
+}

@@ -1,0 +1,16 @@
+uuid: c6026f01-bf11-40e4-aea0-778a0dc60b00
+langcode: en
+status: false
+dependencies: {  }
+id: ulcanada
+label: news-canada
+description: 'Split for news-canada.ul.com and the corresponding site on lower environments.'
+weight: 0
+folder: ../config/ul_enterprise_profile/sites/news-canada
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - search.page.google_json_api_search
+graylist_dependents: true
+graylist_skip_equal: true

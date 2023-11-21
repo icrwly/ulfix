@@ -1,0 +1,18 @@
+uuid: d14e59b2-2027-4ca8-89bf-4e76020d5b8b
+langcode: fr-ca
+status: true
+dependencies:
+  module:
+    - node
+id: node.field_alternate_display
+field_name: field_alternate_display
+entity_type: node
+type: boolean
+settings: {  }
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

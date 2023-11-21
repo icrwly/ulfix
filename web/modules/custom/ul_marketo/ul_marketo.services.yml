@@ -1,0 +1,19 @@
+services:
+  ul_marketo:
+    class: Drupal\ul_marketo\UlMarketoService
+    arguments: ['@config.factory', '@database', '@entity_type.manager', '@current_route_match', '@language_manager']
+  ul_marketo.route_subscriber:
+    class: Drupal\ul_marketo\Routing\MarketoRouteSubscriber
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: event_subscriber }
+  plugin.manager.marketo_form:
+    class: Drupal\ul_marketo\Plugin\MarketoFormPluginManager
+    arguments: ['@container.namespaces', '@cache.discovery', '@module_handler', '@config.factory', '@ul_marketo']
+  ul_marketo.cache_subscriber:
+    class: Drupal\ul_marketo\EventSubscriber\CacheDisableSubscriber
+    tags:
+      - { name: event_subscriber }
+  ul_marketo.data_service:
+    class: Drupal\ul_marketo\UlMarketoDataService
+    arguments: ['@config.factory', '@database']

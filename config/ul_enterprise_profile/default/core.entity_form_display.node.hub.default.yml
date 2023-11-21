@@ -1,0 +1,513 @@
+uuid: 9772cc8b-6e23-4033-a25e-8a73c8543c96
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.hub.body
+    - field.field.node.hub.field_hub_content
+    - field.field.node.hub.field_hub_featured_content
+    - field.field.node.hub.field_hub_featured_description
+    - field.field.node.hub.field_hub_featured_link
+    - field.field.node.hub.field_hub_featured_title
+    - field.field.node.hub.field_hub_view
+    - field.field.node.hub.field_shared_banner_description
+    - field.field.node.hub.field_shared_content_owner
+    - field.field.node.hub.field_shared_cou
+    - field.field.node.hub.field_shared_country
+    - field.field.node.hub.field_shared_domain
+    - field.field.node.hub.field_shared_flagship_theme
+    - field.field.node.hub.field_shared_header_link
+    - field.field.node.hub.field_shared_header_media
+    - field.field.node.hub.field_shared_header_video
+    - field.field.node.hub.field_shared_industry
+    - field.field.node.hub.field_shared_market
+    - field.field.node.hub.field_shared_marketo_custom
+    - field.field.node.hub.field_shared_marketo_forms
+    - field.field.node.hub.field_shared_marketo_link
+    - field.field.node.hub.field_shared_metatags
+    - field.field.node.hub.field_shared_mktg_support_ticket
+    - field.field.node.hub.field_shared_products_components
+    - field.field.node.hub.field_shared_ref_description
+    - field.field.node.hub.field_shared_review_comments
+    - field.field.node.hub.field_shared_review_user
+    - field.field.node.hub.field_shared_service_cat
+    - field.field.node.hub.field_shared_service_type
+    - field.field.node.hub.field_shared_solutions
+    - field.field.node.hub.field_shared_stakeholder_needs
+    - field.field.node.hub.field_shared_subtitle
+    - field.field.node.hub.field_shared_topic
+    - field.field.node.hub.field_strategic_solutions
+    - node.type.hub
+  module:
+    - chosen_field
+    - field_group
+    - inline_entity_form
+    - link
+    - maxlength
+    - media_library
+    - metatag
+    - paragraphs
+    - path
+    - scheduler
+    - text
+    - ul_marketo
+    - video_embed_field
+    - viewsreference
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_content
+        - group_hub_view
+        - group_reference_info
+        - group_taxonomy
+        - group_review_notes
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: horizontal
+    group_content:
+      children:
+        - title
+        - group_header
+        - body
+        - field_hub_content
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 4
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_taxonomy:
+      children:
+        - field_shared_domain
+        - field_shared_industry
+        - field_shared_service_type
+        - field_shared_service_cat
+        - field_shared_products_components
+        - field_shared_solutions
+        - field_shared_flagship_theme
+        - field_shared_topic
+        - field_shared_market
+        - field_shared_country
+        - field_strategic_solutions
+        - field_shared_stakeholder_needs
+      label: Taxonomy
+      region: content
+      parent_name: group_tabs
+      weight: 7
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_header:
+      children:
+        - field_shared_subtitle
+        - field_shared_header_video
+        - field_shared_header_media
+        - field_shared_header_link
+        - field_shared_marketo_link
+      label: Header
+      region: content
+      parent_name: group_content
+      weight: 10
+      format_type: fieldset
+      format_settings:
+        classes: ''
+        id: ''
+        description: ''
+        required_fields: true
+    group_reference_info:
+      children:
+        - field_shared_ref_description
+      label: Summary
+      region: content
+      parent_name: group_tabs
+      weight: 6
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_hub_view:
+      children:
+        - field_hub_view
+      label: 'Experience Hub'
+      region: content
+      parent_name: group_tabs
+      weight: 5
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_review_notes:
+      children:
+        - field_shared_review_comments
+        - field_shared_review_user
+      label: 'Review Notes'
+      region: content
+      parent_name: group_tabs
+      weight: 8
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: 'Use this section to set the approver and communicate during the review process.'
+        required_fields: true
+    group_marketing_support_ticket:
+      children:
+        - field_shared_mktg_support_ticket
+      label: 'Marketing Support Ticket #'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
+    group_owner_information:
+      children:
+        - field_shared_content_owner
+        - field_shared_cou
+      label: 'Owner Information'
+      region: content
+      parent_name: ''
+      weight: 16
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+_core:
+  default_config_hash: OFnZRJy45A9K-CoaBmp0n6gi_6gTSIuRA2PDrVKTxqA
+id: node.hub.default
+targetEntityType: node
+bundle: hub
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 12
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_hub_content:
+    type: paragraphs
+    weight: 13
+    region: content
+    settings:
+      title: Component
+      title_plural: Components
+      edit_mode: closed
+      closed_mode: summary
+      autocollapse: none
+      closed_mode_threshold: 0
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+      features:
+        add_above: '0'
+        collapse_edit_all: collapse_edit_all
+        duplicate: '0'
+    third_party_settings: {  }
+  field_hub_view:
+    type: viewsreference_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_content_owner:
+    type: chosen_select
+    weight: 15
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_cou:
+    type: chosen_select
+    weight: 16
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_country:
+    type: chosen_select
+    weight: 52
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_domain:
+    type: options_select
+    weight: 43
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_flagship_theme:
+    type: chosen_select
+    weight: 49
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_header_link:
+    type: link_default
+    weight: 60
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_shared_header_media:
+    type: media_library_widget
+    weight: 59
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_shared_header_video:
+    type: video_embed_field_textfield
+    weight: 58
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_industry:
+    type: chosen_select
+    weight: 44
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_market:
+    type: chosen_select
+    weight: 51
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_marketo_custom:
+    type: inline_entity_form_complex
+    weight: 12
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_shared_marketo_forms:
+    type: marketo_meta
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_marketo_link:
+    type: marketo_form_widget
+    weight: 61
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_metatags:
+    type: metatag_firehose
+    weight: 7
+    region: content
+    settings:
+      sidebar: true
+    third_party_settings: {  }
+  field_shared_mktg_support_ticket:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_products_components:
+    type: chosen_select
+    weight: 47
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_ref_description:
+    type: string_textarea
+    weight: 57
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 256
+        maxlength_js_label: 'Google recommends a summary of <strong>160</strong> characters or less. Current length is <strong>@count</strong> of <strong>@limit</strong>.'
+        maxlength_js_enforce: false
+        maxlength_js_truncate_html: false
+  field_shared_review_comments:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_review_user:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_service_cat:
+    type: chosen_select
+    weight: 46
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_service_type:
+    type: chosen_select
+    weight: 45
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_solutions:
+    type: chosen_select
+    weight: 48
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_stakeholder_needs:
+    type: chosen_select
+    weight: 54
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_subtitle:
+    type: string_textfield
+    weight: 57
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_topic:
+    type: chosen_select
+    weight: 50
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_strategic_solutions:
+    type: chosen_select
+    weight: 53
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 120
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 120
+        maxlength_js_label: 'Google recommends titles of <strong>60</strong> characters or less.  Current length is <strong>@count</strong> of <strong>@limit</strong>.'
+  translation:
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  field_hub_featured_content: true
+  field_hub_featured_description: true
+  field_hub_featured_link: true
+  field_hub_featured_title: true
+  field_shared_banner_description: true
+  promote: true
+  status: true
+  sticky: true

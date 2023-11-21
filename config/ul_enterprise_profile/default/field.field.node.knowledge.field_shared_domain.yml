@@ -1,0 +1,29 @@
+uuid: 3fd97d3a-15b9-47ee-bef6-2ec75b5bd466
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_domain
+    - node.type.knowledge
+    - taxonomy.vocabulary.content_domain
+id: node.knowledge.field_shared_domain
+field_name: field_shared_domain
+entity_type: node
+bundle: knowledge
+label: 'Content Domain'
+description: 'The Content Domain related to this content.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_domain: content_domain
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,43 @@
+// CSS code for the "Throbber" (ajax-spinner) classes.
+.loading-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 24px;
+  background: $white;
+
+  .spinner-text {
+    padding-left: 6px;
+  }
+  .spinner {
+    width: 15px;
+    height: 15px;
+    border: 2px solid #67B1E2;
+    border-top-color: #F8F8F8;
+    border-radius: 50%;
+    -webkit-animation: rotation 0.8s ease infinite;
+            animation: rotation 0.8s ease infinite;
+  }
+}
+
+// Have to change the BG color to blend with
+// the containers:
+.section--bgcolor-black .loading-container {
+  background: $black;
+}
+.section--bgcolor-red .loading-container {
+  background: $red;
+}
+.section--bgcolor-light-gray .loading-container {
+  background: $gray-lightest;
+}
+
+// The animation:
+@keyframes rotation {
+  from{
+    transform: rotate(0deg);
+  }
+  to{
+    transform: rotate(360deg);
+  }
+}

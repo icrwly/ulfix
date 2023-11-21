@@ -1,0 +1,29 @@
+{% set view = content.field_view_view.0.contents['#view'] %}
+{% set itemsLength = view.result|length %}
+
+{% embed "@ul_base_theme/4_regions/section.twig" %}
+    {% set class = class ~ " section--paragraph section--featured section--view " ~ attributes.class %}
+    {% set gutterclass = "paragraph-gutter paragraph--view" %}
+
+    {% if content.field_view_description|render %}
+        {% set description = content.field_view_description %}
+    {% endif %}
+
+    {% if content.field_view_title|render|striptags|trim is not empty %}
+        {% set titleBar = {
+            'title': content.field_view_title,
+            'description': description,
+        } %}
+    {% endif %}
+
+    {% if content.field_view_link.0['#title'] %}
+        {% set titleBar = titleBar|merge({'seeAll':{
+            link: content.field_view_link.0['#url'],
+            name: content.field_view_link.0['#title']
+        }}) %}
+    {% endif %}
+
+    {% block section_body %}
+        {{ content.field_view_view }}
+    {% endblock %}
+{% endembed %}

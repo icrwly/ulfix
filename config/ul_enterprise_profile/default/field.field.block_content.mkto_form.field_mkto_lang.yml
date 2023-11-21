@@ -1,0 +1,23 @@
+uuid: ad4048e2-7d0f-41dd-9a20-547d91e3022a
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mkto_form
+    - field.storage.block_content.field_mkto_lang
+  module:
+    - options
+id: block_content.mkto_form.field_mkto_lang
+field_name: field_mkto_lang
+entity_type: block_content
+bundle: mkto_form
+label: 'Marketo Form Language'
+description: 'Select the language of the Marketo form, so the Opt-in message text will match.'
+required: false
+translatable: true
+default_value:
+  -
+    value: en
+default_value_callback: ''
+settings: {  }
+field_type: list_string

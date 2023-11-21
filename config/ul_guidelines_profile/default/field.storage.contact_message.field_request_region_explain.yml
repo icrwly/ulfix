@@ -1,0 +1,23 @@
+uuid: 5a1e4d18-5c7b-4c47-b199-d7bbd08e40a7
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+_core:
+  default_config_hash: QlrVg5yDtORY0DX6jx620dWOMjO3LWyp6lWh6KCk9BY
+id: contact_message.field_request_region_explain
+field_name: field_request_region_explain
+entity_type: contact_message
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

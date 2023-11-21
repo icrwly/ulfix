@@ -1,0 +1,47 @@
+# Leaving the original library for global styling as a fallback for non-updated profiles.
+global-styling:
+  version: VERSION
+  css:
+    base:
+      build/styles/screen.css: {weight: 1000}
+
+# Separating global scripts and left to right, right to left style sheets for easier internationalization.
+global-scripts:
+  version: VERSION
+  js:
+    build/scripts/fontloader.built.js: {header: true, attributes: {async: true}, preprocess: false}
+    build/scripts/app.built.js: {preprocess: false}
+
+global-styles-lrt:
+  version: VERSION
+  css:
+    base:
+      build/styles/screen-ltr.css: {weight: 1000}
+
+global-styles-rtl:
+  version: VERSION
+  css:
+    base:
+      build/styles/screen-rtl.css: {weight: 1000}
+
+jquery-custom:
+  remote: https://github.com/jquery/jquery
+  version: "3.6.0"
+  license:
+    name: MIT
+    url: https://github.com/jquery/jquery/blob/master/LICENSE.txt
+    gpl-compatible: true
+  header: true
+  js:
+    libraries/jquery-3.6.0.min.js: { minified: true, weight: -20, preprocess: false }
+    libraries/jquery-passive-listeners.js: { minified: false, weight: -19, preprocess: false }
+
+fontawesome:
+  css:
+    component:
+      libraries/fontawesome/css/font-awesome.min.css: {}
+
+wistia:
+  header: true
+  js:
+    https://fast.wistia.com/assets/external/E-v1.js: { type: external, minified: true, attributes: { async: true } }

@@ -1,0 +1,9 @@
+{% if items %}
+  <div class="mega-menu">
+    {% block content %}
+        {% for item in items %}
+          {% include '@ul_base_theme/3_components/nav--mega-menu.twig' with item only %}
+        {% endfor %}
+    {% endblock %}
+  </div>
+{% endif %}

@@ -1,0 +1,73 @@
+uuid: 701c3e5e-1187-407f-846f-72ed0ac485a6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_row_images
+    - paragraphs.paragraphs_type.captioned_image
+    - paragraphs.paragraphs_type.image_row
+  module:
+    - entity_reference_revisions
+id: paragraph.image_row.field_image_row_images
+field_name: field_image_row_images
+entity_type: paragraph
+bundle: image_row
+label: Images
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      captioned_image: captioned_image
+    negate: 0
+    target_bundles_drag_drop:
+      basic_content:
+        weight: 17
+        enabled: false
+      call_to_action:
+        weight: 18
+        enabled: false
+      captioned_image:
+        weight: 19
+        enabled: true
+      image_gallery:
+        weight: 21
+        enabled: false
+      image_row:
+        weight: 22
+        enabled: false
+      interrupter_cta:
+        weight: 23
+        enabled: false
+      list_item:
+        weight: 24
+        enabled: false
+      people:
+        weight: 25
+        enabled: false
+      quote:
+        weight: 26
+        enabled: false
+      reference:
+        weight: 27
+        enabled: false
+      related_content:
+        weight: 28
+        enabled: false
+      slide:
+        weight: 29
+        enabled: false
+      spotlight:
+        weight: 30
+        enabled: false
+      video:
+        weight: 31
+        enabled: false
+      view:
+        weight: 32
+        enabled: false
+field_type: entity_reference_revisions

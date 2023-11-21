@@ -1,0 +1,21 @@
+uuid: 6059973c-199f-4efa-8bcd-bc81678aa034
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ul_alert.field_languages
+    - ul_alerts.ul_alert_type.language
+  module:
+    - options
+id: ul_alert.language.field_languages
+field_name: field_languages
+entity_type: ul_alert
+bundle: language
+label: Languages
+description: 'Choose which language(s) you want to listen for. If the user''s browser matches this language it will render this alert. '
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

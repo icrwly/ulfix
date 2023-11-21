@@ -1,0 +1,70 @@
+uuid: 1098a724-46d2-4ed3-aac3-ff7aee80f850
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.popular_page
+    - field.field.node.page.body
+    - field.field.node.page.field_page_link
+    - field.field.node.page.field_page_media
+    - field.field.node.page.field_page_subtitle
+    - field.field.node.page.field_shared_country
+    - field.field.node.page.field_shared_domain
+    - field.field.node.page.field_shared_header_link
+    - field.field.node.page.field_shared_header_media
+    - field.field.node.page.field_shared_industry
+    - field.field.node.page.field_shared_market
+    - field.field.node.page.field_shared_metatags
+    - field.field.node.page.field_shared_ref_description
+    - field.field.node.page.field_shared_ref_image
+    - field.field.node.page.field_shared_subtitle
+    - field.field.node.page.field_shared_topic
+    - node.type.page
+  module:
+    - media
+    - user
+_core:
+  default_config_hash: B8P-aGBk-wogBvK-qPtTJi4fxIRy9giPlyEob1QwOkI
+id: node.page.popular_page
+targetEntityType: node
+bundle: page
+mode: popular_page
+content:
+  field_shared_ref_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_ref_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  body: true
+  field_page_link: true
+  field_page_media: true
+  field_page_subtitle: true
+  field_shared_content_access: true
+  field_shared_country: true
+  field_shared_domain: true
+  field_shared_header_link: true
+  field_shared_header_media: true
+  field_shared_industry: true
+  field_shared_market: true
+  field_shared_metatags: true
+  field_shared_subtitle: true
+  field_shared_topic: true
+  langcode: true
+  links: true

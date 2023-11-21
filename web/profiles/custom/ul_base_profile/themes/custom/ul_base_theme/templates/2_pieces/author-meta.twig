@@ -1,0 +1,10 @@
+{% if author_image or author_name %}
+  <div class="author-meta{% if author_image %} has-image{% endif %}{% if class %} {{ class }}{% endif %}">
+    {% if author_image %}
+      <img src="{{author_image}}" alt="{{author_image_alt}}" />
+    {% endif %}
+    {% if author_name %}
+      <span>{{author_name}}</span>
+    {% endif %}
+  </div>
+{% endif %}

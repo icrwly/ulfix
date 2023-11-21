@@ -1,0 +1,36 @@
+uuid: 4ad9d92d-8a94-4bac-b4cb-291c6d274c00
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.storage.block_content.field_marketo_form_customization
+    - ul_marketo.marketo_form_type.generic_form
+    - ul_marketo.marketo_form_type.email_form
+    - ul_marketo.marketo_form_type.event_form
+    - ul_marketo.marketo_form_type.gated_content_form
+  module:
+    - entity_reference_revisions
+id: block_content.cta_banner.field_marketo_form_customization
+field_name: field_marketo_form_customization
+entity_type: block_content
+bundle: cta_banner
+label: 'Marketo Forms'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:marketo_form'
+  handler_settings:
+    target_bundles:
+      generic_form: generic_form
+      event_form: event_form
+      gated_content_form: gated_content_form
+      email_form: email_form
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: event_form
+field_type: entity_reference_revisions

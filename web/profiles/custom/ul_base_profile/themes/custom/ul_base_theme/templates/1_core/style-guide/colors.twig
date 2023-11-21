@@ -1,0 +1,13 @@
+<h4>Color Palette</h4>
+<ul class="color-palette row list-unstyled">
+  {% for color in colors %}
+    <li class="span-6 span-4-t span-3-d span-2-ld">
+      <div class="swatch swatch-{{color}}"></div>
+      <div class="swatch-hex-{{color}}"></div>
+      <div class="swatch-info row">
+        <span class="span-auto text-black">{{color|capitalize}}</span>
+        <span class="span-auto text-gray hex hex-{{color}}"></span>
+      </div>
+    </li>
+  {% endfor %}
+</ul>

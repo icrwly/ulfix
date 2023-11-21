@@ -1,0 +1,4 @@
+services:
+  book.manager:
+    class: Drupal\ul_guidelines_navigation\UlGuidelinesBookManager
+    arguments: ['@entity_type.manager', '@string_translation', '@config.factory', '@book.outline_storage', '@renderer']

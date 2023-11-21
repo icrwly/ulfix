@@ -1,0 +1,31 @@
+uuid: b498c26a-347f-443c-961b-46a6b2bac8f3
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: local
+description: ''
+weight: 0
+folder: ../config/ul_enterprise_profile/local
+module:
+  dblog: 0
+  devel: 0
+  devel_generate: 0
+  masquerade: 0
+  ul_drush_commands: 0
+  ul_testing: 0
+  update: 0
+  upgrade_status: 0
+  extlink: 1
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - ultimate_cron.job.dblog_cron
+  - ultimate_cron.job.update_cron
+  - ul_salesforce.salesforce_environment
+graylist:
+  - search_api.index.content
+  - search_api.server.content
+graylist_dependents: false
+graylist_skip_equal: true

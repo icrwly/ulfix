@@ -1,0 +1,25 @@
+uuid: 194220e2-91bd-4057-ae55-897de8e802f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_guideline_crc_assets
+    - node.type.guideline
+  module:
+    - ul_crc_asset
+_core:
+  default_config_hash: lyWHcnaWU2h9cajZpawRjNclD4dgy1xciRumlTjovGw
+id: node.guideline.field_guideline_crc_assets
+field_name: field_guideline_crc_assets
+entity_type: node
+bundle: guideline
+label: 'CRC Assets'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crc_asset'
+  handler_settings: {  }
+field_type: crc_asset_item

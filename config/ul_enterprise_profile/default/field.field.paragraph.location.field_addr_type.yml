@@ -1,0 +1,29 @@
+uuid: fb635144-331e-406c-a5c6-657d47673291
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_addr_type
+    - paragraphs.paragraphs_type.location
+    - taxonomy.vocabulary.location_types
+id: paragraph.location.field_addr_type
+field_name: field_addr_type
+entity_type: paragraph
+bundle: location
+label: 'Location Type'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      location_types: location_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

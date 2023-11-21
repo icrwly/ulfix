@@ -1,0 +1,4 @@
+services:
+  ul_crc:
+    class: Drupal\ul_crc\CRCService
+    arguments: ['@config.factory', '@cache.data', '@cache_tags.invalidator', '@http_client']

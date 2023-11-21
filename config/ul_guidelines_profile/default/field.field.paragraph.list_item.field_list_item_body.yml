@@ -1,0 +1,23 @@
+uuid: c62222f5-21a7-4f0e-a635-8a356c1a9034
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_list_item_body
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - text
+_core:
+  default_config_hash: yHrKh7v0Lfeq_WWo2iH-ZQW8F6VFjiw0ksHbXc-wQLw
+id: paragraph.list_item.field_list_item_body
+field_name: field_list_item_body
+entity_type: paragraph
+bundle: list_item
+label: Content
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

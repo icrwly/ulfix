@@ -1,0 +1,8 @@
+uuid: c50c7795-5114-48ef-9b1a-06c519a7e175
+langcode: en
+status: true
+dependencies: {  }
+id: node__location
+label: 'Content: Location'
+code: null
+message: ''

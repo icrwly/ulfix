@@ -1,0 +1,43 @@
+{% set recaptcha_id = content.settings.recaptcha_site_key %}
+{% block recaptcha %}
+  <script src="https://www.recaptcha.net/recaptcha/api.js?onload=onloadCallback&render=explicit&hl={{ mkto_form_lang }}" async defer></script>
+  <script>
+    // The recaptcha widget (constructed below).
+    var recapWidget;
+    // reCaptcha callback.
+    var onloadCallback = function() {
+      // When the marketo form is ready to interact with:
+      MktoForms2.whenReady(function(form) {
+        var formID = form.getId();
+        var formElem = '#mktoForm_' + formID;
+        var reCaptchaElem = 'reCaptcha_' + formID;
+        // Move reCaptcha inside the correct form container.
+        jQuery('<div id="' + reCaptchaElem + '" class="g-recaptcha"></div>').prependTo(formElem + ' .mktoButtonRow').show();
+        // Build the reCaptcha widget.
+        recapWidget = grecaptcha.render(reCaptchaElem, {
+          'sitekey' : '6Lc8EScUAAAAAJgkVXpbftgmDSdpToOyTVFPWwKL'
+        });
+        // The form is not submittable until it passes captcha test.
+        form.submittable(false);
+        // When the form validation runs, check captcha.
+        form.onValidate(function(builtInValidation) {
+          // If there is no form validation:
+          if (!builtInValidation) {
+            return;
+          }
+          // The Response from recaptcha.
+          var recaptchaResponse = grecaptcha.getResponse(recapWidget);
+          // If there is no reCaptcha response:
+          if (!recaptchaResponse) {
+            return;
+          }
+          // Else, OK to submit form:
+          else {
+            form.addHiddenFields({ lastRecaptchaUserInput: recaptchaResponse });
+            form.submittable(true);
+          }
+        });
+      });
+    };
+  </script>
+{% endblock %}

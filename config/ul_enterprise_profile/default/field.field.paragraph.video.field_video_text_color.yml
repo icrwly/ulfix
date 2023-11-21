@@ -1,0 +1,22 @@
+uuid: 82e87475-c7a4-4a9f-b46b-63612650be64
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_text_color
+    - paragraphs.paragraphs_type.video
+  module:
+    - color_field
+id: paragraph.video.field_video_text_color
+field_name: field_video_text_color
+entity_type: paragraph
+bundle: video
+label: 'Text Color - deprecated'
+description: 'Text color for the content about this video'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 1
+field_type: color_field_type

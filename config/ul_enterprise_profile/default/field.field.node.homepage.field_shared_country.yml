@@ -1,0 +1,31 @@
+uuid: 20065b30-499e-4a12-8e3e-72a74908bb5d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_country
+    - node.type.homepage
+    - taxonomy.vocabulary.country
+_core:
+  default_config_hash: 7ARy7M6QaAOopPDuLEShm7hJb0j824A7vgUbmvMpCyA
+id: node.homepage.field_shared_country
+field_name: field_shared_country
+entity_type: node
+bundle: homepage
+label: Country
+description: '&bull; The country related to this homepage.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

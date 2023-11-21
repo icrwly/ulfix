@@ -1,0 +1,29 @@
+uuid: 816c3a60-11ac-4f1c-906a-e99f8f440627
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_topic
+    - node.type.knowledge
+    - taxonomy.vocabulary.topics
+id: node.knowledge.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+bundle: knowledge
+label: Topic
+description: '&bull; The topic related to this item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

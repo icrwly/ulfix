@@ -1,0 +1,48 @@
+.menu-list {
+  .menu-item {
+    position: relative;
+    padding-right: 1.45rem;
+    padding-left: 1.45rem;
+    @include breakpoint(min-width $desktop + 100) {
+      padding-right: 1rem;
+    }
+    @include breakpoint(min-width $desktop - 100) {
+      padding-left: .45rem;
+    }
+  }
+
+  &--group {
+    padding: $spacing-unit $spacing-unit--s;
+    &:not(:last-child) {
+      border-bottom: 1px solid $border-color;
+    }
+
+    a {
+      border-radius: $border-radius;
+      color: $black;
+      display: block;
+      padding: $spacing-unit--xs $spacing-unit--s;
+      &:focus,
+      &:hover {
+        background-color: $background-color--hover;
+        outline: none;
+      }
+    }
+  }
+
+  .popover {
+    #{$start-direction}: 0;
+    top: calc(100% + #{$spacing-unit--xs});
+    width: 220px;
+
+    &--align-end {
+      #{$start-direction}: auto;
+      #{$end-direction}: 0;
+    }
+  }
+}
+.menu-list.row {
+  @include breakpoint(min-width $desktop) {
+    flex-wrap: nowrap;
+  }
+}

@@ -1,0 +1,14 @@
+uuid: 3715ac56-1923-4174-8b73-213b4cb04397
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.event_types
+id: taxonomy_vocabulary_event_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

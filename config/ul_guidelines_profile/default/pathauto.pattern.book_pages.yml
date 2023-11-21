@@ -1,0 +1,24 @@
+uuid: 477bdd05-a030-4954-ba3f-99003950dbe0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: 0sHBRBV1Pivjk4O1D3164eGbdvriMGy1SUyLmr3zyHA
+id: book_pages
+label: 'Book Pages'
+type: 'canonical_entities:node'
+pattern: '[node:book:parents:join-path]/[node:title]'
+selection_criteria:
+  d8153c60-42bd-4e70-a672-3b7a834ad94c:
+    id: node_type
+    bundles:
+      guideline: guideline
+    negate: false
+    context_mapping:
+      node: node
+    uuid: d8153c60-42bd-4e70-a672-3b7a834ad94c
+selection_logic: and
+weight: -9
+relationships: {  }

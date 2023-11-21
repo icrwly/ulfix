@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="76.564" height="81" viewBox="0 0 76.564 81">
+  <g id="Icon" transform="translate(-0.086 -1.159)">
+    <path id="Hand" d="M75.75,38.45l-16.3-13.427H23.25s-.207,7.5,10,7.5h12.5c3.9,0,3.9,5.927,0,5.927H24.6s-6.3-6.153-10.231-10c-1.476-1.442-5.116-5-9.591-5-3.387,0-5.182,1.811-3.2,3.751C5.479,31.014,22,48.45,22,48.45L52,48.4l5.847,5.049Z" transform="translate(0.15 27.959)" fill="none" stroke="#585858" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <circle id="Circle" cx="20" cy="20" r="20" transform="translate(18.9 1.909)" fill="#92c83e" stroke="#92c83e" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"/>
+    <path id="Check" d="M13.458,14.125l6,6,12-13.5" transform="translate(16.442 8.283)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"/>
+  </g>
+</svg>

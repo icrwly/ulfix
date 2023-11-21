@@ -1,0 +1,27 @@
+{# @file: section--carousel.twig #}
+{% block content %}
+  <section class="section section--paragraph section--wysiwyg p-carousel-wrapper {{ class }}" data-module="carouselSlider">
+    {% if field_hash_target %}
+      {% include "@ul_base_theme/2_pieces/hash-target.twig" %}
+    {% endif %}
+    <div class="paragraph-gutter paragraph--carousel">
+      <div class="p-carousel--content swiper-container">
+          {# Top slides with images #}
+          <div class="swiper carousel-top">
+            <div class="swiper-wrapper">
+              {{ carousel_items }}
+            </div>
+          </div>
+          {# Bottom slides with description #}
+          <div class="item__content swiper carousel-bottom">
+            <div class="swiper-pagination"></div>
+            <div class="swiper-wrapper">
+              {{ carousel_items }}
+            </div>
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,19 @@
+uuid: bf11a47f-24d7-4833-b138-fe633a7718fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rr_plain_content_desc
+    - paragraphs.paragraphs_type.right_rail_plain_content
+id: paragraph.right_rail_plain_content.field_rr_plain_content_desc
+field_name: field_rr_plain_content_desc
+entity_type: paragraph
+bundle: right_rail_plain_content
+label: Description
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

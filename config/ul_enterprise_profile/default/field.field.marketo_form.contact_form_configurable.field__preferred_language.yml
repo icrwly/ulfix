@@ -1,0 +1,27 @@
+uuid: 0c70be1b-2c91-4891-95a3-6d27ef1b95bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field__preferred_language
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.contact_form_configurable.field__preferred_language
+field_name: field__preferred_language
+entity_type: marketo_form
+bundle: contact_form_configurable
+label: 'Preferred Language'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: required
+default_value_callback: ''
+settings: {  }
+field_type: list_string

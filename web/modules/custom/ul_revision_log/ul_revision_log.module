@@ -1,0 +1,319 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations form_alter for revision_log.
+ *
+ * Change the position of the revision_log box on the node/edit page.
+ * Force revision_log required for "Save and Publish" and "Save and Archive".
+ * Add the custom library(JS/CSS) to gray out and disable/enable the "Publish"
+ * and "Archive" buttons.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\StringTranslation\TranslatableMarkup;
+use Drupal\Core\File\Exception\FileException;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_revision_log_form_node_form_alter(&$form, FormStateInterface $form_state) {
+
+  // Move the Revision Log(box) from the righside bar to the buttom of page
+  // (above the Save Button).
+  $form['revision_information']['#parents'][0] = "langcode_wrapper";
+  $form['revision']['#weight'] = 10;
+  $form['revision']['#prefix'] = '<div class="layout-region-node-footer__content"></div>';
+  $form['revision_log']['#weight'] = 12;
+  $types = ul_revision_log_get_types();
+  $node = $form_state->getFormObject()->getEntity();
+
+  // Load custom css/js library and the form validation for configured
+  // content types.
+  if (in_array($node->getType(), $types)) {
+    // Add the form validation.
+    $form['#validate'][] = 'ul_revision_log_form_validate';
+    // Attach the custom library.
+    $form['#attached']['library'][] = 'ul_revision_log/ul-revision-log';
+  }
+}
+
+/**
+ * Form validate callback.
+ *
+ * @param array $form
+ *   The drupal form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form_state object.
+ */
+function ul_revision_log_form_validate(array $form, FormStateInterface &$form_state) {
+  // Fix the fatal error of adding/editing a paragraph, which leads to
+  // the AJAX calling failure.
+  if (!$form_state->getValue(['op']) instanceof TranslatableMarkup) {
+    return TRUE;
+  }
+  // Retrieve object of TranslatableMarkup and render to String.
+  $op = $form_state->getValue(['op'])->render();
+  if (isset($op)) {
+    if (stristr($op, 'Save and Publish') || stristr($op, 'Save and Archive')) {
+      $log = $form_state->getvalue('revision_log');
+      if ($log[0]['value'] == "") {
+        $message = t("Revision Log Message Required!");
+        $form_state->setErrorByName('revision_log', $message);
+      }
+    }
+  }
+
+}
+
+/**
+ * Help function to get config values of enitity types.
+ *
+ * @return array
+ *   The vaules of entity types.
+ */
+function ul_revision_log_get_types() {
+  $types = [
+    "campaign_page",
+    "homepage",
+    "event",
+    "help",
+    "hub",
+    "knowledge",
+    "landing_page",
+    "location",
+    "market_access_profile",
+    "news",
+    "offering",
+    "page",
+    "person",
+    "resource",
+    "tool",
+  ];
+
+  $config = \Drupal::config('ul_revision_log.settings');
+  if (!NULL == $config->get('ul_revision_log.values')) {
+    $types = preg_split('/[\s]+/', $config->get('ul_revision_log.values'));
+  }
+
+  return $types;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Hide the field--name-field-hash-target in Block CTA Banner type.
+ */
+function ul_revision_log_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if ($form_id == 'block_content_cta_banner_edit_form'
+    || $form_id == 'block_content_cta_banner_form') {
+    $form['#attached']['library'][] = 'ul_revision_log/ul-revision-log';
+  }
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ *
+ * Add ability for the Content Team to download page's Revision History.
+ */
+function ul_revision_log_form_revision_overview_form_alter(&$form, FormStateInterface $form_state) {
+  $permission = FALSE;
+  $current_user = \Drupal::currentUser();
+  $roles = $current_user->getRoles();
+  foreach ($roles as $role) {
+    if (in_array($role, ['administrator', 'site_manager', 'content_approver'])) {
+      $permission = TRUE;
+      break;
+    }
+  }
+
+  if ($permission) {
+
+    $form['#attached']['library'][] = 'ul_revision_log/ul-revision-log';
+
+    $form['download'] = [
+      '#type' => 'submit',
+      '#value' => t('Download revision history'),
+      '#submit' => ['_download_revision_history'],
+      '#required' => FALSE,
+      '#weight' => 1,
+      '#prefix' => '<div class="csv-feed views-data-export-feed">',
+      '#suffix' => "</div>",
+      '#limit_validation_errors' => [],
+    ];
+    $form['download']['#attributes']['class'][] = 'feed-icon';
+  }
+
+}
+
+/**
+ * Handle the form submission to export the revision data to downloadable CSV.
+ *
+ * @param object $form
+ *   The form object.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The FormStateInterface form_state.
+ */
+function _download_revision_history(&$form, FormStateInterface &$form_state) {
+  $node = \Drupal::routeMatch()->getParameter('node');
+  $nid = $node->id();
+  $title = $node->getTitle();
+  $langcode = $node->get('langcode')->value;
+
+  // Manually query data and customize the filename.
+  $data = _get_revision_data($nid, $langcode);
+  if (!$data) {
+    return;
+  }
+
+  $title = $node->getTitle();
+  $title = str_replace([' ', ',', "'"], '-', $title);
+  $filename = $title . '_Revision-log_' . date('Y-m-d') . '.csv';
+
+  try {
+    ul_media_usage_download_csv($data, $filename);
+  }
+  catch (FileException $e) {
+    \Drupal::messenger()->addMessage('Failed to export the CSV!');
+    return;
+  }
+}
+
+/**
+ * Query DB and return the revision history data.
+ *
+ * @param int $nid
+ *   The node ID.
+ * @param string $langcode
+ *   The langcode, en, fr-ca, etc.
+ *
+ * @return string
+ *   The string of output.
+ */
+function _get_revision_data($nid, $langcode) {
+  $output = "Author,Date,Time,\"Revision log message\"\n";
+  $result = \Drupal::database()->query(
+    "SELECT a.nid, a.vid, b.langcode, b.title,  u.name,
+    DATE_FORMAT(FROM_UNIXTIME(b.changed), '%m/%d/%Y') AS date,
+    DATE_FORMAT(FROM_UNIXTIME(b.changed), '%H:%i:%s') AS time,
+    a.revision_log, b.status
+    FROM {node_revision} a
+    INNER JOIN {node_field_revision} b ON a.nid=b.nid AND a.vid=b.vid
+    LEFT JOIN {users_field_data} u ON a.revision_uid=u.uid
+    WHERE b.revision_translation_affected=1
+    AND a.nid=:nid AND b.langcode=:langcode
+    ORDER BY b.changed DESC", [
+      ':nid' => $nid,
+      ':langcode' => $langcode,
+    ]
+  );
+
+  if ($result) {
+    while ($row = $result->fetchAssoc()) {
+      $log_desc = _get_description($row['nid'], $row['vid'], $row['status'], $row['revision_log']);
+      $output .= '"' . $row['name'] . '",' . $row['date'] . ',' . $row['time'] . ',"' . $log_desc . '"' . "\n";
+    }
+  }
+  return $output;
+}
+
+/**
+ * Output the data to a downloadable CSV file.
+ *
+ * @param string|mix $data
+ *   Asociate array of data.
+ * @param string $filename
+ *   The filename to download.
+ */
+function ul_media_usage_download_csv($data, $filename = "Revision-log.csv") {
+
+  header('Content-Type: application/csv; charset=utf-8;');
+  header('Content-Disposition: attachment; filename="' . $filename . '",');
+
+  // Open the "output" stream
+  // see http://www.php.net/manual/en/wrappers.php.php#refsect2-wrappers.php-unknown-unknown-unknown-descriptioq
+  $f = fopen('php://output', 'w');
+  // Add BOM to fix UTF-8 in Excel.
+  fwrite($f, $bom = (chr(0xEF) . chr(0xBB) . chr(0xBF)));
+  fwrite($f, $data);
+  fclose($f);
+
+  exit();
+}
+
+/**
+ * Output the data to a downloadable CSV file.
+ *
+ * @param string|mix $nid
+ *   The node id.
+ * @param string|mix $vid
+ *   The node revision id.
+ * @param string|mix $status
+ *   The status of the revision.
+ * @param string $log
+ *   The revision_log of the revision.
+ */
+function _get_description($nid, $vid, $status, $log) {
+  $desc = $log;
+  if ($status == 1) {
+    $desc = trim($log) . " (Published)";
+  }
+  else {
+    $diff = \Drupal::getContainer()->get('diff.entity_comparison');
+    $revision = \Drupal::entityTypeManager()->getStorage('node')->loadRevision($vid);
+    if ($revision) {
+      $desc = $diff->getRevisionDescription($revision);
+    }
+  }
+
+  return trim($desc);
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function ul_revision_log_preprocess_node(&$variables) {
+  $type = $variables['node']->getType();
+  $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  if ($type == 'event') {
+    // This node event language.
+    $langcode = $variables['node']->get('field_event_language')->getString();
+    if (!empty($langcode)) {
+      [$word, $language] = ul_revision_log_get_translation_words($current_language, $langcode);
+      $variables['word_language'] = $word;
+      $variables['word_lang_translation'] = $language;
+    }
+  }
+}
+
+/**
+ * Get the translation word based the langcode.
+ *
+ * @return string
+ *   The string of word.
+ */
+function ul_revision_log_get_translation_words($current_lang, $langcode) {
+
+  $language = [
+    "en" => "Language",
+    "zh-hans" => "语言",
+    "zh-hant" => "語言",
+    "fr" => "Langue",
+    "fr-ca" => "Langue",
+    "de" => "Sprache",
+    "it" => "Lingua",
+    "ja" => "言語",
+    "ko" => "언어",
+    "pt-br" => "Língua",
+    "es" => "Lengua",
+    "vi" => "Ngôn ngữ",
+  ];
+
+  $language_options = \Drupal::configFactory()
+    ->getEditable('ul_revision_log.traslation_language')
+    ->getRawData();
+
+  $language_options = $language_options[$current_lang];
+  return [$language[$current_lang], $language_options[$langcode]];
+
+}

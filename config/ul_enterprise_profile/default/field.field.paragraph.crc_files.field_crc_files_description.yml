@@ -1,0 +1,21 @@
+uuid: 5bd49974-e112-44f3-881b-8b44001f4699
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_crc_files_description
+    - paragraphs.paragraphs_type.crc_files
+  module:
+    - text
+id: paragraph.crc_files.field_crc_files_description
+field_name: field_crc_files_description
+entity_type: paragraph
+bundle: crc_files
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

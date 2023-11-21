@@ -1,0 +1,8 @@
+uuid: 511afb45-fe21-42ae-8945-b2a51cbcb76a
+langcode: en
+status: true
+dependencies: {  }
+id: cta_banner
+label: 'CTA Banner'
+revision: 1
+description: 'A CTA Banner contains a title, description and link. '

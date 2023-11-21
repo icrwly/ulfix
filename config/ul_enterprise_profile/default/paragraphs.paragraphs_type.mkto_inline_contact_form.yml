@@ -1,0 +1,10 @@
+uuid: 4284935d-a24f-49b9-af53-3d890d54acb6
+langcode: en
+status: true
+dependencies: {  }
+id: mkto_inline_contact_form
+label: 'Marketo Inline Contact Form'
+icon_uuid: null
+icon_default: null
+description: 'Use this to add the Marketo Contact Form inline on a Landing Page.'
+behavior_plugins: {  }

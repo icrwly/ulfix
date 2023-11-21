@@ -1,0 +1,8 @@
+<div class="header__bottom">
+    {% block content %}
+        {% include '@ul_guidelines_theme/3_components/header--menu.twig' %}
+    {% endblock %}
+    {% if search %}
+        {% include '@ul_guidelines_theme/3_components/header--search.twig' %}
+    {% endif %}
+</div>

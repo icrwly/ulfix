@@ -1,0 +1,51 @@
+{% extends "@ul_base_theme/4_regions/section--grid.twig" %}
+{% set class = class ~ " section--related-content section--paragraph has-bg" %}
+{% set wrapperClass = "max-width--large-desktop" %}
+{% set row_class = "row--gutter-s" %}
+
+
+{# set related-content items #}
+{% set items = content.field_rc_content %}
+
+{# set row limit class #}
+{% set rowLimitClass = content.field_rc_row_limit.0['#markup']|default('Four') %}
+
+{# set grid classes based on the items length #}
+{% set itemsLength = content.field_rc_content['#items']|length %}
+
+{# set grid classes #}
+{% if itemsLength == 1 %}
+	{% set grid_class = 'span-6-t' %}
+	{% set row_class = row_class ~ ' section__inner' %}
+{% elseif itemsLength == 2 %}
+	{% set grid_class = 'span-6-t' %}
+	{% set row_class = row_class ~ ' section__inner' %}
+{% elseif itemsLength == 3 %}
+	{% set grid_class = 'span-6-t span-4-d' %}
+{% elseif itemsLength == 4 %}
+	{% set grid_class = 'span-6-t span-3-d' %}
+{% endif %}
+
+{% if rowLimitClass and itemsLength > 3 %}
+	{# set class based on row limit #}
+	{% if rowLimitClass == 'Three' %}
+		{% set grid_class = 'span-6-t span-4-d' %}
+	{% elseif rowLimitClass == 'Four' %}
+		{% set grid_class = 'span-6-t span-3-d' %}
+	{% endif %}
+{% endif %}
+
+{% if items|length < 4 %}
+  {% set row_class = row_class ~ " justify-content-center" %}
+{% else %}
+  {% set row_class = row_class ~ " justify-content-start" %}
+{% endif %}
+
+{% block title_bar %}
+  {# NOTE: Be sure to pass { border: false } in titleBar, for some reason not working when set here in the template #}
+  {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+{% endblock %}
+
+{% block card_list %}
+  {{ parent() }}
+{% endblock %}

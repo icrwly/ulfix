@@ -1,0 +1,141 @@
+{% extends '@ul_enterprise_theme/5_layouts/t05-events-detail.twig' %}
+{% set t05Wysiwyg = {} %}
+{% set topics =  [{content: content.field_event_type|render}] %}
+{% set catch_cache = content|render %}
+{% set t05Meta =  {topics:topics} %}
+
+{# ============================================================== }
+    DATE FORMATTING:
+    There are 4 date parts that are needed for events:
+        1) Start date
+        2) Start time
+        3) End date
+        4) End time
+    If it is a one-day event, then set the end date to "false",
+    and then the event will display as a one day event with a
+    start time and an end time.
+#}
+{% if content.field_event_date.0.start_date['#markup'] %}
+    {% set start_timestamp = content.field_event_date.0.start_date['#markup']|date("U") %}
+    {% set start_date = start_timestamp|format_date("medium_date_no_time") %}
+    {% set start_time = start_timestamp|date("g:ia") %}
+{% endif %}
+{% if content.field_event_date.0.end_date['#markup'] %}
+    {% set end_timestamp = content.field_event_date.0.end_date['#markup']|date("U") %}
+    {% set end_date = end_timestamp|format_date("medium_date_no_time") %}
+    {% set end_time = end_timestamp|date("g:ia") %}
+{% endif %}
+{% if content.field_event_timezone.0['#markup'] %}
+    {% set timezone = content.field_event_timezone.0['#markup'] %}
+{% endif %}
+{% if start_date == end_date %}
+    {% set end_date = false %}
+{% endif %}
+{# END DATE FORMATTING #}
+{# ============================================================== #}
+
+{# "Date, Location, Map" settings: #}
+{% set tags = [] %}
+{% set t05Topic =  {topics:tags} %}
+{% set t05Tags = {} %}
+{# Date info: #}
+{% if start_timestamp %}
+    {% set info_date = {
+        'title': "Date & Time"|t,
+        'start_date': start_date,
+        'end_date': end_date,
+        'start_time': start_time,
+        'end_time': end_time,
+        'timezone': timezone,
+        'start_title': 'Starts'|t,
+        'end_title': 'Ends'|t,
+    } %}
+{% endif %}
+{# Location info: #}
+{% if content.field_event_location|render is not empty %}
+    {% set info_location = {
+        'title': "Location"|t,
+        'content': content.field_event_location,
+    } %}
+{% endif %}
+
+{# Map info: #}
+{% if content.field_event_map.0['#url'] is not empty %}
+    {% set info_maplink = {
+        'title': 'View Map'|t,
+        'link': content.field_event_map.0['#url'],
+    } %}
+{% endif %}
+
+{# Before body (Hero): #}
+{% block before_content %}
+    {% embed '@ul_enterprise_theme/4_regions/hero--detail.twig' %}
+        {% set direction_reverse = true %}
+        {% set is_wide = true %}
+        {% set title = label %}
+        {% set image = content.field_shared_header_media.0.url %}
+        {% set span_class = image ? "span-12 span-6-t span-5-lt offset-1-lt span-6-d offset-1-d" : "span-12" %}
+        {% set span_image_class = 'span-12 span-6-t span-6-lt span-5-d' %}
+        {% set image_alt = content.field_shared_header_media.0.alt %}
+        {% set topics = [
+            {content: content.field_event_type|render},
+        ] %}
+        {% set cost = content.field_event_cost|render %}
+        {% if cost %}
+            {% set meta %}
+                {% trans %}
+                    Cost - {{ cost }}
+                {% endtrans %}
+            {% endset %}
+        {% endif %}
+        {% if content.field_shared_header_link|render %}
+            {% set primary_cta = {
+                title: content.field_shared_header_link.0['#title'],
+                url: content.field_shared_header_link.0['#url'],
+                class: content.field_shared_header_link.0['#attributes']['class']|join(' '),
+            }%}
+        {% endif %}
+        {% if content.field_shared_marketo_link|render %}
+            {% set primary_cta = {
+                title: content.field_shared_marketo_link.0['#title'],
+                url: content.field_shared_marketo_link.0['#url'],
+                class: content.field_shared_marketo_link.0['#attributes']['class']|join(' '),
+            }%}
+        {% endif %}
+        {% set description = content.field_shared_header_description %}
+    {% endembed %}
+{% endblock %}
+
+{# Breadcrumbs: #}
+{% block breadcrumbs %}
+{% endblock %}
+
+{# Body: #}
+{% block body %}
+    {% block eventinfo %}
+        {% include "@ul_enterprise_theme/3_components/event-info.html.twig" %}
+    {% endblock %}
+
+    {{ content.field_event_content }}
+    {{ content.marketo }}
+    {% if content.field_event_speakers|render %}
+        {% include "@ul_base_theme/4_regions/section--title.twig" with { title: 'Speakers'|t } only %}
+        {{ content.field_event_speakers }}
+    {% endif %}
+    {% if content.field_event_offerings|render %}
+        {% embed "@ul_base_theme/4_regions/section.twig" %}
+            {% set class = 'wrapper' %}
+            {% set titleBar={
+                'title': 'Related Offerings'|t
+            } %}
+            {% block section_body %}
+                {{ content.field_event_offerings }}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+    {% embed "@ul_base_theme/4_regions/section--addtoany.twig" %}
+        {% block content %}
+            {{ content.addtoany }}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

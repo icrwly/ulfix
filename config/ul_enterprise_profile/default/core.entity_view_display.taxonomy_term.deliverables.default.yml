@@ -1,0 +1,30 @@
+uuid: 8fe1af12-7cb2-4e60-975d-220edf6db3f5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.taxonomy_term.deliverables.field_deliverable_icon
+    - image.style.icon_large
+    - taxonomy.vocabulary.deliverables
+  module:
+    - image
+id: taxonomy_term.deliverables.default
+targetEntityType: taxonomy_term
+bundle: deliverables
+mode: default
+content:
+  field_deliverable_icon:
+    type: image
+    label: above
+    settings:
+      image_link: ''
+      image_style: icon_large
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  description: true
+  langcode: true
+  search_api_excerpt: true

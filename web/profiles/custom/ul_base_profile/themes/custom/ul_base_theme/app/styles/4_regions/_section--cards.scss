@@ -1,0 +1,38 @@
+.section.section--cards {
+  padding-bottom: $spacing-unit;
+  padding-top: $spacing-unit--xl;
+  @include breakpoint($desktop) {
+    padding-bottom: $spacing-unit--l;
+    padding-top: $spacing-unit--xxl;
+  }
+  .flex-grid {
+    justify-content: center;
+    .grid-item {
+      .card {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+      }
+    }
+    &--third {
+      .grid-item {
+        @include breakpoint($mobile) {
+          flex-basis: 50%;
+          max-width: 50%;
+        }
+        @include breakpoint($desktop) {
+          flex-basis: 33.33%;
+          max-width: 33.33%;
+        }
+      }
+    }
+    &--half {
+      .grid-item {
+        @include breakpoint($tablet) {
+          flex-basis: 50%;
+          max-width: 50%;
+        }
+      }
+    }
+  }
+}

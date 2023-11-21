@@ -1,0 +1,36 @@
+///*------------------------------------*\
+//    #CORE/HTML - PAGE
+//\*------------------------------------*/
+
+* {
+  box-sizing:border-box; // establishes border-box model for all elements
+  word-wrap: normal;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Remove default tappable touch color in iOS
+}
+
+html {
+  font-size: 62.5%; // Sets up the Base 10 stuff
+  height: 100%;
+  min-height: 100vh;
+}
+
+body {
+  color: $text-color;
+  direction: $direction;
+  font-family: $sans;
+  font-size: 1.6rem;
+  line-height: 1.75;
+  margin: 0;
+  overflow-x: hidden;
+  max-width: 100%;
+  .fonts-loaded &{
+    font-family: $sans;
+    font-weight: 400;
+  }
+}
+
+//To prevent mobile horizontal scroll.
+.region.region-content {
+  max-width: 100%;
+  overflow: hidden;
+}

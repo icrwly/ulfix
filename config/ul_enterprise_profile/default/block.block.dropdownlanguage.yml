@@ -1,0 +1,44 @@
+uuid: 829b36a1-a8b7-44e7-87c0-2694d2a90251
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - dropdown_language
+    - node
+  theme:
+    - ul_enterprise_theme
+id: dropdownlanguage
+theme: ul_enterprise_theme
+region: content
+weight: -8
+provider: null
+plugin: 'dropdown_language:language_interface'
+settings:
+  id: 'dropdown_language:language_interface'
+  label: 'Dropdown Language'
+  label_display: '0'
+  provider: dropdown_language
+  labels: null
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      event: event
+      help: help
+      homepage: homepage
+      hub: hub
+      knowledge: knowledge
+      landing_page: landing_page
+      news: news
+      offering: offering
+      page: page
+      person: person
+      promo_material: promo_material
+      resource: resource
+      standards: standards
+      tool: tool

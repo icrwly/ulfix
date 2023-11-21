@@ -1,0 +1,25 @@
+uuid: 986697dc-335c-4282-88cc-d3c4cbe3dae0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_anon_help
+    - node.type.homepage
+  module:
+    - link
+_core:
+  default_config_hash: I_v4UiQc5MFn6KQ1a3BGonFHsqfcUpPT-uHbSED7jCg
+id: node.homepage.field_homepage_anon_help
+field_name: field_homepage_anon_help
+entity_type: node
+bundle: homepage
+label: 'Help Links'
+description: 'Help links for anonymous users'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

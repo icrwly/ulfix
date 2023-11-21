@@ -1,0 +1,38 @@
+{% extends '@ul_base_theme/1_core/2-column-complex.twig' %}
+{% set mainClass = mainClass ~ ' two-col--basic-page' %}
+{# If gated content. #}
+{% if marketo.gated_form %}
+  {% set mainClass = mainClass ~ ' gated-content' %}
+{% endif %}
+
+{% block page %}
+  {% block body %}
+    {% if content.body|render is not empty %}
+      {% embed '@ul_base_theme/4_regions/section.twig' with {'class': 'section--paragraph page--field--body', 'gutterclass': 'paragraph-gutter'}  %}
+        {% block section_body %}
+          <div class="editor-content">
+            {{ content.body }}
+          </div>
+        {% endblock %}
+      {% endembed %}
+    {% endif %}
+    {{ content.field_page_content }}
+    {{ content.marketo }}
+  {% endblock %}
+{% endblock %}
+
+{% block aside_top %}
+  {% include '@ul_enterprise_theme/2_pieces/right-rail--cta.html.twig' %}
+{% endblock %}
+
+{% block aside_bttm %}
+  {{ content.field_shared_rr_related }}
+{% endblock %}
+
+{% block social %}
+  {% embed "@ul_base_theme/4_regions/section--addtoany.twig" %}
+      {% block content %}
+          {{ content.addtoany }}
+      {% endblock %}
+  {% endembed %}
+{% endblock %}

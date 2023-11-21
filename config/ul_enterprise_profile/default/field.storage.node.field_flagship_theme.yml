@@ -1,0 +1,20 @@
+uuid: 5659fd37-94fb-40be-b466-65137429cc88
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_flagship_theme
+field_name: field_flagship_theme
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

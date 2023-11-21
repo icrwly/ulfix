@@ -1,0 +1,22 @@
+uuid: 1a0cc83f-7b72-49a0-a711-d40900d645e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.knowledge_types
+id: taxonomy_term.knowledge_types.status
+field_name: status
+entity_type: taxonomy_term
+bundle: knowledge_types
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

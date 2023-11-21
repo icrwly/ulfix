@@ -1,0 +1,585 @@
+uuid: b25aff96-3f22-461a-8d12-c11fb6fff58b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_event_timezone
+field_name: field_event_timezone
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: UTC
+      label: 'Universal Coordinated Time (UTC+-00)'
+    -
+      value: 'ACT Acre'
+      label: 'Acre Time (UTC-05)'
+    -
+      value: AFT
+      label: 'Afghanistan Time (UTC+04:30)'
+    -
+      value: ADST
+      label: 'Alaska Daylight Saving Time (UTC-08)'
+    -
+      value: AST
+      label: 'Alaska Standard Time (UTC-09)'
+    -
+      value: AMST
+      label: 'Amazon Summer Time (Brazil) (UTC-03)'
+    -
+      value: AMT
+      label: 'Amazon Time (Brazil) (UTC-04)'
+    -
+      value: 'AST Arabia'
+      label: 'Arabia Standard Time (UTC+03)'
+    -
+      value: ART
+      label: 'Arabic Egypt Standard Time (UTC+02)'
+    -
+      value: AGT
+      label: 'Argentina Time (UTC-03)'
+    -
+      value: 'AMT Armenia'
+      label: 'Armenia Time (UTC+04)'
+    -
+      value: ADT
+      label: 'Atlantic Daylight Time (UTC-03)'
+    -
+      value: 'AST Atlantic'
+      label: 'Atlantic Standard Time (UTC-04)'
+    -
+      value: ACDT
+      label: 'Australian Central Daylight Time (UTC+10:30)'
+    -
+      value: ACT
+      label: 'Australian Central Time (UTC+09:30)'
+    -
+      value: ACWST
+      label: 'Australian Central Western Standard Time (UTC+08:45)'
+    -
+      value: AEDT
+      label: 'Australian Eastern Daylight Savings Time (UTC+11)'
+    -
+      value: AET
+      label: 'Australian Eastern Time (UTC+10)'
+    -
+      value: AWDT
+      label: 'Australian Western Daylight Time (UTC+09)'
+    -
+      value: AWST
+      label: 'Australian Western Standard Time (UTC+08)'
+    -
+      value: AZT
+      label: 'Azerbaijan Time (UTC+04)'
+    -
+      value: AZOST
+      label: 'Azores Standard Time (UTC-01)'
+    -
+      value: BIT
+      label: 'Baker Island Time (UTC-12)'
+    -
+      value: 'BDT Bangladesh'
+      label: 'Bangladesh Daylight Time (UTC+06)'
+    -
+      value: BST
+      label: 'Bangladesh Standard Time (UTC+06)'
+    -
+      value: BTT
+      label: 'Bhutan Time (UTC+06)'
+    -
+      value: BOT
+      label: 'Bolivia Time (UTC-04)'
+    -
+      value: 'BST Bougainville'
+      label: 'Bougainville Standard Time (UTC+11)'
+    -
+      value: BET
+      label: 'Brazil Eastern Time (UTC-03)'
+    -
+      value: BRST
+      label: 'Brazil Summer Time (UTC-02)'
+    -
+      value: BIOT
+      label: 'British Indian Ocean Time (UTC+06)'
+    -
+      value: 'BST British'
+      label: 'British Summer Time (UTC+01)'
+    -
+      value: 'BDT Brunei'
+      label: 'Brunei Time (UTC+08)'
+    -
+      value: CVT
+      label: 'Cape Verde Time (UTC-01)'
+    -
+      value: CAT
+      label: 'Central Africa Time (UTC+02)'
+    -
+      value: CDT
+      label: 'Central Daylight Time (North America) (UTC-05)'
+    -
+      value: CEST
+      label: 'Central European Summer Time (UTC+02)'
+    -
+      value: CET
+      label: 'Central European Time (UTC+01)'
+    -
+      value: CIT
+      label: 'Central Indonesia Time (UTC+08)'
+    -
+      value: CST
+      label: 'Central Standard Time (North America) (UTC-06)'
+    -
+      value: ChST
+      label: 'Chamorro Standard Time (UTC+10)'
+    -
+      value: CHADT
+      label: 'Chatham Daylight Time (UTC+13:45)'
+    -
+      value: CHAST
+      label: 'Chatham Standard Time (UTC+12:45)'
+    -
+      value: CLT
+      label: 'Chile Standard Time (UTC-04)'
+    -
+      value: CLST
+      label: 'Chile Summer Time (UTC-03)'
+    -
+      value: 'CST China'
+      label: 'China Standard Time (UTC+08)'
+    -
+      value: CTT
+      label: 'China Taiwan Time (UTC+08)'
+    -
+      value: CHOT
+      label: 'Choibalsan (UTC+08)'
+    -
+      value: CHUT
+      label: 'Chuuk Time (UTC+10)'
+    -
+      value: CIST
+      label: 'Clipperton Island Standard Time (UTC-08)'
+    -
+      value: CCT
+      label: 'Cocos Islands Time (UTC+06:30)'
+    -
+      value: COST
+      label: 'Colombia Summer Time (UTC-04)'
+    -
+      value: COT
+      label: 'Colombia Time (UTC-05)'
+    -
+      value: CKT
+      label: 'Cook Island Time (UTC-10)'
+    -
+      value: 'CDT Cuba'
+      label: 'Cuba Daylight Time (UTC-04)'
+    -
+      value: 'CST Cuba'
+      label: 'Cuba Standard Time (UTC-05)'
+    -
+      value: DAVT
+      label: 'Davis Time (UTC+07)'
+    -
+      value: DDUT
+      label: 'Dumont d''Urville Time (UTC+10)'
+    -
+      value: EAT
+      label: 'East Africa Time (UTC+03)'
+    -
+      value: EASST
+      label: 'Easter Island Standard Summer Time (UTC-05)'
+    -
+      value: EAST
+      label: 'Easter Island Standard Time (UTC-06)'
+    -
+      value: ECT
+      label: 'Eastern Caribbean Time (UTC-04)'
+    -
+      value: EDT
+      label: 'Eastern Daylight Time (North America) (UTC-04)'
+    -
+      value: EEST
+      label: 'Eastern European Summer Time (UTC+03)'
+    -
+      value: EET
+      label: 'Eastern European Time (UTC+02)'
+    -
+      value: EGST
+      label: 'Eastern Greenland Summer Time (UTC+00)'
+    -
+      value: EGT
+      label: 'Eastern Greenland Time (UTC-01)'
+    -
+      value: EIT
+      label: 'Eastern Indonesian Time (UTC+09)'
+    -
+      value: EST
+      label: 'Eastern Standard Time (North America) (UTC-05)'
+    -
+      value: 'ECT Ecuador'
+      label: 'Ecuador Time (UTC-05)'
+    -
+      value: EGY
+      label: 'Egypt Standard Time (UTC+02)'
+    -
+      value: FKST
+      label: 'Falkland Islands Summer Time (UTC-03)'
+    -
+      value: FKT
+      label: 'Falkland Islands Time (UTC-04)'
+    -
+      value: FNT
+      label: 'Fernando de Noronha Time (UTC-02)'
+    -
+      value: FJT
+      label: 'Fiji Time (UTC+12)'
+    -
+      value: GFT
+      label: 'French Guiana Time (UTC-03)'
+    -
+      value: FET
+      label: 'Further-eastern European Time (UTC+03)'
+    -
+      value: GALT
+      label: 'Galapagos Time (UTC-06)'
+    -
+      value: GIT
+      label: 'Gambier Island Time (UTC-09)'
+    -
+      value: GET
+      label: 'Georgia Standard Time (UTC+04)'
+    -
+      value: GILT
+      label: 'Gilbert Island Time (UTC+12)'
+    -
+      value: GMT
+      label: 'Greenwich Mean Time (UTC+-00)'
+    -
+      value: 'GST Gulf'
+      label: 'Gulf Standard Time (UTC+04)'
+    -
+      value: GYT
+      label: 'Guyana Time (UTC-04)'
+    -
+      value: HADT
+      label: 'Hawaii Daylight Time (UTC-09)'
+    -
+      value: HST
+      label: 'Hawaii Standard Time (UTC-10)'
+    -
+      value: HMT
+      label: 'Heard and McDonald Islands Time (UTC+05)'
+    -
+      value: HKT
+      label: 'Hong Kong Time (UTC+08)'
+    -
+      value: IST
+      label: 'India Standard Time (UTC+05:30)'
+    -
+      value: IOT
+      label: 'Indian Ocean Time (UTC+03)'
+    -
+      value: TFT
+      label: 'Indian/Kerguelen (UTC+05)'
+    -
+      value: IET
+      label: 'Indiana Eastern Standard Time (UTC-05)'
+    -
+      value: ICT
+      label: 'Indochina Time (UTC+07)'
+    -
+      value: IRDT
+      label: 'Iran Daylight Time (UTC+04:30)'
+    -
+      value: IRST
+      label: 'Iran Standard Time (UTC+03:30)'
+    -
+      value: 'IST Irish'
+      label: 'Irish Standard Time (UTC+01)'
+    -
+      value: IRKT
+      label: 'Irkutsk Time (UTC+08)'
+    -
+      value: IDT
+      label: 'Israel Daylight Time (UTC+03)'
+    -
+      value: 'IST Israel'
+      label: 'Israel Standard Time (UTC+02)'
+    -
+      value: JST
+      label: 'Japan Standard Time (UTC+09)'
+    -
+      value: USZ1
+      label: 'Kaliningrad Time (UTC+02)'
+    -
+      value: PETT
+      label: 'Kamchatka Time (UTC+12)'
+    -
+      value: HOVT
+      label: 'Khovd Time (UTC+07)'
+    -
+      value: KST
+      label: 'Korea Standard Time (UTC+09)'
+    -
+      value: KOST
+      label: 'Kosrae Time (UTC+11)'
+    -
+      value: KRAT
+      label: 'Krasnoyarsk Time (UTC+07)'
+    -
+      value: KGT
+      label: 'Kyrgyzstan time (UTC+06)'
+    -
+      value: LINT
+      label: 'Line Islands Time (UTC+14)'
+    -
+      value: LHDT
+      label: 'Lord Howe Daylight Time (UTC+11)'
+    -
+      value: LHST
+      label: 'Lord Howe Standard Time (UTC+10:30)'
+    -
+      value: MIST
+      label: 'Macquarie Island Station Time (UTC+11)'
+    -
+      value: MAGT
+      label: 'Magadan Time (UTC+12)'
+    -
+      value: MYT
+      label: 'Malaysia Time (UTC+08)'
+    -
+      value: MVT
+      label: 'Maldives Time (UTC+05)'
+    -
+      value: MART
+      label: 'Marquesas Islands Time (UTC-09:30)'
+    -
+      value: MHT
+      label: 'Marshall Islands (UTC+12)'
+    -
+      value: MUT
+      label: 'Mauritius Time (UTC+04)'
+    -
+      value: MAWT
+      label: 'Mawson Station Time (UTC+05)'
+    -
+      value: MET
+      label: 'Middle East Time (UTC+03:30)'
+    -
+      value: MIT
+      label: 'Midway Islands Time (UTC-11)'
+    -
+      value: MSK
+      label: 'Moscow Time (UTC+03)'
+    -
+      value: MDT
+      label: 'Mountain Daylight Time (North America) (UTC-06)'
+    -
+      value: MST
+      label: 'Mountain Standard Time (North America) (UTC-07)'
+    -
+      value: MMT
+      label: 'Myanmar Time (UTC+06:30)'
+    -
+      value: NET
+      label: 'Near East Time (UTC+04)'
+    -
+      value: NPT
+      label: 'Nepal Time (UTC+05:45)'
+    -
+      value: NCT
+      label: 'New Caledonia Time (UTC+11)'
+    -
+      value: NZDT
+      label: 'New Zealand Daylight Time (UTC+13)'
+    -
+      value: NST
+      label: 'New Zealand Standard Time (UTC+12)'
+    -
+      value: NDT
+      label: 'Newfoundland Daylight Time Canada (UTC-02:30)'
+    -
+      value: CNT
+      label: 'Newfoundland Time Canada (UTC-03:30)'
+    -
+      value: NUT
+      label: 'Niue Time (UTC-11)'
+    -
+      value: NFT
+      label: 'Norfolk Time (UTC+11)'
+    -
+      value: OMST
+      label: 'Omsk Time (UTC+06)'
+    -
+      value: ORAT
+      label: 'Oral Time (UTC+05)'
+    -
+      value: PDT
+      label: 'Pacific Daylight Time (North America) (UTC-07)'
+    -
+      value: PST
+      label: 'Pacific Standard Time (North America) (UTC-08)'
+    -
+      value: PLT
+      label: 'Pakistan Lahore Time (UTC+05)'
+    -
+      value: PGT
+      label: 'Papua New Guinea Time (UTC+10)'
+    -
+      value: PYST
+      label: 'Paraguay Summer Time (South America) (UTC-03)'
+    -
+      value: PYT
+      label: 'Paraguay Time (South America) (UTC-04)'
+    -
+      value: PET
+      label: 'Peru Time (UTC-05)'
+    -
+      value: 'PST Philippine'
+      label: 'Philippine Standard Time (UTC+08)'
+    -
+      value: PNT
+      label: 'Phoenix Standard Time (North America) (UTC-07)'
+    -
+      value: PONT
+      label: 'Pohnpei Standard Time (UTC+11)'
+    -
+      value: PRT
+      label: 'Puerto Rico and US Virgin Islands Time (UTC-04)'
+    -
+      value: RET
+      label: 'Réunion Time (UTC+04)'
+    -
+      value: ROTT
+      label: 'Rothera Research Station Time (UTC-03)'
+    -
+      value: PMDT
+      label: 'Saint Pierre and Miquelon Daylight time (UTC-02)'
+    -
+      value: PMST
+      label: 'Saint Pierre and Miquelon Standard Time (UTC-03)'
+    -
+      value: SAKT
+      label: 'Sakhalin Island time (UTC+11)'
+    -
+      value: SAMT
+      label: 'Samara Time (UTC+04)'
+    -
+      value: 'SST Samoa'
+      label: 'Samoa Standard Time (UTC-11)'
+    -
+      value: SCT
+      label: 'Seychelles Time (UTC+04)'
+    -
+      value: SYOT
+      label: 'Showa Station Time (UTC+03)'
+    -
+      value: SGT
+      label: 'Singapore Time (UTC+08)'
+    -
+      value: SST
+      label: 'Solomon Standard Time (UTC+11)'
+    -
+      value: SAST
+      label: 'South African Standard Time (UTC+02)'
+    -
+      value: GST
+      label: 'South Georgia and the South Sandwich Islands (UTC-02)'
+    -
+      value: SRET
+      label: 'Srednekolymsk Time (UTC+11)'
+    -
+      value: SLST
+      label: 'Sri Lanka Standard Time (UTC+05:30)'
+    -
+      value: SRT
+      label: 'Suriname Time (UTC-03)'
+    -
+      value: TAHT
+      label: 'Tahiti Time (UTC-10)'
+    -
+      value: TJT
+      label: 'Tajikistan Time (UTC+05)'
+    -
+      value: THA
+      label: 'Thailand Standard Time (UTC+07)'
+    -
+      value: TLT
+      label: 'Timor Leste Time (UTC+09)'
+    -
+      value: TKT
+      label: 'Tokelau Time (UTC+13)'
+    -
+      value: TOT
+      label: 'Tonga Time (UTC+13)'
+    -
+      value: TMT
+      label: 'Turkmenistan Time (UTC+05)'
+    -
+      value: TVT
+      label: 'Tuvalu Time (UTC+12)'
+    -
+      value: ULAT
+      label: 'Ulaanbaatar Time (UTC+08)'
+    -
+      value: UYT
+      label: 'Uruguay Standard Time (UTC-03)'
+    -
+      value: UYST
+      label: 'Uruguay Summer Time (UTC-02)'
+    -
+      value: UZT
+      label: 'Uzbekistan Time (UTC+05)'
+    -
+      value: VUT
+      label: 'Vanuatu Time (UTC+11)'
+    -
+      value: VET
+      label: 'Venezuelan Standard Time (UTC-04:30)'
+    -
+      value: VST
+      label: 'Vietnam Standard Time (UTC+07)'
+    -
+      value: VLAT
+      label: 'Vladivostok Time (UTC+10)'
+    -
+      value: VOLT
+      label: 'Volgograd Time (UTC+04)'
+    -
+      value: VOST
+      label: 'Vostok Station Time (UTC+06)'
+    -
+      value: WAKT
+      label: 'Wake Island Time (UTC+12)'
+    -
+      value: WAST
+      label: 'West Africa Summer Time (UTC+02)'
+    -
+      value: WAT
+      label: 'West Africa Time (UTC+01)'
+    -
+      value: WEST
+      label: 'Western European Summer Time (UTC+01)'
+    -
+      value: WET
+      label: 'Western European Time (UTC+-00)'
+    -
+      value: WIT
+      label: 'Western Indonesian Time (UTC+07)'
+    -
+      value: YAKT
+      label: 'Yakutsk Time (UTC+09)'
+    -
+      value: YEKT
+      label: 'Yekaterinburg Time (UTC+05)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

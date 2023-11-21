@@ -1,0 +1,6 @@
+ul_salesforce.settings_form:
+  title: 'UL Salesforce'
+  route_name: ul_salesforce.settings_form
+  description: "Configure settings for Salesforce integration."
+  parent: system.admin_config_services
+  weight: 99

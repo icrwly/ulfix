@@ -1,0 +1,43 @@
+uuid: 4c7d961f-c92f-4a92-98f8-089e0cd08c2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+  module:
+    - comment
+    - contact
+    - filter
+    - media
+    - node_view_permissions
+    - samlauth
+    - search
+    - shortcut
+    - system
+    - ul_crc_asset
+_core:
+  default_config_hash: JbxEi7ZEXsTAkpgDcIcTuPSeD70N_KmZ989bJOnjyB4
+id: authenticated
+label: 'Authenticated user'
+weight: -9
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'access shortcuts'
+  - 'access site-wide contact form'
+  - 'post comments'
+  - 'search content'
+  - 'skip comment approval'
+  - 'use text format basic_html'
+  - 'view any guideline content'
+  - 'view any guidelines_list content'
+  - 'view any homepage content'
+  - 'view any page content'
+  - 'view media'
+  - 'view own guideline content'
+  - 'view own guidelines_list content'
+  - 'view own homepage content'
+  - 'view own page content'
+  - 'view published crc asset entities'
+  - 'view sp metadata'

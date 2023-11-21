@@ -1,0 +1,26 @@
+{% set dataModule = false %}
+{% for slide in banner.slides %}
+  {% if loop.length > 1 %}
+    {% set dataModule = true %}
+  {% endif %}
+{% endfor %}
+
+<section class="banner banner--carousel"{% if dataModule == true %} data-module="heroCarousel"{% endif %}>
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% block banner_slides %}
+        {% for slide in banner.slides %}
+          {% include '@ul_base_theme/3_components/banner-slide.twig' %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+    <div class="swiper-navigation">
+      <div class="swiper-button swiper-button-next">
+        <span class="swiper-icon icon-bracket-r"><span class="sr-only">Next</span></span>
+      </div>
+      <div class="swiper-button swiper-button-prev">
+        <span class="swiper-icon icon-bracket-l"><span class="sr-only">Previous</span></span>
+      </div>
+    </div>
+  </div>
+</section>

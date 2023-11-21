@@ -1,0 +1,26 @@
+uuid: d9da2dcb-8a44-4094-8872-2763b0af5257
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_rr_marketo_cta
+    - node.type.event
+  module:
+    - ul_marketo
+id: node.event.field_shared_rr_marketo_cta
+field_name: field_shared_rr_marketo_cta
+entity_type: node
+bundle: event
+label: 'Right Rail Marketo CTA'
+description: 'Select a Marketo form. You can use a CTA Link or a Marketo form, not both.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  marketo_forms:
+    generic_form: generic_form
+    event_form: event_form
+    email_form: email_form
+    gated_content_form: 0
+field_type: marketo_form

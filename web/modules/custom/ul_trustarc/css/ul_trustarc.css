@@ -1,0 +1,19 @@
+/**
+ * UL TrustArc module: Cookie Banner styles.
+ */
+
+#consent_wrap {
+  position: relative;
+}
+
+#consent_blackbar {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  z-index: 99;
+}
+
+#teconsent.truste_caIcon_display {
+	display: inline-block !important;
+	margin-left: 1.5rem;
+}

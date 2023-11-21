@@ -1,0 +1,20 @@
+.section--quote {
+  &.section--bgcolor-black,
+  &.section--bgcolor-red {
+    .meta li {
+      color: $gray-lightest;
+    }
+  }
+  &.section--bgcolor-red {
+    blockquote::after,
+    blockquote::before {
+      background: $red-dark;
+    }
+  }
+  &.section--bgcolor-black {
+    blockquote::after,
+    blockquote::before {
+      background: $gray-dark;
+    }
+  }
+}

@@ -1,0 +1,23 @@
+uuid: c9e77441-55d7-4c03-bea2-9f2086938ea9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_curated_list_link
+    - paragraphs.paragraphs_type.curated_list
+  module:
+    - link
+id: paragraph.curated_list.field_curated_list_link
+field_name: field_curated_list_link
+entity_type: paragraph
+bundle: curated_list
+label: 'Additional Link'
+description: 'An optional link, either external or internal, that can be added to the list of related links.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

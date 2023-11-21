@@ -1,0 +1,69 @@
+.hero--default {
+  overflow: hidden;
+  position: relative;
+
+  .brand-logo {
+    #{$end-direction}: -40px;
+    display: block;
+    fill: $white;
+    max-width: 256px;
+    pointer-events: none;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    width: auto;
+    z-index: index($globalIndex, page);
+    @include breakpoint(max-width $desktop - 1) {
+      display: none;
+    }
+  }
+
+  .wrapper {
+    height: 100%;
+    position: relative;
+    @include breakpoint(max-width $desktop - 1) {
+      padding: 0;
+    }
+  }
+
+  .content-container {
+    @include trim-margin;
+    padding: $spacing-unit--l $spacing-unit;
+    position: relative;
+    @include breakpoint($tablet) {
+      padding-left: $spacing-unit--l;
+      padding-right: $spacing-unit--l;
+    }
+    @include breakpoint($desktop) {
+      padding: $spacing-unit--xl $spacing-unit--xxl;
+      max-width: 60%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    h1 {
+      color: $white;
+      font-size: 3.2rem;
+      margin-bottom: $spacing-unit;
+      @include breakpoint(max-width $tablet - 1) {
+        font-size: 2.8rem;
+      }
+    }
+
+    p {
+      color: $white;
+      font-weight: 300;
+      @include breakpoint(max-width $tablet - 1) {
+        display: none;
+      }
+    }
+  }
+
+  &.is-carousel {
+    .content-container {
+      @include breakpoint(max-width $desktop - 1) {
+        padding-bottom: $spacing-unit--xxl;
+      }
+    }
+  }
+}

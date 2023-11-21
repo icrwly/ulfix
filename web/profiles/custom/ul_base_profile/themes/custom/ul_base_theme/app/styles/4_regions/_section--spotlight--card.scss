@@ -1,0 +1,8 @@
+.section--spotlight--card {
+  .section__inner {
+    .main-container & {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

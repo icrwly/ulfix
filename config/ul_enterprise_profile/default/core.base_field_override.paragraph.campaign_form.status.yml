@@ -1,0 +1,22 @@
+uuid: 4c961533-b380-4af8-9eff-347fa0dd420e
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.campaign_form
+id: paragraph.campaign_form.status
+field_name: status
+entity_type: paragraph
+bundle: campaign_form
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

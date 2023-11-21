@@ -1,0 +1,20 @@
+uuid: 04f6c6b1-b52a-4144-aa20-214416f628a1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.stakeholder_needs
+  module:
+    - path
+id: taxonomy_term.stakeholder_needs.path
+field_name: path
+entity_type: taxonomy_term
+bundle: stakeholder_needs
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

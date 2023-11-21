@@ -1,0 +1,37 @@
+uuid: c97548d9-6f55-442b-938b-be016b20768b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.right_rail_external_links.field_rr_extern_links_title
+    - field.field.paragraph.right_rail_external_links.field_rr_external_link
+    - paragraphs.paragraphs_type.right_rail_external_links
+  module:
+    - link
+id: paragraph.right_rail_external_links.default
+targetEntityType: paragraph
+bundle: right_rail_external_links
+mode: default
+content:
+  field_rr_extern_links_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_rr_external_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: _blank
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

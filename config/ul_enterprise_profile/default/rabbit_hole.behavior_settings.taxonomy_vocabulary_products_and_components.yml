@@ -1,0 +1,14 @@
+uuid: 2ada39ba-8b56-42a6-8def-ac4c852d6fa8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.products_and_components
+id: taxonomy_vocabulary_products_and_components
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

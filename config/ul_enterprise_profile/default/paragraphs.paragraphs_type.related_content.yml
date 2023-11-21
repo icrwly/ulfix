@@ -1,0 +1,10 @@
+uuid: a62e867e-f35a-4829-a793-138b09881154
+langcode: en
+status: true
+dependencies: {  }
+id: related_content
+label: 'Curated Related Content'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>curated related content</em> to display specific content to associate with the current page.'
+behavior_plugins: {  }

@@ -1,0 +1,24 @@
+{% embed '@ul_enterprise_theme/2_pieces/listing-item/listing-item--search.twig' %}
+    {% set catch_cache = content|render %}
+    {% set date = '' %}
+    {% set title = label %}
+    {% set link = url %}
+    {% set image = content.field_article_media.0.url %}
+    {% set imageAlt = content.field_article_media.0.alt %}
+
+    {% block listing_item_topic %}
+        {% if content.field_shared_topic|length > 0 %}
+            {{ content.field_shared_topic }}
+        {% endif %}
+    {% endblock %}
+
+    {% block listing_item_description %}
+        {% if content.field_shared_ref_description|render %}
+            <p>{{ content.field_shared_ref_description }}</p>
+        {% elseif content.body|render %}
+            {{ content.body }}
+        {% else %}
+            <p>{{ content.field_article_subtitle }}</p>
+        {% endif %}
+    {% endblock %}
+{% endembed %}

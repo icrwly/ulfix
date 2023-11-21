@@ -1,0 +1,34 @@
+.accordion-toggle{
+  position: relative;
+  h3{
+    transition: color 0.5s ease-in-out;
+    &:after {
+      @extend %icon-plus;
+      font-family: 'icomoon';
+      color:$gray;
+      font-size: 20px;
+      position: absolute;
+      right: 5%;
+      top: 50%;
+      transition: all 0.5s;
+      transform:translateY(-50%);
+    }
+  }
+  &:hover{
+    h3{
+      color:$black;
+    }
+  }
+  &.active-trail {
+    background-color:$white;
+    color:$blue;
+    h3{
+      &:after {
+        @extend %icon-minus;
+      }
+      &:before{
+        opacity:1;
+      }
+    }
+  }
+}

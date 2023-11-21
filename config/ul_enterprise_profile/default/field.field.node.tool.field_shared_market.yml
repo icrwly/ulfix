@@ -1,0 +1,31 @@
+uuid: 9d852379-b85b-4fc3-b78e-3103d38792d4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_market
+    - node.type.tool
+    - taxonomy.vocabulary.markets
+_core:
+  default_config_hash: umbOX_B3cnIntNE4UxodnsjQtVVV7XAX4InbuTFWUg4
+id: node.tool.field_shared_market
+field_name: field_shared_market
+entity_type: node
+bundle: tool
+label: Market
+description: '&bull; The market related to this tool.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

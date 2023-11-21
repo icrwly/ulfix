@@ -1,0 +1,15 @@
+display:
+  default:
+    display_options:
+      fields:
+        type:
+          label: Source
+      filters:
+        type:
+          expose:
+            label: Source
+  block_1:
+    display_options:
+      fields:
+        type:
+          label: Source

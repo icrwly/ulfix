@@ -1,0 +1,6 @@
+{# field--field-shared-secondary-hdr-link.html.twig #}
+{% if items.0 %}
+  {% set link_url = items.0["content"]["#url"]|render %}
+  {% set title = items.0["content"]["#title"] %}
+  <a href="{{ link_url }}" class="hdr-secondary-cta button button--white-outline" title="{{ title }}">{{ title }}</a>
+{% endif %}

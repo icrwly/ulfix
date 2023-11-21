@@ -1,0 +1,59 @@
+uuid: f954607e-c14d-4fce-84b2-7609282b08b1
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_ckeditor_view_mode
+  module:
+    - editor
+    - media
+_core:
+  default_config_hash: 143ebtbQQmEbzZmsy_HwlvHxpVxzIiYou5FP4gnQYlY
+name: 'Full HTML'
+format: full_html
+weight: -8
+filters:
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: 8
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 9
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: true
+    weight: 10
+    settings: {  }
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: 11
+    settings: {  }
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang title id target rel class> <em> <strong> <cite> <blockquote cite class="text-align-left text-align-center text-align-right text-align-justify"> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 id class="text-align-left text-align-center text-align-right text-align-justify"> <s> <sup> <sub> <img src alt data-src data-entity-type data-entity-uuid data-align data-caption width height class> <table style class> <caption> <tbody> <thead> <tfoot> <th data-priority colspan class="text-align-left text-align-center text-align-right text-align-justify"> <td class="text-align-left text-align-center text-align-right text-align-justify"> <tr class="text-align-left text-align-center text-align-right text-align-justify"> <hr> <p class="text-align-left text-align-center text-align-right text-align-justify"> <h1 class="text-align-left text-align-center text-align-right text-align-justify"> <pre class="text-align-left text-align-center text-align-right text-align-justify"> <u> <div id style class> <br> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title data-width data-height width height> <form action="https://checkout.globalgatewaye4.firstdata.com/pay" id="pay_now_form_3fbebb1e5c" method="post"><input name="x_login" type="hidden" value="WSP-EMERG-lHIjlADFgw" /> <input name="x_show_form" type="hidden" value="PAYMENT_FORM" /> <input name="x_fp_sequence" type="hidden" value="15700291282445464035" /> <input name="x_fp_hash" type="hidden" value="PNB-1.0-9af210070ec72d66740fa2c2b0777f8d9cda8957" /> <input name="x_amount" type="hidden" value="" /> <input name="x_currency_code" type="hidden" value="USD" /> <input name="x_test_request" type="hidden" value="FALSE" /> <input name="x_relay_response" type="hidden" value="" /> <input name="donation_prompt" type="hidden" value="" /> <input name="button_code" type="hidden" value="Pay Now Emergo by UL" /> <div class="cpwrap"> <div class="cc-submit"><input type="submit" value="Pay by card" /></div> </div> </form>'
+      filter_html_help: true
+      filter_html_nofollow: false
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 100
+    settings:
+      default_view_mode: media_ckeditor_view_mode
+      allowed_view_modes:
+        media_ckeditor_view_mode: media_ckeditor_view_mode
+      allowed_media_types:
+        image: image

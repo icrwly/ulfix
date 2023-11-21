@@ -1,0 +1,11 @@
+.paragraph--grid--cards {
+  .card.card--spotlight {
+    height: 100%;
+  }
+  [class^='span-'] {
+    margin-top: 0;
+    @include breakpoint($large-mobile) {
+      margin-top: 0;
+    }
+  }
+}

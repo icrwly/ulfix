@@ -1,0 +1,43 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--interrupter-block" %}
+{% set primary_button_class = 'button--blue' %}
+{% set secondary_button_class = 'button--gray-outline' %}
+
+{% if is_dark %}
+  {% set class = class ~ ' is-dark' %}
+  {% set primary_button_class = 'button--white' %}
+  {% set secondary_button_class = 'button--white-outline' %}
+{% endif %}
+
+{% block content %}
+  <div class="section__header">
+    {% block title %}
+      {% if title %}
+        <h2 class="section__title display-3">{{- title -}}</h2>
+      {% endif %}
+    {% endblock %}
+    {% block description %}
+       {% if description %}
+         <div class="description">
+           <p>{{ description }}</p>
+         </div>
+       {% endif %}
+    {% endblock %}
+  </div>
+  <div class="section__button-row">
+    {% if primary_cta %}
+      {% include '@ul_base_theme/2_pieces/button.twig' with {
+        name: primary_cta.title,
+        link: primary_cta.url,
+        class: primary_button_class ~ ' button--l'
+      } %}
+    {% endif %}
+    {% if secondary_cta %}
+      {% include '@ul_base_theme/2_pieces/button.twig' with {
+        name: secondary_cta.title,
+        link: secondary_cta.url,
+        class: secondary_button_class ~ ' button--l'
+      } %}
+    {% endif %}
+  </div>
+{% endblock %}

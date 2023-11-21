@@ -1,0 +1,34 @@
+uuid: e559ec50-5e00-497c-94ee-0dfbe5ed8ce0
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_content_owner
+    - node.type.regional_pages
+    - taxonomy.vocabulary.content_owner
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.regional_pages.field_shared_content_owner
+field_name: field_shared_content_owner
+entity_type: node
+bundle: regional_pages
+label: 'Content Owner'
+description: 'Select the person responsible for the page content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_owner: content_owner
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

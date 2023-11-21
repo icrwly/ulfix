@@ -1,0 +1,77 @@
+# Loaded on ALL pages.
+# Loads in the <head>.
+ul_marketo:
+  header: true
+  js:
+    js/preserve-UTM-data.js: { attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '3', defer: true } }
+    js/marketo_munchkin.js: { attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '3', async: true } }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/js-cookie
+    - ul_base_theme/jquery-custom
+
+# Loaded only on pages that have embedded forms.
+# Load in document <head>.
+ul_marketo.mkto_api:
+  header: true
+  js:
+    https://empoweringtrust.ul.com/js/forms2/js/forms2.min.js: { type: external, minified: true }
+  dependencies:
+    - core/jquery
+    - ul_base_theme/jquery-custom
+
+# Loaded only on pages that have embedded forms.
+# Loads in the <body>.
+ul_marketo.form_helpers:
+  js:
+    js/marketo-form-vars.js: {}
+    js/marketo-throbber.js: {}
+    js/marketo-countries.js: { attributes: { defer: true } }
+    js/marketo-recaptcha.js: { attributes: { defer: true } }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - core/js-cookie
+    - ul_base_theme/jquery-custom
+
+# Loaded only on ADMIN pages.
+ul_marketo.admin:
+  js:
+    js/ul_marketo_admin.js: {}
+  css:
+    theme:
+      css/ul_marketo_admin.css: { weight: 500 }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - ul_base_theme/jquery-custom
+
+# Loaded only on pages with the Configurable Forms:
+# Loads in the <body>.
+ul_marketo.custom_validation:
+  js:
+    js/jquery.validate.min.js: { minified: true }
+    js/custom_validation.js: { attributes: { defer: true, async: true} }
+  dependencies:
+    - core/drupal
+    - core/drupalSettings
+    - core/jquery
+    - ul_base_theme/jquery-custom
+
+# GDPR (opt-in) messages: DEFAULT.
+ul_marketo.gdpr_default:
+  js:
+    js/gdpr-mssg/default.js: { attributes: { id: 'gdpr_optin' } }
+
+# GDPR (opt-in) messages: EMERGO.
+ul_marketo.gdpr_emergo:
+  js:
+    js/gdpr-mssg/emergo.js: { attributes: { id: 'gdpr_optin' } }
+
+# Marketo Modal Helper.
+ul_marketo.modal:
+  js:
+    js/marketo-modal.js: { attributes: { id: 'mkto_modal' }, preprocess: false }

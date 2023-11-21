@@ -1,0 +1,47 @@
+{# @file: node--person--full.html.twig #}
+{% extends '@ul_base_theme/1_core/1-column.twig' %}
+{# If gated content. #}
+{% if marketo.gated_form %}
+  {% set mainClass = mainClass ~ ' gated-content' %}
+{% endif %}
+{% set linkedInUrl = content.field_person_social_links['#platforms']['linkedin']['url'] %}
+
+{% block before_content %}
+  {% embed '@ul_enterprise_theme/4_regions/hero--detail.twig' %}
+    {% set direction_reverse = true %}
+    {% set title = label %}
+    {% set isPerson = 'true' %}
+    {% set jobTitle = content.field_person_job_title[0] %}
+    {% set shortBio = content.field_person_short_bio[0] %}
+    {% set image = content.field_shared_header_media.0.url %}
+    {% set span_class = image ? "span-12 span-6-t span-5-lt offset-1-lt span-6-d offset-1-d" : "span-12" %}
+    {% set span_image_class = 'span-12 span-6-t span-6-lt span-5-d' %}
+    {% set image_alt = content.field_shared_header_media.0.alt %}
+    {% if content.field_shared_marketo_link|render %}
+      {% set primary_cta = {
+        title: content.field_shared_marketo_link.0['#title'],
+        url: content.field_shared_marketo_link.0['#url'],
+        class: content.field_shared_marketo_link.0['#attributes']['class']|join(' '),
+      }%}
+    {% endif %}
+    {% set description = content.field_shared_header_description %}
+  {% endembed %}
+{% endblock %}
+
+{# Breadcrumbs: #}
+{% block breadcrumbs %}
+    {{ drupal_block('system_breadcrumb_block') }}
+{% endblock %}
+
+{% block page %}
+  {# Primary content (body): #}
+  {% include '@ul_enterprise_theme/2_pieces/node--person--body.html.twig' %}
+
+  {# Secondary content (curated related): #}
+  {% block personrelatedcontent %}
+    {{ content.field_person_secondary_content }}
+  {% endblock %}
+  {{ content.marketo }}
+{% endblock %}
+
+

@@ -1,0 +1,57 @@
+uuid: 92be62c3-e363-4177-9341-9d89d798073e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.gated_content_form.field_shared_button_text
+    - field.field.marketo_form.gated_content_form.field_shared_custom_title
+    - field.field.marketo_form.gated_content_form.field_shared_form_description
+    - ul_marketo.marketo_form_type.gated_content_form
+  module:
+    - user
+id: marketo_form.gated_content_form.default
+targetEntityType: marketo_form
+bundle: gated_content_form
+mode: default
+content:
+  field_shared_button_text:
+    weight: 3
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_shared_custom_title:
+    weight: 1
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    type: string
+    region: content
+  field_shared_form_description:
+    weight: 2
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    type: basic_string
+    region: content
+  name:
+    label: above
+    type: string
+    weight: -6
+    region: content
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+  user_id:
+    label: hidden
+    type: author
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  search_api_excerpt: true

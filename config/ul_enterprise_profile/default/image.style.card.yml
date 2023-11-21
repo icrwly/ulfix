@@ -1,0 +1,23 @@
+uuid: 0d13e552-ea2e-4d91-8505-b0df5b5a6d31
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: card
+label: 'Card (1000 x 700)'
+effects:
+  8c87725d-b375-4e8d-94c7-aab42cb90e3b:
+    uuid: 8c87725d-b375-4e8d-94c7-aab42cb90e3b
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 640
+      height: 450
+      anchor: center-center
+  481345b3-a36f-434f-b889-1792c80df8f3:
+    uuid: 481345b3-a36f-434f-b889-1792c80df8f3
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

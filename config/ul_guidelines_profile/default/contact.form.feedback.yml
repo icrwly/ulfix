@@ -1,0 +1,14 @@
+uuid: 9d85dbd8-1ddb-4f9c-8ec5-490a932f7af6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 7IH3Brob5zu1iH9BBIIsPRpth4a3DEyt_hloY2D2rkM
+id: feedback
+label: 'Leave feedback for the Guidelines site'
+recipients:
+  - LST.NBK.BrandHubTechnicalSupport@ul.com
+reply: ''
+weight: 0
+message: 'Your message has been sent.'
+redirect: ''

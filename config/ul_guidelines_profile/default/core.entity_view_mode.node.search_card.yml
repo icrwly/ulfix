@@ -1,0 +1,12 @@
+uuid: 298d1001-4086-40ea-bcab-6373e2af4085
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: YqzENBL6d4ClY4AGwBMVo4k1PNLFlAzkQCEC3k_JMR0
+id: node.search_card
+label: 'Search Card'
+targetEntityType: node
+cache: true

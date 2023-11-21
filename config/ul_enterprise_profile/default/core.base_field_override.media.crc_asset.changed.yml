@@ -1,0 +1,18 @@
+uuid: df367862-1903-4eae-8eb5-efcc85b4c511
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+id: media.crc_asset.changed
+field_name: changed
+entity_type: media
+bundle: crc_asset
+label: Changed
+description: 'The time the media item was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

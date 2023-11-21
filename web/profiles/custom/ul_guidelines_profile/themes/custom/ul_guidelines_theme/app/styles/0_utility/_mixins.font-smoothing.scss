@@ -1,0 +1,14 @@
+///*------------------------------------*\
+//    #UTILITY - FONT SMOOTHING
+//\*------------------------------------*/
+/* Note: used for smoothing fonts, especially light colors over dark background */
+
+@mixin font-smoothing($smooth: true){
+  @if $smooth {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  } @else {
+    -webkit-font-smoothing: auto;
+    -moz-osx-font-smoothing: auto;
+  }
+}

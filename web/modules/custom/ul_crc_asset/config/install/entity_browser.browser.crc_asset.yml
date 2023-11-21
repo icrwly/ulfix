@@ -1,0 +1,30 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.crc_asset_search
+  module:
+    - views
+name: crc_asset
+label: 'CRC Asset'
+display: modal
+display_configuration:
+  width: ''
+  height: '500'
+  link_text: 'Select assets'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  b31fd399-7aa4-40a7-888d-91b14e99efb6:
+    settings:
+      view: crc_asset_search
+      view_display: crc_asset_search
+      submit_text: 'Select assets'
+      auto_select: false
+    uuid: b31fd399-7aa4-40a7-888d-91b14e99efb6
+    weight: -10
+    label: 'Search Assets'
+    id: view

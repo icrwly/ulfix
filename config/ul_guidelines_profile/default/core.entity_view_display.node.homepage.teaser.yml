@@ -1,0 +1,44 @@
+uuid: 5a374cbd-7fce-42ff-bb42-7f5ccc45d602
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.homepage.field_homepage_anon_help
+    - field.field.node.homepage.field_homepage_anon_login
+    - field.field.node.homepage.field_homepage_background
+    - field.field.node.homepage.field_homepage_crc_assets
+    - field.field.node.homepage.field_homepage_featured
+    - field.field.node.homepage.field_homepage_studio
+    - field.field.node.homepage.field_homepage_subtitle
+    - field.field.node.homepage.field_section_image
+    - field.field.node.homepage.field_shared_metatags
+    - node.type.homepage
+  module:
+    - user
+_core:
+  default_config_hash: u4CE6oL5LUJ7IDYVpRTnu2t7w8sAVewXOgmFTDwX7F4
+id: node.homepage.teaser
+targetEntityType: node
+bundle: homepage
+mode: teaser
+content:
+  links:
+    weight: 100
+    region: content
+  workbench_moderation_control:
+    weight: -20
+    region: content
+hidden:
+  field_homepage_anon_help: true
+  field_homepage_anon_login: true
+  field_homepage_anon_message: true
+  field_homepage_background: true
+  field_homepage_crc_assets: true
+  field_homepage_featured: true
+  field_homepage_studio: true
+  field_homepage_subtitle: true
+  field_section_image: true
+  field_shared_content_access: true
+  field_shared_metatags: true
+  langcode: true

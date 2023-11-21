@@ -1,0 +1,23 @@
+uuid: 41aacbdd-0fb2-4e56-8c56-091f48a339f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_resource_crc
+    - node.type.resource
+  module:
+    - ul_crc_asset
+id: node.resource.field_resource_crc
+field_name: field_resource_crc
+entity_type: node
+bundle: resource
+label: 'CRC File - Deprecated'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crc_asset'
+  handler_settings: {  }
+field_type: crc_asset_item

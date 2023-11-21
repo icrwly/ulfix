@@ -1,0 +1,36 @@
+uuid: 1cbbc8bf-eab2-4b09-82d8-e755ac97eaec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_view_mode
+    - paragraphs.paragraphs_type.cards_small
+  module:
+    - tmgmt_content
+    - view_mode_selector
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.cards_small.field_shared_view_mode
+field_name: field_shared_view_mode
+entity_type: paragraph
+bundle: cards_small
+label: 'View Mode'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings:
+  view_modes:
+    default:
+      enable: false
+      hide_title: false
+      icon: {  }
+    full:
+      enable: false
+      hide_title: false
+      icon: {  }
+field_type: view_mode_selector

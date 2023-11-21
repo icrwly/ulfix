@@ -1,0 +1,25 @@
+uuid: a692a797-9e89-476e-91b0-a4960d52029a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_sm_related_content
+    - paragraphs.paragraphs_type.single_related_content
+id: paragraph.single_related_content.field_sm_related_content
+field_name: field_sm_related_content
+entity_type: paragraph
+bundle: single_related_content
+label: 'Related Content'
+description: 'Select a piece of content to relate'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: published_nodes_for_paragraphs
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

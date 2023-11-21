@@ -1,0 +1,45 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% if contentRight %}
+  {% set class = "section--banner content-right" %}
+{% else %}
+  {% set class = "section--banner" %}
+{% endif %}
+{% set backgroundImage = true %}
+
+{% block content %}
+  <div class="section--banner__content">
+    <div class="section--banner__inner">
+      {% block banner_topics %}
+        {% if topics %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {
+            widget: topics
+          } %}
+        {% endif %}
+      {% endblock %}
+      {% block banner_title %}
+        {% if title %}
+          <h2>{{- title -}}</h2>
+        {% endif %}
+      {% endblock %}
+      {% block description %}
+        {% if description %}
+          <p>{{- description -}}</p>
+        {% endif %}
+      {% endblock %}
+      {% if primaryButton.link or secondaryButton.link %}
+        <div class="section--banner__ctas">
+          {% block primary_button %}
+            {% if primaryButton.link %}
+              <a href="{{- primaryButton.link -}}" class="button button--red" title="{{- primaryButton.name -}}">{{- primaryButton.name -}}</a>
+            {% endif %}
+          {% endblock %}
+          {% block secondary_button %}
+            {% if secondaryButton.link %}
+              <a href="{{- secondaryButton.link -}}" class="button button--red-outline" title="{{- secondaryButton.name -}}">{{- secondaryButton.name -}}</a>
+            {% endif %}
+          {% endblock %}
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}

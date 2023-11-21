@@ -1,0 +1,29 @@
+uuid: f21f576f-f415-4f9a-8fbf-80d8e04e5a3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_topic
+    - node.type.help
+    - taxonomy.vocabulary.topics
+id: node.help.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+bundle: help
+label: Topic
+description: '&bull; The topic related to this help item.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

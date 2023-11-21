@@ -1,0 +1,19 @@
+uuid: a6e20815-0dea-4101-a9e6-b76cf3bf340b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hash_target
+    - paragraphs.paragraphs_type.curated_separate_list
+id: paragraph.curated_separate_list.field_hash_target
+field_name: field_hash_target
+entity_type: paragraph
+bundle: curated_separate_list
+label: 'Hash Target'
+description: 'Used in the anchor link that points to a specific paragraph on a page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

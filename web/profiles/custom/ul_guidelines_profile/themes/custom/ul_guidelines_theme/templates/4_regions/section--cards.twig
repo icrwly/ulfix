@@ -1,0 +1,12 @@
+<section class="section-cards section-cards {{ section.type }}">
+  {% block section_title %}
+    {% if section.title %}
+      <h2>{{ section.title }}</h2>
+    {% endif %}
+  {% endblock %}
+  <div class="card-container">
+    {% block card_list %}
+      {% include '@ul_guidelines_theme/3_components/card--router.twig' with { type: section.type, cards: section.cardList } %}
+    {% endblock %}
+  </div>
+</section>

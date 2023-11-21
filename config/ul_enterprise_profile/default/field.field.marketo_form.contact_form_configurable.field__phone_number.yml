@@ -1,0 +1,27 @@
+uuid: 80dbdb4f-b568-48f9-8c6b-17ab0dd6c65c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field__phone_number
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.contact_form_configurable.field__phone_number
+field_name: field__phone_number
+entity_type: marketo_form
+bundle: contact_form_configurable
+label: 'Phone Number'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: required
+default_value_callback: ''
+settings: {  }
+field_type: list_string

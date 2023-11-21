@@ -1,0 +1,79 @@
+.title-bar {
+  margin-bottom: $spacing-unit;
+  padding-bottom: $spacing-unit;
+  @include breakpoint($tablet) {
+    margin-left: $spacing-unit;
+    margin-right: $spacing-unit;
+  }
+
+  .title-bar__title {
+    font-size: 3.2rem;
+  }
+
+  &.has-cta {
+    padding-bottom: 0;
+    @include breakpoint($tablet) {
+      padding-bottom: $spacing-unit;
+    }
+    .title-bar__title-wrapper {
+      max-width: 100% !important;
+      @include breakpoint($desktop) {
+        max-width: 75% !important;
+      }
+    }
+  }
+
+  .row {
+    @include breakpoint($tablet) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+    [class*="span-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+
+  .title-bar__cta {
+    @include breakpoint($tablet) {
+      margin-top: 5.5rem;
+    }
+  }
+
+  .title-bar__inner {
+    -webkit-box-align: start;
+    align-items: flex-start;
+    // This keeps from splitting the content into two
+    // columns when there is a CTA (for smaller devices).
+    &.row {
+      @include breakpoint(max-width $tablet - 1) {
+        display: block;
+        margin-bottom: $spacing-unit;
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+.section--bgcolor-black,
+.section--bgcolor-red {
+  .title-bar__title,
+  .title-bar__description {
+    color: $white;
+  }
+}
+
+.section {
+  &.section--view {
+    .title-bar__description {
+      padding-bottom: $spacing-unit;
+    }
+  }
+}
+
+.main-container .section:not(.section--spotlight) .title-bar .button {
+	@include breakpoint(max-width $desktop - 1) {
+    margin: $spacing-unit--l auto $spacing-unit auto;
+  }
+}

@@ -1,0 +1,17 @@
+/**
+ * Cards, small (Regional Page content type).
+ */
+
+// If this paragraph uses the "FULL" Display Mode,
+// it will allow for 4 cards/row for Large Desktop
+// breakpoints. (Default is 3 cards/row).
+.cards-small--full {
+  .span-var-ld {
+    // $large-desktop >= 1200px
+    @include breakpoint($large-desktop) {
+      -webkit-box-flex: 0;
+      flex: 0 0 25%;
+      max-width: 25%;
+    }
+  }
+}

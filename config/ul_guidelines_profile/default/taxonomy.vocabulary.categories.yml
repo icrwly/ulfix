@@ -1,0 +1,10 @@
+uuid: a9de043f-c2f4-4f33-b0b5-945c5a34d12e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ej_k8oOcIRF1YzS-2_uujXhqNGOClufZR9usfK63YCQ
+name: Categories
+vid: categories
+description: 'UL related categories'
+weight: 0

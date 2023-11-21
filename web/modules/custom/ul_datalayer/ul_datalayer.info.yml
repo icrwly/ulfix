@@ -1,0 +1,5 @@
+name: UL Datalayer
+type: module
+description: Module to add UL specific datalayer content to page headers for use with SEO and other systems.
+package: Custom
+core_version_requirement: ^9 || ^10

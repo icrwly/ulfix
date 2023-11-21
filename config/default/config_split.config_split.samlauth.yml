@@ -1,0 +1,18 @@
+uuid: b2f76b0a-eb22-4dd8-8bb5-7fa264b246c9
+langcode: en
+status: false
+dependencies: {  }
+id: samlauth
+label: SamlAuth
+description: ''
+folder: ''
+module:
+  externalauth: 0
+  samlauth: 0
+  ul_samlauth: 0
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true
+weight: 0

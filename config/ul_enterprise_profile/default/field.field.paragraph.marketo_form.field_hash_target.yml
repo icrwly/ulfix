@@ -1,0 +1,19 @@
+uuid: 5617092a-a2dd-4635-933f-72a237ecee7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_hash_target
+    - paragraphs.paragraphs_type.marketo_form
+id: paragraph.marketo_form.field_hash_target
+field_name: field_hash_target
+entity_type: paragraph
+bundle: marketo_form
+label: 'Hash Target'
+description: 'Used in the anchor link that points to a specific paragraph on a page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

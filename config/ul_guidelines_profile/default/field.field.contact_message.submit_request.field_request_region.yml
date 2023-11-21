@@ -1,0 +1,23 @@
+uuid: b477b22e-4744-4c3e-9586-af8769887320
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_region
+  module:
+    - options
+_core:
+  default_config_hash: gjZ3uKkUbPYAV8sczl8QgU4HqDmoyyQ5JSARQel6YLM
+id: contact_message.submit_request.field_request_region
+field_name: field_request_region
+entity_type: contact_message
+bundle: submit_request
+label: Region
+description: 'Select your global region'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

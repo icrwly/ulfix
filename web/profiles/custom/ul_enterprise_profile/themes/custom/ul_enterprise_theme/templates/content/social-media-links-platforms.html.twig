@@ -1,0 +1,17 @@
+{% extends '@ul_base_theme/3_components/social-nav.twig' %}
+
+{% set socialNav = [] %}
+{% for platform in platforms %}
+    {% set classname = platform.name|lower %}
+
+    {% if 'google' in classname %}
+      {# 'google+' is an invalid classname, replace with current Font Awesome classname #}
+      {% set classname = 'google-plus-g' %}
+    {% endif %}
+
+    {% set socialNav = socialNav|merge([{
+        class: classname,
+        link: platform.url,
+        name: platform.name
+    }]) %}
+{% endfor %}

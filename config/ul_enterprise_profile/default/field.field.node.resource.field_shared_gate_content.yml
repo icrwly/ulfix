@@ -1,0 +1,23 @@
+uuid: 5899940c-72b6-4a51-8dd4-c8dce54dffa5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_gate_content
+    - node.type.resource
+id: node.resource.field_shared_gate_content
+field_name: field_shared_gate_content
+entity_type: node
+bundle: resource
+label: 'Gated Content - deprecated'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

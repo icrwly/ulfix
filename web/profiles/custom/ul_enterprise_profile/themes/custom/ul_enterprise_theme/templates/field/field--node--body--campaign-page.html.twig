@@ -1,0 +1,12 @@
+{% block section_body %}
+  <section class="section section--paragraph section--wysiwyg section--campaign-page-body {{ bg_class }}">
+    <div class="paragraph-gutter campaign-page--gutter">
+      <div class="editor-content">
+        {# Fix issues in Campaign Landing Page (type):
+           - missing Media library image.
+           - wrong alignment of embedded image. #}
+        {% include '@base/field/field.html.twig' %}
+      </div>
+    </div>
+  </section>
+{% endblock %}

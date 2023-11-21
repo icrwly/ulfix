@@ -1,0 +1,6 @@
+ul_no_translation_fields.settings_form:
+  title: Fields No Translation
+  description: Configure UL No Translation Fields.
+  parent: tmgmt.admin_tmgmt
+  route_name: ul_no_translation_fields.settings_form
+  weight: 120

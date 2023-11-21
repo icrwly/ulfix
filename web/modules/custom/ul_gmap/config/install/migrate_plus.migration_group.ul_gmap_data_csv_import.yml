@@ -1,0 +1,9 @@
+langcode: en
+status: true
+dependencies: {  }
+id: ul_gmap_data_json_import
+label: 'UL Global Market Access JSON Import'
+description: ''
+source_type: 'JSON source'
+module: null
+shared_configuration: null

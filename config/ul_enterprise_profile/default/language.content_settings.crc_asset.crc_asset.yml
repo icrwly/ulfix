@@ -1,0 +1,11 @@
+uuid: a3278ad3-f53d-4ef5-89e2-fe7683166d87
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_crc_asset
+id: crc_asset.crc_asset
+target_entity_type_id: crc_asset
+target_bundle: crc_asset
+default_langcode: site_default
+language_alterable: false

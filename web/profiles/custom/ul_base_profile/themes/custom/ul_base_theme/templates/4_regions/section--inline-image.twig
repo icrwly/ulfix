@@ -1,0 +1,21 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--inline-image section--paragraph wrapper" %}
+
+{% block content %}
+  {% if image %}
+    <figure>
+      {% block image %}
+        <img src="{{ image }}" alt="{{ image_alt }}">
+      {% endblock %}
+      {% if caption.title or caption.description %}
+        {% block caption %}
+          <figcaption>
+            <span class="title"><b>{{ caption.title }}</b></span>
+            <span class="description">{{ caption.description }}</span>
+          </figcaption>
+        {% endblock %}
+      {% endif %}
+    </figure>
+  {% endif %}
+
+{% endblock %}

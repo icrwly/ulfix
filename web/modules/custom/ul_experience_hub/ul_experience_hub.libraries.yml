@@ -1,0 +1,8 @@
+ul_experience_hub:
+  js:
+    js/ul_experience_hub.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once
+    - ul_base_theme/jquery-custom

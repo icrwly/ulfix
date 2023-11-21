@@ -1,0 +1,21 @@
+uuid: 4994887e-da77-4b91-b0ad-5c8d4e00ffa2
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_marketo
+id: marketo_form.field_shared_custom_title
+field_name: field_shared_custom_title
+entity_type: marketo_form
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

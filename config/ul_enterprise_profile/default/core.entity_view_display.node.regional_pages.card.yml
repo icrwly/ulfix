@@ -1,0 +1,142 @@
+uuid: 0ec0c313-880b-46c1-8b8c-afebe70f84c6
+langcode: de
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.regional_pages.field_regional_page_content
+    - field.field.node.regional_pages.field_regional_page_title
+    - field.field.node.regional_pages.field_shared_content_owner
+    - field.field.node.regional_pages.field_shared_cou
+    - field.field.node.regional_pages.field_shared_header_media
+    - field.field.node.regional_pages.field_shared_marketo_custom
+    - field.field.node.regional_pages.field_shared_marketo_forms
+    - field.field.node.regional_pages.field_shared_marketo_link
+    - field.field.node.regional_pages.field_shared_metatags
+    - field.field.node.regional_pages.field_shared_mktg_support_ticket
+    - field.field.node.regional_pages.field_shared_ref_description
+    - field.field.node.regional_pages.field_shared_review_comments
+    - field.field.node.regional_pages.field_shared_review_user
+    - field.field.node.regional_pages.field_shared_subtitle
+    - node.type.regional_pages
+  module:
+    - entity_reference_revisions
+    - metatag
+    - text
+    - ul_marketo
+    - user
+id: node.regional_pages.card
+targetEntityType: node
+bundle: regional_pages
+mode: card
+content:
+  field_regional_page_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_shared_content_owner:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 102
+    region: content
+  field_shared_cou:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_shared_header_media:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_shared_marketo_custom:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  field_shared_marketo_link:
+    type: marketo_form_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_shared_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_shared_mktg_support_ticket:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_shared_ref_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_shared_review_comments:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_shared_review_user:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 115
+    region: content
+  field_shared_subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+hidden:
+  addtoany: true
+  field_regional_page_title: true
+  field_shared_marketo_forms: true
+  langcode: true
+  search_api_excerpt: true

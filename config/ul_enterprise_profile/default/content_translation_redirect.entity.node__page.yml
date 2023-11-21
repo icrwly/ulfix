@@ -1,0 +1,8 @@
+uuid: cb9b4e81-0004-486d-80a1-124c7850ead2
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Basic Page'
+code: null
+message: ''

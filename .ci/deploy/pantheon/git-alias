@@ -1,0 +1,11 @@
+[alias]
+  # Resolve ncoming merge conflict in favor of the current working branch
+    ours = "!f() { git checkout --ours $@ && git add $@; }; f"
+  # Resolve all incoming merge conflicts in favor of the current working branch
+    all-ours = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --ours -- \"$@\"; git add -u -- \"$@\"; }; f"
+  # Resolve incoming merge conflict in favor of the upstream repo
+    theirs = "!f() { git checkout --theirs $@ && git add $@; }; f"
+  # Resolve all incoming merge conflicts in favor of the upstream repo
+    all-theirs = "!f() { [ -z \"$@\" ] && set - '.'; git checkout --theirs -- \"$@\"; git add -u -- \"$@\"; }; f"
+  # List merge conflicts
+    conflicts = !git ls-files -u | cut -f 2 | sort -u

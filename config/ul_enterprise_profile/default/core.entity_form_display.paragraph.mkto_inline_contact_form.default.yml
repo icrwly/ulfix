@@ -1,0 +1,23 @@
+uuid: f20ccac8-22bb-4c69-a20d-7b225ed96045
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mkto_inline_contact_form.field_marketo_form
+    - paragraphs.paragraphs_type.mkto_inline_contact_form
+  module:
+    - ul_marketo
+id: paragraph.mkto_inline_contact_form.default
+targetEntityType: paragraph
+bundle: mkto_inline_contact_form
+mode: default
+content:
+  field_marketo_form:
+    type: marketo_form_widget
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

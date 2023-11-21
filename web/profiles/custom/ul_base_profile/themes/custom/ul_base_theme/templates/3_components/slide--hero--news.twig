@@ -1,0 +1,33 @@
+{% extends "@ul_base_theme/3_components/slide.twig" %}
+{% set class = class ~ " slide--hero--news has-positioned-img" %}
+
+{% set bg_img = true %}
+{% set content_inner_class = content_bg ? "has-bg bg-" ~ content_bg : "" %}
+
+{% block slide_content %}
+  <div class="slide__content-container {{ content_class }}">
+    <div class="slide__content content-wrapper {{ content_inner_class }}">
+      {% block slide_title %}
+        <h1 class="slide__title">{{- title -}}</h1>
+      {% endblock %}
+
+      {% block slide_description %}
+        {% if description %}
+          <p class="slide__description">{{- description -}}</p>
+        {% endif %}
+      {% endblock %}
+
+      {% block slide_cta %}
+        {% if cta.link %}
+          <div class="slide__cta">
+            {% include '@ul_base_theme/2_pieces/button.twig' with {
+              link: cta.link,
+              color: cta.color,
+              name: cta.name
+            } %}
+          </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

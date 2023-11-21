@@ -1,0 +1,13 @@
+{% extends "@ul_base_theme/2_pieces/feature/feature.twig" %}
+
+{% block content %}
+  {% block item %}
+    {% include '@ul_base_theme/1_core/switch--card.twig' with {
+      type: type,
+      title: title,
+      description: description,
+      items: items,
+      viewMore: viewMore
+    } only %}
+  {% endblock %}
+{% endblock %}

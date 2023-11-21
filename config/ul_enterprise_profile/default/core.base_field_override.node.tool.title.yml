@@ -1,0 +1,20 @@
+uuid: e25f3012-7d67-44da-97e0-a51c58d91fe0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tool
+_core:
+  default_config_hash: tVDDy8sbpdyDyQ-vKyBU73AIc4F1CbWmHiURka3-a2A
+id: node.tool.title
+field_name: title
+entity_type: node
+bundle: tool
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

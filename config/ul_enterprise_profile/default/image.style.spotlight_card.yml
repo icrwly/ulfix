@@ -1,0 +1,15 @@
+uuid: dfea3a3e-b214-4f90-96f3-9fc8f3ff2a8f
+langcode: en
+status: true
+dependencies: {  }
+name: spotlight_card
+label: 'Spotlight Card'
+effects:
+  039612fc-f969-48e2-8db9-d98970f03f7e:
+    uuid: 039612fc-f969-48e2-8db9-d98970f03f7e
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 500
+      height: 200
+      anchor: center-center

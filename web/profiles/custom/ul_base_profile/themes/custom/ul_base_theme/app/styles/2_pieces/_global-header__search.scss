@@ -1,0 +1,107 @@
+.global-header__search {
+  @include breakpoint(max-width $desktop - 1) {
+    padding-#{$end-direction}: 0;
+  }
+  @include breakpoint(max-width $large-desktop) {
+    padding-#{$start-direction}: 0;
+  }
+
+  .global-header__search-container {
+    float: right;
+    @include breakpoint(max-width $desktop - 1) {
+      background-color: $white;
+      border-top: 1px solid $border-color;
+      box-shadow: $box-shadow--level-2;
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      width: 100%;
+    }
+
+    .wrapper {
+      @include breakpoint($desktop) {
+        padding: 0;
+      }
+    }
+  }
+
+  input[type=search],
+  input[type=text] {
+    @include breakpoint(max-width $desktop - 1) {
+      border-bottom: none;
+      padding-bottom: $spacing-unit;
+      padding-top: $spacing-unit;
+      padding-#{$start-direction}: 5rem;
+      padding-#{$end-direction}: $spacing-unit;
+    }
+
+    // Desktop.
+    @include breakpoint($desktop) {
+      padding: .4rem;
+      font-size: 1.3rem;
+
+      border: 1px solid $gray-medium;
+      max-width: calc(150px - #{$spacing-unit * 2});
+    }
+
+    // Large Desktop.
+    @include breakpoint($large-desktop) {
+      max-width: 100%;
+    }
+  }
+
+  .accordion {
+    color: $black;
+    @include breakpoint($desktop) {
+      display: none;
+    }
+
+    .icon {
+      font-size: 1.8rem;
+      &:before {
+        transition: all $transition;
+      }
+    }
+  }
+
+  .form-action {
+    @include breakpoint(max-width $desktop - 1) {
+      #{$start-direction}: 0;
+      #{$end-direction}: 0;
+      width: 3.8rem; // match width of logo to center
+      &,
+      &:before {
+        color: $black;
+        cursor: default;
+        font-weight: 600;
+      }
+      .search-submit {
+        @include sr-only;
+      }
+    }
+  }
+}
+
+.global-header__search-cancel {
+  display: none;
+  #{$end-direction}: 0;
+  border-radius: 0;
+  height: 100%;
+  margin-#{$end-direction}: -$spacing-unit;
+  position: absolute;
+  text-transform: none;
+  top: 50%;
+  transform: translateY(-50%);
+  width: $global-header-search-cancel-btn-width;
+
+  &:focus {
+    outline: none;
+  }
+
+  .global-header__search & {
+    @include breakpoint(max-width $desktop - 1) {
+      display: block;
+    }
+  }
+}

@@ -1,0 +1,52 @@
+///*------------------------------------*\
+//    #CORE/HTML - IMAGES
+//\*------------------------------------*/
+//  * 1. Fluid images for responsive purposes.
+//  * 2. Offset `alt` text from surrounding copy.
+//  * 3. Setting `vertical-align` removes the whitespace that appears under `img`
+//	*    elements when they are dropped into a page as-is. Safer alternative to
+//	*    using `display: block;`.
+//  * 4. Maintain aspect ratio
+//  * 5. Why is a border showing up in IE9 by default? Regardless, this border: 0
+//	*    gets rid of that globally on all vanilla img tags.
+//  */
+
+img {
+  border: 0; /* [5] */
+  display: block;
+  font-style: italic; /* [2] */
+  height: auto; /* [4] */
+  max-width: 100%; /* [1] */
+  vertical-align: middle; /* [3] */
+}
+
+.circle-image {
+  border-radius: 50%;
+}
+
+/**
+ * Lazy Loading images: Show the images while they load
+ * Images should be shown while they load, and not after, to give your users the best
+ * perceived performance. This is especially true if you use a progressive loading format
+ * like Progressive JPEG.
+ *
+ * In order to make your images visible as soon as LazyLoad sets the src/srcset attribute 
+ * to it, you can do this via CSS:
+ */
+img:not([src]) {
+  visibility: hidden;
+}
+
+/**
+ * Lazy Loading images: Dealing with Microsoft Edge problems
+ * According to what reported in #152, for Microsoft Edge to fire the IntersectionObserver
+ * for an img element, it must have a size. Since imgs are displayed inline-block as standard,
+ * MS Edge (version not specified) doesn't read them correctly.
+ *
+ * By setting the following, Edge is able to see the images and they get loaded.
+ */
+img[data-src],
+img[data-srcset] {
+  display: block;
+  min-height: 1px;
+}

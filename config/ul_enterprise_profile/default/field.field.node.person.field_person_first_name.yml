@@ -1,0 +1,21 @@
+uuid: 8c813fa0-7f76-488f-9432-a5cdda73f79a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_person_first_name
+    - node.type.person
+_core:
+  default_config_hash: QPHyryIygVhf4CYpHO3kO0pRfKGLv7Q4ZgG8Ivfxnhs
+id: node.person.field_person_first_name
+field_name: field_person_first_name
+entity_type: node
+bundle: person
+label: Name
+description: 'Full name of person, Abraham Lincoln, Tom Jacket Jr.,  John Fitzgerald Kennedy or other options.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

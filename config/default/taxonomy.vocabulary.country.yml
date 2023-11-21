@@ -1,0 +1,11 @@
+uuid: f7c5c2a8-886c-4f63-8d57-74ac5e1d97b9
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Vz2hU_wICU3f-1C-9hVejhYq_c5BwyCvUc39Y9s1_Pk
+name: Country
+vid: country
+description: 'Used for grouping content by country'
+hierarchy: 0
+weight: 0

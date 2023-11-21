@@ -1,0 +1,20 @@
+uuid: b1cdcc03-aac3-4d29-aa91-251ff5ab4b87
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.image
+id: media.image.moderation_state
+field_name: moderation_state
+entity_type: media
+bundle: image
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

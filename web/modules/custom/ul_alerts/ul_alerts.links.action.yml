@@ -1,0 +1,11 @@
+entity.ul_alert.add_form:
+  route_name: entity.ul_alert.add_page
+  title: 'Add Alert'
+  appears_on:
+    - entity.ul_alert.collection
+
+entity.ul_alert_type.add_form:
+  route_name: entity.ul_alert_type.add_form
+  title: 'Add Alert type'
+  appears_on:
+    - entity.ul_alert_type.collection

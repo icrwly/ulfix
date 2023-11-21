@@ -1,0 +1,43 @@
+.section.section--curated-separate-list {
+  h2 {
+    font-size: 2.6rem;
+  }
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    li {
+      margin-bottom: 1rem;
+      line-height: 1.4;
+    }
+  }
+  // Grid: Can have 1, 2, or 3 lists per row.
+  .row {
+    .span-auto {
+      flex: none;
+      max-width: 100%;
+      width: 100%;
+      @include breakpoint(max-width $large-tablet - 1) {
+        margin-bottom: 1.5rem;
+      }
+    }
+    &.row-items-2 {
+      @include breakpoint($large-tablet) {
+        .span-auto {
+          flex: 0 0 50%;
+          max-width: 50%;
+          width: 50%;
+        }
+      }
+    }
+    &.row-items-3 {
+      @include breakpoint($large-tablet) {
+        .span-auto {
+          flex: 0 0 33.33333%;
+          max-width: 33.33333%;
+          width: 33.33333%;
+        }
+      }
+    }
+  }
+}

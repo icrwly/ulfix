@@ -1,0 +1,90 @@
+uuid: 62e94358-ebd6-4c1e-9c1f-5a0a8022729b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_menu_section_support
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.image_gallery
+    - paragraphs.paragraphs_type.interrupter_cta
+    - paragraphs.paragraphs_type.menu_section
+    - paragraphs.paragraphs_type.simple_menu
+    - paragraphs.paragraphs_type.single_related_content
+  module:
+    - entity_reference_revisions
+id: paragraph.menu_section.field_menu_section_support
+field_name: field_menu_section_support
+entity_type: paragraph
+bundle: menu_section
+label: 'Supporting Content'
+description: 'Additional content to display in this section.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      single_related_content: single_related_content
+      call_to_action: call_to_action
+      image_gallery: image_gallery
+      interrupter_cta: interrupter_cta
+      simple_menu: simple_menu
+    negate: 0
+    target_bundles_drag_drop:
+      basic_content:
+        weight: 20
+        enabled: false
+      call_to_action:
+        weight: 21
+        enabled: true
+      captioned_image:
+        weight: 22
+        enabled: false
+      image_gallery:
+        weight: 24
+        enabled: true
+      image_row:
+        weight: 25
+        enabled: false
+      interrupter_cta:
+        weight: 26
+        enabled: true
+      list_item:
+        weight: 27
+        enabled: false
+      menu_section:
+        weight: 19
+        enabled: false
+      people:
+        weight: 28
+        enabled: false
+      quote:
+        weight: 29
+        enabled: false
+      reference:
+        weight: 30
+        enabled: false
+      related_content:
+        weight: 31
+        enabled: false
+      simple_menu:
+        weight: 32
+        enabled: true
+      single_related_content:
+        weight: 20
+        enabled: true
+      slide:
+        weight: 33
+        enabled: false
+      spotlight:
+        weight: 34
+        enabled: false
+      video:
+        weight: 35
+        enabled: false
+      view:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

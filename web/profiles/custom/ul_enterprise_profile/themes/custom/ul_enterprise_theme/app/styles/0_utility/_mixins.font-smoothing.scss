@@ -1,0 +1,9 @@
+///*------------------------------------*\
+//    #UTILITY - FONT SMOOTHING
+//\*------------------------------------*/
+/* Note: used for smoothing fonts, especially light colors over dark background */
+
+@mixin font-smoothing() {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

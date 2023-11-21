@@ -1,0 +1,87 @@
+.section.section--related-content {
+  margin-bottom: 0;
+  @include section-padding-rules;
+
+  .section .section-gutter {
+    padding-left: 0;
+    padding-right: 0;
+    @include breakpoint(640px) {
+      padding-left: .5rem;
+      padding-right: .5rem;
+    }
+  }
+
+  .title-bar {
+    margin-bottom: $spacing-unit--l;
+    @include breakpoint($tablet) {
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .mini-cards .card {
+    .image-container {
+      max-height: 100%;
+      @supports(object-fit: cover) {
+        max-height: 130px;
+      }
+      img{
+        height: 100%;
+        @supports(object-fit: cover) {
+          min-height: 130px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  &.section--bgcolor-red,
+  &.section--bgcolor-black {
+    .title-bar__description {
+      color: $white;
+    }
+    // Cards are white, so titles need to stay dark to be read.
+    .card__title {
+      color: $gray;
+    }
+  }
+}
+
+// Curated related content inside a view:
+.section.section--view .section.section--related-content {
+  padding: 0;
+}
+
+.section.section--related-content .paragraph--related-content {
+  .section__inner {
+    max-width: $large-desktop;
+    margin: 0 auto;
+    .span-6-t:first-child:last-child {
+      @include breakpoint($tablet) {
+        padding-left: 0;
+        padding-right: $spacing-unit;
+      }
+    }
+    .span-6-t:first-child {
+      @include breakpoint($tablet) {
+        padding-left: 0;
+        padding-right: $spacing-unit;
+      }
+    }
+    .span-6-t:last-child {
+      @include breakpoint($tablet) {
+        padding-left: $spacing-unit;
+        padding-right: 0;
+      }
+    }
+  }
+  .row {
+    .card {
+      height: 100%;
+    }
+    .span-6,
+    .span-6-t {
+      margin-bottom: $spacing-unit;
+    }
+  }
+}

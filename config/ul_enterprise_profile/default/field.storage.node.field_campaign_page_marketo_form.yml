@@ -1,0 +1,21 @@
+uuid: fc5810ef-4a92-4864-ae8e-e0daa735e3c0
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+id: node.field_campaign_page_marketo_form
+field_name: field_campaign_page_marketo_form
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

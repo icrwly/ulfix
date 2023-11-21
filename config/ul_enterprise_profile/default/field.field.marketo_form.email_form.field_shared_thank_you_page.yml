@@ -1,0 +1,30 @@
+uuid: bcf25f65-1cf7-406b-b0a8-1a2a751943ef
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_shared_thank_you_page
+    - ul_marketo.marketo_form_type.email_form
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.email_form.field_shared_thank_you_page
+field_name: field_shared_thank_you_page
+entity_type: marketo_form
+bundle: email_form
+label: 'Custom Thank You Page'
+description: 'Select a Custom Thank You Page where users will be redirected after successfully submitting the form.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: published_thank_you_pages
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

@@ -1,0 +1,14 @@
+uuid: b62b947a-50df-4d17-a5bc-b214edcd0f6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.guidelines_editor
+  module:
+    - user
+id: user_remove_role_action.guidelines_editor
+label: 'Remove the Guidelines Editor role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: guidelines_editor

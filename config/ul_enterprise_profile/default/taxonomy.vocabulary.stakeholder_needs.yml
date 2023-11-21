@@ -1,0 +1,8 @@
+uuid: 5912cb88-c0a9-4af0-a067-c466653fba6a
+langcode: en
+status: true
+dependencies: {  }
+name: 'Business Needs'
+vid: stakeholder_needs
+description: 'Used for grouping content by stakeholders needs'
+weight: 0

@@ -1,0 +1,22 @@
+uuid: b1c13df8-7e16-4706-b122-9d81edb24ba0
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+id: media.crc_asset.status
+field_name: status
+entity_type: media
+bundle: crc_asset
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

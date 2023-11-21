@@ -1,0 +1,53 @@
+--- docroot/modules/contrib/extlink/extlink.js	2022-08-25 15:59:18.218516721 -0400
++++ docroot/modules/contrib/extlink/extlink.js	2022-08-25 15:49:34.412789472 -0400
+@@ -200,14 +200,48 @@
+
+     // Set up default click function for the external links popup. This should be
+     // overridden by modules wanting to alter the popup.
+-    Drupal.extlink.popupClickHandler = Drupal.extlink.popupClickHandler || function () {
++    Drupal.extlink.popupClickHandler = Drupal.extlink.popupClickHandler || function (e) {
++
++      // Replace confirm dialog with custom box (extlink-dialog.html.twig)
++      let url = e.currentTarget.getAttribute("href");
+       if (drupalSettings.data.extlink.extAlert) {
+-        return confirm(drupalSettings.data.extlink.extAlertText);
++        let text = drupalSettings.data.extlink.extAlertText;
++        if (text) {
++          $("#extlink_dialog").html(text);
++        }
++
++        let $dialog = $("#extlink_dialog").dialog({
++          show: 'fold',
++          modal: true,
++          width: "40%",
++          class: "ul-extlink-dialog",
++          buttons: [
++            {
++              text: "Cancel",
++              class: "button--white",
++              click: function () {
++                $dialog.dialog("close");
++              }
++            },
++            {
++              text: "OK",
++              class: "button--red",
++              click: function () {
++                $dialog.dialog("close");
++                window.open(url, "_self");;
++              }
++            }
++          ]
++         });
++        return $dialog.dialog();
++        // Commnet out the confirm() dialog box.
++        // return confirm(drupalSettings.data.extlink.extAlertText);
+       }
+     };
+
+     $(external_links).off("click.extlink");
+     $(external_links).on("click.extlink", function (e) {
++      e.preventDefault();
+       return Drupal.extlink.popupClickHandler(e, this);
+     });
+   };

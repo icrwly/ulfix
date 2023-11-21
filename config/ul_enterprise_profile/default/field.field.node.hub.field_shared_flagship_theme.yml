@@ -1,0 +1,29 @@
+uuid: fad79df6-1ab9-4c5b-88f4-bb484d9566ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_flagship_theme
+    - node.type.hub
+    - taxonomy.vocabulary.flagship_theme
+id: node.hub.field_shared_flagship_theme
+field_name: field_shared_flagship_theme
+entity_type: node
+bundle: hub
+label: 'Flagship Theme'
+description: 'The theme related to this experience hub.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      flagship_theme: flagship_theme
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

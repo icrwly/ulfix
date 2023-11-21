@@ -1,0 +1,5 @@
+ul_no_translation_fields.settings_form:
+  route_name: ul_no_translation_fields.settings_form
+  base_route: view.tmgmt_job_overview.page_1
+  title: Fields No Translation
+  weight: 120

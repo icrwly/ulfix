@@ -1,0 +1,47 @@
+uuid: 282d3e47-46c9-492e-9be3-fc0661ac3ab2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_item.field_list_item_body
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_image:
+      children:
+        - field_list_item_image
+      label: Image
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+_core:
+  default_config_hash: _TAYVK0szLEHOq3kEEHg6-Zvcs9corTrrHL5H3V6Vf4
+id: paragraph.list_item.default
+targetEntityType: paragraph
+bundle: list_item
+mode: default
+content:
+  field_list_item_body:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

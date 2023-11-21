@@ -1,0 +1,160 @@
+/* Locations view */
+.locations-container {
+  margin: (2 * $spacing-unit);
+
+  .section.locations-view-title {
+    padding:0;
+  }
+
+  .location--region {
+    position: relative;
+    margin: (3 * $spacing-unit) 0;
+  }
+
+  .loc-accord {
+    padding:0;
+    border: solid 1px $gray-light;
+    margin-bottom: (3 * $spacing-unit);
+  }
+
+  .section--location--header {
+    border-bottom: solid 1px $gray-light;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 100%;
+    padding: (.5 * $spacing-unit);
+
+    h4 {
+      margin: 0;
+      padding: 12px 0;
+      font-size: 1.8rem;
+      font-weight: 700;
+      cursor: pointer;
+
+      span {
+        // Plus / minus icon:
+        &:before {
+          position: relative;
+          top: 1px
+        }
+      }
+    }
+
+    .button.button--location {
+      width: 100%;
+      background: $white;
+      color: $blue;
+      border-color: $blue;
+      float: none;
+      margin-top: 4px;
+
+      @include breakpoint($tablet) {
+        float:right;
+        width: auto;
+      }
+
+      &:hover,
+      &:focus,
+      &.focus {
+        background: $blue;
+        color: $white;
+        border-color: $blue;
+      }
+    }
+  }
+
+  .section--location--body {
+    background-color: $gray-lightest;
+    margin:0;
+    padding: 0;
+    @include breakpoint($tablet) {
+      padding: 1.25rem 0 0.5rem;
+    }
+
+    .span-6-t.loc-addr {
+      @include breakpoint($tablet) {
+        &:nth-child(odd) {
+          padding-right: 0.75rem;
+        }
+        &:nth-child(even) {
+          padding-left: 0.75rem;
+        }
+      }
+    }
+
+    .loc-addr--data {
+      background-color: $white;
+      padding: $spacing-unit;
+      min-height: 96%;
+      height: auto;
+      border-bottom: solid 1px $gray-light;
+      @include breakpoint($tablet) {
+        border: solid 1px $gray-light;
+      }
+      @include breakpoint(max-width $tablet - 1) {
+        margin-bottom: 0;
+      }
+      @include breakpoint(max-width 640px - 1) {
+        font-size: 1.4rem;
+      }
+
+      dd {
+        margin:0;
+        word-wrap: break-word;
+        .location-address--map {
+          font-weight: 700;
+        }
+      }
+
+      // The map icon:
+      .loc-addr--map {
+        margin-top: 1rem;
+      }
+
+      .loc--contact {
+        @include breakpoint($large-desktop) {
+          display: flex;
+        }
+
+        .loc--label {
+          @include breakpoint($large-desktop) {
+            width: 80px;
+          }
+        }
+
+        .loc--value {
+          margin: 0;
+          padding: 0;
+          list-style: none;
+
+          @include breakpoint($large-desktop) {
+            width: 84%;
+          }
+
+          li {
+            a {
+              @include breakpoint(max-width $large-desktop - 1) {
+                display: block;
+                width: 99%;
+                padding: 4px 0;
+                height: 32px;
+                margin-bottom: 8px;
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+              }
+              &:last-child {
+                margin-bottom: 0;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .icon-map-marker-alt:before {
+    content: "\e933";
+  }
+}

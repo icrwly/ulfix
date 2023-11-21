@@ -1,0 +1,17 @@
+{% embed '@ul_base_theme/4_regions/footer--bottom.twig' %}
+    {% block content %}
+        {% include '@ul_base_theme/2_pieces/footer--logo.twig' with {
+            href: path('<front>')
+        }%}
+        <div class="footer-copyright-section">
+          {% embed '@ul_base_theme/2_pieces/footer--copyright.twig' %}
+            {% block copyright %}
+              {% set copyright_message = message_template|t({'@date': now|date('Y')}) %}
+              {{ parent() }}
+            {% endblock %}
+          {% endembed %}
+          {{ policy_menu }}
+        </div>
+        {{ content }}
+    {% endblock %}
+{% endembed %}

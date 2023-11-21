@@ -1,0 +1,25 @@
+{# @file: paragraph--curated-related-separate-list.html.twig #}
+{% embed '@ul_enterprise_theme/4_regions/section--curated-related-separate-list.twig' %}
+  {% set class = "section--paragraph section--curated-separate-list" %}
+  {% if content.field_shared_bg_color.0 is not empty %}
+    {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+  {% endif %}
+  {% set gutterclass = "paragraph-gutter" %}
+  {% if content.field_curated_separate_list.2 is defined %}
+    {% set row_class = 'row-items-3' %}
+    {% set gutterclass = gutterclass ~ " paragraph--curated-separate-list" %}
+  {% elseif content.field_curated_separate_list.1 is defined %}
+    {% set row_class = 'row-items-2' %}
+  {% else %}
+    {% set row_class = 'row-items-1' %}
+  {% endif %}
+  {% set titleBar = false %}
+
+  {% block paragraph %}
+    {% block section_body %}
+      <div class="row {{ row_class }}">
+        {{ content|without('field_hash_target') }}
+      </div>
+    {% endblock %}
+  {% endblock %}
+{% endembed %}

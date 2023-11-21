@@ -1,0 +1,2 @@
+cache_response_interval: '10800'
+environment: Staging

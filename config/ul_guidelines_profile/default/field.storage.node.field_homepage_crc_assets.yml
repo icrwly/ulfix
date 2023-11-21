@@ -1,0 +1,24 @@
+uuid: 219b0d76-b909-4a95-abff-3f69b58a3838
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - ul_crc_asset
+_core:
+  default_config_hash: cuwdo-P7ypIVag1s0uuixHFPSwKd7TvlRT5GSpM9Evw
+id: node.field_homepage_crc_assets
+field_name: field_homepage_crc_assets
+entity_type: node
+type: crc_asset_item
+settings:
+  target_type: crc_asset
+  display_field: false
+  display_default: false
+module: ul_crc_asset
+locked: false
+cardinality: 4
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

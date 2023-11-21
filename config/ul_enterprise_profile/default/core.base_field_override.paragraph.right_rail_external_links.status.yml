@@ -1,0 +1,22 @@
+uuid: 104f9673-5c07-40e1-97bc-3ea4e9a99d0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.right_rail_external_links
+id: paragraph.right_rail_external_links.status
+field_name: status
+entity_type: paragraph
+bundle: right_rail_external_links
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

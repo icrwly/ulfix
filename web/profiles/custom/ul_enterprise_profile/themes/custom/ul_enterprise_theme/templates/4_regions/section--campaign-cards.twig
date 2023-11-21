@@ -1,0 +1,13 @@
+{# @file: section--campaign-cards.twig #}
+{% block content %}
+  <section class="section section--paragraph section--wysiwyg section--campaign-cards">
+    <div class="paragraph-gutter campaign-cards--gutter">
+      <h2>{{ card_title }}</h2>
+      <div class="campaign-cards---content">
+        <div class="row campaign-cards--cards">
+           {{ items }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,14 @@
+uuid: fda6b21b-889d-4562-9bdb-50efdd39de46
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.help_types
+id: taxonomy_vocabulary_help_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

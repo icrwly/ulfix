@@ -1,0 +1,29 @@
+uuid: 41a132e4-6b1a-4e8a-b895-3f9ff49327ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_topic
+    - node.type.tool
+    - taxonomy.vocabulary.topics
+id: node.tool.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+bundle: tool
+label: Topic
+description: '&bull; The topic related to this tool.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

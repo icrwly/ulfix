@@ -1,0 +1,47 @@
+.col-aside {
+  // CTA links in rigt-rail.
+  .siderail--cta {
+    .button {
+      display: block;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+    &:nth-of-type(2n) {
+      margin-top: $spacing-unit;
+    }
+    &:last-of-type {
+      @include breakpoint(max-width $desktop - 1) {
+        margin-bottom: $spacing-unit;
+      }
+    }
+  }
+  // Curated related right-rail links section.
+  // And right rail plain text list.
+  .right-rail-plain-text,
+  .siderail--links {
+    padding: 1.5rem 0;
+
+    h3 {
+      font-size: 2.5rem;
+      padding: 0 0 $spacing-unit 0;
+      border-bottom: solid 1px $gray-medium;
+    }
+    ul {
+      padding: 0;
+      margin: $spacing-unit 0;
+      @include breakpoint($desktop) {
+        margin-bottom: $spacing-unit--l;
+      }
+      li {
+        list-style: none;
+        margin-bottom: 1.5rem;
+        line-height: 1.4;
+      }
+    }
+    .rr_external_link::after {
+      font-family: 'FontAwesome';
+      content: " \f08e";
+      font-weight: 700;
+    }
+  }
+}

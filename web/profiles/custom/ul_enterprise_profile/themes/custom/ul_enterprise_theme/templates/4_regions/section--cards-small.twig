@@ -1,0 +1,20 @@
+{# @file: section--cards-small.twig #}
+{% if fullwidth %}
+  {% set cards_class = 'cards-small--full' %}
+{% else %}
+  {% set cards_class = 'cards-small--default' %}
+{% endif %}
+
+{% block content %}
+  <section class="section section--paragraph section--wysiwyg section--campaign-cards section--cards-small">
+    <div class="paragraph-gutter campaign-cards--gutter {{ cards_class }}">
+      <h2>{{ pgrph_title }}</h2>
+      <div>{{ pgrph_desc }}</div>
+      <div class="campaign-cards---content">
+        <div class="row campaign-cards--cards">
+           {{ items }}
+        </div>
+      </div>
+    </div>
+  </section>
+{% endblock %}

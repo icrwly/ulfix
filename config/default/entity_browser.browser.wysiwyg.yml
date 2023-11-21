@@ -1,0 +1,65 @@
+uuid: d9091692-d91d-43fe-918d-647ac2e5db3b
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.file_selector
+    - views.view.image_selector
+  module:
+    - entity_browser_entity_form
+    - views
+_core:
+  default_config_hash: SG7uCgdHk2N81eN95mqilV2FbDei5SFavsacXPAyClo
+name: wysiwyg
+label: WYSIWYG
+display: iframe
+display_configuration:
+  width: '650'
+  height: '500'
+  link_text: 'Select entities'
+  auto_open: true
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  8226e0d6-1564-4614-ba7b-298a49ddbaf9:
+    settings:
+      view: image_selector
+      view_display: entity_browser_images
+      submit_text: 'Select image'
+      auto_select: false
+    uuid: 8226e0d6-1564-4614-ba7b-298a49ddbaf9
+    weight: -8
+    label: Images
+    id: view
+  1cb8b684-8ab4-41c1-b25c-1d679606c2ab:
+    settings:
+      view: file_selector
+      view_display: entity_browser_images
+      submit_text: 'Select file'
+      auto_select: false
+    uuid: 1cb8b684-8ab4-41c1-b25c-1d679606c2ab
+    weight: -7
+    label: Files
+    id: view
+  bf1a7972-d18e-4222-99c3-1b31a5c0adf4:
+    settings:
+      upload_location: 'public://'
+      multiple: true
+      submit_text: 'Select files'
+      extensions: 'txt doc xls pdf ppt pps odt ods odp'
+    uuid: bf1a7972-d18e-4222-99c3-1b31a5c0adf4
+    weight: -9
+    label: 'Upload File'
+    id: upload
+  03065562-7413-4c63-b0d4-06dd90a3ea48:
+    settings:
+      entity_type: media
+      bundle: image
+      form_mode: default
+      submit_text: 'Save image'
+    uuid: 03065562-7413-4c63-b0d4-06dd90a3ea48
+    weight: -10
+    label: 'Upload Image'
+    id: entity_form

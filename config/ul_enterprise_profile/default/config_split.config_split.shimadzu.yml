@@ -1,0 +1,15 @@
+uuid: 9476b0ac-b08b-4d33-a455-95a5cd6b550d
+langcode: en
+status: false
+dependencies: {  }
+id: shimadzu
+label: shimadzu
+description: 'Split for www.ulshimadzu.com and the corresponding site on lower environments.'
+weight: 0
+folder: ../config/ul_enterprise_profile/sites/shimadzu
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

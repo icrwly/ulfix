@@ -1,0 +1,18 @@
+uuid: f6f3a5bf-7f68-49e6-a8bc-ab6e1c1e788f
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 1noCXlegCr5HFehQRF1ViXy1jhU1jZ_sNN99a8Sj5jo
+id: front
+label: 'Front page'
+tags:
+  canonical_url: '[site:url]'
+  description: '[node:field_shared_subtitle]'
+  shortlink: '[site:url]'
+  title: '[site:name] - [current-page:title]'
+  og_description: '[node:field_shared_subtitle]'
+  og_image: '[node:field_shared_header_media:entity:field_media_image:hero_boxed_width:url]'
+  og_site_name: '[site:name]'
+  og_title: '[site:name] - [current-page:title]'
+  og_url: '[site:url]'

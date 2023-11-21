@@ -1,0 +1,19 @@
+uuid: 68eff78d-7957-4e5d-a38e-e5c9249450c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_image_gallery_title
+    - paragraphs.paragraphs_type.image_gallery
+id: paragraph.image_gallery.field_image_gallery_title
+field_name: field_image_gallery_title
+entity_type: paragraph
+bundle: image_gallery
+label: Title
+description: 'Descriptive title for this gallery'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

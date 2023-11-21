@@ -1,0 +1,15 @@
+///*------------------------------------*\
+//    #CORE/HTML - LINKS
+//\*------------------------------------*/
+
+a {
+  color: $red;
+  text-decoration: none;
+  transition: color $transition;
+  word-wrap: break-word;
+
+  &:active,
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,19 @@
+uuid: d42cb83d-f515-4670-b496-a3b620830733
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cta_title
+    - paragraphs.paragraphs_type.call_to_action
+id: paragraph.call_to_action.field_cta_title
+field_name: field_cta_title
+entity_type: paragraph
+bundle: call_to_action
+label: Title
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,19 @@
+uuid: 24b9f60d-5ca5-4a22-86a7-7af6c1b2fedb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_person_short_bio
+    - node.type.person
+id: node.person.field_person_short_bio
+field_name: field_person_short_bio
+entity_type: node
+bundle: person
+label: Description
+description: 'Limit to 200 characters max.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

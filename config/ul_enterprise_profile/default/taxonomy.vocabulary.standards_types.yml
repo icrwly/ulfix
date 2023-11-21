@@ -1,0 +1,10 @@
+uuid: 13ca857b-deb1-4f91-94fd-dd6438bb30b7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: iEuO0ALIKDRpYKTQ5kH3P6kHCSYgKxIeru1hthvhl4Y
+name: 'Standards Types'
+vid: standards_types
+description: 'Standards Types Taxonomy '
+weight: 0

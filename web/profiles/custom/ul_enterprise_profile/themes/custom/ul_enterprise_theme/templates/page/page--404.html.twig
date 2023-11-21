@@ -1,0 +1,72 @@
+{# @file: page--404.html.twig #}
+{% extends '@ul_base_theme/page/page.html.twig' %}
+{% block content %}
+    {% embed '@ul_base_theme/1_core/page.twig' %}
+        {% block header %}
+            {% embed '@ul_base_theme/4_regions/header.twig' %}
+                {% block header_top %}
+                    {{ page.header_top }}
+                {% endblock %}
+                {% block header_bottom %}
+                    {{ page.header_bottom }}
+                {% endblock %}
+                {% block header_after %}
+                    {{ page.header_after }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block page_top %}
+            {{ page.breadcrumb }}
+            {{ page.highlighted }}
+            {{ page.top }}
+        {% endblock %}
+        {% block page %}
+            {% embed "@ul_base_theme/4_regions/section.twig" %}
+                {% set class = 'wrapper max-width--desktop' %}
+                {% block content %}
+                    {% embed '@ul_base_theme/5_layouts/search-404.twig' with {
+                        title: 'Sorry, the page you were looking for has been moved or is unavailable.'|t,
+                        sub_title: 'Our search tool may be able to help you find the information you need.'|t,
+                        }
+                    %}
+
+                      {# Add the search form via HTML: #}
+                      {% block search_form %}
+                        <div class="search-container">
+                          <div class="wrapper">
+                            <div class="form-group form-group--search search-bar-group form-loaded">
+                              <form action="/search/google/results" method="get" id="search-block-form" accept-charset="UTF-8">
+                                <div class="js-form-item form-item js-form-type-search form-type-search js-form-item-keys form-item-keys form-no-label">
+                                  <label for="edit-keys" class="visually-hidden">{{ 'Search'|t }}</label>
+                                  <input title="{{ 'Enter the terms you wish to search for.'|t }}" placeholder="{{ 'Search'|t }}" data-drupal-selector="edit-keys" type="search" id="edit-keys" name="keys" value="" size="15" maxlength="128" class="form-search">
+                                </div>
+                                <div data-drupal-selector="edit-actions" class="form-actions js-form-wrapper form-wrapper" id="edit-actions">
+                                  <input data-drupal-selector="edit-submit" type="submit" id="edit-submit" value="{{ 'Search'|t }}" class="button js-form-submit form-submit">
+                                </div>
+                              </form>
+                            </div>
+                          </div>
+                        </div>
+                      {% endblock %}
+                      {# Add the search form via HTML: end. #}
+
+                    {% endembed %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block page_bottom %}
+            {{ page.bottom }}
+        {% endblock %}
+        {% block footer %}
+            {% embed '@ul_base_theme/4_regions/footer.twig' %}
+                {% block footer_top %}
+                    {{ page.footer_top }}
+                {% endblock %}
+                {% block footer_bottom %}
+                    {{ page.footer_bottom }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}
+

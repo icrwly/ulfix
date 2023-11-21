@@ -1,0 +1,77 @@
+.section.section--action-banner {
+  padding: $spacing-unit;
+  @include breakpoint($tablet) {
+    padding: $spacing-unit+$spacing-unit--xs $spacing-unit--l;
+  }
+  .main-container & {
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+  .paragraph--action-banner {
+    text-align: center;
+
+    .section__content.row {
+      display: block;
+      .section__buttons {
+        align-items: center;
+      }
+    }
+
+    form {
+      text-align: left;
+    }
+  }
+
+  /* CTA banners with light-gray BG. */
+  &.section--bgcolor-light-gray {
+    color: $text-color;
+    .button.button--primary {
+      @include button-variant($white, $red, $red);
+    }
+  }
+  /* CTA banners with red and black BG. */
+  &.section--bgcolor-black,
+  &.section--bgcolor-red {
+    .button.button--primary {
+      @include button-variant($gray, $white, $white);
+    }
+  }
+
+  .section__buttons {
+    .button {
+      font-size: 1.6rem;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+      display: inline-block;
+    }
+  }
+
+  .section__title {
+    font-size: 1.4rem;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+
+  .section__description {
+    font-weight: 400;
+  }
+
+  // Pre-footer banner.
+  .region-bottom & {
+    padding-top: $spacing-unit--l;
+    padding-bottom: $spacing-unit--l;
+  }
+}
+
+/* interrupter CTA banners */
+.paragraph .section.section--action-banner {
+  margin: $spacing-unit--l;
+  box-shadow: 0 2px 24px -2px rgba(0,0,0,.375);
+}
+
+// Pushes the button under CTA title and description for mobile.
+.section--action-banner .paragraph--action-banner .section__content.row {
+  @include breakpoint(max-width $tablet) {
+    display: block;
+  }
+}

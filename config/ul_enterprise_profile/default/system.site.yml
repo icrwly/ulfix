@@ -1,0 +1,14 @@
+uuid: b884a947-b15a-4ace-89f3-8aa29f83e318
+name: 'UL Enterprise'
+mail: no-reply@acquia.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/5
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+_core:
+  default_config_hash: yXadRE77Va-G6dxhd2kPYapAvbnSvTF6hO4oXiOEynI

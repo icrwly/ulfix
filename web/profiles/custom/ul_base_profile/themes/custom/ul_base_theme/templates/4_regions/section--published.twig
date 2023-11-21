@@ -1,0 +1,8 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--published max-width--large-tablet small-padding" %}
+
+{% block content %}
+    {% if timeStamp %}
+        <span class="published">- Published {{ timeStamp|date("M j, Y") }} at {{ timeStamp|date("g:iA T") }}</span>
+    {% endif %}
+{% endblock %}

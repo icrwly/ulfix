@@ -1,0 +1,24 @@
+{% extends '@ul_base_theme/2_pieces/listing-item/listing-item--default.twig' %}
+{% set title = label %}
+{% set image = content.field_header_media.0.url %}
+{% set imageAlt = content.field_header_media.0.alt %}
+{% set date = "" %}
+{% set topics = [
+    {content: content.field_shared_market|render},
+    {content: content.field_shared_industry|render}
+]%}
+{% block listing_item_description %}
+    {% if content.field_shared_ref_description|render %}
+        <p>{{ content.field_shared_ref_description }}</p>
+    {% else %}
+        {{ content.body }}
+    {% endif %}
+{% endblock %}
+{% block readTime %}
+    {# Intentionally left blank #}
+{% endblock %}
+{% block listing_item_tags %}
+    {# Intentionally left blank #}
+{% endblock %}
+
+

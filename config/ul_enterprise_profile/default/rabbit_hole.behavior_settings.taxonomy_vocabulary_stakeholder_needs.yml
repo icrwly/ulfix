@@ -1,0 +1,14 @@
+uuid: c2e7643f-8c19-433a-8cef-0f88fadb85cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.stakeholder_needs
+id: taxonomy_vocabulary_stakeholder_needs
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

@@ -1,0 +1,46 @@
+uuid: 7e4ec56b-d53a-48b3-b55f-a7dce95d8de6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.slide.field_slide_body
+    - field.field.paragraph.slide.field_slide_image
+    - field.field.paragraph.slide.field_slide_title
+    - paragraphs.paragraphs_type.slide
+  module:
+    - media_library
+    - text
+_core:
+  default_config_hash: MfqBzRm_wMaqZtj0e4pp09hxJzYFiYPdf8JmGZi_PMA
+id: paragraph.slide.default
+targetEntityType: paragraph
+bundle: slide
+mode: default
+content:
+  field_slide_body:
+    type: text_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_slide_image:
+    type: media_library_widget
+    weight: 1
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_slide_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

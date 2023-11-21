@@ -1,0 +1,7 @@
+<div class="footer__menu">
+    {% block content %}
+        {% for item in footer_links %}
+            <a href="{{- item.href -}}" title="{{- item.title -}}">{{- item.title -}}</a>
+          {% endfor %}
+    {% endblock %}
+</div>

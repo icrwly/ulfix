@@ -1,0 +1,66 @@
+{# Paragraph "Marketo Interrupter" form template. #}
+{# Usage: Marketo banner or form (event, newsletter). #}
+{% if content.field_marketo_form.0 is not empty %}
+  {# String: "node" or "block_content". #}
+  {% set parent = paragraph.getParentEntity().getEntityTypeId() %}
+  {# BOOL: True or False. #}
+  {% set showBanner = marketo.marketo_form_cta %}
+  {# Form type. #}
+  {% set form_type = marketo.form_type %}
+  {# HTML Classes. #}
+  {% set class = 'section--paragraph marketo--block' %}
+  {# Add BG color to classes. #}
+  {% if content.field_shared_bg_color.0 is not empty %}
+    {# TODO: Add this to preprocess. #}
+    {% if form_type != 'event_form' and form_type != 'email_form' %}
+      {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+    {% endif %}
+  {% endif %}
+  {% set gutterclass = "paragraph-gutter paragraph--action-banner" %}
+  {# Set a default form language: #}
+  {% if marketo.form_language %}
+    {% set form_language = marketo.form_language %}
+  {% else %}
+    {% set form_language = 'en' %}
+  {% endif %}
+
+  {# If parent is "block_content". #}
+  {% if parent == 'block_content' %}
+    {{ content.field_marketo_form }}
+  {# Else, parent is "node". #}
+  {% else %}
+    {# If we should show a CTA Banner: #}
+    {% if showBanner %}
+      {% embed '@ul_base_theme/4_regions/section--action-banner.twig' %}
+        {% set class = class ~ ' ' ~ attributes.class %}
+        {% set sectionId = false %}
+        {# This is the banner body. #}
+        {% block section_body %}
+          {{ content.field_marketo_form }}
+        {% endblock %}
+      {% endembed %}
+      {# If we should show the form, too. #}
+      {# Event Registration form (hidden under the banner). #}
+      {% if parent == 'node' and content.marketo_form %}
+        {% block section_body %}
+          <section class="section section--paragraph marketo--block marketo--form event-form hidden">
+            <div class="paragraph-gutter">
+              {% include "@ul_enterprise_theme/marketo/marketo-form.html.twig" with {
+                marketo: marketo,
+                form_id: marketo.form_id
+              } %}
+            </div>
+          </section>
+        {% endblock %}
+      {% endif %}
+
+    {# Else, display the Marketo form: Newsletter or Event form. #}
+    {% else %}
+      {# Forms in Marketo interrupters should not refresh. #}
+      {% include "@ul_enterprise_theme/marketo/marketo-form--interrupter.html.twig" with {
+        marketo: marketo,
+        form_id: marketo.form_id
+      } %}
+    {% endif %}
+  {% endif %}
+{% endif %}

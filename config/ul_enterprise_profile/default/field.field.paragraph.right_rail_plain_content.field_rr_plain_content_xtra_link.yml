@@ -1,0 +1,23 @@
+uuid: 3f4438fe-0fc5-4dbe-b428-b483d779d999
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rr_plain_content_xtra_link
+    - paragraphs.paragraphs_type.right_rail_plain_content
+  module:
+    - link
+id: paragraph.right_rail_plain_content.field_rr_plain_content_xtra_link
+field_name: field_rr_plain_content_xtra_link
+entity_type: paragraph
+bundle: right_rail_plain_content
+label: 'Additional Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 1
+field_type: link

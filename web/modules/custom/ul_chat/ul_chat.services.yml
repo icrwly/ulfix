@@ -1,0 +1,3 @@
+services:
+  ul_chat:
+    class: Drupal\ul_chat\ChatService

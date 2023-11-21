@@ -1,0 +1,8 @@
+<div class="footer__copyright">
+    {% block footer_logo %}
+        {% include '@ul_guidelines_theme/2_pieces/logo-gray.twig' with { alt: "UL Solutions" } %}
+    {% endblock %}
+    {% block footer_copyright %}
+        <p>{{- footer.copyright -}}</p>
+    {% endblock %}
+</div>

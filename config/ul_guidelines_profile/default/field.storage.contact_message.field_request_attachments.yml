@@ -1,0 +1,25 @@
+uuid: 20349b62-259a-422c-b232-bf938b9d9e49
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - file
+_core:
+  default_config_hash: tgXrJNS-87YDTcuYCiitf9IJ_Chfwu9EKrXl1ulAKcI
+id: contact_message.field_request_attachments
+field_name: field_request_attachments
+entity_type: contact_message
+type: file
+settings:
+  target_type: file
+  display_field: false
+  display_default: false
+  uri_scheme: private
+module: file
+locked: false
+cardinality: 5
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

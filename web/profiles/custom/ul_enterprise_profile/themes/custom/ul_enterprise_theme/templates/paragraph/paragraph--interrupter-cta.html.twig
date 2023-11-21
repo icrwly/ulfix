@@ -1,0 +1,10 @@
+{% block content %}
+  {% block hash_target %}
+    {% if content.field_hash_target %}
+      <div class="outside-block-hash-target">
+        {% include "@ul_base_theme/2_pieces/hash-target.twig" %}
+      </div>
+    {% endif %}
+  {% endblock %}
+  {{ content|without('field_hash_target') }}
+{% endblock %}

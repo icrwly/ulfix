@@ -1,0 +1,276 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ul_media_usage module.
+ */
+
+use Drupal\views\Views;
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function ul_media_usage_install() {
+  create_ul_media_usage_views();
+}
+
+/**
+ * Create the views required for the ul_media_usage module.
+ */
+function create_ul_media_usage_views() {
+  // Check if the View exist.
+  if (Views::getView('ul_media_usage')) {
+    return;
+  }
+  // Make sure that the media_usage view is installed.
+  $config_path = \Drupal::service('file_system')->realpath(\Drupal::service('module_handler')->getModule('ul_media_usage')->getPath()) . '/config/install/';
+  $yml = file_get_contents($config_path . 'views.view.ul_media_usage.yml');
+
+  $view_config = Yaml::parse($yml);
+  $view_manager = \Drupal::entityTypeManager()->getStorage('view');
+
+  $loaded = $view_manager->load('ul_media_usage');
+  if (!$loaded) {
+    $view_manager->create($view_config)->save();
+  }
+
+}
+
+/**
+ * Implements hook_schema().
+ */
+function ul_media_usage_schema() {
+  $schema['ul_media_usage'] = _get_schema_ul_media_usage();
+  return $schema;
+}
+
+/**
+ * UL meida usage.
+ *
+ * Create a database table ul_edia_usage if it doesn't exist.
+ */
+function ul_media_usage_update_8001() {
+  $schema = \Drupal::database()->schema();
+  $table_name = 'ul_media_usage';
+  if ($schema->tableExists($table_name)) {
+    return;
+  }
+  else {
+    $table_schema = _get_schema_ul_media_usage();
+    $schema->createTable($table_name, $table_schema);
+  }
+}
+
+/**
+ * UL meida usage.
+ *
+ * Create a database table ul_edia_usage if it doesn't exist.
+ */
+function ul_media_usage_update_8002() {
+  $table = 'ul_media_usage';
+  $field = 'source_type_name';
+  $spec = [
+    'description' => 'The type of the top source node',
+    'type' => 'varchar',
+    'length' => 128,
+    'not null' => FALSE,
+  ];
+  $schema = \Drupal::database()->schema();
+  if (!$schema->fieldExists($table, $field)) {
+    $schema->addField($table, $field, $spec);
+  }
+}
+
+/**
+ * UL meida usage.
+ *
+ * Add field source_paragraph_id in ul_edia_usage if not exist.
+ */
+function ul_media_usage_update_8003() {
+  $schema = \Drupal::database()->schema();
+  $table = 'ul_media_usage';
+  $field = 'source_paragraph_id';
+  $spec = [
+    'description' => 'The srouce paragraph ID of the media.',
+    'type' => 'int',
+    'size' => 'normal',
+    'unsigned' => TRUE,
+    'not null' => FALSE,
+  ];
+
+  if ($schema->tableExists($table)) {
+    \Drupal::database()->truncate($table)->execute();
+  }
+
+  if (!$schema->fieldExists($table, $field)) {
+    $schema->addField($table, $field, $spec);
+  }
+}
+
+/**
+ * Get table schema.
+ *
+ * Get the table schema of ul_edia_usage.
+ */
+function _get_schema_ul_media_usage() {
+  $table_schema = [
+    'description' => 'Media usage data combining node, paragraph, entity_usage data into one table.',
+    'fields' => [
+      'id' => [
+        'description' => 'The unique id for the ul_media_usage.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'target_id' => [
+        'description' => 'The target media mid',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'thumbnail_url' => [
+        'description' => 'The reletive thumbnail URL /abc/1234',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+      'media_name' => [
+        'description' => 'The name of target media',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+      'target_langcode' => [
+        'description' => 'The langcode of target media',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => FALSE,
+      ],
+      'target_language' => [
+        'description' => 'The languae of media',
+        'type' => 'varchar',
+        'length' => 52,
+        'not null' => FALSE,
+      ],
+      'author' => [
+        'description' => 'The author uid of media',
+        'type' => 'int',
+        'size' => 'normal',
+        'not null' => FALSE,
+      ],
+      'target_type' => [
+        'description' => 'The bundle(source) of target media',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => TRUE,
+      ],
+      'status' => [
+        'description' => 'The status published or not for the media.',
+        'type' => 'int',
+        'size' => 'tiny',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'filesize' => [
+        'description' => 'The filesize of target media',
+        'type' => 'int',
+        'size' => 'big',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ],
+
+      'changed' => [
+        'description' => 'The updated date of the media.',
+        'type' => 'int',
+        'size' => 'big',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ],
+      'image_attached_url' => [
+        'description' => 'The URL of image_attached to the media',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+
+      // Source entity (node) data.
+      'source_id' => [
+        'description' => 'The srouce node ID of the media.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ],
+      'source_vid' => [
+        'description' => 'The srouce node VID of the media.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ],
+      'used_url' => [
+        'description' => 'The source node reletive URL in which the media is attached/embedded',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => FALSE,
+      ],
+      'source_type' => [
+        'description' => 'The type of the top source node',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+      ],
+      'source_type_name' => [
+        'description' => 'The type of the top source node',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+      ],
+      'source_langcode' => [
+        'description' => 'The lancode of source node',
+        'type' => 'varchar',
+        'length' => 50,
+        'not null' => FALSE,
+      ],
+      'source_language' => [
+        'description' => 'The language name of source',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => FALSE,
+      ],
+      'method' => [
+        'description' => 'The method of entity_usage',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+      ],
+      'field_name' => [
+        'description' => 'The field_name of the top target node (not paragraph)',
+        'type' => 'varchar',
+        'length' => 128,
+        'not null' => FALSE,
+      ],
+      'source_changed' => [
+        'description' => 'The updated date of the source node.',
+        'type' => 'int',
+        'size' => 'big',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ],
+      'source_paragraph_id' => [
+        'description' => 'The srouce paragraph ID of the media.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => FALSE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'auto increment' => 1,
+  ];
+
+  return $table_schema;
+
+}

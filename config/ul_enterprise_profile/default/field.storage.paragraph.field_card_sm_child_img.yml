@@ -1,0 +1,20 @@
+uuid: 580f273a-1cc7-447d-b0c8-9a2f6c4d6010
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - paragraphs
+id: paragraph.field_card_sm_child_img
+field_name: field_card_sm_child_img
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

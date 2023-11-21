@@ -1,0 +1,16 @@
+{% set aria_label_link_search = aria_label_link_search|default('Search Site') %}
+<div class="global-header__search span-2 title-menu-will-toggle">
+  {% block content %}
+    <a href="#" class="accordion" data-module="accordion" data-max-width="991" title="{{ aria_label_link_search }}" aria-label="{{ aria_label_link_search }}">
+      <span class="icon icon-search"></span>
+    </a>
+    <div class="global-header__search-container">
+      <div class="wrapper">
+        {% block search_bar %}
+          {# Include the SoloSegment search bar. #}
+          {% include '@ul_base_theme/2_pieces/search-bar--group-solosgmnt.twig' %}
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock %}
+</div>

@@ -1,0 +1,85 @@
+uuid: 82fe7840-a709-45f6-b551-6375d24fd189
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simple_menu_links
+    - paragraphs.paragraphs_type.descript_link
+    - paragraphs.paragraphs_type.simple_menu
+  module:
+    - entity_reference_revisions
+id: paragraph.simple_menu.field_simple_menu_links
+field_name: field_simple_menu_links
+entity_type: paragraph
+bundle: simple_menu
+label: 'Simple Menu Links'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      descript_link: descript_link
+    negate: 0
+    target_bundles_drag_drop:
+      basic_content:
+        weight: 21
+        enabled: false
+      call_to_action:
+        weight: 22
+        enabled: false
+      captioned_image:
+        weight: 23
+        enabled: false
+      descript_link:
+        weight: 25
+        enabled: true
+      image_gallery:
+        weight: 26
+        enabled: false
+      image_row:
+        weight: 27
+        enabled: false
+      interrupter_cta:
+        weight: 28
+        enabled: false
+      list_item:
+        weight: 29
+        enabled: false
+      menu_section:
+        weight: 30
+        enabled: false
+      people:
+        weight: 31
+        enabled: false
+      quote:
+        weight: 32
+        enabled: false
+      reference:
+        weight: 33
+        enabled: false
+      related_content:
+        weight: 34
+        enabled: false
+      simple_menu:
+        weight: 35
+        enabled: false
+      single_related_content:
+        weight: 36
+        enabled: false
+      slide:
+        weight: 37
+        enabled: false
+      spotlight:
+        weight: 38
+        enabled: false
+      video:
+        weight: 39
+        enabled: false
+      view:
+        weight: 40
+        enabled: false
+field_type: entity_reference_revisions

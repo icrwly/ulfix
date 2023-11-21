@@ -1,0 +1,22 @@
+uuid: f042168c-be81-43a0-bda2-da3665547da0
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.crc_files
+id: paragraph.crc_files.status
+field_name: status
+entity_type: paragraph
+bundle: crc_files
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

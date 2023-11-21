@@ -1,0 +1,8 @@
+uuid: e42ec651-e18e-4119-a6a4-df950db386df
+langcode: en
+status: true
+dependencies: {  }
+name: 'Resource Types'
+vid: resource_types
+description: 'Used for downloadable assets, e.g. PDFs'
+weight: 0

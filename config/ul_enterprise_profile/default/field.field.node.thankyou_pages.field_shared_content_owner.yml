@@ -1,0 +1,29 @@
+uuid: f85f3158-9ac0-4ee6-91f6-992ca42cfa9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_content_owner
+    - node.type.thankyou_pages
+    - taxonomy.vocabulary.content_owner
+id: node.thankyou_pages.field_shared_content_owner
+field_name: field_shared_content_owner
+entity_type: node
+bundle: thankyou_pages
+label: 'Content Owner'
+description: 'Select the person responsible for the page content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_owner: content_owner
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

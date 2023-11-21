@@ -1,0 +1,56 @@
+.title-bar {
+  border-bottom: 1px solid $border-color;
+  padding-bottom: $spacing-unit--l;
+  margin-bottom: $spacing-unit--l;
+
+  &.has-cta {
+    .title-bar__title-wrapper {
+      flex-shrink: 1;
+      @include breakpoint($tablet) {
+        max-width: 75% !important;
+      }
+    }
+  }
+
+  &__inner {
+    @include trim-margin;
+    align-items: flex-end;
+    flex-wrap: nowrap;
+    .span-auto {
+      flex-grow: 0;
+    }
+  }
+
+  &__title-wrapper {
+    flex-shrink: 1;
+    max-width: 100% !important;
+  }
+
+  &__cta-wrapper {
+    flex-shrink: 0;
+    margin-#{$start-direction}: auto;
+  }
+
+  &__title {
+    color: $black;
+    margin-bottom: 0;
+    + .title-bar__description {
+      margin-top: $spacing-unit;
+    }
+  }
+
+  &__description {
+    @include trim-margin;
+  }
+
+  &--no-border {
+    border: none;
+    padding-bottom: 0;
+  }
+
+  &__cta {
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+    font-weight: 600;
+  }
+}

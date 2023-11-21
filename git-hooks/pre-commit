@@ -1,0 +1,34 @@
+#!/usr/bin/env bash
+
+# Set defaults
+settingsFile="docroot/sites/default/settings.php"
+install_profile="ul_enterprise_profile"
+
+# Get changed files.
+changedFiles=$(git status -s --untracked-files=no)
+
+# Check if default settings file was changed
+if [[ "${changedFiles[*]}" = *"$settingsFile"* ]]; then
+    # check if the install profile has changed
+    if ! grep "$install_profile" "$settingsFile" > /dev/null; then
+      echo ""
+      echo "*****************************************************"
+      echo "* WARNING: It looks like you have changed the default"
+      echo "* install_profile in:        "
+      echo "*  $settingsFile    "
+      echo "*                                        "
+      echo "* It needs to be set back to '$install_profile"
+      echo "*                                        "
+      echo "* Either revert your changes manually or "
+      echo "* run the following command:             "
+      echo "* > git checkout $settingsFile"
+      echo "*                                        "
+      echo "****************************************************"
+      echo ""
+      exit 1
+    fi
+fi
+
+if [[ -f vendor/acquia/blt/scripts/git-hooks/pre-commit ]]; then
+  source vendor/acquia/blt/scripts/git-hooks/pre-commit
+fi

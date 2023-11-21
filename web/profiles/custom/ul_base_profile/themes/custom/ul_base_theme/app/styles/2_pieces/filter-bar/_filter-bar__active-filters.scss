@@ -1,0 +1,44 @@
+.filter-bar__active-filters {
+  // pagination is 320px wide
+  max-width: calc(100% - 320px);
+
+  .active-filter {
+    border-radius: $spacing-unit;
+    font-weight: 300;
+    letter-spacing: 0.025em;
+    padding-#{$end-direction}: $spacing-unit * 1.5;
+    position: relative;
+    text-transform: none;
+    &:after {
+      color: $white;
+      content: "X";
+      font-size: 1rem;
+      position: absolute;
+      #{$end-direction}: $spacing-unit;
+      top: 50%;
+      transform: translate(50% * $transform-direction, -50%);
+    }
+    &:not(:last-child) {
+      margin-#{$end-direction}: $spacing-unit--s;
+    }
+  }
+
+  .filter-bar__clear,
+  .form-submit {
+    appearance: none;
+    background-color: transparent;
+    border: 0;
+    color: $text-color;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 300;
+    letter-spacing: normal;
+    margin-#{$start-direction}: $spacing-unit--s;
+    padding-left: 0;
+    padding-right: 0;
+    text-transform: none;
+    &:hover {
+      color: $gray;
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{% extends "@ul_base_theme/2_pieces/menu-item/menu-item.twig" %}
+{% set class = "menu-item--sub-bar" %}
+
+{% if below %}
+  {% set add_link_attr = {
+    'data-group': 'sub-bar',
+    'data-close-on-load': 'true'
+  } %}
+{% endif %}
+
+{% block below %}
+  {% if below %}
+    {% include '@ul_base_theme/3_components/nav--sub-menu.twig' with { items: below, url: url } only %}
+  {% endif %}
+{% endblock %}

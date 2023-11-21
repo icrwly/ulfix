@@ -1,0 +1,11 @@
+uuid: bd155873-1c76-4a76-bcc6-34053ebc3e18
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rFwS2O7oT5O682djvhEE7s5Zil4gFFCPVahPndQDue8
+name: Regions
+vid: regions
+description: 'Global regions related to UL'
+hierarchy: 0
+weight: 0

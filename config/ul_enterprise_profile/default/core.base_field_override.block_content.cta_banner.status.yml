@@ -1,0 +1,22 @@
+uuid: e0837d35-4c86-4612-8273-34a4f822eebd
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+id: block_content.cta_banner.status
+field_name: status
+entity_type: block_content
+bundle: cta_banner
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

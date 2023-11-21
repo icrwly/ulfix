@@ -1,0 +1,19 @@
+uuid: 3e032272-0e6a-40cf-b358-d1db36c96b4c
+langcode: en
+status: false
+dependencies: {  }
+id: stage
+label: stage
+description: ''
+weight: 0
+folder: ../config/ul_guidelines_profile/stage
+module:
+  shield: 0
+  syslog: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - syslog.settings
+graylist_dependents: false
+graylist_skip_equal: true

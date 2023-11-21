@@ -1,0 +1,18 @@
+uuid: ad1fdce6-5a26-48c6-bcd4-d531d1ff5438
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.attendee_types
+id: taxonomy_term.attendee_types.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: attendee_types
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,5 @@
+name: UL Tools & Miscellaneous Functionalities
+description: 'Module for UL Tools & Miscellaneous Functionalities.'
+core_version_requirement: ^9 || ^10
+type: module
+package: Custom

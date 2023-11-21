@@ -1,0 +1,19 @@
+uuid: c8559ba6-53b4-43cb-881a-318af6b311d8
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_homepage_anon_message
+field_name: field_homepage_anon_message
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

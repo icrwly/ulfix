@@ -1,0 +1,31 @@
+uuid: f2cc678f-3488-4243-9c0a-9791843a651c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_country
+    - node.type.offering
+    - taxonomy.vocabulary.country
+_core:
+  default_config_hash: WIiw0smsLfkdNllG4GAyvFqD_8tG8bBammv9gxPkmp4
+id: node.offering.field_shared_country
+field_name: field_shared_country
+entity_type: node
+bundle: offering
+label: Country
+description: '&bull; The country related to this offering.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

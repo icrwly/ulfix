@@ -1,0 +1,10 @@
+uuid: 27387bf2-1866-46ff-9c06-68b0f0b06fd9
+langcode: en
+status: true
+dependencies: {  }
+id: right_rail_plain_text_list
+label: 'Right Rail Plain Text List'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Right Rail Plain Text List</em> to create a list of items in the right rail. Max 10 items / list.'
+behavior_plugins: {  }

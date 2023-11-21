@@ -1,0 +1,52 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_guidelines_forms_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  // Is a contact form?
+  if (isset($form['#entity_type']) && ($form['#entity_type'] == 'contact_message')) {
+    \Drupal::service('ul_guidelines.contact_forms')->formAlter($form, $form_state, $form_id);
+  }
+}
+
+/**
+ * Implements hook_mail_alter().
+ */
+function ul_guidelines_forms_mail_alter(&$message) {
+  // Submitting a contact form?
+  if (isset($message['params']['contact_form'])) {
+    // Call contact form service.
+    \Drupal::service('ul_guidelines.contact_forms')->mailAlter($message, $message['params']['contact_form']->id());
+  }
+}
+
+/**
+ * Custom form element validator for fields that use a ['#states']['required']
+ * @param $element
+ * @param $form_state
+ */
+function ul_guidelines_forms_states_require_validate($element, FormStateInterface $form_state) {
+  if (isset($element['#states']['required'])) {
+    // Get id of required field.
+    $required_field_key = key($element['#states']['required']);
+
+    if (!empty($element['#states']['required'][$required_field_key]['value'])) {
+      $required_field_id = explode('"', $required_field_key)[1];
+      $required_field_value = $element['#states']['required'][$required_field_key]['value'];
+      $required_field_submitted = $form_state->getValue([$required_field_id, 0, 'value']);
+
+      // Required value match what was submitted?
+      if ($required_field_value == $required_field_submitted) {
+        // element value not submitted or is empty?
+        if (!$form_state->getValue($element['widget']['#field_name']) || $form_state->isValueEmpty([$element['widget']['#field_name'], 0, 'value'])) {
+          // Set form error.
+          $form_state->setErrorByName($element['widget']['#field_name'], t('@field is required', ['@field' => $element['widget']['#title']]));
+        }
+      }
+    }
+  }
+}
+

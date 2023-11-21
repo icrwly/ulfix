@@ -1,0 +1,55 @@
+.section--banner {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding:  $spacing-unit;
+  position: relative;
+
+  @include breakpoint($tablet) {
+    padding:  $spacing-unit--xl;
+  }
+
+  &.content-right{
+    overflow: hidden;
+  }
+
+  &__content {
+    box-shadow: $box-shadow--level-3;
+    background: $white;
+    margin: ($spacing-unit * 3) 0;
+    padding: $spacing-unit * 1.5;
+    @include breakpoint(max-width $tablet - 1) {
+      width: 100%;
+    }
+    @include breakpoint($tablet) {
+      margin: ($spacing-unit--xl * 3) 0;
+      padding: $spacing-unit--xl;
+      max-width: 74rem;
+      min-width: 50%;
+    }
+
+    .content-right & {
+      float: right;
+    }
+  }
+
+  &__inner {
+    @include trim-margin;
+    .section--link-wrapper & {
+      color: $black;
+    }
+    .section--link-wrapper:hover & {
+      color: $red;
+    }
+  }
+
+  .widget--topics {
+    margin-bottom: $spacing-unit--l;
+  }
+
+  &__ctas {
+    .button {
+      margin: $spacing-unit--xs;
+    }
+  }
+}

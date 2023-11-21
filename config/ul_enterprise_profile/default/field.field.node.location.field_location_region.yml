@@ -1,0 +1,29 @@
+uuid: c358b74d-0f0b-4c9a-bfb7-1cd2c92f8052
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_region
+    - node.type.location
+    - taxonomy.vocabulary.markets
+id: node.location.field_location_region
+field_name: field_location_region
+entity_type: node
+bundle: location
+label: 'Location Region'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

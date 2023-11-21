@@ -1,0 +1,28 @@
+.section--inline-image {
+  figure {
+    margin: 0 auto;
+    max-width: $desktop;
+
+    img {
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+
+  figcaption {
+    font-size: 1.4rem;
+    margin-top: $spacing-unit;
+    @include breakpoint($tablet) {
+      margin-top: $spacing-unit--l;
+    }
+
+    .title {
+      color: $black;
+      margin-#{$end-direction}: $spacing-unit--xs;
+    }
+
+    .description {
+      color: $text-color--light;
+    }
+  }
+}

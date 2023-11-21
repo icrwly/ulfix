@@ -1,0 +1,7 @@
+{% block content %}
+  <li class="card-tag{{ type ? ' card-tag--' ~ type : '' }}">
+    {% block name %}
+      {{- name -}}
+    {% endblock %}
+  </li>
+{% endblock %}

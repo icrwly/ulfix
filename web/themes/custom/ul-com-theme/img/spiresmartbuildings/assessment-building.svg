@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="1280px" height="612px" viewBox="0 0 1280 612" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>building</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <polygon id="path-1" points="0 609.832242 474.471064 609.832242 474.471064 0.195500203 0 0.195500203"></polygon>
+        <polygon id="path-3" points="0.325849985 0.208173904 6.45084971 0.208173904 6.45084971 59.8025076 0.325849985 59.8025076"></polygon>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="1366" transform="translate(-80.000000, -48.000000)">
+            <g id="Criteria" transform="translate(80.000000, 48.000000)">
+                <g id="building">
+                    <rect id="Mask" fill-opacity="0.01" fill="#FFFFFF" x="0" y="0" width="1280" height="612"></rect>
+                    <g id="Group-50" transform="translate(410.000000, 0.000000)">
+                        <rect id="Rectangle" fill="#FFFFFF" x="23" y="210" width="189" height="397"></rect>
+                        <rect id="Rectangle" fill="#FFFFFF" x="153" y="61" width="95" height="55"></rect>
+                        <rect id="Rectangle" fill="#FFFFFF" x="280" y="56" width="167" height="60"></rect>
+                        <rect id="Rectangle" fill="#FFFFFF" x="117" y="116" width="330" height="489"></rect>
+                        <polygon id="Stroke-17-Copy-4" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="305.549986 376.949983 317.099986 376.949983 317.099986 355.949984 305.549986 355.949984"></polygon>
+                        <polygon id="Stroke-18-Copy-4" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="341.249985 376.949983 352.799984 376.949983 352.799984 355.949984 341.249985 355.949984"></polygon>
+                        <polygon id="Stroke-1" stroke="#00518A" stroke-width="4.19999981" points="23.099999 604.799973 212.09999 604.799973 212.09999 209.99999 23.099999 209.99999"></polygon>
+                        <polyline id="Stroke-3" stroke="#00518A" stroke-width="4.19999981" points="117.599995 210.936209 117.599995 116.549995 278.249987 116.549995 278.249987 376.949983 212.151594 376.949983"></polyline>
+                        <polygon id="Stroke-4" stroke="#00518A" stroke-width="4.19999981" points="152.249993 115.499995 247.799989 115.499995 247.799989 59.8499973 152.249993 59.8499973"></polygon>
+                        <g id="Group-9">
+                            <polyline id="Stroke-5" stroke="#00518A" stroke-width="4.19999981" points="278.471383 377.228053 278.471383 56.0999269 446.652865 56.0999269 446.652865 604.442931 359.088152 604.442931"></polyline>
+                            <mask id="mask-2" fill="white">
+                                <use xlink:href="#path-1"></use>
+                            </mask>
+                            <g id="Clip-8"></g>
+                            <polygon id="Stroke-7" stroke="#00518A" stroke-width="4.19999981" mask="url(#mask-2)" points="212.427893 604.442931 361.421965 604.442931 361.421965 377.642942 212.427893 377.642942"></polygon>
+                        </g>
+                        <polygon id="Stroke-10" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="51.4499977 286.649987 62.9999971 286.649987 62.9999971 248.849989 51.4499977 248.849989"></polygon>
+                        <polygon id="Stroke-11" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="51.4499977 350.699984 62.9999971 350.699984 62.9999971 312.899986 51.4499977 312.899986"></polygon>
+                        <polygon id="Stroke-12" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="51.4499977 415.799981 62.9999971 415.799981 62.9999971 377.999983 51.4499977 377.999983"></polygon>
+                        <polygon id="Stroke-13" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="93.4499958 286.649987 104.999995 286.649987 104.999995 248.849989 93.4499958 248.849989"></polygon>
+                        <polygon id="Stroke-14" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="93.4499958 350.699984 104.999995 350.699984 104.999995 312.899986 93.4499958 312.899986"></polygon>
+                        <polygon id="Stroke-15" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="93.4499958 415.799981 104.999995 415.799981 104.999995 377.999983 93.4499958 377.999983"></polygon>
+                        <polygon id="Stroke-16" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="133.349994 286.649987 144.899993 286.649987 144.899993 248.849989 133.349994 248.849989"></polygon>
+                        <polygon id="Stroke-17" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="305.549986 133.349994 317.099986 133.349994 317.099986 95.5499957 305.549986 95.5499957"></polygon>
+                        <polygon id="Stroke-17-Copy" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="305.549986 198.449991 317.099986 198.449991 317.099986 160.649993 305.549986 160.649993"></polygon>
+                        <polygon id="Stroke-17-Copy-2" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="305.549986 263.549988 317.099986 263.549988 317.099986 225.74999 305.549986 225.74999"></polygon>
+                        <polygon id="Stroke-17-Copy-3" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="305.549986 328.649985 317.099986 328.649985 317.099986 290.849987 305.549986 290.849987"></polygon>
+                        <polygon id="Stroke-18" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="341.249985 133.349994 352.799984 133.349994 352.799984 95.5499957 341.249985 95.5499957"></polygon>
+                        <polygon id="Stroke-18-Copy" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="341.249985 198.449991 352.799984 198.449991 352.799984 160.649993 341.249985 160.649993"></polygon>
+                        <polygon id="Stroke-18-Copy-2" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="341.249985 263.549988 352.799984 263.549988 352.799984 225.74999 341.249985 225.74999"></polygon>
+                        <polygon id="Stroke-18-Copy-3" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="341.249985 328.649985 352.799984 328.649985 352.799984 290.849987 341.249985 290.849987"></polygon>
+                        <polygon id="Stroke-19" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="377.999983 133.349994 389.549982 133.349994 389.549982 95.5499957 377.999983 95.5499957"></polygon>
+                        <polygon id="Stroke-19-Copy" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="377.999983 198.449991 389.549982 198.449991 389.549982 160.649993 377.999983 160.649993"></polygon>
+                        <polygon id="Stroke-19-Copy-2" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="377.999983 263.549988 389.549982 263.549988 389.549982 225.74999 377.999983 225.74999"></polygon>
+                        <polygon id="Stroke-19-Copy-3" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="377.999983 328.649985 389.549982 328.649985 389.549982 290.849987 377.999983 290.849987"></polygon>
+                        <polygon id="Stroke-19-Copy-4" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="377.999983 393.749982 389.549982 393.749982 389.549982 355.949984 377.999983 355.949984"></polygon>
+                        <polygon id="Stroke-19-Copy-5" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="377.999983 458.849979 389.549982 458.849979 389.549982 421.049981 377.999983 421.049981"></polygon>
+                        <polygon id="Stroke-19-Copy-6" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="377.999983 523.949976 389.549982 523.949976 389.549982 486.149978 377.999983 486.149978"></polygon>
+                        <polygon id="Stroke-20" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="413.699981 133.349994 425.249981 133.349994 425.249981 95.5499957 413.699981 95.5499957"></polygon>
+                        <polygon id="Stroke-20-Copy" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="413.699981 198.449991 425.249981 198.449991 425.249981 160.649993 413.699981 160.649993"></polygon>
+                        <polygon id="Stroke-20-Copy-2" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="413.699981 263.549988 425.249981 263.549988 425.249981 225.74999 413.699981 225.74999"></polygon>
+                        <polygon id="Stroke-20-Copy-3" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="413.699981 328.649985 425.249981 328.649985 425.249981 290.849987 413.699981 290.849987"></polygon>
+                        <polygon id="Stroke-20-Copy-4" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="413.699981 393.749982 425.249981 393.749982 425.249981 355.949984 413.699981 355.949984"></polygon>
+                        <polygon id="Stroke-20-Copy-5" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="413.699981 458.849979 425.249981 458.849979 425.249981 421.049981 413.699981 421.049981"></polygon>
+                        <polygon id="Stroke-20-Copy-6" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="413.699981 523.949976 425.249981 523.949976 425.249981 486.149978 413.699981 486.149978"></polygon>
+                        <polygon id="Stroke-33" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="133.349994 350.699984 144.899993 350.699984 144.899993 312.899986 133.349994 312.899986"></polygon>
+                        <polygon id="Stroke-34" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="133.349994 415.799981 144.899993 415.799981 144.899993 377.999983 133.349994 377.999983"></polygon>
+                        <polygon id="Stroke-35" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="176.399992 286.649987 187.949991 286.649987 187.949991 248.849989 176.399992 248.849989"></polygon>
+                        <polygon id="Stroke-36" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="176.399992 350.699984 187.949991 350.699984 187.949991 312.899986 176.399992 312.899986"></polygon>
+                        <polygon id="Stroke-37" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="176.399992 415.799981 187.949991 415.799981 187.949991 377.999983 176.399992 377.999983"></polygon>
+                        <polygon id="Stroke-38" stroke="#00518A" stroke-width="4.19999981" points="94.4999957 604.799973 144.899993 604.799973 144.899993 495.599977 94.4999957 495.599977"></polygon>
+                        <polygon id="Stroke-40" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="239.399989 568.049974 257.249988 568.049974 257.249988 412.649981 239.399989 412.649981"></polygon>
+                        <polygon id="Stroke-41" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="279.299987 568.049974 297.149987 568.049974 297.149987 412.649981 279.299987 412.649981"></polygon>
+                        <polygon id="Stroke-42" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="316.049986 568.049974 333.899985 568.049974 333.899985 412.649981 316.049986 412.649981"></polygon>
+                        <g id="Group-45" transform="translate(194.249991, 0.000000)">
+                            <mask id="mask-4" fill="white">
+                                <use xlink:href="#path-3"></use>
+                            </mask>
+                            <g id="Clip-44"></g>
+                            <line x1="3.38834985" y1="59.8025076" x2="3.38834985" y2="0.206222273" id="Stroke-43" stroke="#00518A" stroke-width="4.19999981"></line>
+                        </g>
+                        <polygon id="Stroke-46" stroke="#67B1E2" stroke-width="4.19999981" fill="#67B1E2" points="155.399993 176.399992 242.549989 176.399992 242.549989 154.349993 155.399993 154.349993"></polygon>
+                        <g id="Group-49" transform="translate(0.000000, 601.649973)" stroke="#00518A" stroke-width="4.19999981">
+                            <line x1="-0.00128904332" y1="3.15314986" x2="474.469775" y2="3.15314986" id="Stroke-47"></line>
+                        </g>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

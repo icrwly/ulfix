@@ -1,0 +1,114 @@
+$labelWidth: 9%;
+.listing-item{
+  @include box-shadow();
+  display: block;
+  margin-bottom: $spacing-unit--l;
+  overflow: hidden;
+  padding: 3%;
+  position: relative;
+  width:100%;
+  @include breakpoint($tablet){
+    align-items: center;
+    display: flex;
+    padding: 2%;
+  }
+  img{
+    border: solid 1px $grayLight;
+    border-radius: 3px;
+    display: block;
+    float: left;
+    height:50px;
+    overflow:hidden;
+    width:50px;
+  }
+  .content-container{
+    float: left;
+    width:100%;
+    @include breakpoint($tablet){
+      width:50%;
+    }
+    img &{
+      padding-left: 3%;
+      width:calc(100% - 50px);
+      @include breakpoint($tablet){
+        width:calc(50% - 50px);
+      }
+    }
+  }
+  h3{
+    color:$blueDark;
+    margin:2px 0 0;
+    padding-right: 2%;
+  }
+  .meta-container{
+    clear:both;
+    padding-top: 4%;
+    width:100%;
+    @include breakpoint($tablet){
+      padding: 0;
+      text-align:right;
+      width:50%;
+    }
+  }
+  p{
+    display: inline-block;
+    margin: 0;
+    & + p{
+      float:right;
+    }
+    @include breakpoint($tablet){
+      & + p{
+        float:none;
+      }
+    }
+    @include breakpoint($desktop){
+      padding-right:$labelWidth;
+      & + p:not(.listing-item__label){
+        padding-right: 0;
+      }
+    }
+    &:not(.listing-item__label){
+      @include font-size(14, 20);
+      color:$gray;
+      padding:8px 0;
+      @include breakpoint($tablet){
+        width:100%;
+      }
+      @include breakpoint($desktop){
+        padding-right:$labelWidth;
+        width:auto;
+      }
+    }
+    &.category{
+      @include font-size(12, 18);
+      color:$gray;
+      margin: 0;
+      padding: 0;
+    }
+  }
+  &__label{
+    @include font-size(12, 12);
+    border-radius: 100px;
+    color:$gray;
+    line-height: 37px !important;
+    padding:0 $labelWidth;
+    @include breakpoint($desktop){
+      & + p:not(.listing-item__label){
+        padding-left:$labelWidth;
+      }
+    }
+  }
+  &__label + p{
+    @include breakpoint($desktop){
+      padding-left:$labelWidth;
+    }
+  }
+  .type{
+    background-color: #dbdbdb;
+  }
+  .section{
+    &:before{
+      margin-right: 5px;
+    }
+  }
+}

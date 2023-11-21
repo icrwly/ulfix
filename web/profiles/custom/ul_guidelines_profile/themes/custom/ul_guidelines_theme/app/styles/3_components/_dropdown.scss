@@ -1,0 +1,41 @@
+.dropdown {
+	position: relative;
+
+	&__label {
+		&::after {
+			@include font-size(16, 16);
+			content: "\e908";
+			display: inline-block;
+			font-family: $iconfont;
+			font-weight: 400;
+			margin-left: 4px;
+			vertical-align: middle;
+		}
+	}
+	&__menu {
+		display: none;
+		left: 0;
+		padding: 15px 0;
+		position: absolute;
+		top: 100%;
+		transition: opacity 0.3s ease;
+		z-index: 1;
+
+		&--right {
+			left: auto !important;
+			right: 0;
+		}
+
+		&__inner {
+			background-color: $white;
+			border-radius: 4px;
+			color: $black;
+			padding: 15px;
+		}
+	}
+	&--profile{
+		.dropdown__menu{
+			min-width:150px;
+		}
+	}
+}

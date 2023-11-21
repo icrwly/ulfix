@@ -1,0 +1,21 @@
+uuid: cf114030-d3a9-4521-94ce-ee0f5e6b4d5d
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: Elo1E-K7v9sHU875Nr0Y2MdeK5RcvyeSwFvGX6dQGyg
+id: paragraph.field_cta_description
+field_name: field_cta_description
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

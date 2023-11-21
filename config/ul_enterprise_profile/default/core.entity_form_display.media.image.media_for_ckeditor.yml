@@ -1,0 +1,50 @@
+uuid: 0921134e-7bca-4026-a2eb-3f1e28c74dd9
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_for_ckeditor
+    - field.field.media.image.field_media_image
+    - image.style.media_ckeditor
+    - media.type.image
+  module:
+    - field_group
+    - image
+third_party_settings:
+  field_group:
+    group_media_caption:
+      children: {  }
+      label: Caption
+      region: hidden
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+_core:
+  default_config_hash: 7gOw7DXGtF129GLfOVylDLV1HfS_2nuuE1phDfSJ78I
+id: media.image.media_for_ckeditor
+targetEntityType: media
+bundle: image
+mode: media_for_ckeditor
+content:
+  field_media_image:
+    type: image_image
+    weight: 0
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: media_ckeditor
+    third_party_settings: {  }
+hidden:
+  created: true
+  langcode: true
+  name: true
+  path: true
+  replace_file: true
+  status: true
+  translation: true
+  uid: true

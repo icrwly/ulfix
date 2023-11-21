@@ -1,0 +1,28 @@
+{% set menu_level = menu_level|default(0) %}
+
+{# Defaults to true, set to false to override #}
+{% set is_accordion = is_accordion is defined and is_accordion == false ? false : true %}
+
+
+{% if menu_level == 0 %}
+  <ul class="menu-list {{ menu_class }}">
+{% else %}
+  <ul>
+{% endif %}
+
+{% block items %}
+  {% block before_items %}
+  {% endblock %}
+  {% for item in items %}
+    {% include '@ul_base_theme/1_core/switch--menu-item.twig' with item|merge({
+      type: type,
+      menu_level: menu_level,
+      link_class: link_class,
+      is_accordion: is_accordion,
+      back_title: back_title,
+      link_class_ga: link_class_ga
+    }) only %}
+  {% endfor %}
+{% endblock %}
+
+</ul>

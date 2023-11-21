@@ -1,0 +1,24 @@
+uuid: 2f0851e5-cfe9-4807-b096-05cb0e96b0d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_regional_page_title
+    - node.type.regional_pages
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.regional_pages.field_regional_page_title
+field_name: field_regional_page_title
+entity_type: node
+bundle: regional_pages
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

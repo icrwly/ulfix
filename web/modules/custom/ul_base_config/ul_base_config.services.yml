@@ -1,0 +1,4 @@
+services:
+  ul.config.storage_factory:
+    class: 'Drupal\ul_base_config\UlConfigStorageFactory'
+    arguments: ['@config_filter.storage_factory']

@@ -1,0 +1,8 @@
+{%- for item in items -%}
+  {% block item %}
+    <div class="file_image_default"></div>
+    <div class="file_name">
+      <p>{{ item.content }}</p>
+    </div>
+  {% endblock %}
+{%- endfor -%}

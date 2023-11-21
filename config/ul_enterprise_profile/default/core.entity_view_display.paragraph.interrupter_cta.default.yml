@@ -1,0 +1,32 @@
+uuid: 2e9643a0-c27b-4043-812f-e23a8a671662
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.interrupter_cta.field_hash_target
+    - field.field.paragraph.interrupter_cta.field_interrupter_cta_cta
+    - paragraphs.paragraphs_type.interrupter_cta
+id: paragraph.interrupter_cta.default
+targetEntityType: paragraph
+bundle: interrupter_cta
+mode: default
+content:
+  field_hash_target:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_interrupter_cta_cta:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

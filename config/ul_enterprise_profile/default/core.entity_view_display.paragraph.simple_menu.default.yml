@@ -1,0 +1,48 @@
+uuid: 929c0c34-9faa-470a-be70-847c9cb67091
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.simple_menu.field_simple_menu_cta
+    - field.field.paragraph.simple_menu.field_simple_menu_links
+    - field.field.paragraph.simple_menu.field_simple_menu_title
+    - paragraphs.paragraphs_type.simple_menu
+  module:
+    - entity_reference_revisions
+    - link
+id: paragraph.simple_menu.default
+targetEntityType: paragraph
+bundle: simple_menu
+mode: default
+content:
+  field_simple_menu_cta:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_simple_menu_links:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_simple_menu_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

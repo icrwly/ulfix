@@ -1,0 +1,82 @@
+uuid: 6b3b60bc-af44-4242-8ac6-a9e921c152b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu
+    - field.storage.block_content.field_mega_menu_sections
+    - paragraphs.paragraphs_type.menu_section
+  module:
+    - entity_reference_revisions
+id: block_content.mega_menu.field_mega_menu_sections
+field_name: field_mega_menu_sections
+entity_type: block_content
+bundle: mega_menu
+label: Sections
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      menu_section: menu_section
+    negate: 0
+    target_bundles_drag_drop:
+      basic_content:
+        weight: 19
+        enabled: false
+      call_to_action:
+        weight: 20
+        enabled: false
+      captioned_image:
+        weight: 21
+        enabled: false
+      content_section:
+        weight: 22
+        enabled: false
+      image_gallery:
+        weight: 23
+        enabled: false
+      image_row:
+        weight: 24
+        enabled: false
+      interrupter_cta:
+        weight: 25
+        enabled: false
+      list_item:
+        weight: 26
+        enabled: false
+      menu_section:
+        weight: 27
+        enabled: true
+      people:
+        weight: 28
+        enabled: false
+      quote:
+        weight: 29
+        enabled: false
+      reference:
+        weight: 30
+        enabled: false
+      related_content:
+        weight: 31
+        enabled: false
+      simple_menu:
+        weight: 32
+        enabled: false
+      slide:
+        weight: 33
+        enabled: false
+      spotlight:
+        weight: 34
+        enabled: false
+      video:
+        weight: 35
+        enabled: false
+      view:
+        weight: 36
+        enabled: false
+field_type: entity_reference_revisions

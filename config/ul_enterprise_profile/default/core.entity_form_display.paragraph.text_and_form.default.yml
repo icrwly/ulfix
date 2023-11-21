@@ -1,0 +1,71 @@
+uuid: 8ab5512d-3957-4ad9-8628-45a478c2aafe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.text_and_form.field_marketo_form
+    - field.field.paragraph.text_and_form.field_shared_bg_color
+    - field.field.paragraph.text_and_form.field_shared_view_mode
+    - field.field.paragraph.text_and_form.field_text_and_form_content
+    - paragraphs.paragraphs_type.text_and_form
+  module:
+    - field_group
+    - text
+    - ul_marketo
+    - view_mode_selector
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_bg_color
+        - field_shared_view_mode
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.text_and_form.default
+targetEntityType: paragraph
+bundle: text_and_form
+mode: default
+content:
+  field_marketo_form:
+    type: marketo_form_widget
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_view_mode:
+    type: view_mode_selector_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_text_and_form_content:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

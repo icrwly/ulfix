@@ -1,0 +1,8 @@
+<ul class="row {{ class }}">
+  {% block content %}
+    {% for item in items %}
+      {% block item %}
+      {% endblock %}
+    {% endfor %}
+  {% endblock %}
+</ul>

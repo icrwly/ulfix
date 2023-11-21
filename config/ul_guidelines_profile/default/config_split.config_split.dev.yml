@@ -1,0 +1,21 @@
+uuid: 02167a62-02a7-44d7-b3ca-326d5d927311
+langcode: en
+status: false
+dependencies: {  }
+id: dev
+label: dev
+description: ''
+weight: 0
+folder: ../config/ul_guidelines_profile/dev
+module:
+  dblog: 0
+  devel: 0
+  shield: 0
+  update: 0
+  upgrade_status: 0
+  syslog: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - syslog.settings

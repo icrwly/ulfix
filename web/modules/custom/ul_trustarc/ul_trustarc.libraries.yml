@@ -1,0 +1,15 @@
+# TrustArc JS library:
+ul_trustarc.js_lib:
+  css:
+    layout:
+      css/ul_trustarc.css: {}
+  js:
+    js/ul_trustarc.js: { attributes: {defer: true} }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.cookie
+    - ul_base_theme/jquery-custom
+    # The following item is built dynamically in
+    # the module file.
+    - ul_trustarc/external_js

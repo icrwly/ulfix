@@ -1,0 +1,11 @@
+{% extends "@ul_enterprise_theme/2_pieces/item/item--carousel-slide.twig" %}
+{% set slide_title = content.field_carousel_slide_title %}
+{% set slide_desc = content.field_carousel_slide_description %}
+{% set slide_subtitle = content.field_carousel_slide_subtitle %}
+{% set slide_cta = content.field_carousel_slide_cta %}
+
+{% if content.field_carousel_slide_video.0 is not empty %}
+  {% set slide_media = content.field_carousel_slide_video %}
+{% else %}
+  {% set slide_media = content.field_slide_media %}
+{% endif %}

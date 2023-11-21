@@ -1,0 +1,1159 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ *
+ * Adds a Marketo JavaScript snippet to page.
+ */
+
+use Drupal\node\NodeInterface;
+use Drupal\field\Entity\FieldConfig;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\ul_marketo\Entity\MarketoForm;
+use Acquia\ContentHubClient\Entity as ContentHubEntity;
+use Drupal\paragraphs\ParagraphInterface;
+use Drupal\paragraphs\Entity\Paragraph;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function ul_marketo_page_attachments(array &$attachments) {
+  // Attach Marketo Munchkin JS:
+  $attachments['#attached']['library'][] = 'ul_marketo/ul_marketo';
+
+  // Current User:
+  $user = \Drupal::currentUser();
+  // User roles:
+  $user_roles = $user->getRoles();
+
+  // If user is logged in (as author, editor, admin, etc).
+  if (isset($user_roles[0]) && $user_roles[0] !== 'anonymous') {
+    // Get the site name from config.
+    $config = \Drupal::config('system.site');
+    $site_name = $config->get('name');
+
+    // Get the current path:
+    $current_path = \Drupal::service('path.current')->getPath();
+    // URL patterns:
+    $patterns = [
+      '/\/admin\/[a-zA-Z0-9_]*/',
+      '/\/node\/\d+\/edit/',
+      '/\/node\/add\/[a-zA-Z0-9_]*/',
+      '/\/node\/[a-zA-Z0-9_]*\/translations\/add/',
+      '/\/block\/[0-9]*/',
+      '/\/block\/[0-9]*\/translations\/add\/[a-z\-]*\/[a-z\-]*/',
+    ];
+    // Loop through the patterns, and look for a match:
+    foreach ($patterns as $pattern) {
+      if (preg_match_all($pattern, $current_path)) {
+        // If matched, load the Marketo Admin JS:
+        $attachments['#attached']['library'][] = 'ul_marketo/ul_marketo.admin';
+        // Pass sitename as JS var:
+        $attachments['#attached']['drupalSettings']['ul_marketo'] = [
+          'site_name' => $site_name,
+        ];
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ul_marketo_theme($existing, $type, $theme, $path) {
+
+  $theme = [];
+
+  $theme['marketo_form'] = [
+    'render element' => 'elements',
+    'file' => 'ul_marketo.page.inc',
+    'template' => 'marketo-form',
+  ];
+
+  $theme['marketo'] = [
+    'variables' => [
+      'title' => NULL,
+      'form' => NULL,
+    ],
+    'template' => 'marketo',
+  ];
+
+  $theme['marketo_form_success'] = [
+    'variables' => [
+      'title' => NULL,
+      'message' => NULL,
+      'url' => NULL,
+    ],
+    'template' => 'marketo-form--success',
+  ];
+
+  $theme['marketo_block'] = [
+    'variables' => [
+      'id' => NULL,
+      'title' => NULL,
+      'entity' => NULL,
+      'url' => NULL,
+      'page_url' => NULL,
+      'success_url' => NULL,
+      'settings' => NULL,
+      'marketo' => NULL,
+    ],
+    'template' => 'marketo-block',
+  ];
+
+  $theme['marketo_metadata_formatter'] = [
+    'variables' => [
+      'data' => NULL,
+    ],
+    'template' => 'marketo-metadata',
+  ];
+
+  return $theme;
+}
+
+/**
+ * Implements hook_preprocess_node().
+ *
+ * NOTE: Preprocess Gated Forms and Contact Forms.
+ */
+function ul_marketo_preprocess_node(&$variables) {
+
+  /** @var \Drupal\ul_marketo\UlMarketoServiceInterface $marketo */
+  $marketo = \Drupal::service('ul_marketo');
+
+  // If there are no Mkto customizations (form entities):
+  $entity = $variables['node'];
+  if (!$entity->hasField('field_shared_marketo_custom')) {
+    return;
+  }
+
+  // If the view mode is for a card, etc.
+  $view_mode = $variables['view_mode'];
+  if (!in_array($view_mode, ['full', 'right_rail_display'])) {
+    return;
+  }
+
+  // Node info:
+  $node = \Drupal::routeMatch()->getParameter('node');
+  if (!$node) {
+    return;
+  }
+  $node_type = $node->bundle();
+  $content_field = _get_content_field($node_type);
+
+  // Does this Node support a Marketo Modal?
+  $modal_is_not_supported = FALSE;
+
+  // Paragraph types that do not support a Marketo Modal.
+  $unsupported_paragraphs = [
+    'text_and_form',
+    'mkto_inline_contact_form',
+  ];
+
+  // If there are paragraphs, look for ones that do
+  // not support the modal:
+  if ($content_field) {
+    if ($content_paragraphs = $entity->get($content_field)->getValue()) {
+      foreach ($content_paragraphs as $item) {
+        $paragraph = Paragraph::load($item['target_id']);
+        if (is_object($paragraph)) {
+          $paragraph_type = $paragraph->getType();
+          if (in_array($paragraph_type, $unsupported_paragraphs)) {
+            $modal_is_not_supported = TRUE;
+            break;
+          }
+          elseif ($paragraph_type == 'marketo_form') {
+            $form_type = FALSE;
+            if ($paragraph->hasField('field_marketo_form') && $paragraph->get('field_marketo_form')->first()) {
+              $form_type = $paragraph->get('field_marketo_form')->first()->getValue();
+              if (is_array($form_type) && isset($form_type['value'])) {
+                $form_type = $form_type['value'];
+                $unsupported_forms = ['event_form', 'email_form'];
+                if (in_array($form_type, $unsupported_forms)) {
+                  $modal_is_not_supported = TRUE;
+                  break;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // If there are no settings.
+  if (!$settings = $marketo->getEntitySettings($entity)) {
+    return;
+  }
+
+  // If settings is not array, or there is no ID (key).
+  elseif (!is_array($settings) || !isset($settings['id'])) {
+    return;
+  }
+
+  // Boolean (T/F): Do we need to add attachments?
+  $add_attachments = FALSE;
+
+  // Boolean (T/F): Do we show the form in a modal?
+  $is_modal = FALSE;
+
+  // The form type:
+  $form_type = $settings['id'];
+
+  // If Gated Content Form:
+  if ($form_type == 'gated_content_form') {
+    // We only care if the node IS gated:
+    if ($settings['field_node_is_gated']) {
+      $add_attachments = TRUE;
+      $modal_is_not_supported = TRUE;
+      $is_modal = FALSE;
+      $variables['marketo']['gated_form'] = TRUE;
+      $variables['#attached']['drupalSettings']['marketo']['gated_content_form'] = TRUE;
+      $variables['marketo']['num_paragraphs'] = isset($settings['field_num_paragraphs']) ? $settings['field_num_paragraphs'] : 1;
+      $variables['marketo']['dataLayerEvent'] = 'Gated Content Form Submit';
+    }
+  }
+
+  // Elseif Contact Form and Marketo Modal is supported:
+  elseif (
+    in_array($form_type, ['generic_form', 'contact_form_configurable'])
+    && $modal_is_not_supported == FALSE
+  ) {
+    $add_attachments = TRUE;
+    $is_modal = TRUE;
+    $variables['marketo']['gated_form'] = FALSE;
+    $variables['marketo']['is_modal'] = TRUE;
+    $variables['#attached']['drupalSettings']['marketo']['is_modal'] = TRUE;
+    $variables['marketo']['dataLayerEvent'] = 'Contact Form Submit';
+  }
+
+  // Do we need to add page attachments?
+  if ($add_attachments) {
+    // Add settings for use in the TWIG context:
+    $variables['content']['marketo'] = $marketo->getThemeSettings($settings);
+
+    // Use site configs to get site name:
+    $siteConfig = \Drupal::config('system.site');
+    $site_name = $siteConfig->get('name');
+    $variables['marketo']['site_name'] = $site_name;
+
+    // Add attachments:
+    _mkto_attachments($variables, $form_type, $is_modal);
+
+    // Opt-in file:
+    _mkto_optin_file($variables, $site_name);
+  }
+}
+
+/**
+ * Default node form settings.
+ *
+ * @param array $form
+ *   The host form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ */
+function ul_marketo_node_form(array $form, FormStateInterface $form_state) {
+  // Intentionally blank.
+}
+
+/**
+ * Form callback function for rebuilding the form.
+ *
+ * @param array $form
+ *   The host form array.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   The form state object.
+ *
+ * @return mixed
+ *   The portion of the form that is modified with ajax.
+ */
+function ul_marketo_node_form_rebuild(array $form, FormStateInterface $form_state) {
+  $instance = $form_state->getValue('instance');
+  $form_state->setRebuild();
+  if ($instance === 'Enterprise') {
+    return $form['marketo_form']['last_interest'];
+  }
+
+  return [];
+}
+
+/**
+ * Implements hook_form_node_form_alter().
+ */
+function ul_marketo_form_node_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  /** @var \Drupal\node\NodeInterface $entity */
+  $entity = $form_state->getFormObject()->getEntity();
+
+  $form['meta']['uuid'] = [
+    '#type' => 'textfield',
+    '#title' => t('UUID:'),
+    '#default_value' => $entity->uuid(),
+    '#attributes' => ['readonly' => 'readonly'],
+    '#weight' => -100,
+    '#description' => t('The identifier to be used for referencing this content from outside sources like Marketo. Consistent across all environments.'),
+  ];
+
+  // Custom form validation.
+  $form['#validate'][] = 'ul_marketo_entity_form_validate';
+}
+
+/**
+ * Form validation handler called in hook_form_FORM_ID_alter.
+ *
+ * @param array $form
+ *   Form object.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   FormState Interface.
+ */
+function ul_marketo_entity_container_validate(array $form, FormStateInterface &$form_state) {
+  $rr_marketo_cta = $form_state->getValue('field_shared_rr_marketo_cta');
+  $rr_cta_link = $form_state->getValue('field_shared_rr_cta_link');
+  $marketo_link = $form_state->getValue('field_shared_marketo_link');
+  $header_link = $form_state->getValue('field_shared_header_link');
+
+  // Validation: Can't have Marketo CTA and CTA in RR at the same time.
+  if ($rr_marketo_cta[0] != '_none' && $rr_cta_link[0]['uri'] != '') {
+    $form_state->setErrorByName('field_shared_rr_marketo_cta', t('The Right Rail cannot have a CTA Link and a Sidebar Marketo CTA. Choose only one.'));
+  }
+
+  // Cannot have RR CTA and RR Marketo CTA at the same time.
+  $rrmkto = $form_state->getValue('field_shared_rr_marketo_cta');
+  if ($rrmkto[0] != '_none') {
+    $rrcta = $form_state->getValue('field_shared_rr_cta_link');
+    if ($rrcta[0]['uri'] != '') {
+      $form_state->setErrorByName('field_shared_rr_marketo_cta', t('The Right Rail cannot have a CTA Link and a Right Rail Marketo CTA. Choose only one.'));
+    }
+  }
+
+  // Validation: Can't have Marketo CTA and CTA Link in Header at the same time.
+  if ($marketo_link[0] != '_none' && $header_link[0]['uri'] != '') {
+    $form_state->setErrorByName('field_shared_marketo_link', t('The Header cannot have a Header Link and a Marketo CTA. Choose only one.'));
+  }
+}
+
+/**
+ * Form validation handler called in hook_form_FORM_ID_alter.
+ *
+ * @param array $form
+ *   Form object.
+ * @param \Drupal\Core\Form\FormStateInterface $form_state
+ *   FormState Interface.
+ */
+function ul_marketo_entity_form_validate(array $form, FormStateInterface &$form_state) {
+  // Marketo Routing Values are conditionally required if a Mkto form is used in
+  // the Mkto Hdr CTA, the Mkto RR CTA, a Mkto paragraph, or a Gated form.
+  // And...
+  // We check Campaign Landing Pages because they do not support the use of
+  // the Right Rail and a Gated Content Form at the same time.
+  $values = $form_state->getValues();
+  if (isset($values['marketo_form'])) {
+    $values = $values['marketo_form'];
+  }
+
+  // Get the node entity:
+  $node = $form_state->getFormObject()->getEntity();
+
+  // If node, try to get the node type:
+  if ($node) {
+    $node_type = $node->getType();
+  }
+  else {
+    $node_type = FALSE;
+  }
+
+  // We do not need to validate these node types.
+  // They do not have Marketo forms.
+  $donot_validate = [
+    'person',
+    'location',
+    'market_access_profile',
+    'homepage',
+    'regional_pages',
+  ];
+  if (in_array($node_type, $donot_validate)) {
+    return;
+  }
+
+  // Does a Gated form exist:
+  $gated_form_exists = FALSE;
+  if ($node->hasField('field_shared_marketo_custom')) {
+    $mkto_entities = $node->get('field_shared_marketo_custom')->referencedEntities();
+    if (is_array($mkto_entities) && count($mkto_entities) > 0) {
+      foreach ($mkto_entities as $key => $val) {
+        if (is_numeric($key)) {
+          if ($val->hasField('field_node_is_gated')) {
+            $gated_field = $val->get('field_node_is_gated');
+            if (!$gated_field->isEmpty()) {
+              $gated_field_value = $gated_field->getValue();
+              if (is_array($gated_field_value) && isset($gated_field_value[0])) {
+                if ($gated_field_value[0]['value'] == 1) {
+                  $gated_form_exists = TRUE;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Is the Right Rail enabled:
+  $rr_enabled = FALSE;
+  if (isset($values['field_shared_rr_checkbox']['value'])) {
+    $rr_enabled = $values['field_shared_rr_checkbox']['value'];
+  }
+
+  // "Campaign Landing Pages" cannot use Right Rail
+  // and Gated Content Form at the same time.
+  if ($node_type == 'campaign_page') {
+    if ($rr_enabled && $gated_form_exists) {
+      $form_state->setErrorByName('form-item-field-shared-rr-checkbox-value', t('Campaign Landing Pages cannot use the Right Rail and the Gated Content Form at the same time. Please choose one or the other.'));
+      return;
+    }
+  }
+
+  // Get the Last Interest (routing value):
+  if (isset($values['field_shared_marketo_forms'][0]['last_interest'])) {
+    $last_interest = $values['field_shared_marketo_forms'][0]['last_interest'];
+  }
+  else {
+    $last_interest = FALSE;
+  }
+
+  // IF we have the Last Interest:
+  if ($last_interest) {
+    // We can return, we are good:
+    return;
+  }
+
+  // Else, we do not have both Routing Values.
+  // Do we need them (or not):
+  // FALSE by default.
+  $routing_fields_required = FALSE;
+
+  // MARKETO HEADER LINK?
+  if (isset($values['field_shared_marketo_link'][0][0]['value'])) {
+    $routing_fields_required = TRUE;
+  }
+
+  // MARKETO RIGHT RAIL?
+  if (isset($values['field_shared_rr_marketo_cta'][0][0]['value'])) {
+    $routing_fields_required = TRUE;
+  }
+
+  // Other checks...
+  if ($node_type) {
+    // The $field for page content (paragraphs):
+    $field = _get_content_field($node_type);
+
+    // Get the paragraphs content.
+    $paragraphs = $node->$field->getValue();
+
+    // MARKETO PARAGRAPHS?
+    if ($paragraphs && isset($paragraphs[0]) && count($paragraphs[0]) > 0) {
+      // Different Marketo Paragraph types,
+      // these are what we are looking for:
+      $mkto_paragraphs = [
+        'campaign_form',
+        'text_and_form',
+        'marketo_form',
+      ];
+
+      // Loop through each paragraph, and look for a match:
+      foreach ($paragraphs as $key => $val) {
+        if (is_numeric($key)) {
+          if (isset($paragraphs[$key]['entity'])) {
+            $paragraph_type = $paragraphs[$key]['entity']->bundle();
+            if (in_array($paragraph_type, $mkto_paragraphs)) {
+              $routing_fields_required = TRUE;
+              break;
+            }
+          }
+        }
+      }
+    }
+
+    // USER SUBMITTED DATA?
+    if (isset($values[$field]) && is_array($values[$field])) {
+      foreach ($values[$field] as $key => $val) {
+        if (is_numeric($key)) {
+          if (isset($val['subform']['field_marketo_form'][0][0]['value'])) {
+            $routing_fields_required = TRUE;
+            break;
+          }
+        }
+      }
+    }
+
+    // GATED CONTENT FORM?
+    if ($gated_form_exists) {
+      $routing_fields_required = TRUE;
+    }
+  }
+
+  // ERROR:
+  // If routing values are required:
+  if ($routing_fields_required) {
+    // If there is no "Last Interest" value.
+    if (
+      !isset($values['field_shared_marketo_forms'][0]['last_interest'])
+      ||
+      empty($values['field_shared_marketo_forms'][0]['last_interest'])
+    ) {
+      $form_state->setErrorByName('field_shared_marketo_forms', t('Please specify the Last Interest.'));
+    }
+  }
+}
+
+/**
+ * Implements hook_acquia_contenthub_cdf_from_drupal_alter().
+ */
+function ul_marketo_acquia_contenthub_cdf_from_drupal_alter(ContentHubEntity $contenthub_entity) {
+  $attributes = $contenthub_entity->getAttributes();
+  if (array_key_exists('field_shared_marketo_forms', $attributes)) {
+    $attribute = $contenthub_entity->getAttribute('field_shared_marketo_forms')->getValue('en');
+    $field_array = json_decode($attribute[0], TRUE);
+    if (json_last_error() === JSON_ERROR_NONE) {
+      $new_field_array = $field_array;
+      /** @var \Drupal\taxonomy\TermStorageInterface $taxonomy_manager */
+      $taxonomy_manager = \Drupal::service('entity_type.manager')->getStorage('taxonomy_term');
+      foreach ($field_array as $field => $value) {
+        if ($field === 'by_industry' || $field === 'by_industry_subindustries') {
+
+          /** @var \Drupal\taxonomy\Entity\Term $term */
+          if ($term = $taxonomy_manager->load($value)) {
+            $new_field_array[$field] = $term->uuid();
+          }
+        }
+      }
+      $field_diff = array_diff($field_array, $new_field_array);
+      if (count($field_diff) > 0) {
+        $new_attribute[] = json_encode($new_field_array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT);
+        $contenthub_entity->setAttributeValue('field_shared_marketo_forms', $new_attribute, 'en');
+      }
+    }
+  }
+}
+
+// phpcs:disable
+/**
+ * Instance of hook_acquia_contenthub_cdf_from_hub_alter().
+ */
+function ul_marketo_acquia_contenthub_cdf_from_hub_alter(ContentHubEntity $contenthub_entity) {
+  $attributes = $contenthub_entity->getAttributes();
+  if (array_key_exists('field_shared_marketo_forms', $attributes)) {
+    $attribute = $contenthub_entity->getAttribute('field_shared_marketo_forms');
+    $field_array = json_decode($attribute['value']['en'][0], TRUE);
+    if (json_last_error() === JSON_ERROR_NONE) {
+      $new_field_array = $field_array;
+      /** @var \Drupal\Core\Entity\EntityRepositoryInterface $entity_repository */
+      $entity_repository = \Drupal::service('entity.repository');
+      foreach ($field_array as $field => $value) {
+        if ($field === 'by_industry' || $field === 'by_industry_subindustries') {
+          /** @var \Drupal\taxonomy\Entity\Term $term */
+          if ($term = $entity_repository->loadEntityByUuid('taxonomy_term', $value)) {
+            $new_field_array[$field] = $term->id();
+          }
+        }
+      }
+      $languages = array_keys($attribute['value']);
+      $field_diff = array_diff($field_array, $new_field_array);
+      if (count($field_diff) > 0) {
+        $new_attribute = json_encode($new_field_array, JSON_HEX_TAG | JSON_HEX_APOS | JSON_HEX_AMP | JSON_HEX_QUOT);
+        foreach ($languages as $language) {
+          unset($contenthub_entity['attributes']['field_shared_marketo_forms']['value'][$language]);
+          $contenthub_entity['attributes']['field_shared_marketo_forms']['value'][$language][] = $new_attribute;
+        }
+      }
+    }
+  }
+}
+
+// function ul_marketo_acquia_contenthub_drupal_from_cdf_alter($entity_type, &$entity) {
+//   $test = $entity;
+//   $field = $entity->get('field_shared_marketo_forms');
+//   if (is_object(json_decode($field[0]['instance']))) {
+//     $entity->set('field_shared_marketo_forms');
+//   }
+// }
+// phpcs:enable
+
+/**
+ * Implements hook_entity_update().
+ */
+function ul_marketo_marketo_form_entity_update(EntityInterface $entity) {
+  if (isset($entity->ul_marketo_settings)) {
+    $settings = $entity->ul_marketo_settings;
+    $marketo = \Drupal::service('ul_marketo');
+    $marketo->setEntitySettings($entity->getEntityTypeId(), $entity->id(), $settings);
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ */
+function ul_marketo_marketo_form_entity_insert(EntityInterface $entity) {
+  if (isset($entity->ul_marketo_settings)) {
+    $settings = $entity->ul_marketo_settings;
+    $marketo = \Drupal::service('ul_marketo');
+    $marketo->setEntitySettings($entity->getEntityTypeId(), $entity->id(), $settings);
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ */
+function ul_marketo_entity_delete(EntityInterface $entity) {
+  $marketo = \Drupal::service('ul_marketo');
+  $marketo->removeEntitySettings($entity->getEntityTypeId(), [$entity->id()]);
+}
+
+/**
+ * Implements hook_library_info_alter().
+ */
+function ul_marketo_library_info_alter(&$libraries, $extension) {
+  // Updating our libraries file with the dynamic javascript library.
+  if ($extension == 'ul_marketo') {
+    // L2O: Only one instance: Enterprise.
+    $instanceSettings = \Drupal::service('ul_marketo')->getInstanceSettings();
+    foreach ($instanceSettings as $id => $instance) {
+      $path = \Drupal::service('ul_marketo')->getInstanceScriptUrl();
+      $libraries['ul_marketo.instance.' . $id] = [
+        'header' => TRUE,
+        'js' => [
+          $path => [
+            'type' => 'external',
+            'minified' => TRUE,
+            'preprocess' => FALSE,
+          ],
+        ],
+      ];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_info_alter().
+ */
+function ul_marketo_marketo_form_info_alter(&$info) {
+  // Intentionally left blank.
+}
+
+/**
+ * Implements hook_theme_suggestions_marketo_block_alter().
+ */
+function ul_marketo_theme_suggestions_marketo_block_alter(&$suggestions, $variables) {
+  $suggestions[] = 'marketo_block__' . $variables['id'];
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function ul_marketo_theme_suggestions_marketo_form(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#marketo_form'] ?? NULL;
+
+  $sanitized_view_mode = '';
+  if (array_key_exists('#view_mode', $variables['elements'])) {
+    $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+  }
+
+  // @todo Come back to this?
+  if (!empty($sanitized_view_mode)) {
+    $suggestions[] = 'marketo_form__' . $sanitized_view_mode;
+  }
+  if (!empty($entity)) {
+    $suggestions[] = 'marketo_form__' . $entity->bundle();
+    $suggestions[] = 'marketo_form__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  }
+  if (empty($entity) && $variables['elements']['#id']) {
+    $suggestions[] = 'marketo_form__' . $variables['elements']['#id'];
+  }
+
+  return $suggestions;
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function ul_marketo_preprocess_paragraph(&$variables) {
+
+  // The current paragraph object:
+  $paragraph = $variables['paragraph'];
+
+  // If Paragraph is instance of a paragraph entity:
+  if (!empty($paragraph) && $paragraph instanceof ParagraphInterface) {
+
+    // The Paragraph Type:
+    $paragraph_type = $paragraph->bundle();
+
+    // The Marketo Paragraph Types:
+    $mkto_paragraph_types = [
+      'marketo_form',
+      'text_and_form',
+      'campaign_form',
+      'mkto_inline_contact_form',
+    ];
+
+    // IMPORTANT: We only care about Marketo Paragraphs!
+    // If this paragraph is one of the Marketo Paragraph Types:
+    if (in_array($paragraph_type, $mkto_paragraph_types)) {
+
+      // Set these defaults:
+      $is_banner_cta = FALSE;
+      $gated_form_exists = FALSE;
+      $modal_is_not_supported = FALSE;
+
+      // The parent entity.
+      $parent = $paragraph->getParentEntity();
+
+      /** @var Drupal\ul_marketo\UlMarketoServiceInterface $marketo */
+      $marketo = \Drupal::service('ul_marketo');
+
+      // Site configs.
+      $site_config = \Drupal::config('system.site');
+
+      if ($parent->hasField('field_shared_marketo_custom')) {
+        if ($settings = $marketo->getEntitySettings($parent)) {
+          if (isset($settings['id']) && $settings['id'] == 'gated_content_form') {
+            // If parent has a Gated Content form, return.
+            // Do not preprocess paragraph.
+            $gated_form_exists = TRUE;
+            $modal_is_not_supported = TRUE;
+          }
+        }
+      }
+
+      // The Marketo Metadata Settings.
+      $mkto_metadata = \Drupal::config('ul_marketo.metadata.settings');
+
+      // Get all the instance settings.
+      $mkto_instance_settings = $marketo->getInstanceSettings();
+
+      // The Paragraphs's Marketo form entity settings.
+      unset($settings);
+      $settings = $marketo->getEntitySettings($paragraph);
+
+      // The site name.
+      $site_name = $site_config->get('name');
+      $variables['marketo']['site_name'] = $site_name;
+
+      // Paragraph type.
+      $variables['marketo']['paragraph_type'] = $paragraph_type;
+
+      // Form Language.
+      $form_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+      $variables['marketo']['form_language'] = $form_language;
+
+      // The reCaptcha site key:
+      $recaptcha_site_key = $mkto_metadata->get('recaptcha_site_key');
+      $variables['marketo']['recaptcha_site_key'] = $recaptcha_site_key;
+
+      // "Environment".
+      $mkto_env = $mkto_metadata->get('env');
+      $variables['marketo']['mkto_env'] = $mkto_env;
+
+      // Marketo instance.
+      $mkto_instance = 'Enterprise';
+      $variables['marketo']['instance'] = $mkto_instance;
+
+      // Munchkin ID:
+      $munchkin_code = $mkto_instance_settings[$mkto_instance]['munchkin_code'] ?? NULL;
+      $variables['marketo']['munchkin_code'] = $munchkin_code;
+
+      // Base URL:
+      $base_url = $mkto_instance_settings[$mkto_instance]['base_url'] ?? NULL;
+      $variables['marketo']['base_url'] = $base_url;
+
+      // The parent type (likely a node).
+      $parent_type = $parent->getEntityTypeId();
+      $variables['marketo']['parent_type'] = $parent_type;
+
+      // The form type (array).
+      if ($paragraph->hasField('field_marketo_form')
+        && $paragraph->get('field_marketo_form')->first()
+      ) {
+        $form_type = $paragraph->get('field_marketo_form')->first()->getValue();
+      }
+      else {
+        $form_type = NULL;
+      }
+
+      // If there is a Gated Form on the node:
+      if ($gated_form_exists && $modal_is_not_supported) {
+        $form_type = FALSE;
+      }
+
+      // The form type value (key).
+      if (is_array($form_type) && isset($form_type['value'])) {
+        // Form type.
+        $form_type = $form_type['value'];
+
+        // Create a CSS class:
+        $class = str_replace('_', '-', $form_type);
+
+        // Should this be displayed as a form or a CTA banner?
+        switch ($form_type) {
+
+          case 'generic_form':
+            $is_banner_cta = TRUE;
+            if ($paragraph_type == 'mkto_inline_contact_form') {
+              $is_banner_cta = FALSE;
+            }
+            break;
+
+          case 'contact_form_configurable':
+            $is_banner_cta = TRUE;
+            if ($paragraph_type == 'mkto_inline_contact_form') {
+              $is_banner_cta = FALSE;
+            }
+            break;
+
+          case 'mkto_inline_contact_form':
+          case 'campaign_form':
+          case 'text_and_form':
+          case 'event_form':
+            $is_banner_cta = FALSE;
+            break;
+
+          case 'email_form':
+            $is_banner_cta = TRUE;
+            if (isset($settings['field_newsletter_type'])) {
+              $is_banner_cta = FALSE;
+            }
+            break;
+
+          default:
+            $is_banner_cta = TRUE;
+            break;
+        }
+      }
+      // Else, we do not have the form type!
+      // Therefore we need to output the paragraph
+      // as an banner CTA.
+      else {
+        $form_type = FALSE;
+        $class = '';
+        $is_banner_cta = TRUE;
+      }
+
+      // Add the form type:
+      $variables['marketo']['form_type'] = $form_type;
+      $variables['marketo']['mkto_bundle'] = $form_type;
+
+      // Add the class to ATTRIBUTES:
+      $variables['attributes']['class'] = [$class];
+
+      // Marketo form CTA:
+      $variables['marketo']['marketo_form_cta'] = $is_banner_cta;
+
+      // If there is NOT a Gated Form on the node:
+      if (!$gated_form_exists) {
+        // Form entity "customizations":
+        $newsletter_type = isset($settings['field_newsletter_type']) ? $settings['field_newsletter_type'] : '';
+        $variables['marketo']['newsletter_item'] = $newsletter_type;
+
+        $button_text = isset($settings['field_shared_button_text']) ? $settings['field_shared_button_text'] : 'Submit';
+        $variables['marketo']['button_text'] = $button_text;
+
+        $cta_button_text = isset($settings['field_shared_cta_button_text']) ? $settings['field_shared_cta_button_text'] : 'Submit';
+        $variables['marketo']['button_cta_text'] = $cta_button_text;
+
+        $form_title = isset($settings['field_shared_custom_title']) ? $settings['field_shared_custom_title'] : '';
+        $variables['marketo']['form_title'] = $form_title;
+
+        $form_description = isset($settings['field_shared_form_description']) ? $settings['field_shared_form_description'] : '';
+        $variables['marketo']['form_description'] = $form_description;
+
+        // Custom Thank You Page.
+        if (isset($settings['field_shared_thank_you_page']) && $settings['field_shared_thank_you_page']) {
+          $success_url = $settings['field_shared_thank_you_page'];
+          $custom_thank_you_page = TRUE;
+        }
+        // Else, use default Success URL.
+        else {
+          if (isset($settings['settings']['path'])) {
+            if ($form_language !== 'en') {
+              $success_url = '/' . $form_language . $settings['settings']['path'] . '/thank-you';
+            }
+            else {
+              $success_url = $settings['settings']['path'] . '/thank-you';
+            }
+          }
+          else {
+            $success_url = FALSE;
+          }
+          $custom_thank_you_page = FALSE;
+        }
+
+        // Add Success URL to variables:
+        $variables['marketo']['success_url'] = $success_url;
+        $variables['marketo']['custom_thank_you_page'] = $custom_thank_you_page;
+        $variables['marketo']['use_thnkyou_mssg'] = FALSE;
+
+        // Can we get the marketo form ID:
+        $form_id = FALSE;
+        if (isset($settings['marketo_form_id']) && is_array($settings['marketo_form_id'])) {
+          foreach ($settings['marketo_form_id'] as $key => $value) {
+            if (is_numeric($key) && isset($value['filters']['env'])) {
+              if ($value['filters']['env'] == $mkto_env) {
+                $form_id = $value['value'];
+              }
+            }
+          }
+        }
+
+        // Form ID:
+        $variables['marketo']['form_id'] = $form_id;
+
+        // Is this a "configurable" contact form?
+        $variables['marketo']['configurable'] = FALSE;
+        if ($form_type == 'contact_form_configurable') {
+          require dirname(__FILE__) . '/ul_marketo.configure_fields.php';
+          $variables['marketo']['configurable'] = TRUE;
+        }
+
+        // Set the Data Layer Event (used on success event):
+        switch ($form_type) {
+          case 'event_form':
+            $dataLayerEvent = 'Event Registration Form Submit';
+            break;
+
+          case 'email_form':
+            $dataLayerEvent = 'Newsletter Signup Form Submit';
+            break;
+
+          case 'gated_content_form':
+            $dataLayerEvent = 'Gated Content Form Submit';
+            break;
+
+          default:
+            $dataLayerEvent = 'Contact Us Form Submit';
+            break;
+        }
+
+        $variables['marketo']['dataLayerEvent'] = $dataLayerEvent;
+      }
+
+      // If parent is "node".
+      if ($parent_type == 'node') {
+        $variables['marketo']['node_nid'] = $parent->id();
+        $variables['marketo']['node_uuid'] = $parent->uuid();
+        $variables['marketo']['node_title'] = $parent->label();
+        $variables['marketo']['mkto_campaign'] = $parent->field_shared_marketo_forms->mkto_campaign;
+        $variables['marketo']['last_interest'] = $parent->field_shared_marketo_forms->last_interest;
+      }
+      else {
+        $variables['marketo']['node_nid'] = NULL;
+        $variables['marketo']['node_uuid'] = NULL;
+        $variables['marketo']['node_title'] = NULL;
+        $variables['marketo']['mkto_campaign'] = NULL;
+        $variables['marketo']['last_interest'] = NULL;
+      }
+
+      // Is this a Horizontal?
+      if (empty($variables['marketo']['last_interest']) || $variables['marketo']['last_interest'] == 'General Contact' || $variables['marketo']['last_interest'] == 'General Contact - Software') {
+        $variables['marketo']['is_horizontal'] = TRUE;
+        if ($variables['marketo']['last_interest'] == 'General Contact - Software') {
+          $variables['marketo']['last_interest'] = 'General Contact - Software';
+          $variables['marketo']['is_horizontal_soft'] = TRUE;
+        }
+        else {
+          $variables['marketo']['last_interest'] = 'General Contact';
+        }
+      }
+      else {
+        $variables['marketo']['is_horizontal'] = FALSE;
+        $variables['marketo']['is_horizontal_soft'] = FALSE;
+      }
+
+      // Don't add the Library items (below) if this is a
+      // Mkto interrupter that is displayed as a banner CTA:
+      if ($paragraph_type == 'marketo_form' && $is_banner_cta) {
+        return;
+      }
+
+      // Pass values into JS context:
+      foreach ($variables['marketo'] as $key => $value) {
+        $variables['#attached']['drupalSettings']['marketo'][$key] = $value;
+      }
+
+      // Attach library items:
+      if (str_contains(strtolower($site_name), 'emergo')) {
+        $variables['#attached']['library'][] = 'ul_marketo/ul_marketo.gdpr_emergo';
+      }
+      else {
+        $variables['#attached']['library'][] = 'ul_marketo/ul_marketo.gdpr_default';
+      }
+
+      // Add attachments:
+      _mkto_attachments($variables, $form_type);
+
+      // Opt-in file:
+      _mkto_optin_file($variables, $site_name);
+
+    } // End if only a Mkto Paragraph type.
+  }
+}
+
+/**
+ * Helper function to automatically create forms.
+ *
+ * @param \Drupal\node\NodeInterface $entity
+ *   The current node.
+ *
+ * @return array
+ *   Array of new forms to be added.
+ */
+function _ul_marketo_update_forms(NodeInterface $entity) {
+  $link_field_names = [
+    'field_shared_marketo_link',
+    'field_shared_rr_marketo_cta',
+  ];
+  $form_types = [];
+  if ($entity instanceof NodeInterface) {
+    foreach ($link_field_names as $link_field_name) {
+      if ($entity->hasField($link_field_name)) {
+        $form_types[] = $entity->$link_field_name->value;
+      }
+    }
+    $forms_referenced_by_paragraphs = [];
+    $definitions = \Drupal::service('entity_field.manager')->getFieldDefinitions('node', $entity->getType());
+    foreach ($definitions as $value) {
+      if ($value instanceof FieldConfig) {
+        /** @var \Drupal\field\Entity\FieldConfig $value */
+        $type = $value->getType();
+        if ($type === 'entity_reference_revisions' && $value->getSetting('target_type') === 'paragraph') {
+          $field_name = $value->getName();
+          $paragraph_forms = $entity->get($field_name)->referencedEntities();
+          foreach ($paragraph_forms as $form) {
+            if ($form->getType() === 'marketo_form') {
+              $forms_referenced_by_paragraphs[] = $form->get('field_marketo_form')->value;
+            }
+          }
+        }
+      }
+    }
+
+    $form_types = array_merge($form_types, $forms_referenced_by_paragraphs);
+    $form_types = array_filter($form_types);
+
+    if ($entity->hasField('field_shared_marketo_custom')) {
+      $existing_forms = $entity->get('field_shared_marketo_custom')->getValue();
+      $referenced_forms = $entity->get('field_shared_marketo_custom')->referencedEntities() ?? FALSE;
+      $r_form_types = [];
+      foreach ($referenced_forms as $r_form) {
+        /** @var \Drupal\ul_marketo\Entity\MarketoForm $r_form */
+        $r_form_types[] = $r_form->bundle();
+      }
+      if (!$referenced_forms
+        || count($referenced_forms) < count($form_types)
+        || count(array_diff($existing_forms, $form_types) > 0)
+        ) {
+        foreach ($form_types as $k => $type) {
+          foreach ($referenced_forms as $form) {
+            if ($type === $form->bundle()) {
+              $unchanged_forms[] = $form_types[$k];
+              unset($form_types[$k]);
+            }
+          }
+        }
+        if (count($form_types) > 0) {
+          foreach ($form_types as $type) {
+            $new_form = MarketoForm::create([
+              'type' => $type,
+            ]);
+            $new_form->isNew();
+            $new_form->save();
+            $existing_forms[] = [
+              'target_id' => $new_form->id(),
+              'target_revision_id' => $new_form->getRevisionId(),
+            ];
+          }
+          return $existing_forms;
+        }
+      }
+    }
+  }
+  return [];
+}
+
+/**
+ * Helper function.
+ */
+function _mkto_attachments(&$variables, $form_type, $is_modal = FALSE) {
+  $variables['#attached']['library'][] = 'ul_marketo/ul_marketo.mkto_api';
+  $variables['#attached']['library'][] = 'ul_marketo/ul_marketo.form_helpers';
+
+  if ($form_type == 'contact_form_configurable') {
+    $variables['#attached']['library'][] = 'ul_marketo/ul_marketo.custom_validation';
+  }
+
+  if ($is_modal) {
+    $variables['#attached']['library'][] = 'ul_marketo/ul_marketo.modal';
+  }
+}
+
+/**
+ * Helper function.
+ */
+function _mkto_optin_file(&$variables, $site_name) {
+  $module_handler = \Drupal::service('module_handler');
+  $path = $module_handler->getModule('ul_marketo')->getPath();
+  $js_path = '/' . $path . '/js/gdpr-mssg/';
+
+  if (str_contains(strtolower($site_name), 'emergo')) {
+    $variables['marketo']['optin_file'] = $js_path . 'emergo.js';
+  }
+  else {
+    $variables['marketo']['optin_file'] = $js_path . 'default.js';
+  }
+}
+
+/**
+ * Helper function to get the content field by node type.
+ */
+function _get_content_field($node_type) {
+
+  switch ($node_type) {
+    case 'campaign_page':
+      $field = 'field_campaign_page_content';
+      break;
+
+    case 'knowledge':
+      $field = 'field_know_content';
+      break;
+
+    case 'offering':
+      $field = 'field_of_content';
+      break;
+
+    case 'regional_pages':
+      $field = 'field_regional_page_content';
+      break;
+
+    case 'thankyou_pages':
+      $field = 'field_thankyou_page_content';
+      break;
+
+    case 'help':
+    case 'hub':
+    case 'event':
+    case 'landing_page':
+    case 'news':
+    case 'page':
+    case 'resource':
+    case 'tool':
+      $field = 'field_' . $node_type . '_content';
+      break;
+
+    default:
+      $field = FALSE;
+      break;
+  }
+
+  return $field;
+}

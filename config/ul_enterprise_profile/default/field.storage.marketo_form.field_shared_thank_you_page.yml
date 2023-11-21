@@ -1,0 +1,20 @@
+uuid: c2a3a451-b4ee-4c43-95cf-0e94d5046a13
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - ul_marketo
+id: marketo_form.field_shared_thank_you_page
+field_name: field_shared_thank_you_page
+entity_type: marketo_form
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

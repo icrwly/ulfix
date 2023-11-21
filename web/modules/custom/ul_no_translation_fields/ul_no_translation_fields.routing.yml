@@ -1,0 +1,7 @@
+ul_no_translation_fields.settings_form:
+  path: '/admin/config/system/ul-no-translation-fields'
+  defaults:
+    _title: 'UL No Translation Fields settings'
+    _form: 'Drupal\ul_no_translation_fields\Form\SettingsForm'
+  requirements:
+    _permission: 'administer tmgmt'

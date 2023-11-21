@@ -1,0 +1,18 @@
+// Used when creating alternate display (Supply Chain Management).
+// Only displayed for $desktop++.
+.lp_hdr_links {
+  display: none;
+
+  @include breakpoint($desktop) {
+    display: block;
+    margin-left: auto;
+    border-radius: 4px;
+    background: #ececec;
+    font-size: 12px;
+    padding: 8px 12px;
+  }
+
+  a {
+    padding: 0 5px;
+  }
+}

@@ -1,0 +1,24 @@
+.nav--local {
+  &.is-desktop {
+    display: none;
+    @include breakpoint($desktop) {
+      display: block;
+    }
+    .nav__inner-container {
+      @include breakpoint($desktop) {
+        height: 75vw * $hero-aspect-ratio;
+        max-height: 56vh;
+        min-height: 210px;
+      }
+      @include breakpoint($desktop, min-height (675px * $hero-aspect-ratio)) {
+        max-height: 675px * $hero-aspect-ratio;
+      }
+    }
+  }
+  .nav__title {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 600;
+    letter-spacing: 0.25px;
+  }
+}

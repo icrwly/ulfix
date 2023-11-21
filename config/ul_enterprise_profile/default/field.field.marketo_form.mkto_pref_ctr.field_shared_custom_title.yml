@@ -1,0 +1,21 @@
+uuid: bfb074e4-02fe-4169-8ab2-3a7a43c7ab43
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_shared_custom_title
+    - ul_marketo.marketo_form_type.mkto_pref_ctr
+id: marketo_form.mkto_pref_ctr.field_shared_custom_title
+field_name: field_shared_custom_title
+entity_type: marketo_form
+bundle: mkto_pref_ctr
+label: 'Custom Title'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'Communications Preferences'
+default_value_callback: ''
+settings: {  }
+field_type: string

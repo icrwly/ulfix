@@ -1,0 +1,153 @@
+uuid: 07175e48-9fbc-4509-8b16-09503ab9c7aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraph_block
+    - field.storage.block_content.field_paragraph_block_paragraph
+    - paragraphs.paragraphs_type.basic_content
+    - paragraphs.paragraphs_type.captioned_image
+    - paragraphs.paragraphs_type.crc_files
+    - paragraphs.paragraphs_type.files
+    - paragraphs.paragraphs_type.hero
+    - paragraphs.paragraphs_type.image_gallery
+    - paragraphs.paragraphs_type.image_row
+    - paragraphs.paragraphs_type.people
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.related_content
+    - paragraphs.paragraphs_type.single_related_content
+    - paragraphs.paragraphs_type.spotlight
+    - paragraphs.paragraphs_type.video
+    - paragraphs.paragraphs_type.view
+  module:
+    - entity_reference_revisions
+id: block_content.paragraph_block.field_paragraph_block_paragraph
+field_name: field_paragraph_block_paragraph
+entity_type: block_content
+bundle: paragraph_block
+label: Paragraph
+description: 'Select a paragraph to add to this block.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      basic_content: basic_content
+      captioned_image: captioned_image
+      crc_files: crc_files
+      files: files
+      image_gallery: image_gallery
+      image_row: image_row
+      hero: hero
+      people: people
+      quote: quote
+      related_content: related_content
+      single_related_content: single_related_content
+      spotlight: spotlight
+      video: video
+      view: view
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 34
+        enabled: false
+      accordion_items:
+        weight: 35
+        enabled: false
+      basic_content:
+        weight: 23
+        enabled: true
+      call_to_action:
+        weight: 24
+        enabled: false
+      captioned_image:
+        weight: 25
+        enabled: true
+      crc_files:
+        weight: 27
+        enabled: true
+      curated_list:
+        weight: 40
+        enabled: false
+      curated_separate_list:
+        weight: 41
+        enabled: false
+      descript_link:
+        weight: 28
+        enabled: false
+      files:
+        weight: 29
+        enabled: true
+      hero:
+        weight: 31
+        enabled: true
+      image_gallery:
+        weight: 30
+        enabled: true
+      image_row:
+        weight: 31
+        enabled: true
+      interrupter_cta:
+        weight: 32
+        enabled: false
+      list_item:
+        weight: 33
+        enabled: false
+      list_item_plain_text:
+        weight: 49
+        enabled: false
+      location:
+        weight: 50
+        enabled: false
+      marketo_form:
+        weight: 51
+        enabled: false
+      menu_section:
+        weight: 34
+        enabled: false
+      people:
+        weight: 35
+        enabled: true
+      quote:
+        weight: 36
+        enabled: true
+      reference:
+        weight: 37
+        enabled: false
+      related_content:
+        weight: 38
+        enabled: true
+      right_rail_external_links:
+        weight: 57
+        enabled: false
+      right_rail_plain_content:
+        weight: 58
+        enabled: false
+      right_rail_plain_text_list:
+        weight: 59
+        enabled: false
+      sidebar_curated_related:
+        weight: 60
+        enabled: false
+      simple_menu:
+        weight: 39
+        enabled: false
+      single_related_content:
+        weight: 40
+        enabled: true
+      slide:
+        weight: 41
+        enabled: false
+      spotlight:
+        weight: 42
+        enabled: true
+      video:
+        weight: 43
+        enabled: true
+      view:
+        weight: 44
+        enabled: true
+field_type: entity_reference_revisions

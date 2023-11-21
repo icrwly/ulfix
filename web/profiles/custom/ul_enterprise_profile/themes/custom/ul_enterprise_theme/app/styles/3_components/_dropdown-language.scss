@@ -1,0 +1,15 @@
+.dropdown-language-item {
+  li.dropbutton-action:first-child {
+    width: 26px;
+    background-image: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/icon-globe--60x60-black.png);
+    background-repeat: no-repeat;
+    background-size: 20px 20px;
+    background-position: 2px;
+    position: relative;
+    right: -4px;
+
+    .active-language {
+      padding-left: 30px;
+    }
+  }
+}

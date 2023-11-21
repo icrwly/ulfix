@@ -1,0 +1,23 @@
+uuid: aeaf3528-7161-429c-8681-cd97df6e2cb3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_metatags
+    - node.type.homepage
+  module:
+    - metatag
+id: node.homepage.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+bundle: homepage
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

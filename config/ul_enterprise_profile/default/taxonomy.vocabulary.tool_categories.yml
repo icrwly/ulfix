@@ -1,0 +1,8 @@
+uuid: ed2f2490-7da5-4349-9c0d-1754f9a7d982
+langcode: en
+status: true
+dependencies: {  }
+name: 'Tool Categories'
+vid: tool_categories
+description: 'Used for sorting tools into easily-findable classifications.'
+weight: 0

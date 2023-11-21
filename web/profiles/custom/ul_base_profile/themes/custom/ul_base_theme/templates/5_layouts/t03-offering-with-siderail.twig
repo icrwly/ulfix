@@ -1,0 +1,33 @@
+{% extends '@ul_base_theme/1_core/2-column-complex.twig' %}
+{% set mainClass = mainClass ~ ' two-col--offering' %}
+
+{% block page %}
+  {% set wysiwyg_content %}
+    {% block content %}
+      {% if gated %}
+        {% include '@ul_base_theme/1_core/wysiwyg-sample--short.twig' %}
+      {% else %}
+        {% include '@ul_base_theme/1_core/wysiwyg-sample--long.twig' %}
+      {% endif %}
+    {% endblock %}
+  {% endset %}
+  {% embed '@ul_base_theme/4_regions/section--wysiwyg.twig' with { wysiwyg_content: wysiwyg_content } %}
+    {% block content %}
+      <div class="editor-content">
+        {{ wysiwyg_content }}
+      </div>
+    {% endblock %}
+  {% endembed %}
+  {% include '@ul_base_theme/4_regions/section--spotlight--card.twig' with spotlight_cards only %}
+  {% include '@ul_base_theme/4_regions/section--file-list.twig' with file_list only %}
+{% endblock %}
+
+{% block aside_top %}
+  {% include "@ul_base_theme/2_pieces/siderail--cta.twig" with siderail_cta_1 only %}
+  {% include "@ul_base_theme/2_pieces/siderail--cta.twig" with siderail_cta_2 only %}
+{% endblock %}
+
+{% block aside_bttm %}
+  {% include "@ul_base_theme/2_pieces/siderail--links.twig" with siderail_links_1 only %}
+  {% include "@ul_base_theme/2_pieces/siderail--links.twig" with siderail_links_2 only %}
+{% endblock %}

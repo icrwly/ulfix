@@ -1,0 +1,51 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for UL No Translation Fields module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+/**
+ * Allows to alter a text's segment masking the HTML tags from a tmgmt-tag.
+ *
+ * @param string $source_text
+ *   The source's text segment to alter.
+ * @param string $translation_text
+ *   The translation's text segment to alter.
+ * @param array $context
+ *   An associative array containing:
+ *   - data_item: The data item.
+ *   - job_item: The job item context.
+ */
+function ul_no_translation_fields_tmgmt_data_item_text_output_alter(&$source_text, &$translation_text, array $context) {
+  // For example, the field_shared_review_comments.
+  $fields_list = \Drupal::config('ul_no_translation_fields.settings')
+    ->get('fields');
+  if (empty($fields_list) || empty($source_text)) {
+    return;
+  }
+  $fields_arr = explode(",", $fields_list);
+
+  $job_item = $context['job_item'];
+  $job_data = $job_item->getData();
+
+  foreach ($fields_arr as $field) {
+    $field = trim($field);
+    if (isset($job_data[$field])) {
+      $source_data = isset($job_data[$field][0]["value"]["#text"])
+        ? $job_data[$field][0]["value"]["#text"]
+        : "";
+
+      // Exclude the field from translating.
+      if ($source_data == $source_text) {
+        $translation_text = $source_text;
+      }
+
+    }
+  }
+
+}

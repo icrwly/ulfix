@@ -1,0 +1,140 @@
+# Application 'ulacsf', environment '01vader'.
+01vader:
+  root: /var/www/html/ulacsf.01vader/docroot
+  ac-site: ulacsf
+  ac-env: 01vader
+  ac-realm: enterprise-g1
+  uri: ulacsf01vader.enterprise-g1.acquia-sites.com
+  01vader.livedev:
+    parent: '@ulacsf.01vader'
+    root: /mnt/gfs/ulacsf.01vader/livedev/docroot
+  host: ulacsf01vader.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01vader
+  paths:
+    drush-script: drush9
+
+# Application 'ulacsf', environment '01xwing'.
+01xwing:
+  root: /var/www/html/ulacsf.01xwing/docroot
+  ac-site: ulacsf
+  ac-env: 01xwing
+  ac-realm: enterprise-g1
+  uri: ulacsf01xwing.enterprise-g1.acquia-sites.com
+  01xwing.livedev:
+    parent: '@ulacsf.01xwing'
+    root: /mnt/gfs/ulacsf.01xwing/livedev/docroot
+  host: ulacsf01xwing.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01xwing
+  paths:
+    drush-script: drush9
+
+# Application 'ulacsf', environment '01sbox'.
+01sbox:
+  root: /var/www/html/ulacsf.01sbox/docroot
+  ac-site: ulacsf
+  ac-env: 01sbox
+  ac-realm: enterprise-g1
+  uri: ulacsf01sbox.enterprise-g1.acquia-sites.com
+  01sbox.livedev:
+    parent: '@ulacsf.01sbox'
+    root: /mnt/gfs/ulacsf.01sbox/livedev/docroot
+  host: ulacsf01sbox.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01sbox
+  paths:
+    drush-script: drush9
+
+
+# Application 'ulacsf', environment '01dev'.
+01dev:
+  root: /var/www/html/ulacsf.01dev/docroot
+  ac-site: ulacsf
+  ac-env: 01dev
+  ac-realm: enterprise-g1
+  uri: ulacsf01dev.enterprise-g1.acquia-sites.com
+  01dev.livedev:
+    parent: '@ulacsf.01dev'
+    root: /mnt/gfs/ulacsf.01dev/livedev/docroot
+  host: ulacsf01dev.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01dev
+  paths:
+    drush-script: drush9
+
+
+# Application 'ulacsf', environment '01devup'.
+01devup:
+  root: /var/www/html/ulacsf.01devup/docroot
+  ac-site: ulacsf
+  ac-env: 01devup
+  ac-realm: enterprise-g1
+  uri: ulacsf01devup.enterprise-g1.acquia-sites.com
+  01devup.livedev:
+    parent: '@ulacsf.01devup'
+    root: /mnt/gfs/ulacsf.01devup/livedev/docroot
+  host: ulacsf01devup.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01devup
+  paths:
+    drush-script: drush9
+
+
+# Application 'ulacsf', environment '01live'.
+01live:
+  root: /var/www/html/ulacsf.01live/docroot
+  ac-site: ulacsf
+  ac-env: 01live
+  ac-realm: enterprise-g1
+  uri: ulacsf01live.enterprise-g1.acquia-sites.com
+  01live.livedev:
+    parent: '@ulacsf.01live'
+    root: /mnt/gfs/ulacsf.01live/livedev/docroot
+  host: ulacsf01live.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01live
+  paths:
+    drush-script: drush9
+
+
+# Application 'ulacsf', environment '01test'.
+01test:
+  root: /var/www/html/ulacsf.01test/docroot
+  ac-site: ulacsf
+  ac-env: 01test
+  ac-realm: enterprise-g1
+  uri: ulacsf01test.enterprise-g1.acquia-sites.com
+  01test.livedev:
+    parent: '@ulacsf.01test'
+    root: /mnt/gfs/ulacsf.01test/livedev/docroot
+  host: ulacsf01test.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01test
+  paths:
+    drush-script: drush9
+
+
+# Application 'ulacsf', environment '01testup'.
+01testup:
+  root: /var/www/html/ulacsf.01testup/docroot
+  ac-site: ulacsf
+  ac-env: 01testup
+  ac-realm: enterprise-g1
+  uri: ulacsf01testup.enterprise-g1.acquia-sites.com
+  01testup.livedev:
+    parent: '@ulacsf.01testup'
+    root: /mnt/gfs/ulacsf.01testup/livedev/docroot
+  host: ulacsf01testup.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01testup
+  paths:
+    drush-script: drush9
+
+
+# Application 'ulacsf', environment '01update'.
+01update:
+  root: /var/www/html/ulacsf.01update/docroot
+  ac-site: ulacsf
+  ac-env: 01update
+  ac-realm: enterprise-g1
+  uri: ulacsf01update.enterprise-g1.acquia-sites.com
+  01update.livedev:
+    parent: '@ulacsf.01update'
+    root: /mnt/gfs/ulacsf.01update/livedev/docroot
+  host: ulacsf01update.ssh.enterprise-g1.acquia-sites.com
+  user: ulacsf.01update
+  paths:
+    drush-script: drush9

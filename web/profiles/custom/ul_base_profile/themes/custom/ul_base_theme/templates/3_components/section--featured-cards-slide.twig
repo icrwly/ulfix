@@ -1,0 +1,9 @@
+<div class="swiper-slide{% if card.featured %} featured{% endif %}{% if card.type == 'banner' %} banner{% endif %}">
+  {% block content %}
+      {% if card.type == 'banner' %}
+        {% include '@ul_base_theme/2_pieces/card/card--banner.twig' with card only %}
+      {% else %}
+        {% include '@ul_base_theme/2_pieces/card/card--default.twig' with card only %}
+      {% endif %}
+  {% endblock %}
+</div>

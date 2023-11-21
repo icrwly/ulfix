@@ -1,0 +1,105 @@
+uuid: c5ba275a-afb8-4cda-bcc8-f78a1b577d8a
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - media.type.crc_asset
+    - media.type.file
+    - media.type.image
+    - node.type.guideline
+    - node.type.guideline_author
+    - node.type.guidelines_list
+    - workflows.workflow.content_publication
+  module:
+    - book
+    - cm_workbench
+    - content_moderation
+    - content_translation
+    - entity_browser
+    - environment_indicator
+    - file
+    - filter
+    - media
+    - node
+    - node_view_permissions
+    - path
+    - system
+    - toolbar
+id: guidelines_author
+label: 'Guidelines Author'
+weight: -1
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access cm_workbench'
+  - 'access content'
+  - 'access content overview'
+  - 'access crc_asset entity browser pages'
+  - 'access environment indicator'
+  - 'access file entity browser pages'
+  - 'access files overview'
+  - 'access image entity browser pages'
+  - 'access media overview'
+  - 'access printer-friendly version'
+  - 'access site in maintenance mode'
+  - 'access toolbar'
+  - 'add content to books'
+  - 'administer book outlines'
+  - 'administer media'
+  - 'administer nodes'
+  - 'create crc_asset media'
+  - 'create file media'
+  - 'create guideline content'
+  - 'create guideline_author content'
+  - 'create guidelines_list content'
+  - 'create image media'
+  - 'create media'
+  - 'create url aliases'
+  - 'delete guideline revisions'
+  - 'delete guidelines_list revisions'
+  - 'delete media'
+  - 'delete own crc_asset media'
+  - 'delete own file media'
+  - 'delete own guideline content'
+  - 'delete own guideline_author content'
+  - 'delete own guidelines_list content'
+  - 'delete own image media'
+  - 'edit own crc_asset media'
+  - 'edit own file media'
+  - 'edit own guideline content'
+  - 'edit own guideline_author content'
+  - 'edit own guidelines_list content'
+  - 'edit own image media'
+  - 'link to any page'
+  - 'revert guideline revisions'
+  - 'revert guidelines_list revisions'
+  - 'translate guideline node'
+  - 'translate guidelines_list node'
+  - 'update media'
+  - 'use content_publication transition create_new_draft'
+  - 'use content_publication transition keep_in_review'
+  - 'use content_publication transition request_review'
+  - 'use content_publication transition send_back_for_revision'
+  - 'use content_publication transition send_back_to_draft'
+  - 'use content_publication transition send_back_to_review'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any guideline content'
+  - 'view any guideline_author content'
+  - 'view any guidelines_list content'
+  - 'view any unpublished content'
+  - 'view guideline revisions'
+  - 'view guidelines_list revisions'
+  - 'view latest version'
+  - 'view own guideline content'
+  - 'view own guideline_author content'
+  - 'view own guidelines_list content'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view the administration theme'

@@ -1,0 +1,9 @@
+{% block breadcrumbs %}
+  {% if breadcrumbShow %}
+    <section class="nav--breadcrumbs">
+      {% if backButtonShow %}
+        <a href="#" class="icon icon-arrow-left" data-module="backButton">Back</a>
+      {% endif %}
+    </section>
+  {% endif %}
+{% endblock %}

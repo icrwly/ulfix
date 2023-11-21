@@ -1,0 +1,10 @@
+uuid: 070b7b06-e3b0-49b0-99b0-59c1fb34ac47
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pDyIsb1h8l8bApKVID2V5SE6wK4-1mBKnxeNeI5APIw
+name: Topics
+vid: topics
+description: 'Content domain topics.'
+weight: 0

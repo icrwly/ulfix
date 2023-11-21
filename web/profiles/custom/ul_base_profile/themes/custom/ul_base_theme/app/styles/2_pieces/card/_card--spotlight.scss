@@ -1,0 +1,67 @@
+.card.card--spotlight {
+  &.has-reference-content {
+    & > .content-container {
+      padding-top: $spacing-unit--s;
+    }
+  }
+
+  .card {
+    &--default {
+      .bottom-row {
+        display: none;
+      }
+    }
+
+    h3 {
+      @include breakpoint($tablet) {
+        font-size: 2.8rem;
+      }
+    }
+
+    p {
+      @include breakpoint($tablet) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .card__description {
+    &:last-child {
+      @include trim-margin;
+    }
+
+    &,
+    p {
+      font-size: 1.6rem;
+      line-height: 1.5;
+    }
+  }
+
+  .content-container {
+    @include trim-margin;
+  }
+
+  .card__cta {
+    margin-bottom: $spacing-unit--l;
+  }
+
+  .card__links {
+    ul {
+      list-style: none;
+      padding-#{$start-direction}: 0;
+      @include breakpoint($large-mobile) {
+        column-count: 2;
+        column-gap: $spacing-unit;
+      }
+
+      li {
+        margin: 0 0 $spacing-unit--s;
+      }
+    }
+  }
+
+  .button {
+    padding-left: $button-padding * 2;
+    padding-right: $button-padding * 2;
+  }
+}

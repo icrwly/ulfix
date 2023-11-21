@@ -1,0 +1,43 @@
+chat_enable: null
+select_enviroment: dev
+script_url: 'https://service.force.com/embeddedservice/5.0/esw.min.js'
+sf_script_url: 'https://service.force.com'
+allowed_pages: ''
+sf_subdomain_url_prod: 'https://ulenterpriseorg.my.salesforce.com'
+sf_community_url_prod: 'https://ulenterpriseorg.my.salesforce-sites.com/livechat'
+sf_org_id_prod: 00D4x00000676e4
+sf_chat_poc_prod: Live_Chat_Customer_Care
+baseLiveAgentContentURL_prod: 'https://c.la3-c1-ia5.salesforceliveagent.com/content'
+deploymentId_prod: 5724x0000001AQW
+buttonId_prod: 5734x0000001AkB
+baseLiveAgentURL_prod: 'https://d.la3-c1-ia5.salesforceliveagent.com/chat'
+eswLiveAgentDevName_prod: EmbeddedServiceLiveAgent_Parent04I4x000000ktvBEAQ_187104737eb
+isOfflineSupportEnabled_prod: 'false'
+sf_subdomain_url_uat: 'https://ulenterpriseorg--uat.sandbox.my.salesforce.com'
+sf_community_url_uat: 'https://ulenterpriseorg--uat.sandbox.my.salesforce-sites.com/livechat'
+sf_org_id_uat: 00DDe0000008aIn
+sf_chat_poc_uat: Live_Chat_Customer_Care
+baseLiveAgentContentURL_uat: 'https://c.la2-c1cs-ia6.salesforceliveagent.com/content'
+deploymentId_uat: 572De0000004CAe
+buttonId_uat: 573De0000004CBI
+baseLiveAgentURL_uat: 'https://d.la2-c1cs-ia6.salesforceliveagent.com/chat'
+eswLiveAgentDevName_uat: EmbeddedServiceLiveAgent_Parent04IDe0000008OIoMAM_186c7e611e4
+isOfflineSupportEnabled_uat: 'false'
+sf_subdomain_url_dev: 'https://ulenterpriseorg--intdev.sandbox.my.salesforce.com'
+sf_community_url_dev: 'https://ulenterpriseorg--intdev.sandbox.my.salesforce-sites.com/livechat'
+sf_org_id_dev: 00D7b000000A1sJ
+sf_chat_poc_dev: Live_Chat_Customer_Care
+baseLiveAgentContentURL_dev: 'https://c.la3-c1cs-ia4.salesforceliveagent.com/content'
+deploymentId_dev: 5727b000000GmeG
+buttonId_dev: 5737b000000GmjL
+baseLiveAgentURL_dev: 'https://d.la3-c1cs-ia4.salesforceliveagent.com/chat'
+eswLiveAgentDevName_dev: EmbeddedServiceLiveAgent_Parent04I7b000000Gmf9EAC_186842caa88
+isOfflineSupportEnabled_dev: 'false'
+chat_offlile_title: 'Our team is offline right now.'
+chat_offlile_message: |-
+  <p>Hello! Our live chat is available 8 a.m. to 5 p.m. Central time, Monday through Friday.</p>
+
+  <p>While we are out of the office, you can reach us through our <a href="/contact-us#sales">contact form</a>.</p>
+
+  <p>We look forward to serving you!</p>
+chat_offlile_modal_title: 'UL Solutions is offline'

@@ -1,0 +1,12 @@
+uuid: af1c4072-6534-4525-81dd-ab6fa7b6884d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 4vbw2g1q05t6ufEhgxr1YzmuBXz3mNk442G0g0SFAOk
+id: view
+label: View
+icon_uuid: null
+icon_default: null
+description: 'Use <em>view</em> for rendering lists of content.'
+behavior_plugins: {  }

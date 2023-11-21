@@ -1,0 +1,148 @@
+{% extends "@ul_base_theme/4_regions/hero.twig" %}
+{% set class = class ~ " hero--detail bg-gray-lightest" %}
+{% set inner_class = "wrapper" %}
+
+{% set image_class = image ? " has-image" : " no-image" %}
+{% set class = class ~ image_class %}
+{% if isPerson %}
+  {% set class = class ~ ' hero--person' %}
+{% endif %}
+
+{% if is_wide %}
+  {% set class = class ~ " is-wide" %}
+{% endif %}
+
+{% if not image %}
+  {% if is_wide %}
+    {# Workaround to fix alignment #}
+    {% set inner_class = "wrapper max-width--large-desktop" %}
+  {% else %}
+    {% set content_class = "max-width--large-tablet" %}
+  {% endif %}
+{% endif %}
+
+{% if direction_reverse %}
+  {% set row_class = "row--reverse" %}
+{% endif %}
+
+{% if primary_cta and secondary_ctas|length %}
+  {% set buttons_class = 'has-multiple' %}
+{% endif %}
+
+{# Overwriting classes from Base for the Full Width project. #}
+{% set span_class = 'span-12 span-6-t span-7-d' %}
+{% set span_image_class = 'span-12 span-6-t span-5-d' %}
+
+{# If language is ES or PT-BR #}
+{% if language == 'es' or language == 'pt-br' %}
+  {% set start_date = start_date|lower %}
+  {% if end_date %}
+    {% set end_date = end_date|lower %}
+  {% endif %}
+{% endif %}
+
+{% block content_inner %}
+  <div class="row row--gutter-l {{ row_class }}">
+    <div class="{{ span_class }}">
+      <div class="hero__content {{ content_class }}">
+        {# DATES: Only Events display "dates" in the hero region. #}
+        {% block dates %}
+          {% if start_date %}
+            <div class="hero__date hero__row">
+              {{ start_date }}
+              {# if not a single-day event: #}
+              {% if end_date %}
+                &mdash; {{ end_date }}
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endblock %}
+        {# DATES END. #}
+        {% block widget %}
+          {% if topics %}
+            <div class="hero__topics hero__row">
+              {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with { widget: topics } %}
+            </div>
+          {% endif %}
+        {% endblock %}
+        {% block title %}
+          {# If Person content type: #}
+          {% if isPerson %}
+            <div class="hero--person--title">
+              <h1 data-page-title>{{- title -}}</h1>
+              <h2>{{- jobTitle -}}</h2>
+              <h3>{{- shortBio -}}</h3>
+            </div>
+          {% else %}
+            {% if title %}
+              <h1 class="hero__title hero__row" data-page-title>{{- title -}}</h1>
+            {% endif %}
+          {% endif %}
+        {% endblock %}
+        {% block description %}
+          {% if description %}
+            <div class="hero__description hero__row">
+              <p>{{- description -}}</p>
+            </div>
+          {% endif %}
+        {% endblock %}
+        {% block meta %}
+          {% if meta %}
+            <div class="hero__meta hero__row h5">{{- meta -}}</div>
+          {% endif %}
+        {% endblock %}
+        {% block buttons %}
+          {% if primary_cta or secondary_ctas %}
+            <div class="hero__buttons hero__row {{ buttons_class }}">
+              <div class="button-row">
+                {% if primary_cta %}
+                  {% include '@ul_base_theme/2_pieces/button.twig' with {
+                    name: primary_cta.title,
+                    link: primary_cta.url,
+                    class: primary_cta.class ~ ' button--red'
+                  } %}
+                {% endif %}
+                {# NOTE: This displays inline with primary cta. #}
+                {% if additional_cta %}
+                  {% include '@ul_base_theme/2_pieces/button.twig' with {
+                    name: additional_cta.title,
+                    link: additional_cta.url,
+                    class: additional_cta.class ~ ' button--black-outline'
+                  } %}
+                {% endif %}
+              </div>
+              {# NOTE: This displays in a new row under the primary cta. #}
+              {% if secondary_ctas %}
+                {% set secondary_ctas_row_class = secondary_ctas|length > 1 ? 'button-row--half' %}
+                <div class="button-row {{ secondary_ctas_row_class }}">
+                    {% block secondary_ctas %}
+                      {% for item in secondary_ctas %}
+                          {% include '@ul_base_theme/2_pieces/button.twig' with {
+                            name: item.title,
+                            link: item.url,
+                            class: item.class ~ ' button--gray-outline'
+                          } %}
+                      {% endfor %}
+                    {% endblock %}
+                </div>
+              {% endif %}
+            </div>
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+
+    {% if image %}
+      <div class="{{ span_image_class }}">
+        <div class="hero__image">
+          {% if image %}
+            <div class="image-container">
+              <img src="{{ image }}" alt="{{ image_alt }}">
+            </div>
+          {% endif %}
+        </div>
+      </div>
+    {% endif %}
+
+  </div>
+{% endblock %}

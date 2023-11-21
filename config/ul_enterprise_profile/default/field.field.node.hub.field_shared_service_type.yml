@@ -1,0 +1,29 @@
+uuid: 35ea6ee6-057d-4121-8476-c77d09bb3426
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_service_type
+    - node.type.hub
+    - taxonomy.vocabulary.service_types
+id: node.hub.field_shared_service_type
+field_name: field_shared_service_type
+entity_type: node
+bundle: hub
+label: 'Service Type'
+description: 'The service type related to this experience hub.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_types: service_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

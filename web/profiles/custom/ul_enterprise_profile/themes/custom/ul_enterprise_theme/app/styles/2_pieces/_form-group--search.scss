@@ -1,0 +1,10 @@
+.form-group--search {
+  .form-action {
+    &:before {
+      #{$end-direction}: 20px;
+      @include breakpoint($desktop) {
+        #{$end-direction}: 15px;
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+uuid: b660e87a-77b5-4fc1-8150-66789cead5ef
+langcode: en
+status: false
+dependencies: {  }
+id: ah_other
+label: ah_other
+description: 'Split for sbox and potentially CH2 environments.'
+weight: 0
+folder: ../config/ul_guidelines_profile/ah_other
+module:
+  dblog: 0
+  devel: 0
+  shield: 0
+  syslog: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+  - syslog.settings
+graylist_dependents: false
+graylist_skip_equal: true

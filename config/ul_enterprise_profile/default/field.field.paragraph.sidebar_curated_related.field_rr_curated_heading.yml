@@ -1,0 +1,19 @@
+uuid: 47388ac9-dff6-4045-92b5-81d8c3bca585
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rr_curated_heading
+    - paragraphs.paragraphs_type.sidebar_curated_related
+id: paragraph.sidebar_curated_related.field_rr_curated_heading
+field_name: field_rr_curated_heading
+entity_type: paragraph
+bundle: sidebar_curated_related
+label: Heading
+description: "&bull; Please keep heading to one line\r\n<br />&bull; 40 character limit"
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

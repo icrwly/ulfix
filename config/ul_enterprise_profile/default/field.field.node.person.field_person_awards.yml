@@ -1,0 +1,124 @@
+uuid: b96267a9-bb8f-4890-a5f3-0e3e8136cf6b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_person_awards
+    - node.type.person
+    - paragraphs.paragraphs_type.right_rail_external_links
+  module:
+    - entity_reference_revisions
+id: node.person.field_person_awards
+field_name: field_person_awards
+entity_type: node
+bundle: person
+label: Awards
+description: 'Enter honors and awards that distinguish this person and exemplify their expertise.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      right_rail_external_links: right_rail_external_links
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 33
+        enabled: false
+      accordion_items:
+        weight: 34
+        enabled: false
+      basic_content:
+        weight: 35
+        enabled: false
+      call_to_action:
+        weight: 36
+        enabled: false
+      captioned_image:
+        weight: 37
+        enabled: false
+      crc_files:
+        weight: 38
+        enabled: false
+      curated_list:
+        weight: 39
+        enabled: false
+      curated_separate_list:
+        weight: 40
+        enabled: false
+      descript_link:
+        weight: 41
+        enabled: false
+      files:
+        weight: 42
+        enabled: false
+      hero:
+        weight: 43
+        enabled: false
+      image_gallery:
+        weight: 44
+        enabled: false
+      image_row:
+        weight: 45
+        enabled: false
+      interrupter_cta:
+        weight: 46
+        enabled: false
+      list_item:
+        weight: 47
+        enabled: false
+      list_item_plain_text:
+        weight: 48
+        enabled: false
+      location:
+        weight: 49
+        enabled: false
+      marketo_form:
+        weight: 50
+        enabled: false
+      menu_section:
+        weight: 51
+        enabled: false
+      people:
+        weight: 52
+        enabled: false
+      quote:
+        weight: 53
+        enabled: false
+      reference:
+        weight: 54
+        enabled: false
+      related_content:
+        weight: 55
+        enabled: false
+      right_rail_external_links:
+        weight: 56
+        enabled: true
+      right_rail_plain_text_list:
+        weight: 57
+        enabled: false
+      sidebar_curated_related:
+        weight: 58
+        enabled: false
+      simple_menu:
+        weight: 59
+        enabled: false
+      single_related_content:
+        weight: 60
+        enabled: false
+      slide:
+        weight: 61
+        enabled: false
+      spotlight:
+        weight: 62
+        enabled: false
+      video:
+        weight: 63
+        enabled: false
+      view:
+        weight: 64
+        enabled: false
+field_type: entity_reference_revisions

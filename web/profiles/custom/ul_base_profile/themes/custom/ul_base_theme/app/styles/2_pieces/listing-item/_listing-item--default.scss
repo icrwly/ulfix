@@ -1,0 +1,71 @@
+.listing-item {
+  &--default {
+    &.flex-grid {
+      @include breakpoint(max-width $large-mobile - 1) {
+        margin: 0;
+      }
+      @include breakpoint($large-mobile) {
+        border-top: 0 !important;
+        margin-left: -$spacing-unit;
+        margin-right: -$spacing-unit;
+        position: relative;
+        &:not(:first-child){
+          &:after {
+            border-bottom: 1px solid $gray-lighter;
+            content: '';
+            left: 50%;
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            width: calc(100% - #{$spacing-unit*2});
+          }
+        }
+      }
+    }
+    .grid-item {
+      margin-bottom: 0;
+      @include breakpoint($large-mobile) {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+    .image-container {
+      width: 100%;
+      &.grid-item {
+        @include breakpoint(max-width $large-mobile - 1) {
+          padding-#{$end-direction}: 0;
+        }
+        @include breakpoint($large-mobile) {
+          padding-#{$start-direction}: $spacing-unit;
+          .widget {
+            #{$start-direction}: $spacing-unit;
+          }
+        }
+        @include breakpoint($tablet) {
+          flex-basis: 35%;
+          max-width: 35%;
+        }
+      }
+
+      img {
+        max-width: 100%;
+        width: auto;
+      }
+    }
+
+    .content-container {
+      padding: $spacing-unit--l ($spacing-unit--l * 0.75);
+      &.grid-item {
+        margin-bottom: 0;
+        @include breakpoint($large-mobile) {
+          padding-bottom: 0;
+          padding-top: $spacing-unit + 0.5;
+        }
+        @include breakpoint($tablet) {
+          flex-basis: 65%;
+          max-width: 65%;
+        }
+      }
+    }
+  }
+}

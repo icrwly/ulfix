@@ -1,0 +1,10 @@
+uuid: 95672df4-85bf-47ed-a96d-ef0b711a6beb
+langcode: en
+status: true
+dependencies: {  }
+id: reference
+label: Reference
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Reference</em> for text-citation sources, e.g in APA format.'
+behavior_plugins: {  }

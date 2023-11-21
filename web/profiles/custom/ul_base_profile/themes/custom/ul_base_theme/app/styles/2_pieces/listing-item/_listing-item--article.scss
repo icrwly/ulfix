@@ -1,0 +1,36 @@
+.listing-item--article {
+  position: relative;
+  border: 0;
+
+  a {
+    @include arrow-link($font-size: 1.5rem);
+    color: $black;
+    display: inline-block;
+    padding: $spacing-unit $spacing-unit--xl $spacing-unit $spacing-unit;
+    width: 100%;
+    @include breakpoint($tablet) {
+      padding: $spacing-unit ($spacing-unit--xl * 2) $spacing-unit $spacing-unit;
+    }
+
+    &:focus,
+    &:hover {
+      h3,
+      p,
+      span {
+        color: $black;
+      }
+    }
+  }
+
+  p {
+    margin-bottom: $spacing-unit;
+  }
+
+  .widget {
+    position: relative;
+
+    &--card-tags {
+      padding: 0;
+    }
+  }
+}

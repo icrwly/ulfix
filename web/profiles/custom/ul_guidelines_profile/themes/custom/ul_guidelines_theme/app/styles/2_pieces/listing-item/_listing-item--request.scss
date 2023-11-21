@@ -1,0 +1,19 @@
+.listing-item--request{
+  .status-Approved{
+    background-color: $approved;
+  }
+  .status-Error{
+    background-color: $error;
+  }
+  .status-Pending{
+    background-color: $pending;
+  }
+  [class^='status-'],
+  [class*=' status-'] {
+    color:$white;
+    float:right;
+    @include breakpoint($tablet){
+      float:none;
+    }
+  }
+}

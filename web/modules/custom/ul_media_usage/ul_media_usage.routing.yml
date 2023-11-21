@@ -1,0 +1,19 @@
+ul_media_usage.batch_update:
+  path: '/admin/config/ul-media-usage/batch-update'
+  defaults:
+    _form: 'Drupal\ul_media_usage\Form\BatchUpdateForm'
+    _title: 'UL Media Usage Batch Update'
+  requirements:
+    _permission: 'access media overview'
+  options:
+    _admin_route: TRUE
+
+ul_media_usage.export_csv:
+  path: '/admin/config/ul-media-usage/export-csv'
+  defaults:
+    _controller: 'Drupal\ul_media_usage\Controller\MediaUsageController:exportCsv'
+    _title: 'UL Media Usage Export CSV'
+  requirements:
+    _permission: 'access media overview'
+  options:
+    _admin_route: TRUE

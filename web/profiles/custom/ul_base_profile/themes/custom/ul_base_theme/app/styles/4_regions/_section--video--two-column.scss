@@ -1,0 +1,38 @@
+.section--video--two-column {
+  &.has-bg {
+    padding: $spacing-unit;
+    @include breakpoint($mobile) {
+      padding: $spacing-unit * 1.5;
+    }
+    @include breakpoint($desktop) {
+      padding: $spacing-unit--l;
+    }
+    @include breakpoint($large-desktop) {
+      padding: $spacing-unit--xl;
+    }
+  }
+
+  .section__title {
+    margin-bottom: $spacing-unit;
+  }
+
+  .section__content {
+    padding-top: $spacing-unit;
+  }
+  .wistia_responsive_padding {
+    margin-bottom: 0rem;
+  }
+}
+@include breakpoint($tablet) {
+  .video_right {
+    .row .span-12 {
+      order: 0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      &:first-child {
+        order: 1;
+      }
+    }
+  }
+}

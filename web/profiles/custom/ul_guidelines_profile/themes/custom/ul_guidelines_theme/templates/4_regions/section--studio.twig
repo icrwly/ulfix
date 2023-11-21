@@ -1,0 +1,21 @@
+<section class="section--studio">
+    <div class="wrapper">
+        {% block section_title %}
+            <h2>{{- section.title -}}</h2>
+        {% endblock %}
+        <div class="content-container">
+            <div class="list-container">
+                {% block listing_items %}
+                    {% for item in section.sectionList.list %}
+                        {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--studio.twig' with {item: item, type: sectionList.type} %}
+                    {% endfor %}
+                {% endblock %}
+            </div>
+            <div class="image-container">
+                {% block section_image %}
+                    <img src="{{- section.image -}}" alt="{{- section.imageAlt -}}">
+                {% endblock %}
+            </div>
+        </div>
+    </div>
+</section>

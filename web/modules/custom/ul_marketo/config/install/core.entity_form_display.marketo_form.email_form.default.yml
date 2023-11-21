@@ -1,0 +1,79 @@
+uuid: f7f1d38f-6c10-49b4-bcee-8956e9ec3cd5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.email_form.field_newsletter_type
+    - field.field.marketo_form.email_form.field_shared_button_text
+    - field.field.marketo_form.email_form.field_shared_custom_title
+    - field.field.marketo_form.email_form.field_shared_form_description
+    - ul_marketo.marketo_form_type.email_form
+  module:
+id: marketo_form.email_form.default
+targetEntityType: marketo_form
+bundle: email_form
+mode: default
+content:
+  field_newsletter_type:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    type: options_select
+    region: content
+  field_shared_button_text:
+    weight: 7
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_shared_custom_title:
+    weight: 8
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_shared_form_description:
+    weight: 9
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: -6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  status:
+    type: boolean_checkbox
+    region: content
+    weight: 6
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  user_id:
+    type: entity_reference_autocomplete
+    weight: 5
+    settings:
+      match_operator: CONTAINS
+      size: 60
+      placeholder: ''
+      match_limit: 10
+    region: content
+    third_party_settings: {  }
+hidden: {  }

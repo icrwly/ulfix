@@ -1,0 +1,44 @@
+{#
+  /**
+  * If there is just one related-content item, then embed feature--spotlight
+  * else, embed section--related-content
+  #/
+#}
+{# set grid classes based on the items length #}
+{# set row limit class #}
+{% set itemsLength = content.field_rc_content['#items']|length %}
+{% if content.field_shared_view_mode|render is not empty %}
+	{% set miniCards = "mini-cards" %}
+{% endif %}
+{% if content.field_rc_title|render or content.field_rc_description|render %}
+    {% set titleBar = {
+      'title': content.field_rc_title,
+      'headingLevel': 'h2',
+      'description': content.field_rc_description.0['#context']['value'],
+      'seeAll': {
+        link: content.field_rc_cta.0['#url'],
+        name: content.field_rc_cta.0['#title']
+      }
+    } %}
+{% endif %}
+{% set gutterclass = "paragraph-gutter paragraph--related-content" %}
+{% if content.field_shared_bg_color.0 is not empty %}
+    {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+
+{# if there is more than one related-content item #}
+{# then use section--related-content #}
+{% embed '@ul_base_theme/4_regions/section--related-content.twig' %}
+    {% block items_container %}
+      {% for key, item in items %}
+        {# if Key is numeric then it is a valid object. #}
+        {% if key matches '/^\\d+$/' %}
+          {% embed "@ul_base_theme/2_pieces/grid-item.twig" with { item: item, per_row: per_row, grid_class: grid_class } only %}
+            {% block content %}
+              {{item}}
+            {% endblock %}
+          {% endembed %}
+        {% endif %}
+      {% endfor %}
+    {% endblock %}
+{% endembed %}

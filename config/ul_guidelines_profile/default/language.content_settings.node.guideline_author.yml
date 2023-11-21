@@ -1,0 +1,11 @@
+uuid: 086abe6c-40d9-40cf-b253-e7a22d46e2ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.guideline_author
+id: node.guideline_author
+target_entity_type_id: node
+target_bundle: guideline_author
+default_langcode: site_default
+language_alterable: false

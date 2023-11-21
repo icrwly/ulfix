@@ -1,0 +1,48 @@
+{% extends "@ul_base_theme/2_pieces/widget/widget.twig" %}
+{% set class = "widget--date-time" %}
+
+{% block content %}
+  {% block widget_title %}
+    {% if title %}
+      <h3>{{- title -}}</h3>
+    {% endif %}
+  {% endblock %}
+
+  {# Event start date: #}
+  <div class="widget-event_start">
+    {% block widget_date_start %}
+      {% if end_date %}
+        <div>{{ start_title }}</div>
+      {% endif %}
+      <div class="date">{{ start_date }}</div>
+    {% endblock %}
+    {% block widget_time_start %}
+      <div class="time">
+        {% if end_date %}
+          {{ start_time }} {{ timezone }}
+        {% else %}
+          {{ start_time }} &mdash; {{ end_time }} {{ timezone }}
+        {% endif %}
+      </div>
+    {% endblock %}
+  </div>
+
+  {# Event end date: #}
+  {% if end_date %}
+    <div class="mt-3 widget-event_end">
+      {% block widget_date_end %}
+        <div>{{ end_title }}</div>
+        <div class="date">{{ end_date }}</div>
+      {% endblock %}
+      {% block widget_time_end %}
+        <div class="time">{{ end_time }} {{ timezone }}</div>
+      {% endblock %}
+    </div>
+  {% endif %}
+
+  {% block widget_calendar %}
+     {% if calendar %}
+       <div class="cta"><a href="#" title="Add to Calendar"><span class="icon icon-calendar-plus"></span>Add to Calendar</a></div>
+      {% endif %}
+  {% endblock %}
+{% endblock %}

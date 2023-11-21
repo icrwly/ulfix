@@ -1,0 +1,24 @@
+uuid: 70be8994-99c0-4a77-bfbd-93d8f2f67536
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_addr_email
+    - paragraphs.paragraphs_type.location
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.location.field_addr_email
+field_name: field_addr_email
+entity_type: paragraph
+bundle: location
+label: Email
+description: 'Enter the main contact email address for this location.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: email

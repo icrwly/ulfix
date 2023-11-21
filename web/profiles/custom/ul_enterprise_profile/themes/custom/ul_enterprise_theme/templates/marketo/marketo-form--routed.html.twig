@@ -1,0 +1,29 @@
+{#
+ * @file: marketo-form--routed.html.twig
+ * @usage: Provide wrapper divs for form on Routed Pages.
+ #}
+
+{% embed '@ul_base_theme/4_regions/section.twig' %}
+  {% set class = 'section--marketo form--wrap section--paragraph ' ~ class %}
+  {% set forms_API = marketo.base_url ~ '/js/forms2/js/forms2.min.js' %}
+  {% set gutterclass = "paragraph-gutter" %}
+  {# Set a default form language: #}
+  {% if marketo.form_language %}
+    {% set form_language = marketo.form_language %}
+  {% else %}
+    {% set form_language = 'en' %}
+  {% endif %}
+
+  {% block section_body %}
+    {% if marketo.form_title %}
+      <h2>{{ marketo.form_title }}</h2>
+    {% endif %}
+    {% if marketo.form_description %}
+      <p>{{ marketo.form_description|nl2br }}</p>
+    {% endif %}
+
+    {% block markto_wrap %}
+      {% include '@ul_enterprise_theme/marketo/inc-form-loader.twig' %}
+    {% endblock markto_wrap %}
+  {% endblock section_body %}
+{% endembed %}

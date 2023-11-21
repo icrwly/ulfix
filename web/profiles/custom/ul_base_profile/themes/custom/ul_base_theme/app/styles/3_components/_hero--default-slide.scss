@@ -1,0 +1,29 @@
+.hero--default {
+  .hero--default-slide.swiper-slide {
+    :not(.tall-hero) {
+      @include breakpoint(max-width $tablet - 1) {
+        background-image: none !important;
+      }
+    }
+    @include hero-height;
+    background-color: $gray-dark;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+
+    picture {
+      display: flex;
+      width: 100%;
+    }
+    img {
+      display: block;
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      @include breakpoint($desktop) {
+        position: absolute;
+      }
+    }
+  }
+}

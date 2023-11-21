@@ -1,0 +1,30 @@
+add alert entities:
+  title: 'Create new Alert entities'
+
+administer alert entities:
+  title: 'Administer Alert entities'
+  description: 'Allow to access the administration form to configure Alert entities.'
+  restrict access: true
+
+delete alert entities:
+  title: 'Delete Alert entities'
+
+edit alert entities:
+  title: 'Edit Alert entities'
+
+view published alert entities:
+  title: 'View published Alert entities'
+
+view unpublished alert entities:
+  title: 'View unpublished Alert entities'
+
+view all alert revisions:
+  title: 'View all Alert revisions'
+
+revert all alert revisions:
+  title: 'Revert all Alert revisions'
+  description: 'Role requires permission <em>view Alert revisions</em> and <em>edit rights</em> for alert entities in question or <em>administer alert entities</em>.'
+
+delete all alert revisions:
+  title: 'Delete all revisions'
+  description: 'Role requires permission to <em>view Alert revisions</em> and <em>delete rights</em> for alert entities in question or <em>administer alert entities</em>.'

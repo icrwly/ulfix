@@ -1,0 +1,43 @@
+uuid: 1a0f6de1-06bf-430f-815c-5370c0da5d6e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.right_rail_plain_text_list.field_plain_text_list_heading
+    - field.field.paragraph.right_rail_plain_text_list.field_plain_text_list_item
+    - paragraphs.paragraphs_type.right_rail_plain_text_list
+  module:
+    - paragraphs
+id: paragraph.right_rail_plain_text_list.default
+targetEntityType: paragraph
+bundle: right_rail_plain_text_list
+mode: default
+content:
+  field_plain_text_list_heading:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_plain_text_list_item:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  translation:
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

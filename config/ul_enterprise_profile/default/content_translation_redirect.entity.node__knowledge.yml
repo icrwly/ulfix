@@ -1,0 +1,8 @@
+uuid: de8212b7-5d03-4c58-82c2-fb07215e8360
+langcode: en
+status: true
+dependencies: {  }
+id: node__knowledge
+label: 'Content: Knowledge'
+code: null
+message: ''

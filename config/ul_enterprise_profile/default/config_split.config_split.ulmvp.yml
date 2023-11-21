@@ -1,0 +1,16 @@
+uuid: b0f58d22-2d9a-40c2-b3b0-fbee56ec9b05
+langcode: en
+status: false
+dependencies: {  }
+id: ulmvp
+label: www
+description: 'Split for www.ul.com and the corresponding site on lower environments.'
+weight: 0
+folder: ../config/ul_enterprise_profile/sites/www
+module:
+  extlink: 1
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

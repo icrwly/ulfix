@@ -1,0 +1,10 @@
+services:
+  ul_samlauth.route_subscriber:
+    class: Drupal\ul_samlauth\Routing\RouteSubscriber
+    tags:
+      - { name: event_subscriber }
+  ul_samlauth.event_subscriber.user_access_denied:
+    class: Drupal\ul_samlauth\EventSubscriber\AccessDeniedSubscriber
+    arguments: ['@current_user']
+    tags:
+      - { name: event_subscriber }

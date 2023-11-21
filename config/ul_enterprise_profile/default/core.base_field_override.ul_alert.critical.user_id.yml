@@ -1,0 +1,20 @@
+uuid: 507575b8-4514-45af-8155-632fc49bd46e
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.critical
+id: ul_alert.critical.user_id
+field_name: user_id
+entity_type: ul_alert
+bundle: critical
+label: 'Authored by'
+description: 'The user ID of author of the Alert entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

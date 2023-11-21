@@ -1,0 +1,15 @@
+uuid: b3135277-f3ef-484a-aad4-ae59a304a0e6
+langcode: en
+status: true
+dependencies: {  }
+name: grid_card
+label: 'Grid Card -- Three'
+effects:
+  75c625e9-b537-4e81-84fd-db766645fa32:
+    uuid: 75c625e9-b537-4e81-84fd-db766645fa32
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 640
+      height: 175
+      anchor: center-center

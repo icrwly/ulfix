@@ -1,0 +1,8 @@
+uuid: 0d34b78f-7a47-4fcc-8333-ace9740a12b1
+langcode: en
+status: true
+dependencies: {  }
+id: node__hub
+label: 'Content: Experience Hub'
+code: null
+message: ''

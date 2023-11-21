@@ -1,0 +1,14 @@
+# Loads in the <head>.
+ul_chat_js:
+  header: true
+  css:
+    theme:
+      css/sf-lightning.css: { }
+      css/ul-chat.css: { }
+  js:
+    js/chat_sf.js: { preprocess: false, attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '2', async: true } }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - ul_base_theme/jquery-custom
+    - core/drupalSettings

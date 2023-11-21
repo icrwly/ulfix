@@ -1,0 +1,57 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.generic_form.field_shared_button_text
+    - field.field.marketo_form.generic_form.field_shared_custom_title
+    - field.field.marketo_form.generic_form.field_shared_form_description
+    - field.field.marketo_form.email_form.field_newsletter_type
+    - field.field.marketo_form.email_form.field_shared_button_text
+    - field.field.marketo_form.email_form.field_shared_custom_title
+    - field.field.marketo_form.email_form.field_shared_form_description
+    - field.field.marketo_form.event_form.field_shared_button_text
+    - field.field.marketo_form.event_form.field_shared_custom_title
+    - field.field.marketo_form.event_form.field_shared_form_description
+    - field.field.marketo_form.gated_content_form.field_node_is_gated
+    - field.field.marketo_form.gated_content_form.field_shared_button_text
+    - field.field.marketo_form.gated_content_form.field_shared_custom_title
+    - field.field.marketo_form.gated_content_form.field_shared_form_description
+    - field.field.marketo_form.mkto_pref_ctr.field_shared_button_text
+    - field.field.marketo_form.mkto_pref_ctr.field_shared_custom_title
+    - field.field.marketo_form.mkto_pref_ctr.field_shared_form_description
+    - ul_marketo.marketo_form_type.generic_form
+    - ul_marketo.marketo_form_type.email_form
+    - ul_marketo.marketo_form_type.event_form
+    - ul_marketo.marketo_form_type.gated_content_form
+    - ul_marketo.marketo_form_type.mkto_pref_ctr
+  module:
+    - options
+    - ul_marketo
+    - user
+id: marketo_form
+bundles:
+  generic_form:
+    enable_index: true
+    enable_viewmodes: true
+    rendering:
+      default: default
+  email_form:
+    enable_index: true
+    enable_viewmodes: true
+    rendering:
+      default: default
+  event_form:
+    enable_index: true
+    enable_viewmodes: true
+    rendering:
+      default: default
+  gated_content_form:
+    enable_index: true
+    enable_viewmodes: true
+    rendering:
+      default: default
+  mkto_pref_ctr:
+    enable_index: true
+    enable_viewmodes: true
+    rendering:
+      default: default

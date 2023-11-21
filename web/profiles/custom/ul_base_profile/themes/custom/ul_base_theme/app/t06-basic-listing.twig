@@ -1,0 +1,14 @@
+{# t06-basic-listing.twig #}
+{% extends '@ul_base_theme/1_core/layout.twig' %}
+
+{% block content %}
+  {% embed '@ul_base_theme/1_core/page.twig' %}
+    {% block page_top %}
+      {% include '@ul_base_theme/4_regions/hero--default.twig' with hero only %}
+      {% include '@ul_base_theme/4_regions/section--filter-bar.twig' with filter_bar only %}
+    {% endblock %}
+    {% block page %}
+      {% include '@ul_base_theme/5_layouts/t06-basic-listing.twig' with t06Listing only %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

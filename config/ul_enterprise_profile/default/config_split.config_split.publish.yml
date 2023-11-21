@@ -1,0 +1,15 @@
+uuid: bff0139a-c4f7-4bae-9f9b-96066e889202
+langcode: en
+status: false
+dependencies: {  }
+id: publish
+label: publish
+description: 'Split for publish.ul.com and the corresponding site on lower environments.'
+weight: 0
+folder: ../config/ul_enterprise_profile/sites/publish
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist: {  }
+graylist_dependents: true
+graylist_skip_equal: true

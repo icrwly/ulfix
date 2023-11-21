@@ -1,0 +1,21 @@
+uuid: 823965e9-98c0-4768-a128-ed94f06c5045
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accrdn_item_text
+    - paragraphs.paragraphs_type.accordion_items
+  module:
+    - text
+id: paragraph.accordion_items.field_accrdn_item_text
+field_name: field_accrdn_item_text
+entity_type: paragraph
+bundle: accordion_items
+label: Text
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

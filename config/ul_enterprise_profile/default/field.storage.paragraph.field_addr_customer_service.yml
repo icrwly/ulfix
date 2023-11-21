@@ -1,0 +1,19 @@
+uuid: dc974627-ebfd-4ab6-9b71-4458404961f9
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - telephone
+id: paragraph.field_addr_customer_service
+field_name: field_addr_customer_service
+entity_type: paragraph
+type: telephone
+settings: {  }
+module: telephone
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

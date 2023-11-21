@@ -1,0 +1,74 @@
+uuid: 5db8f280-2ba9-4113-bd01-64757e5b5e94
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.location.field_location_addresses
+    - field.field.node.location.field_location_region
+    - field.field.node.location.field_location_url
+    - field.field.node.location.field_shared_content_owner
+    - field.field.node.location.field_shared_cou
+    - field.field.node.location.field_shared_header_media
+    - field.field.node.location.field_shared_mktg_support_ticket
+    - field.field.node.location.field_shared_review_comments
+    - field.field.node.location.field_shared_review_user
+    - node.type.location
+  module:
+    - entity_reference_revisions
+    - link
+    - user
+id: node.location.teaser
+targetEntityType: node
+bundle: location
+mode: teaser
+content:
+  field_location_addresses:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_location_region:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_location_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_shared_content_owner: true
+  field_shared_cou: true
+  field_shared_header_media: true
+  field_shared_mktg_support_ticket: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  langcode: true
+  search_api_excerpt: true

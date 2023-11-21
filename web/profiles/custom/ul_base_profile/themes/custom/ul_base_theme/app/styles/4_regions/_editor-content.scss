@@ -1,0 +1,131 @@
+.editor-content {
+  @include trim-margin;
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 2em;
+  }
+
+  p {
+    line-height: 1.75;
+  }
+
+  blockquote {
+    p {
+      line-height: 1.25;
+    }
+  }
+
+
+  .align-left img {
+    margin-right: $spacing-unit;
+  }
+  .align-right img {
+    margin-left: $spacing-unit;
+  }
+
+  img {
+    margin-bottom: $spacing-unit;
+    margin-top: $spacing-unit;
+    max-width: 100%;
+    &.align-left{
+      margin-#{$end-direction}: $spacing-unit;
+    }
+    &.align-right{
+      margin-#{$start-direction}: $spacing-unit;
+    }
+  }
+
+  .caption {
+    margin-bottom: $spacing-unit--xl;
+    margin-top: $spacing-unit--xl;
+
+    img {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+
+    figcaption {
+      color: $text-color--light;
+      font-size: 1.4rem;
+      margin-top: $spacing-unit;
+      @include breakpoint($tablet) {
+        margin-top: $spacing-unit * 1.5;
+      }
+
+      strong {
+        color: $black;
+        margin-#{$end-direction}: $spacing-unit--xs;
+      }
+    }
+  }
+
+  .flex-grid {
+    @include breakpoint(max-width $tablet - 1) {
+      // set to block so margins collapse
+      display: block;
+    }
+    .grid-item {
+      @include trim-margin();
+      margin-bottom: $spacing-unit;
+      margin-top: $spacing-unit;
+    }
+  }
+
+  .media-wysiwyg-align-left {
+    @include breakpoint($tablet) {
+      display: block;
+      float: $start-direction;
+      margin: $spacing-unit--xl;
+      margin-#{$start-direction}: 0;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+  .media-wysiwyg-align-right {
+    @include breakpoint($tablet) {
+      display: block;
+      float: $end-direction;
+      margin: $spacing-unit--xl;
+      margin-#{$end-direction}: 0;
+      max-width: 100%;
+      width: auto;
+    }
+  }
+
+  // This helps to clear any floated items in the editor content!
+  &:after {
+    content: ' ';
+    display: table;
+    clear: both;
+  }
+}
+
+.editor-template.icons-flex-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  @include breakpoint(max-width $desktop) {
+    flex-wrap: wrap;
+  }
+  .grid-icon {
+    padding: 0 10px;
+    width: 25%;
+    @include breakpoint(max-width $desktop) {
+      width: 33%;
+    }
+    @include breakpoint(max-width $tablet) {
+      width: 50%;
+    }
+    text-align: center;
+    @include trim-margin();
+    margin-bottom: $spacing-unit;
+    margin-top: $spacing-unit;
+    img {
+      width: 100px;
+      margin: 0 auto;
+    }
+  }
+  a {
+    color: #585858;
+  }
+}

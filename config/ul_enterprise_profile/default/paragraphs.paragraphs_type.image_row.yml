@@ -1,0 +1,10 @@
+uuid: ad6e356a-e95b-4de6-9a6f-863c249d8d5b
+langcode: en
+status: true
+dependencies: {  }
+id: image_row
+label: 'Image Row'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Image Row</em> to display a row of images with descriptions and a shared header.'
+behavior_plugins: {  }

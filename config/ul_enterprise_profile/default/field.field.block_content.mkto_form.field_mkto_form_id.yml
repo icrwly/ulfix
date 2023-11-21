@@ -1,0 +1,23 @@
+uuid: 78b9db6f-28f9-4914-8bf3-14976eb1d5b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mkto_form
+    - field.storage.block_content.field_mkto_form_id
+id: block_content.mkto_form.field_mkto_form_id
+field_name: field_mkto_form_id
+entity_type: block_content
+bundle: mkto_form
+label: 'Marketo Form ID'
+description: 'Enter the Marketo Form ID. Must be an integer.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

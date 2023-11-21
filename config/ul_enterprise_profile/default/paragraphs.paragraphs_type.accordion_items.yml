@@ -1,0 +1,10 @@
+uuid: 6e4c37f7-ef5b-49ab-ad87-d58b2babc477
+langcode: en
+status: true
+dependencies: {  }
+id: accordion_items
+label: 'Accordion Items'
+icon_uuid: null
+icon_default: null
+description: 'Note: These are only the required component items of the Accordion paragraph type. Use the <em>Accordion</em> type instead of this! '
+behavior_plugins: {  }

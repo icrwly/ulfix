@@ -1,0 +1,10 @@
+uuid: 7b5b4ad0-164e-4ccc-8bf7-529d98079939
+langcode: en
+status: true
+dependencies: {  }
+id: marketo_form
+label: 'Marketo Interrupter'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Marketo Form</em> to embed Marketo forms into your content. '
+behavior_plugins: {  }

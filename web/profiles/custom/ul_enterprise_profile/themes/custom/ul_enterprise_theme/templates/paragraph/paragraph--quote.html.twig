@@ -1,0 +1,22 @@
+{% extends '@ul_enterprise_theme/4_regions/section--quote.twig' %}
+{% set class = "section section--quote section--paragraph" %}
+{% if content.field_shared_bg_color.0 is not empty %}
+  {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+{% set gutterclass = "paragraph-gutter paragraph--quote" %}
+{% set quote = content.field_quote_text %}
+{% set author = {
+    'name': content.field_quote_name|render,
+    'location': content.field_quote_location|render,
+    'company': content.field_quote_company|render
+}%}
+{% if content.field_quote_link.0 %}
+    {% set viewSource = {
+        'link': content.field_quote_link.0['#url'],
+        'name': content.field_quote_link.0['#title']
+    }%}
+{% endif %}
+
+{% block author_image %}
+    {{ content.field_quote_icon }}
+{% endblock %}

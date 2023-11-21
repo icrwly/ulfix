@@ -1,0 +1,45 @@
+uuid: fa6b995d-7e0c-450c-bff5-d785380edc4c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.right_rail_plain_content.field_rr_plain_content_desc
+    - field.field.paragraph.right_rail_plain_content.field_rr_plain_content_title
+    - field.field.paragraph.right_rail_plain_content.field_rr_plain_content_xtra_link
+    - paragraphs.paragraphs_type.right_rail_plain_content
+  module:
+    - link
+id: paragraph.right_rail_plain_content.default
+targetEntityType: paragraph
+bundle: right_rail_plain_content
+mode: default
+content:
+  field_rr_plain_content_desc:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_rr_plain_content_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_rr_plain_content_xtra_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+hidden:
+  search_api_excerpt: true

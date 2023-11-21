@@ -1,0 +1,19 @@
+{# Interrupter CTA Buttons template -> Default. #}
+{% embed "@ul_enterprise_theme/3_components/section--action-banner__cta.twig" %}
+  {% set title = settings.field_shared_custom_title %}
+  {% set description = settings.field_shared_form_description %}
+  {% if settings.field_shared_cta_button_text %}
+    {% set bttnTxt = settings.field_shared_cta_button_text %}
+  {% else %}
+    {% set bttnTxt = settings.field_shared_button_text %}
+  {% endif %}
+  {% block buttons %}
+    <div class="banner-buttons">
+      {% include '@ul_base_theme/2_pieces/button.twig' with {
+        name: bttnTxt,
+        link: page_url.url,
+        class: 'button--white button--primary'
+      } %}
+    </div>
+  {% endblock %}
+{% endembed %}

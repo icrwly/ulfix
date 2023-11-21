@@ -1,0 +1,42 @@
+ul_enterprise_theme.mobile:
+  label: mobile
+  mediaQuery: ''
+  weight: 1
+  multipliers:
+    - 1x
+    - 2x
+ul_enterprise_theme.large-mobile:
+  label: large mobile
+  mediaQuery: '(min-width: 600px)'
+  weight: 2
+  multipliers:
+    - 1x
+    - 2x
+ul_enterprise_theme.tablet:
+  label: tablet
+  mediaQuery: '(min-width: 768px)'
+  weight: 3
+  multipliers:
+    - 1x
+    - 2x
+ul_enterprise_theme.large-tablet:
+  label: large tablet
+  mediaQuery: '(min-width: 892px)'
+  weight: 4
+  multipliers:
+    - 1x
+    - 2x
+ul_enterprise_theme.desktop:
+  label: desktop
+  mediaQuery: '(min-width: 992px)'
+  weight: 5
+  multipliers:
+    - 1x
+    - 2x
+ul_enterprise_theme.large-desktop:
+  label: large desktop
+  mediaQuery: '(min-width: 1200px)'
+  weight: 6
+  multipliers:
+    - 1x
+    - 2x

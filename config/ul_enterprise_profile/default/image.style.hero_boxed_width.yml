@@ -1,0 +1,23 @@
+uuid: e38103a3-d1bd-4cad-9ae7-17eab7f4af76
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: hero_boxed_width
+label: 'Hero - boxed width (1200 x 900)'
+effects:
+  954cdf88-fe39-44ce-bcae-4db9ae10841a:
+    uuid: 954cdf88-fe39-44ce-bcae-4db9ae10841a
+    id: image_effects_auto_orient
+    weight: 1
+    data:
+      scan_exif: true
+  91829a67-3826-4a98-a563-3bae77ded366:
+    uuid: 91829a67-3826-4a98-a563-3bae77ded366
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 1200
+      height: 900
+      anchor: center-center

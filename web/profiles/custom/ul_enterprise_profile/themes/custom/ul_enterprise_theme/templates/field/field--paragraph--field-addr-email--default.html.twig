@@ -1,0 +1,11 @@
+{% set emails_length = items|length %}
+{% set counter = 0 %}
+
+{% for item in items %}
+  <a href="mailto:{{ item.content['#title'] }}" title="{{ item.content['#title'] }}">{{ item.content['#title'] }}</a>
+  {% set counter = counter + 1 %}
+  {% if counter < emails_length %}
+  </li>
+  <li>
+  {% endif %}
+{% endfor %}

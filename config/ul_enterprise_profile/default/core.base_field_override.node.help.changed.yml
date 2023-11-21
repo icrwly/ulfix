@@ -1,0 +1,18 @@
+uuid: 74dc20de-bd33-462f-bce6-ef8cf54a209f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.help
+id: node.help.changed
+field_name: changed
+entity_type: node
+bundle: help
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

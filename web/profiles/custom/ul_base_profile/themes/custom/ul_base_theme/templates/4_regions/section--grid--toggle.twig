@@ -1,0 +1,7 @@
+{% extends "@ul_base_theme/4_regions/section--grid.twig" %}
+
+{% set dataModule = "gridToggle" %}
+
+{% block item %}
+  {% include "@ul_base_theme/2_pieces/grid-item.twig" with { item: item, per_row: per_row, toggle: true } only %}
+{% endblock %}

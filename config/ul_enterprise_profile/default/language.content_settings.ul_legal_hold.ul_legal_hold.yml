@@ -1,0 +1,17 @@
+uuid: 7f934b6e-8033-46a5-a4f3-414ac6221ead
+langcode: en
+status: true
+dependencies:
+  module:
+    - content_translation
+    - ul_legal_hold
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: ul_legal_hold.ul_legal_hold
+target_entity_type_id: ul_legal_hold
+target_bundle: ul_legal_hold
+default_langcode: site_default
+language_alterable: false

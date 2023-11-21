@@ -1,0 +1,23 @@
+uuid: e467d005-5d99-4b85-9600-7b9c46313cdc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rc_row_limit
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - options
+id: paragraph.related_content.field_rc_row_limit
+field_name: field_rc_row_limit
+entity_type: paragraph
+bundle: related_content
+label: 'Items Per Row'
+description: 'This does not apply when using right rail layout or list view mode.'
+required: true
+translatable: false
+default_value:
+  -
+    value: '4'
+default_value_callback: ''
+settings: {  }
+field_type: list_string

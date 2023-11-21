@@ -1,0 +1,10 @@
+uuid: 1bde2f51-223b-4875-af1f-35cdc49b9a91
+langcode: en
+status: true
+dependencies: {  }
+id: cards_small
+label: 'Cards, small'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Cards, small</em> to create cards composed of an image, title and description text. These cards have no hyperlinks or CTAs, and are specifically for Regional Pages.'
+behavior_plugins: {  }

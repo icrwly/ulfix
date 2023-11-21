@@ -1,0 +1,8 @@
+uuid: 74bcf3d2-d0f2-4650-992a-e43f3f759105
+langcode: en
+status: true
+dependencies: {  }
+id: node__promo_material
+label: 'Content: Promotional Material'
+code: null
+message: ''

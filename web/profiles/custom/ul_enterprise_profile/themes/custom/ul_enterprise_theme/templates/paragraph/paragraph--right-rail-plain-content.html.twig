@@ -1,0 +1,11 @@
+{# @file: paragraph--right-rail-plain-content.html.twig #}
+
+{% block content %}
+  <div class="siderail--plain-content">
+    <h3>{{ content.field_rr_plain_content_title }}</h3>
+    <p>{{ content.field_rr_plain_content_desc }}</p>
+    {% if content.field_rr_plain_content_xtra_link.0|render %}
+      <p>{{ content.field_rr_plain_content_xtra_link }}</p>
+    {% endif %}
+  </div>
+{% endblock %}

@@ -1,0 +1,10 @@
+uuid: 159de57a-ea6f-4685-bff0-d2f326f8ed2d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: UWD3kL8KCnI26aze3ovpn_R6mm_Zmo5Ez82MnUi0q74
+name: Industries
+vid: industries
+description: 'UL industries'
+weight: 0

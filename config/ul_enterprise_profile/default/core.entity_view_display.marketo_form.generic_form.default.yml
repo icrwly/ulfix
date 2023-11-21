@@ -1,0 +1,67 @@
+uuid: 944a2ee0-d5be-49d0-81c6-c901dcc36127
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.generic_form.field_shared_button_text
+    - field.field.marketo_form.generic_form.field_shared_cta_button_text
+    - field.field.marketo_form.generic_form.field_shared_custom_title
+    - field.field.marketo_form.generic_form.field_shared_form_description
+    - field.field.marketo_form.generic_form.field_shared_thank_you_page
+    - ul_marketo.marketo_form_type.generic_form
+id: marketo_form.generic_form.default
+targetEntityType: marketo_form
+bundle: generic_form
+mode: default
+content:
+  field_shared_button_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_cta_button_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_shared_custom_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_shared_form_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_thank_you_page:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true
+  user_id: true

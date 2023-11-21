@@ -1,0 +1,7 @@
+{% for card in cardList %}
+  {% if loop.index == 1 %}
+    {% include '@ul_base_theme/2_pieces/card/card--events.twig' with card only %}
+  {% else %}
+    {% include '@ul_base_theme/2_pieces/listing-item/listing-item--events-simple--homepage.twig' with card only %}
+  {% endif %}
+{% endfor %}

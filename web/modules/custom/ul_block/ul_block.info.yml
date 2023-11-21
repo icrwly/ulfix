@@ -1,0 +1,7 @@
+type: module
+name: 'UL Block'
+description: 'Block tools for UL'
+package: Other
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:block_content

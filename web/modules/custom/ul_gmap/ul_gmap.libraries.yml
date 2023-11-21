@@ -1,0 +1,17 @@
+ul_gmap:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      dist/dist.ul-certification.css: {}
+      https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css: {type: external}
+      https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/css/selectize.bootstrap3.min.css: {type: external}
+  js:
+    https://cdnjs.cloudflare.com/ajax/libs/selectize.js/0.12.6/js/standalone/selectize.min.js: {type: external}
+    https://cdn.jsdelivr.net/npm/micromodal@0.4.6/dist/micromodal.min.js: {type: external}
+    dist/dist.ul-certification.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/js-cookie
+    - ul_base_theme/jquery-custom

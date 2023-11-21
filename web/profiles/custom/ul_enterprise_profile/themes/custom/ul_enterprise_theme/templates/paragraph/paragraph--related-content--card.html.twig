@@ -1,0 +1,35 @@
+{# set grid classes based on the items length #}
+{% set itemsLength = content.field_rc_content['#items']|length %}
+
+{% if content.field_rc_title|render or content.field_rc_description|render %}
+    {% set titleBar = {
+        'title': content.field_rc_title,
+        'headingLevel': 'h2',
+        'description': content.field_rc_description,
+        'seeAll': {
+            link: content.field_rc_cta.0['#url'],
+            name: content.field_rc_cta.0['#title']
+        }
+    } %}
+{% endif %}
+
+{% if content.field_shared_bg_color.0 is not empty %}
+  {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+
+{% set gutterclass = "paragraph-gutter paragraph--related-content" %}
+
+{% embed '@ul_base_theme/4_regions/section--related-content.twig' %}
+    {% block items_container %}
+        {% for key, item in items %}
+            {# if Key is numeric then it is a valid object. #}
+            {% if key matches '/^\\d+$/' %}
+                {% embed "@ul_base_theme/2_pieces/grid-item.twig" with { item: item, per_row: per_row, grid_class: grid_class } only %}
+                    {% block content %}
+                        {{ item }}
+                    {% endblock %}
+                {% endembed %}
+            {% endif %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}

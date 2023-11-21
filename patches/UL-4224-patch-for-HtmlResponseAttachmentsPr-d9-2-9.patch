@@ -1,0 +1,13 @@
+diff --git a/core/lib/Drupal/Core/Render/HtmlResponseAttachmentsProcessor.php b/core/lib/Drupal/Core/Render/HtmlResponseAttachmentsProcessor.php
+index 2dc416f4bd..e4b1b87246 100644
+--- a/core/lib/Drupal/Core/Render/HtmlResponseAttachmentsProcessor.php
++++ b/core/lib/Drupal/Core/Render/HtmlResponseAttachmentsProcessor.php
+@@ -435,7 +435,7 @@ protected function processHtmlHeadLink(array $html_head_link) {
+         '#tag' => 'link',
+         '#attributes' => $attributes,
+       ];
+-      $href = $attributes['href'];
++      $href = is_object($attributes['href']) ? $attributes['href']->toString(): $attributes['href'];
+       $rel = $attributes['rel'];
+ 
+       // Allow multiple hreflang tags to use the same href.

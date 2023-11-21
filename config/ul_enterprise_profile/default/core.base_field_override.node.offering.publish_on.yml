@@ -1,0 +1,18 @@
+uuid: 04150071-3830-4373-a24a-97dc60f83098
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.offering
+id: node.offering.publish_on
+field_name: publish_on
+entity_type: node
+bundle: offering
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

@@ -1,0 +1,22 @@
+uuid: d8415e05-c8f8-43e3-b947-c36ddf3c0946
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: 7BAs6XUh_Pv_jbUU2QjhOHaWjPG4nIYAixnhlp4iKds
+id: node.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

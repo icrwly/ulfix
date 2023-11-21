@@ -1,0 +1,8 @@
+uuid: bead6a90-f98b-4116-ae53-9669cf5b72a0
+langcode: en
+status: true
+dependencies: {  }
+name: Country
+vid: country
+description: 'Used for grouping content by country'
+weight: 0

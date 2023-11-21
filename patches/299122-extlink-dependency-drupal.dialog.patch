@@ -1,0 +1,12 @@
+diff --git a/extlink.libraries.yml b/extlink.libraries.yml
+index eec416a..46d3d99 100644
+--- a/extlink.libraries.yml
++++ b/extlink.libraries.yml
+@@ -9,6 +9,7 @@ drupal.extlink:
+     - core/jquery
+     - core/drupal
+     - core/drupalSettings
++    - core/drupal.dialog
+ 
+ extlink.settings:
+   js:

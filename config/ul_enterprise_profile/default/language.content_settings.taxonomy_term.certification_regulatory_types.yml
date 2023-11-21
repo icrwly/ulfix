@@ -1,0 +1,16 @@
+uuid: 049caf2f-e4b0-446c-bc4f-71d95bc2ab29
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.certification_regulatory_types
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: taxonomy_term.certification_regulatory_types
+target_entity_type_id: taxonomy_term
+target_bundle: certification_regulatory_types
+default_langcode: site_default
+language_alterable: false

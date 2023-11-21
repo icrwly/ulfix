@@ -1,0 +1,21 @@
+uuid: d636a515-0080-4816-9de2-7a05dc301c7e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_bg_color
+    - paragraphs.paragraphs_type.spotlight
+  module:
+    - options
+id: paragraph.spotlight.field_shared_bg_color
+field_name: field_shared_bg_color
+entity_type: paragraph
+bundle: spotlight
+label: 'Background Color'
+description: "You may select the background color for this paragraph (content section).\r\n<br />Note: This only works with the default view mode, and does not work with cards."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

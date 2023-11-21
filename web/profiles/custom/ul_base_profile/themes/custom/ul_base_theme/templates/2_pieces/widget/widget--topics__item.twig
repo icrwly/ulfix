@@ -1,0 +1,17 @@
+{% block content %}
+    {% if content or name %}
+      <li class="topic">
+        {% block link %}
+          {#{% if linkShow %}
+            <a href="{{ topic.href }}" title="{{- topic.name -}}">{{- topic.name -}}</a>
+          {% else %}#}
+            {% if content  %}
+                {{- content -}}
+            {% else %}
+                <span>{{- name -}}</span>
+            {% endif %}
+          {#{% endif %}#}
+        {% endblock %}
+      </li>
+    {% endif %}
+{% endblock %}

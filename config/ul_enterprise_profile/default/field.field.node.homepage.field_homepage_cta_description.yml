@@ -1,0 +1,21 @@
+uuid: a795e4be-eb4c-44ba-999e-db6a5d64273b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_cta_description
+    - node.type.homepage
+  module:
+    - text
+id: node.homepage.field_homepage_cta_description
+field_name: field_homepage_cta_description
+entity_type: node
+bundle: homepage
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

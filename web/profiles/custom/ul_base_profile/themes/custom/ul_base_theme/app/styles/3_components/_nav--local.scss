@@ -1,0 +1,126 @@
+.nav--local {
+  background: $white;
+
+  .nav__title-container,
+  .nav__menu-container {
+    padding: $spacing-unit;
+    @include breakpoint($desktop) {
+      padding: $spacing-unit * 1.5 $spacing-unit--xl * .75;
+    }
+  }
+
+  .nav__title {
+    margin: 0;
+    font-size: 2rem;
+    @include breakpoint(max-width $desktop - 1) {
+      font-size: 2.4rem;
+    }
+    @include breakpoint(max-width $tablet - 1) {
+      font-size: 2rem;
+    }
+    a {
+      color: $black;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+  .menu-item--local-nav {
+    &:not(:last-child) {
+      margin-bottom: $spacing-unit--xs;
+    }
+  }
+
+  &.is-desktop {
+    position: relative;
+
+    .nav__inner-container {
+      @include hero-height; // Same as hero
+      @include breakpoint($desktop) {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 25%;
+        z-index: index($globalIndex, section);
+      }
+    }
+
+    .nav__inner {
+      background: $white;
+      @include breakpoint($desktop) {
+        box-shadow: $box-shadow--level-2;
+        margin-bottom: $spacing-unit--l;
+        margin-top: $spacing-unit--l;
+        max-height: calc(100% - #{$spacing-unit--l * 2});
+        min-height: 50%;
+        overflow-y: auto;
+      }
+    }
+
+    .nav__title-container {
+      color: $black;
+      @include breakpoint(max-width $desktop - 1) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+      @include breakpoint($desktop) {
+        border-bottom: 1px solid $border-color;
+      }
+    }
+
+    .nav__menu-container {
+      @include breakpoint(max-width $desktop - 1) {
+        display: none;
+      }
+    }
+
+    .menu-item--local-nav {
+      > a {
+        color: $black;
+        &.active-trail {
+          color: $red;
+          font-weight: 700;
+        }
+      }
+    }
+  }
+
+  &.is-mobile {
+    background-color: $background-color;
+    border-top: 1px solid $border-color;
+    padding-left: $spacing-unit;
+    padding-right: $spacing-unit;
+    @include breakpoint($desktop) {
+      display: none;
+    }
+
+    .nav__title-container {
+      border-bottom: 1px solid $border-color;
+      padding: $spacing-unit * 1.5 $spacing-unit--s;
+    }
+
+    .nav__menu-container {
+      padding: $spacing-unit * 1.5 $spacing-unit--s;
+    }
+
+    .menu-item--local-nav {
+      font-size: 1.4rem;
+      &:not(:last-child) {
+        margin-bottom: $spacing-unit;
+      }
+
+      > a {
+        border-radius: $border-radius;
+        color: $text-color;
+        padding: $spacing-unit--xs $spacing-unit--s;
+        &.active-trail {
+          background-color: $gray-lighter;
+        }
+      }
+    }
+  }
+}

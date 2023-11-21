@@ -1,0 +1,269 @@
+{
+  "local_nav": {
+    "title": "Offerings",
+    "items": [
+      {
+        "title": "Overview",
+        "url": "#"
+      },
+      {
+        "title": "by Industry",
+        "url": "#",
+        "in_active_trail": true
+      },
+      {
+        "title": "by Market",
+        "url": "#"
+      },
+      {
+        "title": "by Service Category",
+        "url": "#"
+      },
+      {
+        "title": "Business Needs",
+        "url": "#"
+      },
+      {
+        "title": "Solutions",
+        "url": "#"
+      },
+      {
+        "title": "All Offerings",
+        "url": "#"
+      }
+    ]
+  },
+  "t02Hero": {
+    "slides": [
+      {
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Landing Page",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+      }
+    ],
+    "footer": {
+      "bg_color": "blue",
+      "title": "Ready to Talk? Take the next step with UL.",
+      "cta": {
+        "title": "Contact Us",
+        "url": "#"
+      }
+    }
+  },
+  "spotlight_1": {
+    "title": "Renewables",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Call to Action",
+      "color": "black-outline"
+    },
+    "items":[
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      }
+    ]
+  },
+  "spotlight_2": {
+    "title": "Environment",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Call to Action",
+      "color": "black-outline"
+    },
+    "items":[
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      }
+    ]
+  },
+  "spotlight_3": {
+    "title": "Cybersecurity",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Call to Action",
+      "color": "black-outline"
+    },
+    "items":[
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      }
+    ]
+  },
+  "spotlight_4": {
+    "title": "Enterprise Risk Management",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Call to Action",
+      "color": "black-outline"
+    },
+    "items":[
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      }
+    ]
+  },
+  "spotlight_5": {
+    "title": "Product Intelligence",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Call to Action",
+      "color": "black-outline"
+    },
+    "items":[
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      }
+    ]
+  },
+  "spotlight_6": {
+    "title": "Indentity Managment",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Call to Action",
+      "color": "black-outline"
+    },
+    "items":[
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      },
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      },
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      }
+    ]
+  },
+  "spotlight_7": {
+    "title": "Internet of Things (IoT)",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Call to Action",
+      "color": "black-outline"
+    },
+    "items":[
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "5 min Read"
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "5 min Read"
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "5 min Read"
+      }
+    ]
+  },
+  "t02ActionBanner": {
+    "backgroundColor": "#00518a",
+    "items": [
+      {
+        "title": "Lorem ipsum",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "ctas": [
+          {
+            "title": "Primary action",
+            "url": "#"
+          },
+          {
+            "title": "Secondary action",
+            "url": "#"
+          }
+        ]
+      }
+    ]
+  }
+}

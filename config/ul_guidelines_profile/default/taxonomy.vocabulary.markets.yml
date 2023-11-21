@@ -1,0 +1,8 @@
+uuid: 8cc83fba-90c7-4be0-99e9-9ad5a1bb88c5
+langcode: en
+status: true
+dependencies: {  }
+name: Markets
+vid: markets
+description: 'Used for grouping content by market.'
+weight: 0

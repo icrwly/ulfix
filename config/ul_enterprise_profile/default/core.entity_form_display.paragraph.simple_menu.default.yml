@@ -1,0 +1,52 @@
+uuid: db1b79bd-2208-4a03-8b66-189f516a4467
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.simple_menu.field_simple_menu_cta
+    - field.field.paragraph.simple_menu.field_simple_menu_links
+    - field.field.paragraph.simple_menu.field_simple_menu_title
+    - paragraphs.paragraphs_type.simple_menu
+  module:
+    - link
+    - paragraphs
+id: paragraph.simple_menu.default
+targetEntityType: paragraph
+bundle: simple_menu
+mode: default
+content:
+  field_simple_menu_cta:
+    type: link_default
+    weight: 12
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_simple_menu_links:
+    type: entity_reference_paragraphs
+    weight: 11
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_simple_menu_title:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

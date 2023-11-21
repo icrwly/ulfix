@@ -1,0 +1,19 @@
+{% extends '@ul_enterprise_theme/4_regions/section--file-list.twig' %}
+{% set class = class ~ ' section--paragraph' %}
+{% if content.field_shared_bg_color.0 is not empty %}
+  {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+{% set gutterclass = 'paragraph-gutter paragraph--file-list' %}
+
+{% if content.field_crc_files_title|render or content.field_crc_files_description|render %}
+  {% set titleBar = {
+    'title': content.field_crc_files_title,
+    'description': content.field_crc_files_description
+  } %}
+{% endif %}
+
+{% set items = content.field_crc_files_files %}
+
+{% block items %}
+  {{ content.field_crc_files_files }}
+{% endblock %}

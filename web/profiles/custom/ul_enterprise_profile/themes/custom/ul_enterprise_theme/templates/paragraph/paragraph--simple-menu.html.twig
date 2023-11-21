@@ -1,0 +1,20 @@
+{% extends "@ul_base_theme/4_regions/section--simple-menu.twig" %}
+
+{% if content.field_simple_menu_title|render %}
+    {% set titleBar = {
+       headingLevel: 'h2',
+       title: content.field_simple_menu_title
+    } %}
+{% endif %}
+
+{% if content.field_simple_menu_cta|render %}
+    {% set cta = {
+        title: content.field_simple_menu_cta.0['#title'],
+        url: content.field_simple_menu_cta.0['#url'],
+    } %}
+{% endif %}
+
+{% block link_list %}
+    {{ content.field_simple_menu_links }}
+{% endblock %}
+

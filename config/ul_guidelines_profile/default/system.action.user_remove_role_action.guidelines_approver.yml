@@ -1,0 +1,14 @@
+uuid: 2ea6f3c4-b633-4d50-8460-b65c3e2ca9b2
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.guidelines_approver
+  module:
+    - user
+id: user_remove_role_action.guidelines_approver
+label: 'Remove the Guidelines Approver role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: guidelines_approver

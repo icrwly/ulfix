@@ -1,0 +1,37 @@
+uuid: 5d7f8878-0b98-499f-8387-d5f92764a920
+langcode: en
+status: true
+dependencies:
+  module:
+    - globallink
+name: globallink
+label: GlobalLink
+description: 'GlobalLink is the world’s most powerful and flexible system to manage multilingual content'
+auto_accept: false
+weight: -10
+plugin: globallink
+settings:
+  pd_submissionprefix: ul
+  pd_notify_emails: ''
+  pd_combine: '0'
+  pd_due_date_offset: '3'
+  pd_notify_level:
+    status: '0'
+    debug: '0'
+    warning: '0'
+    error: '0'
+  pd_user_agent: dev
+  pd_classifier: Drupal_XML
+remote_languages_mappings:
+  en: en-US
+  zh-hans: zh-CN
+  zh-hant: zh-TW
+  fr: fr-FR
+  fr-ca: fr-CA
+  de: de-DE
+  it: it-IT
+  ja: ja-JP
+  ko: ko-KR
+  pt-br: pt-BR
+  es: es-ES
+  vi: vi-VN

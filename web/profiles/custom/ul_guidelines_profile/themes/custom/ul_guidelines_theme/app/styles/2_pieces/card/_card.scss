@@ -1,0 +1,42 @@
+.card{
+  color: $grayDark;
+  img{
+    // border-radius: 4px;
+    overflow: hidden;
+    width: 100%;
+  }
+  h3{
+    // @include font-size(24, 30);
+    // color:$blueDark;
+    margin: 0;
+  }
+  p{
+    // @include font-size(14, 20);
+    // color:$blueDark;
+  }
+  &--default{
+    @include box-shadow();
+    padding: $spacing-unit * 1.5;
+    img {
+      margin-bottom: $spacing-unit * 1.5;
+    }
+    .content-container {
+      padding: 0;
+      position: relative;
+
+      .guideline-author {
+        background: #fff url(/profiles/custom/ul_guidelines_profile/themes/custom/ul_guidelines_theme/images/icon-guideline-author.png) no-repeat left center;
+        background-size: 30px 30px;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        padding: 10px 10px 10px 40px;
+      }
+    }
+    // padding:4%;
+    // @include breakpoint($tablet){
+    //   padding:2%;
+    // }
+  }
+}

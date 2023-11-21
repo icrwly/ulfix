@@ -1,0 +1,24 @@
+uuid: b7da4901-5f05-4ae3-aca1-fc3414aee5f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_mktg_support_ticket
+    - node.type.regional_pages
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.regional_pages.field_shared_mktg_support_ticket
+field_name: field_shared_mktg_support_ticket
+entity_type: node
+bundle: regional_pages
+label: 'Marketing Support Ticket Number'
+description: 'The ticket number (e.g., “1234”) that documents the required brand and legal reviews for this page. Not required to save a draft, but is required when publishing page for the first time. Important: Cannot be modified after saving.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

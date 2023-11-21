@@ -1,0 +1,19 @@
+uuid: 4a5197cc-0713-47ef-b4b5-9de5aa3cb945
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mkto_form
+    - field.storage.block_content.field_mkto_thank_you
+id: block_content.mkto_form.field_mkto_thank_you
+field_name: field_mkto_thank_you
+entity_type: block_content
+bundle: mkto_form
+label: 'Thank You Page (URL or relative path)'
+description: "&bull; The <em>Thank You page</em> where the user is redirected after form submission. \r\n<br />&bull; May be a full URL, i.e. <code>https://www.ul.com/contact-us/thank-you</code> or just the relative path, i.e. <code>/contact-us/thank-you</code>\r\n"
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

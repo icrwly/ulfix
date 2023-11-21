@@ -1,0 +1,32 @@
+UL Drush Command Duplicate Aliases.
+
+INTRODUCTION
+Provide a command to remove duplicate path_aliases: 
+- module: docroot/modules/custom/ul_duplicate_aliases.
+
+HOW TO USE:
+- @command   ul_duplicate_aliases:remove [-y]
+  @aliases   ul-dar [-y]
+- fin drush @local.enterprise ul_duplicate_aliases:remove -y
+- fin drush @local.enterprise ul-dar
+- fin drush @ulplatform_dev.ulmvp ul_duplicate_aliases:remove
+- fin drush @ulplatform_test.ulmvp ul-dar -y
+- Argument -y : "Yes" without confirmation
+
+REQUIREMENTS
+The module requires Drupal core 9.
+
+CONFIGURATION
+Drush 10 is required fro Drupal 9.
+
+INSTALLATION
+Install as independent Drupal module installation.
+
+AUTHOR
+- gung.wang@ul.com
+
+DATE
+- Nov 23, 2021
+
+UPDATE
+- 

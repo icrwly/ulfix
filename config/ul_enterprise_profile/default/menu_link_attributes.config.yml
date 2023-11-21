@@ -1,0 +1,4 @@
+attributes:
+  container_class:
+    label: 'Container class'
+    description: 'Set the class for the list item <code>&lt;li class=&quot;my-class&quot; href=&quot;#&quot;&gt;</code>'

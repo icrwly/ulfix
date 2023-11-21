@@ -1,0 +1,31 @@
+///*------------------------------------*\
+//    #CORE/HELPERS - HIDDEN
+//\*------------------------------------*/
+/* Note: Add the .hidden class to GNorm, this class is intended to be used on links
+ * that should not display their text, ex. a icon button.
+ */
+
+.hidden{
+  @include hidden;
+}
+
+.display-none{
+  display: none;
+}
+// Only display content to screen readers
+//
+// See: http://a11yproject.com/posts/how-to-hide-content
+
+.sr-only,
+%sr-only {
+  @include sr-only;
+}
+
+
+// Use in conjunction with .sr-only to only display content when it's focused.
+// Useful for "Skip to main content" links; see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+// Credit: HTML5 Boilerplate
+
+.sr-only-focusable {
+  @include sr-only-focusable;
+}

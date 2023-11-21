@@ -1,0 +1,29 @@
+{% embed '@ul_enterprise_theme/4_regions/section--spotlight.twig'  %}
+    {% set class = "section--paragraph section--spotlight" %}
+    {% if content.field_shared_bg_color.0 is not empty %}
+        {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+    {% endif %}
+    {% if content.field_shared_img_no_border.0|render == "On" %}
+        {% set class = class ~ ' images_no_border' %}
+    {% endif %}
+    {% set gutterclass = "paragraph-gutter paragraph--spotlight image-right" %}
+    {% set title = content.field_spotlight_title %}
+    {% set items = paragraph.field_spotlight_content.getValue() %}
+    {% set description = content.field_spotlight_description %}
+
+    {% block description_inner %}
+      {{ description }}
+    {% endblock %}
+
+    {% block cta_link %}
+        {{ content.field_spotlight_link }}
+    {% endblock %}
+
+    {% block featured_content %}
+        {% if content.field_spotlight_content.0 %}
+            {{ content.field_spotlight_content }}
+        {% elseif content.field_spotlight_image|render %}
+            {{ content.field_spotlight_image }}
+        {% endif %}
+    {% endblock %}
+{% endembed %}

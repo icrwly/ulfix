@@ -1,0 +1,19 @@
+{% extends '@ul_base_theme/5_layouts/t03-basic-detail.twig' %}
+{% set t03Title = {
+    'pageTitle': true,
+    'title': label,
+    'topics': [
+        {content: content.field_shared_topic|render},
+        {content: content.field_shared_industry|render}
+    ]
+}%}
+{% set t03Tags = {} %}
+{% set t03References = {} %}
+
+{% block content %}
+    {% set catch_cache = content|render %}
+    {{ content.body }}
+    {{ content.field_page_content }}
+    {{ content.marketo }}
+    {{ content.addtoany }}
+{% endblock %}

@@ -1,0 +1,8 @@
+uuid: fd79f184-9cea-4dd5-8861-5ba97d9142b3
+langcode: en
+status: true
+dependencies: {  }
+id: node__person
+label: 'Content: Person'
+code: null
+message: ''

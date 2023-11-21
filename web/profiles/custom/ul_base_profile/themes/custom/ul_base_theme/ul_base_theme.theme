@@ -1,0 +1,302 @@
+<?php
+
+/**
+ * @file
+ * UL Base Profile Theme file.
+ */
+
+use Drupal\block\Entity\Block;
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Link;
+use Drupal\webform\Entity\Webform;
+
+/**
+ * Implements template_form_system_theme_settings_alter().
+ */
+function ul_base_theme_form_system_theme_settings_alter(&$form, FormStateInterface &$form_state, $form_id = NULL) {
+  $form['naas'] = [
+    '#type' => 'details',
+    '#title' => t('Navigation As A Service'),
+  ];
+
+  $form['naas']['haas'] = [
+    '#type' => 'details',
+    '#title' => t('Header As A Service'),
+    '#description' => t('Settings for the Header As A Service.'),
+  ];
+
+  $form['naas']['haas']['haas_careers'] = [
+    '#title' => t('Careers Link URL'),
+    '#type' => 'textfield',
+    '#default_value' => theme_get_setting('haas_careers'),
+    '#description' => t('You can enter an internal path such as %add-node or an external URL such as %url.', [
+      '%add-node' => '/node/add',
+      '%url' => 'http://example.com',
+    ]),
+  ];
+  $form['naas']['haas']['haas_contact'] = [
+    '#title' => t('Contact Link URL'),
+    '#type' => 'textfield',
+    '#default_value' => theme_get_setting('haas_contact'),
+    '#description' => t('You can enter an internal path such as %add-node or an external URL such as %url.', [
+      '%add-node' => '/node/add',
+      '%url' => 'http://example.com',
+    ]),
+  ];
+}
+
+/**
+ * Implements hook_page_attachments().
+ */
+function ul_base_theme_page_attachments_alter(array &$attachments) {
+  // Currently only the Enterprise profile is setup for lang direction.
+  // We need to check if the current profile being use is setup for lang dir.
+  // TODO: Once other sites are ready for lang direction remove active profiles.
+  $install_profile = \Drupal::installProfile();
+  $allowed_profiles = [
+    'ul_enterprise_profile',
+  ];
+  $current_language = \Drupal::languageManager()->getCurrentLanguage();
+  $direction = $current_language->getDirection();
+  if (!empty($direction) && $direction == 'rtl' && in_array($install_profile, $allowed_profiles)) {
+    $attachments['#attached']['library']['ul_base_theme/global-styles-lrt'] = 'ul_base_theme/global-styles-rtl';
+  }
+  elseif (!empty($direction) && $direction == 'ltr' && in_array($install_profile, $allowed_profiles)) {
+    $attachments['#attached']['library']['ul_base_theme/global-styles-lrt'] = 'ul_base_theme/global-styles-lrt';
+  }
+  else {
+    $attachments['#attached']['library']['ul_base_theme/global-styles-lrt'] = 'ul_base_theme/global-styling';
+  }
+
+  // Add viewpoint attibutes to fix the issue of iPhone Form Zomming.
+  $viewport = [
+    '#type' => 'html_tag',
+    '#tag' => 'meta',
+    '#attributes' => [
+      'name' => 'viewport',
+      'content' => 'width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0',
+    ]
+  ];
+  $attachments['#attached']['html_head'][] = [$viewport, 'viewport'];
+}
+
+/**
+ * Implements template_preprocess_HOOK().
+ */
+function ul_base_theme_preprocess_region(&$variables) {
+  // Double check that we have the region name.
+  if (isset($variables['region'])) {
+    // Switch what we do depending on the region.
+    switch ($variables['region']) {
+      case 'header':
+        // Add H.a.a.S (Header As A Service) variables.
+        // Add Careers?
+        if ($careers = theme_get_setting('haas_careers')) {
+          $variables['haas']['careers_url'] = $careers;
+          $variables['haas']['careers_link'] = Link::fromTextAndUrl(t('Careers'), $careers);
+        }
+        // Add Contact?
+        if ($contact = theme_get_setting('haas_contact')) {
+          $variables['haas']['contact_url'] = $contact;
+          $variables['haas']['contact_link'] = Link::fromTextAndUrl(t('Contact'), $contact);
+        }
+        // Add Language Switcher?
+        // Languages enabled?
+        if (\Drupal::service('module_handler')->moduleExists('language')) {
+          // Have multiple languages?
+          if (\Drupal::LanguageManager()->isMultilingual()) {
+            // Create an instance of the languageswitcher block.
+            $variables['haas']['language_selector'] = \Drupal::service('plugin.manager.block')
+              ->createInstance('language_block:language_interface', [])
+              ->build();
+          }
+        }
+        break;
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_webform().
+ */
+function ul_base_theme_preprocess_webform(&$variables) {
+
+  // By default the title is not available on the webform.
+  // This is necessary in order to add the title back to the template.
+  $webform = Webform::load($variables['element']['#webform_id']);
+  $variables['label'] = $webform->label();
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function ul_base_theme_theme_suggestions_block_alter(&$suggestions, $variables) {
+  foreach ($suggestions as &$suggestion) {
+    // Check the site config to find the current default theme.
+    $default_theme = \Drupal::service('theme.manager')->getActiveTheme()->getName();
+
+    // Added '_' in the condition to remove the additional string showing in
+    // the suggestion.
+    $suggestion = str_replace($default_theme . '_', '', $suggestion);
+  }
+
+  // Adding bundle support to block template suggestions.
+  if (isset($variables['elements']['content']['#block_content'])) {
+    array_splice($suggestions, 1, 0, 'block__' . $variables['elements']['content']['#block_content']->bundle());
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function ul_base_theme_theme_suggestions_page_alter(array &$suggestions, array $variables, $hook) {
+  $http_error_suggestions = [
+    'system.403' => 'page__403',
+    'system.404' => 'page__404',
+  ];
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (isset($http_error_suggestions[$route_name])) {
+    $suggestions[] = $http_error_suggestions[$route_name];
+  }
+}
+
+/**
+ * Implements template_theme_suggestions_alter().
+ */
+function ul_base_theme_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if ($hook == 'form') {
+    $hook_form_id = $variables['element']['#form_id'];
+    $suggestions[] = $hook . '__' . $hook_form_id;
+    if (isset($variables['element']['#id'])) {
+      $hook_id = str_replace('-', '_', $variables['element']['#id']);
+      $hook_id = str_replace($hook_form_id . '_', '', $hook_id);
+      if ($hook_form_id != $hook_id) {
+        $suggestions[] = $hook . '__' . $hook_form_id . '__' . $hook_id;
+      }
+    }
+  }
+
+  if ($hook == 'views_exposed_form') {
+    if (isset($variables['form']['#id'])) {
+      $hook_id = str_replace('-', '_', $variables['form']['#id']);
+      $hook_id = str_replace($hook . '_', '', $hook_id);
+      $suggestions[] = $hook . '__' . $hook_id;
+    }
+  }
+
+  // Add page template alter based on content type.
+  if ($hook == 'page') {
+    // We're grabbing the raw parameter because getParameter() doesn't always
+    // upcast to the full node object. Especially when viewing revisions.
+    $node_id = \Drupal::routeMatch()->getRawParameter('node');
+    // Load the full node object.
+    if (!empty($node_id)) {
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($node_id);
+      $content_type = $node->bundle();
+      $suggestions[] = 'page__' . $content_type;
+    }
+  }
+
+  if ($hook == 'block') {
+    // Add theme suggestions to blocks based on region.
+    if (!empty($variables['elements']['#id'])) {
+      $block = Block::load($variables['elements']['#id']);
+      $region = $block->getRegion();
+
+      foreach ($suggestions as $s => $suggestion) {
+        $region_suggestion = $suggestion . '__' . $region;
+        array_splice($suggestions, ($s == 0 ? 1 : $s * 3), 0, $region_suggestion);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function ul_base_theme_theme_suggestions_field_alter(array &$suggestions, array $variables, $hook) {
+  // Adding template suggestions for fields.
+  $element = $variables['element'];
+  $sanitized_view_mode = strtr($element['#view_mode'], '.', '_');
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $sanitized_view_mode;
+  $suggestions[] = 'field__' . $element['#entity_type'] . '__' . $element['#field_name'] . '__' . $element['#bundle'] . '__' . $sanitized_view_mode;
+}
+
+/**
+ * Implements hook_theme_suggestions_form_element_alter().
+ */
+function ul_base_theme_theme_suggestions_form_element_alter(array &$suggestions, array $variables, $hook) {
+  // Basic form element template suggestion.
+  if (!empty($variables['element']['#name'])) {
+    $suggestions[] = 'form_element__' . $variables['element']['#type'];
+    $suggestions[] = 'form_element__' . $variables['element']['#name'];
+
+    if (!empty($variables['element']['#parent_element'])) {
+      $suggestions[] = 'form_element__' . $variables['element']['#parent_element'];
+    }
+  }
+
+  // Only template suggestions for form elements that are part of a views
+  // exposed filter.
+  if (!empty($variables['element']['#parent_form']) && $variables['element']['#parent_form'] == 'views_exposed_form') {
+    $suggestions[] = 'form_element__views_exposed_form';
+    $suggestions[] = 'form_element__views_exposed_form__' . $variables['element']['#type'];
+    $suggestions[] = 'form_element__views_exposed_form__' . $variables['element']['#name'];
+
+    if (!empty($variables['element']['#parent_element'])) {
+      $suggestions[] = 'form_element__views_exposed_form__' . $variables['element']['#parent_element'];
+    }
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function ul_base_theme_form_alter(&$form, &$form_state, $form_id) {
+  if ($form_id == 'user_login_form') {
+    $form['pass']['#attributes']['autocomplete'] = 'off';
+  }
+
+  if ($form_id == 'search_block_form') {
+    $form['keys']['#attributes']['placeholder'] = t('Search');
+  }
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function ul_base_theme_preprocess_block(&$variables) {
+  if (isset($variables['elements']['#id'])) {
+    $block = Block::load($variables['elements']['#id']);
+    if ($block) {
+      $region = $block->getRegion();
+      if ($region == 'content') {
+        if ($variables['base_plugin_id'] == 'block_content') {
+          if (is_array($variables['content']) && array_key_exists('field_mkto_lang', $variables['content'])) {
+            if (isset($variables['content']['field_mkto_lang'][0]['#markup'])) {
+              $variables['mkto_block_form_lang'] = $variables['content']['field_mkto_lang'][0]['#markup'];
+            }
+
+            // Site configs.
+            $siteConfig = \Drupal::config('system.site');
+
+            // The site name.
+            $variables['marketo']['site_name'] = $siteConfig->get('name');
+
+            // GDPR "opt-in" file:
+            $module_handler = \Drupal::service('module_handler');
+            $path = $module_handler->getModule('ul_marketo')->getPath();
+            $js_path = '/' . $path . '/js/gdpr-mssg/';
+            if (str_contains(strtolower($variables['marketo']['site_name']), 'emergo')) {
+              $variables['marketo_optin_file'] = $js_path . 'emergo.js';
+            }
+            else {
+              $variables['marketo_optin_file'] = $js_path . 'default.js';
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

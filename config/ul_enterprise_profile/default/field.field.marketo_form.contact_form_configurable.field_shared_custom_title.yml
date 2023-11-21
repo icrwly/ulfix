@@ -1,0 +1,26 @@
+uuid: a35e92a8-d138-44ab-bdc5-cf3e4e9e0c3a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_shared_custom_title
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.contact_form_configurable.field_shared_custom_title
+field_name: field_shared_custom_title
+entity_type: marketo_form
+bundle: contact_form_configurable
+label: 'Custom Title'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: 'Get connected with our sales team'
+default_value_callback: ''
+settings: {  }
+field_type: string

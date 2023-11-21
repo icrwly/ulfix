@@ -1,0 +1,28 @@
+entity.ul_legal_hold.edit_form:
+  title: Edit
+  route_name: entity.ul_legal_hold.edit_form
+  base_route: entity.ul_legal_hold.canonical
+entity.ul_legal_hold.delete_form:
+  title: Delete
+  route_name: entity.ul_legal_hold.delete_form
+  base_route: entity.ul_legal_hold.canonical
+  weight: 10
+entity.ul_legal_hold.collection:
+  title: Legal Holds
+  route_name: entity.ul_legal_hold.collection
+  base_route: system.admin_content
+  weight: 10
+entity.ul_legal_hold.legal_hold:
+  title: Legal Holds
+  route_name: entity.ul_legal_hold.content
+  base_route: entity.node.canonical
+  weight: 20
+entity.ul_legal_hold.legal_holds:
+  title: Legal Holds
+  route_name: entity.ul_legal_hold.content
+  parent_id: entity.ul_legal_hold.legal_hold
+entity.ul_legal_hold.add_hold:
+  title: New Hold
+  route_name: entity.ul_legal_hold.add_form
+  parent_id: entity.ul_legal_hold.legal_hold
+  weight: 10

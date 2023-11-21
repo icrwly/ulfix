@@ -1,0 +1,21 @@
+uuid: 2489d8b4-248e-498a-9f79-8144ca4890ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_basic_content_content
+    - paragraphs.paragraphs_type.basic_content
+  module:
+    - text
+id: paragraph.basic_content.field_basic_content_content
+field_name: field_basic_content_content
+entity_type: paragraph
+bundle: basic_content
+label: Content
+description: 'Rich Text Content'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

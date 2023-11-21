@@ -1,0 +1,10 @@
+<div class="swiper-slide banner-slide">
+  <figure>
+    <img src="{{- slide.image -}}" alt="{{- slide.title -}}" />
+    {% if slide.description %}
+        <figcaption class="max-width--desktop wrapper">
+          <strong>{{ slide.title }}</strong> {{ slide.description }}
+        </figcaption>
+    {% endif %}
+  </figure>
+</div>

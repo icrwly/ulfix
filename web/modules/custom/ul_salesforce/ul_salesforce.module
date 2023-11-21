@@ -1,0 +1,125 @@
+<?php
+
+/**
+ * @file
+ * Module to add Salesforce integration to Marketo forms.
+ */
+
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_prepprocess_page().
+ */
+function ul_salesforce_preprocess_page(&$variables) {
+
+  $path = \Drupal::service('path.current')->getPath();
+
+  // Redirect from the old web-to-case paths to the new
+  // Contact Us page.
+  if ($path == '/customer-service' || $path == '/give-feedback') {
+
+    $language = '/' . \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+    $host = \Drupal::request()->getSchemeAndHttpHost();
+
+    // Only LATAM uses "/en/" in the path:
+    if ($language == '/en' && !str_contains($host, 'latam')) {
+      $language = '';
+    }
+
+    $redirectURL = $language . '/contact-us';
+
+    (new RedirectResponse($redirectURL))->send();
+    exit();
+  }
+}
+
+/**
+ * Preprocess function for long contact form.
+ *
+ * @var array variables
+ *  Variables array.
+ * @var string hook
+ *  Name of hook.
+ */
+function ul_salesforce_preprocess(&$variables, $hook) {
+
+  // Add js for back link to return to contact us landing page.
+  $variables['#attached']['library'][] = 'ul_salesforce/ul_salesforce.return_link';
+
+  // Add translations for back link which is generated via JS.
+  $variables['#attached']['drupalSettings']['back_link'] = \Drupal::config('ul_salesforce.translation_text')->get('web_to_case')['back'];
+
+  // Add the language:
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['#attached']['drupalSettings']['drupal_lang'] = $language;
+}
+
+/**
+ * Implements hook_preprocess_html().
+ *
+ * @var array variables
+ *  Variables array.
+ */
+function ul_salesforce_preprocess_html(&$variables) {
+  // If the current path is 'contact-us' add the path
+  // as a body class to add path specific css without
+  // affecting other pages.
+  $current_path = \Drupal::service('path.current')->getPath();
+  $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+  if ($alias == '/contact-us') {
+    $variables['attributes']['class'][] = 'path-' . str_replace('/', '', $alias);
+    $variables['#attached']['library'][] = 'ul_salesforce/ul_salesforce.contact_us_landing';
+
+    // Get referrer url.
+    $referrer = \Drupal::request()->headers->get('referer');
+    if ($referrer) {
+      $referrer = urlencode($referrer);
+    }
+    else {
+      $referrer = NULL;
+    }
+    $variables['#attached']['drupalSettings']['referrer_encoded'] = $referrer;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ *
+ * @var array existing
+ *  Existing array.
+ * @var string type
+ *  Type.
+ * @var string theme
+ *  Theme.
+ * @var string path
+ *  Path.
+ */
+function ul_salesforce_theme($existing, $type, $theme, $path) {
+
+  return [
+    'web_to_case_form' => [
+      'render element' => 'form',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_alter().
+ *
+ * @var array suggestions
+ *  Suggestions array.
+ * @var array variables
+ *  Variables array.
+ * @var string hook
+ *  Hook.
+ */
+function ul_salesforce_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  if ($hook == 'node') {
+    $current_path = \Drupal::service('path.current')->getPath();
+    $alias = \Drupal::service('path_alias.manager')->getAliasByPath($current_path);
+    if ($alias == '/contact-us') {
+      $suggestions[] = 'node__contactus';
+    }
+  }
+}

@@ -1,0 +1,16 @@
+services:
+  ul_testing.file_service:
+    class: Drupal\ul_testing\FileService
+    arguments: ['@config.factory']
+  ul_testing.validation_service:
+    class: Drupal\ul_testing\ValidationService
+    arguments: ['@string_translation']
+  ul_testing.utility_service:
+    class: Drupal\ul_testing\UtilityService
+    arguments: ['@config.factory']
+  ul_testing.field_generator_service:
+    class: Drupal\ul_testing\FieldGeneratorService
+    arguments: ['@config.factory']
+  plugin.manager.ul_testing:
+    class: Drupal\ul_testing\UlTestingPluginManager
+    parent: default_plugin_manager

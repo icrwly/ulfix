@@ -1,0 +1,361 @@
+/**
+ * UL Chat styles
+ * This overwrites two Salesforce CSS files:
+ * @last_updated: March 22, 2023
+ * @version: 1.0.0
+ */
+
+/* Fonts */
+.slds-scope .embeddedServiceSidebar.modalContainer,
+.embeddedServiceHelpButton,
+.embeddedServiceSidebarButton {
+  font-family: OpenSans,-apple-system,Segoe UI,Helvetica,sans-serif !important;
+  font-size: 14px !important;
+}
+
+/* Offline Modal */
+#modal--offline {
+	position: fixed;
+	z-index: 99999;
+	bottom: 0;
+	right: 0;
+	background: #efefef;
+  width: 90%;
+  max-width: 355px;
+  border: solid 1px #9c9c9c;
+  border-radius: 5px;
+  box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 22.3px 17.9px rgba(0, 0, 0, 0.072), 0 41.8px 33.4px rgba(0, 0, 0, 0.086), 0 100px 80px rgba(0, 0, 0, 0.12);
+}
+@media only screen and (min-width: 1024px) {
+  #modal--offline {
+    bottom: 12px;
+    right: 12px;
+  }
+}
+#button-modal-close {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  background: #9c9c9c;
+  color: #fff;
+  font-size: 12px;
+  border: none;
+  text-align: left;
+}
+#button-modal-close:before,
+#button-modal-close:after {
+  position: absolute;
+  right: 20px;
+  content: ' ';
+  height: 18px;
+  width: 2px;
+  background-color: #fff;
+}
+#button-modal-close:before {
+  transform: rotate(45deg);
+}
+#button-modal-close:after {
+  transform: rotate(-45deg);
+}
+#modal--content {
+  padding: 40px 25px 25px 25px;
+}
+#modal--content,
+#modal--content h1,
+#modal--content p {
+  font-size: 14px;
+  text-align: center;
+}
+#team-offline {
+  width: 50px;
+  margin: 0 auto 40px auto;
+}
+#team-offline img {
+  width: 50px;
+  height: auto;
+}
+#modal--content h1 {
+  font-weight: 700;
+}
+#modal--content p {
+  margin-bottom: 1.5rem;
+  line-height: 1.5;
+}
+
+/* Hotjar, move it below/under Chat */
+._hj-YR-2H__Feedback__container {
+  z-index: 5 !important;
+}
+.embeddedServiceHelpButton .helpButton .helpButtonEnabled.uiButton {
+  /*border-radius: 20px !important;*/
+  position: fixed !important;
+  font-size: 14px !important;
+  border: solid 2px #fff;
+}
+@media only screen and (min-width: 48em) {
+  .embeddedServiceHelpButton .helpButton .uiButton {
+    border-radius: 20px !important;
+  }
+  .embeddedServiceHelpButton .helpButton .uiButton:hover::before,
+  .embeddedServiceHelpButton .helpButton .uiButton:focus::before {
+    border-radius: 20px !important;
+  }
+}
+/* Font-size and text-alignment */
+.slds-var-p-bottom_small .slds-form-element__label[c-botPreChatForm_botPreChatForm],
+.slds-var-p-bottom_small,
+.slds-form-element__label,
+.slds-combobox__input .slds-truncate,
+.slds-listbox__option .slds-truncate {
+  font-size: 14px !important;
+  text-align: left !important;
+}
+
+/* Input containers */
+.slds-var-p-bottom_small {
+  margin: 10px;
+}
+
+/* Country combobox */
+.slds-combobox__form-element button#combobox-button-15,
+.slds-combobox__form-element button[name=WebCountry__c] {
+  padding: 10px;
+}
+
+/* Hide this button, leave the other button. */
+.sidebarHeader .minimizeButton {
+  display: none;
+}
+
+/* reCAPTCHA */
+.formContent iframe.vfFrame {
+  margin: 10px auto;
+  max-width: 96%;
+  overflow: hidden;
+}
+.formContent iframe.vfFrame #widget1 {
+  transform: scale(0.85);
+  transform-origin: 0 0;
+  -webkit-transform: scale(0.85);
+  -webkit-transform-origin: 0 0;
+}
+
+/* Help (chat) button. */
+.helpButton button {
+  cursor: pointer !important;
+}
+
+/* Go Back to chat button */
+.embeddedServiceSidebarButton {
+  background-color: #ca0123 !important;
+  background: #ca0123 !important;
+}
+.embeddedServiceSidebarButton.uiButton--inverse .label {
+  color: #fff !important;
+}
+
+/**
+ * -----------------------------------
+ * New button styles: 3/15/2023.
+ * -----------------------------------
+ */
+
+@media only screen and (min-width: 1024px) {
+  .embeddedServiceHelpButton .helpButton .uiButton {
+    bottom: 20px;
+    right: 20px;
+  }
+}
+
+.embeddedServiceHelpButton .helpButton .uiButton.helpButtonDisabled {
+  background: #929292;
+}
+.embeddedServiceHelpButton .helpButton .uiButton.helpButtonEnabled {
+  background: #ca0123;
+}
+.embeddedServiceHelpButton .embeddedServiceIcon {
+  margin-right: 0px;
+  margin-left: 10px;
+  order: 1;
+}
+.embeddedServiceHelpButton .embeddedServiceIcon::before {
+  font-family: inherit !important;
+  content: ' ' !important;
+  width: 20px;
+  height: 20px;
+  display: block;
+}
+
+/* Agent name (in the chat window) */
+.embeddedServiceLiveAgentStateChatItem .isLightningOutContext .avatar {
+	line-height: 20px;
+}
+
+/* Close chat button */
+.dockableContainer .closeButton svg {
+  display: none;
+}
+.dockableContainer .closeButton:before,
+.dockableContainer .closeButton:after,
+.dockableContainer .closeButton:hover::before,
+.dockableContainer .closeButton:hover::after {
+  position: absolute;
+  right: 25px !important;
+  top: auto;
+  content: ' ';
+  height: 18px;
+  width: 2px;
+  background-color: #fff;
+  opacity: 1;
+  border-radius: none;
+}
+.dockableContainer .closeButton:before,
+.dockableContainer .closeButton:hover::before {
+  transform: rotate(45deg);
+}
+.dockableContainer .closeButton:after,
+.dockableContainer .closeButton:hover::after {
+  transform: rotate(-45deg);
+}
+
+.embeddedServiceHelpButton .helpButton .helpButtonDisabled.uiButton {
+  border-radius: 50% !important;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24) !important;
+  position: fixed !important;
+  font-size: 14px !important;
+  border: solid 2px #fff;
+  bottom: 10px;
+  right: 10px;
+}
+@media only screen and (min-width: 48em) {
+  .embeddedServiceHelpButton .helpButton .helpButtonDisabled.uiButton {
+    border-radius: 50% !important;
+  }
+  .embeddedServiceHelpButton .helpButton .helpButtonDisabled.uiButton:hover::before,
+  .embeddedServiceHelpButton .helpButton .helpButtonDisabled.uiButton:focus::before {
+    border-radius: 50% !important;
+  }
+}
+.helpButtonDisabled .helpButtonLabel .message {
+  display: none;
+}
+.embeddedServiceHelpButton .helpButtonDisabled.uiButton {
+    min-width: 57px !important;
+    max-width: 57px !important;;
+    height: 56px !important;;
+}
+.embeddedServiceHelpButton .helpButtonDisabled .embeddedServiceIcon {
+  margin-right: 10px !important;
+  margin-left: 5px !important;
+  bottom: 0;
+  right: 18px;
+}
+.embeddedServiceHelpButton .helpButtonEnabled .embeddedServiceIcon::before {
+  background: transparent url(/modules/custom/ul_chat/img/chat-online.svg) no-repeat;
+  background-size: 40px 40px;
+  background-position: center;
+}
+.embeddedServiceHelpButton .helpButtonDisabled .embeddedServiceIcon::before {
+  background: transparent url(/modules/custom/ul_chat/img/live-chat-offline-56px.svg) no-repeat;
+  background-size: 57px 56px;
+  background-position: center;
+}
+.embeddedServiceHelpButton .helpButtonDisabled .embeddedServiceIcon::before {
+  font-family: inherit !important;
+  content: ' ' !important;
+  width: 57px;
+  height: 56px;
+  display: block;
+}
+.embeddedServiceHelpButton .helpButtonDisabled .embeddedServiceIcon {
+  margin-right: 4px;
+  margin-left: 10px;
+  order: 1;
+}
+@media only screen and (max-width: 768px)  {
+  .embeddedServiceHelpButton .helpButtonDisabled.uiButton {
+      min-width: 49px !important;
+      max-width: 49px !important;;
+      height: 48px !important;;
+  }
+  .embeddedServiceHelpButton .helpButtonDisabled .embeddedServiceIcon::before {
+    width: 49px;
+    height: 48px;
+  }
+}
+.embeddedServiceHelpButton .uiButton.helpButtonEnabled {
+    min-width: 139px !important;
+    max-width: 139px !important;
+    height: 48px !important;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.24) !important;
+}
+.embeddedServiceHelpButton .helpButton .helpButtonEnabled:hover::before,
+.embeddedServiceHelpButton .helpButton .helpButtonEnabled:focus::before {
+    background-color: #ca0123 !important;
+}
+.embeddedServiceHelpButton .helpButton .helpButtonEnabled:hover,
+.embeddedServiceHelpButton .helpButton .helpButtonEnabled:focus {
+    transform: scale(1.1);
+    transform-origin: 0 0;
+    -webkit-transform: scale(1.1);
+    -webkit-transform-origin: 0 0;
+
+    -webkit-transition: transform 0.5s ease-in-out;
+    -moz-transition:transform 0.5s ease-in-out;
+    -ms-transition:transform 0.5s ease-in-out;
+}
+@media only screen and (min-width: 992px)  {
+  .embeddedServiceHelpButton .helpButtonEnabled.uiButton {
+      bottom: 28px;
+      right: 28px;
+  }
+}
+@media only screen and (max-width: 991px) and (min-width: 769px) {
+  .embeddedServiceHelpButton .helpButtonEnabled.uiButton {
+      bottom: 16px !important;
+      right: 16px !important;
+  }
+}
+@media only screen and (max-width: 768px)  {
+  .embeddedServiceHelpButton .helpButtonEnabled.uiButton {
+      min-width: 48px !important;
+      max-width: 48px !important;
+      height: 48px !important;
+      padding: 0 !important;
+      border-radius: 50% !important;
+      bottom: 12px;
+      right: 12px;
+  }
+  .embeddedServiceHelpButton .helpButtonEnabled .embeddedServiceIcon::before {
+    width: 45px;
+    height: 48px;
+  }
+  .embeddedServiceHelpButton .helpButtonEnabled .embeddedServiceIcon {
+    margin-left: 0 !important;
+  }
+  .helpButtonEnabled .helpButtonLabel .message {
+    display: none;
+  }
+  .helpButtonEnabled .helpButtonLabel::after {
+    content: url(/modules/custom/ul_chat/img/chat-online.svg) !important;
+    width: 48px;
+    height: 48px;
+    padding-top: 4px; 
+  }​
+  .embeddedServiceHelpButton .helpButton .helpButtonEnabled.uiButton {
+    border-radius: 50% !important;
+  }
+  .embeddedServiceHelpButton .helpButton .helpButtonEnabled.uiButton:hover::before,
+  .embeddedServiceHelpButton .helpButton .helpButtonEnabled.uiButton:focus::before {
+    border-radius: 50% !important;
+  }
+  .embeddedServiceHelpButton .helpButtonEnabled .embeddedServiceIcon::before {
+    background-size: 48px 48px;
+  }
+}
+.helpButtonEnabled .helpButtonLabel .message {
+  display: none;
+}
+.helpButtonEnabled .helpButtonLabel::after {
+   content: "Let's chat";
+}​

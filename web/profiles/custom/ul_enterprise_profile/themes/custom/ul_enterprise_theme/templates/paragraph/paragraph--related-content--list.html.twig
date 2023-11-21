@@ -1,0 +1,55 @@
+{# @file: paragraph--related-content-list.html.twig #}
+{% embed '@ul_enterprise_theme/4_regions/section--related-content-list.twig' %}
+  {% set class = "section--paragraph section--related-content-list" %}
+  {% if content.field_shared_bg_color.0 is not empty %}
+    {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+  {% endif %}
+  {% set gutterclass = "paragraph-gutter" %}
+
+  {# Set grid based on the number of items. #}
+  {% set items = content.field_rc_content %}
+  {% set count = items['#items']|length %}
+  {# 1 - 3 items: 1 column. #}
+  {% if count < 4 %}
+    {% set gutterclass = gutterclass ~ ' related-content-1-col' %}
+  {# 4 - 8 items: 2 columns. #}
+  {% elseif count < 9 %}
+    {% set gutterclass = gutterclass ~ ' related-content-2-col' %}
+  {# 9 or more items: 3 columns. #}
+  {% else %}
+    {% set gutterclass = gutterclass ~ ' related-content-3-col' %}
+  {% endif %}
+
+  {# Set titleBar. If no description, set that to `false`. #}
+  {% if content.field_rc_title|render or content.field_rc_description|render %}
+    {% if content.field_rc_description|render %}
+      {% set description = content.field_rc_description|render %}
+    {% else %}
+      {% set description = false %}
+    {% endif %}
+    {% set titleBar = {
+        'title': content.field_rc_title,
+        'headingLevel': 'h2',
+        'description': description,
+        'seeAll': {
+            link: content.field_rc_cta.0['#url'],
+            name: content.field_rc_cta.0['#title']
+        }
+    } %}
+  {% endif %}
+
+  {% block paragraph %}
+    {% block section_body %}
+      <div class="columns editor-content">
+        <ul class="related-content-list">
+          {% for key, item in items %}
+            {# If Key is numeric then it is a valid object. #}
+            {% if key matches '/^\\d+$/' %}
+              <li><a href="{{ item['#url']|render }}" title="{{ item['#title'] }}">{{ item['#title'] }}</a></li>
+            {% endif %}
+          {% endfor %}
+        </ul>
+      </div>
+    {% endblock %}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,55 @@
+uuid: ba8ab573-53af-40c9-bea7-1e12c5893693
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+  theme:
+    - ul_enterprise_theme
+id: local_nav
+theme: ul_enterprise_theme
+region: content
+weight: -7
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Local navigation'
+  label_display: visible
+  provider: menu_block
+  follow: true
+  follow_parent: active
+  label_link: false
+  label_type: block
+  level: 2
+  depth: 1
+  expand_all_items: false
+  parent: 'main:'
+  suggestion: local_nav
+  expand: true
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    negate: true
+    context_mapping:
+      node: '@node.node_route_context:node'
+    bundles:
+      article: article
+      event: event
+      help: help
+      knowledge: knowledge
+      location: location
+      news: news
+      offering: offering
+      person: person
+      promo_material: promo_material
+      resource: resource
+      standards: standards
+      tool: tool
+  request_path:
+    id: request_path
+    pages: "/about/history\r\n/about/councils\r\n/customer-resources/request-for-quote"
+    negate: true
+    context_mapping: {  }

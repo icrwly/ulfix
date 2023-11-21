@@ -1,0 +1,12 @@
+{# 1-column.twig #}
+{% extends '@ul_guidelines_theme/1_core/page.twig' %}
+
+{% block pre_page %}
+    <main id="main-content">
+        <div class="wrapper">
+{% endblock %}
+{% block post_page %}
+    {{ parent() }}
+        </div>
+    </main>
+{% endblock %}

@@ -1,0 +1,64 @@
+{#
+/**
+ * @file
+ * Theme override for a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ */
+#}
+{% if q is not empty %}
+    {#
+      This ensures that, if clean URLs are off, the 'q' is added first,
+      as a hidden form element, so that it shows up first in the POST URL.
+    #}
+    {{ q }}
+{% endif %}
+{% set active_filters = form['#active_filters'] ?: {} %}
+{% set clear_all_text = 'Reset all'|t %}
+{% set done_all_text = 'Done'|t %}
+{% set filter_text = 'Filter by'|t %}
+{% embed '@ul_base_theme/4_regions/section--filter-bar.twig' with {active_filters: active_filters, clear_all_text: clear_all_text} %}
+
+    {% block search %}
+        {{ form.title }}
+        <div class="filter_btn active-trail">
+          <a href="javascript:void(0);" class="filter-slider-arrow show">Filter</a>
+        </div>
+    {% endblock %}
+
+    {% block filter_options %}
+        <a href="{{ filter_toggle.href }}" class="filter-bar__toggle accordion {{ link_class }}" title="{{ filter_toggle.name }}" data-max-width="991">
+            <span>{{ filter_toggle.name }}</span>
+            <span class="icon icon-filter"></span>
+        </a>
+        <div class="form-group mobile_filter">
+            <div class="row checkbox_filter">
+                <h5>{{ filter_text }}</h5>
+                <a href="javascript:void(0);" class="filter-slider-done close_x">X</a>
+                {% block filter_options_form %}
+                    {{ form|without('title', 'actions') }}
+                    {{ form.actions.submit }}
+                {% endblock %}
+            </div>
+            <div class="row mobile_actn">
+              <div class="filters_actions row">
+                <div class="span-6-t span-6-d span-6-ld"><a href="javascript:void(0);" class="filter-slider-uncheck button js-form-submit form-submit">{{ clear_all_text }}</a></div>
+                <div class="span-6-t span-6-d span-6-ld"><a href="javascript:void(0);" class="filter-slider-done button">{{ done_all_text }}</a></div>
+              </div>
+            </div>
+            <div class="row desktop_actn">
+              <div class="filters_actions">
+                <a href="javascript:void(0);" class="filter-slider-uncheck button js-form-submit form-submit">{{ clear_all_text }}</a>
+              </div>
+            </div>
+        </div>
+    {% endblock %}
+
+
+    {% block view_options %}
+
+    {% endblock %}
+{% endembed %}

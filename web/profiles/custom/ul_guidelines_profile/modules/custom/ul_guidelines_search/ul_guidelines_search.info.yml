@@ -1,0 +1,11 @@
+name: UL Guidelines Search
+type: module
+description: 'Provides an empty search result.'
+version: VERSION
+package: Custom
+core: '8.x'
+core_version_requirement: ^8 || ^9
+dependencies:
+  - views
+  - ul_crc
+  - ul_crc_asset

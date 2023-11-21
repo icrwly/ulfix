@@ -1,0 +1,7 @@
+shareform.form:
+  path: '/share/share-form'
+  defaults:
+    _title: 'Share Form'
+    _form: '\Drupal\ul_guidelines_forms\Form\ShareForm'
+  requirements:
+    _permission: 'access content'

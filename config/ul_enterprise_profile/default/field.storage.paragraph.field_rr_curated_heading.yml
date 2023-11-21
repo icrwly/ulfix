@@ -1,0 +1,21 @@
+uuid: 7b1c9359-492f-4229-85f8-67928766200a
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_rr_curated_heading
+field_name: field_rr_curated_heading
+entity_type: paragraph
+type: string
+settings:
+  max_length: 40
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

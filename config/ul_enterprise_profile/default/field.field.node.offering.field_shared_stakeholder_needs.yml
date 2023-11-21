@@ -1,0 +1,29 @@
+uuid: a7160e33-b7ce-4976-8042-6cba7936c767
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_stakeholder_needs
+    - node.type.offering
+    - taxonomy.vocabulary.stakeholder_needs
+id: node.offering.field_shared_stakeholder_needs
+field_name: field_shared_stakeholder_needs
+entity_type: node
+bundle: offering
+label: 'Business Needs - deprecated'
+description: '&bull; The stakeholder needs related to this offering.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      stakeholder_needs: stakeholder_needs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

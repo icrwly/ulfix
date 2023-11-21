@@ -1,0 +1,24 @@
+uuid: 3b6be34b-9800-4cb1-99a9-b674aa243f42
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_cards_sm_title
+    - paragraphs.paragraphs_type.cards_small
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.cards_small.field_cards_sm_title
+field_name: field_cards_sm_title
+entity_type: paragraph
+bundle: cards_small
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

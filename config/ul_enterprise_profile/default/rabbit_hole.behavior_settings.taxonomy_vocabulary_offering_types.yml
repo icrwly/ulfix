@@ -1,0 +1,14 @@
+uuid: a16a7ca0-9978-4f8d-bfcb-0202d1d7e1f0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.offering_types
+id: taxonomy_vocabulary_offering_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

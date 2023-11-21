@@ -1,0 +1,36 @@
+{# 2-column-complex.twig #}
+<div class="main-container">
+  {% block before_content %}{% endblock %}
+  <main id="main-content" class="{{ mainClass }} two-col">
+    {% block content_top %}{% endblock %}
+
+    {# Breadcrumbs: #}
+    {% block breadcrumbs %}{% endblock %}
+
+    <div class="col-wrap {{ columnWrapClass }}">
+      <div class="col col-aside mobile-top">
+        <div class="col-gtr aside-section">
+          {% block aside_top %}
+            {% block cta_list %}{% endblock %}
+          {% endblock %}
+        </div>
+      </div>
+      <div class="col col-main mobile-main">
+        <div class="col-gtr">
+          {% block page %}
+            {% block body %}
+            {% endblock %}
+          {% endblock %}
+        </div>
+      </div>
+      <div class="col col-aside">
+        <div class="col-gtr aside-section">
+          {% block aside_bttm %}{% endblock %}
+        </div>
+      </div>
+      <div class="col col-main mobile-main social">
+          {% block social %}{% endblock %}
+      </div>
+    </div>
+  </main>
+</div>

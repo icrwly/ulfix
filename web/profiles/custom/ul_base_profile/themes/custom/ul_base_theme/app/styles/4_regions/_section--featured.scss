@@ -1,0 +1,30 @@
+.section.section--featured {
+  &:first-child {
+    @include breakpoint($desktop){
+      padding-top: $spacing-unit--l;
+    }
+  }
+
+  + .section--featured {
+    padding-top: 0;
+  }
+
+  [class*='span-6']:not([class*='span-4']) {
+    .card--solutions {
+      max-width: 450px;
+    }
+
+    .feature {
+      @include breakpoint($large-desktop) {
+        padding-bottom: $spacing-unit--xl * 1.5;
+        padding-top: $spacing-unit--xl * 1.5;
+      }
+    }
+  }
+
+  .feature {
+    @include breakpoint($tablet) {
+      height: 100%;
+    }
+  }
+}

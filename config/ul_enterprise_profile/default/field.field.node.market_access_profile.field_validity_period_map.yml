@@ -1,0 +1,25 @@
+uuid: 03006852-0e32-4535-9af0-c97aba9dbad0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_validity_period_map
+    - node.type.market_access_profile
+  module:
+    - text
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.market_access_profile.field_validity_period_map
+field_name: field_validity_period_map
+entity_type: node
+bundle: market_access_profile
+label: 'Validity Period of Certification'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

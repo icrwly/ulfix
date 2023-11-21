@@ -1,0 +1,25 @@
+uuid: 98d3dd32-1934-43f4-8770-dd209f423fbf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_review_comments
+    - node.type.thankyou_pages
+  module:
+    - text
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: true
+id: node.thankyou_pages.field_shared_review_comments
+field_name: field_shared_review_comments
+entity_type: node
+bundle: thankyou_pages
+label: 'Review Comments'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

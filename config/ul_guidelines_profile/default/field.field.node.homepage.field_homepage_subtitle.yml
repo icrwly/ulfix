@@ -1,0 +1,21 @@
+uuid: 8b8a72b8-94c1-4482-8683-3f07cb670b7f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_subtitle
+    - node.type.homepage
+_core:
+  default_config_hash: 0ZCpflWbhnRSaYQMEi-fbmbtFMe2sYz8yj-avg2gYQ0
+id: node.homepage.field_homepage_subtitle
+field_name: field_homepage_subtitle
+entity_type: node
+bundle: homepage
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

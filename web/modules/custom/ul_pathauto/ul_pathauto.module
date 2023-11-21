@@ -1,0 +1,56 @@
+<?php
+
+/**
+ * @file
+ * Implements hook_pathauto_pattern_alter().
+ */
+
+use Drupal\pathauto\Entity\PathautoPattern;
+
+/**
+ * Implements hook_pathauto_pattern_alter().
+ */
+function ul_pathauto_pathauto_pattern_alter(PathautoPattern &$pattern, array $context) {
+  // When nodes are created or updated, alter pattern with criteria logic.
+  if ($context['module'] == 'node' && ($context['op'] == 'insert' || $context['op'] == 'update')) {
+    $node = $context['data']['node'];
+
+    switch ($node->getType()) {
+      case 'offering':
+        if (!empty($node->get('field_of_service_category')->getValue())) {
+
+          $catReference = $node->get('field_of_service_category')->target_id;
+          $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($catReference);
+          $category = $term->getName();
+
+          if ($category) {
+            // Service Categories are managed here:
+            // /admin/structure/taxonomy/manage/service_categories/overview .
+            $cat2path = [
+              'Software' => 'software',
+              'Consulting' => 'consulting',
+            ];
+
+            $newPattern = $pattern->getPattern();
+
+            if (array_key_exists($category, $cat2path)) {
+              \Drupal::logger('ul_pathauto')->notice('array_key_exists true');
+              // Keep pattern in config form as /services/[node:title] .
+              $newPattern = str_replace(
+                '/services/',
+                '/' . $cat2path[$category] . '/',
+                $newPattern
+              );
+            }
+
+            $pattern->setPattern($newPattern);
+          }
+        }
+        break;
+
+      default:
+        break;
+    }
+
+  }
+}

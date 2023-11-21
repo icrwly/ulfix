@@ -1,0 +1,22 @@
+uuid: 2720d8d7-48a4-4d8e-932b-9c95e7b914c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.sidebar_curated_related
+id: paragraph.sidebar_curated_related.status
+field_name: status
+entity_type: paragraph
+bundle: sidebar_curated_related
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

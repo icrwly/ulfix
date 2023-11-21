@@ -1,0 +1,159 @@
+.nav--mobile {
+	background-color: $blackMenu;
+	color: $white;
+	display: none;
+	font-family: $sans;
+
+	&__inner {
+		height: 100%;
+		width: 100%;
+	}
+	&__pages {
+		height: 100%;
+		overflow: hidden;
+		position: relative;
+		width: 100%;
+	}
+	&__page {
+		display: flex;
+		flex-direction: column;
+		height: 96%;
+		left: 0;
+		position: absolute;
+		top: 0;
+		visibility: hidden;
+		width: 100%;
+
+		&[data-active="true"] {
+			visibility: visible;
+		}
+
+		&__menu,
+		&__submenu {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+
+		&__menu {
+			flex: 1;
+		}
+
+		&__footer a{
+			background-color: $blueDark;
+		}
+
+		&__breadcrumb {
+			color: $blue;
+			border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+			padding: 18px 20px 18px 54px;
+			position: relative;
+
+			&:hover {
+				color: $blue;
+			}
+			
+			h3 {
+				@include font-size(16, 16);
+				color: $blue;
+				margin: 0;
+			}
+
+			&::before {
+				@extend %icon-arrow-left;
+				@include font-size(22, 22);
+				font-family: $iconfont;
+				height: 22px;
+				position: absolute;
+				left: 23px;
+				margin-top: -11px;
+				top: 50%;
+			}
+		}
+	}
+	&__link {
+		color: $white;
+		display: block;
+
+		h2 {
+			color: $white;
+			margin: 0;
+			position: relative;
+		}
+
+		&--has-children {
+			h2::after {
+				@extend %icon-dropdown;
+				@include font-size(22, 22);
+				color: $white;
+				font-family: $iconfont;
+				position: absolute;
+				right: 0;
+				top: -2px;
+				transform: rotate(-90deg);
+			}
+		}
+
+		&--submenu {
+			h2 {
+				font-weight: 400;
+			}
+		}
+
+		&--footer {
+			h2 {
+				text-transform: capitalize;
+			}
+		}
+	}
+}
+
+.nav--mobile__page[data-level="1"] {
+	.nav--mobile__link {
+		padding: 30px 5%;
+
+		h2 {
+			@include font-size(18, 18);
+			padding-right: 20px;
+			text-transform: uppercase;
+		}
+	}
+}
+
+.nav--mobile__page[data-level="2"],
+.nav--mobile__page[data-level="3"] {
+	.nav--mobile__page__breadcrumb {
+		margin-bottom: 15px;
+	}
+
+	.nav--mobile__link {
+		padding: 15px 0;
+		margin: 0 20px 0 54px;
+
+		h2 {
+			@include font-size(16, 16);
+		}
+	}
+}
+
+.nav--mobile__page[data-level="3"] {
+	.nav--mobile__page__breadcrumb {
+		margin-bottom: 0;
+	}
+
+	.nav--mobile__link:not(.nav--mobile__link--submenu) {
+		h2 {
+			font-weight: 600;
+		}
+	}
+
+	.subNested{
+		padding-left:15px;
+	}
+
+	.nav--mobile__page__menu {
+		> li:not(:last-child) {
+			border-bottom: 1px solid rgba(243, 243, 243, 0.2);
+		}
+	}
+}

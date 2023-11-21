@@ -1,0 +1,18 @@
+uuid: 861e53e6-24dd-4938-8d39-409af0b26076
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.right_rail_external_links
+id: paragraph.right_rail_external_links.created
+field_name: created
+entity_type: paragraph
+bundle: right_rail_external_links
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

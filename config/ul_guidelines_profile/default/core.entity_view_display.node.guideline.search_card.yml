@@ -1,0 +1,85 @@
+uuid: db4eca8b-d9df-459b-a3fc-5b28b4d7a479
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_card
+    - field.field.node.guideline.body
+    - field.field.node.guideline.field_guideline_crc_assets
+    - field.field.node.guideline.field_shared_approval_process
+    - field.field.node.guideline.field_shared_approval_title
+    - field.field.node.guideline.field_shared_country
+    - field.field.node.guideline.field_shared_domain
+    - field.field.node.guideline.field_shared_industry
+    - field.field.node.guideline.field_shared_market
+    - field.field.node.guideline.field_shared_metatags
+    - field.field.node.guideline.field_shared_ref_description
+    - field.field.node.guideline.field_shared_ref_image
+    - field.field.node.guideline.field_shared_sections
+    - field.field.node.guideline.field_shared_stakeholder_needs
+    - field.field.node.guideline.field_shared_topic
+    - node.type.guideline
+  module:
+    - media
+    - text
+    - user
+_core:
+  default_config_hash: 53vOT5XdDHX8ONnlSMyuLVPDPdVvOExuE_0zue1ULh4
+id: node.guideline.search_card
+targetEntityType: node
+bundle: guideline
+mode: search_card
+content:
+  body:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_shared_approval_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_ref_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_ref_image:
+    type: media_thumbnail
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_author_name: true
+  field_guideline_crc_assets: true
+  field_shared_approval_process: true
+  field_shared_content_access: true
+  field_shared_country: true
+  field_shared_domain: true
+  field_shared_industry: true
+  field_shared_market: true
+  field_shared_metatags: true
+  field_shared_sections: true
+  field_shared_stakeholder_needs: true
+  field_shared_topic: true
+  langcode: true
+  links: true
+  share: true

@@ -1,0 +1,14 @@
+uuid: 9f6ba307-2e72-4576-a3bc-bb1a803e45ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.guidelines_author
+  module:
+    - user
+id: user_remove_role_action.guidelines_author
+label: 'Remove the Guidelines Author role from the selected user(s)'
+type: user
+plugin: user_remove_role_action
+configuration:
+  rid: guidelines_author

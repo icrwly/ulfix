@@ -1,0 +1,146 @@
+uuid: e8b6b1b5-8c58-40c5-8042-e7a5243a2b99
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.field.contact_message.submit_request.field_request_attachments
+    - field.field.contact_message.submit_request.field_request_background_context
+    - field.field.contact_message.submit_request.field_request_business
+    - field.field.contact_message.submit_request.field_request_description
+    - field.field.contact_message.submit_request.field_request_division_group
+    - field.field.contact_message.submit_request.field_request_division_group_exp
+    - field.field.contact_message.submit_request.field_request_media
+    - field.field.contact_message.submit_request.field_request_priority
+    - field.field.contact_message.submit_request.field_request_priority_explain
+    - field.field.contact_message.submit_request.field_request_region
+    - field.field.contact_message.submit_request.field_request_region_explain
+    - field.field.contact_message.submit_request.field_request_subject
+    - field.field.contact_message.submit_request.field_request_type
+    - field.field.contact_message.submit_request.field_request_visibility
+  module:
+    - file
+_core:
+  default_config_hash: '-gfUVbMcY4QD8fj5jr2sWlwL3g_OFyAntcrwuz4Kl-Q'
+id: contact_message.submit_request.default
+targetEntityType: contact_message
+bundle: submit_request
+mode: default
+content:
+  copy:
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_request_attachments:
+    type: file_generic
+    weight: 12
+    region: content
+    settings:
+      progress_indicator: throbber
+    third_party_settings: {  }
+  field_request_background_context:
+    type: string_textarea
+    weight: 10
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_request_business:
+    type: options_select
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_request_description:
+    type: string_textarea
+    weight: 11
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_request_division_group:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_request_division_group_exp:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_request_media:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_request_priority:
+    type: options_select
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_request_priority_explain:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_request_region:
+    type: options_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_request_region_explain:
+    type: string_textfield
+    weight: 8
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_request_subject:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_request_type:
+    type: options_select
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_request_visibility:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+hidden:
+  mail: true
+  message: true
+  name: true
+  preview: true
+  subject: true

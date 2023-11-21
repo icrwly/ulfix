@@ -1,0 +1,6 @@
+ul_disable_content.settings_form:
+  title: 'UL Disable Content Types'
+  route_name: ul_disable_content.settings_form
+  description: 'Disable content types; prevent new nodes of a particular content type from being created.'
+  parent: system.admin_config_services
+  weight: 99

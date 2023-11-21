@@ -1,0 +1,7 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: Search
+          exposed_sorts_label: 'Sort by'

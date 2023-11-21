@@ -1,0 +1,23 @@
+uuid: 8a0ec703-9aeb-4780-a63e-ebe1fb1271da
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_know_time_read
+    - node.type.knowledge
+id: node.knowledge.field_know_time_read
+field_name: field_know_time_read
+entity_type: node
+bundle: knowledge
+label: 'Time to Read'
+description: "&bull; Estimated number of minutes to read this content.\r\n<br />&bull; Must be between 1 - 300 minutes."
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: 1
+  max: 300
+  prefix: ''
+  suffix: ' minutes'
+field_type: integer

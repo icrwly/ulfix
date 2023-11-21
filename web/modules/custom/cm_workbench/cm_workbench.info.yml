@@ -1,0 +1,9 @@
+name: CM Workbench
+type: module
+description: 'Provides CM-Workbench menu items.'
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:node
+  - drupal:toolbar
+  - drupal:views

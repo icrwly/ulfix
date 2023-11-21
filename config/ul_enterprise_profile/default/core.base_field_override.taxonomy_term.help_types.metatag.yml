@@ -1,0 +1,18 @@
+uuid: f873252e-5716-436c-886c-4fdfb0174107
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.help_types
+id: taxonomy_term.help_types.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: help_types
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

@@ -1,0 +1,8 @@
+uuid: 959d43e0-85bd-4cc1-85ba-5b36e8785814
+langcode: en
+status: true
+dependencies: {  }
+name: 'Customer Operating Unit (COU)'
+vid: customer_operating_unit
+description: 'Used for tracking content by COU and SubCOU.'
+weight: 0

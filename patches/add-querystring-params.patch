@@ -1,0 +1,21 @@
+diff --git a/content_translation_redirect/src/EventSubscriber/RequestSubscriber.php b/content_translation_redirect/src/EventSubscriber/RequestSubscriber.php
+index 70d8d97..6420b34 100644
+--- a/content_translation_redirect/src/EventSubscriber/RequestSubscriber.php
++++ b/content_translation_redirect/src/EventSubscriber/RequestSubscriber.php
+@@ -104,6 +104,16 @@ class RequestSubscriber implements EventSubscriberInterface {
+           $status_code = $redirect_entity->getStatusCode() ?: $this->config->get('code');
+           $message = $redirect_entity->getMessage() ?: $this->config->get('message');
+ 
++          // Does $redirect_path have existing query string?
++          if (strpos($redirect_path, '?') === FALSE) {
++            $redirect_path .= '?';
++          }
++          else {
++            $redirect_path .= '&';
++          }
++          // Add new query string parameters to the redirect path:
++          $redirect_path .= 'translation=0&langcode=' . $current_language->getId();
++
+           $response = new LocalRedirectResponse($redirect_path, $status_code);
+           $response->addCacheableDependency($url);
+           $event->setResponse($response);

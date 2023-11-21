@@ -1,0 +1,21 @@
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: "<div class=\"wrapper\">\r\n<div class=\"span-col-12\">\r\n<h2>현재 예정된 이벤트가 없습니다. 나중에 다시 확인해주십시오.</h2>\r\n</div>\r\n</div>\r\n"
+            format: full_html
+      filters:
+        title:
+          expose:
+            placeholder: 검색
+        field_event_type_target_id:
+          expose:
+            label: 活动类型
+        field_shared_service_type_target_id:
+          expose:
+            label: 서비스
+        field_shared_country_target_id:
+          expose:
+            label: 시장

@@ -1,0 +1,19 @@
+uuid: 0e112ea9-8ec7-4e18-8f51-8a5480906122
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_curated_list_link
+field_name: field_curated_list_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

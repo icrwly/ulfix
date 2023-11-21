@@ -1,0 +1,74 @@
+{#
+/**
+ * @file
+ * Theme override for a 'form' element.
+ *
+ * Available variables
+ * - attributes: A list of HTML attributes for the wrapper element.
+ * - children: The child elements of the form.
+ *
+ * @see template_preprocess_form()
+ */
+#}
+
+<div class="wrapper">
+
+{% include '@ul_guidelines_theme/3_components/nav--breadcrumbs.twig' with {
+  breadcrumbShow: true,
+  backButtonShow: false
+} %}
+{% embed '@ul_guidelines_theme/4_regions/section--search-columns.twig' with {
+    title: 'Submit a Request'|t,
+} %}
+    {% block submit_form %}
+        <form{{ attributes }}>
+            <div class="form-page active" data-form="1">
+                <div class="form-page__header">
+                    <h1>{{ 'Submit a Request'|t }}</h1>
+                </div>
+                <div class="form-page__body">
+                    {{ element.field_request_type }}
+                    {{ element.field_request_media }}
+                    {{ element.field_request_priority }}
+                    {{ element.field_request_priority_explain }}
+                    {{ element.field_request_visibility }}
+                    {{ element.field_request_business }}
+                    {{ element.field_request_division_group }}
+                    {{ element.field_request_division_group_exp }}
+                    {{ element.field_request_region }}
+                    {{ element.field_request_region_explain }}
+                    {{ element.field_request_subject }}
+                    {{ element.field_request_background_context }}
+                    {{ element.field_request_description }}
+                    {{ element.field_request_attachments }}
+                </div>
+                <div class="form-page__footer">
+                    <p class="required">{{ '* Required fields'|t }}</p>
+                    {{ element.actions }}
+                    {{ element.form_build_id }}
+                    {{ element.form_token }}
+                    {{ element.form_id }}
+                </div>
+            </div>
+        </form>
+        <a href="#submitResponseSuccess" id="submitResponseSuccessModalTrigger" data-module="modal"></a>
+        {%
+        set modal = {
+        'id': 'submitResponseSuccess',
+        'cancel': false
+        }
+        %}
+        {% embed '@ul_guidelines_theme/3_components/modal.twig'  with {modal: modal} %}
+            {% block modal_title %}
+                <h2 style="text-align: center">{{ 'Thanks for Submitting'|t }}</h2>
+            {% endblock %}
+            {% block content %}
+                <div style="text-align: center">
+                    {{ 'Once your application has been approved an administrator will reach out to you.'|t }}
+                </div>
+            {% endblock %}
+        {% endembed %}
+    {% endblock %}
+{% endembed %}
+
+</div>

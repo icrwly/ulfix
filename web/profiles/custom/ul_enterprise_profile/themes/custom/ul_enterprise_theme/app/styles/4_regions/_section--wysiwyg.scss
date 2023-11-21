@@ -1,0 +1,75 @@
+.section--wysiwyg {
+  p {
+    line-height: 1.66;
+    margin-bottom: $spacing-unit;
+    margin-top: $spacing-unit;
+  }
+  ul, ol {
+    margin-bottom: 0;
+    margin-top: 0;
+      & li{
+        margin-bottom: 1.25rem;
+      }
+      & ul, ol{
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+  }
+  ol {
+    padding-inline-start: 3rem;
+  }
+  blockquote {
+    p {
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+    @include breakpoint($tablet) {
+      margin-bottom: $spacing-unit--xl;
+      margin-top: $spacing-unit--xl;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 3rem;
+  }
+  h2:first-child,
+  h3:first-child,
+  h4:first-child,
+  h5:first-child,
+  h6:first-child {
+    margin-top: 0;
+  }
+
+  h2, .h2 {
+    letter-spacing: 1px;
+    @include breakpoint($tablet) {
+      font-size: 3.6rem;
+    }
+  }
+
+  h3, .h3 {
+    font-weight: 400;
+    @include breakpoint($tablet) {
+      font-size: 3rem;
+    }
+  }
+
+  h4, .h4 {
+    font-weight: 400;
+  }
+
+  h5, .h5 {
+    font-weight: 600;
+    letter-spacing: .25px;
+    @include breakpoint($tablet) {
+      font-size: 1.8rem;
+    }
+  }
+
+  h6 {
+    font-weight: 700;
+    @include breakpoint($tablet) {
+      font-size: 1.4rem;
+    }
+  }
+}

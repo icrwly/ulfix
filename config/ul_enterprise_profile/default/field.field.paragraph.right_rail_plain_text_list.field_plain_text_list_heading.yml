@@ -1,0 +1,19 @@
+uuid: a61c8c71-4e00-40a9-b83b-0f5d184b5d24
+langcode: fr
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_plain_text_list_heading
+    - paragraphs.paragraphs_type.right_rail_plain_text_list
+id: paragraph.right_rail_plain_text_list.field_plain_text_list_heading
+field_name: field_plain_text_list_heading
+entity_type: paragraph
+bundle: right_rail_plain_text_list
+label: Heading
+description: "&bull; Please keep heading to one line\r\n<br />&bull; 40 character limit "
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

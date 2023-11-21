@@ -1,0 +1,98 @@
+{
+    "_links": {
+        "self": {
+            "href": "http:\/\/enterprise.ulplatform.docksal.site\/admin\/structure\/menu\/item\/13\/edit?_format=hal_json"
+        },
+        "type": {
+            "href": "http:\/\/drupal.org\/rest\/type\/menu_link_content\/menu_link_content"
+        }
+    },
+    "id": [
+        {
+            "value": 13
+        }
+    ],
+    "uuid": [
+        {
+            "value": "1ba4d78e-b759-4f7b-95c4-7fc05112802b"
+        }
+    ],
+    "langcode": [
+        {
+            "value": "en",
+            "lang": "en"
+        }
+    ],
+    "bundle": [
+        {
+            "value": "menu_link_content"
+        }
+    ],
+    "title": [
+        {
+            "value": "Child Link"
+        }
+    ],
+    "menu_name": [
+        {
+            "value": "footer"
+        }
+    ],
+    "link": [
+        {
+            "uri": "internal:#",
+            "title": "",
+            "options": []
+        }
+    ],
+    "external": [
+        {
+            "value": false
+        }
+    ],
+    "rediscover": [
+        {
+            "value": true
+        }
+    ],
+    "weight": [
+        {
+            "value": -48
+        }
+    ],
+    "expanded": [
+        {
+            "value": false
+        }
+    ],
+    "enabled": [
+        {
+            "value": true
+        }
+    ],
+    "parent": [
+        {
+            "value": "menu_link_content:e6787d07-f68a-4482-b905-d7fc0c93d6e3"
+        }
+    ],
+    "changed": [
+        {
+            "value": "2018-07-11T18:39:48+00:00",
+            "format": "Y-m-d\\TH:i:sP"
+        }
+    ],
+    "default_langcode": [
+        {
+            "value": true,
+            "lang": "en"
+        }
+    ],
+    "metatag": [
+        {
+            "value": {
+                "title": "| UL Enterprise",
+                "canonical_url": "http:\/\/enterprise.ulplatform.docksal.site\/%3Cnone%3E"
+            }
+        }
+    ]
+}

@@ -1,0 +1,14 @@
+.item--block-link {
+  background: $white;
+  box-shadow: $box-shadow--level-1;
+  display: block;
+  padding: $spacing-unit $spacing-unit * 1.5;
+  transition: all $transition;
+  &:focus,
+  &:hover {
+    box-shadow: $box-shadow--level-1--hover;
+  }
+  &.item--arrow-link {
+    padding-#{$end-direction}: $spacing-unit--l * 2;
+  }
+}

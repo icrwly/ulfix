@@ -1,0 +1,6 @@
+name: UL Guidelines Zendesk
+type: module
+description: Provides functionality for showing UL Zendesk widget on guidelines
+core: 8.x
+core_version_requirement: ^8 || ^9
+package: Custom

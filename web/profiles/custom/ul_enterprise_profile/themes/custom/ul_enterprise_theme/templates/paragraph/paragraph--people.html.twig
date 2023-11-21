@@ -1,0 +1,9 @@
+{% embed '@ul_enterprise_theme/4_regions/section--people.twig' %}
+  {% set gutterclass = 'paragraph-gutter paragraph--people' %}
+  {% if content.field_people_title|render %}
+    {% set title = content.field_people_title %}
+  {% else %}
+    {% set title = '' %}
+  {% endif %}
+  {% set items = content.field_people_people %}
+{% endembed %}

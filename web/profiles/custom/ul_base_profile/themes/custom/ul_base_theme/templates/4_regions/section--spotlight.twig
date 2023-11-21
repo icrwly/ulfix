@@ -1,0 +1,58 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--spotlight section--paragraph wrapper"%}
+
+{% block section_body %}
+  <div class="row row--gutter-l">
+    <div class="span-12 span-6-t" data-module="contentCarousel">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {% block featured_content %}
+            {# featured_content block will be replaced by Drupal template #}
+            {% for item in items %}
+              <div class="swiper-slide">
+                {# Mimics logic in Drupal template #}
+                {% if item.title or item.description %}
+                  {% include '@ul_base_theme/1_core/switch--card.twig' with item only %}
+                {% else %}
+                  {% include '@ul_base_theme/2_pieces/image.twig' with item only %}
+                {% endif %}
+              </div>
+            {% endfor %}
+          {% endblock %}
+        </div>
+        {% if items|length > 1 %}
+          <div class="swiper-pagination"></div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="span-12 span-6-t">
+      <div class="section__content">
+        {% block title %}
+          {% if title %}
+            <h2 class="section__title">{{- title -}}</h2>
+          {% endif %}
+        {% endblock %}
+        {% block description %}
+          {% if description %}
+            <div class="section__description">
+              {% block description_inner %}
+                {% include '@ul_base_theme/2_pieces/editor-content.twig' with { content: description } only %}
+              {% endblock %}
+            </div>
+          {% endif %}
+        {% endblock %}
+        {% block cta_link %}
+          {% if cta.link %}
+            {% include '@ul_base_theme/2_pieces/button.twig' with {
+              link: cta.link,
+              color: cta.color,
+              name: cta.name
+            } only %}
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

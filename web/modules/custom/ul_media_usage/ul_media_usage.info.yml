@@ -1,0 +1,10 @@
+name: UL Media Usage
+type: module
+description: Track the media file(image) embedded in CKEditor.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - media
+  - media_library
+  - entity_usage
+  - view_custom_table

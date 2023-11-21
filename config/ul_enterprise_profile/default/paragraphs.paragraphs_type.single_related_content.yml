@@ -1,0 +1,10 @@
+uuid: ae9c7dc7-c080-41b2-9944-81da734ab413
+langcode: en
+status: true
+dependencies: {  }
+id: single_related_content
+label: 'Single Related Content'
+icon_uuid: null
+icon_default: null
+description: 'Add a single related piece of content.'
+behavior_plugins: {  }

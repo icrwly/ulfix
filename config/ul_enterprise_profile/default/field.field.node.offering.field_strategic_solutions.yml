@@ -1,0 +1,29 @@
+uuid: f23e188d-c90c-4396-a611-a6a7e6761430
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_strategic_solutions
+    - node.type.offering
+    - taxonomy.vocabulary.strategic_solutions
+id: node.offering.field_strategic_solutions
+field_name: field_strategic_solutions
+entity_type: node
+bundle: offering
+label: 'Strategic Solutions - deprecated'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      strategic_solutions: strategic_solutions
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,10 @@
+uuid: 6b0f5842-abf4-4ac0-9046-1be730f990e2
+langcode: en
+status: true
+dependencies: {  }
+id: text_and_form
+label: 'Fifty/Fifty Text and Form'
+icon_uuid: null
+icon_default: null
+description: 'Use this to add a section with rich text on the left and a Marketo form on the right.'
+behavior_plugins: {  }

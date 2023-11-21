@@ -1,0 +1,13 @@
+uuid: 6444d6df-03b3-47d4-b78d-11f56d9c336d
+langcode: en
+status: true
+dependencies: {  }
+id: node__page
+label: 'Content: Basic page'
+tags:
+  description: '[node:field_shared_ref_description]'
+  og_description: '[node:field_shared_ref_description]'
+  og_image: '[node:field_shared_header_media:entity:field_media_image:hero_boxed_width:url]'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title]'
+  og_url: '[current-page:url:absolute]'

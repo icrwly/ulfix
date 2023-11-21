@@ -1,0 +1,8 @@
+uuid: f0c42049-28b3-4799-ad8d-eb7ad04be64d
+langcode: en
+status: true
+dependencies: {  }
+name: 'Offering Types'
+vid: offering_types
+description: 'For sorting services into easily-findable classifications based on the services'' core functions.'
+weight: 0

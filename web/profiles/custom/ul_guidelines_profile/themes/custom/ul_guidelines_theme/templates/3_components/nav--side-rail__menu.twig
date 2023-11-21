@@ -1,0 +1,14 @@
+<ul class="book-list">
+    {% block side_rail %}
+        {% for menu in nav %}
+            <li>
+                <a href="{{- menu.linkHref -}}" class="first-level{% if menu.subMenu %} accordion{% endif %}"{% if menu.subMenu %} data-module="accordion"{% endif %}>
+                    <h3 class="title">{{- menu.linkName -}}</h3>
+                </a>
+                {% if menu.subMenu %}
+                    {% include '@ul_guidelines_theme/3_components/nav--side-rail__submenu.twig' with {menu: menu.subMenu} %}
+                {% endif %}
+            </li>
+        {% endfor %}
+    {% endblock %}
+</ul>

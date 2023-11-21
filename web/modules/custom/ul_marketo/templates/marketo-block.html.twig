@@ -1,0 +1,44 @@
+{# @file marketo-block.html.twig #}
+{% set pluginId = id %}
+{% if settings.cta_button_text %}
+  {% set bttnTxt = settings.cta_button_text|render %}
+{% else %}
+  {% set bttnTxt = settings.button_text|render %}
+{% endif %}
+{% set formTitle = settings.form_title|render %}
+{% set formDesc = settings.form_description|render %}
+{% set formType = id %}
+{% if formType == 'generic_form' %}
+  {% set formUrl = '/sales-inquiries' %}
+{% elseif formType == 'event_form' %}
+  {% set formUrl = '/event-signup' %}
+  {% set eventForm = true %}
+  {% set eventBtnClass = 'event-btn' %}
+{% endif %}
+
+{% block mkto_block %}
+  <div class="section__content">
+    <h2 class="section__title h2">{{ formTitle }}</h2>
+    <div class="section__description editor-content">
+      <p>{{ formDesc }}</p>
+    </div>
+    {# If there is a CTA button. #}
+    {% if formUrl %}
+      <div class="banner-buttons">
+        <a href="{{ formUrl }}" class="button--white button--primary button {{ eventBtnClass }}">
+          {{ bttnTxt }}
+        </a>
+      </div>
+      {# Event block JS to handle "show/hide" of sections onClick. #}
+      {% if eventForm %}
+        <script>
+          jQuery('a.event-btn').click(function(event) {
+            event.preventDefault();
+            jQuery(this).closest('.section--action-banner').slideToggle(200);
+            jQuery('.event-form.hidden').removeClass('hidden');
+          });
+        </script>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endblock %}

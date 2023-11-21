@@ -1,0 +1,36 @@
+input[type="submit"],
+button,
+.button{
+  @include font-size(14, 20);
+  border-radius: 4px;
+  background-color: $blue;
+  color:$white;
+  cursor:pointer;
+  display: inline-block;
+  font-family: $sans;
+  font-weight: 600;
+  padding:9px 23px;
+  text-align: center;
+  transition: background-color 0.3s ease-in-out;
+  &:focus,
+  &:hover{
+    background-color: $blueHover;
+    color:$white;
+  }
+  &:before{
+    font-size:120%;
+    font-weight:400;
+    margin-right:10px;
+    position: relative;
+    top: 2px;
+  }
+  &.icon-download{
+    height: 40px;
+    padding: 0;
+    width: 40px;
+    &:before{
+      margin-right:0;
+      padding-top: 5px;
+    }
+  }
+}

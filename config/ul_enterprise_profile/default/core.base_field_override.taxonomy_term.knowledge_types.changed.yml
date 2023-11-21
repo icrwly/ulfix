@@ -1,0 +1,18 @@
+uuid: 0ab58988-1d0e-4b73-9926-2799e14f299a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.knowledge_types
+id: taxonomy_term.knowledge_types.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: knowledge_types
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

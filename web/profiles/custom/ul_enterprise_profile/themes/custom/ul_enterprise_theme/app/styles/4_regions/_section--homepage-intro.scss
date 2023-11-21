@@ -1,0 +1,71 @@
+/*
+ * Homepage Intro:
+ * Potentially has 1, 2, or 3 items in a flex box:
+ * 1. Title
+ * 2. Cards / slides
+ * 3. CTA
+*/
+
+.section.homepage--intro {
+  background: #f8f8f8;
+  padding: 0;
+  @include breakpoint($tablet) {
+    padding: 1.5rem 0;
+  }
+
+  .wrapper.display-flex {
+    display: flex;
+    flex-direction: column;
+    @include breakpoint($desktop) {
+      flex-direction: row;
+    }
+    // Each of the homepage intro items are
+    // wrapped inside of a flex-item wrapper.
+    .flex-item {
+      padding: 1.5rem;
+      width: 100%;
+      @include breakpoint($desktop) {
+        width: 33.33%;
+      }
+      // Slides / cards:
+      .card {
+        background: #f8f8f8;
+        &.card--data {
+          h3 {
+            font-size: 18px;
+            line-height: 24px;
+            @include breakpoint($desktop) {
+              font-size: 22px;
+              line-height: 28px;
+            }
+          }
+          .image-container {
+            background: #f8f8f8;
+            max-width: 175px;
+          }
+        }
+      }
+    }
+  }
+  // If just one item:
+  &.intro_items_1 {
+    .wrapper.display-flex {
+      .flex-item {
+        @include breakpoint($desktop) {
+          width: 100%;
+          max-width: 750px;
+        }
+      }
+    }
+  }
+  // If 2 items:
+  &.intro_items_2 {
+    .wrapper.display-flex {
+      .flex-item {
+        @include breakpoint($desktop) {
+          width: 50%;
+        }
+      }
+    }
+  }
+}

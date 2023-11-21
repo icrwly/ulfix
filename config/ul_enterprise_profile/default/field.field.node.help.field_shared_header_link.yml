@@ -1,0 +1,25 @@
+uuid: 35adda63-edc4-4288-a189-b7db01b3b3ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_header_link
+    - node.type.help
+  module:
+    - link
+_core:
+  default_config_hash: vwzMA86yo2za9KXaN_J8LFCGKSHDW3mPuIcbHINPDY0
+id: node.help.field_shared_header_link
+field_name: field_shared_header_link
+entity_type: node
+bundle: help
+label: 'Header Link'
+description: 'You must add a Header Media image for this Header Link to display on the page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

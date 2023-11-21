@@ -1,0 +1,7 @@
+# Admin JS helper for Translations Module.
+ul_tools.tmgmt:
+  js:
+    js/tmgmt-helper.js: {}
+  css:
+    theme:
+      css/tmgmt-helper.css: {}

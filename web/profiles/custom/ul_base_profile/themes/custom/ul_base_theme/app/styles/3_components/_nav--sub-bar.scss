@@ -1,0 +1,105 @@
+.nav--sub-bar {
+  position: relative;
+
+  @include breakpoint($tablet) {
+    border-bottom: 1px solid $border-color;
+  }
+
+  ul {
+    @include list-unstyled;
+  }
+
+  .menu-list {
+    @include breakpoint($tablet) {
+      display: flex;
+      overflow-x: auto;
+      white-space: nowrap;
+      width: 100%;
+
+      &::-webkit-scrollbar {
+        background: $background-color--hover;
+        height: 4px;
+      }
+
+      &::-webkit-scrollbar-thumb {
+        background-color: $gray-light;
+        border-radius: 10px;
+      }
+    }
+
+    li {
+      font-size: 1.8rem;
+
+      a {
+        align-items: center;
+        color: $black;
+        display: flex;
+        height: 100%;
+      }
+
+      &.menu-item--sub-bar {
+        position: static;
+
+        @include breakpoint($tablet) {
+          &:not(:first-child) {
+            border-#{$start-direction}: 1px solid $border-color;
+          }
+        }
+
+        > a {
+          padding: $spacing-unit;
+          transition: background $transition;
+          width: 100%;
+
+          @include breakpoint(max-width $tablet - 1) {
+            border-bottom: 1px solid $border-color;
+          }
+
+          @include breakpoint($tablet) {
+            padding: $spacing-unit * 1.5 $spacing-unit--xl;
+          }
+
+          &:focus,
+          &:hover {
+            background: $background-color;
+            outline: none;
+            text-decoration: none;
+          }
+
+          &.accordion {
+            padding-#{$end-direction}: $spacing-unit--xl;
+            position: relative;
+            @include breakpoint($tablet) {
+              padding-#{$end-direction}: $spacing-unit--xl * 1.5;
+            }
+            &:after {
+              @include icon-settings();
+              #{$end-direction}: $spacing-unit--l;
+              content: $icon-solid-arrow-d;
+              font-size: .5rem;
+              line-height: 1;
+              position: absolute;
+              top: 50%;
+              transform: translate(50% * $transform-direction, -50%);
+              transition: transform $transition;
+              @include breakpoint($tablet) {
+                #{$end-direction}: $spacing-unit--xl;
+              }
+            }
+          }
+
+          &.active-trail {
+            background: $background-color;
+            &:after {
+              transform: translate(50% * $transform-direction, -50%) scaleY(-1);
+            }
+          }
+        }
+      }
+    }
+  }
+
+  > .nav__inner {
+    padding: 0;
+  }
+}

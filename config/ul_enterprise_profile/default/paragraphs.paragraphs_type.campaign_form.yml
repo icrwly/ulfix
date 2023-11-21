@@ -1,0 +1,10 @@
+uuid: e46717e0-97a9-40e8-be2a-5be1a3a0b988
+langcode: en
+status: true
+dependencies: {  }
+id: campaign_form
+label: 'Campaign Form'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Campaign Form</em> to display a Marketo form in the right rail of Campaign Landing Pages.'
+behavior_plugins: {  }

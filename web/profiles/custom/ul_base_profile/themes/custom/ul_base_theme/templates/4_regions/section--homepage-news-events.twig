@@ -1,0 +1,17 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--bg-gray section--homepage-news-events" %}
+
+{% block content %}
+  <div class="wrapper row">
+    <div class="span-12 span-7-t span-8-d">
+      {% block news_column %}
+        {% include '@ul_base_theme/3_components/homepage__news-column.twig' with news only %}
+      {% endblock %}
+    </div>
+    <div class="span-12 span-5-t span-4-d">
+      {% block events_column %}
+        {% include '@ul_base_theme/3_components/homepage__events-column.twig' with events only %}
+      {% endblock %} 
+    </div>
+  </div>
+{% endblock %}

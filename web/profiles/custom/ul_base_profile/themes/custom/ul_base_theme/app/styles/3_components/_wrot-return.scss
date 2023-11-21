@@ -1,0 +1,15 @@
+.block-wrot-block {
+  background-color: palette(black);
+  color: palette(white);
+
+  a {
+    color: inherit;
+    display: block;
+    font-size: 1.6rem;
+    padding: .5rem;
+
+    &:before {
+      padding: 0 1rem 0 2rem;
+    }
+  }
+}

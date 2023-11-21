@@ -1,0 +1,20 @@
+uuid: c27ca7db-14db-457c-98a0-fa129afa7950
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.industries
+  module:
+    - path
+id: taxonomy_term.industries.path
+field_name: path
+entity_type: taxonomy_term
+bundle: industries
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

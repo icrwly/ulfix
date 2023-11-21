@@ -1,0 +1,15 @@
+uuid: ca805d14-880e-484a-9e32-fcece3a89dbf
+langcode: en
+status: true
+dependencies: {  }
+name: media_ckeditor
+label: 'Media CKEditor 400X300'
+effects:
+  506be5f7-3eec-404a-8ac7-139a40311f78:
+    uuid: 506be5f7-3eec-404a-8ac7-139a40311f78
+    id: image_scale_and_crop
+    weight: 3
+    data:
+      width: 400
+      height: 300
+      anchor: center-center

@@ -1,0 +1,7 @@
+{% macro attributes(attributes) %}
+  {% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %}
+{% endmacro %}
+
+{% macro link(url, title, attributes) %}
+<a href="{{ url }}"{% for attr, value in attributes %} {{ attr }}="{{ value }}"{% endfor %} title="{{ title }}">{{ title }}</a>
+{% endmacro %}

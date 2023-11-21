@@ -1,0 +1,111 @@
+uuid: 19040b07-7492-412d-a093-5d8699fec5aa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.video.field_hash_target
+    - field.field.paragraph.video.field_shared_bg_color
+    - field.field.paragraph.video.field_shared_view_mode
+    - field.field.paragraph.video.field_spotlight_link
+    - field.field.paragraph.video.field_video_background_color
+    - field.field.paragraph.video.field_video_description
+    - field.field.paragraph.video.field_video_media
+    - field.field.paragraph.video.field_video_text_color
+    - field.field.paragraph.video.field_video_title
+    - paragraphs.paragraphs_type.video
+  module:
+    - field_group
+    - inline_entity_form
+    - link
+    - text
+    - view_mode_selector
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_view_mode
+        - field_shared_bg_color
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.video.default
+targetEntityType: paragraph
+bundle: video
+mode: default
+content:
+  field_hash_target:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_view_mode:
+    type: view_mode_selector_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_spotlight_link:
+    type: link_default
+    weight: 12
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_video_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_video_media:
+    type: inline_entity_form_simple
+    weight: 2
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  field_video_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_video_background_color: true
+  field_video_text_color: true
+  status: true
+  uid: true

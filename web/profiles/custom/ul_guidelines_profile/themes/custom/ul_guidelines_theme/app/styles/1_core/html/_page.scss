@@ -1,0 +1,30 @@
+///*------------------------------------*\
+//    #CORE/HTML - PAGE
+//\*------------------------------------*/
+
+// * {
+//   box-sizing:border-box; // establishes border-box model for all elements
+//   word-wrap: normal;
+//   -webkit-tap-highlight-color: rgba(0, 0, 0, 0); // Remove default tappable touch color in iOS
+// }
+
+// html,
+// body{
+//   min-height: 100vh;
+// }
+
+// html {
+//   font-size: 62.5%;
+// }
+
+body {
+//   // @include font-size(16, 24);
+//   font-family: $fallbackSans;
+//   margin: 0;
+//   overflow-x: hidden;
+  position: relative;
+//   .fonts-loaded &{
+//     font-family: $sans;
+//     font-weight: 400;
+//   }
+}

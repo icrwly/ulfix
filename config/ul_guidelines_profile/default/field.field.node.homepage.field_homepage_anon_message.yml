@@ -1,0 +1,21 @@
+uuid: c3ca7673-f04c-4700-b888-fcfbaa628e94
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_anon_message
+    - node.type.homepage
+  module:
+    - text
+id: node.homepage.field_homepage_anon_message
+field_name: field_homepage_anon_message
+entity_type: node
+bundle: homepage
+label: 'Anonymous User Message'
+description: 'Message to display to users who are not logged in.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

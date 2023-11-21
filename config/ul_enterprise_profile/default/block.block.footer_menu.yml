@@ -1,0 +1,32 @@
+uuid: 35f760c6-9c15-4723-b729-0713f3b3cb02
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.footer
+  module:
+    - menu_block
+  theme:
+    - ul_enterprise_theme
+id: footer_menu
+theme: ul_enterprise_theme
+region: footer_top
+weight: 0
+provider: null
+plugin: 'menu_block:footer'
+settings:
+  id: 'menu_block:footer'
+  label: Footer
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 2
+  expand_all_items: false
+  parent: 'footer:'
+  suggestion: footer_menu
+  expand: true
+visibility: {  }

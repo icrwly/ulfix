@@ -1,0 +1,309 @@
+<?php
+
+/**
+ * @file
+ * Experience Views module help and theme functions.
+ */
+
+use Drupal\views\Views;
+use Drupal\views\ViewExecutable;
+use Drupal\Component\Utility\UrlHelper;
+use Drupal\Core\Form\FormStateInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+
+/**
+ * Implements hook_theme().
+ */
+function ul_experience_hub_theme($existing, $type, $theme, $path) {
+  \Drupal::moduleHandler()->loadInclude('ul_experience_hub', 'inc', 'ul_experience_hub.theme');
+
+  return [
+    'hub__views_view_experience_hub' => [
+      'file' => 'ul_experience_hub.theme.inc',
+    ],
+    // These are required in order for view template suggestions to work.
+    // This is probably a bug in Drupal Core.
+    'hub__views_view' => [
+      'file' => 'ul_experience_hub.theme.inc',
+    ],
+    'hub__views_exposed_form' => [],
+  ];
+}
+
+/**
+ * Implements hook_theme_suggestions_hook_alter().
+ */
+function ul_experience_hub_theme_suggestions_alter(array &$suggestions, array $variables, $hook) {
+  switch ($hook) {
+    case 'views_view':
+      $view = $variables['view'];
+      $style = $view->getStyle()->getPluginId();
+      break;
+
+    case 'views_exposed_form':
+      // Get view name and display theme function.
+      $theme = $variables['form']['#theme'][0];
+      $explode = explode('__', $theme);
+      $view_name = $explode[1];
+      $display = $explode[2];
+      $view = Views::getView($view_name);
+      $display_info = $view->storage->getDisplay($display);
+      if (isset($display_info['display_options']['style'])) {
+        $style = $display_info['display_options']['style']['type'];
+      }
+      break;
+  }
+
+  if (!empty($style) && $style == 'experience_hub') {
+    $suggestions[] = 'hub__' . $hook;
+  }
+}
+
+/**
+ * Implements hook_preprocess_node().
+ */
+function ul_experience_hub_preprocess_node(&$variables) {
+
+  $node = $variables['node'];
+
+  if ($variables['view_mode'] == 'full') {
+    // This handles the logic for experience hub nodes.
+    // It loads a content domain specific view if it exists. Otherwise it loads
+    // a default view.
+    $type = $node->getType();
+    if ($type == 'hub') {
+
+      // Default view name and display.
+      $view_name = 'experience_hub_default';
+      $view_display = 'cards';
+
+      // First check for values in field_hub_view.
+      if (!empty($node->field_hub_view)) {
+        foreach ($node->field_hub_view as $item) {
+          $view = $item->getValue();
+          $view_name = $view['target_id'];
+          $view_display = $view['display_id'];
+        }
+      }
+
+      // If field_hub_view is not set default to dynamic view.
+      if (empty($view)) {
+        foreach ($node->field_shared_domain as $item) {
+          if (isset($item->entity)) {
+            $name = strtolower($item->entity->label());
+            $name = str_replace(' ', '_', trim($name));
+          }
+        }
+        // If a content domain specific view exists use that one instead.
+        if (!empty($name)) {
+          $content_domain_view = 'experience_hub_' . $name;
+          $view = Views::getView($content_domain_view);
+          if (!empty($view)) {
+            $view_name = $content_domain_view;
+          }
+        }
+      }
+
+      // If this node has any term IDs that match the contextual filter
+      // for the experience hub view then it will automatically filter by
+      // those terms.
+      // Grab a list of supported vocabularies. (e.g Content Domain).
+      $view = Views::getView($view_name);
+
+      if (!empty($view)) {
+        // Pass the cache tags of the view to this node. It should update
+        // anytime this view updates.
+        $view->getCacheTags();
+        $variables['#cache']['tags'] = $view->getCacheTags();
+
+        $vids = [];
+        $argument_options = $view->getDisplay($view_display)
+          ->getOption('arguments');
+
+        foreach ($argument_options as $option) {
+          $plugin_id = $option['plugin_id'];
+          switch ($plugin_id) {
+            case 'taxonomy_index_tid':
+              if (!empty($option['default_argument_options']['vids'])) {
+                $vids = array_merge($vids, $option['default_argument_options']['vids']);
+              }
+              break;
+
+            case 'taxonomy_index_tid_depth':
+              if (!empty($option['validate_options']['bundles'])) {
+                $bundles = array_keys($option['validate_options']['bundles']);
+                $vids = array_merge($vids, $bundles);
+              }
+              break;
+          }
+        }
+
+        // Load any arguments that are inherited from the node. Check this
+        // with selected contextual filter vocabularies on the view.
+        $arguments = [];
+        $fields = $node->getFields();
+        foreach ($fields as $field) {
+          if (isset($field->target_id)) {
+            $target_type = $field->getFieldDefinition()->getSetting('target_type');
+            if ($target_type == 'taxonomy_term') {
+              $terms = $field->referencedEntities();
+              if (!empty($terms)) {
+                foreach ($terms as $term) {
+                  $bundle = $term->bundle();
+                  if (in_array($bundle, $vids) && !in_array($term->id(), $arguments)) {
+                    $arguments[] = $term->id();
+                  }
+                }
+              }
+            }
+          }
+        }
+
+        // Create view render array. Arguments are optional.
+        $view = [
+          '#type' => 'view',
+          '#name' => $view_name,
+          '#display_id' => $view_display,
+        ];
+        if (!empty($arguments)) {
+          $view['#arguments'] = [implode(',', $arguments)];
+
+        }
+
+        $variables['experience_hub_view'] = $view;
+      }
+    }
+  }
+
+  $variables['#attached']['library'][] = 'ul_experience_hub/ul_experience_hub';
+
+}
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_experience_hub_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+
+  // Add labels as the 'All' options on exposed filter for experience hub views.
+  if (strpos($form['#id'], 'experience-hub')) {
+    // Create an array to hold active filter values.
+    $active_filters = [];
+    $user_input = $form_state->getUserInput();
+
+    // Grabbing all taxonomy terms in the exposed filters.
+    // This is just an interim step to simplify the logic.
+    $active_options = [];
+    foreach ($form['#info'] as $settings) {
+      $name = $settings['value'];
+      if (isset($form[$name]['#options'])) {
+        foreach ($form[$name]['#options'] as $index => $option) {
+          if (isset($option->option)) {
+            $tid = array_keys($option->option);
+            $active_options[$name] = array_merge($active_options[$name], $tid);
+          }
+          else {
+            $active_options[$name][] = $index;
+          }
+        }
+      }
+    }
+
+    // Loop through each exposed field.
+    foreach ($form['#info'] as $name => $settings) {
+      if (array_key_exists($settings['value'], $form)) {
+        $element = $form[$settings['value']];
+      }
+      // Check if it is a date range field.
+      if (isset($element['min'])) {
+        $element['min']['#size'] = 15;
+        $element['max']['#size'] = 15;
+        unset($element['min']['#title']);
+        unset($element['max']['#title']);
+      }
+
+      // Check if it is a select field.
+      if (isset($element['#type']) && $element['#type'] == 'select') {
+        // Set field label as the 'All' option.
+        $element['#options']['All'] = $settings['label'];
+        // Get the filter name.
+        $filter_name = $settings['value'];
+        // Was this filter already submitted and an option selected?
+        $filter_submitted = isset($user_input[$filter_name]) && is_numeric($user_input[$filter_name]);
+        // Was a valid option selected?
+        $valid_option = $filter_submitted && in_array($user_input[$filter_name], $active_options[$filter_name]);
+
+        // Was a valid selection for the filter submitted?
+        if ($valid_option) {
+          $target = $user_input[$filter_name];
+          // Getting the term name for the filter.
+          $term = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->load($target);
+          if (!empty($term)) {
+            $active_filters[$filter_name] = [
+              'id' => $filter_name,
+              'name' => $term->label(),
+              'href' => '#',
+            ];
+          }
+        }
+      }
+
+      $form[$settings['value']] = $element;
+    }
+
+    // Have active filters?
+    if (!empty($active_filters)) {
+      // Add to form array.
+      $form['#active_filters'] = $active_filters;
+    }
+
+    // Hide any exposed filters that are already being passed via contextual
+    // filters.
+    $storage = $form_state->getStorage();
+    $view = $storage['view'];
+    $args = $view->args;
+    $term_ids = [];
+    foreach ($args as $arguments) {
+      $term_ids += explode(',', $arguments);
+    }
+
+    // If the exposed filter options intersect with the taxonomy term values
+    // selected on the node then either hide the filter or render its children
+    // if it is a parent.
+    foreach ($active_options as $name => $tids) {
+      $has_children = FALSE;
+      $intersect = array_intersect($term_ids, $tids);
+      if (!empty($intersect)) {
+        foreach ($intersect as $tid) {
+          $children = \Drupal::entityTypeManager()->getStorage('taxonomy_term')->loadChildren($tid);
+          // If the taxonomy term is a parent then render its children.
+          if (!empty($children)) {
+            $has_children = TRUE;
+            foreach ($form[$name]['#options'] as $index => $option) {
+              if (isset($option->option)) {
+                $id = key($option->option);
+                if (!isset($children[$id])) {
+                  unset($form[$name]['#options'][$index]);
+                }
+                else {
+                  $form[$name]['#options'][$index]->option[$id] = $children[$id]->label();
+                }
+              }
+            }
+          }
+        }
+        // If the taxonomy term is not a parent then hide the filter.
+        if (!$has_children) {
+          unset($form[$name]);
+        }
+      }
+    }
+  }
+}
+
+
+/**
+ * Implements hook_preprocess_pager().
+ */
+function ul_experience_hub_preprocess_pager(&$variables) {
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['pager_lang'] = $language;
+}

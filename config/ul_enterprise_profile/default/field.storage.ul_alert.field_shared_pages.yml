@@ -1,0 +1,19 @@
+uuid: 7eb5453f-71ae-4a4f-b79c-395836872a54
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_alerts
+id: ul_alert.field_shared_pages
+field_name: field_shared_pages
+entity_type: ul_alert
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

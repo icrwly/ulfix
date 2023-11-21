@@ -1,0 +1,27 @@
+uuid: 64b86cb6-9651-48b6-b159-d2956fd7efea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_marketo_link
+    - node.type.page
+  module:
+    - ul_marketo
+id: node.page.field_shared_marketo_link
+field_name: field_shared_marketo_link
+entity_type: node
+bundle: page
+label: 'Header Marketo CTA'
+description: 'Select a Marketo form. You can use a CTA Link or a Marketo form, not both.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  marketo_forms:
+    contact_form_configurable: contact_form_configurable
+    email_form: email_form
+    event_form: event_form
+    gated_content_form: 0
+    generic_form: generic_form
+field_type: marketo_form

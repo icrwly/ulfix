@@ -1,0 +1,29 @@
+uuid: 7cc4b914-f40e-4ff0-9f6a-20abe8d3c1fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_country
+    - node.type.news
+    - taxonomy.vocabulary.country
+id: node.news.field_shared_country
+field_name: field_shared_country
+entity_type: node
+bundle: news
+label: Country
+description: '&bull; The country related to this news item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

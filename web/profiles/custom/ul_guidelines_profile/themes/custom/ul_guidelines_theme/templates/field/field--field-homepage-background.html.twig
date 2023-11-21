@@ -1,0 +1,8 @@
+{% for item in items %}
+    {% embed '@ul_guidelines_theme/3_components/hero--background-slide.twig' %}
+        {% block image %}
+            {{ item.content }}
+        {% endblock %}
+    {% endembed %}
+{% endfor %}
+

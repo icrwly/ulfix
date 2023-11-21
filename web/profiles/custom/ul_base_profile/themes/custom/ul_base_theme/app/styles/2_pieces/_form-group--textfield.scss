@@ -1,0 +1,27 @@
+.form-group--textfield {
+  input[type=text] {
+    appearance: none;
+    color: $text-color; /* Match-02 */
+    font-size: 1.6rem;
+    line-height: 1.25;
+    margin-bottom: 0;
+    background-color: $background-color;
+    padding: $spacing-unit--s;
+    transition: border $transition;
+    width: 100%;
+    border:0;
+
+    &:focus {
+      outline: none;
+    }
+
+    &::placeholder {
+      font-size: 1.6rem;
+      color: $text-color; /* Match-02 */
+    }
+  }
+  .form-item {
+    margin-bottom: 0;
+    margin-top: 0; // Classy form.css adds margin-top
+  }
+}

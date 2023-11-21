@@ -1,0 +1,106 @@
+uuid: c7033ee2-79ee-4b3c-b5fd-fa061fc1fc92
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accrdn_items
+    - paragraphs.paragraphs_type.accordion
+    - paragraphs.paragraphs_type.accordion_items
+  module:
+    - entity_reference_revisions
+id: paragraph.accordion.field_accrdn_items
+field_name: field_accrdn_items
+entity_type: paragraph
+bundle: accordion
+label: Items
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      accordion_items: accordion_items
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 29
+        enabled: false
+      accordion_items:
+        weight: 28
+        enabled: true
+      basic_content:
+        weight: 30
+        enabled: false
+      call_to_action:
+        weight: 31
+        enabled: false
+      captioned_image:
+        weight: 32
+        enabled: false
+      crc_files:
+        weight: 34
+        enabled: false
+      descript_link:
+        weight: 35
+        enabled: false
+      files:
+        weight: 36
+        enabled: false
+      hero:
+        weight: 37
+        enabled: false
+      image_gallery:
+        weight: 38
+        enabled: false
+      image_row:
+        weight: 39
+        enabled: false
+      interrupter_cta:
+        weight: 40
+        enabled: false
+      list_item:
+        weight: 41
+        enabled: false
+      location:
+        weight: 42
+        enabled: false
+      marketo_form:
+        weight: 43
+        enabled: false
+      menu_section:
+        weight: 44
+        enabled: false
+      people:
+        weight: 45
+        enabled: false
+      quote:
+        weight: 46
+        enabled: false
+      reference:
+        weight: 47
+        enabled: false
+      related_content:
+        weight: 48
+        enabled: false
+      simple_menu:
+        weight: 49
+        enabled: false
+      single_related_content:
+        weight: 50
+        enabled: false
+      slide:
+        weight: 51
+        enabled: false
+      spotlight:
+        weight: 52
+        enabled: false
+      video:
+        weight: 53
+        enabled: false
+      view:
+        weight: 54
+        enabled: false
+field_type: entity_reference_revisions

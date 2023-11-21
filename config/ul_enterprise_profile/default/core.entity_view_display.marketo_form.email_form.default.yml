@@ -1,0 +1,84 @@
+uuid: fcfba86d-6dfa-4c40-b5a5-dc982b6634d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.email_form.field_newsletter_type
+    - field.field.marketo_form.email_form.field_shared_button_text
+    - field.field.marketo_form.email_form.field_shared_cta_button_text
+    - field.field.marketo_form.email_form.field_shared_custom_title
+    - field.field.marketo_form.email_form.field_shared_form_description
+    - field.field.marketo_form.email_form.field_shared_thank_you_page
+    - ul_marketo.marketo_form_type.email_form
+  module:
+    - options
+    - user
+id: marketo_form.email_form.default
+targetEntityType: marketo_form
+bundle: email_form
+mode: default
+content:
+  field_newsletter_type:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_shared_button_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_shared_cta_button_text:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_shared_custom_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_form_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_thank_you_page:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -6
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

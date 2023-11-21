@@ -1,0 +1,15 @@
+cm_workbench.my_workbench:
+  title: 'All Recent Content'
+  url: internal:/admin/cm-workbench
+  menu_name: cm_workbench
+  weight: 0
+cm_workbench.create_content:
+  title: 'Create Content'
+  url: internal:/node/add
+  menu_name: cm_workbench
+  weight: 1
+cm_workbench.my_edits:
+  title: 'My Edits'
+  url: internal:/admin/cm-workbench/content/edited
+  menu_name: cm_workbench
+  weight: 2

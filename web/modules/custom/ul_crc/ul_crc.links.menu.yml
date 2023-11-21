@@ -1,0 +1,6 @@
+ul_crc.settings_form:
+  title: 'UL CRC'
+  route_name: ul_crc.settings_form
+  description: "Configure settings to connect to UL's Commercial Resource Center"
+  parent: system.admin_config_services
+  weight: 99

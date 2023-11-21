@@ -1,0 +1,21 @@
+diff --git a/easy_breadcrumbs/src/EasyBreadcrumbBuilder.php b/easy_breadcrumbs/src/EasyBreadcrumbBuilder.php
+index 91cdf2f..1078b86 100644
+--- a/easy_breadcrumbs/src/EasyBreadcrumbBuilder.php
++++ b/easy_breadcrumbs/src/EasyBreadcrumbBuilder.php
+@@ -891,10 +891,13 @@ class EasyBreadcrumbBuilder implements BreadcrumbBuilderInterface {
+       $words_quantity = count($words);
+       for ($i = 1; $i < $words_quantity; ++$i) {
+ 
+-        // Transforms this word only if it is not in the list of ignored words.
+-        if (!in_array($words[$i], $ignored_words, TRUE)) {
+-          $words[$i] = Unicode::ucfirst($words[$i]);
++        if (is_array($ignored_words)) {
++          // Transforms this word only if it is not in the list of ignored words.
++          if (!in_array($words[$i], $ignored_words, TRUE)) {
++            $words[$i] = Unicode::ucfirst($words[$i]);
++          }
+         }
++
+       }
+       $normalized_text = implode(' ', $words);
+     }

@@ -1,0 +1,20 @@
+uuid: 1756f73c-074a-4bef-8ce1-b2c4022d9fd1
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_shared_cou
+field_name: field_shared_cou
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

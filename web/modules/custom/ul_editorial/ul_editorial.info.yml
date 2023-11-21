@@ -1,0 +1,7 @@
+name: UL Editorial Module
+description: This module adds functionality specific to content entry (such as filters).
+package: UL
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - filter

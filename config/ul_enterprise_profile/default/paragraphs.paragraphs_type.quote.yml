@@ -1,0 +1,12 @@
+uuid: 5f8238ab-0b35-4c49-8801-c9ee7952672e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: i8D3JmuWW5s76PgUXhNktF8rZIZR9gQ4Drofmi-78ok
+id: quote
+label: Quote
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Quote</em> for creating a block quote and source.'
+behavior_plugins: {  }

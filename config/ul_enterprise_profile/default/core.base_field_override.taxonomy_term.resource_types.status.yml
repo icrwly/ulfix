@@ -1,0 +1,22 @@
+uuid: 8d8bfc50-cc72-4901-bc92-a0e541e99da9
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.resource_types
+id: taxonomy_term.resource_types.status
+field_name: status
+entity_type: taxonomy_term
+bundle: resource_types
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,25 @@
+uuid: 17157edc-007e-4f7e-9f28-24c89fa9b854
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.event
+  module:
+    - text
+_core:
+  default_config_hash: 4cKl6Pb57eHqbDkcHfclr8bLvfdxDNVWhzlVGNWStk8
+id: node.event.body
+field_name: body
+entity_type: node
+bundle: event
+label: 'Body - deprecated'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,20 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--action-banner section--paragraph has-bg has-margin wrapper" %}
+{% set inner_class = "wrapper" %}
+
+{% if items|length > 1 %}
+  {% set row_class = "row--gutter-l" %}
+  {% set span_class =  "span-6-lt" %}
+{% endif %}
+
+{% block section_body %}
+  {% block cta_list %}
+    <div class="row {{ row_class }}">
+      {% for item in items %}
+        <div class="span-12 {{ span_class }}">
+          {% include "@ul_base_theme/3_components/section--action-banner__cta.twig" with item|merge({row_class: row_class}) only %}
+        </div>
+      {% endfor %}
+    </div>
+  {% endblock %}
+{% endblock %}

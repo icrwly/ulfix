@@ -1,0 +1,29 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = "card--solutions" %}
+
+{% block content %}
+  <div class="content-container">
+    {% block title %}
+      {% if title %}
+        <h3>{{- title -}}</h3>
+      {% endif %}
+    {% endblock %}
+    {% block description %}
+      {% if description %}
+        <p>{{- description -}}</p>
+      {% endif %}
+    {% endblock %}
+    {% block items %}
+      {% if items %}
+        {% include '@ul_base_theme/3_components/list--icon.twig' with {
+          items: items
+        } only %}
+      {% endif %}
+    {% endblock %}
+    {% block card_view_more %}
+        {% if viewMore %}
+          <a href="{{ viewMore.link }}" class="button button--red" title="{{ viewMore.name }}">{{ viewMore.name }}</a>
+        {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

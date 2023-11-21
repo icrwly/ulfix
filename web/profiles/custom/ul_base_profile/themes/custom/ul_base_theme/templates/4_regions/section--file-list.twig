@@ -1,0 +1,30 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% if overwrite_class %}
+  {% set class = overwrite_class %}
+{% else %}
+  {% set class = class ~ " section--file-list max-width--large-desktop has-bg has-margin" %}
+{% endif %}
+
+{% if titleBar %}
+    {% set titleBar = titleBar|merge({border: false}) %}
+{% endif %}
+
+{% if not item_wrap_class %}
+  {% set item_wrap_class = 'span-6-lm' %}
+{% endif %}
+
+{% block section_body %}
+  {% if items %}
+    <div class="row">
+      {% block items %}
+        {% for item in items %}
+          <div class="{{ item_wrap_class }}">
+            {% block item %}
+              {% include '@ul_base_theme/2_pieces/item/item--file.twig' with item only %}
+            {% endblock %}
+          </div>
+        {% endfor %}
+      {% endblock %}
+    </div>
+  {% endif %}
+{% endblock %}

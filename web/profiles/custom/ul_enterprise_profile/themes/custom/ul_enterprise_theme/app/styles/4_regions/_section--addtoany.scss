@@ -1,0 +1,40 @@
+/**
+ * The "addtoany" social widget.
+ */
+.section.section--addtoany {
+  margin-left: $spacing-unit--l;
+  margin-right: $spacing-unit--l;
+  margin-top: $spacing-unit;
+  border-top: 1px solid $border-color--medium;
+  padding: $spacing-unit;
+  padding-left: 0;
+  @include breakpoint(max-width $tablet - 1) {
+    margin-left: $spacing-unit;
+    margin-right: $spacing-unit;
+  }
+  @include breakpoint($desktop) {
+    padding-bottom: $spacing-unit;
+    padding-top: $spacing-unit;
+  }
+  @include breakpoint($xlarge-desktop + 75) {
+    margin: $spacing-unit auto 0 auto;
+    max-width: $xlarge-desktop;
+  }
+  .two-col & {
+    max-width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+  }
+  .addtoany_list > a {
+    padding: 0 8px 0 0;
+  }
+  .share {
+    display: inline-block;
+    padding-right: $spacing-unit--l;
+    font-size: 1.4rem;
+    font-weight: 700;
+  }
+  .addtoany_list.a2a_kit_size_32 a > span {
+    line-height: 26px;
+  }
+}

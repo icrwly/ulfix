@@ -1,0 +1,114 @@
+/**
+ * CSS style for the Australia, New Zealand site.
+ * Overrides the enterprise theme styles.
+ */
+
+/* GNaaS wrapper */
+#ul-global-nav {
+  z-index: 7 !important;
+}
+#ul-global-nav #ul-global-language-selector li a.disabled {
+  color: #bbb;
+}
+#ul-global-nav #ul-global-language-selector li a.disabled:hover {
+  color: #bbb;
+  background: #fff;
+  cursor: not-allowed;
+}
+.region-content .block-dropdown-language {
+  display: none !important;
+}
+.global-header__main .block-dropdown-language {
+  position: absolute;
+  right: 0;
+  padding: .75rem 1rem;
+}
+.menu-list .popover {
+  width: 360px;
+}
+.global-header--fix {
+  top: 42px;
+}
+.ul-global-nav-logo {
+  display: none;
+}
+.menu-list .menu-item {
+  padding-right: 0;
+  padding-left: 1.2rem;
+}
+
+/** Mega Menu */
+.col-count-4 .menu-list--mega-menu li {
+  padding-right: 2rem;
+}
+.nav--mega-menu .full-menu-section ul li {
+    font-weight: 400;
+}
+@media only screen and (min-width: 992px) {
+  .nav--mega-menu .menu-list--mega-menu a {
+    line-height: 1.5;
+  }
+}
+
+/** Sticky Nav */
+@media only screen and (min-width: 992px) {
+  .sticky-cta-nav.fixed {
+      top: 100px !important;
+  }
+  .sticky-cta-nav.slide-up {
+      -webkit-transform: translateY(-60px) !important;
+      transform: translateY(-60px) !important;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .sticky-cta-nav.fixed {
+      top: 90px !important;
+  }
+  .sticky-cta-nav.slide-up {
+      -webkit-transform: translateY(-50px) !important;
+      transform: translateY(-50px) !important;
+  }
+}
+.toolbar-tray-open.toolbar-horizontal .sticky-cta-nav.fixed {
+    top: 140px !important;
+}
+
+/** Paragraph styles */
+@supports(object-fit: cover) {
+  .section--paragraph .span-3-ld .card .image-container img {
+    height: 130px;
+  }
+}
+
+/** Forms and Buttons */
+.section.section--action-banner .section__inner .span-6-lt .button {
+    display: inline-block;
+    margin-top: 30px;
+    max-width: 250px;
+    width: 250px;
+    margin-right: 10px;
+}
+.submit-container .button:first-child {
+      margin-right: 5px;
+      margin-bottom: 5px;
+}
+.submit-container .button {
+    vertical-align: baseline;
+}
+
+.icon-filter:before {
+  content: " ";
+  display: inline-block;
+  background-image: url('images/filter-icon.png');
+  background-repeat: no-repeat;
+  background-position: left center;
+  background-size: 18px 20px;
+  width: 20px;
+  height: 20px;
+  position: relative;
+  left: 0px;
+  top: 3px;
+}
+.hash-target {
+  visibility: hidden;
+}

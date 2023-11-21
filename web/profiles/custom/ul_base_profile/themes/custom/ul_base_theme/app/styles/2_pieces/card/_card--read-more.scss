@@ -1,0 +1,42 @@
+.card--read-more {
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  padding-top: $spacing-unit--l * 2;
+  position: relative;
+
+  img {
+    display: none;
+  }
+
+  &:before {
+    background: rgba($blue, 0.9);
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    mix-blend-mode: multiply;
+    position: absolute;
+    width: 100%;
+    z-index: index($globalIndex, base);
+  }
+
+  .tags {
+    z-index: index($globalIndex, page);
+  }
+
+  .content-container {
+    color: $white;
+    max-width: 36rem;
+    padding: $spacing-unit--xl;
+    position: relative;
+    z-index: index($globalIndex, page);
+
+    p {
+      color: $white;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      max-width: 40rem;
+    }
+  }
+}

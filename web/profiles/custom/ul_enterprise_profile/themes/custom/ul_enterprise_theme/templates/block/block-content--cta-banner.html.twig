@@ -1,0 +1,13 @@
+{#
+/**
+ * @file
+ * Unique theme implementation for CTA Banner block when used within the context of Interrupter paragraph.
+ */
+#}
+{% embed '@ul_base_theme/4_regions/section--action-banner.twig' %}
+    {% set sectionId = "cta-banner-" ~ content['#block_content'].id() %}
+    {% set backgroundColor = content.field_cta_color.0['#markup'] %}
+    {% block cta_list %}
+        {{ content.field_cta_cta }}
+    {% endblock %}
+{% endembed %}

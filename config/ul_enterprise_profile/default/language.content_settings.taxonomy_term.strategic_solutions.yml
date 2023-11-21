@@ -1,0 +1,18 @@
+uuid: 4fa8e043-15aa-41bb-b1e9-f3d9f600f659
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.strategic_solutions
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.strategic_solutions
+target_entity_type_id: taxonomy_term
+target_bundle: strategic_solutions
+default_langcode: site_default
+language_alterable: true

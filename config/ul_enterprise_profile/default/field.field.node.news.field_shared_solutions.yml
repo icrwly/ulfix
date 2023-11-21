@@ -1,0 +1,29 @@
+uuid: 30fcb6e5-e5b0-4e6a-8ed0-2a36134fd929
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_solutions
+    - node.type.news
+    - taxonomy.vocabulary.solutions
+id: node.news.field_shared_solutions
+field_name: field_shared_solutions
+entity_type: node
+bundle: news
+label: Solutions
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      solutions: solutions
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

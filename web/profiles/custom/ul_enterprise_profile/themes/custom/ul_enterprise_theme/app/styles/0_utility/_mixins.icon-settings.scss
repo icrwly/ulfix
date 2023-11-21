@@ -1,0 +1,13 @@
+@mixin icon-settings() {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  display: inline-block;
+  font-family: 'icomoon';
+  // font-family: $iconfont;
+  font-size: inherit;
+  font-style: normal;
+  line-height: inherit;
+  speak: none;
+  text-transform: none;
+  vertical-align: baseline;
+}

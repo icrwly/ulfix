@@ -1,0 +1,21 @@
+uuid: 3a4e705c-9d64-47b9-bc16-aed387f20e54
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: LrEJaiA9Xrcta0V7_LsWOgqreeYDEdCnGjRIEz2XfPU
+id: node.field_event_speakers
+field_name: field_event_speakers
+entity_type: node
+type: entity_reference
+settings:
+  target_type: node
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

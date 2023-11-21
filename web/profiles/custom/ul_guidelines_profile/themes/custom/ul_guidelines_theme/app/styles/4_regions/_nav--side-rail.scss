@@ -1,0 +1,334 @@
+.nav--side-rail{
+  // display: none;
+  display: block;
+  // float:left;
+  height: auto;
+  // min-height: calc(100vh - 56px);
+  // min-width:270px;
+  // padding-bottom:2%;
+  // padding-top:2%;
+  height: 100%;
+  margin-left: -$spacing-unit;
+  padding: $spacing-unit--l 0;
+  // width:25%;
+
+  @include breakpoint($large-tablet){
+    display: block;
+    min-height: calc(100vh - 130px);
+  }
+
+  @include breakpoint(1280px){
+    margin-left: -$spacing-unit--l;
+  }
+
+  &--bg-gray{
+    background-color: $graySideRail;
+    position: relative;
+    &:before {
+      background-color: $graySideRail;
+      content:'';
+      display: block;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: 100vw;
+
+      @include breakpoint(max-width $large-tablet){
+        background-color: $white !important;
+      }
+    }
+    // display: none;
+    // height: 100%;
+    // left: 0;
+    // min-width:270px;
+    // position: absolute;
+    // top: 0;
+    // width:25%;
+    // z-index: -1;
+
+    // @include breakpoint($large-tablet){
+    //   display: block;
+    // }
+  }
+
+  ul{
+    margin: 0;
+    padding: 0;
+  }
+
+  li{
+    list-style-type: none;
+  }
+
+  h3{
+    @include font-size(14, 20);
+    color: $blueDark;
+    font-weight: 600;
+    margin: 0;
+  }
+
+  h4{
+    color: $black;
+    font-weight: 400;
+    margin: 0;
+  }
+
+  .first-level{
+    &.accordion{
+      @extend .accordion-toggle;
+      &:not(:hover){
+        background-color: transparent !important;
+      }
+      
+      h3:after {
+        right: $spacing-unit;
+        font-family: 'icomoon';
+        content: "\e918"; // $icon-caret-down-solid
+      }
+
+      &.active-trail {
+        h3:after {
+          content: "\e91b"; // $icon-caret-up-solid
+        }
+      }
+    }
+    .title {
+      @include breakpoint($desktop){
+        @include font-size(16, 24);
+      }
+      padding-right: calc(20px + #{$spacing-unit--l});
+    }
+  }
+
+  .second-level{
+    color:$black;
+    padding: 15px 6%;
+    &,
+    .title {
+      @include font-size(12, 18);
+      @include breakpoint($desktop){
+        @include font-size(14, 20);
+      }
+      width: 100%;
+    }
+    + ul {
+      margin-left: 5%;
+    }
+
+    &.accordion {
+      @extend .accordion-toggle;
+  
+      h4,
+      h5 {
+        .title {
+          width: 100%;
+        }
+        &:after {
+          @include font-size(20, 20);
+          // right: $spacing-unit;
+          position: absolute;
+          right: 5%;
+          font-family: 'icomoon';
+          content: "\e918"; // $icon-caret-down-solid
+        }
+      }
+
+      &.active-trail {
+        h4,
+        h5 {
+          &:after {
+            content: "\e91b"; // $icon-caret-up-solid
+          }
+        }
+      }
+
+    }
+
+    
+
+  }
+
+  .book-list {
+    overflow: hidden;
+
+    @include breakpoint(max-width $large-tablet){
+      display: none;
+    }
+
+    a {
+      display: block;
+      // padding: $spacing-unit;
+      padding: 1.25rem 1.5rem;
+      position: relative;
+  
+      @include breakpoint(1280px){
+        padding-left: $spacing-unit--l;
+      }
+
+      &:before,
+      &:after {
+        content:'';
+        display: block;
+        height: 100%;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+      }
+      &:before {
+        background-color: $blue;
+        left: 0;
+        width: 3px;
+        z-index: 1;
+      }
+      &:after {
+        background-color: $white;
+        right: 0;
+        width: 100%;
+      }
+      &:hover {
+        &:before,
+        &:after {
+          opacity: 1;
+        }
+        .title {
+          color: $blue;
+        }
+      }
+  
+      &.first-level {
+        &:hover {
+          &:before,
+          &:after {
+            opacity: 1;
+          }
+        }
+        &:focus,
+        &:active {
+          outline: none;
+        }
+      }
+
+      &.second-level {
+
+        + ul {
+          position: relative;
+        }
+        
+        &.accordion {
+          &.active-trail {
+            + ul ul {
+              &:before {
+                background-color: $blue;
+                content: '';
+                display: block;
+                position: absolute;
+                top: 0;
+                height: 100%;
+                width: 2px;
+                z-index: 1;
+              }
+
+              ul:before {
+                opacity: 0;
+              }
+            }
+          }
+        }
+      }
+  
+      &.accordion {
+        padding-right: 0;
+
+        &.active-trail {
+          background: $white !important;
+
+          &:before {
+            // opacity: 1;
+            opacity: 0;
+          }
+
+          + ul {
+            background-color: $white;
+          }
+    
+        }
+
+        &.is-animating + ul {
+          background-color: $white;
+        }
+      }
+  
+      .title {
+        position: relative;
+        z-index: 1;
+
+        &h5 {
+          margin: 0;
+        }
+      }
+  
+    }
+  
+    // neccessary because there is more than one "first-level"
+    // and each displays differently
+    > li > ul > li {
+      > .first-level {
+        &:hover {
+          .title {
+            color: $blueDark;
+          }
+        }
+        &.active-trail {
+          &:before {
+            // opacity: 1;
+          }
+        }
+        &.current {
+          color: $black;
+          &:after {
+            opacity: 0;
+          }
+        }
+      }
+      > ul {
+        .current {
+          &:before {
+            // opacity: 1;
+            opacity: 0 !important;
+          }
+          &:after {
+            opacity: 1;
+          }
+          .title {
+            color: $blue;
+            font-weight: bold;
+          }
+        }
+
+        h5 {
+          &.title {
+            margin: 0;
+          }
+        }
+      }
+    }
+
+    > li > a .title {
+      padding-right: 0;
+    }
+
+  }
+
+  .button-container{
+    margin: 20px 0 40px;
+    padding: 1% 6%;
+  }
+
+  .button{
+    display: block;
+    margin: 0;
+    width: 100%;
+  }
+
+}

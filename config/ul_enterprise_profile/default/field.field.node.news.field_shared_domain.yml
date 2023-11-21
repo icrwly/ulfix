@@ -1,0 +1,29 @@
+uuid: fd80e2c2-1be1-4478-aaa2-fdea5da0af74
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_domain
+    - node.type.news
+    - taxonomy.vocabulary.content_domain
+id: node.news.field_shared_domain
+field_name: field_shared_domain
+entity_type: node
+bundle: news
+label: 'Content Domain'
+description: 'The content domain related to this news item. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_domain: content_domain
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

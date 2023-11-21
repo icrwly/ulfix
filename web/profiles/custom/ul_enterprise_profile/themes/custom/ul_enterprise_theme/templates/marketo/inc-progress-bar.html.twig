@@ -1,0 +1,10 @@
+{# @file: inc-progress-bar.html.twig #}
+{# UL Design and brand guidelines: https://hub.ul.com/online-ulcom/loading #}
+{% block progressbar %}
+  <div class="loading-container">
+    <div class="spinner-wrap">
+      <div class="spinner"></div>
+    </div>
+    <div class="spinner-text">{{ 'Please&nbsp;wait&hellip;'|t }}</div>
+  </div>
+{% endblock progressbar %}

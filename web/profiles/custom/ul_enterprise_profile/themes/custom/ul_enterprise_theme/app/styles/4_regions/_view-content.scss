@@ -1,0 +1,20 @@
+// Views:
+.section.section--view {
+  .paragraph--view,
+  .view-content .section {
+    .wrapper {
+      padding: 0;
+    }
+  }
+  // A section grid inside of a paragraph view.
+  .view-content .section.section--grid .section__inner.wrapper {
+    padding: 0;
+    @include breakpoint($tablet) {
+      padding: 0;
+    }
+  }
+  // View (in paragraph) bottom pagination.
+  .views-element-container .section.section--pager {
+    padding: 0;
+  }
+}

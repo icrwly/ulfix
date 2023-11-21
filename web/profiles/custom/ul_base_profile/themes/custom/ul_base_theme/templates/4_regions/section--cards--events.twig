@@ -1,0 +1,12 @@
+{% extends "@ul_base_theme/4_regions/section--cards.twig" %}
+{% set class = "section--bg-gray" %}
+{% set gridClass = "flex-grid--half" %}
+{% set wrapperClass = "max-width--large-desktop" %}
+
+{% block title_bar %}
+  {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+{% endblock %}
+
+{% block card_list %}
+  {{ parent() }}
+{% endblock %}

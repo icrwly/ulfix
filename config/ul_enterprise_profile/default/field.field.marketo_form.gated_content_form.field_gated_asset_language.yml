@@ -1,0 +1,21 @@
+uuid: eeca8b70-bb6f-4855-a0dc-af1613078366
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_gated_asset_language
+    - ul_marketo.marketo_form_type.gated_content_form
+  module:
+    - options
+id: marketo_form.gated_content_form.field_gated_asset_language
+field_name: field_gated_asset_language
+entity_type: marketo_form
+bundle: gated_content_form
+label: 'Gated Asset Language'
+description: 'Select the language of the gated asset.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

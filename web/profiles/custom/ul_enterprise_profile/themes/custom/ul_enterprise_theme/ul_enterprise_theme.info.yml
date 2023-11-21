@@ -1,0 +1,32 @@
+name: UL Enterprise Theme
+type: theme
+base theme: ul_base_theme
+description: 'UL Enterprise theme for enterprise type sites.'
+package: Core
+version: VERSION
+core_version_requirement: ^9 || ^10
+libraries:
+  - ul_enterprise_theme/global-styling
+  - ul_enterprise_theme/global-scripts
+  - ul_enterprise_theme/lift-fade
+stylesheets-remove:
+      - extlink.css
+libraries-extend:
+  core/drupal.ajax:
+    - ul_enterprise_theme/throbber
+components:
+  namespaces:
+    include:
+      - templates
+regions:
+  header_before: 'Header before'
+  header_top: 'Header top'
+  header_bottom: 'Header bottom'
+  header_after: 'Header after'
+  breadcrumb: Breadcrumb
+  top: 'Page top'
+  content: Content
+  sidebar_first: 'First sidebar'
+  bottom: 'Page bottom'
+  footer_top: 'Footer top'
+  footer_bottom: 'Footer bottom'

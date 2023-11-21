@@ -1,0 +1,21 @@
+.listing-item--events-simple {
+  border: none !important;
+  display: block; // override display: flex
+  padding: $spacing-unit;
+  @include breakpoint($tablet) {
+    padding: $spacing-unit--l $spacing-unit;
+  }
+
+  .block-date {
+    float: left;
+    width: 14%;
+    @include breakpoint($large-desktop) {
+      width: 20%;
+    }
+  }
+  .has-image & {
+    a {
+      @include arrow-link($white, $icon-bracket-r, 1rem, 2.5rem);
+    }
+  }
+}

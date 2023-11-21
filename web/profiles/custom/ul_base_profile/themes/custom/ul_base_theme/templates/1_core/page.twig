@@ -1,0 +1,21 @@
+{# page.twig #}
+<div class="global-header--fix auto-hide-header">
+  {% block header %}
+      {% include '@ul_base_theme/4_regions/header.twig' %}
+  {% endblock %}
+</div>
+<div class="full-sticky-cta col-aside sticky-cta-nav">
+  <div class="wrapper">
+    <div class="sticky_cta_title page_title_sticky"></div>
+    <div class="col-gtr aside-section"><div class="sticky_cta_full siderail-sticky-cta"></div></div>
+  </div>
+</div>
+{% block page_top %}{% endblock %}
+
+{% block page %}{% endblock %}
+
+{% block page_bottom %}{% endblock %}
+
+{% block footer %}
+    {% include '@ul_base_theme/4_regions/footer.twig' %}
+{% endblock %}

@@ -1,0 +1,18 @@
+{% extends "@ul_base_theme/2_pieces/item/item--crc.twig" %}
+{% set class = 'item--file' %}
+
+{% block content %}
+    <div class="file_image">
+      <img src="{{ sm_thumbnail_url }}" alt={{ alt }} loading="lazy" data-entity-type="file" style="width:66.12px; max-height:73px;"/>
+    </div>
+    <div class="file_image_default"></div>
+
+    <div class="file_name">
+        <p class="crc_title">{{ title }}</p>
+    </div>
+
+    <div class="file_size crc_filesize">{{ size }}</div>
+    <div class="file_download_btn span-12-t">
+        <a href="{{ url }}" title="{{ 'Download'|t }}" class="button button--red">{{ 'Download'|t }}</a>
+    </div>
+{% endblock %}

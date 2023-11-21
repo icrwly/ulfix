@@ -1,0 +1,9 @@
+{% embed '@ul_enterprise_theme/3_components/section--action-banner__cta.twig' %}
+    {% set class = class ~ " section--paragraph" %}
+    {% set title = content.field_cta_title %}
+    {% set description =  content.field_cta_description|render|striptags %}
+    {% set ctas = [{
+        title: content.field_cta_link.0['#title'],
+        url: content.field_cta_link.0['#url']
+    }] %}
+{% endembed %}

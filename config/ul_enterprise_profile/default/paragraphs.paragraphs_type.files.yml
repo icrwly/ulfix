@@ -1,0 +1,10 @@
+uuid: 1db530d4-4716-4309-b690-6b64a5b62d74
+langcode: en
+status: true
+dependencies: {  }
+id: files
+label: Files
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Files</em> to render lists of downloadable files. '
+behavior_plugins: {  }

@@ -1,0 +1,17 @@
+{% set class = 'item ' ~ class %}
+
+{% if link %}
+  <a class="{{ class }}" href="{{ link }}">
+{% else %}
+  <div class="{{ class }}">
+{% endif %}
+
+{% block content %}
+  {{ content }}
+{% endblock %}
+
+{% if link %}
+  </a>
+{% else %}
+  </div>
+{% endif %}

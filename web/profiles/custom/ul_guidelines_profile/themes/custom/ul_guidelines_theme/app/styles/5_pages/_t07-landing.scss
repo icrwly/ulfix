@@ -1,0 +1,88 @@
+.landing {
+	background-image: radial-gradient(circle at 71% 92%, rgba(0, 30, 56, 0.31), $blueDark);
+	font-family: $sans;
+	min-height: 100vh;
+	padding-bottom: $spacing-unit--l * 2;
+
+	&__header {
+		align-items: center;
+		display: flex;
+		justify-content: center;
+		padding: $spacing-unit--l 0;
+		text-align: center;
+		@include breakpoint($tablet) {
+			padding-bottom: $spacing-unit--l * 2;
+			padding-top: $spacing-unit--l * 2;
+		}
+	}
+
+	.header__logo {
+		margin: 0;
+		.brand-logo {
+			height: 60px;
+			width: 60px;
+			@include breakpoint($tablet) {
+				height: 82.1667px;
+				width: 200px;
+			}
+		}
+	}
+
+	&__content {
+		margin: 0 $mobileMargin;
+		width: calc(100% - 30px);
+		@include breakpoint($tablet) {
+			margin-left: auto;
+			margin-right: auto;
+			width: 90%;
+			max-width: 620px;
+		}
+
+		&__wrap {
+			background-color: $graySideRail;
+			border-radius: 4px;
+			box-shadow: 0 1px 8px 0 rgba(0, 0, 0, 0.4);
+			padding: 22px $mobileMargin;
+			text-align: center;
+
+			@include breakpoint($tablet) {
+				padding: 42px 80px;
+			}
+		}
+
+		p {
+			@include font-size(18, 26);
+			margin: 0 0 $spacing-unit--l;
+		}
+
+		.button {
+			display: block;
+			float: none;
+			margin: 0 auto;
+			margin-bottom: $spacing-unit;
+			max-width: 260px;
+			width: 100%;
+			& + .button{
+				margin-bottom: $spacing-unit--l;
+			}
+		}
+
+		h3 {
+			@include font-size(16, 20);
+			margin: 0 0 $spacing-unit;
+		}
+
+		ul {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+		}
+	}
+
+	&__links {
+		a {
+			@include font-size(14, 14);
+			font-weight: 600;
+		}
+	}
+}

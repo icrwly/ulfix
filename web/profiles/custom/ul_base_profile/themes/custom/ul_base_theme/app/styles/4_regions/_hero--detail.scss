@@ -1,0 +1,170 @@
+.hero--detail {
+  &.has-image {
+    .hero__inner {
+      @include breakpoint(max-width $tablet - 1) {
+        padding-top: 0;
+      }
+    }
+  }
+
+  &.no-image {
+    &.is-wide {
+      .hero__content {
+        @include breakpoint($large-desktop) {
+          max-width: percentage(7/12);
+        }
+      }
+    }
+  }
+
+  .hero__inner {
+    padding-bottom: $spacing-unit--l;
+    padding-top: $spacing-unit--l;
+    @include breakpoint($large-tablet) {
+      padding-bottom: $spacing-unit--xl;
+      padding-top: $spacing-unit--xl;
+    }
+
+    > .row {
+      @include breakpoint(max-width $large-tablet - 1) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+
+  .hero__image {
+    @include breakpoint(max-width $tablet - 1) {
+      margin-left: -$spacing-unit;
+      margin-right: -$spacing-unit;
+    }
+    @include breakpoint($large-tablet) {
+      align-items: center;
+      display: flex;
+      height: 100%;
+    }
+    @include breakpoint(max-width $large-tablet) {
+      margin-bottom: $spacing-unit--l;
+    }
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: center;
+  }
+
+  .hero__row {
+    &:not(:last-child) {
+      margin-bottom: $spacing-unit * 1.5;
+      @include breakpoint($large-desktop) {
+        margin-bottom: $spacing-unit--l;
+      }
+    }
+  }
+
+  .hero__title {
+    font-weight: 300;
+    @include breakpoint($desktop) {
+      font-size: 3.3rem;
+    }
+    @include breakpoint($large-desktop) {
+      font-size: 3.5rem;
+    }
+  }
+
+  .hero__date {
+    align-items: center;
+    display: flex;
+
+    .block-date {
+      font-size: 2.4rem;
+      padding: 0;
+      text-align: $start-direction;
+      @include breakpoint($desktop) {
+        font-size: 2.8rem;
+      }
+      @include breakpoint($large-desktop) {
+        font-size: 3rem;
+      }
+
+      .day {
+        font-weight: 600;
+        margin-bottom: $spacing-unit--xs;
+      }
+
+      .date {
+        font-size: 2rem;
+        font-weight: 400;
+        @include breakpoint($desktop) {
+          font-size: 2.1rem;
+        }
+        @include breakpoint($large-desktop) {
+          font-size: 2.4rem;
+        }
+      }
+    }
+
+    .dash {
+      color: $text-color--light;
+      display: block;
+      font-size: 2.4rem;
+      font-weight: 600;
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+      @include breakpoint($desktop) {
+        font-size: 3.2rem;
+      }
+      @include breakpoint($large-desktop) {
+        font-size: 3.6rem;
+        padding-left: $spacing-unit * 1.5;
+        padding-right: $spacing-unit * 1.5;
+      }
+    }
+  }
+
+  .hero__buttons {
+    margin-top: $spacing-unit--s;
+    @include breakpoint($large-tablet) {
+      max-width: 420px;
+    }
+  }
+
+  .hero__description {
+    @include  trim-margin;
+    &,
+    p {
+      @include breakpoint($large-desktop) {
+        font-size: 1.6rem;
+      }
+    }
+  }
+
+  .hero__meta {
+    @include font-smoothing;
+    font-weight: 400;
+  }
+
+  .image-container {
+    width: 100%;
+
+    img {
+      @include center-block;
+    }
+  }
+
+  .topic {
+    @include breakpoint($large-desktop) {
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+
+  .button {
+    // TODO: refactor into default button styles
+    .icon {
+      font-size: 1.4rem;
+      margin-#{$start-direction}: $spacing-unit--s;
+    }
+  }
+}

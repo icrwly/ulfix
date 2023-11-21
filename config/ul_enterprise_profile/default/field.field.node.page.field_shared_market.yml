@@ -1,0 +1,31 @@
+uuid: a0fe40c5-5d87-46e9-9e3d-1b9c9fdd388a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_market
+    - node.type.page
+    - taxonomy.vocabulary.markets
+_core:
+  default_config_hash: OQ3amE_i9KHfb4to9vVWv30FlU1-YKjOqk61SU8u78o
+id: node.page.field_shared_market
+field_name: field_shared_market
+entity_type: node
+bundle: page
+label: Market
+description: '&bull; The market related to this page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

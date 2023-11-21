@@ -1,0 +1,14 @@
+uuid: b2fd02d4-3279-4bb6-9c7e-eb98f2afffad
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.strategic_solutions
+id: taxonomy_vocabulary_strategic_solutions
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

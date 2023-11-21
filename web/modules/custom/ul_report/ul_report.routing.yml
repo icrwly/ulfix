@@ -1,0 +1,10 @@
+# List lnks and descriptiosn for selected UL reports.
+ul_report.report_list:
+  path: '/admin/reports/ul-report'
+  defaults:
+    _controller: '\Drupal\ul_report\Controller\ReportController::list'
+    _title: 'UL Reports'
+  requirements:
+    _permission: 'access site reports'
+  options:
+    _admin_route: TRUE

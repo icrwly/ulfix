@@ -1,0 +1,20 @@
+/**
+ * @TODO: Can this ported into the Base Profile Theme's CSS?
+ */
+.nav--primary {
+  .menu-item--primary-nav {
+    > a {
+      @include breakpoint(max-width $tablet - 1) {
+        font-size: 1.6rem;
+      }
+      @include breakpoint(max-width $desktop - 1) {
+        padding-right: 35px;
+      }
+      @include breakpoint($tablet) {
+        @include breakpoint(max-width $desktop - 1) {
+          font-size: 1.8rem;
+        }
+      }
+    }
+  }
+}

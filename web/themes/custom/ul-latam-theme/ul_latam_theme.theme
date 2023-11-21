@@ -1,0 +1,177 @@
+<?php
+
+/**
+ * @file
+ * UL Profile Theme file.
+ */
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function ul_latam_theme_preprocess_page(array &$variables) {
+
+  // Get the current node's language code, and add it to 'drupalSettings'
+  // which is accessible via Twig.
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['#attached']['drupalSettings']['language'] = $language;
+
+  // If user is anonymous, attach the language redirect JS.
+  // Note: We do not want to do this for Admins.
+  if (\Drupal::currentUser()->isAnonymous()) {
+    $variables['#attached']['library'][] = 'ul_latam_theme/latam-language';
+  }
+
+  // If "node":
+  if (isset($variables['node'])) {
+    $node = $variables['node'];
+    if (is_object($node)) {
+      // Get the content type (node type).
+      $nodeType = $node->bundle();
+      // If the node type is Campaign Landing Page:
+      if ($nodeType == 'campaign_page') {
+        // Remove blocks that are unused for this content type.
+        unset(
+          $variables['page']['header_bottom']['ul_latam_theme_main_menu'],
+          $variables['page']['header_bottom']['ul_latam_theme_header_search_block']
+        );
+      }
+    }
+  }
+
+  // GNaaS Script - used to determine environment.
+  // Use drupalSettings to pass val to JS.
+  $config = \Drupal::service('config.factory')->getEditable('ul_latam_theme.settings');
+
+  // The current value saved in config:
+  $gnaas_env = $config->get('gnaas_env');
+
+  // Make sure we alwyas have a value, PROD is default!
+  if (empty($gnaas_env)) {
+    $gnaas_env = 'prod';
+  }
+
+  $variables['#attached']['drupalSettings']['gnaas_env'] = $gnaas_env;
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function ul_latam_theme_page_attachments_alter(array &$attachments) {
+  // GnaaS:
+  $config = \Drupal::service('config.factory')->getEditable('ul_latam_theme.settings');
+  $gnaas_env = $config->get('gnaas_env');
+  if ($gnaas_env == 'test') {
+    $attachments['#attached']['library'][] = 'ul_latam_theme/gnaas-test';
+  }
+  else {
+    $attachments['#attached']['library'][] = 'ul_latam_theme/gnaas-prod';
+  }
+}
+
+/**
+ * Implements theme_preprocess_node().
+ */
+function ul_latam_theme_preprocess_node(&$variables) {
+  // Only for "full" pages or "right-rail", not for cards!
+  if (!in_array($variables['view_mode'], ['full', 'right_rail_display'])) {
+    return;
+  }
+
+  // Get the node var:
+  $node = $variables['node'];
+  // Node URL:
+  $urlNodeObject = $node->toUrl();
+  // The current language:
+  $currlang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  // Identify needed translations based upon the $currlang value:
+  if ($currlang == 'en') {
+    $getLang = 'pt-br';
+    $getLang2 = 'es';
+  }
+  elseif ($currlang == 'es') {
+    $getLang = 'pt-br';
+    $getLang2 = 'en';
+  }
+  else {
+    $getLang = 'es';
+    $getLang2 = 'en';
+  }
+
+  // The current URL:
+  $variables['#attached']['drupalSettings']['gnaas'][$currlang] = $urlNodeObject->toString();
+  // The language manager object:
+  $language_manager = \Drupal::service('language_manager');
+  // Get the FIRST translation based upon $getLang value:
+  $translation = $language_manager->getLanguage($getLang);
+  // Get the translation URL:
+  $urlNodeObject->setOption('language', $translation);
+  // Add the URL for the GnaaS to consume.
+  $variables['#attached']['drupalSettings']['gnaas'][$getLang] = $urlNodeObject->toString();
+  // If "/node/" is in the Translation URL, it is a false positive.
+  // And there is no translation for this language.
+  if (strpos($variables['#attached']['drupalSettings']['gnaas'][$getLang] = $urlNodeObject->toString(), '/node/') !== false) {
+    // Set the translations URL to "#".
+    $variables['#attached']['drupalSettings']['gnaas'][$getLang] = '#';
+  }
+  // Get the SECOND translation based upon $getLang value:
+  $translation = $language_manager->getLanguage($getLang2);
+  // Get the translation URL:
+  $urlNodeObject->setOption('language', $translation);
+  // Add the URL for the GnaaS to consume.
+  $variables['#attached']['drupalSettings']['gnaas'][$getLang2] = $urlNodeObject->toString();
+  // If "/node/" is in the Translation URL, it is a false positive.
+  // And there is no translation for this language.
+  if (strpos($variables['#attached']['drupalSettings']['gnaas'][$getLang2] = $urlNodeObject->toString(), '/node/') !== false) {
+    // Set the translations URL to "#".
+    $variables['#attached']['drupalSettings']['gnaas'][$getLang2] = '#';
+  }
+}
+
+/**
+ * Implements theme_preprocess_block__ul_search_header().
+ */
+function ul_latam_theme_preprocess_block__ul_search_header(&$variables) {
+  $current_lang = $currlang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['current_lang'] = $current_lang;
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function ul_latam_theme_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Do not show this in PROD:
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+  if ($host == 'https://latam.ul.com') {
+    return;
+  }
+
+  // Get the theme settings, and check which library is selected for this site.
+  $config = \Drupal::service('config.factory')->getEditable('ul_latam_theme.settings');
+
+  // The current value saved in config:
+  $gnaas_env = $config->get('gnaas_env');
+
+  // Make sure we alwyas have a value, PROD is default!
+  if (empty($gnaas_env)) {
+    $gnaas_env = 'prod';
+  }
+
+  // Create the form elements: make a wrapper to be pretty:
+  $form['gnaas_wrap'] = [
+    '#type' => 'details',
+    '#open' => TRUE,
+    '#title' => t('GnaaS Script Setting'),
+  ];
+
+  // Make the radio buttons, for user interaction:
+  $form['gnaas_wrap']['gnaas_env'] = [
+    '#type' => 'radios',
+    '#title' => t('Select the GnaaS script environment:'),
+    '#options' => [
+      'prod' => t('Production'),
+      'test' => t('Test'),
+    ],
+    '#default_value' => $gnaas_env,
+  ];
+}

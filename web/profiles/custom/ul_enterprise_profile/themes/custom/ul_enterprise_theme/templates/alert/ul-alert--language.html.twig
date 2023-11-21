@@ -1,0 +1,30 @@
+{#
+/**
+ * @file ul_alert.html.twig
+ * Default theme implementation to present Alert data.
+ *
+ * This template is used when viewing Alert pages.
+ *
+ *
+ * Available variables:
+ * - content: A list of content items. Use 'content' to print all content, or
+ * - attributes: HTML attributes for the container element.
+ *
+ * @see template_preprocess_ul_alert()
+ *
+ * @ingroup themeable
+ */
+#}
+{% extends '@ul_base_theme/4_regions/alert--informational.twig' %}
+
+{% set title = content.name %}
+{% set description = content.field_shared_message|render %}
+{% set id = "ul-alert--" ~ ul_alert.id() %}
+{% if content.field_shared_dismiss|render %}
+    {% set primary_cta = {
+        title: content.field_shared_dismiss,
+    } %}
+{% endif %}
+{% block description_inner %}
+    {{ content.field_shared_message }}
+{% endblock %}

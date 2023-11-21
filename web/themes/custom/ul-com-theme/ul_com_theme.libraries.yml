@@ -1,0 +1,95 @@
+# UL.com CSS overrides to enterprise theme
+ul-com-styles:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/ul-com-styles.css: { weight: 2000 }
+
+# The Knightlab Timeline assets
+ul-com-timeline:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      https://cdn.knightlab.com/libs/timeline3/latest/css/timeline.css: { type: external, minified: true }
+      css/timeline.css: { }
+  js:
+    https://cdn.knightlab.com/libs/timeline3/latest/js/timeline.js: { type: external, attributes: { async: false } }
+
+# Accessibe JS
+ul-com-accessibe:
+  version: 1.x
+  js:
+    scripts/accessibe.js: { preprocess: false, attributes: { async: true } }
+
+# Hotjar JS
+ul-com-hotjar:
+  version: 1.x
+  js:
+    scripts/hotjar.js: { preprocess: false, attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '1', defer: true } }
+
+# Request for Quote
+ul-com-rfq:
+  version: 1.x
+  js:
+    scripts/rfq.js: { preprocess: false, attributes: { async: true } }
+# Request for Quote
+ul-com-charts:
+  version: 1.x
+  js:
+    scripts/vendor/d3.v4.min.js: { preprocess: false, attributes: { async: true } }
+    scripts/vendor/npm_chart.js:  { preprocess: false, attributes: { async: true } }
+    scripts/charts.js: { preprocess: false, attributes: { async: true } }
+# SVG
+ul-com-svg:
+  version: 1.x
+  css:
+    theme:
+      vendor/SVG_sustainability_report_2020/css/sustainabilityreport.css: { }
+  js:
+    vendor/SVG_sustainability_report_2020/scripts/TweenMax.min.js: { preprocess: false, attributes: { async: true } }
+    vendor/SVG_sustainability_report_2020/scripts/sustainabilityreport.js: { preprocess: false, attributes: { async: true } }
+  dependencies:
+    - core/jquery
+    - ul_base_theme/global-scripts
+
+# History
+ul-com-history:
+  version: 1.x
+  js:
+    scripts/history.js: { preprocess: false, attributes: { async: false } }
+  dependencies:
+    - core/jquery
+    - ul_base_theme/global-scripts
+    - ul_base_theme/jquery-custom
+    - ul_com_theme/ul-com-timeline
+
+# AJAX dialog
+ul-com-core-drupal-dialog-ajax:
+  dependencies:
+    - 'core/drupal.dialog.ajax'
+
+# Qualtrics JS
+qualtrics:
+  version: 1.x
+  js:
+    scripts/qualtrics.js: { attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '3', defer: true } }
+  dependencies:
+    - core/jquery
+    - ul_base_theme/jquery-custom
+
+# Spiresmartbuildings infographic scripts:
+spiresmartbuildings:
+  version: 1.x
+  css:
+    theme:
+      vendor/spiresmartbuildings/css/infographic.css: { }
+  js:
+    scripts/spiresmartbuildings.js: {}
+    vendor/spiresmartbuildings/scripts/infographic.js: { preprocess: false, attributes: { async: true } }
+    vendor/spiresmartbuildings/scripts/main.js: { preprocess: false, attributes: { async: true } }
+
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

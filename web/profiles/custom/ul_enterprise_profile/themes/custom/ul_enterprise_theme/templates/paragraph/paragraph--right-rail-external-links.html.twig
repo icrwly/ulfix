@@ -1,0 +1,14 @@
+{% extends '@ul_base_theme/2_pieces/siderail--links.twig' %}
+{% set items = content.field_rr_external_link %}
+{% block content %}
+  <h3>{{ content.field_rr_extern_links_title }}</h3>
+  {% if items %}
+    <ul>
+    {% for item in items %}
+      {% if item['#url']|render %}
+        <li><a href="{{ item['#url']|render }}" target="_blank" class="rr_external_link" title="{{ item['#title'] }}">{{ item['#title'] }}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

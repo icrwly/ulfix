@@ -1,0 +1,108 @@
+/**
+ * Campaign Landing Pages: Page structure.
+ * Uses the "Right Rail" layout as starting point.
+ */
+
+.page-node-type-campaign-page {
+  // Make the global header scroll.
+  .global-header--fix {
+    top: 0 !important;
+    position: relative;
+  }
+  // Remove the mobile hamgurger.
+  .global-header__hamburger {
+    display: none;
+  }
+  // Make sure the title does not bump
+  // into the form!
+  .hero--default .content-container {
+    @include breakpoint($desktop) {
+      max-width: 60%;
+      padding: 3rem;
+    }
+    h1 {
+      @include breakpoint($desktop) {
+        font-size: 3.2rem;
+        letter-spacing: 1px;
+      }
+    }
+  }
+  // We have to set a min-height,
+  // because different themes have
+  // different markup and styles,
+  // and this evens things out.
+  .block-views-blockhero-block {
+    @include breakpoint($desktop) {
+      min-height: 250px;
+    }
+    .section.section--title {
+      @include breakpoint($desktop) {
+        border-bottom: none;
+        padding-top: 50px;
+      }
+    }
+    .hero--default .hero--default-slide.swiper-slide {
+      @include breakpoint($desktop) {
+        max-height: 300px;
+      }
+    }
+  }
+}
+
+// The main content is in two columns.
+.campaign-page--main {
+  background: $gray-lightest;
+  .col-wrap {
+    background: $gray-lightest;
+  }
+
+  // Right column (sidebar).
+  .col-aside {
+    background: $white;
+    .col-gtr {
+      @include breakpoint($desktop) {
+        max-width: 850px;
+      }
+      .section--paragraph {
+        padding: 0 0 3rem 0;
+      }
+    }
+    &.mobile-top {
+      & > .col-gtr {
+        @include breakpoint($desktop) {
+          background: $white;
+          top: -100px;
+          margin-bottom: -100px;
+          position: relative;
+          z-index: 2;
+          min-height: 500px;
+        }
+      }
+    }
+  }
+}
+
+// (A) This is hidden at first:
+#hdrLoginCta {
+  display: none;
+}
+
+// (B) This is where it is displayed:
+.global-header__main #hdrLoginCta {
+  display: block;
+  margin-left: auto;
+  max-width: 50%;
+  margin-right: 0.5rem;
+  @include breakpoint($tablet) {
+    margin-right: 1.5rem;
+  }
+  .button {
+    letter-spacing: normal;
+    padding: 4px 12px;
+    font-size: 1.0rem;
+    @include breakpoint($tablet) {
+      padding: 4px 36px;
+      font-size: 1.1rem;
+    }
+  }
+}

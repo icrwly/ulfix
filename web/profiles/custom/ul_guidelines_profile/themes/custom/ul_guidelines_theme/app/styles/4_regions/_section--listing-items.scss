@@ -1,0 +1,43 @@
+.section--listing-items{
+  @include margin-control($type: 'padding');
+  h3{
+    @include font-size(18, 24);
+    color:$gray;
+    font-weight:400;
+  }
+  .view-more{
+    cursor:pointer;
+    display: block;
+    text-align:center;
+  }
+
+  &--search {
+    > h3 {
+      @include font-size(18, 18);
+      font-weight: 400;
+      margin-bottom: 20px;
+    }
+  }
+  &--checklist{
+    .list-container{
+      padding-bottom:20px;
+    }
+    .approval-list-item{
+      padding:13px 0;
+      position: relative;
+      &:before{
+        color:$green;
+        left: 20px;
+        position: absolute;
+        top: 13px;
+      }
+      p{
+        margin: 0;
+        padding-left:57px;
+      }
+    }
+    .button{
+      margin-left: 0;
+    }
+  }
+}

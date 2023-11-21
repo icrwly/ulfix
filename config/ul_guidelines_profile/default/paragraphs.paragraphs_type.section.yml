@@ -1,0 +1,11 @@
+uuid: c42ccc32-2aa4-44c0-bf17-e847e243cabd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: mIJm-TLkbbG9sPGuA4zan3EOdGRlZEtmTY2i32r2kxY
+id: section
+label: Section
+icon_uuid: null
+description: 'Use <em>Section</em> for content that collapses into an accordion on mobile.'
+behavior_plugins: {  }

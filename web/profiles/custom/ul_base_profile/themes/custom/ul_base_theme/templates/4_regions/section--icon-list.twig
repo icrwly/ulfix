@@ -1,0 +1,13 @@
+{% extends "@ul_base_theme/4_regions/section--link-list.twig" %}
+{% set class = "section--link-list" %}
+
+{% block items %}
+  {% if items %}
+    {% include '@ul_base_theme/3_components/list--icon.twig' with {
+      class: 'row',
+      list_item_class: 'span-6-lt span-4-d',
+      item_class: 'item--arrow-link',
+      items: items
+    } only %}
+  {% endif %}
+{% endblock %}

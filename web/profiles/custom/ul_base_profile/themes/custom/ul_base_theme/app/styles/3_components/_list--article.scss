@@ -1,0 +1,14 @@
+.list--article {
+  @include list-unstyled;
+
+  > li {
+    &:not(:first-child) {
+      padding-top: $spacing-unit;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid $border-color;
+      padding-bottom: $spacing-unit;
+    }
+  }
+}

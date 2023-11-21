@@ -1,0 +1,13 @@
+.guidelines-list {
+  background-color: $white;
+}
+
+.page-node-type-guidelines-list {
+  .section--main {
+    .editor-content {
+      > :first-child {
+        padding-top: $spacing-unit * 2;
+      }
+    }
+  }
+}

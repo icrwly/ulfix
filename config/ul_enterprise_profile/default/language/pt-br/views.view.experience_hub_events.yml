@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: "<div class=\"wrapper\">\r\n<div class=\"span-col-12\">\r\n<h2>No momento, não há eventos programados. Verifique novamente mais tarde.</h2>\r\n</div>\r\n</div>\r\n"
+            format: full_html
+      filters:
+        field_shared_industry_target_id:
+          expose:
+            label: Indústria
+        field_event_type_target_id:
+          expose:
+            label: 'Tipo de evento'
+        title:
+          expose:
+            placeholder: Procurar

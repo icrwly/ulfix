@@ -1,0 +1,8 @@
+name: UL Legal Hold
+type: module
+description: Module for putting a legal hold on content.
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - entity_reference_revisions
+  - views

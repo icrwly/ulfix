@@ -1,0 +1,34 @@
+# UL Emergo CSS overrides to enterprise theme.
+ul-emergo-styles:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/ul-emergo-styles.css: { weight: 2000 }
+
+# UL Emergo JS (global) scripts:
+globe:
+  version: 1.x
+  js:
+    scripts/globe.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# UL Emergo JS (global) scripts:
+global-scripts:
+  version: 1.x
+  js:
+    scripts/emergo.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# UL Emergo JS (global) scripts:
+qualtrics:
+  version: 1.x
+  js:
+    scripts/qualtrics.js: { attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '3', defer: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

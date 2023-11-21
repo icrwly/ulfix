@@ -1,0 +1,7 @@
+name: UL CRC User
+type: module
+description: Integrate Drupal's user accounts with UL's CRC service.
+core_version_requirement: ^9 || ^10
+package: Web services
+dependencies:
+  - drupal:ul_crc

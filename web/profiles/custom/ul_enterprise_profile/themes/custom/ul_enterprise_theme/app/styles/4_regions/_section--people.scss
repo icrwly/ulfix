@@ -1,0 +1,31 @@
+// Section People: Grid of `person` cards.
+.section--people {
+  text-align: left;
+  &.section--paragraph {
+    .paragraph-gutter {
+      max-width: 1200px;
+    }
+  }
+  .section__header {
+    margin-bottom: 3rem;
+    .section__title {
+      font-size: 3rem;
+    }
+  }
+  .row.justify-content-start {
+    justify-content: left;
+    >[class*="span-"] {
+      margin-bottom: 1.5rem;
+    }
+  }
+  .image-container {
+    img {
+      border-radius: 0;
+    }
+  }
+  .card {
+    a {
+      display: block;
+    }
+  }
+}

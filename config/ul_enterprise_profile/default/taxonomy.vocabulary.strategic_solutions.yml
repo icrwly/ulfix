@@ -1,0 +1,8 @@
+uuid: 4b7290c0-07cb-4a70-bda8-2a66c895ed99
+langcode: en
+status: true
+dependencies: {  }
+name: 'Strategic Solutions'
+vid: strategic_solutions
+description: 'Used to tag Offerings content.'
+weight: 0

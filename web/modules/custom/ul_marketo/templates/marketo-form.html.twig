@@ -1,0 +1,87 @@
+{# @file marketo-form.html.twig #}
+{% set pluginId = id %}
+{% set formsApi = marketo.base_url ~ '/js/forms2/js/forms2.min.js' %}
+
+{% block section_body %}
+  {# The Marketo form. #}
+  {% block markto_form %}
+    <section class="section section--marketo-form max-width--desktop">
+      <div class="wrapper">
+        {% if settings.form_title|render %}
+          <h2>{{ settings.form_title }}</h2>
+        {% endif %}
+        {% if settings.form_description|render %}
+          <p>{{ settings.form_description }}</p>
+        {% endif %}
+        {% block markto_wrap %}
+          <script src="{{-formsApi-}}"></script>
+          <form id="mktoForm_{{ marketo.form_id }}"></form>
+          <script>
+            // Interval set to check/wait for mktoform object.
+            var interval = window.setInterval(loadMktoForm, 300);
+            // Wrapper function to handle loading the form.
+            function loadMktoForm() {
+              if (typeof MktoForms2 !== 'undefined') {
+                // Clear interval.
+                clearInterval(interval);
+                // Load the Marketo form.
+                MktoForms2.loadForm("{{ marketo.base_url }}", "{{ marketo.munchkin_code }}", {{ marketo.form_id }}, function (form){
+                  /* Set form values. */
+                  form.vals({
+                    "oPSNewsletterName": "{{ marketo.newsletter_item|raw }}",
+                    "formLanguage": "{{ form_language|raw }}",
+                    "pageURL": window.location.href,
+                    "pageURLReferral": document.referrer,
+                    "lastInterest": "{{ marketo.last_interest|raw }}",
+                  });
+                  {% if settings.button_text %}
+                    // Rewrite button text.
+                    jQuery('.mktoButton').text("{{settings.button_text}}");
+                  {% endif %}
+                  // Success Handler.
+                  form.onSuccess(function(values, followUpUrl){
+                    // Track analytics
+                    if (typeof dataLayer !== 'undefined'){
+                      dataLayer.push({
+                        event: '{{ title }} Form Submit',
+                        mktoFormId: form.getId(),
+                        'FormValues': cleanFormVals(form.getValues()),
+                        'FormFields': form.allFieldsFilled(),
+                        'Submittable': form.submittable()
+                      });
+                    }
+
+                    {% if pluginId == 'gated_content_form' %}
+                      // If gated content form:
+                      jQuery(".section--marketo-form").slideUp();
+                      jQuery(".section--success-mssg").show().delay(10000).slideUp();
+                    {% else %}
+                      // Else: Thank you page's URL.
+                      location.href = "{{ success_url }}"
+                    {% endif %}
+
+                    // Return false to prevent further script
+                    // execution on the Marketo side.
+                    return false;
+                  });
+                });
+              }
+            }
+            // Include Marketo Countries JS.
+            jQuery.getScript("/modules/custom/ul_marketo/js/marketo-countries.js")
+              .done(function(){
+                jQuery("#mkto-form-wrapper .mktoForm").fadeIn('fast');
+            });
+          </script>
+        {% endblock %}
+      </div>
+    </section>
+  {% endblock %}
+
+  {# The gated form post-submit success message. #}
+  {% block gated_success %}
+    {% if pluginId == 'gated_content_form' %}
+      {% include '/modules/custom/ul_marketo/templates/marketo-form--gated-success.html.twig' %}
+    {% endif %}
+  {% endblock %}
+{% endblock %}

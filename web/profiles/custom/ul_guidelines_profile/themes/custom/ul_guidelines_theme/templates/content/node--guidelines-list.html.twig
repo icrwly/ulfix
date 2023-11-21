@@ -1,0 +1,9 @@
+{% include '@ul_guidelines_theme/4_regions/section--main.twig' with {
+    wysiwyg: content.body
+} %}
+
+{% embed '@ul_guidelines_theme/4_regions/section--featured-cards.twig' with { section: { type: 'guidelines-list' } } %}
+  {% block card_list %}
+   {{ content.field_guidelines_featured }}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,4 @@
+services:
+  ul_report.report_service:
+    class: Drupal\ul_report\UlReportService
+    arguments: ['@config.factory', '@database']

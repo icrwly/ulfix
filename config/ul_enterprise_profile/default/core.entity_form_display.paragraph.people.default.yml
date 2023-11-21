@@ -1,0 +1,49 @@
+uuid: 3f6d314a-46e1-46b4-9a49-851f7d3fd7ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.people.field_hash_target
+    - field.field.paragraph.people.field_people_people
+    - field.field.paragraph.people.field_people_title
+    - paragraphs.paragraphs_type.people
+id: paragraph.people.default
+targetEntityType: paragraph
+bundle: people
+mode: default
+content:
+  field_hash_target:
+    type: string_textfield
+    weight: 11
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_people_people:
+    type: entity_reference_autocomplete
+    weight: 7
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_people_title:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

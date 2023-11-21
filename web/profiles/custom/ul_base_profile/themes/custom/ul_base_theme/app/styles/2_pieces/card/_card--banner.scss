@@ -1,0 +1,65 @@
+.card.card--banner {
+  @include font-smoothing();
+  justify-content: space-around;
+  position: relative;
+
+  &:after {
+    @include fit;
+    background: $black;
+    content: '';
+    opacity: 0;
+    transition: opacity $transition--slow;
+  }
+
+  &:hover {
+    &:after {
+      opacity: .1;
+    }
+  }
+
+  &,
+  a {
+    color: $white;
+  }
+
+  a:hover {
+    text-decoration: none;
+  }
+
+  h3 {
+    @include breakpoint($desktop) {
+      font-size: 3.2rem;
+    }
+  }
+
+  h4 {
+    font-weight: 800;
+
+    @include breakpoint($desktop) {
+      font-size: 2rem;
+    }
+  }
+
+  p {
+    color: $white;
+  }
+
+  .arrow-link {
+    font-size: 1.8rem;
+    font-weight: 300;
+
+    @include breakpoint($desktop) {
+      font-size: 2rem;
+    }
+  }
+
+  .content-container,
+  .bottom-row {
+    position: relative;
+    z-index: index($globalIndex, page);
+  }
+
+  .bottom-row {
+    margin-top: 0;
+  }
+}

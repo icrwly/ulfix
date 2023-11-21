@@ -1,0 +1,27 @@
+<?php
+
+/**
+ * @file
+ * Main file of View Mode Selector module.
+ */
+
+//use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+//use Drupal\Core\Url;
+
+/**
+ * Implements hook_entity_view_mode_alter().
+ */
+function view_mode_selector_entity_view_mode_alter(&$view_mode, EntityInterface $entity, $context) {
+
+  // Find the first view mode selector field and change the view mode.
+  $fields = \Drupal::service('entity_field.manager')->getFieldDefinitions($entity->getEntityTypeId(), $entity->bundle());
+  foreach ($fields as $field_name => $field) {
+    if ($field->getType() == 'view_mode_selector' && $field_value = $entity->{$field_name}->value) {
+      $view_mode = $field_value;
+      break;
+    }
+  }
+
+  return $view_mode;
+}

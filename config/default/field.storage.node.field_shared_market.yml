@@ -1,0 +1,22 @@
+uuid: 6dd99d96-d5d7-4cab-b5ce-10096e507806
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: vqBkBgl4TozhHOYOkyTX4AZH6UXETO4xhupCmIhRTFQ
+id: node.field_shared_market
+field_name: field_shared_market
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

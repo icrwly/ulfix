@@ -1,0 +1,32 @@
+uuid: 7c5ef3cd-aeff-4573-900e-d8f422e886c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.header
+  module:
+    - menu_block
+  theme:
+    - ul_enterprise_theme
+id: header_menu
+theme: ul_enterprise_theme
+region: header_top
+weight: 0
+provider: null
+plugin: 'menu_block:header'
+settings:
+  id: 'menu_block:header'
+  label: 'Header Menu'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'header:'
+  suggestion: header
+  expand: false
+visibility: {  }

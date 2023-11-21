@@ -1,0 +1,40 @@
+{% extends "@ul_base_theme/2_pieces/item/item.twig" %}
+{% set class = class ~ ' item--article' %}
+
+{% block content %}
+  {% block tags %}
+    {% if tags %}
+      {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with {widget: tags} %}
+    {% endif %}
+  {% endblock %}
+
+  {% block topics %}
+    {% if topics %}
+      {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+    {% endif %}
+  {% endblock %}
+
+  {% block title %}
+    {% if title %}
+      <h3>{{ title }}</h3>
+    {% endif %}
+  {% endblock %}
+
+  {% block description %}
+    {% if description %}
+      <p>{{ description }}</p>
+    {% endif %}
+  {% endblock %}
+
+  {% block bottom %}
+    <div class="bottom-row">
+      {% include '@ul_base_theme/2_pieces/author-meta.twig' with {
+        author_name: author_name,
+        author_image: author_image
+      } only %}
+      {% if readTime %}
+        <div class="read-time">{{ readTime }} Read</div>
+      {% endif %}
+    </div>
+  {% endblock %}
+{% endblock %}

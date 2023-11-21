@@ -1,0 +1,21 @@
+uuid: 813753e3-f0ee-44df-b6e8-dda217bb0190
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_background_context
+_core:
+  default_config_hash: pXF0uYyiqmzYYqq5dBKQUA4Hw_YZobP6i7TFh7Dmt4k
+id: contact_message.submit_request.field_request_background_context
+field_name: field_request_background_context
+entity_type: contact_message
+bundle: submit_request
+label: Background/Context
+description: 'Please provide background information such as target audience, use/application, objective, draft stage. If visual/concept brief exists please attach to this ticket. Or paste your effected URL here.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

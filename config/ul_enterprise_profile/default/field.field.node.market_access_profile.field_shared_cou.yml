@@ -1,0 +1,34 @@
+uuid: fb56dbe1-f048-49f9-9394-4cfae830fc45
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_cou
+    - node.type.market_access_profile
+    - taxonomy.vocabulary.customer_operating_unit
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.market_access_profile.field_shared_cou
+field_name: field_shared_cou
+entity_type: node
+bundle: market_access_profile
+label: 'Customer Operating Unit (COU)'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      customer_operating_unit: customer_operating_unit
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

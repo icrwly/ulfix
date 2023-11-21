@@ -1,0 +1,21 @@
+uuid: 076b5497-e6d5-406e-929a-c5465f3e47d7
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_marketo
+id: marketo_form.field_shared_cta_button_text
+field_name: field_shared_cta_button_text
+entity_type: marketo_form
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,11 @@
+services:
+  ul_base_config.import.commands:
+    class: \Drupal\ul_base_config\Commands\UlBaseConfigImportCommands
+    arguments: ['@config.manager', '@config.storage', '@config.storage.sync', '@cache.config', '@module_handler', '@event_dispatcher', '@lock', '@config.typed', '@module_installer', '@theme_handler', '@string_translation', '@extension.list.module']
+    tags:
+      - { name: drush.command }
+  ul_base_config.export.commands:
+    class: \Drupal\ul_base_config\Commands\UlBaseConfigExportCommands
+    arguments: ['@config.manager', '@config.storage', '@config.storage.sync']
+    tags:
+      - { name: drush.command }

@@ -1,0 +1,25 @@
+ul_marketo.metadata.settings:
+  type: config_object
+  label: 'UL Marketo Metadata Defaults'
+  mapping:
+    instance:
+      type: text
+      label: 'Marketo Instance'
+    mkto_campaign:
+      type: text
+      label: 'Marketo Campaign'
+    sub_cou:
+      type: text
+      label: 'Sub-COU'
+    last_interest:
+      type: text
+      label: 'Last Interest'
+    env:
+      type: text
+      label: 'Environment'
+    cache_enable:
+      type: boolean
+      label: 'Enable cache'
+    langcode:
+      type: string
+      label: 'Language code'

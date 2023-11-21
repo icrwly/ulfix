@@ -1,0 +1,6 @@
+# Add the Administration page to the Admin Menu.
+ul_trustarc.admin:
+  title: 'UL TrustArc Settings'
+  route_name: ul_trustarc.settings
+  description: 'Settings to configure the TrustArc module.'
+  parent: system.admin_config_services

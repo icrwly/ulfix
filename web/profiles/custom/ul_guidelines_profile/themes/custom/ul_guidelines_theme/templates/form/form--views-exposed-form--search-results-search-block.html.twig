@@ -1,0 +1,6 @@
+{% embed '@ul_guidelines_theme/3_components/search--box--form.twig' with { form_attributes: attributes} %}
+    {% block search_field %}
+        {{ children }}
+    {% endblock %}
+    {% block search_recents %}{% endblock %}
+{% endembed %}

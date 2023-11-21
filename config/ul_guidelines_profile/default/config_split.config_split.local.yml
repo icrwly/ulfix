@@ -1,0 +1,23 @@
+uuid: b498c26a-347f-443c-961b-46a6b2bac8f3
+langcode: en
+status: false
+dependencies: {  }
+id: local
+label: local
+description: ''
+weight: 0
+folder: ../config/ul_guidelines_profile/local
+module:
+  devel: 0
+  seckit: 0
+  update: 0
+  upgrade_status: 0
+theme: {  }
+blacklist:
+  - environment_indicator.indicator
+  - environment_indicator.settings
+graylist:
+  - search_api.index.content
+  - search_api.server.content
+graylist_dependents: false
+graylist_skip_equal: true

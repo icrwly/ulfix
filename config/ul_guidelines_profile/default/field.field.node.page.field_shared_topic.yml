@@ -1,0 +1,31 @@
+uuid: d611753f-1889-4478-ac99-229f2d6e39ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_topic
+    - node.type.page
+    - taxonomy.vocabulary.topics
+_core:
+  default_config_hash: l2F35-n9dfl-pZ-wxQ8faw-I25J37Ea_xlRrZYHp-4o
+id: node.page.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+bundle: page
+label: Topic
+description: 'The topic related to this page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

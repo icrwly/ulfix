@@ -1,0 +1,37 @@
+uuid: 3b86430b-685a-4211-aee3-9b02088580f7
+langcode: de
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_marketo_custom
+    - node.type.regional_pages
+    - ul_marketo.marketo_form_type.contact_form_configurable
+    - ul_marketo.marketo_form_type.generic_form
+  module:
+    - entity_reference_revisions
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.regional_pages.field_shared_marketo_custom
+field_name: field_shared_marketo_custom
+entity_type: node
+bundle: regional_pages
+label: 'Marketo Customizations'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:marketo_form'
+  handler_settings:
+    target_bundles:
+      generic_form: generic_form
+      contact_form_configurable: contact_form_configurable
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: generic_form
+field_type: entity_reference_revisions

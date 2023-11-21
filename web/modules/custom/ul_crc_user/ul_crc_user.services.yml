@@ -1,0 +1,5 @@
+services:
+  ul_crc_user.route_subscriber:
+    class: Drupal\ul_crc_user\RouteSubscriber
+    tags:
+      - { name: event_subscriber }

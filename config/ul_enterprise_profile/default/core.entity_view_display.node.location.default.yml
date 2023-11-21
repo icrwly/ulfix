@@ -1,0 +1,94 @@
+uuid: 8c898926-0e5b-4cf0-a27c-855716c79fff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.location.field_location_addresses
+    - field.field.node.location.field_location_region
+    - field.field.node.location.field_location_url
+    - field.field.node.location.field_shared_content_owner
+    - field.field.node.location.field_shared_cou
+    - field.field.node.location.field_shared_header_media
+    - field.field.node.location.field_shared_mktg_support_ticket
+    - field.field.node.location.field_shared_review_comments
+    - field.field.node.location.field_shared_review_user
+    - node.type.location
+  module:
+    - entity_reference_revisions
+    - link
+    - user
+id: node.location.default
+targetEntityType: node
+bundle: location
+mode: default
+content:
+  field_location_addresses:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_location_region:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_location_url:
+    type: link
+    label: hidden
+    settings:
+      trim_length: 80
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_shared_content_owner:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_shared_cou:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_shared_mktg_support_ticket:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_shared_header_media: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  langcode: true
+  search_api_excerpt: true

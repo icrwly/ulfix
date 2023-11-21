@@ -1,0 +1,48 @@
+uuid: af01199b-7147-484c-b0b4-8d1c2f45d2cf
+langcode: en
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.thankyou_pages.field_shared_content_owner
+    - field.field.node.thankyou_pages.field_shared_cou
+    - field.field.node.thankyou_pages.field_shared_marketo_custom
+    - field.field.node.thankyou_pages.field_shared_marketo_forms
+    - field.field.node.thankyou_pages.field_shared_metatags
+    - field.field.node.thankyou_pages.field_shared_mktg_support_ticket
+    - field.field.node.thankyou_pages.field_shared_review_comments
+    - field.field.node.thankyou_pages.field_shared_review_user
+    - field.field.node.thankyou_pages.field_shared_subtitle
+    - field.field.node.thankyou_pages.field_thankyou_page_content
+    - node.type.thankyou_pages
+  module:
+    - user
+id: node.thankyou_pages.teaser
+targetEntityType: node
+bundle: thankyou_pages
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+hidden:
+  addtoany: true
+  field_shared_content_owner: true
+  field_shared_cou: true
+  field_shared_marketo_custom: true
+  field_shared_marketo_forms: true
+  field_shared_metatags: true
+  field_shared_mktg_support_ticket: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  field_shared_subtitle: true
+  field_thankyou_page_content: true
+  langcode: true
+  search_api_excerpt: true

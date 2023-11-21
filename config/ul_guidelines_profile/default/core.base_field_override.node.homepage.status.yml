@@ -1,0 +1,24 @@
+uuid: 8ae2c093-eb25-48b4-b5d6-febcce9dd669
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.homepage
+_core:
+  default_config_hash: _dpOx6ujwL-8v4UUGHfgLHL7Qg_aU19gbR-8M2HSsDI
+id: node.homepage.status
+field_name: status
+entity_type: node
+bundle: homepage
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

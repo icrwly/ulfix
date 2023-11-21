@@ -1,0 +1,21 @@
+uuid: e27dc0fd-23f2-4cdb-b39e-0790f95a7b31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_text_and_form_content
+    - paragraphs.paragraphs_type.text_and_form
+  module:
+    - text
+id: paragraph.text_and_form.field_text_and_form_content
+field_name: field_text_and_form_content
+entity_type: paragraph
+bundle: text_and_form
+label: 'Content (Left column)'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,613 @@
+/**
+ * Marketo form elements default styles.
+ */
+
+ .activeForm,
+ .mktoForm {
+  min-height: 350px;
+ }
+
+.mktoForm {
+  position: relative;
+  width: auto !important;
+  max-width: $text-field-max;
+  margin: $spacing-unit 0 0 0;
+  position: relative;
+  z-index: 1;
+
+  &.formLoading {
+    opacity: 0;
+    cursor: default;
+  }
+
+  &.formLoaded {
+    opacity: 1;
+  }
+
+  fieldset {
+    margin-bottom: 1.5rem;
+    margin-top: 3rem;
+  }
+
+  legend {
+    font-weight: 600;
+    font-size: 1.6rem;
+    margin-bottom: 2rem;
+    @include breakpoint($tablet) {
+      font-size: 2rem;
+      margin-bottom: 2.5rem;
+    }
+  }
+
+  .mktoFormRow {
+    position: relative;
+    &.hidden {
+      position: absolute;
+    }
+  }
+
+  .mktoFieldWrap {
+    margin-bottom: 2*$spacing-unit;
+  }
+
+  .asterisk {
+    display: inline-block;
+    margin-right: 7px;
+    color: $red;
+    &.nopad {
+      margin-right: 0;
+    }
+    &:nth-of-type(2n) {
+      display: none;
+    }
+  }
+
+  input, select, textarea {
+    display: block;
+    width: 100%;
+    height: 43px;
+    border-radius: 4px;
+    border: 1px solid $gray-lighter;
+    box-shadow: none;
+    box-sizing: border-box;
+    color: $gray;
+    font-weight: 300;
+    line-height: 1.3;
+    padding: 1rem;
+    background: $white;
+    &:focus {
+      outline: none;
+    }
+
+    @include breakpoint(max-width $mobile) {
+      font-size: 100% !important;
+    }
+  }
+
+  textarea {
+    height: 125px;
+    @include breakpoint($tablet) {
+      height: 200px;
+    }
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    display: inline;
+    width: auto;
+    height: auto;
+    padding: 0;
+    margin-right: 5px;
+  }
+
+  input[type="radio"].hidden,
+  input[type="checkbox"].hidden,
+  input.hidden,
+  .hidden input {
+    display: none;
+    width: 0;
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    top: -99999px;
+    left: -99999px;
+  }
+
+  .mktoRadioList-item,
+  .mktoCheckboxWrap {
+    display: flex;
+    align-items: left;
+    margin: 0 2px 10px 2px;
+
+    input[type="radio"],
+    input[type="checkbox"] {
+      width: auto;
+    }
+
+    label {
+      padding-left: 12px;
+      line-height: 1.25;
+    }
+  }
+
+  .gdpr_wrap {
+    margin: 2*$spacing-unit 0;
+
+    label {
+      margin-left: 20px;
+    }
+    input {
+      position: absolute;
+      top: 8px;
+    }
+  }
+
+  .mktoButtonRow {
+    margin-top: (2*$spacing-unit);
+    .mktoButtonWrap {
+      display:block;
+      button {
+        width: 100%;
+        max-width: 304px; // To line up with reCaptcha.
+        @include breakpoint(max-width $tablet - 1) {
+          display:block;
+          margin-bottom: $spacing-unit;
+        }
+        @include breakpoint($tablet) {
+          margin-right: $spacing-unit;
+        }
+      }
+    }
+    // Disabled buttons:
+    .button:disabled {
+      @include button-variant($text-color, $gray-lighter, $gray-lighter);
+    }
+  }
+
+  // Error Messages.
+  .mktoError,
+  label.error {
+    background: $red;
+    color: $white;
+    padding: (.5 * $spacing-unit);
+  }
+
+  // Added for show/hide (Oct 2022).
+  .mktoInstruction {
+    &.error {
+      display: block;
+      background: $red;
+      color: white;
+      padding: .75rem;
+      line-height: 1.75;
+      font-size: 1.6rem;
+      font-weight: 400;
+    }
+  }
+}
+
+/**
+ * Marketo contexts and container styles:
+ */
+ .section.section--marketo,
+ .section.marketo--form {
+  overflow: hidden;
+  &.max-width--large-tablet {
+    max-width: 850px !important;
+    .section__inner {
+      @include breakpoint(max-width 890px) {
+        margin: 0 $spacing-unit;
+      }
+    }
+  }
+}
+
+/**
+ * Marketo modal (gated content).
+ */
+.mktoModal {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 0;
+
+  // Hidden by default:
+	height: 0;
+  visibility: hidden;
+  opacity: 0;
+  transition: visibility 0s 0.25s, opacity 0.25s linear;
+  overflow: hidden;
+  z-index: 1;
+
+  // When visible:
+  &.is-visible {
+    height: 100%;
+    visibility: visible;
+    opacity: 1;
+    transition: opacity 0.25s linear;
+    overflow: visible;
+    z-index: 95;
+    width: 100%;
+  }
+
+  .mktoModalMask {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 999994;
+    background: rgba(0, 0, 0, 0.5);
+  }
+  .mkto_thnx_center {
+    top: 50%;
+    transform: translateY(-50%);
+    max-width: 600px !important;
+    .mktoModalMain {
+      padding: 4rem !important;
+    }
+  }
+  .not_clicable {
+    pointer-events: none !important;
+  }
+  .mktoModalContent {
+    position: relative;
+    z-index: 999996;
+    width: 96%;
+    max-width: 800px;
+    margin: 0 auto;
+
+    .mkto-thnx {
+      h2 {
+        font-weight: 600;
+        width: 80%;
+        @include breakpoint($tablet) {
+          font-size: 3rem;
+          width: 80%;
+        }
+      }
+
+      p {
+        padding: 0;
+        margin-bottom: 20px;
+      }
+      .mkto-post-submit {
+        border-bottom: 1px solid #585858;
+      }
+    }
+    .mkto-ok-btn {
+      margin: auto 0;
+      padding-top: 25px;
+      a {
+        background-color: #000;
+        background-image: none;
+        border: 1px solid #000;
+        border-radius: 4px;
+        color: #fff;
+        cursor: pointer;
+        font-size: 1.4rem;
+        font-weight: 400;
+        letter-spacing: .1em;
+        line-height: 1.3;
+        max-width: 250px;
+        margin: 0 auto;
+        display: block;
+        text-align: center;
+        text-decoration: none;
+        transition: all .3s ease-out;
+        vertical-align: middle;
+        text-transform: uppercase;
+      }
+    }
+
+
+    .mktoModalMain {
+      position: relative;
+      margin: 50px auto;
+      width: 94% !important;
+      max-width: 900px;
+      background: $white;
+      padding: 1rem;
+      border-radius: 16px;
+      box-shadow: rgba(0, 0, 0, 0.8) 0px 50px 100px -20px,
+                  rgba(0, 0, 0, 0.85) 0px 30px 60px -30px;
+    }
+
+    .mkto-form {
+      font-size: 1.4rem;
+    }
+
+    h2 {
+      font-size: 2.8rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      margin-bottom: 1.5rem;
+      @include breakpoint($tablet) {
+        font-size: 3.6rem;
+      }
+    }
+
+    p {
+      font-size: 1.6rem;
+      line-height: 1.6;
+      margin-bottom: 1.5rem;
+    }
+
+    .row {
+      margin-left: 0;
+      margin-right: 0;
+      display: block;
+      flex-wrap: inherit;
+      @include breakpoint($tablet) {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+    }
+
+    .item {
+      @include breakpoint($tablet) {
+        max-width: 50%;
+      }
+    }
+
+    .g-recaptcha {
+      @include breakpoint(max-width 399px) {
+        transform:scale(0.77);
+        transform-origin:0 0;
+      }
+    }
+  }
+}
+
+// Modal Close Button:
+.mktoModalClose {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  width: 40px;
+  height: 40px;
+  opacity: 0.65;
+  display: inline-block;
+  text-indent: -9999px;
+  &:hover {
+    opacity: 1;
+  }
+  &:before,
+  &:after {
+    content: ' ';
+    position: absolute;
+    left: 18px;
+    top: 6px;
+    height: 24px;
+    width: 2px;
+    background-color: #585858;
+  }
+  &:before {
+    transform: rotate(45deg);
+  }
+  &:after {
+    transform: rotate(-45deg);
+  }
+}
+
+/**
+ * Marketo Preference Center - section.
+ */
+.section.marketo--form--prefcenter {
+  padding-top: 0;
+  margin-top: 0;
+  // Success message.
+  .pref-ctr-success {
+    margin: $spacing-unit auto;
+  }
+}
+
+/**
+ * Marketo Event Reg Form (in paragraphs interrupter).
+ */
+.marketo--form--event-signup {
+  max-width: $text-field-max;
+  margin: 0 auto 2*$spacing-unit auto;
+  min-height: 500px;
+  transition: all 2s ease;
+}
+.marketo--form--event-signup.hidden {
+  min-height: 1px;
+  height: 1px;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+.event-form {
+  .marketo--form--event-signup {
+    .wrapper {
+      padding: 0;
+      @include breakpoint($tablet) {
+        padding: 0;
+      }
+      .section--mkto-form-wrap {
+        margin: 0;
+      }
+    }
+  }
+}
+
+/**
+ * reCaptcha field gets prepended to the button/submit row.
+ */
+.recapWrap {
+  display: none;
+}
+.mktoButtonRow {
+  .recapWrap {
+    display: block;
+    margin-bottom: 2*$spacing-unit;
+  }
+}
+// reCaptcha in a Right Rail:
+.col-aside {
+  .g-recaptcha {
+    transform-origin:0 0;
+    transform:scale(0.95);
+    @include breakpoint($mobile) {
+      transform:scale(1.0);
+    }
+    @include breakpoint($desktop) {
+      transform:scale(0.75);
+    }
+    @include breakpoint(1075px) {
+      transform:scale(0.85);
+    }
+    @include breakpoint(1175px) {
+      transform:scale(0.95);
+    }
+    @include breakpoint(1240px) {
+      transform:scale(1.0);
+    }
+  }
+}
+#hiddenRecaptcha-error {
+  margin-bottom: 3rem;
+}
+
+/**
+ * Hide the extra marketo form that marketo injects
+ * into the page (for devices w/o js). And hide the
+ * extra form tag on the bottom of gated content nodes.
+ */
+body > .mktoForm,
+body > .mktoGatedForm {
+  display: none !important;
+  position: absolute;
+  top: -99999px;
+  left: -99999px;
+  width: 1px;
+  overflow: hidden;
+}
+
+/**
+ * Make lovely flexbox when tablet or larger
+ * for marketo paragraphs (banners with CTA).
+ */
+.section.section--paragraph.section--marketo {
+  .section__content.row {
+    display: block;
+    padding-bottom: $spacing-unit;
+    @include breakpoint($tablet) {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding-bottom: 0;
+    }
+  }
+}
+
+/**
+ * Marketo paragraph form outer wrapper - spacing.
+ */
+.section--mkto-form-wrap {
+  @include breakpoint($tablet) {
+    margin: 0 $spacing-unit;
+  }
+}
+
+/**
+ * Marketo Interrupter paragraph.
+ */
+.section.marketo--block {
+  .paragraph-gutter.paragraph--action-banner {
+    .marketo--interrupter {
+      .wrapper {
+        padding: 0;
+        @include breakpoint($tablet) {
+          padding: 0;
+        }
+        .section--mkto-form-wrap {
+          margin: 0;
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Thank you messages:
+ */
+.mkto-thanks {
+  font-size: 80%;
+  padding: $spacing-unit 0;
+  @include breakpoint($tablet) {
+    font-size: 85%;
+    padding: $spacing-unit;
+  }
+  @include breakpoint($desktop) {
+    font-size: 90%;
+  }
+}
+
+/**
+ * Color corrections - when container is using a BG color:
+ */
+.section--bgcolor-red {
+  .mktoForm {
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+    .asterisk {
+      color: $white;
+    }
+    .mktoError {
+      background: #941927;
+    }
+    .button.button--red {
+      @include button-variant($text-color, $white, $white);
+    }
+  }
+}
+.section--bgcolor-black {
+  .mktoForm {
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
+    .asterisk {
+      color: $white;
+    }
+    .mktoError {
+      background: #941927;
+    }
+    .button.button--red {
+      @include button-variant($text-color, $white, $white);
+    }
+  }
+}
+
+/**
+ * The "alternate" Gated form that is automatically
+ * submitted and should be hidden from view.
+ */
+.altMktoGatedForm {
+  visibility: hidden;
+  position: absolute;
+  z-index: 1;
+  left: -99999px;
+  top: -99999px;
+}
+
+/**
+ * Remove the doubling of the padding!
+ */
+.section.section--marketo .section.section--marketo.section--paragraph {
+  padding: 0;
+}
+
+/**
+ * Pref Center link on Pref Center page.
+ */
+.path-preference-center a.link--prefcntr {
+  color: inherit;
+  text-decoration: none;
+  cursor: default;
+}

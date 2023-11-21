@@ -1,0 +1,130 @@
+{
+  "title": "Style Guide",
+  "sideRail": [
+    {
+      "linkHref": "#",
+      "linkName": "The UL Brand"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Visual",
+      "subMenu": [
+        {
+          "linkHref": "#",
+          "linkName": "Color presentation"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Incorrect usage"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Clear space and minimum size "
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Color palette "
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Color blends"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " UL Typeface "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Default fonts for digital use"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Asian fonts"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Usage"
+        },
+        {
+          "title": "Photography   ",
+          "linkHref": "#",
+          "linkName": " Style "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Subject matter"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Unacceptable imagery"
+        },
+        {
+          "title": "Icons / Infographic / Illustrations    ",
+          "linkHref": "#",
+          "linkName": " Icons "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Infographic"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Illustrations"
+        },
+        {
+          "linkHref": "#",
+          "linkName": "Image highlight"
+        },
+        {
+          "title": "Graphic elements     ",
+          "linkHref": "#",
+          "linkName": " Icons "
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Frame and grid system"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Dynamic box"
+        },
+        {
+          "linkHref": "#",
+          "linkName": " Super graphic"
+        }
+      ]
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Voice and Tone"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Digital"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Brand Architecture"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Naming Guidelines"
+    },
+    {
+      "linkHref": "#",
+      "linkName": "Brand Strategy"
+    }
+  ]
+}

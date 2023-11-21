@@ -1,0 +1,22 @@
+uuid: 15712f02-b8b3-402b-989a-c82bb580b1af
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.stakeholder_needs
+id: taxonomy_term.stakeholder_needs.status
+field_name: status
+entity_type: taxonomy_term
+bundle: stakeholder_needs
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

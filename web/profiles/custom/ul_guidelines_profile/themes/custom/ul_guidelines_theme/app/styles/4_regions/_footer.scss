@@ -1,0 +1,79 @@
+
+// Define colors:
+$gray-dark: #555;
+$gray-light: #dbdbdb;
+
+.footer{
+  background-color: $gray-light;
+
+  &__inner {
+    padding: $spacing-unit--l $spacing-unit;
+    width: 100%;
+    @include breakpoint(max-width $large-tablet - 1){
+      text-align: center;
+    }
+    @include breakpoint($large-tablet){
+      align-items: center;
+      display: flex;
+    }
+  }
+
+  // These should be the same width
+  // and the same height at 800px++.
+  &__copyright,
+  &__links {
+    @include breakpoint($large-tablet) {
+      display: flex;
+      width: 50%;
+      height: 40px;
+    }
+  }
+
+  // Copyright:
+  &__copyright {
+    color: $gray-dark;
+    @include breakpoint(max-width $large-tablet - 1){
+      margin-bottom: 15px;
+    }
+    @include breakpoint($large-tablet){
+      align-items: center;
+    }
+    .ftr-logo {
+      @include breakpoint($large-tablet){
+        display: block;
+        margin: 0;
+      }
+    }
+    p {
+      display: inline-block;
+      vertical-align:middle;
+      @include font-size(12, 18);
+      color: $gray-dark;
+      margin: 0;
+      @include breakpoint($large-tablet){
+        padding-left: 15px;
+      }
+    }
+  }
+
+  // Links:
+  &__links {
+    a {
+      @include font-size(12, 18);
+      color: $gray-dark;
+      margin: 0;
+      padding: 10px;
+      @include breakpoint(max-width $tablet - 1){
+        display: block;
+      }
+      @include breakpoint($large-tablet){
+        display: inline-block;
+        margin-left: auto;
+      }
+      &:hover {
+        color: $gray-dark;
+        text-decoration: underline;
+      }
+    }
+  }
+}

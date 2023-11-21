@@ -1,0 +1,23 @@
+uuid: 5f9a70fe-db81-4394-a285-4b4954a26d4d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.single_related_content.field_sm_related_content
+    - paragraphs.paragraphs_type.single_related_content
+id: paragraph.single_related_content.default
+targetEntityType: paragraph
+bundle: single_related_content
+mode: default
+content:
+  field_sm_related_content:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: card
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

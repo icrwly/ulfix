@@ -1,0 +1,21 @@
+uuid: 4d1f4c59-fce0-4671-a89b-a64ed7d7aecb
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_carousel_slide_subtitle
+field_name: field_carousel_slide_subtitle
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

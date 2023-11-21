@@ -1,0 +1,20 @@
+{# @file: paragraph--curated-related-list-child.html.twig #}
+{% set list_heading = content.field_curated_list_title.0['#context']['value'] %}
+{% if content.field_curated_list_link.0 %}
+  {% set additional_link = content.field_curated_list_link %}
+{% endif %}
+{% set items = content.field_curated_list_references %}
+
+{% block paragraph %}
+  <div class="span-auto editor-content">
+    {% block item %}
+      <h2>{{ list_heading }}</h2>
+      <ul class="separate-list">
+        {{ items }}
+      </ul>
+      {% if additional_link %}
+        <p>{{ additional_link }}</p>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

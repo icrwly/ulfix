@@ -1,0 +1,19 @@
+uuid: 857fb826-c194-44ac-9a0c-b0da566b9fe0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ul_alert.field_shared_dismiss
+    - ul_alerts.ul_alert_type.info
+id: ul_alert.info.field_shared_dismiss
+field_name: field_shared_dismiss
+entity_type: ul_alert
+bundle: info
+label: 'Dismiss Label'
+description: 'A relevant dismiss label. E.g "Ok", "Confirm", "Understood" etc. '
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

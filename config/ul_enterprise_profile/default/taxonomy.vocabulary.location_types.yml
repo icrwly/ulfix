@@ -1,0 +1,8 @@
+uuid: 1479070f-2018-4be8-bf78-afc950f0a32e
+langcode: en
+status: true
+dependencies: {  }
+name: 'Location Types'
+vid: location_types
+description: 'Used to categorize the location (office, lab, etc).'
+weight: 0

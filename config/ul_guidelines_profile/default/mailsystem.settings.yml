@@ -1,0 +1,11 @@
+_core:
+  default_config_hash: yWdanqCxDp8v1o9bugClPidtCk4xbPoNyidk-HFBdqc
+theme: current
+defaults:
+  sender: SMTPMailSystem
+  formatter: SMTPMailSystem
+modules:
+  mailgun:
+    none:
+      sender: SMTPMailSystem
+      formatter: SMTPMailSystem

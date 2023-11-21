@@ -1,0 +1,4 @@
+services:
+  ul_guidelines.contact_forms:
+    class: Drupal\ul_guidelines_forms\ULGuidelinesContactFormsService
+    arguments: []

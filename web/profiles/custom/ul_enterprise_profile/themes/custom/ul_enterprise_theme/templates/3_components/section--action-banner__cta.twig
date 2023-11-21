@@ -1,0 +1,40 @@
+<div class="section__content">
+  {% block title %}
+    {% if title %}
+      <h2 class="section__title h2">{{- title -}}</h2>
+    {% endif %}
+  {% endblock %}
+  {% block description %}
+    {% if description %}
+      <div class="section__description editor-content">
+        {% block description_inner %}
+          <p>{{- description -}}</p>
+        {% endblock %}
+      </div>
+    {% endif %}
+  {% endblock %}
+
+  {% block buttons %}
+    {% if ctas %}
+      <div class="banner-buttons">
+        {% for item in ctas %}
+          {% if loop.index == 1 %}
+            {# Primary button #}
+            {% include '@ul_base_theme/2_pieces/button.twig' with {
+              name: item.title,
+              link: item.url,
+              class: 'button--white button--primary'
+            } %}
+          {% else %}
+            {# Secondary buttons #}
+            {% include '@ul_base_theme/2_pieces/button.twig' with {
+              name: item.title,
+              link: item.url,
+              class: 'button--white-outline button--secondary'
+            } %}
+          {% endif %}
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endblock %}
+</div>

@@ -1,0 +1,19 @@
+{% extends '@ul_base_theme/1_core/layout.twig' %}
+
+{% block content %}
+  {% embed '@ul_base_theme/1_core/page.twig' %}
+
+    {% block page_top %}
+      {% include '@ul_base_theme/4_regions/hero--default.twig' with hero only %}
+    {% endblock %}
+
+    {% block page %}
+      {% include '@ul_base_theme/5_layouts/t01-homepage.twig' %}
+    {% endblock %}
+
+    {% block page_bottom %}
+      {% include '@ul_base_theme/4_regions/section--homepage-news-events.twig' with t01HomepageNewsEvents only %}
+      {% include '@ul_base_theme/4_regions/section--action-banner.twig' with t01ActionBanner only %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

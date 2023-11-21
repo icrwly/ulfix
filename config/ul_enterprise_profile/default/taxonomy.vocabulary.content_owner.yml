@@ -1,0 +1,8 @@
+uuid: 33dd3155-cb12-4b15-9117-b7c5a16f2429
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content Owner'
+vid: content_owner
+description: 'Used for tracking content by content owner.'
+weight: 0

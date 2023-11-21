@@ -1,0 +1,8 @@
+{% embed '@ul_base_theme/4_regions/section--action-banner.twig' %}
+    {% set class = "marketo--block" %}
+    {% set sectionId = "" %}
+    {% set backgroundColor = backgroundColor|default("#045189") %}
+    {% block section_body %}
+        {{ content }}
+    {% endblock %}
+{% endembed %}

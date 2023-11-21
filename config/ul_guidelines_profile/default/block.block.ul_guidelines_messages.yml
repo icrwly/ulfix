@@ -1,0 +1,22 @@
+uuid: 8cece60e-eb8b-41ec-8753-931a82aa62fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: uqnE2NwOyGqrQBCbxKyPXOrQQ7yx_ohewNODZnsH-gs
+id: ul_guidelines_messages
+theme: ul_guidelines_theme
+region: highlighted
+weight: -5
+provider: null
+plugin: system_messages_block
+settings:
+  id: system_messages_block
+  label: 'Status messages'
+  provider: system
+  label_display: '0'
+visibility: {  }

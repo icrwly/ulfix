@@ -1,0 +1,30 @@
+uuid: 25ab7ae0-c0fd-4839-ba14-d6244c2f6398
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_num_paragraphs
+    - ul_marketo.marketo_form_type.gated_content_form
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.gated_content_form.field_num_paragraphs
+field_name: field_num_paragraphs
+entity_type: marketo_form
+bundle: gated_content_form
+label: 'Paragraphs Previewed'
+description: 'Enter the number of paragraphs previewed (above the form).'
+required: true
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  min: 1
+  max: 10
+  prefix: ''
+  suffix: ''
+field_type: integer

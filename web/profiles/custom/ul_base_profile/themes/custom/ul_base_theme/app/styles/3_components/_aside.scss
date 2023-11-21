@@ -1,0 +1,32 @@
+.aside {
+  display: block;
+  padding-top: $spacing-unit--xxl;
+
+  @include breakpoint($desktop) {
+    padding-bottom: $spacing-unit--l;
+    position: sticky;  
+    top: 100px;
+  }
+
+  .flex-grid {
+    justify-content: center;
+
+    .grid-item {
+      p{
+        margin-bottom: 0;
+      }
+      @include breakpoint($mobile $desktop - 1) {
+        flex-basis: 50%;
+        max-width: 50%;
+        > .card,
+        > .widget {
+          display: flex;
+          flex-direction: column;
+          height: 100%;
+        }
+      }
+
+    }
+  }
+
+}

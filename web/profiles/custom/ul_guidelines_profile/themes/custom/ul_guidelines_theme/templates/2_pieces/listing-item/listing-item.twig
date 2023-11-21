@@ -1,0 +1,21 @@
+<a href="{{- item.linkHref -}}" class="listing-item">
+  {% block listingItem_image %}
+    <img src="{{- item.image -}}" alt="{{- item.imageAlt-}}">
+  {% endblock %}
+  <div class="content-container">
+    {% block listingItem_category %}
+      <p class="category">{{- item.category -}}</p>
+    {% endblock %}
+    {% block listingItem_title %}
+      <h3>{{- item.title -}}</h3>
+    {% endblock %}
+  </div>
+  <div class="meta-container">
+    {% block listingItem_type %}
+      <p class="listing-item__label type">{{- item.type -}}</p>
+    {% endblock %}
+    {% block listingItem_section %}
+      <p class="section icon icon-{{- item.sectionIcon -}}">{{- item.section -}}</p>
+    {% endblock %}
+  </div>
+</a>

@@ -1,0 +1,23 @@
+uuid: cd7d416d-80fb-46b8-8dfa-4891dd6c4b47
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_priority
+  module:
+    - options
+_core:
+  default_config_hash: uLwWvQbJW-RbfMH1I2iUcnqiLINOjfOsrGXNsV1C2pI
+id: contact_message.submit_request.field_request_priority
+field_name: field_request_priority
+entity_type: contact_message
+bundle: submit_request
+label: Priority
+description: 'Exceptional - First Response w/in 3 - 4 hours. Expected time to resolve: 1 - 2 business days depending on criticality of the issue;<br>Standard - First Response w/in 24 hours. Expected time to resolve: 2 - 3 business days;<br>Planned - First Response w/in 24 hours. Expected time to resolve: 3 - 5 business days.<br>'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

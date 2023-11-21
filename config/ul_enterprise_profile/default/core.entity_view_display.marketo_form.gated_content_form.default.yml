@@ -1,0 +1,96 @@
+uuid: 92be62c3-e363-4177-9341-9d89d798073e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.gated_content_form.field_gated_asset_language
+    - field.field.marketo_form.gated_content_form.field_gated_asset_title
+    - field.field.marketo_form.gated_content_form.field_node_is_gated
+    - field.field.marketo_form.gated_content_form.field_num_paragraphs
+    - field.field.marketo_form.gated_content_form.field_shared_button_text
+    - field.field.marketo_form.gated_content_form.field_shared_custom_title
+    - field.field.marketo_form.gated_content_form.field_shared_form_description
+    - ul_marketo.marketo_form_type.gated_content_form
+  module:
+    - options
+    - user
+id: marketo_form.gated_content_form.default
+targetEntityType: marketo_form
+bundle: gated_content_form
+mode: default
+content:
+  field_gated_asset_language:
+    type: list_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_gated_asset_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_node_is_gated:
+    type: boolean
+    label: hidden
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_num_paragraphs:
+    type: number_integer
+    label: hidden
+    settings:
+      thousand_separator: ''
+      prefix_suffix: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_shared_button_text:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_custom_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_shared_form_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: -6
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

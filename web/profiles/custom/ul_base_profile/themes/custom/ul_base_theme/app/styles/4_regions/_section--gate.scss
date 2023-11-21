@@ -1,0 +1,21 @@
+.section--gate {
+  @include trim-margin();
+  background: $white;
+  border: 1px solid $border-color;
+  margin-bottom: $spacing-unit--l;
+  margin-top: -$spacing-unit--m;
+  padding-left: $spacing-unit--l;
+  padding-right: $spacing-unit--l;
+  position: relative;
+  z-index: 1;
+
+  @include breakpoint(max-width $tablet - 1) {
+    padding: $spacing-unit--m !important;
+  }
+
+  @include breakpoint($desktop) {
+    margin-bottom: $spacing-unit--xl;
+    margin-left: -$spacing-unit--xl;
+    margin-right: -$spacing-unit--xl;
+  }
+}

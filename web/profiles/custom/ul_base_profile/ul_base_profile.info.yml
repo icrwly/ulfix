@@ -1,0 +1,6 @@
+name: "UL Base Site"
+type: profile
+description: 'Base Install profile for all UL platform sites'
+version: VERSION
+core_version_requirement: ^9 || ^10
+config_install: true

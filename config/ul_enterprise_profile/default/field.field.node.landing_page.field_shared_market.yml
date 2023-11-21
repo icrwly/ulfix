@@ -1,0 +1,29 @@
+uuid: d276aa07-2c99-4f46-808b-83f3b3d857bb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_market
+    - node.type.landing_page
+    - taxonomy.vocabulary.markets
+id: node.landing_page.field_shared_market
+field_name: field_shared_market
+entity_type: node
+bundle: landing_page
+label: Market
+description: '&bull; The market related to this landing page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

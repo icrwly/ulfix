@@ -1,0 +1,72 @@
+<?php
+
+/**
+ * @file
+ * Restore the Workbench dashboard for content_moderation.
+ */
+
+use Drupal\cm_workbench\Render\Element\CMWorkbenchToolbar;
+use Drupal\Core\Url;
+
+/**
+ * Implements hook_toolbar().
+ */
+function cm_workbench_toolbar() {
+  // The 'Workbench' tab is a simple link, with no corresponding tray.
+  $user = \Drupal::currentUser();
+
+  $items = [];
+  if ($user->hasPermission('access cm_workbench')) {
+    $items['cm_workbench'] = [
+      '#type' => 'toolbar_item',
+      'tab' => [
+        '#type' => 'link',
+        '#title' => t('CM-Workbench'),
+        '#url' => Url::fromUri('internal:/admin/cm-workbench'),
+        '#attributes' => [
+          'title' => t('My personal editorial workspace'),
+          'class' => ['toolbar-icon', 'toolbar-icon-workbench-content-tab'],
+        ],
+      ],
+      'tray' => [
+        '#heading' => t('Your Workbench'),
+        'cm_workbench_toolbar' => [
+          '#pre_render' => [
+            [CMWorkbenchToolbar::class, 'preRenderTray'],
+          ],
+        ],
+        '#type' => 'container',
+      ],
+      '#attached' => [
+        'library' => [
+          'cm_workbench/cm_workbench.toolbar',
+        ],
+      ],
+      '#weight' => -18,
+    ];
+  }
+  return $items;
+}
+
+/**
+ * Implements hook_preprocess_views_view_field().
+ */
+function cm_workbench_preprocess_views_view_field(&$variables) {
+  // Change fields' resutls in View: ul_media_usage.
+  if (isset($variables['view'])
+  && $variables['view']->id() == 'better_cm_workbench_edits_by_user') {
+
+    if (isset($variables['field']->field)
+    && !empty($vid = $variables["row"]->vid)) {
+
+      if ($variables['field']->field == 'type') {
+        if (empty($variables['output'])) {
+          $node = $variables["row"]->_entity;
+          $content_type = node_get_type_label($node);
+          $variables['output'] = $content_type;
+        }
+      }
+    }
+  }
+
+}

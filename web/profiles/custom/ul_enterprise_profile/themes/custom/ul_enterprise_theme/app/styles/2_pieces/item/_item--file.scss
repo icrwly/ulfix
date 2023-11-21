@@ -1,0 +1,224 @@
+.item--file {
+  display: block;
+  margin: $spacing-unit 0;
+
+  .item__icon {
+    width: 48px;
+    height: 61px;
+    overflow: hidden;
+    background: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/file-icon--red.svg) 0 0 $white;
+    background-size: contain;
+    .section--bgcolor-light-gray & {
+      background: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/file-icon--red.svg) 0 0 $gray-lightest;
+    }
+    .section--bgcolor-red & {
+      background: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/file-icon--white.svg) 0 0 $red;
+    }
+    .section--bgcolor-black & {
+      background: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/file-icon--white.svg) 0 0 $black;
+    }
+    // Make sure there is no image on top of the bg image.
+    svg {
+      display: none;
+    }
+  }
+}
+
+.main-container .section.section--file-list .item--file .span-auto .item__content {
+  padding-right: $spacing-unit--xs;
+  padding-left: $spacing-unit;
+  @include breakpoint($tablet) {
+    padding-left: 0;
+  }
+}
+
+.item--file > .row > .span-auto:last-child {
+  padding: 0;
+}
+
+// Make the file meta easier to read on red bg.
+.section--bgcolor-red {
+  .item--file .item__meta {
+    color: #fcc;
+  }
+}
+
+// File paragraph item:
+.file-list--item {
+  margin-top: 20px;
+  article {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    background: #f3f3f3;
+    padding: 20px;
+    @include breakpoint($desktop) {
+      padding: 30px;
+    }
+
+    .file_download_btn {
+      order: 3;
+      padding-top: 10px;
+      .button {
+        width: 100%;
+      }
+      padding-left: 0;
+      padding-right: 0;
+    }
+    .file_download_btn a:after {
+      position: absolute;
+      margin-left: 8px;
+      width: 12px;
+      height: 20px;
+      content: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/arrow-to-bottom.svg);
+    }
+    .button--red.active,
+    .button--red.focus,
+    .button--red:active,
+    .button--red:focus {
+      background-color: #ca0123;
+      border-color: #ca0123;
+    }
+
+    // File Image:
+    .file_image,
+    .file_image_default {
+      order: 1;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: 50% 0;
+      overflow: hidden;
+      -webkit-box-flex: 0;
+      width: 20%;
+      margin-bottom: $spacing-unit;
+    }
+    .file_image_default {
+      background-image: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/default_file.png);
+    }
+    .file_image + .file_image_default {
+      display: none;
+    }
+
+    // File name:
+    .file_name { // container.
+      order: 2;
+      width: 80%;
+      height: 90px;
+      margin-top: -3px;
+      padding-left: $spacing-unit;
+      // NOTE: This works in conjunction with JS!
+      p { // text.
+        width: 100%;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        -webkit-line-clamp: 2;
+        overflow: hidden;
+        margin: 0;
+        font-size: 1.4rem;
+        line-height: 1.5;
+      }
+    }
+
+    // File size:
+    .file_size {
+      order: 3;
+      position: relative;
+      top: -36px;
+      left: 20%;
+      color: #808080;
+      margin-left: $spacing-unit;
+      margin-bottom: -$spacing-unit;
+      font-size: 1.2rem;
+    }
+  }
+  .media_details {
+    display: none;
+  }
+}
+
+// Items/row: Mobile: 1/row.
+.file-list .file-list--item {
+  -webkit-box-flex: 0;
+  flex: 0 0 100%;
+  max-width: 100%;
+  // Tablet: 2/row.
+  @include breakpoint($tablet) {
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  // Desktop: 3/row.
+  @include breakpoint($desktop) {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+}
+// Items/row: Right Rail:
+.two-col .file-list .file-list--item {
+  // Desktop: 2/row.
+  @include breakpoint($desktop) {
+    -webkit-box-flex: 0;
+    flex: 0 0 50%;
+    max-width: 50%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  // Large Desktop: 3/row.
+  @include breakpoint($large-desktop) {
+    flex: 0 0 33.33333%;
+    max-width: 33.33333%;
+  }
+}
+
+// BG colors:
+.section--file-list {
+  &.section--bgcolor-light-gray {
+    article {
+      background: none;
+
+      &.crc-file-download,
+      &.media--type-file {
+        background: white;
+      }
+    }
+  }
+  &.section--bgcolor-black {
+    article {
+      background: $black;
+      .file_size {
+        color: #ccc;
+      }
+
+      &.crc-file-download,
+      &.media--type-file {
+        background: #383E45;
+      }
+    }
+
+  }
+  &.section--bgcolor-red {
+    article {
+      background: $red;
+      .file_size {
+        color: $white;
+      }
+      .button {
+        @include button-variant($text-color, $white, $white);
+      }
+      .file_download_btn a::after {
+        content: ' ';
+        background-image: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/arrow-to-bttm--white.png);
+        background-size: contain;
+        background-repeat: no-repeat;
+      }
+
+      &.crc-file-download,
+      &.media--type-file {
+        background: #5B0428;
+      }
+    }
+
+  }
+}

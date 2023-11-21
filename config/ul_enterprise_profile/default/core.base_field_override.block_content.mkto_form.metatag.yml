@@ -1,0 +1,18 @@
+uuid: d342d7b4-bef5-4fdd-a537-2637a488f1ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mkto_form
+id: block_content.mkto_form.metatag
+field_name: metatag
+entity_type: block_content
+bundle: mkto_form
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

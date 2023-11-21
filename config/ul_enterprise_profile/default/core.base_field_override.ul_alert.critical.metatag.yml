@@ -1,0 +1,18 @@
+uuid: e3744401-34af-4178-a800-cc3a496a2ac1
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.critical
+id: ul_alert.critical.metatag
+field_name: metatag
+entity_type: ul_alert
+bundle: critical
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

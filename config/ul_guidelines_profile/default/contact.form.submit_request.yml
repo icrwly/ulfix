@@ -1,0 +1,15 @@
+uuid: ee196a61-79cf-4959-b7e6-f48e5f7abf50
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 01c2XedaDVyPsCwCr1HRb_XKD-7iNATveSyg3MIBeHc
+id: submit_request
+label: 'Submit Request'
+recipients:
+  - ul@service-now.com
+  - LST.NBK.BrandHubTechnicalSupport@ul.com
+reply: ''
+weight: 0
+message: ''
+redirect: ''

@@ -1,0 +1,110 @@
+uuid: 538925d2-2c3c-4f46-9558-021397d64509
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.related_content.field_hash_target
+    - field.field.paragraph.related_content.field_rc_content
+    - field.field.paragraph.related_content.field_rc_cta
+    - field.field.paragraph.related_content.field_rc_description
+    - field.field.paragraph.related_content.field_rc_row_limit
+    - field.field.paragraph.related_content.field_rc_title
+    - field.field.paragraph.related_content.field_shared_bg_color
+    - field.field.paragraph.related_content.field_shared_view_mode
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - field_group
+    - link
+    - view_mode_selector
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_rc_row_limit
+        - field_shared_view_mode
+        - field_shared_bg_color
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: 'Choose how many items will display. Note that if only one item is included, an alternate display will automatically be used.'
+        required_fields: true
+id: paragraph.related_content.default
+targetEntityType: paragraph
+bundle: related_content
+mode: default
+content:
+  field_hash_target:
+    type: string_textfield
+    weight: 9
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rc_content:
+    type: entity_reference_autocomplete
+    weight: 3
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rc_cta:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_rc_description:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_rc_row_limit:
+    type: options_select
+    weight: 6
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_rc_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_view_mode:
+    type: view_mode_selector_select
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

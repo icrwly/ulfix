@@ -1,0 +1,76 @@
+.slide {
+  &.has-positioned-img {
+    // Show background image for desktop, shows inline image below
+    @include breakpoint(max-width $desktop - 1) {
+      background: none !important;
+    }
+    @include breakpoint($desktop) {
+      background-position: center;
+      background-size: cover;
+      display: flex;
+      height: 100%;
+    }
+    .slide__content-container {
+      @include breakpoint($desktop){
+        @include fit;
+      }
+    }
+    .slide__image {
+      @include breakpoint($desktop) {
+        align-self: center;
+        opacity: 0;
+      }
+    }
+  }
+}
+
+.slide__content-container {
+  @include breakpoint($desktop){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: $spacing-unit--l*2 $carousel-button-size;
+  }
+}
+
+.slide__content {
+  @include trim-margin;
+  color: $white;
+  @include breakpoint($desktop){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: $spacing-unit;
+    margin-right: $spacing-unit;
+    max-width: 750px;
+    min-height: 50%;
+  }
+
+  &.has-bg {
+    padding: $spacing-unit;
+    @include breakpoint($large-mobile){
+      padding: $spacing-unit--l;
+    }
+    @include breakpoint($desktop){
+      padding: $spacing-unit--l $spacing-unit--xl;
+      padding-bottom: $spacing-unit--l !important; // TODO: required to override padding set in hero.scss
+    }
+    .is-carousel & {
+      @include breakpoint(max-width $desktop - 1){
+        padding-bottom: $spacing-unit--xl * 2; // allow space for pagination dots
+      }
+    }
+  }
+
+  h1 {
+    margin-bottom: $spacing-unit;
+    font-size: 3rem;
+    @include breakpoint($tablet) {
+      font-size: 3.8rem;
+    }
+  }
+
+  p {
+    font-weight: 300;
+  }
+}

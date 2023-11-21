@@ -1,0 +1,22 @@
+.highlight-card{
+  background-color:$red;
+  .content-container,
+  .submit-container{
+    padding:$spacing-unit--l;
+  }
+  .content-container{
+    color:$white;
+
+    p:last-child{
+      margin-bottom: 0;
+    }
+  }
+  .submit-container{
+    border-top: 1px solid rgba(255,255,255,0.21);
+  }
+  .button{
+    &:hover{
+      color:$black;
+    }
+  }
+}

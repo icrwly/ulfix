@@ -1,0 +1,81 @@
+{# @file: paragraph--location.twig #}
+{% if content.field_addr_type|render|striptags|trim is not empty %} 
+  {% set addr_type = content.field_addr_type %}
+{% endif %}
+
+{% block content %}
+  <div class="span-6-t loc-addr">
+    <dl class="loc-addr--data">
+      <dt>
+        <strong>{{ content.field_addr_company }}</strong>
+        {% if addr_type %} ({{- addr_type -}}) {% endif %}
+      </dt>
+      <dd>{{ content.field_addr_line_1 }}</dd>
+      <dd>{{ content.field_addr_line_2 }}</dd>
+      <dd>{{ content.field_addr_city }}</dd>
+      <dd>
+        {% if content.field_addr_admin_area|render %}
+          {% if content.field_addr_postal_code|render %}
+            {{ content.field_addr_admin_area }},
+            {{ content.field_addr_postal_code }}
+          {% else %}
+            {{ content.field_addr_admin_area }}
+          {% endif %}
+        {% else %}
+          {% if content.field_addr_postal_code|render %}
+            {{ content.field_addr_postal_code }}
+          {% endif %}
+        {% endif %}
+      </dd>
+      {% if content.field_addr_phone|render %}
+        <dd>
+          <strong>{{ 'Tel:'|t }}</strong>
+          {{ content.field_addr_phone }}
+        </dd>
+      {% endif %}
+      {% if content.field_addr_customer_service|render %}
+        <dd>
+          <strong>{{ 'Customer Service Tel:'|t }}</strong>
+          {{ content.field_addr_customer_service|render }}
+        </dd>
+      {% endif %}
+      {% if content.field_addr_fax|render %}
+        <dd>
+          <strong>{{ 'Fax:'|t }}</strong>
+          {{ content.field_addr_fax }}
+        </dd>
+      {% endif %}
+
+      {# Contact: Link and/or Email. #}
+      {%
+        if (content.field_addr_contact_url|render)
+        or (content.field_addr_email|render)
+      %}
+      <dd class="loc--contact">
+        <div class="loc--label">
+          <strong>{{ 'Contact:'|t }}</strong>
+        </div>
+        <ul class="loc--value">
+          {% if content.field_addr_contact_url|render %}
+            <li>{{ content.field_addr_contact_url }}</li>
+          {% endif %}
+          {% if content.field_addr_email|render %}
+            <li>{{ content.field_addr_email }}</li>
+          {% endif %}
+        </ul>
+      </dd>
+      {% endif %}
+      {# End Contact. #}
+
+      {% if content.field_addr_map|render %}
+        <dd class="loc-addr--map">
+          <a class="location-address--map"
+             href="{{ content.field_addr_map.0 }}"><span
+             class="icon-map-marker-alt"></span>
+             {{ 'Map'|t }}
+          </a>
+        </dd>
+      {% endif %}
+    </dl>
+  </div>
+{% endblock %}

@@ -1,0 +1,171 @@
+<!-- Initial Section show by default until all the steps are completed, then hidden -->
+<section id="initial_step" class="ul-step js-steps-container bg-white" style="display: none;">
+    <div class="">
+      <div class="row">
+        <div class="ul-step-container w-full px-16px sm:px-40px">
+            <!-- Step Counter -->
+            <h2 class="mb-24px ul-step-count fs-0">{{ 'Step 1 of 3'|t }}</h2>
+            <!-- Title Start -->
+            <h1 class="mb-24px ul-step-title fs-4">{{ 'Targeted markets for your product'|t }}</h1>
+            <!-- Step Description -->
+            <h3 class="mb-24px ul-step-desc fs--1">{{ 'Select one or multiple items'|t }}</h3>
+            <!-- The Lists of countries and regulations that are populated by JSON Object (Needs to be Alphebetical, Defaults as all types) -->
+            <div class='ul-glossary-list js-country-list'>
+                <p>{{ 'Market:'|t }}</p>
+                <!-- This would be where the list of countries is looped over -->
+                <div class='js-selected-countries'>
+                    <button class='ul-glossary-button no-close'>{{ 'All Markets'|t }}</button>
+                </div>
+            </div>
+            <!-- Filter Country Drop Down lists -->
+            <div class='ul-glossary-filters'>
+                <div class='js-country-filter ul-glossary-filter'>
+                    <select id="select-country" placeholder="{{ 'Filter Markets:'|t }}" multiple></select>
+                </div>
+                <p class='ul-glossary-filters-clear w-1/4 js-clear-filters'>{{ 'Clear all filters'|t }}</p>
+            </div>
+            <!-- Filter Regulations Select List -->
+            <div class='ul-step-regulate-filter not-active'>
+                {% for term in req_types %}
+                    <div class='ul-step-regulate-option'>
+                        <input class='ul-step-checkbox js-regulate-option' type="checkbox" id="{{ term.name }}" name="{{ term.name }}">
+                        <label class='fs-0 font-semibold ul-step-checkbox-label' for="{{ term.name }}">{{ term.name }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class='ul-glossary-help-container'>
+                <p class='ul-glossary-help-text'>{{ "Don't see your market?"|t }}</p>
+                <a class='ul-glossary-help-text ul-glossary-help-text-link' href='{{ contact_url }}'>{{ 'Contact us'|t }}</a>
+            </div>
+            <div class='ul-step-buttons'>
+                <div class="w-fit flex mx-auto not-sure-one">
+                    <input class='ul-step-checkbox' type="checkbox" id="not-sure-one" name="not-sure-one">
+                    <label class='fs-0 font-semibold ul-sure-label' for="not-sure-one">{{ "I'm not sure"|t }}</label>
+                </div>
+                <div class="w-fit flex mx-auto not-sure-two">
+                    <input class='ul-step-checkbox' type="checkbox" id="not-sure-two" name="not-sure-two">
+                    <label class='fs-0 font-semibold ul-sure-label' for="not-sure-two">{{ "I'm not sure"|t }}</label>
+                </div>
+                <div class='ul-step-continue-container'>
+                    <div class="ul-step-continue-overlay"></div>
+                    <a class='fs--1 ul-step-continue' data-step='1'>{{ "Continue"|t }}</a>
+                    <a class='fs--1 ul-step-back disabled' data-step='2'>{{ "Back"|t }}</a>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- Final Section hidden until all the steps are completed, this reveals on step 3 (completion of step 2) -->
+<section id="final_step" class="ul-intro-map-section js-hidden-cert bg-white" style="display: none;">
+    <div class="">
+        <div class='ul-cert-top-bar'>
+        <div class='ul-cert-top-bar-wrapper'>
+            <h3>{{ 'Next Step'|t }}</h3>
+            <h2 class='ul-middle-spacer fs-3'>{{ 'The credentials that support your stated market access needs are listed below. Please contact UL Solutions to learn more about how our services and expertise can support your business goals. We look forward to working with you!'|t }}</h2>
+            <button data-contact='{{ contact_url }}' class='ul-bottom-cert-bar-button no-arrow top-bar js-contact-page'>{{ 'Contact us to get started'|t }}</button>
+        </div>
+        </div>
+      <div class="row">
+        <div class="ul-glossary-container w-full pr-16px sm:pr-40px ul-cert-results">
+            <!-- Title Start -->
+            <h1 class="fs-6 sm:mb-24px ul-glossary-title ul-title-start">{{ 'Your Target Market Requirements'|t }}</h1>
+            <!-- Share Button -->
+            <div class='ul-step-share-container'>
+                <button class='ul-glossary-share ul-restart-share js-slug-filters'><span class='ul-share-text'>{{ 'Share'|t }}</span><div class='clipboard-alert'>{{ 'Copied to clipboard'|t }}</div></button>
+                <a class='ul-restart-button ul-start-over-button' href='/market-access-portal/steps'>{{ 'Start over'|t }}</a>
+            </div>
+            <!-- The Lists of countries and regulations that are populated by JSON Object (Needs to be Alphebetical, Defaults as all types) -->
+            <div class='ul-glossary-list js-country-list'>
+                <p>{{ 'Market:'|t }}</p>
+                <!-- This would be where the list of countries is looped over -->
+                <div class='js-selected-countries js-new-countries'>
+                    <!-- <button class='ul-glossary-button no-close'>All Countries</button> -->
+                </div>
+            </div>
+            <div class='ul-glossary-list js-regulate-list'>
+                <p>{{ 'Requirement Types:'|t }}</p>
+                <!-- This would be where the list of Regulatory Types is looped over -->
+                <div class='js-selected-regulations js-new-regulations'> 
+                    <!-- <button class='ul-glossary-button no-close'>All Types</button> -->
+                </div>
+            </div>
+            <div class='ul-cert-rows-container'></div>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- The fixed bottom bar -->
+<div class="ul-bottom-cert-bar">
+    <p class='ul-bottom-cert-bar-text fs-1'>{{ 'Next Step'|t }}</p>
+    <button class='ul-bottom-cert-bar-button no-arrow js-contact-page' data-contact='{{ contact_url }}'>{{ 'Contact us to get started'|t }}</button>
+</div>
+
+<!-- MODAL: hidden until click on one of the cards -->
+<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-custom-close="modal-1">
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+        <header class="modal__header">
+            <img class='modal__image mx-auto js-modal-image' src='/../src_static/assets/cert_images/ul_certified.png' alt='modal__image'>
+            <h2 class="modal__title js-modal-title" id="modal-1-title">Functional Safety Listed</h2>
+            <div class='modal__line'></div>
+            <button class="modal__close" aria-label="Close modal" data-custom-close="modal-1"></button>
+        </header>
+        <main class="modal__content" id="modal-1-content">
+            <p class='modal__content__body js-modal-country fs-0'>{{ "Market / Markets:"|t }} <span class='modal__content__strong'>USA</span></p>
+            <p class='modal__content__body js-modal-requirement fs-0'>{{ "Requirements:"|t }} <span class='modal__content__strong'>Safety (Functional Safety)</span></p>
+            <p class='modal__content__body js-modal-valid fs-0'>{{ "Validity Period of Certification:"|t }} <span class='modal__content__strong'>Unlimited</span></p>
+            <p class='modal__content__body js-modal-mark fs-0'>{{ "Mark Required:"|t }} <span class='modal__content__strong'>yes</span></p>
+        </main>
+        <footer class="modal__footer">
+            <!-- <button data-custom-close="modal-1">close</button> -->
+            <button class='modal__button__left'></button> 
+            <button class='modal__button__right'></button> 
+        </footer>
+        </div>
+    </div>
+</div>
+
+<!-- JS -->
+<script>
+    jQuery('#block-ul-com-theme-mainpagecontent').css('min-height', '500px');
+
+    window.addEventListener('load', (event) => {
+
+        // URL = '?reg_types=safety,emc&countries=usa,argentina'
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Get the regulatory type and countries from url
+        var reg_types = urlParams.get('reg_types'),
+            countries = urlParams.get('countries'),
+            not_sure_url = "{{ not_sure_url }}",
+            extra_data = { 
+             "langcode": "{{ lang_code }}",
+             "next_step": "{{ 'Step 2 of 3'|t }}",
+             "next_title": "{{ 'Select Market Access Requirement'|t }}",
+             "prev_step": "{{ 'Step 1 of 3'|t }}",
+             "prev_title": "{{ 'Targeted markets for your product'|t }}",
+            };
+            //extra_data.data_1
+
+        //If the url parameters are null or dangerous load step 1
+        if (reg_types == null || countries == null || !testStringXss(reg_types) || !testStringXss(countries)) {
+            window.startCertificationSteps(not_sure_url, extra_data);
+            jQuery('#initial_step').css('display', 'block');
+        }
+        //Else if the url contains the parameters then load step 3 immediately
+        else {
+            window.loadStepThree(countries,reg_types);
+            jQuery('#final_step').css('display', 'block');
+            // window.startGlossary();
+        }
+    });
+
+    // Allow only numbers, letters, spaces, commas, and parens
+    // to avoid Cross Site Scripting (XSS) attack.
+    function testStringXss(str) {
+        return /^[0-9A-Za-z\s\,\(\)]*$/.test(str);
+    }
+</script>

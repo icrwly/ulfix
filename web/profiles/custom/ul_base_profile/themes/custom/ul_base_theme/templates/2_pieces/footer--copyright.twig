@@ -1,0 +1,9 @@
+{% set message_template = message_template|default('&copy; @date UL LLC. All rights reserved.') %}
+{% set copyright_message = copyright_message ?? message_template|replace({'@date': now|date('Y')}) %}
+<div class="footer-copyright">
+    {% block copyright %}
+      {% autoescape false %}
+        <p>{{ copyright_message }}</p>
+      {% endautoescape %}
+    {% endblock %}
+</div>

@@ -1,0 +1,25 @@
+uuid: b86da718-72b3-4ddf-8cb4-059873f79c86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_crc_assets
+    - node.type.homepage
+  module:
+    - ul_crc_asset
+_core:
+  default_config_hash: 2CWVmC06g4cW3e-a6y-cBeeaGe_vrS72Ex_ELpoNPcg
+id: node.homepage.field_homepage_crc_assets
+field_name: field_homepage_crc_assets
+entity_type: node
+bundle: homepage
+label: 'Featured Assets'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crc_asset'
+  handler_settings: {  }
+field_type: crc_asset_item

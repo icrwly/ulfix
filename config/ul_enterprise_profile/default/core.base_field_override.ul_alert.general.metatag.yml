@@ -1,0 +1,18 @@
+uuid: 9f208a55-f599-445e-8e1d-91d0f7634920
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.general
+id: ul_alert.general.metatag
+field_name: metatag
+entity_type: ul_alert
+bundle: general
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

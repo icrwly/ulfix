@@ -1,0 +1,21 @@
+uuid: 5d974999-098c-4ed3-8f92-30e14b2a0f06
+langcode: en
+status: false
+dependencies: {  }
+id: emergo
+label: Emergo
+description: 'Split marketo settings for the Emergo site.'
+weight: 0
+folder: ../config/ul_enterprise_profile/sites/emergo
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - field.field.marketo_form.generic_form.field_shared_form_description
+  - field.storage.paragraph.field_shared_bg_color
+  - filter.format.full_html
+  - search.page.google_cse_search
+  - search.page.google_json_api_search
+  - ul_marketo.last_interest_by_sub_cou
+graylist_dependents: true
+graylist_skip_equal: true

@@ -1,0 +1,28 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = "card--cta" %}
+
+{% block content %}
+
+  {% if title or description or cta %}
+    <div class="content-container">
+
+      {% block card_title %}
+        {% if title %}
+          <h3>{{- title -}}</h3>
+        {% endif %}
+      {% endblock %}
+
+      {% block card_description %}
+        {% if description %}
+          <p>{{- description -}}</p>
+        {% endif %}
+      {% endblock %}
+
+      {% if cta %}
+        <a href="{{ cta.url }}" title="{{ cta.title }}" class="button button--black-outline">{{ cta.title }}</a>
+      {% endif %}
+
+    </div>
+  {% endif %}
+
+{% endblock %}

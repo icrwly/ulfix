@@ -1,0 +1,12 @@
+{% extends "@ul_base_theme/2_pieces/widget/widget.twig" %}
+{% set class = "widget--topics" %}
+
+{% block content %}
+  <ul>
+    {% block topics %}
+      {% for topic in widget %}
+        {% include '@ul_base_theme/2_pieces/widget/widget--topics__item.twig' with topic only %}
+      {% endfor %}
+    {% endblock %}
+  </ul>
+{% endblock %}

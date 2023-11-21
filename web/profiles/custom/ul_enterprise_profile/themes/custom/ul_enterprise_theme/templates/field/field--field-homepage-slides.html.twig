@@ -1,0 +1,7 @@
+{% for item in items %}
+    {% embed '@ul_base_theme/3_components/homepage__intro-slide.twig' %}
+        {% block card_item %}
+            {{ item.content }}
+        {% endblock %}
+    {% endembed %}
+{% endfor %}

@@ -1,0 +1,13 @@
+{% extends "@ul_base_theme/4_regions/section--cards.twig" %}
+
+{% block title_bar %}
+  {% if titleBar %}
+    {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+  {% endif %}
+{% endblock %}
+
+{% block card_list %}
+  <div class="max-width--large-desktop">
+    {{ parent() }}
+  </div>
+{% endblock %}

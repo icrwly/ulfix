@@ -1,0 +1,13 @@
+{%- for item in items -%}
+  {% block item %}
+  <div class="file_size">
+      {{ file_size }}
+  </div>
+  <div class="file_download_btn span-12-t">
+      <a href="{{ file_url }}" class="button button--red" title="{{ 'Download'|t }}">{{ 'Download'|t }}</a>
+  </div>
+  <div class="media_details span-12-t">
+      <a href="{{ file_url }}" title="{{ file_name_media }}">{{ file_name_media }}</a>
+  </div>
+  {% endblock %}
+{%- endfor -%}

@@ -1,0 +1,23 @@
+{#
+/**
+ * @file crc_asset.html.twig
+ * Default theme implementation to present CRC Asset data.
+ *
+ * This template is used when viewing CRC Asset pages.
+ *
+ *
+ * Available variables:
+ * - id: The unique ID from CRC.
+ * - content: The content from CRC
+ *
+ * @see template_preprocess_crc_asset()
+ *
+ * @ingroup themeable
+ */
+#}
+<div{{ attributes.addClass('crc_asset') }}>
+  {% if content %}
+    <div><img src="{{ content.med_thumbnail_url }}" alt = "{{ content.name }}"></div>
+    <div>{{ content.name }}</div>
+  {% endif %}
+</div>

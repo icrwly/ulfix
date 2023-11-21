@@ -1,0 +1,16 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set dataModule = "dataTables" %}
+{% set gutterclass = 'paragraph-gutter' %}
+{% if fullwidth == 'On' %}
+  {% set gutterclass = gutterclass ~ ' paragraph-basic-fullwidth' %}
+{% endif %}
+{% set class = 'section section--paragraph section--wysiwyg section--basic-content' %}
+{% if content.field_shared_bg_color.0 is not empty %}
+  {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+
+{% block section_body %}
+  <div class="editor-content">
+    {{- content.field_basic_content_content.0 -}}
+  </div>
+{% endblock %}

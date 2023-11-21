@@ -1,0 +1,31 @@
+# docksalci.site.yml
+#
+# The purpose of this file is to store version controlled aliases which link
+# version controlled local sites to remote sites for the purposes of testing
+# sync-based workflows. There should be at least one alias in this file for
+# every version controlled site which points to a valid ACSF site.
+#
+
+test-ulmvp: &test-ulmvp
+  uri: ulmvp.test-ulacsf.acsitefactory.com
+  root: /var/www/html/ulacsf.01test/docroot
+  host: staging-2279.enterprise-g1.hosting.acquia.com
+  user: ulacsf.01test
+  paths:
+    drush-script: drush9
+    dump-dir: /mnt/tmp/
+test-brandhubstage: &test-brandhubstage
+  uri: brandhubstage.test-ulacsf.acsitefactory.com
+  root: /var/www/html/ulacsf.01test/docroot
+  host: staging-2279.enterprise-g1.hosting.acquia.com
+  user: ulacsf.01test
+  paths:
+    drush-script: drush9
+    dump-dir: /mnt/tmp/
+
+# The below references should point to an alias above. To change which database
+# a given site syncs with, only the below pointers need to be updated (and an
+# alias for the new site be entered above, which is referenced by a pointer
+# below). These aliases are meant to be leveraged in local sites blt.yml files.
+enterprise: *test-ulmvp
+guidelines: *test-brandhubstage

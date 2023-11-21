@@ -1,0 +1,324 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "content_bg": "red",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+      },
+      {
+        "content_bg": "blue",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+        "cta": {
+          "color": "white",
+          "name": "CTA Link",
+          "link": "#"
+        }
+      },
+      {
+        "content_bg": "black",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+        "cta": {
+          "color": "red",
+          "name": "CTA Link",
+          "link": "#"
+        }
+      }
+    ]
+  },
+  "filter_bar": {
+    "titleBar": {
+      "title": "Filter Title",
+      "border": false,
+      "headingLevel": "h2"
+    },
+    "filter_toggle": {
+      "href": "#filter",
+      "name": "Filter"
+    },
+    "filter_options": [
+      {
+        "id": "select-1",
+        "name": "select-1",
+        "options": [
+          {
+            "text": "Date Range",
+            "value": "date-range"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      },
+      {
+        "id": "select-2",
+        "name": "select-2",
+        "options": [
+          {
+            "text": "Topics",
+            "value": "topics"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      },
+      {
+        "id": "select-3",
+        "name": "select-3",
+        "options": [
+          {
+            "text": "Industries",
+            "value": "industries"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      },
+      {
+        "id": "select-4",
+        "name": "select-4",
+        "options": [
+          {
+            "text": "Reports",
+            "value": "reports"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      }
+    ],
+    "view_options": [
+      {
+        "id": "select-1",
+        "name": "select-1",
+        "options": [
+          {
+            "text": "Newest",
+            "value": "newest"
+          }
+        ]
+      }
+    ],
+    "active_filters": [
+      { "name": "Selection" },
+      { "name": "Selection" },
+      { "name": "Selection" },
+      { "name": "Selection" }
+    ],
+    "pager": {
+      "prev": true,
+      "next": true,
+      "pages": [
+        {
+          "active": true,
+          "link": "#",
+          "title": "One"
+        },
+        {
+          "link": "#",
+          "title": "Two"
+        },
+        {
+          "link": "#",
+          "title": "Three"
+        },
+        {
+          "link": "#",
+          "title": "Four"
+        },
+        {
+          "link": "#",
+          "title": "Five"
+        },
+        {
+          "link": "#",
+          "title": "Six"
+        },
+        {
+          "link": "#",
+          "title": "Seven"
+        }
+      ]
+    }
+  },
+  "t06Listing": {
+    "listings": [
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "11 min"
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "11 min"
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "11 min"
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "11 min"
+      },
+      {
+        "type": "event",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "11 min"
+      }
+    ],
+    "pager": {
+      "prev": true,
+      "next": true,
+      "pages": [
+        {
+          "active": true,
+          "link": "#",
+          "title": "One"
+        },
+        {
+          "link": "#",
+          "title": "Two"
+        },
+        {
+          "link": "#",
+          "title": "Three"
+        },
+        {
+          "link": "#",
+          "title": "Four"
+        },
+        {
+          "link": "#",
+          "title": "Five"
+        },
+        {
+          "link": "#",
+          "title": "Six"
+        },
+        {
+          "link": "#",
+          "title": "Seven"
+        }
+      ]
+    }
+  }
+}

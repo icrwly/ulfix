@@ -1,0 +1,22 @@
+uuid: c40b50da-135b-41fd-9ef8-da8fa0061256
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.customer_operating_unit
+id: taxonomy_term.customer_operating_unit.status
+field_name: status
+entity_type: taxonomy_term
+bundle: customer_operating_unit
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

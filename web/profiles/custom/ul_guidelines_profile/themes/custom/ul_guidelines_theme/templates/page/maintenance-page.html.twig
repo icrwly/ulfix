@@ -1,0 +1,25 @@
+{#
+    This template is for maintenance page.
+#}
+{% extends '@ul_guidelines_theme/5_layouts/t07-landing.twig' %}
+
+{% set t07Header= {
+    logo: {
+        image: 'path to image',
+        imageAlt: 'Logo',
+        imageHref: '#',
+        brandTitle: 'UL Brand Hub',
+        brandHref: '/',
+        content: 'Brand Hub'
+    }
+} %}
+
+{% set content_description %}
+    <h1>{{ 'Site offline'|t }}</h1>
+    <p>{{ page.content }}</p>
+{% endset %}
+
+{% set t07Content = {
+    logo: '',
+    description: content_description,
+} %}

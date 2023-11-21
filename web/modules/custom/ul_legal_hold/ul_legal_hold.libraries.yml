@@ -1,0 +1,9 @@
+# Custom module library for general purposes.
+ul_legal_hold:
+  css:
+    component:
+      css/ul-legal-hold.css: {}
+  dependencies:
+    - core/drupalSettings
+    - core/jquery
+    - ul_base_theme/jquery-custom

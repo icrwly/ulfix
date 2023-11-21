@@ -1,0 +1,10 @@
+uuid: 948900c7-7317-4238-a987-9f817de38b6c
+langcode: en
+status: true
+dependencies: {  }
+id: campaign_card
+label: 'Campaign Card (child)'
+icon_uuid: null
+icon_default: null
+description: 'Note: This is the child component for the <em>Campaign Cards</em> paragraph type.'
+behavior_plugins: {  }

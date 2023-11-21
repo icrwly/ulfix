@@ -1,0 +1,20 @@
+uuid: 7705e17b-b759-41df-976f-0b5310dc4494
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.markets
+  module:
+    - text
+id: taxonomy_term.markets.description
+field_name: description
+entity_type: taxonomy_term
+bundle: markets
+label: Description
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

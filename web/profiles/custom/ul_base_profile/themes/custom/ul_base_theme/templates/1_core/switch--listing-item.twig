@@ -1,0 +1,9 @@
+{% extends '@ul_base_theme/1_core/switch.twig' %}
+
+{% if type == 'article' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/listing-item/listing-item--article.twig' %}
+{% elseif type == 'event' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/listing-item/listing-item--event.twig' %}
+{% else %}
+  {% set switch_template = '@ul_base_theme/2_pieces/listing-item/listing-item--default.twig' %}
+{% endif %}

@@ -1,0 +1,26 @@
+{% set name = name|default('Search') %}
+{% set placeholder = placeholder|default('Search') %}
+{% set value = value|default('Search') %}
+{% set button_text = button_text|default('Cancel') %}
+{% set search_input_label = search_input_label|default('Search Submit') %}
+
+<div class="form-group form-group--search{% if type %} {{ type }}{% endif %}">
+  <form action="/{{ search_url }}/search">
+    <input id="input--csrf-token" class="input-csrf-token" type="hidden" name="csrf-token" value="CIwNZNlR4XbisJF39I8yWnWX9wX4WFoz" />
+    <div id="input--query" class="form-item form-input"></div>
+    <div id="input--submit" class="form-action search{% if icon is not defined or icon == true %} icon-search {% endif %}"></div>
+  </form>
+  {# Use JS to add the form elements, because #}
+  {# the form must only work if browser has JS. #}
+  <script>
+  if (typeof jQuery != "undefined"){
+    if(!jQuery('#block-header-search-block').hasClass('form-ready')){
+      jQuery('#input--query').append('<input type="search" placeholder="{{ placeholder }}" name="{{ name }}" aria-label="{{ name }}" data-solosearchbox="solosearchbox" autocomplete="off" />');
+      jQuery('#input--submit').append('<label for="search-submit" class="sr-only">{{ search_input_label }}</label>');
+      jQuery('#input--submit').append('<input type="submit" name="search-submit" value="{{ value }}" class="search-submit" aria-label="{{ name }}">');
+      jQuery('#block-header-search-block').append('<button class="global-header__search-cancel button button--white button--xs">{{ button_text }}</button>');
+      jQuery('#block-header-search-block').addClass('form-ready');
+    }
+  }
+  </script>
+</div>

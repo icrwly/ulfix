@@ -1,0 +1,46 @@
+.logo {
+	align-items: center;
+	display: flex;
+}
+
+// Header logo:
+.header__logo {
+	.hdr-logo {
+		fill:#fff;
+		filter: brightness(0) invert(1);
+		width: 80px;
+		height: 32.8667px;
+		@include breakpoint($large-tablet) {
+			width: 100px;
+			height: 41.0833px;
+			position: relative;
+			margin-top: -4px;
+		}
+	}
+}
+
+// Logged out - landing:
+.landing {
+	.hdr-logo {
+		@include breakpoint(max-width $tablet - 1) {
+			display: none;
+		}
+		fill:#fff;
+		filter: brightness(0) invert(1);
+		width: 200px;
+		height: 82.1667px;
+	}
+}
+
+// Footer logo:
+.ftr-logo {
+	fill:#888;
+	filter: brightness(0.75) invert(1);
+	display: block;
+	width: 90px;
+	height: 36.9833px;
+
+	@include breakpoint(max-width $desktop - 1) {
+		margin: 0 auto 12px auto;
+	}
+}

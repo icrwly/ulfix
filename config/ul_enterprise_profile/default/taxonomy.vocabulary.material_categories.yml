@@ -1,0 +1,8 @@
+uuid: 5462116f-b35e-48d5-a985-26926778407b
+langcode: en
+status: true
+dependencies: {  }
+name: 'Material Categories'
+vid: material_categories
+description: 'Used for categorizing Promotional Materials. '
+weight: 0

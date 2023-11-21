@@ -1,0 +1,129 @@
+{# @file inc-form.html.twig #}
+
+{# Button Text, Mkto Form, custom block type #}
+{% if mkto_bttn_txt %}
+  {% set btn_txt = mkto_bttn_txt|replace({'"': null}) %}
+{% endif %}
+
+{# Button Text, Mkto Customizations #}
+{% if marketo.button_text %}
+  {% set btn_txt = marketo.button_text|replace({'"': null}) %}
+{% endif %}
+
+<div class="mkto-frm-block--wrapper wrapper">
+  {% if mkto_title %}
+    <h2>{{ mkto_title }}</h2>
+  {% endif %}
+  {% if mkto_description %}
+    <p>{{ mkto_description|nl2br }}</p>
+  {% endif %}
+
+  <script src="{{ mkto_forms_api_url }}"></script>
+  <form id="mktoForm_{{ mkto_form_id }}" class="activeForm"></form>
+  <script id="blockform-loader">
+  // Is this horizontal:
+  {% if mkto_last_interest == 'General Contact' %}
+    var is_horizontal = true;
+  {% elseif mkto_last_interest == 'General Contact - Software' %}
+    var is_horizontal_soft = true;
+  {% elseif mkto_last_interest is not defined %}
+    var is_horizontal = true;
+  {% else %}
+    var is_horizontal = false;
+    var is_horizontal_soft = false;
+  {% endif %}
+
+  // Begin loading the form:
+  (function($) {
+    MktoForms2.loadForm("{{ mkto_base_url }}", "{{ mkto_ul_id }}", {{ mkto_form_id }}, function (form){
+
+      MktoForms2.whenReady(function(form) {
+        // Button Text:
+        {% if btn_txt %}
+          $('.mktoButton').text("{{ btn_txt|raw }}");
+        {% endif %}
+
+        // Form Description:
+        var formDescription = `{{ mkto_description }}`;
+
+        // Page title:
+        var pageTitle = $('.hero h1').text();
+
+        /* Set form values. */
+        form.vals({
+          "pageCampaignAttribution": "{{ mkto_campaign }}",
+          "websiteName": "{{ marketo.site_name }}",
+          "pageNodeID": "Mkto Custom Block ({{ block_label|raw }})",
+          "pageUUID": "Mkto Custom Block ({{ block_label|raw }})",
+          "pageTitle": pageTitle,
+          "formTitle": "{{ mkto_title }}",
+          "formDescription": formDescription.replace(/\n|\r/g, ""),
+          "formButtonText": "{{ btn_txt|raw }}",
+          "formLanguage": "{{ mkto_form_lang }}",
+          "pageURL": window.location.href,
+          "pageURLReferral": document.referrer,
+          "lastInterest": "{{ mkto_last_interest|raw }}",
+        });
+      });
+
+      MktoForms2.whenRendered(function(form){
+        // If Horizontal:
+        if(is_horizontal){
+          if($('#uLServiceSegment').length){
+            $('#uLServiceSegment option[value="Other"]').each(function(){
+              $(this).remove();
+            });
+            if(is_horizontal_soft) {
+              $("#uLServiceSegment option[value*='Software']").prop("selected", true);
+              $('#uLServiceSegment').trigger("change");
+              const e = new Event("change");
+              const element = document.querySelector('#uLServiceSegment');
+              element.dispatchEvent(e);
+            }
+          }
+          if($('#uLCatalogIndustry').length){
+            $('#uLCatalogIndustry option[value="Other"]').each(function(){
+              $(this).remove();
+            });
+          }
+        }
+        else {
+          if($('#uLServiceSegment').length){
+            $('#uLServiceSegment').closest('.mktoFormRow').addClass('hidden');
+            $('#uLServiceSegment').val('Other');
+          }
+          if($('#uLCatalogIndustry').length){
+            $('#uLCatalogIndustry').closest('.mktoFormRow').addClass('hidden');
+            $('#uLCatalogIndustry').val('Other');
+          }
+        }
+      });
+
+      form.onSuccess(function(values, followUpUrl){
+        // Track analytics.
+        if (typeof dataLayer !== 'undefined'){
+          dataLayer.push({
+            event: 'Contact Us Form Submit',
+            mktoFormId: form.getId(),
+            'FormValues': cleanFormVals(form.getValues()),
+            'FormFields': form.allFieldsFilled(),
+            'Submittable': form.submittable(),
+          });
+        }
+        // Redirect to thank you page.
+        location.href = "{{ mkto_thankyou_url|raw }}";
+        // Return false - to prevent marketo from executing further.
+        return false;
+      });
+    });
+
+    // Move form into the main content.
+    if ($('.section--addtoany').length){
+      $( $('.section--mkto-form-block') ).insertBefore('.section--addtoany');
+    }
+    else {
+      $('#main-content').append( $('.section--mkto-form-block') );
+    }
+  })(jQuery);
+  </script>
+</div>

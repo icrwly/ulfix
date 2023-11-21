@@ -1,0 +1,6 @@
+{% extends "@ul_base_theme/3_components/list--two-col.twig" %}
+{% set class = class ~ ' list--two-col--flexible' %}
+
+{% if items|length >= 4 %}
+  {% set class = class ~ ' is-two-col' %}
+{% endif %}

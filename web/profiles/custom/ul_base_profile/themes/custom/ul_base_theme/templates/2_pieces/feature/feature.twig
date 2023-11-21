@@ -1,0 +1,18 @@
+{% import "@ul_base_theme/1_core/macros.twig" as mac %}
+
+{% set class = class %}
+
+{% if bg_color %}
+  {% set class = class ~ ' bg-' ~ bg_color %}
+{% endif %}
+
+{% if id %}
+  {% set attributes = {
+    'id': id|replace({'&amp;-': ''})
+  } %}
+{% endif %}
+
+<div class="feature {{ class }}"{{ mac.attributes(attributes) }}>
+  {% block content %}
+  {% endblock %}
+</div>

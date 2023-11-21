@@ -1,0 +1,18 @@
+uuid: 14cb9c9b-8353-4a01-8bc0-3b8a61adc3f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.standards_types
+id: taxonomy_term.standards_types.name
+field_name: name
+entity_type: taxonomy_term
+bundle: standards_types
+label: Name
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

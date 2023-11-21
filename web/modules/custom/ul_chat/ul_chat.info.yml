@@ -1,0 +1,8 @@
+name: UL Chat
+type: module
+description: "Integration with salesforce chat."
+package: Web services
+core_version_requirement: ^9 || ^10
+dependencies:
+  - node
+  - block

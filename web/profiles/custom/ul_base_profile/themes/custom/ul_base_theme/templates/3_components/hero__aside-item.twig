@@ -1,0 +1,47 @@
+{% if bg_color %}
+  {% set class = class ~ 'bg-' ~ bg_color %}
+{% endif %}
+
+{% if featured_item %}
+  {% set class = class ~ ' item--featured' %}
+{% endif %}
+
+{% block item %}
+  <div class="hero__aside-item {{ class }}" style="{% if image %}background-image: url({{- image -}}){% endif %}">
+
+    {% block link_open %}
+      {% if link %}
+        <a href="{{- link -}}" class="target" title="{{ title }}">
+      {% endif %}
+    {% endblock %}
+
+    <div class="bg-gradient">
+      <div class="inner">
+        {% block title %}
+          {% if title %}
+            <h2 class="title">{{ title }}</h2>
+          {% endif %}
+        {% endblock %}
+        {% block cta %}
+          {% if cta %}
+            <div class="cta">
+              {% if cta.kicker %}
+                <h3 class="kicker">{{ cta.kicker }}</h3>
+              {% endif %}
+              {% if cta.title %}
+                <h3 class="title">{{ cta.title }}</h3>
+              {% endif %}
+              <span class="icon icon-bracket-r"></span>
+            </div>
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+
+    {% block link_close %}
+      {% if link %}
+        </a>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

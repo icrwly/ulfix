@@ -1,0 +1,21 @@
+uuid: be599821-cb30-4145-9bbd-49b883e9b96f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - social_media_links_field
+_core:
+  default_config_hash: aKCY-cs4jRwNkYHvCp7yTaVYW_9FPgsuYGtQ77BH_xA
+id: node.field_person_social_links
+field_name: field_person_social_links
+entity_type: node
+type: social_media_links_field
+settings: {  }
+module: social_media_links_field
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

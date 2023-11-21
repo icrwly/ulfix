@@ -1,0 +1,21 @@
+uuid: 25253019-056b-4f2f-aa1d-1819af434def
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_bg_color
+    - paragraphs.paragraphs_type.text_and_form
+  module:
+    - options
+id: paragraph.text_and_form.field_shared_bg_color
+field_name: field_shared_bg_color
+entity_type: paragraph
+bundle: text_and_form
+label: 'Background Color'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

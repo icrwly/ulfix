@@ -1,0 +1,55 @@
+uuid: 3a920eaf-1a4c-4e61-b01a-ba63f071b604
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.mkto_pref_ctr.field_shared_button_text
+    - field.field.marketo_form.mkto_pref_ctr.field_shared_custom_title
+    - field.field.marketo_form.mkto_pref_ctr.field_shared_form_description
+    - ul_marketo.marketo_form_type.mkto_pref_ctr
+id: marketo_form.mkto_pref_ctr.default
+targetEntityType: marketo_form
+bundle: mkto_pref_ctr
+mode: default
+content:
+  field_shared_button_text:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_custom_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_form_description:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  status: true
+  user_id: true

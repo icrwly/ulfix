@@ -1,0 +1,23 @@
+uuid: adcbc73c-c361-4487-a480-a5519b4850cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - entity_reference_revisions
+    - node
+    - paragraphs
+_core:
+  default_config_hash: tO94i7mn_A2FsI4qSxDLWK9IqMxb1KTP4nQb3S_8Jao
+id: node.field_shared_approval_process
+field_name: field_shared_approval_process
+entity_type: node
+type: entity_reference_revisions
+settings:
+  target_type: paragraph
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

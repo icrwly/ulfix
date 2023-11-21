@@ -1,0 +1,10 @@
+uuid: 9fe88e05-bb97-4e0c-85e9-25f11e5f5c0b
+langcode: en
+status: true
+dependencies: {  }
+id: crc_files
+label: 'CRC Files'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>CRC Files</em> for showing a list of CRC Assets,'
+behavior_plugins: {  }

@@ -1,0 +1,28 @@
+<div class="card card--featured-item">
+  {% if card.image %}
+    <div class="image-container">
+      {% block card_image %}
+        <img src="{{- card.image -}}" alt="{{- card.imageAlt -}}">
+      {% endblock %}
+    </div>
+  {% endif %}
+  <div class="content-container">
+    <div class="content-container__title">
+      {% block card_title %}
+        {% if card.title %}
+          <h3>{{- card.title -}}</h3>
+        {% endif %}
+      {% endblock %}
+      {% block card_cta %}
+        {% if card.linkHref %}
+          <a href="{{- card.linkHref -}}" class="button">{{- card.linkName -}}</a>
+        {% endif %}
+      {% endblock %}
+    </div>
+    <div class="content-container__description">
+      {% block card_description %}
+        {{- card.description -}}
+      {% endblock %}
+    </div>
+  </div>
+</div>

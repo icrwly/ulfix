@@ -1,0 +1,162 @@
+<?php
+
+/**
+ * @file
+ * Contains install and update functions for Enterprise profile.
+ */
+
+use Drupal\Core\Config\FileStorage;
+use Drupal\Core\Url;
+use Drupal\field\Entity\FieldStorageConfig;
+use Drupal\menu_link_content\Entity\MenuLinkContent;
+use Drupal\system\Entity\Menu;
+
+/**
+ * Remove orphaned content section paragraph data.
+ */
+function ul_enterprise_profile_update_8001() {
+
+  $paragraphs = \Drupal::entityTypeManager()->getStorage('paragraph')->loadByProperties([
+    'type' => 'content_section',
+  ]);
+
+  if (!empty($paragraphs)) {
+    foreach ($paragraphs as $paragraph) {
+      $paragraph->delete();
+    }
+  }
+}
+
+/**
+ * Set default items per row value on related content paragraph.
+ */
+function ul_enterprise_profile_update_8002() {
+
+  $config_storage = new FileStorage(drupal_get_path('profile', 'ul_enterprise_profile') . '/config/sync');
+  $config_active = \Drupal::service('config.storage');
+
+  // First create the fields programmatically from the new config if it
+  // doesn't exist.
+  $field_config = [
+    'field.storage.paragraph.field_rc_row_limit',
+    'field.field.paragraph.related_content.field_rc_row_limit',
+  ];
+  foreach ($field_config as $config_name) {
+    $config_record = $config_storage->read($config_name);
+    $entity_type = \Drupal::service('config.manager')->getEntityTypeIdByName($config_name);
+    $storage = \Drupal::entityTypeManager()->getStorage($entity_type);
+    $entity = $storage->createFromStorageRecord($config_record);
+    // If config exists then do not enforce it as new.
+    if ($config_active->exists($config_name)) {
+      $entity->enforceIsNew(FALSE);
+    }
+    $entity->save();
+  }
+
+  // Update any related content paragraphs that have the items per row
+  // field but don't have any values set.
+  /** @var \Drupal\paragraphs\Entity\Paragraph[] $paragraphs */
+  $paragraphs = \Drupal::entityTypeManager()->getStorage('paragraph')->loadByProperties([
+    'type' => 'related_content',
+  ]);
+
+  if (!empty($paragraphs)) {
+    foreach ($paragraphs as $paragraph) {
+      if ($paragraph->hasField('field_rc_row_limit') && $paragraph->field_rc_row_limit->isEmpty() && !empty($paragraph->getParentEntity())) {
+        $paragraph->set('field_rc_row_limit', 4);
+        $paragraph->save();
+      }
+    }
+  }
+}
+
+/**
+ * UL-2208: Recreate marketo storage and preserve field data.
+ */
+function ul_enterprise_profile_update_8003() {
+  // Nuke caches to start.
+  drupal_flush_all_caches();
+  // The table schema for paragraph__field_marketo_form storage needs to be
+  // updated to the latest version in config, but in some cases table data
+  // already exists, preventing the updated configuration from taking hold.
+  // This effectively manipulates the tables so the updated schema can be
+  // applied and data integrity be maintained.
+  $field_tables = [
+    'paragraph__field_marketo_form',
+    'paragraph_revision__field_marketo_form',
+  ];
+
+  $default_config_storage = new FileStorage(drupal_get_path('profile', 'ul_enterprise_profile') . '/config/sync');
+  $new_storage_config = $default_config_storage->read('field.storage.paragraph.field_marketo_form');
+  if (!empty($new_storage_config)) {
+    $connection = \Drupal::database();
+    $update_schema = FALSE;
+
+    // Create copy of tables and copy content from original tables into those.
+    foreach ($field_tables as $table) {
+      $table_copy = $table . '__COPY';
+      if (!$connection->schema()->tableExists($table_copy)) {
+        $connection->query("CREATE TABLE {$table_copy} LIKE {$table}");
+        $connection->query("INSERT INTO {$table_copy} SELECT * FROM {$table}");
+
+        $update_schema = TRUE;
+      }
+    }
+
+    // Delete any existing field schema and its data. Then save the new schema.
+    if ($update_schema) {
+      FieldStorageConfig::load('paragraph.field_marketo_form')->delete();
+      field_purge_batch(250);
+      FieldStorageConfig::create($new_storage_config)->save();
+
+      // Put the content back in to the original tables and delete the copies.
+      foreach ($field_tables as $table) {
+        $table_copy = $table . '__COPY';
+        if ($connection->schema()->tableExists($table_copy)) {
+          $connection->query("INSERT INTO {$table} SELECT * FROM {$table_copy}");
+          $connection->query("DROP TABLE IF EXISTS {$table_copy}");
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Add policy menu and populate initial links.
+ */
+function ul_enterprise_profile_update_8004() {
+  $menu = ul_base_profile_read_config_from_sync('system.menu.policy-menu', 'ul_enterprise_profile');
+  Menu::create($menu)->save();
+
+  $paths = [
+    'Online Policies' => '/customer-resources/online-policies',
+    'About Cookies' => '/customer-resources/online-policies/about-cookies',
+  ];
+
+  $weight = -50;
+  foreach ($paths as $title => $path) {
+    // Default is the provided path.
+    $link = [
+      'uri' => $path,
+    ];
+    if (in_array($title, ['Online Policies', 'About Cookies'])) {
+      $alias = \Drupal::service('path_alias.manager')->getPathByAlias($path);
+
+      if ($alias != $path) {
+        $uri = Url::fromUri("internal:" . $alias);
+        $params = $uri->getRouteParameters();
+        $entity_type = key($params);
+        $entity = \Drupal::entityTypeManager()->getStorage($entity_type)->load($params[$entity_type]);
+        $link = [
+          'uri' => 'entity:' . $entity_type . '/' . $entity->id(),
+        ];
+      }
+    }
+    MenuLinkContent::create([
+      'menu_name' => 'policy-menu',
+      'link' => $link,
+      'title' => $title,
+      'weight' => $weight++,
+    ])->save();
+  }
+}

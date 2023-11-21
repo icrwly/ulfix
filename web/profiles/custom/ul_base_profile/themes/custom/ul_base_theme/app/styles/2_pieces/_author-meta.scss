@@ -1,0 +1,23 @@
+.author-meta {
+  line-height: 1;
+  position: relative;
+
+  &.has-image {
+    padding-#{$start-direction}: calc(30px + #{$spacing-unit});
+  }
+
+  img {
+    border-radius: 50%;
+    display: inline-block;
+    left: 0;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: auto;
+  }
+
+  span {
+    font-size: 1.2rem;
+    line-height: 1;
+  }
+}

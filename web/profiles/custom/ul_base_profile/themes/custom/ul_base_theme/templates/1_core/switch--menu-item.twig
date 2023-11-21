@@ -1,0 +1,19 @@
+{% extends '@ul_base_theme/1_core/switch.twig' %}
+
+{% if type == 'global' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--global-nav.twig' %}
+{% elseif type == 'primary' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--primary-nav.twig' %}
+{% elseif type == 'secondary' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--secondary-nav.twig' %}
+{% elseif type == 'local' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--local-nav.twig' %}
+{% elseif type == 'sub-menu' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--sub-menu.twig' %}
+{% elseif type == 'sub-bar' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--sub-bar.twig' %}
+{% elseif type == 'side-bar' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--side-bar.twig' %}
+{% else %}
+  {% set switch_template = '@ul_base_theme/2_pieces/menu-item/menu-item--default.twig' %}
+{% endif %}

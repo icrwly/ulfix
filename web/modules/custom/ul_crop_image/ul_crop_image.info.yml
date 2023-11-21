@@ -1,0 +1,5 @@
+name: UL Crop Image Module
+description: This module allow content author to crop an image to use as a thumbnail for file attachments.
+package: UL
+type: module
+core_version_requirement: ^9 || ^10

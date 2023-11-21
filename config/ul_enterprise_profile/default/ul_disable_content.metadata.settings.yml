@@ -1,0 +1,23 @@
+options:
+  options:
+    help: help
+    hub: hub
+    campaign_page: 0
+    event: 0
+    homepage: 0
+    knowledge: 0
+    landing_page: 0
+    location: 0
+    news: 0
+    offering: 0
+    page: 0
+    person: 0
+    regional_pages: 0
+    resource: 0
+    thankyou_pages: 0
+    tool: 0
+  submit: 'Save configuration'
+  form_build_id: form-GKDe6uUTiVvlTtr_kYs7MOvksEFVm0lX1pu1yyHY9TQ
+  form_token: mJnIz8B8FDM-zwoYjqr4fxO-RInTzzfu_6jR35FCHIU
+  form_id: ul_disable_content_settings_form
+  op: 'Save configuration'

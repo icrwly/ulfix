@@ -1,0 +1,46 @@
+{# Campaign Landing Page: "Full" display mode. #}
+{% extends '@ul_base_theme/5_layouts/t03-basic-detail-fullwidth.twig' %}
+{% set catch_cache = content|render %}
+{% set mainClass = 'campaign-page--main' %}
+{# If gated content. #}
+{% if marketo.gated_form %}
+  {% set mainClass = 'gated-content' %}
+{% endif %}
+{% set title = label.0['#context'].value %}
+{% set description = content.field_shared_subtitle.0['#context'].value %}
+{% set image = content.field_shared_header_media.0.url %}
+{% set span_class = image ? "span-12 span-6-t span-5-lt offset-1-lt span-6-d offset-1-d" : "span-12" %}
+{% set span_image_class = 'span-12 span-6-t span-6-lt span-5-d' %}
+{% set image_alt = content.field_shared_header_media.0.alt %}
+{% set topics = [
+  {content: content.field_of_service_category|render},
+] %}
+{% set tags = [] %}
+{% set sectionTags = {
+  'tags': tags
+} %}
+
+{# If use header media as full-width hero. #}
+  {% set video_background = content.field_shared_header_video|render|replace({ '<a href="https://ul.wistia.com/medias/': '' })|striptags|trim|replace({ '">':'' }) %}
+  {% set slide = [{
+    'title': title,
+    'image': image,
+    'image_alt': image_alt,
+    'description': description
+    }]
+  %}
+
+{% block before_content %}
+    {% embed '@ul_enterprise_theme/3_components/offerings--hero-fullwidth.html.twig' with slide %}{% endembed %}
+{% endblock %}
+{% block body %}
+  {{ content.body }}
+  {{ content.field_campaign_page_content }}
+  {{ content.field_campaign_page_bottom }}
+  {% if content.field_shared_hdr_login_cta.0 %}
+    <div id="hdrLoginCta">
+      {{ content.field_shared_hdr_login_cta }}
+    </div>
+  {% endif %}
+  {{ content.marketo }}
+{% endblock %}

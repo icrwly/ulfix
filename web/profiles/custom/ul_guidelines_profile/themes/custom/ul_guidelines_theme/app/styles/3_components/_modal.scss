@@ -1,0 +1,135 @@
+.modaal-wrapper {
+  .modaal-container {
+    border-radius: 5px;
+    max-width: 500px;
+  }
+  .modaal-content-container {
+    padding: ($spacing-unit--l - 0.5);
+  }
+  .modaal-close {
+    position: absolute;
+    right: -15px;
+    top: -50px;
+    &:after,
+    &:before {
+      width: 2px;
+    }
+    &:focus, &:hover {
+      background: none;
+      &:after,
+      &:before {
+        background: $blue;
+      }
+    }
+  }
+  .swiper-container-horizontal>.swiper-pagination-bullets,
+  .swiper-pagination-custom,
+  .swiper-pagination-fraction{
+    bottom:35px;
+  }
+  .swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet{
+    margin:0 6px;
+  }
+  .swiper-wrapper{
+    padding-bottom:60px;
+  }
+  .swiper-pagination-bullet{
+    height: 12px;
+    width: 12px;
+  }
+  h2{
+    color: $blueSecondary;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-top: 0;
+  }
+  a.cancel {
+    float: right;
+    margin-top: ($spacing-unit + 0.4);
+    padding-right: $spacing-unit;
+    position: relative;
+  }
+  form {
+    .form-actions {
+      float: right;
+      margin-top: $spacing-unit!important;
+      text-align: right;
+    }
+    label {
+      @include font-size(11, 11);
+      color: darken($gray,4%);
+      font-weight: 700;
+      margin-bottom: 0.7rem;
+    }
+    input,
+    textarea {
+      border-color: $grayLight;
+      transition: border-color 0.2s ease;
+      &:focus {
+        border-color: darken($grayLight, 10%);
+        outline: none;
+      }
+    }
+  }
+  &.form {
+    h2 {
+      @include font-size(24, 24);
+      color: $blueSecondary;
+      margin-top: 0;
+    }
+    label {
+      @include font-size(10, 10);
+      color: $gray;
+    }
+    input, select, textarea {
+      width: 100%;
+    }
+    .button, button, input[type=submit] {
+      width: auto;
+    }
+    .form-actions {
+      margin-bottom: 0 !important;
+    }
+    .cancel {
+      @include font-size(14, 14);
+      bottom: 3rem;
+      color: $gray;
+      position: absolute;
+    }
+  }
+  &.slider {
+    img {
+      margin: 45px auto;
+      max-width: 250px;
+    }
+    p {
+      margin: 0 auto 15px;
+      max-width: 520px;
+    }
+    .form-actions {
+      text-align: center;
+    }
+    .swiper-container {
+      margin-bottom: 30px;
+      padding-bottom: 30px;
+      .swiper-pagination {
+        bottom: 0;
+      }
+      .swiper-pagination-bullet {
+        height: 12px;
+        width: 12px;
+      }
+    }
+    .modaal-container {
+      max-width: 620px;
+    }
+    .modaal-content-container {
+      text-align: center;
+    }
+  }
+}
+
+.modaal-overlay {
+  background-color: $blueDark !important;
+  opacity: 0.7 !important;
+}

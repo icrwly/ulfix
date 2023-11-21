@@ -1,0 +1,317 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ul_report module.
+ */
+
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function ul_report_install() {
+  // Make sure that the view is installed on install of module.
+  $config_path = \Drupal::service('file_system')->realpath(\Drupal::service('module_handler')->getModule('ul_report')->getPath()) . '/config/install/';
+  $yml = file_get_contents($config_path . 'views.view.marketo_report.yml');
+
+  $view_config = Yaml::parse($yml);
+  $view_manager = \Drupal::entityTypeManager()->getStorage('view');
+
+  $loaded = $view_manager->load('test_node');
+  if (!$loaded) {
+    $view_manager->create($view_config)->save();
+  }
+
+}
+
+/**
+ * Implements hook_schema().
+ */
+function ul_report_schema() {
+
+  // Marketo Report Table.
+  $schema['marketo_report'] = [
+    'description' => 'Stores which nodes have been created through ul_testing test content creation tools.',
+    'fields' => [
+      'nid' => [
+        'description' => 'node ID of the the test node.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'created' => [
+        'description' => 'node creation date',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'changed' => [
+        'description' => 'node changed date',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'status' => [
+        'description' => 'published status',
+        'type' => 'int',
+        'size' => 'tiny',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'uid' => [
+        'description' => 'node author',
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'user_name' => [
+        'description' => 'name from users_field_data',
+        'type' => 'varchar',
+        'length' => 60,
+        'not null' => TRUE,
+      ],
+      'title' => [
+        'description' => 'node title',
+        'type' => 'varchar',
+        'length' => 255,
+        'not null' => TRUE,
+      ],
+      'type' => [
+        'description' => 'node type',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'type_label' => [
+        'description' => 'node type label',
+        'type' => 'varchar',
+        'length' => 22,
+        'not null' => TRUE,
+      ],
+      'langcode' => [
+        'description' => 'language code',
+        'type' => 'varchar',
+        'length' => 12,
+        'not null' => TRUE,
+      ],
+      'instance' => [
+        'description' => 'marketo instance',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'sub_cou' => [
+        'description' => 'sub_cou',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'last_interest' => [
+        'description' => 'last_interest',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'header_cta' => [
+        'description' => 'header_cta',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'header_cta_form_name' => [
+        'description' => 'header_cta_form_name',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'rr_cta' => [
+        'description' => 'rr_cta',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'rr_cta_form_name' => [
+        'description' => 'rr_cta_form_name',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'marketo_paragraphs' => [
+        'description' => 'marketo_paragraphs',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'form_types' => [
+        'description' => 'form_types',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+      'marketo_customizations' => [
+        'description' => 'marketo_customizations',
+        'type' => 'varchar',
+        'length' => 255,
+      ],
+
+    ],
+    'primary key' => ['nid', 'langcode'],
+  ];
+
+  // Node Media File Table.
+  $schema['node_media_file'] = [
+    'description' => 'Stores the media and/or file entities referenced by a given node.',
+    'fields' => [
+      'nid' => [
+        'description' => 'node ID of the node with referenced media and/or files.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'langcode' => [
+        'description' => 'The translation language of the node',
+        'type' => 'varchar',
+        'length' => 12,
+        'not null' => TRUE,
+      ],
+      'mid' => [
+        'description' => 'ID of the referenced media entity.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+      ],
+      'fid' => [
+        'description' => 'ID of the referenced file entity.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+      ],
+    ],
+    'indexes' => [
+      'nid' => [
+        'nid',
+      ],
+      'nid_langcode' => [
+        'nid',
+        'langcode',
+      ],
+      'mid' => [
+        'mid',
+      ],
+      'fid' => [
+        'fid',
+      ],
+    ],
+  ];
+
+  return $schema;
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ul_report_uninstall() {
+
+  $database = \Drupal::database();
+
+  // Drop the marketo_report table.
+  $database->schema()->dropTable('marketo_report');
+
+  // Remove the marketo_report view.
+  \Drupal::service('config.factory')->getEditable('views.view.marketo_report')->delete();
+
+  // Drop the node_media_file table.
+  $database->schema()->dropTable('node_media_file');
+
+}
+
+/**
+ * Drop marketo_report view and create marketo_report table if view exists.
+ */
+function ul_report_update_8003(&$sandbox) {
+
+  \Drupal::logger('UL Report')->notice('Creating marketo_report table');
+
+  // Get database connection.
+  $database = \Drupal::database();
+
+  // Drop view if exists.
+  $database->query('drop view if exists marketo_report');
+
+  // Create marketo_report table if this is not a new install.
+  if (!$database->schema()->tableExists('marketo_report')) {
+    $schema = ul_report_schema();
+    $database->schema()->createTable('marketo_report', $schema['marketo_report']);
+  }
+
+  \Drupal::service('ul_report.report_service')->updateMarketoReport();
+}
+
+/**
+ * Drop deprecated routing fields from marketo_report table.
+ */
+function ul_report_update_8004(&$sandbox) {
+
+  \Drupal::logger('UL Report')->notice('Dropping routing fields in marketo_report table');
+
+  // Get database connection.
+  $database = \Drupal::database();
+
+  $drop_fields = [
+    'type_label',
+    'oracle_industry',
+    'oracle_subindustry',
+    'area_interest',
+    'by_industry',
+    'by_industry_subindustries',
+  ];
+
+  foreach ($drop_fields as $field) {
+    $database->schema()->dropField('marketo_report', $field);
+  }
+
+  // Update the marketo_report table.
+  \Drupal::service('ul_report.report_service')->updateMarketoReport();
+
+}
+
+/**
+ * Create node_media_file table if it doesn't exist.
+ */
+function ul_report_update_8005(&$sandbox) {
+
+  // Get database connection.
+  $database = \Drupal::database();
+
+  // Create node_media_file table if this is not a new install.
+  if (!$database->schema()->tableExists('node_media_file')) {
+    $schema = ul_report_schema();
+    $database->schema()->createTable('node_media_file', $schema['node_media_file']);
+  }
+
+  \Drupal::service('ul_report.report_service')->updateNodeMediaAndFiles();
+
+}
+
+/**
+ * Drop deprecated routing fields from marketo_report table.
+ */
+function ul_report_update_9000(&$sandbox) {
+  // Delete the 'type_label' field from the table on Emergo and Au-nz sites.
+  \Drupal::logger('UL Report')->notice('Dropping routing fields type_label in marketo_report table');
+
+  // Get database connection.
+  $database = \Drupal::database();
+  $table = "marketo_report";
+  $drop_fields = [
+    'type_label',
+    'oracle_industry',
+    'oracle_subindustry',
+    'area_interest',
+    'by_industry',
+    'by_industry_subindustries',
+  ];
+
+  foreach ($drop_fields as $field) {
+    if ($database->schema()->fieldExists($table, $field)) {
+      $database->schema()->dropField($table, $field);
+    }
+  }
+
+  // Update the marketo_report table.
+  \Drupal::service('ul_report.report_service')->updateMarketoReport();
+}

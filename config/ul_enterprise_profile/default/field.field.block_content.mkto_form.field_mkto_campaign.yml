@@ -1,0 +1,24 @@
+uuid: eb3e545a-8374-4b0d-9a6e-0b5de9056f0c
+langcode: zh-hant
+status: true
+dependencies:
+  config:
+    - block_content.type.mkto_form
+    - field.storage.block_content.field_mkto_campaign
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: block_content.mkto_form.field_mkto_campaign
+field_name: field_mkto_campaign
+entity_type: block_content
+bundle: mkto_form
+label: 'Marketo Campaign'
+description: 'Enter the Marketo Campaign ID (for conversion attribution)'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

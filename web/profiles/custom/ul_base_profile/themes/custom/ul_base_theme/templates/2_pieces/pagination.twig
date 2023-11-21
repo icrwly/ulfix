@@ -1,0 +1,61 @@
+<nav class="pager" role="navigation" aria-labelledby="pagination-heading" data-module="pagination">
+  <h4 id="pagination-heading" class="sr-only">Pagination</h4>
+
+  {% block pager_select %}
+    <div class="pager__select">
+      {% block pager_current %}
+        {% for item in pager.pages %}
+          {% if item.active %}
+            <span class="pager__active-page pager__button">
+              <span class="sr-only">Page-{{loop.index}}</span>
+              <span><span class="text-gray-dark">Page</span> {{loop.index}} of {{loop.length}}</span>
+            </span>
+          {% endif %}
+        {% endfor %}
+      {% endblock %}
+      {% block pager_menu %}
+        <ul class="pager__menu">
+          {% block pager_menu_items %}
+            {% for item in pager.pages %}
+              {% if not item.active %}
+                <li class="pager__item{% if loop.first %} pager__item--first{% endif %}{% if loop.last %} pager__item--last{% endif %}">
+                  <a href="{{item.link}}" title="{{item.title}}">
+                    <span class="sr-only">Page-{{loop.index}}</span>
+                    Page {{loop.index}}
+                  </a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          {% endblock %}
+        </ul>
+      {% endblock %}
+    </div>
+  {% endblock %}
+
+  {% block pager_navigation %}
+    <ul class="pager__navigation">
+      {% if pager.prev %}
+        <li class="pager__item pager__item--previous">
+          {% block link_prev %}
+              <a class="pager__button" href="#" title="Go to previous page" rel="previous">
+                <div class="icon icon-bracket-l">
+                  <span class="sr-only">Previous page</span>
+                </div>
+              </a>
+          {% endblock %}
+        </li>
+      {% endif %}
+      {% if pager.next %}
+        <li class="pager__item pager__item--next">
+          {% block link_next %}
+              <a class="pager__button" href="#" title="Go to next page" rel="next">
+                <div class="icon icon-bracket-r">
+                  <span class="sr-only">Next page</span>
+                </div>
+              </a>
+          {% endblock %}
+        </li>
+      {% endif %}
+    </ul>
+  {% endblock %}
+</nav>

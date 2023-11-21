@@ -1,0 +1,9 @@
+{% embed '@ul_guidelines_theme/4_regions/page--actions.twig' %}
+    {% block page_share %}
+        {{ content.share }}
+    {% endblock %}
+{% endembed %}
+{% include '@ul_guidelines_theme/4_regions/section--main.twig' with {
+    title: label,
+    wysiwyg: content.body
+} %}

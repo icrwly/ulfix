@@ -1,0 +1,32 @@
+uuid: 18fb2a7f-8347-4ff2-8aaf-de486cbc4967
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_section_image
+    - media.type.crc_asset
+    - media.type.image
+    - node.type.homepage
+_core:
+  default_config_hash: 6yYCs9o-GNAMuaFv_mjhZxpvLagYYSwjlmpFX5Y-N58
+id: node.homepage.field_section_image
+field_name: field_section_image
+entity_type: node
+bundle: homepage
+label: 'Section Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      crc_asset: crc_asset
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

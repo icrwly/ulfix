@@ -1,0 +1,21 @@
+uuid: c085901b-a5a7-4713-a52d-eec58e044d24
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_newsletter_type
+    - ul_marketo.marketo_form_type.email_form
+  module:
+    - options
+id: marketo_form.email_form.field_newsletter_type
+field_name: field_newsletter_type
+entity_type: marketo_form
+bundle: email_form
+label: 'Newsletter Type'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

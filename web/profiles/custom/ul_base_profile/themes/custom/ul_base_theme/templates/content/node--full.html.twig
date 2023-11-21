@@ -1,0 +1,16 @@
+{% extends '@ul_base_theme/5_layouts/t03-basic-detail.twig' %}
+{% set catch_cache = content|render %}
+{% set t03Title = {
+    'pageTitle': true,
+    'title': label,
+    'topics': [
+        {content: content.field_shared_topic|render},
+        {content: content.field_shared_industry|render}
+    ]
+}%}
+{% set t03Tags = {} %}
+{% set t03References = {} %}
+
+{% block content %}
+    {{ content.body }}
+{% endblock %}

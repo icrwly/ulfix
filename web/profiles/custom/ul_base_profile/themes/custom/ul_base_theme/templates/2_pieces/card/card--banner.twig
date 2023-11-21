@@ -1,0 +1,21 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = class ~ " card--banner" %}
+{% set class = class ~ ' bg-' ~ color|default('blue') %}
+
+{% block content %}
+  <div class="content-container">
+    {% block card_title %}
+      <h3>{{- title -}}</h3>
+    {% endblock %}
+  </div>
+  <div class="bottom-row">
+    {% block card_subtitle %}
+      <h4>{{- subtitle -}}</h4>
+    {% endblock %}
+    {% block card_profile_link %}
+      {% if profile.link %}
+        <a class="arrow-link" href="{{- profile.link -}}">{{- profile.name -}}</a>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

@@ -1,0 +1,8 @@
+.filter-bar {
+  .form-item {
+    width: 92%;
+    @include breakpoint(640px) {
+      width: 100%;
+    }
+  }
+}

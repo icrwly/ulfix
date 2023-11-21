@@ -1,0 +1,25 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = "card--aside-default" %}
+
+{% block content %}
+  <a href="{{ link }}" title="{{- title -}}" aria-label="{{- title -}}">
+    <div class="image-container">
+      {% block card_image %}
+        <img src="{{- image -}}" alt="{{- imageAlt -}}" />
+      {% endblock %}
+    </div>
+    <div class="content-container">
+      {% block card_topic %}
+        {% if topics %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+        {% endif %}
+      {% endblock %}
+      {% block card_title %}
+        <h3>{{- title -}}</h3>
+      {% endblock %}
+      {% block card_meta %}
+        <p class="meta">{{- meta -}}</p>
+      {% endblock %}
+    </div>
+  </a>
+{% endblock %}

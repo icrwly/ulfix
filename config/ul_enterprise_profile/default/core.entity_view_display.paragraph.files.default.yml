@@ -1,0 +1,60 @@
+uuid: ab726727-c49a-4827-a254-3ac6133783c9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.files.field_files_description
+    - field.field.paragraph.files.field_files_files
+    - field.field.paragraph.files.field_files_title
+    - field.field.paragraph.files.field_hash_target
+    - field.field.paragraph.files.field_shared_bg_color
+    - paragraphs.paragraphs_type.files
+  module:
+    - options
+    - text
+id: paragraph.files.default
+targetEntityType: paragraph
+bundle: files
+mode: default
+content:
+  field_files_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_files_files:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: full
+      link: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_files_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hash_target:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_shared_bg_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

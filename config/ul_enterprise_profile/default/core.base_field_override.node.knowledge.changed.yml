@@ -1,0 +1,18 @@
+uuid: 406dd2f9-c65c-4531-a528-18d3d553ee24
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.knowledge
+id: node.knowledge.changed
+field_name: changed
+entity_type: node
+bundle: knowledge
+label: Changed
+description: 'The time that the node was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

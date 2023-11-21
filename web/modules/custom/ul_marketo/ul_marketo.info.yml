@@ -1,0 +1,7 @@
+name: UL Marketo
+type: module
+description: 'Marketo Integration for UL'
+package: Web services
+core_version_requirement: ^9 || ^10
+dependencies:
+  - entity_reference_revisions:entity_reference_revisions

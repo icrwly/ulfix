@@ -1,0 +1,31 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--homepage-articles " ~ class %}
+
+{% block content %}
+  <div class="wrapper">
+    {% block title_bar %}
+      {% if titleBar %}
+        {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+      {% endif %}
+    {% endblock %}
+    <a class="featured-card-link" href="{{- banner.link -}}">
+      {% embed '@ul_base_theme/4_regions/section--banner.twig' with banner only %}
+        {% block banner_title %}
+          {% if title %}
+            <h3>{{- title -}}</h3>
+          {% endif %}
+        {% endblock %}
+      {% endembed %}
+    </a>
+    {% embed '@ul_base_theme/4_regions/section--cards.twig' %}
+      {% block title_bar %}{% endblock %}
+      {% block section_cards %}
+        {% for card in cardList %}
+          <div class="grid-item">
+            {% include '@ul_base_theme/1_core/switch--card.twig' with card only %}
+          </div>
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+  </div>
+{% endblock %}

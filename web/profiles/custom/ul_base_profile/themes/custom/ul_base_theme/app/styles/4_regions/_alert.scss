@@ -1,0 +1,169 @@
+.alert {
+  background-color: $white;
+  border-bottom: 1px solid rgba($black, .1);
+  color: $black;
+  display:none;
+  padding-bottom: $spacing-unit * 1.5;
+  padding-top: $spacing-unit * 1.5;
+  @include breakpoint($desktop) {
+    padding-bottom: $spacing-unit--l;
+    padding-top: $spacing-unit--l;
+  }
+
+  &.is-general {
+    background-color: $blue;
+    .alert__close {
+      color: $blue;
+    }
+  }
+
+  &.is-info {
+    background-color: #f18a21,
+  }
+
+  &.is-critical {
+    background-color: $red;
+
+    .alert__close {
+      color: $red;
+    }
+  }
+
+  &.is-dark {
+    &,
+    .button--link {
+      color: $white;
+    }
+
+    .alert__close {
+      background-color: rgba($white, .9);
+      &:hover {
+        background-color: rgba($white, 1);
+      }
+    }
+  }
+
+  &.has-close-btn {
+    .alert__row-container {
+      padding-#{$end-direction}: $spacing-unit + 3.4rem;
+      position: relative;
+      @include breakpoint($tablet) {
+        padding-#{$end-direction}: $spacing-unit--l + 3.4rem;
+      }
+      @include breakpoint($desktop) {
+        padding-#{$end-direction}: $spacing-unit--xl + 4.2rem;
+      }
+    }
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.15em;
+    line-height: 1.5;
+    text-transform: uppercase;
+  }
+
+  &__description {
+    font-weight: 300;
+    @include breakpoint($desktop) {
+      font-size: 1.8rem;
+    }
+
+    &,
+    .editor-content p,
+    .editor-content li {
+      line-height: 1.5;
+      margin-top: 0;
+      margin-bottom: .5 * $spacing-unit--s;
+    }
+
+    a {
+      color: $black;
+      text-decoration: underline;
+    }
+  }
+
+  &__buttons {
+    margin-top: $spacing-unit;
+    @include breakpoint($desktop) {
+      margin-top: $spacing-unit--l;
+    }
+
+    .button {
+      &--primary {
+        border-width: 2px;
+        font-weight: 600;
+        @include breakpoint(max-width $desktop - 1) {
+          font-size: 1.2rem;
+          padding: $button-padding $button-padding * 1.5;
+        }
+        @include breakpoint($desktop) {
+          line-height: 1.5;
+          padding-left: $button-padding * 2;
+          padding-right: $button-padding * 2;
+        }
+      }
+
+      &--secondary {
+        font-weight: 300;
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+        text-transform: none;
+      }
+    }
+  }
+
+  &__button-container {
+    align-items: center;
+    display: flex;
+    @include breakpoint(max-width $desktop - 1) {
+      margin-top: $spacing-unit * 1.5;
+    }
+    @include breakpoint($desktop) {
+      justify-content: flex-end;
+    }
+  }
+
+  .button--link {
+    color: $black;
+    text-decoration: underline;
+  }
+
+  &__close {
+    #{$end-direction}: 0;
+    background-color: rgba($black, .1);
+    border-radius: 50%;
+    color: $black;
+    display: block;
+    height: 3.4rem;
+    padding: $spacing-unit--xs;
+    position: absolute;
+    top: 0;
+    transition: background-color $transition;
+    width: 3.4rem;
+    @include breakpoint($desktop) {
+      height: 4.2rem;
+      top: 10%;
+      transform: translateY(-50%);
+      width: 4.2rem;
+    }
+    &:hover {
+      background: rgba($black, .2);
+    }
+  }
+
+  &__close-icon {
+    display: block;
+    font-size: 1.8rem;
+    left: 50%;
+    line-height: 1;
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    @include breakpoint($desktop) {
+      font-size: 2.4rem;
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{% block news_title_bar %}
+  {% if titleBar %}
+    {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+  {% endif %}
+{% endblock %}
+<div class="column news-column">
+  {% block news_cards %}
+      {% include '@ul_base_theme/3_components/homepage__news-column__cards.twig' with cardList %}
+  {% endblock %}
+</div>

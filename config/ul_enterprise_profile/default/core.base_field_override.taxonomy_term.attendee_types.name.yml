@@ -1,0 +1,18 @@
+uuid: c2282d41-4b02-4b6f-9f15-26380abd44ba
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.attendee_types
+id: taxonomy_term.attendee_types.name
+field_name: name
+entity_type: taxonomy_term
+bundle: attendee_types
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

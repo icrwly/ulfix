@@ -1,0 +1,5 @@
+services:
+  ul_onetrust.commands:
+    class: Drupal\ul_onetrust\Commands\OnetrustCommands
+    tags:
+      -  { name: drush.command }

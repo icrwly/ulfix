@@ -1,0 +1,30 @@
+uuid: a9a26689-0399-482c-ab50-87bfda080aab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_header_video
+    - node.type.offering
+  module:
+    - tmgmt_content
+    - video_embed_field
+third_party_settings:
+  tmgmt_content:
+    excluded: true
+id: node.offering.field_shared_header_video
+field_name: field_shared_header_video
+entity_type: node
+bundle: offering
+label: 'Header Video'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    wistia: wistia
+    vimeo: '0'
+    youtube: '0'
+    youtube_playlist: '0'
+field_type: video_embed_field

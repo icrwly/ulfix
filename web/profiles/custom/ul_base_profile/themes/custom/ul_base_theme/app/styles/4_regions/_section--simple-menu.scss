@@ -1,0 +1,33 @@
+.section.section--simple-menu {
+  background-color: $background-color;
+  border-radius: $border-radius;
+  padding-bottom: $spacing-unit * 1.5;
+  padding-top: $spacing-unit * 1.5;
+
+  .title-bar {
+    margin-bottom: $spacing-unit;
+    padding-bottom: $spacing-unit;
+  }
+
+  .title-bar__title {
+    color: $text-color--light;
+    font-size: 1.6rem;
+    letter-spacing: 0.025em;
+  }
+
+  .section__cta {
+    margin-top: $spacing-unit * 1.5;
+
+    .button {
+      border-radius: 0;
+      padding-left: $spacing-unit * 1.5;
+      padding-right: $spacing-unit * 1.5;
+      text-align: #{$start-direction};
+      text-transform: none;
+    }
+  }
+
+  .button {
+    display: block;
+  }
+}

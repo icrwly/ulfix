@@ -1,0 +1,10 @@
+/* Associated content - at the bottom of the Person content type - full display mode. */
+.section--associated-content {
+    background: $gray-lighter;
+    .title-bar {
+        border: none;
+    }
+    .image-container {
+        background: $gray-medium;
+    }
+}

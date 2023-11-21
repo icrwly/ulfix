@@ -1,0 +1,31 @@
+<a href="{{- item.linkHref -}}" class="listing-item listing-item--search">
+  {% block listingItem_image %}
+    <img src="{{- item.image -}}" alt="{{- item.imageAlt-}}">
+  {% endblock %}
+  <div class="content-container">
+    {% if item.category %}
+      {% block listingItem_category %}
+        <p class="category">{{- item.category -}}</p>
+      {% endblock %}
+    {% endif %}
+    {% block listingItem_title %}
+      <h3>{{- item.title -}}</h3>
+    {% endblock %}
+  </div>
+  <div class="meta-container">
+    {% block listingItem_uploaded %}
+			{% if item.uploaded %}
+	      <p>{{- item.uploaded -}}</p>
+			{% endif %}
+    {% endblock %}
+    {% block listingItem_size %}
+			{% if item.size %}
+				<p>{{- item.size -}}</p>
+			{% endif %}
+    {% endblock %}
+    {% block listingItem_section %}
+      <p class="section">{{- item.section -}}</p>
+      <div class="icon icon-search-type icon-{{- item.sectionIcon -}}"></div>
+    {% endblock %}
+  </div>
+</a>

@@ -1,0 +1,33 @@
+{% extends "@ul_base_theme/2_pieces/menu-item/menu-item.twig" %}
+{% set class = "menu-item--secondary-nav span-auto" %}
+
+{% if below %}
+  {% set add_link_attr = {
+    'data-group': 'main-menu',
+    'data-close-on-load': 'true',
+    'data-min-width': '992'
+  } %}
+{% endif %}
+
+{% block below %}
+  {% if below %}
+    <div class="popover popover--align-end">
+      {# If item does not have a title and is iterable, it is a nested menu not an item #}
+      {% if not below|first.title and below|first is iterable %}
+        {% for item in below %}
+          {% include '@ul_base_theme/3_components/menu.twig' with {
+            items: item,
+            menu_class: 'menu-list--group list-unstyled',
+            menu_level: 0
+          } only %}
+        {% endfor %}
+      {% else %}
+        {% include '@ul_base_theme/3_components/menu.twig' with {
+          items: below,
+          menu_class: 'menu-list--group list-unstyled',
+          menu_level: 0
+        } only %}
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}

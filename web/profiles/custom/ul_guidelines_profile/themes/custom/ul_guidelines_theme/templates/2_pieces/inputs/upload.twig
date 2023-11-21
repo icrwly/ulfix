@@ -1,0 +1,11 @@
+<div class="form-group form-group--upload">
+	<label for="{{ input.name }}" class="label {{ input.required ? 'label--required' : ''}}">{{ input.label }}</label>
+	<div class="upload-files">
+		<div class="upload-files__inner" data-module="upload">
+			<span class="upload-files__icon icon icon-cloud"></span>
+			<span class="upload-files__label">Drag and drop here of <a data-trigger>browse</a> to upload.</span>
+			<span class="upload-files__size">Maximum upload size: 25MB</span>
+			<input aria-label="{{ input.label }}" type="file" name="{{ input.name }}" {{ input.required ? 'required' : '' }}>
+		</div>
+	</div>
+</div>

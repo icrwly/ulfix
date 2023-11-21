@@ -1,0 +1,76 @@
+///*------------------------------------*\
+//    #UTILITY - COLORS
+//\*------------------------------------*/
+/* Note: the palette function is included here (vs in the tools directory)
+ * since both of these needed in order to work properly
+ */
+
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get(map-get($palettes, colors), $palette), $tone);
+}
+
+$palettes: (
+  colors: (
+    black: (
+      base: #504d4b,
+      menu: #00101e
+    ),
+    blue: (
+      base: #0086e2,
+      dark: #001e38,
+      secondary: #004169
+    ),
+    gray: (
+      base: #9b9b9b,
+      dark: #4a4a4a,
+      light: #dbdbdb,
+      lighter: #f3f3f3,
+      sideRail: #f3f3f3
+    ),
+    green: (
+      base: #8fd300,
+      step: #6fc618
+    ),
+    orange: (
+      base: #ef8200,
+      light: #f38a02
+    ),
+    red: (
+      base: #c30e2e,
+      light: #d0021b
+    ),
+    white: (
+      base: #fff,
+    )
+  )
+);
+
+$black: palette(black);
+$blackMenu: palette(black, menu);
+$blue: palette(blue);
+$blueHover: darken($blue, 10);
+$blueSecondary: palette(blue, secondary);
+$blueDark: palette(blue, dark);
+$gray: palette(gray);
+$grayLight: palette(gray, light);
+$grayLighter: palette(gray, lighter);
+$grayDark: palette(gray, dark);
+$graySideRail: palette(gray, sideRail);
+$green: palette(green);
+$greenStep: palette(green, step);
+$orange: palette(orange);
+$orangeLight: palette(orange, light);
+$red: palette(red);
+$redLight: palette(red, light);
+$white:   palette(white);
+
+$approved: $green;
+$pending: $orange;
+$error: $red;
+
+
+/** Ex. Light brown
+p {
+  color: palette(brown, light);
+}
+**/

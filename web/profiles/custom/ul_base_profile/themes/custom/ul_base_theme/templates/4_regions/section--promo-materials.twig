@@ -1,0 +1,78 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--promo-materials" %}
+{% set inner_class = "wrapper max-width--large-desktop" %}
+
+{# Always show bg for now #}
+{% set has_bg = true %}
+
+{% if has_bg %}
+  {% set class = class ~ " has-bg bg-gray-lightest" %}
+{% endif %}
+
+{% block section_body %}
+  <div class="row">
+    <div class="span-12 span-6-t">
+      <div class="section__image">
+        {% if image %}
+          <div class="image-container">
+            <img src="{{ image }}" alt="{{ image_alt }}">
+          </div>
+        {% endif %}
+      </div>
+    </div>
+    <div class="span-12 span-6-t">
+      <div class="section__content">
+        {% block topics %}
+          {% if topics %}
+            {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with { widget: topics } %}
+          {% endif %}
+        {% endblock %}
+        {% block title %}
+          {% if title %}
+            <h2 class="section__title">{{- title -}}</h2>
+          {% endif %}
+        {% endblock %}
+        {% block meta %}
+          {% if meta %}
+            <div class="section__meta h5">{{- meta -}}</div>
+          {% endif %}
+        {% endblock %}
+        {% block description %}
+          {% if description %}
+            <div class="section__description">
+              <p>{{- description -}}</p>
+            </div>
+          {% endif %}
+        {% endblock %}
+        {% if primary_cta or secondary_ctas %}
+          <div class="section__buttons">
+            {% if secondary_ctas %}
+              {% set secondary_ctas_row_class = secondary_ctas|length > 1 ? 'button-row--half' %}
+              <div class="button-row {{ secondary_ctas_row_class }}">
+                  {% block secondary_ctas %}
+                    {% for item in secondary_ctas %}
+                        {% include '@ul_base_theme/2_pieces/button.twig' with {
+                          name: item.title,
+                          link: item.url,
+                          class: 'button--gray-outline'
+                        } %}
+                    {% endfor %}
+                  {% endblock %}
+              </div>
+            {% endif %}
+            <div class="button-row">
+              {% if primary_cta %}
+                {% include '@ul_base_theme/2_pieces/button.twig' with {
+                  name: primary_cta.title,
+                  link: primary_cta.url,
+                  class: 'button--blue',
+                  icon: 'download'
+                } %}
+              {% endif %}
+            </div>
+          </div>
+        {% endif %}
+      </div>
+    </div>
+  </div>
+{% endblock %}

@@ -1,0 +1,30 @@
+{#
+/**
+ * @file
+ * Default theme implementation of a views exposed form.
+ *
+ * Available variables:
+ * - form: A render element representing the form.
+ *
+ * @see template_preprocess_views_exposed_form()
+ *
+ * @ingroup themeable
+ */
+#}
+{% extends '@ul_base_theme/2_pieces/search-bar--group.twig' %}
+{% set icon = false %}
+{% set type = 'full' %}
+{% block text_input %}
+    {% if q is not empty %}
+        {#
+          This ensures that, if clean URLs are off, the 'q' is added first,
+          as a hidden form element, so that it shows up first in the POST URL.
+        #}
+        {{ q }}
+    {% endif %}
+    {{ form.keyword }}
+{% endblock %}
+
+{% block submit_input %}
+    {{ form.actions }}
+{% endblock %}

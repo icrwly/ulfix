@@ -1,0 +1,9 @@
+base:
+  uri: http://base.${env.VIRTUAL_HOST}
+  root: /var/www/docroot
+enterprise:
+  uri: http://enterprise.${env.VIRTUAL_HOST}
+  root: /var/www/docroot
+guidelines:
+  uri: http://guidelines.${env.VIRTUAL_HOST}
+  root: /var/www/docroot

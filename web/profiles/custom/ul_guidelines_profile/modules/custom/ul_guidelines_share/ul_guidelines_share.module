@@ -1,0 +1,121 @@
+<?php
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\node\Entity\NodeType;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityDisplayInterface;
+use Drupal\Core\Render\Markup;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\node\NodeInterface;
+use Drupal\Core\Access\AccessResult;
+use Drupal\block\Entity\Block;
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function ul_guidelines_share_entity_extra_field_info() {
+
+  // Creating three pseudo fields, one for files and one for sharng.
+  $extra = array();
+
+  foreach (NodeType::loadMultiple() as $bundle) {
+
+    $id = $bundle->Id();
+    // Only apply these fields to application or brand content type.
+    if (($id == 'guideline') || ($id == 'landing_page')) {
+      $extra['node'][$id]['display']['share'] = array(
+        'label' => t('Share'),
+        'weight' => 100,
+        'visible' => true,
+      );
+    }
+
+  }
+
+  return $extra;
+
+}
+
+function ul_guidelines_share_node_view(array &$build, EntityInterface $entity, EntityDisplayInterface $display, $view_mode) {
+
+  if ($display->getComponent('share')) {
+    // TODO: This is just a placeholder until we build a proper modal.
+    $build['share'] = [
+      '#type' => 'markup',
+      '#markup' => '<a href="#share" class="action button icon icon-share" role="button" data-module="modal">' . t('Share') . '</a>',
+    ];
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function ul_guidelines_share_theme($existing, $type, $theme, $path) {
+  $items = [];
+  $items['ul_guidelines_share_share_form_email'] = [
+    'template' => 'share-form-email',
+    'variables' => [
+      'username' => NULL,
+      'email_message' => NULL,
+      'shared_url' => NULL,
+    ]
+  ];
+
+  return $items;
+}
+
+/**
+ * Implements hook_mail().
+ */
+function ul_guidelines_share_mail($key, &$message, $params) {
+  switch ($key) {
+    case 'share_form_email':
+      // Using a custom template for this email.
+      $body_data = array (
+        '#theme' => 'ul_guidelines_share_share_form_email',
+        '#username' => \Drupal::currentUser()->getAccountName(),
+        '#email_message' => t($params['message']),
+        '#shared_url' => $params['shared_url'],
+      );
+
+      // Preparing the message.
+      $from = \Drupal::config('system.site')->get('mail');
+      $message['from'] = $from;
+      $message['subject'] = t('A UL page has been shared with you.');
+
+      $text[] = \Drupal::service('renderer')->render($body_data);
+      $message['body'] = array_map(function ($text) {
+        return Markup::create($text);
+      }, $text);
+
+      // Changing some headers.
+      $message['headers']['Content-Type'] = 'text/html; charset=UTF-8';
+      $message['headers']['Sender'] = $from;
+      $message['headers']['From'] = \Drupal::config('system.site')->get('name') . ' <' . $from . '>';
+      break;
+  }
+}
+
+/**
+ * Implements hook_preprocess_page()
+ */
+function ul_guidelines_share_preprocess_page(&$variables) {
+  // Pass the query string parameter to the page template.
+  $referrer_url = \Drupal::request()->query->get('referrer');
+  if (!empty($referrer_url)) {
+    $variables['referrer']  = $referrer_url;
+  }
+}
+
+/**
+ * Implements hook_node_access().
+ */
+function ul_guidelines_share_node_access(NodeInterface $node, $op, AccountInterface $account) {
+  // Allow access to content if the URL has query parameter referrer=share.
+  if ($node->isPublished() && $op == 'view' && $account->isAnonymous()) {
+    $referrer = \Drupal::request()->query->get('referrer');
+    if ($referrer && $referrer == 'share') {
+      return AccessResult::allowed();
+    }
+  }
+}

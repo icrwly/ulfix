@@ -1,0 +1,10 @@
+@mixin hero-height {
+  @include breakpoint($desktop) {
+    height: 100vw * $hero-aspect-ratio;
+    max-height: 75vh;
+    min-height: 210px;
+  }
+  @include breakpoint($desktop, min-height (900px * $hero-aspect-ratio)) {
+    max-height: 900px * $hero-aspect-ratio;
+  }
+}

@@ -1,0 +1,8 @@
+uuid: 22dc4de6-0fb1-48c6-8185-a941343ce941
+langcode: en
+status: true
+dependencies: {  }
+name: 'Flagship Theme'
+vid: flagship_theme
+description: 'Note: Only Tanya can assign the "Flagship Theme" to a piece of Knowledge/Insight content.'
+weight: 0

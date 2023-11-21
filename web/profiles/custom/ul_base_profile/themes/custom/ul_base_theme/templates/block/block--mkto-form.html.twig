@@ -1,0 +1,54 @@
+{# @file: block--mkto-form.html.twig #}
+{% set class = "section section--mkto-form-block max-width--large-tablet" %}
+
+{# Values for the New Marketo Instance (2021): #}
+{% set mkto_base_url = 'https://empoweringtrust.ul.com' %}
+{% set mkto_forms_api_url = 'https://empoweringtrust.ul.com/js/forms2/js/forms2.min.js' %}
+{% set mkto_ul_id = '117-ZLR-399' %}
+
+{# Variables for this custom block: #}
+{% set mkto_form_id = content.field_mkto_form_id.0['#markup'] %}
+{% set mkto_thankyou_url = content.field_mkto_thank_you.0['#context']['value'] %}
+{% set mkto_last_interest = content.field_mkto_last_interest.0['#context']['value'] %}
+{% if mkto_block_form_lang is not empty %}
+  {% set mkto_form_lang = mkto_block_form_lang %}
+{% else %}
+  {% set mkto_form_lang = 'en' %}
+{% endif %}
+{% if marketo_optin_file is not empty %}
+  {% set optin_file = marketo_optin_file %}
+{% endif %}
+{% if content.field_mkto_button_text.0['#context']['value'] is not empty %}
+  {% set mkto_bttn_txt = content.field_mkto_button_text.0['#context']['value'] %}
+{% endif %}
+{% if content.field_mkto_form_title.0['#context']['value'] is not empty %}
+  {% set mkto_title = content.field_mkto_form_title.0['#context']['value'] %}
+{% endif %}
+{% if content.field_mkto_form_descr.0['#context']['value'] is not empty %}
+  {% set mkto_description = content.field_mkto_form_descr.0['#context']['value'] %}
+{% endif %}
+{% if content.field_mkto_campaign.0['#context']['value'] is not empty %}
+  {% set mkto_campaign = content.field_mkto_campaign.0['#context']['value'] %}
+{% endif %}
+{% if elements["#configuration"]["label"] is not empty %}
+  {% set block_label = elements["#configuration"]["label"] %}
+{% endif %}
+
+{# Set the opt-in JS variable: #}
+<script id="mkto_optin">
+var optinlang = "{{ mkto_form_lang }}";
+var optinfile = "{{ optin_file }}";
+</script>
+
+<section {{ attributes.addClass(class) }}>
+  <div class="paragraph-gutter">
+    {% block content %}
+      {# Include the form embed code. #}
+      {% include '@ul_base_theme/block/inc-form.html.twig' %}
+      {% block recaptcha %}
+        {# Include the reCaptcha code. #}
+        {% include '@ul_base_theme/block/inc-recaptcha.html.twig' %}
+      {% endblock recaptcha %}
+    {% endblock %}
+  </div>
+</section>

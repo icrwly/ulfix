@@ -1,0 +1,19 @@
+uuid: ac6f59d4-9c51-4526-b43a-17986b2a081f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_descript_link_title
+    - paragraphs.paragraphs_type.descript_link
+id: paragraph.descript_link.field_descript_link_title
+field_name: field_descript_link_title
+entity_type: paragraph
+bundle: descript_link
+label: Title
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

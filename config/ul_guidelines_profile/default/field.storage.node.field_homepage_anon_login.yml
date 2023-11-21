@@ -1,0 +1,21 @@
+uuid: df060dcb-e467-499f-9484-6bfc91b09f3b
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+_core:
+  default_config_hash: TWo6I6TV-q9PiSL0gbn0QyK_BPNS3cruZ44nGzLF24I
+id: node.field_homepage_anon_login
+field_name: field_homepage_anon_login
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

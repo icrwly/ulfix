@@ -1,0 +1,27 @@
+uuid: 8400cf4c-8819-4c7d-839b-3aa03637d4a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field__customer_comments
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.contact_form_configurable.field__customer_comments
+field_name: field__customer_comments
+entity_type: marketo_form
+bundle: contact_form_configurable
+label: 'Customer Comments'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: required
+default_value_callback: ''
+settings: {  }
+field_type: list_string

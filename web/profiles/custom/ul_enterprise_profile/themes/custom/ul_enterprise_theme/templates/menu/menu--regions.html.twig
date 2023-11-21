@@ -1,0 +1,24 @@
+{% embed '@ul_base_theme/2_pieces/footer-choose-region.twig' with {
+  region_label: 'Choose a region'|t
+} %}
+  {% set regionsMenu = {
+    label: 'Choose a region'|t,
+    id: 'choose-region',
+    name: 'choose-region',
+    options: []
+  } %}
+  {% block regionMenu %}
+    {% if items %}
+      {% for item in items %}
+        {% set option = {
+          "value": item.url|render,
+          "text": item.title
+        } %}
+        {% set regionsMenu = regionsMenu|merge({
+          options : regionsMenu.options|merge([option])
+        }) %}
+      {% endfor %}
+      {% include '@ul_base_theme/2_pieces/form-item--select.twig' with regionsMenu %}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

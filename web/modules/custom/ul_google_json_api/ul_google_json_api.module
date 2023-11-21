@@ -1,0 +1,95 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for UL Google JSON API module.
+ *
+ * @DCG
+ * This file is no longer required in Drupal 8.
+ * @see https://www.drupal.org/node/2217931
+ */
+
+use Drupal\search\Entity\SearchPage;
+
+/**
+ * Search results page search form: translation of Search.
+ */
+function ul_google_json_api_preprocess_input(&$variables) {
+  $route_name = \Drupal::routeMatch()->getRouteName();
+  if (stristr($route_name, "search.view_google_json_api_search")) {
+    // Translation of Submit button.
+    if ($variables['attributes']['type'] == "submit") {
+      $variables['attributes']['value'] = t('Search');
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_item_list__search_results__google_json_api_search().
+ *
+ * Overwrite the message for when there are no search results.
+ */
+function ul_google_json_api_preprocess_item_list__search_results__ul_google_json_api_search(&$variables) {
+
+  $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $translation = ul_google_json_api_get_translation_words($current_language, 'no_results_message');
+
+  $variables['empty'] = [
+    '#theme' => 'google_json_api_no_results_message',
+    '#message' => $translation,
+    '#plugin_id' => 'google_json_api_search',
+    '#attached' => [
+      'library' => [
+        'google_json_api/googlejsonapiresults',
+      ],
+    ],
+  ];
+
+}
+
+/**
+ * Returns the ul_google_json_api_search plugin configuration.
+ *
+ * @param array $variables
+ *   Variables available to preprocess functions.
+ *
+ * @return array
+ *   Returns ul_google_json_api_search page configuration or empty.
+ */
+function _ul_google_json_api_get_configuration(array &$variables) {
+
+  $entity = \Drupal::service('current_route_match')->getParameter('entity');
+  $configuration = [];
+
+  if ($entity instanceof SearchPage) {
+
+    $plugin = $entity->getPlugin()->getPluginId();
+
+    if ($plugin == 'ul_google_json_api_search') {
+      $configuration = $entity->getPlugin()->getConfiguration();
+    }
+
+  }
+
+  return $configuration;
+}
+
+/**
+ * Get the translation word based the langcode.
+ *
+ * @return string
+ *   The string of word.
+ */
+function ul_google_json_api_get_translation_words($current_lang, $key) {
+  $words = t("We're having trouble with your search right now. Please try again later.");
+
+  $language_options = \Drupal::configFactory()
+    ->getEditable('ul_google_json_api.translation_language')
+    ->getRawData();
+  if (!empty($language_options)) {
+    $language = $language_options[$current_lang];
+    $words = $language[$key];
+  }
+
+  return $words;
+}

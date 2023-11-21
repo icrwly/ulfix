@@ -1,0 +1,5 @@
+name: 'ACSF Metadata'
+type: module
+description: 'Module for working with customized site metadata for ACSF sites.'
+core_version_requirement: ^9 || ^10
+package: 'ACSF'

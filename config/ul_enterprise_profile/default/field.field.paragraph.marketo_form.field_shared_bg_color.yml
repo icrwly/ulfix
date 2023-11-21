@@ -1,0 +1,21 @@
+uuid: 4e4f5800-63e5-4c4f-aff1-c2bf3f0a9390
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_bg_color
+    - paragraphs.paragraphs_type.marketo_form
+  module:
+    - options
+id: paragraph.marketo_form.field_shared_bg_color
+field_name: field_shared_bg_color
+entity_type: paragraph
+bundle: marketo_form
+label: 'Background Color'
+description: 'You may select the background color for this paragraph (content section).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

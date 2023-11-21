@@ -1,0 +1,27 @@
+.section--image-row {
+  .image-container {
+    margin-bottom: 8px;
+    img {
+      width: 100%;
+    }
+  }
+  .section__body {
+    .description {
+      @include breakpoint(max-width $tablet) {
+        margin-bottom: $spacing-unit;
+      }
+    }
+  }
+  img:hover+.icon_popup {
+    visibility:visible;
+  }
+  .icon_popup:hover {
+    visibility: visible;
+  }
+  .icon_popup {
+    float: right;
+    position: relative;
+    top: -40px;
+    right: 10px;
+  }
+}

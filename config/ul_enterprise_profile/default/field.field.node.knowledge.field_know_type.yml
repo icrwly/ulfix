@@ -1,0 +1,29 @@
+uuid: 2024ac73-cd87-48c2-a697-57c30f1b4a2d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_know_type
+    - node.type.knowledge
+    - taxonomy.vocabulary.knowledge_types
+id: node.knowledge.field_know_type
+field_name: field_know_type
+entity_type: node
+bundle: knowledge
+label: 'Insight Type'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      knowledge_types: knowledge_types
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

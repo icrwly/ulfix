@@ -1,0 +1,29 @@
+# This file was copied from Bartik and is meant as a placeholder in order to accommodate ckeditor_templates.
+# Please feel free to make whatever changes you like.
+name: UL Guidelines Theme
+type: theme
+base theme: ul_base_theme
+description: 'A flexible, recolorable theme with many regions and a responsive, mobile-first layout.'
+package: Core
+version: VERSION
+core_version_requirement: ^9 || ^10
+libraries:
+  - ul_guidelines_theme/global-styling
+components:
+  namespaces:
+    include:
+      - templates
+ckeditor_stylesheets:
+  - build/styles/editor.css
+regions:
+  header_top: 'Header Top'
+  header_bottom: 'Header Bottom'
+  primary_menu: 'Primary menu'
+  search: Search
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'

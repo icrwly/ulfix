@@ -1,0 +1,13 @@
+<ul class="list {{ class }}">
+  {% block content %}
+    {% for item in items %}
+      {% block list_item %}
+        <li class="{{ list_item_class }}">
+          {% block item %}
+            {% include '@ul_base_theme/2_pieces/item/item.twig' with item only %}
+          {% endblock %}
+        </li>
+      {% endblock %}
+    {% endfor %}
+  {% endblock %}
+</ul>

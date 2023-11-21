@@ -1,0 +1,8 @@
+# OneTrust JS jQuery:
+ul_onetrust.cookie_banner:
+  header: true
+  js:
+    js/optanonWrapper.js: {}
+  dependencies:
+    - core/jquery
+    - ul_base_theme/jquery-custom

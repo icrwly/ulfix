@@ -1,0 +1,8 @@
+uuid: 8c5d2770-27da-443d-b304-540ec574cbc4
+langcode: en
+status: true
+dependencies: {  }
+name: 'Stakeholder Needs'
+vid: stakeholder_needs
+description: 'Used for grouping content by stakeholders needs'
+weight: 0

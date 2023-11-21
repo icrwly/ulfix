@@ -1,0 +1,50 @@
+{% extends '@ul_base_theme/page/page.html.twig' %}
+{% block content %}
+    {% embed '@ul_base_theme/1_core/page.twig' %}
+        {% block header %}
+            {% embed '@ul_base_theme/4_regions/header.twig' %}
+                {% block header_top %}
+                    {{ page.header_top }}
+                {% endblock %}
+                {% block header_bottom %}
+                    {{ page.header_bottom }}
+                {% endblock %}
+                {% block header_after %}
+                    {{ page.header_after }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block page_top %}
+            {{ page.breadcrumb }}
+            {{ page.highlighted }}
+            {{ page.top }}
+        {% endblock %}
+        {% block page %}
+          {% embed "@ul_base_theme/4_regions/section.twig" %}
+              {% set class = 'wrapper max-width--desktop' %}
+                {% block content %}
+                    {% include '@ul_base_theme/5_layouts/search-404.twig' with {
+                      title: 'Sorry, but you don\'t have permission to view this page.'|t,
+                      sub_title: 'Please use our search tool to find the information you\'re looking for. You may also visit the Customer Resources section to review our <a href="/customer-resources/faq" title="FAQs">FAQs</a> for answers to common questions.'|t,
+                      placeholder: 'Search'|t,
+                      name: 'Search'|t,
+                      value: 'Search'|t
+                    }%}
+                {% endblock %}
+          {% endembed %}
+        {% endblock %}
+        {% block page_bottom %}
+            {{ page.bottom }}
+        {% endblock %}
+        {% block footer %}
+            {% embed '@ul_base_theme/4_regions/footer.twig' %}
+                {% block footer_top %}
+                    {{ page.footer_top }}
+                {% endblock %}
+                {% block footer_bottom %}
+                    {{ page.footer_bottom }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

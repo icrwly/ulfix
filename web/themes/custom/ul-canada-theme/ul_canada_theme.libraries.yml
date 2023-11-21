@@ -1,0 +1,41 @@
+# Global CSS
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/main.css: {}
+
+# Global JS
+global-scripts:
+  version: 1.x
+  js:
+    scripts/back2btn.js: { minified: false, attributes: { defer: true} }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+
+# ====================================== #
+# NOTE: The site admin can switch between
+# the PROD and TEST GnaaS scripts:
+# ====================================== #
+
+# "PROD":
+gnaas-prod:
+  version: 1.x
+  js:
+    https://commons.ul.com/gnaas/prod/index.js: { type: external }
+    scripts/gnaas.js: { preprocess: false, attributes: { defer: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# "TEST":
+gnaas-test:
+  version: 1.x
+  js:
+    https://commons.ul.com/gnaas/test/index.js: { type: external }
+    scripts/gnaas.js: { preprocess: false, attributes: { defer: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

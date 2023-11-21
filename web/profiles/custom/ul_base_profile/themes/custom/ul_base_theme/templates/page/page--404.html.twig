@@ -1,0 +1,51 @@
+{% extends '@ul_base_theme/page/page.html.twig' %}
+{% block content %}
+    {% embed '@ul_base_theme/1_core/page.twig' %}
+        {% block header %}
+            {% embed '@ul_base_theme/4_regions/header.twig' %}
+                {% block header_top %}
+                    {{ page.header_top }}
+                {% endblock %}
+                {% block header_bottom %}
+                    {{ page.header_bottom }}
+                {% endblock %}
+                {% block header_after %}
+                    {{ page.header_after }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block page_top %}
+            {{ page.breadcrumb }}
+            {{ page.highlighted }}
+            {{ page.top }}
+        {% endblock %}
+        {% block page %}
+            {% embed "@ul_base_theme/4_regions/section.twig" %}
+                {% set class = 'wrapper max-width--desktop' %}
+                {% block content %}
+                    {% embed '@ul_base_theme/5_layouts/search-404.twig' with {
+                        title: 'Sorry, the page you were looking for has been moved or is unavailable.'|t,
+                        sub_title: 'Our search tool may be able to help you find the information you need.'|t,
+                        } %}
+                        {% block search_form %}
+                            {{ parent() }}
+                        {% endblock %}
+                    {% endembed %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block page_bottom %}
+            {{ page.bottom }}
+        {% endblock %}
+        {% block footer %}
+            {% embed '@ul_base_theme/4_regions/footer.twig' %}
+                {% block footer_top %}
+                    {{ page.footer_top }}
+                {% endblock %}
+                {% block footer_bottom %}
+                    {{ page.footer_bottom }}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

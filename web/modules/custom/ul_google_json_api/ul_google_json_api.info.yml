@@ -1,0 +1,8 @@
+name: UL Google JSON API
+type: module
+description: A custom module extending the Google JSON API module.
+package: Search
+core_version_requirement: ^9 || ^10
+dependencies:
+  - google_json_api
+  - search

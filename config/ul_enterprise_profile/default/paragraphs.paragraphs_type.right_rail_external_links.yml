@@ -1,0 +1,10 @@
+uuid: 733f57b6-8dc0-41b4-914c-0da6a23de003
+langcode: en
+status: true
+dependencies: {  }
+id: right_rail_external_links
+label: 'Right Rail External Links'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Right Rail External Links</em> to add a list of external links that is displayed in the right rail.'
+behavior_plugins: {  }

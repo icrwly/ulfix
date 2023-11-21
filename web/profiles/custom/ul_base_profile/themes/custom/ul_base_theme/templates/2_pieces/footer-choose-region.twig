@@ -1,0 +1,22 @@
+{% set region_label = region_label|default('Choose a region') %}
+
+<div class="footer-choose-region" data-module="regionClick">
+  <h4>{{ region_label }}</h4>
+  {% block regionMenu %}
+    {% include '@ul_base_theme/2_pieces/form-item--select.twig' with {
+      label: 'Choose a region',
+      id: 'choose-region',
+      name: 'choose-region',
+      options: [
+        {
+          "value": "http://google.com",
+          "text": "United States - English"
+        },
+        {
+          "value": "http://amazon.com",
+          "text": "Portugal - Portuguese"
+        }
+      ]
+    }%}
+  {% endblock %}
+</div>

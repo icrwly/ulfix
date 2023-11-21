@@ -1,0 +1,6 @@
+services:
+  ul_drush_commands.commands:
+    class: Drupal\ul_drush_commands\Commands\UlDrushCommands
+    tags:
+      - { name: drush.command }
+    arguments: ['@database']

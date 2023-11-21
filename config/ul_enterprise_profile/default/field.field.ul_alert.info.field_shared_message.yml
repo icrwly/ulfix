@@ -1,0 +1,21 @@
+uuid: cc0d213d-c3b0-4625-b481-34c1ba077318
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.ul_alert.field_shared_message
+    - ul_alerts.ul_alert_type.info
+  module:
+    - text
+id: ul_alert.info.field_shared_message
+field_name: field_shared_message
+entity_type: ul_alert
+bundle: info
+label: Message
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

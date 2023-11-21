@@ -1,0 +1,23 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ *
+ * Provides form_alter for private event checkbox.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_private_event_form_node_form_alter(&$form, FormStateInterface $form_state) {
+
+  $node = $form_state->getFormObject()->getEntity();
+  // Load custom css/js library for events content type only.
+  if ($node->getType() === 'event') {
+    // Attach the custom library.
+    $form['#attached']['library'][] = 'ul_private_event/ul-private-event';
+  }
+}

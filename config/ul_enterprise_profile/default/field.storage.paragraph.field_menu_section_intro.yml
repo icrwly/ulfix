@@ -1,0 +1,19 @@
+uuid: 6c6480ee-9505-4ce8-9484-3878e50db77b
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+id: paragraph.field_menu_section_intro
+field_name: field_menu_section_intro
+entity_type: paragraph
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,18 @@
+/**
+ * "Two-column complex" layout with "right rail".
+ * Launched Jun/Jul 2020.
+ */
+.two-col {
+  .col-main {
+    // Cards, when in two-column layout,
+    // should be three/row maximum.
+    .row {
+      .span-3-d {
+        @include breakpoint($desktop) {
+          flex: 0 0 33.33333%;
+  	      max-width: 33.33333%;
+        }
+      }
+    }
+  }
+}

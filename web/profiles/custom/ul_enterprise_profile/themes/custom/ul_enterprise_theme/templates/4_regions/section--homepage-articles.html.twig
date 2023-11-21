@@ -1,0 +1,28 @@
+{#
+    This is a template made specifically for enterprise and it is meant to approximate markup from
+    '@ul_base_theme/4_regions/section--homepage-articles.html.twig.
+    This is used instead because the news, knowledge and events views are added via paragraphs which wraps them
+    in a section template.
+#}
+{% set items = rows %}
+
+{% embed '@ul_base_theme/4_regions/section--grid.twig' %}
+    {% set per_row = 3 %}
+
+    {% block section_header %}
+    {% endblock %}
+
+    {% block items_container %}
+        {% for item in items %}
+            {% block item %}
+                {% if loop.index > 0 and loop.index <= 3 %}
+                    {% embed "@ul_base_theme/2_pieces/grid-item.twig" with {  per_row: per_row }  %}
+                        {% block content %}
+                            {{ item.content }}
+                        {% endblock %}
+                    {% endembed %}
+                {% endif %}
+            {% endblock %}
+        {% endfor %}
+    {% endblock %}
+{% endembed %}

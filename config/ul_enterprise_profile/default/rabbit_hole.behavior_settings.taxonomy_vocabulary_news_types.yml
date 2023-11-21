@@ -1,0 +1,14 @@
+uuid: 577e5348-238a-4bf4-9c0a-621244adf1c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.news_types
+id: taxonomy_vocabulary_news_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

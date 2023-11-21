@@ -1,0 +1,25 @@
+uuid: 33afb674-6a17-4e17-8c9b-18a9b9ba0dea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_marketo_forms
+    - node.type.page
+  module:
+    - ul_marketo
+id: node.page.field_shared_marketo_forms
+field_name: field_shared_marketo_forms
+entity_type: node
+bundle: page
+label: 'Marketo Forms'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    instance: Enterprise
+    sub_cou: ''
+    last_interest: ''
+default_value_callback: ''
+settings: {  }
+field_type: marketo_meta

@@ -1,0 +1,22 @@
+uuid: d6f65f6e-7d2d-4eb4-b172-aa3ec8a5a268
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.guidelines_list
+id: node.guidelines_list.status
+field_name: status
+entity_type: node
+bundle: guidelines_list
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

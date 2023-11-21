@@ -1,0 +1,27 @@
+uuid: 831730be-f1f2-4183-904e-c8bef647c8d6
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - ul_marketo
+id: marketo_form.field__customer_comments
+field_name: field__customer_comments
+entity_type: marketo_form
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: hidden
+      label: Hidden
+    -
+      value: required
+      label: Required
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

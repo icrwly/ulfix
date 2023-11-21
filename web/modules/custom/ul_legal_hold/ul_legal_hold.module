@@ -1,0 +1,97 @@
+<?php
+
+/**
+ * @file
+ * Provides a legal hold entity type.
+ */
+
+use Drupal\Core\Render\Element;
+use Drupal\Core\Url;
+use Drupal\Core\Link;
+
+/**
+ * Implements hook_theme().
+ */
+function ul_legal_hold_theme() {
+  return [
+    'ul_legal_hold' => [
+      'render element' => 'elements',
+    ],
+  ];
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function ul_legal_hold_form_node_confirm_form_alter(&$form, $form_state, $form_id) {
+  $build_info = $form_state->getBuildInfo()['callback_object'];
+  $operation = $build_info->getOperation();
+  $entity_id = $build_info->getEntity()->id();
+  $url = Url::fromRoute('entity.node.edit_form', ['node' => $entity_id]);
+  $link = Link::fromTextAndUrl(t('Cancel'), $url)->toRenderable();
+  $link['#attributes'] = ['class' => 'button'];
+  if ($operation === 'delete') {
+    $held = _ul_legal_hold_check($entity_id);
+    if (!empty($held)) {
+      unset($form['actions']['submit']);
+      $form['description']['#markup'] = t('This content is currently under Legal Hold and cannot be deleted.');
+      $form['actions']['cancel'] = $link;
+    }
+  }
+}
+
+/**
+ * Implements hook_form_BASE_FORM_ID_alter().
+ */
+function ul_legal_hold_form_entity_delete_multiple_confirm_form_alter(&$form, $form_state, $form_id) {
+  $entities = $form['entities']['#items'];
+  $eids = [];
+  $held = [];
+
+  foreach ($entities as $key => $title) {
+    $sploded_key = explode(':', $key);
+    $eids[] = ['id' => $sploded_key[0], 'lang' => $sploded_key[1]];
+
+  }
+
+  foreach ($eids as $eid) {
+    $held = _ul_legal_hold_check($eid['id']);
+    if (!empty($held)) {
+      unset($form['actions']['submit']);
+      $form_key = implode(':', $eid);
+      $form['entities']['#items'][$form_key] = $form['entities']['#items'][$form_key] . '*';
+      $form['description']['#markup'] = t('The selected items marked with an asterisk(*) are currently under Legal Hold and cannot be deleted.');
+
+    }
+  }
+}
+
+/**
+ * Prepares variables for legal hold templates.
+ *
+ * Default template: ul-legal-hold.html.twig.
+ *
+ * @param array $variables
+ *   An associative array containing:
+ *   - elements: An associative array containing the legal hold information and
+ *     any fields attached to the entity.
+ *   - attributes: HTML attributes for the containing element.
+ */
+function template_preprocess_ul_legal_hold(array &$variables) {
+  foreach (Element::children($variables['elements']) as $key) {
+    $variables['content'][$key] = $variables['elements'][$key];
+  }
+}
+
+/**
+ * Helper function for checking if content is held.
+ *
+ * @param int $entity_id
+ *   The entity.
+ */
+function _ul_legal_hold_check(int $entity_id) {
+  $query = \Drupal::entityQuery('ul_legal_hold');
+  $query->condition('held_content', $entity_id);
+  $entity_ids = $query->execute();
+  return $entity_ids;
+}

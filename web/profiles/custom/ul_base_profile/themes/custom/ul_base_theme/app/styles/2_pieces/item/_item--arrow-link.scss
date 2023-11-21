@@ -1,0 +1,6 @@
+.item--arrow-link {
+  @include arrow-link();
+  font-size: 1.4rem;
+  padding-#{$end-direction}: $spacing-unit--l * 2;
+  position: relative;
+}

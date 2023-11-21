@@ -1,0 +1,18 @@
+{# Paragraph "Campaign Form" form template. #}
+{# Usage: Create a Marketo inline form. #}
+
+{# Marketo form as a banner (T), or inline (F)? #}
+{% set showBanner = false %}
+{# Marketo form ID. #}
+{% set form_id = marketo.form_id %}
+{# Marketo form language: #}
+{% if marketo.form_language %}
+  {% set form_language = marketo.form_language %}
+{% else %}
+  {% set form_language = 'en' %}
+{% endif %}
+
+{% block campaign_form %}
+  {% set class = 'campaign-form-wrap' %}
+  {% include "@ul_enterprise_theme/marketo/marketo-form--interrupter.html.twig" %}
+{% endblock %}

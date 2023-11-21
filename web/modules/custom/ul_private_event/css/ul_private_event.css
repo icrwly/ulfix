@@ -1,0 +1,7 @@
+.form-item-field-shared-metatags-0-advanced-robots-noindex label,
+.form-item-field-shared-metatags-0-advanced-robots-noindex input,
+.form-item-field-shared-metatags-0-advanced-robots-nofollow label,
+.form-item-field-shared-metatags-0-advanced-robots-nofollow input {
+  pointer-events: none;
+  color: #9c9c9c;
+}

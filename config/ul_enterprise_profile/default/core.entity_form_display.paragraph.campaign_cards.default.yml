@@ -1,0 +1,43 @@
+uuid: 444cfa7e-1f9b-4ef8-a39b-39e56ff040de
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.campaign_cards.field_cmpgn_cards_cards
+    - field.field.paragraph.campaign_cards.field_cmpgn_cards_title
+    - paragraphs.paragraphs_type.campaign_cards
+  module:
+    - paragraphs
+id: paragraph.campaign_cards.default
+targetEntityType: paragraph
+bundle: campaign_cards
+mode: default
+content:
+  field_cmpgn_cards_cards:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_cmpgn_cards_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

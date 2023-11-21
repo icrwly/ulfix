@@ -1,0 +1,27 @@
+uuid: 081f6b72-1771-4be6-98c8-412ec8c30c81
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_instance
+field_name: field_instance
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: MSD
+      label: MSD
+    -
+      value: SFDC
+      label: SFDC
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

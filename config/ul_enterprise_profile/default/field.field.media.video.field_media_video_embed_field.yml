@@ -1,0 +1,26 @@
+uuid: 7ba2a121-3e13-4d19-b291-07acf652676a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_video_embed_field
+    - media.type.video
+  module:
+    - video_embed_field
+id: media.video.field_media_video_embed_field
+field_name: field_media_video_embed_field
+entity_type: media
+bundle: video
+label: 'Video Url'
+description: 'Supported providers: Youtube, Vimeo, Wistia'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: vimeo
+    youtube: youtube
+    wistia: wistia
+    youtube_playlist: '0'
+field_type: video_embed_field

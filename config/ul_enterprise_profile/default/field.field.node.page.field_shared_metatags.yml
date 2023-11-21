@@ -1,0 +1,25 @@
+uuid: c9374ce2-d317-43b8-9b68-752ee2e95b9f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_metatags
+    - node.type.page
+  module:
+    - metatag
+_core:
+  default_config_hash: rb-PzHadzNUWPlzK5XcxwQCp1SWikGKd_Vbiu46vOFo
+id: node.page.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+bundle: page
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'a:0:{}'
+default_value_callback: ''
+settings: {  }
+field_type: metatag

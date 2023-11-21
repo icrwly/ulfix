@@ -1,0 +1,46 @@
+{% extends '@ul_base_theme/5_layouts/t08-hub.twig' %}
+{% set mainClass = 'exp-hub' %}
+{% set catch_cache = content|render %}
+
+{# If gated content. #}
+{% if marketo.gated_form %}
+  {% set mainClass = mainClass ~ ' gated-content' %}
+{% endif %}
+
+{% if content.field_hub_featured_title|render %}
+    {% set title = content.field_hub_featured_title %}
+{% endif %}
+
+{% if content.field_hub_featured_description|render %}
+    {% set description = content.field_hub_featured_description %}
+{% endif %}
+
+{% if content.field_hub_featured_link|render %}
+    {% set link = {
+        url: content.field_hub_featured_link.0['#url'],
+        title: content.field_hub_featured_link.0['#title'],
+        color: 'black-outline'
+    } %}
+{% endif %}
+
+{% block page %}
+    {% if content.body|render %}
+        {% embed "@ul_base_theme/4_regions/section.twig" %}
+            {% set class = 'wrapper max-width--desktop' %}
+            {% block section_body %}
+                {{ content.body }}
+            {% endblock %}
+        {% endembed %}
+    {% endif %}
+
+    {% block listing %}
+        {{ experience_hub_view }}
+    {% endblock %}
+
+    {{ content.field_hub_content }}
+    {{ content.marketo }}
+
+    {% block pager %}
+        {# See templates/views/pager.html.twig #}
+    {% endblock %}
+{% endblock %}

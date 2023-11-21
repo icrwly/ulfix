@@ -1,0 +1,19 @@
+uuid: c14c9da7-0143-4512-88db-6ba1a2b45dfd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_description
+    - node.type.tool
+id: node.tool.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+bundle: tool
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

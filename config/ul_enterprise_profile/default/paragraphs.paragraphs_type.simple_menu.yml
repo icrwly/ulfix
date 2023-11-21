@@ -1,0 +1,10 @@
+uuid: 1e7cb32b-ac6f-4e11-9a52-c54823b36994
+langcode: en
+status: true
+dependencies: {  }
+id: simple_menu
+label: 'Simple Menu'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Simple Menu</em> for creating a single-level menu of links.'
+behavior_plugins: {  }

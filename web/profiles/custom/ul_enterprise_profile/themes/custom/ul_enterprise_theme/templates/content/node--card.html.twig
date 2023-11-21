@@ -1,0 +1,31 @@
+{% extends '@ul_base_theme/2_pieces/card/card--default.twig' %}
+{% set cardId = "node--card-" ~ node.id() %}
+{% set catch_cache = content|render %}
+{% if content.field_shared_header_media.0.url %}
+    {% set image = card_image %}
+    {% set imageAlt = content.field_shared_header_media.0.alt %}
+{% else %}
+    {% set imageAlt = '' %}
+{% endif %}
+{% set title = label %}
+{% set subtitle = content.field_shared_subtitle %}
+{% set link = url %}
+{% set clickable = true %}
+{% set date = 0 %}
+{% set merged = merge_field_values([content.field_shared_topic, content.field_shared_industry]) %}
+{% set topics = [] %}
+{% for item in merged %}
+    {% set topics = topics|merge([{ content: item }]) %}
+{% endfor %}
+
+{# TODO: Come back to register link #}
+{% block card_description %}
+    {% if content.field_shared_ref_description|render %}
+        <p>{{ content.field_shared_ref_description }}</p>
+    {% else %}
+        {{ content.body }}
+    {% endif %}
+{% endblock %}
+{% block card_tags %}
+    {# Intentionally left blank #}
+{% endblock %}

@@ -1,0 +1,37 @@
+.section--accordion{
+  margin-top: 40px;
+  a{
+    @extend .accordion-toggle;
+    &.active-trail{
+      h3{
+        color:$black;
+      }
+    }
+    // Comment out for now
+    // @include breakpoint(min-width $large-tablet){
+      // cursor:default;
+    // }
+  }
+  h3{
+    @include font-size(18,20);
+    color:$gray;
+    font-weight:400;
+    position: relative;
+    &:after{
+      right: 2% !important;
+    }
+    // Comment out for now
+    // @include breakpoint(min-width $large-tablet){
+      // &:after{
+      //   display:none;
+      // }
+    // }
+  }
+  .dropdown{
+    overflow:hidden;
+    // Comment out for now
+    // @include breakpoint(min-width $large-tablet){
+      // display: block !important;
+    // }
+  }
+}

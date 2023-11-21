@@ -1,0 +1,32 @@
+uuid: d1457ac5-8783-4411-9afb-9be6eeda89b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_view_mode
+    - paragraphs.paragraphs_type.text_and_form
+  module:
+    - view_mode_selector
+id: paragraph.text_and_form.field_shared_view_mode
+field_name: field_shared_view_mode
+entity_type: paragraph
+bundle: text_and_form
+label: 'View Mode'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: default
+default_value_callback: ''
+settings:
+  view_modes:
+    default:
+      enable: false
+      hide_title: false
+      icon: {  }
+    full:
+      enable: false
+      hide_title: false
+      icon: {  }
+field_type: view_mode_selector

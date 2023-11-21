@@ -1,0 +1,128 @@
+<svg id ="svg_emissions" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 764.3 746.2">
+  <style type="text/css">
+      @font-face {
+        font-family: 'OpenSans-Bold';
+        src: url('../fonts/opensans-bold-webfont.eot');
+        src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+              url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+              url('../fonts/opensans-bold-webfont.woff') format('woff'),
+              url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'OpenSans';
+        src: url('../fonts/opensans-regular-webfont.eot');
+        src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+              url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+              url('../fonts/opensans-regular-webfont.woff') format('woff'),
+              url('../fonts/opensans-regular-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+
+      @font-face {
+        font-family: 'OpenSans-Light';
+        src: url('../fonts/opensans-light-webfont.eot');
+        src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+              url('../fonts/opensans-light-webfont.woff2') format('woff2'),
+              url('../fonts/opensans-light-webfont.woff') format('woff'),
+              url('../fonts/opensans-light-webfont.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+      }
+    </style>
+  <g id="emission_base" visibility="hidden">
+  <g id="dates">
+    <text transform="translate(410.9 554.3)" font-size="14" fill="#585858" font-family="OpenSans">2020</text>
+    <text transform="translate(140.4 554.3)" font-size="14" fill="#585858" font-family="OpenSans">2019</text>
+  </g>
+  <g id="c0">
+    <g id="c3">
+      <path d="M668.6,449.4h48.7a48.7,48.7,0,1,1-48.7-48.7,48.7,48.7,0,0,1,48.7,48.7H668.6Z" fill="#4c1b02"/>
+      <text transform="translate(649 454.9)" font-size="14" fill="#fff" font-family="OpenSans-Bold" font-weight="700">+49%</text>
+    </g>
+    <g id="c2">
+      <path d="M668.6,315.5h55.2a55.2,55.2,0,1,1-55.2-55.2,55.2,55.2,0,0,1,55.2,55.2H668.6Z" fill="#8d4921"/>
+      <text transform="translate(650.9 321.9)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-63%</text>
+    </g>
+    <g id="c1">
+      <path d="M666.7,197.5h31.9a31.9,31.9,0,1,1-31.9-31.9,31.8,31.8,0,0,1,31.9,31.9H666.7Z" fill="#f18a21"/>
+      <text transform="translate(649 204.1)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-21%</text>
+    </g>
+  </g>
+  <g id="m0">
+    <text transform="translate(19.9 32.8)" font-size="18" fill="#f18a21" font-family="OpenSans">Scope 1 and 2 GHG emissions </text>
+    <text transform="translate(18.8 87.6)" font-size="14" fill="#585858" font-family="OpenSans">In metric tonnes of CO</text>
+    <text transform="translate(165.7 92.3) scale(0.58)" font-size="14" fill="#585858" font-family="OpenSans">2</text>
+    <text transform="translate(170.3 87.6)" font-size="14" fill="#585858" font-family="OpenSans">e</text>
+    <g>
+      <text transform="translate(38.8 61.7)" font-size="14" fill="#585858" font-family="OpenSans">Scope 1</text>
+      <rect x="20.1" y="50.5" width="12.5" height="12.54" fill="#4c1b02"/>
+    </g>
+    <g>
+      <text transform="translate(132.3 61.7)" font-size="14" fill="#585858" font-family="OpenSans">Scope 2*</text>
+      <rect x="113.3" y="50.5" width="12.5" height="12.54" fill="#8d4921"/>
+    </g>
+    <g>
+      <text transform="translate(235 61.7)" font-size="14" fill="#585858" font-family="OpenSans">YoY change</text>
+      <circle cx="220" cy="56.7" r="9.2" fill="#585858"/>
+    </g>
+    <text transform="translate(18.3 738.6)" font-size="10" fill="#585858" font-family="OpenSans">* Scope 2 data includes our emissions calculated using market-based emissions for locations where supplier-emissions are available. </text>
+  </g>
+  <g id="m3">
+    <g>
+      <text transform="translate(131 629.6)" font-size="14" fill="#585858" font-family="OpenSans">CO</text>
+      <text transform="translate(150.7 634.2) scale(0.58)" font-size="14" fill="#585858" font-family="OpenSans">2</text>
+      <text transform="translate(155.4 629.6)" font-size="14" fill="#585858" font-family="OpenSans">e per sq. ft. in 2020</text>
+    </g>
+    <text id="kgs" transform="translate(185.6 676.5)" font-size="25" fill="#f18a21" font-family="OpenSans-Light" font-weight="300">kgs</text>
+    <text id="m3_txt_1" transform="translate(131 676.8)" font-size="40" fill="#f18a21" font-family="OpenSans-Light" font-weight="300">15</text>
+    <g>
+      <path d="M89,612.5a21,21,0,0,0-17-8.6,21.2,21.2,0,0,0-20.6,16,13.3,13.3,0,0,0,.7,26.6H88a17,17,0,0,0,1-34Z" fill="none" stroke="#f18a21" stroke-miterlimit="10" stroke-width="2"/>
+      <g>
+        <polyline points="81.3 646.5 81.3 673.2 23.9 673.2 23.9 615.8 52.6 615.8" fill="none" stroke="#f18a21" stroke-miterlimit="10" stroke-width="2"/>
+        <rect x="20.2" y="612.1" width="7.4" height="7.44" fill="#fff" stroke="#f18a21" stroke-miterlimit="10" stroke-width="2"/>
+        <rect x="77.6" y="669.5" width="7.4" height="7.44" fill="#fff" stroke="#f18a21" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+    </g>
+    <g>
+      <path d="M342,612.1a34.5,34.5,0,1,1-34.5,34.5A34.4,34.4,0,0,1,342,612.1h0" fill="#f18a21"/>
+      <text transform="translate(324.3 651.6)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-21%</text>
+    </g>
+  </g>
+  <g id="m1">
+    <rect id="m1bar_2" x="19.3" y="218.8" width="265.7" height="310.48" fill="#8d4921"/>
+    <rect id="m1bar_1" x="19.3" y="412.3" width="265.7" height="117.16" fill="#4c1b02"/>
+    <g >
+      <text id="m1bar_2_txt" transform="translate(118.3 245.5)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">22.604,38</text>
+    </g>
+    <g >
+      <text id="m1bar_1_txt" transform="translate(118.3 439.1)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">13.688,76</text>
+    </g>
+    <g id="m1_total">
+      <g >
+        <text id="m1_txt" transform="translate(74.8 194.8)" font-size="35" fill="#f18a21" font-family="OpenSans-Light" font-weight="300">36,293.14</text>
+      </g>
+      <text transform="translate(138.8 151.8)" font-size="14" fill="#f18a21" font-family="OpenSans">Total</text>
+    </g>
+  </g>
+  <g id="m2">
+    <rect id="m2bar_2" x="298.5" y="283.3" width="265.7" height="246.08" fill="#8d4921"/>
+    <rect id="m2bar_1" x="298.5" y="354.9" width="265.7" height="174.52" fill="#4c1b02"/>
+    <g >
+      <text id="m2bar_2_txt" transform="translate(396.6 310.3)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">8.393,57</text>
+    </g>
+    <g >
+      <text id="m2bar_1_txt" transform="translate(392.3 381.4)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">20.393,05</text>
+    </g>
+    <g id="m2_total">
+      <g >
+        <text id="m2_txt" transform="translate(348.8 259.3)" font-size="35" fill="#f18a21" font-family="OpenSans-Light" font-weight="300">28,786.62</text>
+      </g>
+      <text transform="translate(410.4 217.8)" font-size="14" fill="#f18a21" font-family="OpenSans">Total</text>
+    </g>
+  </g>
+  </g>
+</svg>

@@ -1,0 +1,499 @@
+.col-main.mobile-main {
+  .cards_nofilters {
+    .views-element-container {
+      .span-9-d {
+        @media (min-width: 1200px) {
+          .span-4-ld {
+            flex: 0 0 33%;
+            max-width: 33%;
+          }
+        }
+      }
+    }
+  }
+}
+.cards_nofilters {
+  .views-element-container {
+    .span-3-d {
+      display: none;
+    }
+    .span-9-d {
+      flex: 0 0 100%;
+      max-width: 100%;
+      .filter_btn {
+        display: none;
+      }
+      @media (min-width: 1200px) {
+        .span-4-ld {
+          flex: 0 0 25%;
+          max-width: 25%;
+        }
+      }
+    }
+  }
+}
+
+.multiselect-filter {
+  .active_fltr {
+    pointer-events: none !important;
+    color: #585858 !important;
+    .option {
+      pointer-events: none !important;
+      color: #585858 !important;
+    }
+  }
+  .disabled_fltr {
+    pointer-events: none !important;
+    color: #ABABAB !important;
+  }
+  .active_fltr.disabled_fltr {
+    pointer-events: none !important;
+    color: #585858 !important;
+    .option {
+      pointer-events: none !important;
+      color: #585858 !important;
+    }
+  }
+  border: 1px solid #e2e2e2;
+  padding: 12px;
+  margin-top: 20px;
+  @include breakpoint(max-width ($desktop - 1)) {
+    border: none;
+    margin-top: 20px;
+    padding: 0;
+  }
+
+  .filter-bar .js-form-item.form-item {
+    max-width: 100%;
+    @include breakpoint(max-width ($desktop - 1)) {
+      width: 100%;
+    }
+  }
+  .filter-bar__filter-options {
+    border-left: none;
+    .form-group .filters_actions {
+
+      .filter-slider-done {
+        display: block;
+        background-color: #5b0428;
+        border: 1px solid #5b0428;
+        margin-left: 5%;
+        @include breakpoint(max-width ($tablet - 1)) {
+          margin-left: 0;
+        }
+        margin-top: 10px;
+        color: #fff;
+        width: 100%;
+        @include breakpoint(min-width ($desktop)) {
+          display: none;
+        }
+      }
+    }
+    .filter-slider-uncheck.disabled_fltr {
+      border: 1px solid #ABABAB !important;
+    }
+    .form-group .filters_actions input,
+    .form-group .filters_actions a {
+      margin-top: 10px;
+      width: 90%;
+      margin-left: 5%;
+      color: #000;
+      @include breakpoint(max-width ($tablet - 1)) {
+        margin-left: 0;
+      }
+      background-color: #fff;
+      border: 1px solid #000;
+      @include breakpoint(max-width ($desktop - 1)) {
+        width: 100%;
+      }
+    }
+    @include breakpoint(max-width ($desktop - 1)) {
+      width: 100%;
+      position: relative;
+    }
+  }
+  .filter-bar__toggle.accordion {
+    display: none;
+  }
+  .section--filter-bar {
+    margin-bottom: 0;
+    .checkbox_filter {
+      @include breakpoint(min-width ($desktop)) {
+        max-height: 500px;
+        overflow-y: scroll;
+      }
+      margin-left: 0;
+      margin-right: 0;
+      padding-right: 15px;
+      h5 {
+        background: #fff;
+        height: 44px;
+        margin-left: -30px;
+        padding-top: 10px;
+        position: sticky;
+        text-align: center;
+        top: 0px;
+        width: 100%;
+        border-bottom: 1px solid #e2e2e2;
+        z-index: 120;
+        @include breakpoint(min-width ($desktop)) {
+          display: none;
+        }
+      }
+      .close_x {
+        position: fixed;
+        top: 10px;
+        right: 35px;
+        z-index: 121;
+        color: #000;
+        @include breakpoint(min-width ($desktop)) {
+          display: none;
+        }
+      }
+      .filters_actions {
+        @include breakpoint(min-width ($desktop)) {
+          display: none;
+        }
+      }
+      @include breakpoint(max-width ($desktop - 1)) {
+        background: #fff;
+        width: 100%;
+        display: block;
+        border-left: 1px solid #000;
+        border-top: 1px solid #000;
+      }
+    }
+    .filter-bar__filter-options {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+    .filter-bar {
+      .filter-bar__top {
+        .filter-bar__inner {
+          @include breakpoint(max-width ($desktop - 1)) {
+            display: block;
+            .filter-bar__search {
+              width: 100%;
+              .js-form-item.form-item {
+                  width: 75%;
+              }
+            }
+            .filter-bar__filter-options {
+              min-height: 10px;
+            }
+          }
+        }
+        .wrapper {
+          padding-left: 3rem;
+          padding-right: 3rem;
+        }
+      }
+    }
+    .filter-bar__bottom {
+      display: none;
+    }
+  }
+  .mobile_filter:not(.show) {
+    @include breakpoint(max-width ($desktop - 1)) {
+      display: none !important;
+    }
+  }
+
+  .desktop_actn,
+  .filters_title {
+    @include breakpoint(max-width ($desktop - 1)) {
+      display: none;
+    }
+  }
+  .mobile_actn {
+    padding: 20px 35px 20px 20px;
+    background: #fff;
+    border-left: 1px solid #000;
+    border-bottom: 1px solid #000;
+    display: block;
+    width: 95%;
+    margin: 0;
+    @include breakpoint(min-width ($desktop)) {
+      display: none;
+    }
+  }
+
+  @include breakpoint(min-width ($desktop)) {
+    right: 0 !important;
+    position: sticky !important;
+    top: 20%;
+  }
+  .form-group--search .form-item {
+    margin-bottom: 0;
+    margin-top: 0;
+    float: none;
+  }
+  input {
+    accent-color: #5b0428;
+  }
+  h5 {
+    font-weight: 700;
+    font-size: 14px;
+    margin-bottom: 0;
+    padding-left: 1rem;
+  }
+
+  .form-checkboxes ul {
+    list-style: none;
+  }
+
+  .js-form-wrapper {
+    width: 100%;
+    .title_categ {
+      width: 100%;
+      border-bottom: 1px solid #e2e2e2;
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      padding-bottom: 12px;
+      padding-right: 10px;
+      .icon {
+        width: 10px;
+        font-size: 12px;
+        float: right;
+        vertical-align: baseline;
+        padding-left: 10px;
+      }
+    }
+    .checked .title_categ,
+    .selected .title_categ,
+    .title_categ.selected {
+      .icon-bracket-d:before {
+        content: "\e607";
+      }
+    }
+    .checked .title_categ.selected,
+    .selected .title_categ.selected {
+      .icon-bracket-d:before {
+        content: "\e604";
+      }
+    }
+  }
+  .icon-search {
+    input {
+      position: relative;
+      right: 20px;
+      bottom: 15px;
+      background: none;
+      border: none;
+    }
+    width: 0;
+  }
+  .icon-search:before {
+    content: "\e998";
+    position: relative;
+    right: 27px;
+    top: 11px;
+    @include breakpoint(max-width ($desktop - 1)) {
+      right: 34px;
+      border-left: 1px solid #e2e2e2;
+      padding-left: 9px;
+    }
+  }
+}
+.multiselect-filter {
+  .form-group.mobile_filter.show {
+  @include breakpoint(max-width ($desktop - 1)) {
+      position: absolute;
+      z-index: 10;
+      background: #fff;
+      width: 80%;
+      padding-bottom: 0;
+      padding-top: 0;
+      @include breakpoint(max-width ($tablet - 1)) {
+        width: 80%;
+      }
+      height: 100%;
+      display: block;
+      right: -80px;
+      left: auto;
+      top: -65px;
+      .checkbox_filter {
+        padding: 0px 35px 20px 20px;
+      }
+    }
+  }
+}
+.multiselect-filter {
+  .mobile_filter.hide {
+    @include breakpoint(max-width ($desktop - 1)) {
+      display: none !important;
+    }
+  }
+}
+.filter-slider-arrow {
+  position: absolute;
+  z-index: 9;
+  background: #fff;
+  width: 50%;
+  display: block;
+  color: #000;
+  font-weight: 700;
+  display: block;
+  @include breakpoint(min-width ($desktop)) {
+    display: none;
+  }
+}
+
+.filter-slider-arrow.show {
+  right: 0;
+  width: 10%;
+  @include breakpoint(max-width ($tablet - 1)) {
+    width: 20%;
+  }
+  top: 20px;
+}
+.filter-slider-arrow.hide {
+  background: none;
+  right: 0;
+  top: 20px;
+  width: 5%;
+  z-index: 11;
+}
+.multiselect-children {
+  .js-form-type-checkbox > input {
+    display: inline;
+    margin-right: 0.5rem;
+  }
+  .js-form-type-checkbox {
+    width: 100%;
+    font-size: 14px;
+    font-weight: 600;
+    float: none;
+    padding-right: 20px;
+  }
+  .toplvl {
+    padding-left: 10px;
+    .option {
+      font-weight: 600;
+    }
+    .has_children {
+      .option {
+        pointer-events: none;
+      }
+    }
+    .btmlvl {
+      .option {
+        font-weight: 400;
+        pointer-events: all;
+      }
+    }
+    .has_children.checked-li .js-form-type-checkbox.selected:before,
+    .has_children .js-form-type-checkbox:before {
+      content: "+";
+      width: 10px;
+      font-size: 20px;
+      float: right;
+      top: -4px;
+      right: -20px;
+      position: relative;
+    }
+    .has_children.checked-li .js-form-type-checkbox:before,
+    .has_children .js-form-type-checkbox.selected:before {
+      content: "-";
+      width: 10px;
+      font-size: 20px;
+      float: right;
+      top: -4px;
+      right: -20px;
+      position: relative;
+    }
+
+    .has_children .js-form-type-checkbox .form-checkbox {
+      display: inline;
+    }
+
+    li {
+      padding-top: 5px;
+      padding-bottom: 5px;
+      border-bottom: 1px solid #e2e2e2;
+    }
+  }
+  .btmlvl {
+    padding-left: 10px;
+    .option {
+      font-weight: 400;
+      pointer-events: all;
+    }
+    .js-form-type-checkbox:before {
+      content: " " !important;
+    }
+    .js-form-type-checkbox .form-checkbox {
+      display: inline !important;
+    }
+    li {
+      border-bottom: none;
+      padding-top: 5px;
+      padding-bottom: 5px;
+    }
+  }
+}
+.multiselect-filter-results {
+    .section--hub {
+      @include breakpoint(max-width ($desktop - 1)) {
+        border-top: 1px solid #585858;
+        padding-top: 3rem;
+      }
+    }
+    .pager .pager__navigation {
+      border: none;
+    }
+    .pager .pager__navigation .pager__button .icon {
+      font-size: 18px;
+    }
+    .pager .pager__navigation a {
+      background-color: #f2f2f2;
+      text-decoration: none;
+    }
+    .pager .pager__select:focus,
+    .pager .pager__select:hover {
+      background-color: #e2e2e2;
+      text-decoration: none;
+    }
+    .section--pager .pager__active-page {
+      border-right: none;
+    }
+    .pager .pager__navigation li+li {
+      border-left: none;
+    }
+    .pager_top {
+      @include breakpoint(max-width ($desktop - 1)) {
+        display:none;
+      }
+    }
+    .pager .pager__button {
+      font-size: 14px;
+      font-weight: 600;
+      min-height: 45px;
+      min-width: 45px;
+    }
+    .filter_btn {
+      display: none;
+      @include breakpoint(max-width ($desktop - 1)) {
+        display: block;
+        position: relative;
+        left: 100%;
+        margin-left: -2rem;
+        padding-bottom: 2rem;
+      }
+    }
+    .filter_btn a {
+      display: none;
+      @include breakpoint(max-width ($desktop - 1)) {
+        text-decoration: none;
+        color: #000;
+        text-align: right;
+        position: relative;
+        display: block;
+        font-weight: 700;
+      }
+    }
+}
+.stop-scrolling {
+    overflow: hidden;
+}

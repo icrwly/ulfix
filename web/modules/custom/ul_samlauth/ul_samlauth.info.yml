@@ -1,0 +1,7 @@
+name: UL SamlAuth
+type: module
+description: 'Ul SAML Auth for SSO.'
+package: User authentication
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:samlauth

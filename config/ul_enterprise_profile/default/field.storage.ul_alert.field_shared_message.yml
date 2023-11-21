@@ -1,0 +1,19 @@
+uuid: 63b5ed58-f1de-4bbf-82ba-d3fdab52030b
+langcode: en
+status: true
+dependencies:
+  module:
+    - text
+    - ul_alerts
+id: ul_alert.field_shared_message
+field_name: field_shared_message
+entity_type: ul_alert
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

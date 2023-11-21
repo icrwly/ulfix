@@ -1,0 +1,103 @@
+{
+  "title": "Front End Template Directory",
+  "utilityLinks": [
+      {
+        "name": "Grid Structure",
+        "link": "./_grid.html"
+      },
+      {
+        "name": "Base Style Guide",
+        "link": "./_styleguide.html"
+      },
+      {
+        "name": "Component Library",
+        "link": "./_components.html"
+      }
+  ],
+  "layoutLinks": [
+    {
+      "name": "T01 - Homepage",
+      "link": "t01-homepage.html"
+    },
+    {
+      "name": "T02 - Landing Page",
+      "link": "t02-landing-page.html"
+    },
+    {
+      "name": "T02 - Landing Page with Siderail",
+      "link": "t02-landing-page-with-siderail.html"
+    },
+    {
+      "name": "T03 - Basic Detail",
+      "link": "t03-basic-detail.html"
+    },
+    {
+      "name": "T03 - Basic Detail (No Hero Image)",
+      "link": "t03-basic-detail--no-hero-image.html"
+    },
+    {
+      "name": "T03 - Basic Detail (Paragraph Styles)",
+      "link": "t03-basic-detail--paragraph-styles.html"
+    },
+    {
+      "name": "T03 - Basic Detail (Paragraph Styles, narrow)",
+      "link": "t03-basic-detail--paragraph-styles--narrow.html"
+    },
+    {
+      "name": "T03 - Basic Detail (Gated)",
+      "link": "t03-basic-detail--gated.html"
+    },
+    {
+      "name": "T03 - Basic Page with Siderail",
+      "link": "t03-basic-page-with-siderail.html"
+    },
+    {
+      "name": "T04 - News Detail",
+      "link": "t04-news-detail.html"
+    },
+    {
+      "name": "T04 - News Detail (RTL)",
+      "link": "t04-news-detail--rtl.html"
+    },
+    {
+      "name": "T05 - Events Detail",
+      "link": "t05-events-detail.html"
+    },
+    {
+      "name": "T05 - Events Detail (No Hero Image)",
+      "link": "t05-events-detail--no-hero-image.html"
+    },
+    {
+      "name": "T06 - Basic Listing",
+      "link": "t06-basic-listing.html"
+    },
+    {
+      "name": "T07 - News Listing",
+      "link": "t07-news-listing.html"
+    },
+    {
+      "name": "T08 - Event Listing",
+      "link": "t08-event-listing.html"
+    },
+    {
+      "name": "T09 - Customer Listing (Simple)",
+      "link": "t09-customer-listing--simple.html"
+    },
+    {
+      "name": "T03 - Offering with Siderail",
+      "link": "t03-offering-with-siderail.html"
+    },
+    {
+      "name": "T10 - Alerts (Critical)",
+      "link": "t10-alerts--critical.html"
+    },
+    {
+      "name": "T10 - Alerts (General)",
+      "link": "t10-alerts--general.html"
+    },
+    {
+      "name": "T10 - Alerts (Informational)",
+      "link": "t10-alerts--informational.html"
+    }
+  ]
+}

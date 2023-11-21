@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: "<div class=\"wrapper\">\r\n<div class=\"span-col-12\">\r\n<h2>검색과 일치하는 정보를 찾을 수 없습니다.</h2>\r\n\r\n<div class=\"ewa-rteLine\">원하는 항목을 찾는 데 도움을 드리고자 합니다. 다른 용어를 사용하여 다시 검색하시거나, <a href=\"/customer-resources/faq\">FAQ</a>에서 자주 묻는 질문에 대한 답변을 확인하시거나, <a href=\"/contact-us\">고객 지원팀에 문의해주세요.</a></div>\r\n</div>\r\n</div>\r\n"
+            format: full_html
+      filters:
+        field_shared_service_type_target_id:
+          expose:
+            label: 서비스
+        field_shared_country_target_id:
+          expose:
+            label: 시장
+        title:
+          expose:
+            placeholder: 검색

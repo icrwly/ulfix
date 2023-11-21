@@ -1,0 +1,10 @@
+# Add the Administration page route.
+ul_chat.settings_form:
+  path: '/admin/config/services/chat'
+  defaults:
+    _form: '\Drupal\ul_chat\Form\SettingsForm'
+    _title: 'UL Chat Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

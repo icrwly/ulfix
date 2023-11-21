@@ -1,0 +1,18 @@
+uuid: beb0c0c6-d332-45ee-8cdc-478ebd70b863
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.knowledge
+id: node.knowledge.unpublish_on
+field_name: unpublish_on
+entity_type: node
+bundle: knowledge
+label: 'Unpublish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

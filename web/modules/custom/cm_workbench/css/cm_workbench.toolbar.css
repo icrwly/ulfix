@@ -1,0 +1,50 @@
+/**
+ * Toolbar item: Workbench
+ */
+a.toolbar-icon-cm-workbench-content-tab::before {
+  background-image: url("../images/icons/bebebe/iconmonstr-tools-9.svg");
+}
+a.toolbar-icon-cm-workbench-content-tab.is-active::before,
+.toolbar-icon-cm-workbench-my-workbench.is-active::before {
+  background-image: url("../images/icons/ffffff/iconmonstr-tools-9.svg");
+}
+
+/**
+ * Tray item: My Workbench
+ */
+.toolbar-icon-cm-workbench-my-workbench::before {
+  background-image: url("../images/icons/787878/iconmonstr-task-1.svg");
+}
+.toolbar-icon-cm-workbench-my-workbench.is-active::before {
+  background-image: url("../images/icons/000000/iconmonstr-task-1.svg");
+}
+
+/**
+ * Tray item: Create Content
+ */
+.toolbar-icon-cm-workbench-create-content::before {
+  background-image: url("../images/icons/787878/iconmonstr-note-29.svg");
+}
+.toolbar-icon-cm-workbench-create-content.is-active::before {
+  background-image: url("../images/icons/000000/iconmonstr-note-29.svg");
+}
+
+/**
+ * Tray item: My Edits
+ */
+.toolbar-icon-cm-workbench-my-edits::before {
+  background-image: url("../images/icons/787878/iconmonstr-edit-3.svg");
+}
+.toolbar-icon-cm-workbench-my-edits.is-active::before {
+  background-image: url("../images/icons/000000/iconmonstr-edit-3.svg");
+}
+
+/**
+ * Tray item: All Recent Content
+ */
+.toolbar-icon-cm-workbench-all-recent-content::before {
+  background-image: url("../images/icons/787878/iconmonstr-note-20.svg");
+}
+.toolbar-icon-cm-workbench-all-recent-content.is-active::before {
+  background-image: url("../images/icons/000000/iconmonstr-note-20.svg");
+}

@@ -1,0 +1,19 @@
+uuid: ad16337c-8681-4757-b762-bbc41cf4327d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_description
+    - node.type.offering
+id: node.offering.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+bundle: offering
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

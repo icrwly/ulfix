@@ -1,0 +1,13 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--siderail" %}
+{% set inner_class = "wrapper siderail--gutter" %}
+
+{% block aside_top %}
+  {% block cta_list %}
+    {% for item in items %}
+      <div class="siderail--cta">
+        [include cta here]
+      </div>
+    {% endfor %}
+  {% endblock %}
+{% endblock %}

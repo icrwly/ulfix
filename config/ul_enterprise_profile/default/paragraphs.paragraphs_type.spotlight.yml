@@ -1,0 +1,10 @@
+uuid: 93a5639d-bb4b-47f8-aa31-5269ba5c1643
+langcode: en
+status: true
+dependencies: {  }
+id: spotlight
+label: Spotlight
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Spotlight</em> for creating a callout with a description, cta and and optionally featuring some related content.'
+behavior_plugins: {  }

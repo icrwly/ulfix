@@ -1,0 +1,25 @@
+{% extends "@ul_base_theme/3_components/nav.twig" %}
+{% set class = class ~ " nav--local wrapper" %}
+{% set inner_class = "" %}
+{% set menu_class = "menu-list--local-nav list-unstyled" %}
+{% set type = "local" %}
+
+{% set screen_modifier = is_mobile ? " is-mobile" : " is-desktop" %}
+{% set class = class ~ screen_modifier %}
+
+{% block content %}
+  <div class="nav__inner-container">
+    {{ parent() }}
+  </div>
+{% endblock %}
+
+{% block title %}
+  <div class="nav__title-container">
+    <span class="nav__title h2"><a href="{{ url }}" title="{{ title }}">{{ title }}</a></span>
+  </div>
+{% endblock %}
+{% block menu %}
+  <div class="nav__menu-container">
+    {{ parent() }}
+  </div>
+{% endblock %}

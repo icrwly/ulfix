@@ -1,0 +1,43 @@
+<div class="section__content row {{ row_class }}">
+  <div class="section__header span-auto">
+    {% block title %}
+      {% if title %}
+        <span class="section__title h2">{{- title -}}</span>
+      {% endif %}
+    {% endblock %}
+    {% block description %}
+      <div class="section__description">
+        {% block description_inner %}
+          <div class="editor-content">
+            <p>{{- description -}}</p>
+          </div>
+        {% endblock %}
+      </div>
+    {% endblock %}
+  </div>
+  {% block buttons %}
+    {% if ctas %}
+      <div class="section__buttons span-auto">
+        <div class="inner-container">
+          {% for item in ctas %}
+            {% if loop.index == 1 %}
+              {# Primary button #}
+              {% include '@ul_base_theme/2_pieces/button.twig' with {
+                name: item.title,
+                link: item.url,
+                class: 'button--white button--primary'
+              } %}
+            {% else %}
+              {# Secondary buttons #}
+              {% include '@ul_base_theme/2_pieces/button.twig' with {
+                name: item.title,
+                link: item.url,
+                class: 'button--white-outline button--secondary'
+              } %}
+            {% endif %}
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  {% endblock %}
+</div>

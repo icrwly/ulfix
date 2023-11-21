@@ -1,0 +1,44 @@
+uuid: e27b7de2-f79d-45fd-ab98-f22f2f5cf6e0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.ul_alert.language.field_languages
+    - field.field.ul_alert.language.field_shared_dismiss
+    - field.field.ul_alert.language.field_shared_message
+    - ul_alerts.ul_alert_type.language
+  module:
+    - text
+id: ul_alert.language.default
+targetEntityType: ul_alert
+bundle: language
+mode: default
+content:
+  field_shared_dismiss:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_message:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_languages: true
+  langcode: true
+  search_api_excerpt: true
+  user_id: true

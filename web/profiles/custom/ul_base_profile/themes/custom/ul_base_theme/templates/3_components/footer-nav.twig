@@ -1,0 +1,12 @@
+<nav class="footer-nav">
+  {% block content %}
+    {% block menu %}
+      {% include '@ul_base_theme/3_components/menu.twig' with {
+        items: items,
+        link_class_ga: 'ul-ga-footer-link',
+        menu_class: 'menu-list--footer-nav',
+        is_accordion: false
+      } only %}
+    {% endblock %}
+  {% endblock %}
+</nav>

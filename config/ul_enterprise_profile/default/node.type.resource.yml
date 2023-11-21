@@ -1,0 +1,31 @@
+uuid: 0cb6cd2b-0a96-4696-88e1-4da98d20f74b
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
+name: Resources
+type: resource
+description: 'Use <em>Resources</em> for providing access to downloadable assets.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

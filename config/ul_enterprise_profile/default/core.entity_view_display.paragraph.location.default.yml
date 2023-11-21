@@ -1,0 +1,140 @@
+uuid: a0d5e38e-6a05-4112-a314-364b732c2b40
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.location.field_addr_admin_area
+    - field.field.paragraph.location.field_addr_city
+    - field.field.paragraph.location.field_addr_company
+    - field.field.paragraph.location.field_addr_contact_url
+    - field.field.paragraph.location.field_addr_customer_service
+    - field.field.paragraph.location.field_addr_email
+    - field.field.paragraph.location.field_addr_fax
+    - field.field.paragraph.location.field_addr_line_1
+    - field.field.paragraph.location.field_addr_line_2
+    - field.field.paragraph.location.field_addr_map
+    - field.field.paragraph.location.field_addr_phone
+    - field.field.paragraph.location.field_addr_postal_code
+    - field.field.paragraph.location.field_addr_type
+    - paragraphs.paragraphs_type.location
+  module:
+    - link
+    - telephone
+id: paragraph.location.default
+targetEntityType: paragraph
+bundle: location
+mode: default
+content:
+  field_addr_admin_area:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_addr_city:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_addr_company:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_addr_contact_url:
+    type: link
+    label: above
+    settings:
+      trim_length: 55
+      url_only: false
+      url_plain: false
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_addr_customer_service:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_addr_email:
+    type: email_mailto
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_addr_fax:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_addr_line_1:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_addr_line_2:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_addr_map:
+    type: link
+    label: above
+    settings:
+      trim_length: 300
+      url_only: true
+      url_plain: true
+      rel: '0'
+      target: '0'
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_addr_phone:
+    type: telephone_link
+    label: above
+    settings:
+      title: ''
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_addr_postal_code:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_addr_type:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

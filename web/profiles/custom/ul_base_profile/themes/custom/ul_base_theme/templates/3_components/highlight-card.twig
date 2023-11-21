@@ -1,0 +1,23 @@
+<div class="highlight-card">
+  <div class="content-container">
+    {% block highlight_card_title %}
+      <h2>{{- title -}}</h2>
+    {% endblock %}
+    {% block highlight_card_description %}
+      {% if description %}
+        <p>{{- description -}}</p>
+      {% endif %}
+    {% endblock %}
+  </div>
+  <div class="submit-container">
+      {% block hightlight_card_button %}
+        {% if cta.link %}
+          {% include '@ul_base_theme/2_pieces/button.twig' with {
+            link: cta.link,
+            color: cta.color,
+            name: cta.name
+          } %}
+        {% endif %}
+    {% endblock %}
+  </div>
+</div>

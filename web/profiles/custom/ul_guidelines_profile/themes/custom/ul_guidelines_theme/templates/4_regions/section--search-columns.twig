@@ -1,0 +1,55 @@
+<section class="section--search-columns row" data-module="submitForm">
+  <div class="span-12">
+    {% include '@ul_guidelines_theme/3_components/nav--breadcrumbs.twig' %}
+  </div>
+  <div class="span-12 span-8@desktop form-container" data-module="supportSubmit">
+    {% block submit_form %}
+      <div class="form-page" data-form="1">
+        <form class="" action="?step=2" method="post">
+          <div class="form-page__header">
+            <h1>{{ submitPages[0].title }}</h1>
+            {{ submitPages[0].description }}
+          </div>
+          <div class="form-page__body">
+            {% include '@ul_guidelines_theme/2_pieces/inputs/select.twig' with {
+              input: submitPages[0].form.focusArea
+            } %}
+            {% include '@ul_guidelines_theme/2_pieces/inputs/textarea.twig' with {
+              input: submitPages[0].form.requestDetails
+            } %}
+          </div>
+          <div class="form-page__footer">
+            <p class="required">* Required fields</p>
+            <input type="submit" name="submitRequest" value="Save &amp; Continue" class="button">
+          </div>
+        </form>
+      </div>
+      <div class="form-page" data-form="2">
+        <form class="" action="?step=3" method="post">
+          <div class="form-page__header">
+            <h1>{{ submitPages[1].title }}</h1>
+            {{ submitPages[1].description }}
+          </div>
+          <div class="form-page__body">
+            {% include '@ul_guidelines_theme/2_pieces/inputs/select.twig' with {
+              input: submitPages[1].form.visibility
+            } %}
+            {% include '@ul_guidelines_theme/2_pieces/inputs/select.twig' with {
+              input: submitPages[1].form.division
+            } %}
+            {% include '@ul_guidelines_theme/2_pieces/inputs/select.twig' with {
+              input: submitPages[1].form.region
+            } %}
+            {% include '@ul_guidelines_theme/2_pieces/inputs/upload.twig' with {
+              input: submitPages[1].form.upload
+            } %}
+          </div>
+          <div class="form-page__footer">
+            <p class="required">* Required fields</p>
+            <input type="submit" name="submitRequest" value="Save &amp; Continue" class="button">
+          </div>
+        </form>
+      </div>
+    {% endblock %}
+  </div>
+</section>

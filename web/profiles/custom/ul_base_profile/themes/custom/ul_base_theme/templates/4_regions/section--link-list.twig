@@ -1,0 +1,27 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--link-list" %}
+
+{% block content %}
+  <div class="wrapper">
+    <div class="section__header">
+      {% block title %}
+        {% if title %}
+          <h2>{{- title -}}</h2>
+        {% endif %}
+      {% endblock %}
+      {% block description %}
+         {% if description %}
+           {{ description }}
+         {% endif %}
+      {% endblock %}
+    </div>
+
+    {% block items %}
+      {% if items %}
+        {% include '@ul_base_theme/3_components/list.twig' with {
+          items: items
+        } only %}
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

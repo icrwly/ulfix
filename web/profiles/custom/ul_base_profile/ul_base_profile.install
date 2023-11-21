@@ -1,0 +1,61 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the UL Base installation profile.
+ *
+ * Note: This code was taken from standard.install.
+ */
+
+/**
+ * Update sites with new modules and config settings.
+ */
+function ul_base_profile_update_8001() {
+
+  // Enable the ul_base_config and config_split modules.
+  \Drupal::service('module_installer')->install(
+    ['ul_base_config', 'config_split']
+  );
+
+  // Update Config ignore settings.
+  $settings = ul_base_profile_read_config_from_sync('config_ignore.settings', \Drupal::installProfile());
+  if (!empty($settings)) {
+    \Drupal::configFactory()
+      ->getEditable('config_ignore.settings')
+      ->set('ignored_config_entities', $settings['ignored_config_entities'])
+      ->save();
+  }
+
+  // Create config splits for existing sites.
+  $splits = [
+    'config_split.config_split.samlauth' => [
+      'ul_samlauth',
+      'samlauth',
+      'externalauth',
+    ],
+  ];
+  foreach ($splits as $name => $modules) {
+    $settings = ul_base_profile_read_config_from_sync($name, \Drupal::installProfile());
+    if (!empty($settings)) {
+      $moduleHandler = \Drupal::service('module_handler');
+      // If module is enabled then activate the split.
+      foreach ($modules as $module) {
+        if ($moduleHandler->moduleExists($module)) {
+          $settings['status'] = TRUE;
+        }
+      }
+      /** @var \Drupal\Core\Config\StorageInterface $active_storage */
+      $active_storage = \Drupal::service('config.storage');
+      $active_storage->write($name, $settings);
+    }
+  }
+}
+
+/**
+ * Turn on ACSF Metadata module.
+ */
+function ul_base_profile_update_8002() {
+  /** @var \Drupal\Core\Extension\ModuleInstaller $module_installer */
+  $module_installer = \Drupal::service('module_installer');
+  $module_installer->install(['acsf_metadata']);
+}

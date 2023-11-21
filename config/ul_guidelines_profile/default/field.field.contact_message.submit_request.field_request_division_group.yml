@@ -1,0 +1,23 @@
+uuid: 2fb9e388-8dda-4dfb-98f8-05e339aff00a
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_division_group
+  module:
+    - options
+_core:
+  default_config_hash: o3wbt9t0yAFBZkopqdpm_mrDEX5l6GCwVVSdOG81cV4
+id: contact_message.submit_request.field_request_division_group
+field_name: field_request_division_group
+entity_type: contact_message
+bundle: submit_request
+label: Division/Group
+description: 'Select the division/group related to your request'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

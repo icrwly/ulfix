@@ -1,0 +1,34 @@
+uuid: 2813aca3-b27b-489e-8a7a-81e9da9a3975
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_library
+    - field.field.media.crc_asset.field_media_crc_asset
+    - image.style.media_library
+    - media.type.crc_asset
+  module:
+    - image
+id: media.crc_asset.media_library
+targetEntityType: media
+bundle: crc_asset
+mode: media_library
+content:
+  thumbnail:
+    type: image
+    label: hidden
+    settings:
+      image_link: ''
+      image_style: media_library
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  field_media_crc_asset: true
+  langcode: true
+  name: true
+  search_api_excerpt: true
+  uid: true

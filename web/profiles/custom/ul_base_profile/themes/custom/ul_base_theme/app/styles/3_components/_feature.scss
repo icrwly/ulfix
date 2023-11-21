@@ -1,0 +1,71 @@
+.feature {
+  background: $white;
+  width: 100%;
+
+  &--spotlight {
+    padding-bottom: $spacing-unit;
+    padding-top: $spacing-unit;
+
+    @include breakpoint($large-mobile){
+      padding-bottom: $spacing-unit--l;
+      padding-top: $spacing-unit--l;
+    }
+
+    > .row {
+      align-items: center;
+    }
+
+    .card.card--featured{
+      display:none;
+      @media (min-width:992px){
+        display:block;
+      }
+    }
+
+    // TODO: Remove once card--solutions is refactored
+    .card.card--solutions {
+      p {
+        font-size: 1.6rem;
+        line-height: 1.75;
+      }
+    }
+  }
+
+  &.bg-gray {
+    background-color: $background-color;
+    padding: $spacing-unit--l;
+
+    @include breakpoint($large-mobile) {
+      padding: $spacing-unit--xl;
+    }
+  }
+
+  .card {
+    background-color: transparent; // allow feature bg to show through
+    border: none;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+
+    &:not(.card--featured) {
+      .content-container {
+        padding: 0;
+      }
+    }
+
+    .list--icon {
+      border-#{$start-direction}: 1px solid $red;
+      padding-#{$start-direction}: $spacing-unit * 1.5;
+    }
+
+    h3 {
+      @include breakpoint($tablet) {
+        font-size: 3rem;
+      }
+    }
+
+    p {
+      font-size: 1.4rem;
+    }
+  }
+}

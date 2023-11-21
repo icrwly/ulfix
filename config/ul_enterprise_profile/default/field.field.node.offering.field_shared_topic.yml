@@ -1,0 +1,31 @@
+uuid: 25eb92d8-a958-4f71-a668-f41bfad20c98
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_topic
+    - node.type.offering
+    - taxonomy.vocabulary.topics
+_core:
+  default_config_hash: JY1CobNAqwqhYgSQMmZXa992VeF-nhZIl3MFp-xo0II
+id: node.offering.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+bundle: offering
+label: Topic
+description: '&bull; The topic related to this offering.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

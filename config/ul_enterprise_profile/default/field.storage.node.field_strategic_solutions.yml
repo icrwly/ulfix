@@ -1,0 +1,20 @@
+uuid: 55d913a2-bf28-4867-8c40-e8d0fa3d2ca7
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+id: node.field_strategic_solutions
+field_name: field_strategic_solutions
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

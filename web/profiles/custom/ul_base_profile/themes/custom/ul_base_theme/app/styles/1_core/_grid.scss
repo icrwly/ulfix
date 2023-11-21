@@ -1,0 +1,201 @@
+///*------------------------------------*\
+//    #CORE - GRID
+//\*------------------------------------*/
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$grid-gutter/2;
+  margin-right: -$grid-gutter/2;
+  @include breakpoint($tablet){
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+
+  &--gutter-s {
+    margin-left: -$grid-gutter/4;
+    margin-right: -$grid-gutter/4;
+    @include breakpoint($tablet){
+      margin-left: -$grid-gutter/2;
+      margin-right: -$grid-gutter/2;
+    }
+    > [class*='span-'] {
+      padding-left: $grid-gutter/4;
+      padding-right: $grid-gutter/4;
+      @include breakpoint($tablet){
+        padding-right: $grid-gutter/2;
+        padding-left: $grid-gutter/2;
+      }
+    }
+  }
+
+  &--gutter-l {
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+    @include breakpoint($tablet){
+      margin-left: -$grid-gutter * 2;
+      margin-right: -$grid-gutter * 2;
+    }
+    > [class*='span-'] {
+      padding-left: $grid-gutter;
+      padding-right: $grid-gutter;
+      @include breakpoint($tablet){
+        padding-right: $grid-gutter * 2;
+        padding-left: $grid-gutter * 2;
+      }
+    }
+  }
+}
+
+[class*='span-'] {
+  min-height: 1px; // Prevent collapsing
+  padding-left: $grid-gutter/2;
+  padding-right: $grid-gutter/2;
+  width: 100%;
+  @include breakpoint($tablet){
+    padding-right: $grid-gutter;
+    padding-left: $grid-gutter;
+  }
+}
+
+@include add-grid-columns;
+
+
+// Flex Grid
+// TODO: Deprecated, will be replaced by grid classes above.
+// -------------------------
+
+.flex-grid {
+  @include flex-grid-container();
+  .grid-item {
+    @include flex-grid-item();
+    // WIP: refactor into mixin
+    &--half {
+      @include breakpoint($large-tablet) {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+    &--thirty {
+      padding-left: $grid-gutter * 2;
+      padding-right: $grid-gutter * 2;
+      @include breakpoint($large-tablet) {
+        padding-left: $grid-gutter;
+        padding-right: $grid-gutter;
+        flex-basis: 30%;
+        max-width: 30%;
+      }
+    }
+    &--seventy {
+      padding-left: $grid-gutter * 2;
+      padding-right: $grid-gutter * 2;
+      @include breakpoint($large-tablet) {
+        padding-left: $grid-gutter;
+        padding-right: $grid-gutter;
+        flex-basis: 70%;
+        max-width: 70%;
+      }
+    }
+  }
+}
+
+.column-wrapper {
+  @include flex-grid-container($spacing-unit--l);
+
+  &--no-space-bottom {
+    padding-bottom: 0!important;
+  }
+
+  .column {
+    @include flex-grid-item($spacing-unit--l);
+  }
+
+
+  .main-column {
+    @include breakpoint($desktop) {
+      flex-basis: percentage(7/12);
+      max-width: percentage(7/12);
+    }
+  }
+
+  .side-column {
+    @include breakpoint($desktop) {
+      flex-basis: percentage(5/12);
+      max-width: percentage(5/12);
+    }
+  }
+
+  &.direction-reverse {
+    flex-direction: row-reverse;
+    @include breakpoint(max-width $desktop - 1) {
+      flex-direction: column-reverse;
+    }
+    &--max-desktop {
+      @include breakpoint(max-width $desktop - 1) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}
+
+// ------------------------------------- //
+// New for Right Rail project June 2020. //
+// ------------------------------------- //
+.col-wrap {
+  background: $white;
+  @include breakpoint($desktop) {
+    margin: 0 auto;
+    width: 100%;
+    max-width: 1600px;
+    &:after {
+      content: ".";
+      visibility: hidden;
+      display: block;
+      height: 0;
+      clear: both;
+    }
+  }
+}
+// Main column.
+.col-main {
+  @include breakpoint($desktop) {
+    float: left;
+    width: 70%;
+  }
+  @include breakpoint($xlarge-desktop) {
+    width: 75%;
+  }
+  .col-gtr {
+    @include breakpoint($desktop) {
+      float: right;
+      width: 100%;
+      max-width: 1600px;
+    }
+  }
+}
+// Right column (sidebar).
+.col-aside {
+  @include breakpoint($desktop) {
+    float: right;
+    width: 30%;
+    clear: right;
+  }
+  @include breakpoint($xlarge-desktop) {
+    width: 25%;
+  }
+  .col-gtr {
+    @include breakpoint($desktop) {
+      max-width: 400px;
+    }
+  }
+  .aside-section {
+    padding: $spacing-unit $spacing-unit 0 $spacing-unit;
+    @include breakpoint($tablet) {
+      padding: $spacing-unit--l $spacing-unit--l 0 $spacing-unit--l;
+    }
+  }
+}

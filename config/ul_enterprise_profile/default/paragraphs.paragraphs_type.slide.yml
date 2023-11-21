@@ -1,0 +1,10 @@
+uuid: 8dfa29e1-0ada-422b-a7ef-f43081514d24
+langcode: en
+status: true
+dependencies: {  }
+id: slide
+label: Slide
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Slide</em> for rotating slides of content. '
+behavior_plugins: {  }

@@ -1,0 +1,18 @@
+uuid: fe8d200c-2240-4db6-9658-1f7d3d8f5910
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+id: media.crc_asset.metatag
+field_name: metatag
+entity_type: media
+bundle: crc_asset
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

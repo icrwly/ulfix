@@ -1,0 +1,67 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = class ~ ' card--events  card--link' %}
+{% if image is empty %}
+    {% set class = class ~ " card--no-image" %}
+{% endif %}
+
+{# Always make the card clickable #}
+{% set clickable = true %}
+
+{% block content %}
+  <a href="{{ link }}" aria-label="{{ title }}" title="{{ title }}">
+  {% block inner %}
+    <div class="image-container">
+      {% block card_tags %}
+        {% if tags %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with { widget: tags } %}
+        {% endif %}
+      {% endblock %}
+      {% block card_image %}
+        {% if image %}
+          <img src="{{- image -}}" alt="{{- imageAlt -}}" />
+        {% endif %}
+      {% endblock %}
+      {% block block_date %}
+        {# `displayDate` is set in `node--event--card.html.twig` #}
+        {% include '@ul_base_theme/2_pieces/block-date.twig' with { formattedDate: displayDate } %}
+      {% endblock %}
+    </div>
+    <div class="content-container">
+      {% block card_topic %}
+        {% if topics %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+        {% endif %}
+      {% endblock %}
+      {% block card_title %}
+        {% if title %}
+          <h3 class="card__title">{{- title -}}</h3>
+        {% endif %}
+      {% endblock %}
+      {% block card_subtitle %}
+        {% if subtitle %}
+          <h4 class="card__subtitle">{{- subtitle -}}</h4>
+        {% endif %}
+      {% endblock %}
+      {% block card_description %}
+        {% if description %}
+          <p>{{- description -}}</p>
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% endblock %}
+  </a>
+  {% if register_link %}
+      <div class="button-row event-buttons">
+        {% block card_register %}
+            {% if register_link %}
+            <a href="{{ register_link }}" title="{{ register_link_title ?: 'Register' }}" class="button button--blue button--s">{{ register_link_title ?: 'Register' }}</a>
+            {% endif %}
+        {% endblock %}
+        {% block card_more %}
+            {% if link %}
+            <a href="{{ link }}" title="{{ more_link_title ?: 'Learn More' }}" class="button button--link button--s">{{ more_link_title ?: 'Learn More' }}</a>
+            {% endif %}
+        {% endblock %}
+      </div>
+    {% endif %}
+{% endblock %}

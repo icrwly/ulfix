@@ -1,0 +1,35 @@
+.section.section--file-list {
+  background-color: $background-color;
+  margin: $spacing-unit--l auto;
+  padding: $spacing-unit+$spacing-unit--xs $spacing-unit;
+  @include breakpoint($tablet) {
+    padding: $spacing-unit+$spacing-unit--xs $spacing-unit--l;
+  }
+
+  @include breakpoint($desktop) {
+    max-width: 900px;
+  }
+
+  .section__inner {
+    > .row {
+      margin-bottom: -$grid-gutter;
+      @include breakpoint($large-mobile){
+        margin-bottom: -$grid-gutter * 2;
+      }
+
+      > [class*='span-'] {
+        margin-bottom: $grid-gutter;
+        @include breakpoint($large-mobile){
+          margin-bottom: $grid-gutter * 2;
+        }
+        .span-auto:nth-child(2n) {
+          padding-left: 0;
+        }
+      }
+    }
+  }
+
+  .title-bar__description {
+    color: $black;
+  }
+}

@@ -1,0 +1,29 @@
+uuid: 1180922e-ec44-48c2-84d8-0972b37e27b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.cm_current_user
+  module:
+    - system
+    - views
+  theme:
+    - seven
+id: views_block__cm_current_user_block_1
+theme: seven
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:cm_current_user-block_1'
+settings:
+  id: 'views_block:cm_current_user-block_1'
+  label: ''
+  provider: views
+  label_display: visible
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    pages: /admin/cm-workbench
+    negate: false

@@ -1,0 +1,34 @@
+<nav class="page--actions">
+  {% block page_update %}
+    {% if page.update %}
+      <p class="update">{{- page.update -}}</p>
+    {% endif %}
+  {% endblock %}
+  <div class="action-container">
+    {% block page_approval %}
+      {% if page.approval %}
+        {% include '@ul_guidelines_theme/2_pieces/widgets/approval.twig' %}
+      {% endif %}
+    {% endblock %}
+    {% block page_favorite %}
+      {% if page.favorite %}
+        {% include '@ul_guidelines_theme/2_pieces/widgets/favorite.twig' %}
+      {% endif %}
+    {% endblock %}
+    
+  </div>
+  
+  <div class="floating-action-bar right">
+    {% block page_share %}
+      {% if page.share %}
+        {% include '@ul_guidelines_theme/2_pieces/widgets/share.twig' %}
+        
+      {% endif %}
+    {% endblock %}
+
+    {% if content.field_guideline_crc_assets[0] is not empty %}
+      {% include '@ul_guidelines_theme/2_pieces/widgets/files.twig' %}
+    {% endif %}
+  </div>
+
+</nav>

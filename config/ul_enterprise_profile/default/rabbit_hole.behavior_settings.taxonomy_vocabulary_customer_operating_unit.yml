@@ -1,0 +1,14 @@
+uuid: 805ba8ac-4b3a-45ab-a3e9-7f8a8afaee34
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.customer_operating_unit
+id: taxonomy_vocabulary_customer_operating_unit
+entity_type_id: taxonomy_vocabulary
+entity_id: customer_operating_unit
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

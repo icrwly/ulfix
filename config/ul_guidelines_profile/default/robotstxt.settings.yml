@@ -1,0 +1,39 @@
+_core:
+  default_config_hash: ceCx5XZ_ay1Mxcv-sB95U_fBKoVkpvo8RaQiwutSZLI
+content: |
+  #
+  # robots.txt
+  #
+  # This file is to prevent the crawling and indexing of certain parts
+  # of your site by web crawlers and spiders run by sites like Yahoo!
+  # and Google. By telling these "robots" where not to go on your site,
+  # you save bandwidth and server resources.
+  #
+  # This file will be ignored unless it is at the root of your host:
+  # Used:    http://example.com/robots.txt
+  # Ignored: http://example.com/site/robots.txt
+  #
+  # For more information about the robots.txt standard, see:
+  # http://www.robotstxt.org/robotstxt.html
+
+  User-agent: *
+
+  # CSS, JS, Images
+  # Directories
+  # Files
+
+  # Paths (clean URLs)
+  Disallow: /filter/tips
+  Disallow: /search/
+  Disallow: /user/register/
+  Disallow: /user/password/
+  Disallow: /user/login/
+  Disallow: /user/logout/
+
+  # Paths (no clean URLs)
+  Disallow: /index.php/filter/tips
+  Disallow: /index.php/search/
+  Disallow: /index.php/user/password/
+  Disallow: /index.php/user/register/
+  Disallow: /index.php/user/login/
+  Disallow: /index.php/user/logout/

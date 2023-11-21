@@ -1,0 +1,27 @@
+uuid: 34867976-31c3-48a7-8cd6-ad7ed7bbc5b7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_alternative_section_btn
+    - paragraphs.paragraphs_type.menu_section
+  module:
+    - link
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.menu_section.field_alternative_section_btn
+field_name: field_alternative_section_btn
+entity_type: paragraph
+bundle: menu_section
+label: 'Section Overview Button URL'
+description: 'The URL for the section "Overview" button.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 17
+field_type: link

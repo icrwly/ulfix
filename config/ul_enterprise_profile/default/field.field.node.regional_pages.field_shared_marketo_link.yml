@@ -1,0 +1,31 @@
+uuid: 69244cf4-dca3-4f35-a620-d7d213b1b089
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_marketo_link
+    - node.type.regional_pages
+  module:
+    - tmgmt_content
+    - ul_marketo
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.regional_pages.field_shared_marketo_link
+field_name: field_shared_marketo_link
+entity_type: node
+bundle: regional_pages
+label: 'Header Marketo CTA'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  marketo_forms:
+    contact_form_configurable: contact_form_configurable
+    email_form: 0
+    event_form: 0
+    gated_content_form: 0
+    generic_form: generic_form
+field_type: marketo_form

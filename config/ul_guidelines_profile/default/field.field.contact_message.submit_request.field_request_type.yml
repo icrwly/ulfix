@@ -1,0 +1,23 @@
+uuid: e1a175c0-a8d3-484e-ad33-489244987def
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_type
+  module:
+    - options
+_core:
+  default_config_hash: Ey9tJzMqhTDE8Omk6BdLd6GIyl2rttNoHYi20GbaRxo
+id: contact_message.submit_request.field_request_type
+field_name: field_request_type
+entity_type: contact_message
+bundle: submit_request
+label: 'Type of Request'
+description: 'Ideal for: Brand-related questions requesting help with interpreting the guidelines and assistance with finding specific assets, templates or images. <b>DO  NOT</b> submit any legal documents, rather email them to Legal or the appropriate person in Global Sourcing.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

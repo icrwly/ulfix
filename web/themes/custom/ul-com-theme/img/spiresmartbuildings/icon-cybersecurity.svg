@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="74px" height="66px" viewBox="0 0 74 66" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 62 (91390) - https://sketch.com -->
+    <title>Cybersecurity_ULBlack-RGB_MD</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Schedule-a-Demo---PurView" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="round" stroke-linejoin="round">
+        <g id="smart-buildings-mockup-001" transform="translate(-1165.000000, -2698.000000)" stroke-width="2">
+            <g id="Criteria" transform="translate(-1.000000, 2172.000000)">
+                <g id="1358314-cybersecurity" transform="translate(1128.000000, 485.000000)">
+                    <g id="Cybersecurity_ULBlack-RGB_MD" transform="translate(39.000000, 42.000000)">
+                        <polyline id="Path" stroke="#00518A" points="56.25 51.75 72 51.75 72 0 0 0 0 51.75 15.75 51.75"></polyline>
+                        <line x1="0" y1="9" x2="72" y2="9" id="Path" stroke="#00518A"></line>
+                        <line x1="6.19" y1="4.5" x2="4.5" y2="4.5" id="Path" stroke="#00518A"></line>
+                        <line x1="11.53" y1="4.5" x2="9.84" y2="4.5" id="Path" stroke="#00518A"></line>
+                        <line x1="16.88" y1="4.5" x2="15.19" y2="4.5" id="Path" stroke="#00518A"></line>
+                        <path d="M25.88,33.75 L25.88,21.37 C25.8268048,20.4591848 26.1661507,19.569183 26.8122469,18.9249983 C27.458343,18.2808137 28.3493464,17.9441063 29.26,18 L42.76,18 C43.6698474,17.9438004 44.5600632,18.280766 45.2046486,18.9253514 C45.849234,19.5699368 46.1861996,20.4601526 46.13,21.37 L46.13,24.75" id="Path" stroke="#67B1E2"></path>
+                        <circle id="Oval" stroke="#67B1E2" cx="36" cy="46.69" r="6.19"></circle>
+                        <line x1="36" y1="52.88" x2="36" y2="58.44" id="Path" stroke="#67B1E2"></line>
+                        <rect id="Rectangle" stroke="#67B1E2" x="20.25" y="34.08" width="31.5" height="29.25" rx="2.56"></rect>
+                    </g>
+                </g>
+            </g>
+        </g>
+    </g>
+</svg>

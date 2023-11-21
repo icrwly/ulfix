@@ -1,0 +1,21 @@
+uuid: 164c0cb2-021a-42cb-8505-58f137d9bde7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_menu_section_btn
+    - paragraphs.paragraphs_type.menu_section
+id: paragraph.menu_section.field_menu_section_btn
+field_name: field_menu_section_btn
+entity_type: paragraph
+bundle: menu_section
+label: 'Section Overview Button Text'
+description: 'The text for the section "Overview" button.'
+required: false
+translatable: true
+default_value:
+  -
+    value: Overview
+default_value_callback: ''
+settings: {  }
+field_type: string

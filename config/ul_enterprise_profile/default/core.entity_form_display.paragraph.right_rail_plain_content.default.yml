@@ -1,0 +1,57 @@
+uuid: 432699fb-615c-4cca-ad4a-18bdf1fb1bf8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.right_rail_plain_content.field_rr_plain_content_desc
+    - field.field.paragraph.right_rail_plain_content.field_rr_plain_content_title
+    - field.field.paragraph.right_rail_plain_content.field_rr_plain_content_xtra_link
+    - paragraphs.paragraphs_type.right_rail_plain_content
+  module:
+    - link
+    - maxlength
+id: paragraph.right_rail_plain_content.default
+targetEntityType: paragraph
+bundle: right_rail_plain_content
+mode: default
+content:
+  field_rr_plain_content_desc:
+    type: string_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 255
+        maxlength_js_label: 'Content limited to <strong>@limit</strong> characters, remaining: <strong>@remaining</strong>'
+        maxlength_js_enforce: true
+        maxlength_js_truncate_html: true
+  field_rr_plain_content_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 40
+        maxlength_js_label: 'Limited to <strong>@limit</strong> characters, remaining: <strong>@remaining</strong>'
+  field_rr_plain_content_xtra_link:
+    type: link_default
+    weight: 4
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

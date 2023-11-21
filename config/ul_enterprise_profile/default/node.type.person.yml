@@ -1,0 +1,33 @@
+uuid: 6bf7c47c-c446-4f32-a139-dd263f84a448
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus: {  }
+    parent: ''
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    show_message_after_update: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
+_core:
+  default_config_hash: HvmxUf-I_JpnrpBfGjF6T84jsFy3iSpsmOPl9S4xy4E
+name: People
+type: person
+description: 'Use <em>People</em> for information about an individual who is not a user.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: true

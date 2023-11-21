@@ -1,0 +1,7 @@
+name: ul_json
+type: module
+description: A custom module to export nodes to JSON data.
+package: Custom
+core_version_requirement: ^9.2 || ^10
+dependencies:
+  - drupal:ul_report

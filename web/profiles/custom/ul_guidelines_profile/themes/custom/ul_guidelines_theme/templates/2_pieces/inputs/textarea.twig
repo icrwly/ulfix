@@ -1,0 +1,7 @@
+<div class="form-group form-group--textarea">
+	<label for="{{ input.name }}" class="label {{ input.required ? 'label--required' : ''}}">{{ input.label }}</label>
+	{% if input.description %}
+		<p class="description">{{ input.description }}</p>
+	{% endif %}
+	<textarea aria-label="{{ input.label }}" name="{{ input.name }}" {{ input.required ? 'required' : ''}} rows="{{ input.rows ? input.rows : '8'}}" cols="{{ input.cols ? input.cols : '80'}}"></textarea>
+</div>

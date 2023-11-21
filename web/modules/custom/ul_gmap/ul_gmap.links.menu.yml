@@ -1,0 +1,6 @@
+ul_gmap.configuration:
+  title: 'UL Market Access'
+  route_name: ul_gmap.configuration
+  description: "Configure settings for UL Global Market Access integration."
+  parent: system.admin_config_services
+  weight: 100

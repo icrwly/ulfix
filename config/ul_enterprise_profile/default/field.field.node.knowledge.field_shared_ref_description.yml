@@ -1,0 +1,19 @@
+uuid: 015a1bd1-d1c3-4011-a4cb-1c2619b400a5
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_description
+    - node.type.knowledge
+id: node.knowledge.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+bundle: knowledge
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

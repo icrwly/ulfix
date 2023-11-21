@@ -1,0 +1,41 @@
+{# See ul_enterprise_theme_preprocess_paragraph #}
+{% embed '@ul_base_theme/3_components/nav--mega-menu.twig' %}
+    {% set title = menu_section.title %}
+    {% set target_id = menu_section.id  %}
+    {% set description = paragraph.field_menu_section_intro.value %}
+    {% set full_menu_section = paragraph.field_render_full_menu_section.value %}
+    {% set columns_amount = paragraph.field_amount_of_columns.value %}
+    {% set section_image = content.field_section_image.0.url %}
+    {% if content.field_section_view_all_button_li|render %}
+        {% set view_all_cta = {
+            title: paragraph.field_section_view_all_button_li.0.title,
+            url: paragraph.field_section_view_all_button_li.0.url,
+        } %}
+    {% endif %}
+    {% if content.field_alternative_section_btn|render %}
+        {% set section_overview = {
+            title: content.field_menu_section_btn,
+            url: paragraph.field_alternative_section_btn.0.url,
+        } %}
+    {% endif %}
+
+    {% block cta %}
+        {# Adding CTA with link() because menu link items return uri in format: entity:/node/1 which only works with link. #}
+        {% if content.field_menu_section_btn|render is not empty %}
+          {% if menu_section.url %}
+              {{ link(content.field_menu_section_btn, menu_section.url, { 'class': ['button', 'button--black-outline', 'ul-ga-megamenu-cta']}) }}
+          {% endif %}
+        {% endif %}
+    {% endblock %}
+
+    {% if content.field_menu_section_title|render is not empty %}
+        {% set label = content.field_menu_section_title %}
+    {% endif %}
+
+    {% block menu %}
+        {{ menu_section.menu_items }}
+    {% endblock %}
+    {% block aside %}
+        {{ content.field_menu_section_support }}
+    {% endblock %}
+{% endembed %}

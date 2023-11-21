@@ -1,0 +1,16 @@
+section.section--tags {
+  ul {
+    @include list-unstyled;
+    font-size: 0; // remove whitespace
+  }
+  .tag {
+    border-radius: 40px;
+    border: 1px solid $border-color;
+    display: inline-block;
+    font-size: 1.4rem;
+    line-height: 1;
+    margin-bottom: $spacing-unit--s;
+    margin-#{$end-direction}: $spacing-unit--s;
+    padding: $spacing-unit--s $spacing-unit--m;
+  }
+}

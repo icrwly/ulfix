@@ -1,0 +1,89 @@
+///*------------------------------------*\
+//    #CORE - GRID
+//\*------------------------------------*/
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$grid-gutter/2;
+  margin-right: -$grid-gutter/2;
+  @include breakpoint($tablet){
+    margin-left: -$grid-gutter;
+    margin-right: -$grid-gutter;
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+  }
+}
+
+[class*='span-'] {
+  min-height: 1px; // Prevent collapsing
+  padding-left: $grid-gutter/2;
+  padding-right: $grid-gutter/2;
+  width: 100%;
+  @include breakpoint($tablet){
+    padding-right: $grid-gutter;
+    padding-left: $grid-gutter;
+  }
+}
+
+@include add-grid-columns;
+
+
+// Flex Grid
+// TODO: Deprecated, will be replaced by grid classes above.
+// -------------------------
+
+.flex-grid {
+  @include flex-grid-container();
+  .grid-item {
+    @include flex-grid-item();
+    // WIP: refactor into mixin
+    &--half {
+      @include breakpoint($large-tablet) {
+        flex-basis: 50%;
+        max-width: 50%;
+      }
+    }
+  }
+}
+
+.column-wrapper {
+  @include flex-grid-container($spacing-unit--l);
+
+  &--no-space-bottom {
+    padding-bottom: 0!important;
+  }
+
+  .column {
+    @include flex-grid-item($spacing-unit--l);
+  }
+
+
+  .main-column {
+    @include breakpoint($desktop) {
+      flex-basis: percentage(7/12);
+      max-width: percentage(7/12);
+    }
+  }
+
+  .side-column {
+    @include breakpoint($desktop) {
+      flex-basis: percentage(5/12);
+      max-width: percentage(5/12);
+    }
+  }
+
+  &.direction-reverse {
+    flex-direction: row-reverse;
+    @include breakpoint(max-width $desktop - 1) {
+      flex-direction: column-reverse;
+    }
+    &--max-desktop {
+      @include breakpoint(max-width $desktop - 1) {
+        flex-direction: column-reverse;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+name: 'UL Australia & New Zealand Theme'
+type: theme
+base theme: ul_enterprise_theme
+description: 'Theme for the Australia & New Zealand site.'
+package: Core
+core_version_requirement: ^9 || ^10
+
+# This JS is needed on every page presented by the theme.
+libraries:
+  - ul_anz_theme/ul-anz-styles
+  - ul_anz_theme/global-scripts
+
+regions:
+  header_before: 'Header before'
+  header_top: 'Header top'
+  header_bottom: 'Header bottom'
+  header_after: 'Header after'
+  breadcrumb: Breadcrumb
+  top: 'Page top'
+  content: Content
+  sidebar_first: 'First sidebar'
+  bottom: 'Page bottom'
+  footer_top: 'Footer top'
+  footer_bottom: 'Footer bottom'

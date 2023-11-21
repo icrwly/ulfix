@@ -1,0 +1,8 @@
+name: UL CRC Asset Entity
+type: module
+description: Custom Entity for CRC Assets.
+core_version_requirement: ^9 || ^10
+package: Web services
+dependencies:
+  - drupal:ul_crc
+  - drupal:entity_browser

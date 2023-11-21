@@ -1,0 +1,7 @@
+{% extends '@ul_base_theme/1_core/switch.twig' %}
+
+{% if type == 'spotlight' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/feature/feature--spotlight.twig' %}
+{% else %}
+  {% set switch_template = '@ul_base_theme/2_pieces/feature/feature--default.twig' %}
+{% endif %}

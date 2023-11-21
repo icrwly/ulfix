@@ -1,0 +1,35 @@
+uuid: 69531e0f-d2ca-480d-bc38-41520f1763a3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.interrupter_cta.field_hash_target
+    - field.field.paragraph.interrupter_cta.field_interrupter_cta_cta
+    - paragraphs.paragraphs_type.interrupter_cta
+id: paragraph.interrupter_cta.default
+targetEntityType: paragraph
+bundle: interrupter_cta
+mode: default
+content:
+  field_hash_target:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_interrupter_cta_cta:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

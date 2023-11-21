@@ -1,0 +1,66 @@
+/**
+ * Shimadzu site styles
+*/
+
+/**
+ * Font size
+ */
+body,
+.section--spotlight .section__description,
+.card.card--spotlight .card__description,
+.card.card--spotlight .card__description p,
+.hero--detail .hero__description,
+.hero--detail .hero__description p,
+.button,
+td {
+    font-size: 1.8rem;
+}
+
+/**
+ * Header
+ */
+ @media only screen and (max-width: 1400px) {
+  .nav--primary .menu-item--primary-nav a {
+    font-size: 1.45rem;
+  }
+}
+@media only screen and (min-width: 1200px) {
+  .nav--mega-menu .menu-list--mega-menu a {
+    line-height: 2.5rem;
+  }
+}
+@media only screen and (max-width: 1100px) {
+  .nav--primary .menu-item--primary-nav a:not(.mobile-menu__button) {
+    font-size: 1.25rem;
+  }
+  .menu-list .menu-item {
+    padding-right: 0.4rem;
+  }
+}
+@media only screen and (max-width: 991px) {
+  .global-header__hamburger {
+    margin-left: auto;
+  }
+  .nav--primary .menu-item--primary-nav a:not(.mobile-menu__button, .mobile-menu__back) {
+    padding-right: 32px;
+  }
+  .mobile-menu__title {
+    font-size: 2rem;
+    display: block;
+    margin: 26px 0 0;
+  }
+  .mobile-menu__back {
+    top: -20px;
+  }
+  .mobile-menu__button {
+    right: -6px;
+    width: 3rem;
+  }
+}
+
+/**
+ * Main Content
+ */
+.section.section--addtoany {
+  display: none !important;
+}

@@ -1,0 +1,29 @@
+uuid: 1526da5d-f1a1-40d0-ad2f-4ba2abb46416
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_service
+    - node.type.offering
+    - taxonomy.vocabulary.service_categories
+id: node.offering.field_shared_service
+field_name: field_shared_service
+entity_type: node
+bundle: offering
+label: 'Service Categories'
+description: '&bull; The service category related to this offering.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_categories: service_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

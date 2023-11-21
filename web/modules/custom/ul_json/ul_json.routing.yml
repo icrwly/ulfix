@@ -1,0 +1,64 @@
+ul_json.settings_form:
+  path: '/admin/config/system/ul-json'
+  defaults:
+    _title: 'ul_json settings'
+    _form: 'Drupal\ul_json\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'
+
+ul_json.export_json:
+  path: '/ul-json/powerbi/export-json/{token}'
+  defaults:
+    _title: 'Export data to JSON format for POWERBI'
+    _controller: '\Drupal\ul_json\Controller\UlJsonController::build'
+    arguments: ['@ul_json.export']
+  requirements:
+    # The access is controled by the access token.
+    _access: 'TRUE'
+  options:
+    parameters:
+      token:
+        type: string
+
+ul_json.export_json_2:
+  path: '/ul-json/email/export-json/{token}'
+  defaults:
+    _title: 'Export data to JSON format for Newsletter/Email'
+    _controller: '\Drupal\ul_json\Controller\UlJsonController::build2'
+    arguments: ['@ul_json.export']
+  requirements:
+    # The access is controled by the access token.
+    _access: 'TRUE'
+  options:
+    parameters:
+      token:
+        type: string
+
+
+ul_json.export_json_3:
+  path: '/ul-json/china/export-feed/{token}'
+  defaults:
+    _title: 'Export Feed for China Team'
+    _controller: '\Drupal\ul_json\Controller\UlJsonController::build3'
+    arguments: ['@ul_json.export']
+  requirements:
+    # The access is controled by the access token.
+    _access: 'TRUE'
+  options:
+    parameters:
+      token:
+        type: string
+
+ul_json.export_json_3_rss:
+  path: '/ul-json/china/export-rss-feed/{token}'
+  defaults:
+    _title: 'Export Feed for China Team'
+    _controller: '\Drupal\ul_json\Controller\UlJsonController::build3Rss'
+    arguments: ['@ul_json.export']
+  requirements:
+    # The access is controled by the access token.
+    _access: 'TRUE'
+  options:
+    parameters:
+      token:
+        type: string

@@ -1,0 +1,18 @@
+uuid: 36d4f92e-04d1-43f6-9294-dfa24a3719c4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.service_types
+id: taxonomy_term.service_types.metatag
+field_name: metatag
+entity_type: taxonomy_term
+bundle: service_types
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

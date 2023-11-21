@@ -1,0 +1,82 @@
+uuid: 7a87a6f1-3130-4de6-95a9-6d910ff93461
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.field.block_content.cta_banner.field_cta_color
+    - field.field.block_content.cta_banner.field_cta_cta
+    - field.field.block_content.cta_banner.field_marketo_form_customization
+  module:
+    - color_field
+    - inline_entity_form
+    - paragraphs
+id: block_content.cta_banner.default
+targetEntityType: block_content
+bundle: cta_banner
+mode: default
+content:
+  field_cta_color:
+    type: color_field_widget_spectrum
+    weight: 2
+    region: content
+    settings:
+      show_input: '0'
+      show_palette: '1'
+      palette: "[\"#ffffff\",\"#939598\",\"#c4b8aa\",\"#a39382\",\"#65503e\",\"#000000\"],\r\n[\"#ca0123\",\"#892433\",\"#661a29\",\"#f18a21\",\"#cf5f28\",\"#8d4921\"],\r\n[\"#ffc62f\",\"#d0922a\",\"#a96d29\",\"#92c83e\",\"#4c9e45\",\"#1e5632\"],\r\n[\"#59b7b3\",\"#007584\",\"#204b5a\",\"#67b1e2\",\"#00518a\",\"#0b3C61\"]"
+      show_palette_only: '1'
+      show_buttons: '0'
+      cancel_text: Cancel
+      choose_text: Choose
+      allow_empty: '0'
+    third_party_settings: {  }
+  field_cta_cta:
+    type: entity_reference_paragraphs
+    weight: 1
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_marketo_form_customization:
+    type: inline_entity_form_complex
+    weight: 27
+    region: content
+    settings:
+      form_mode: default
+      override_labels: false
+      label_singular: ''
+      label_plural: ''
+      allow_new: true
+      allow_existing: false
+      match_operator: CONTAINS
+      allow_duplicate: false
+      collapsible: false
+      collapsed: false
+      revision: false
+    third_party_settings: {  }
+  info:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden: {  }

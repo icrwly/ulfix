@@ -1,0 +1,39 @@
+{% import "@ul_base_theme/1_core/macros.twig" as mac %}
+
+{% if grid_class is not defined or not grid_class|length %}
+  {% set per_row = per_row|default(4) %}
+
+  {% if per_row == 1 %}
+    {% set grid_class = 'span-12' %}
+  {% elseif per_row == 2 %}
+    {% set grid_class = 'span-6-t' %}
+  {% elseif per_row == 3 %}
+    {% set grid_class = 'span-6-t span-4-d' %}
+  {% elseif per_row == 4 %}
+    {% set grid_class = 'span-6-t span-3-d' %}
+  {% elseif per_row == 'auto' %}
+    {% set grid_class = 'span-auto' %}
+  {% endif %}
+{% endif %}
+
+{% if toggle %}
+  {% set attributes = {
+    'data-item-grid-class': grid_class,
+    'data-item-list-class': 'span-12'
+  } %}
+{% endif %}
+
+{# This is set over in Enterprise only on `paragraph-wrapper--section-grid-cards.html.twig`. #}
+{% if spotlight_cards %}
+  {% set class = 'card--spotlight--wrapper' %}
+{% endif %}
+
+<div class="{{ class }} {{ grid_class }}" {{ mac.attributes(attributes) }}>
+  {% block content %}
+      {% if item.content %}
+        {{ item.content }}
+    {% else %}
+       {{ item }}
+    {% endif %}
+  {% endblock %}
+</div>

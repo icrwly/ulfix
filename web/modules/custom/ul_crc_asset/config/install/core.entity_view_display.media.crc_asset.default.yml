@@ -1,0 +1,32 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.crc_asset.field_media_crc_asset
+    - media.type.crc_asset
+  module:
+    - ul_crc_asset
+id: media.crc_asset.default
+targetEntityType: media
+bundle: crc_asset
+mode: default
+content:
+  field_media_crc_asset:
+    type: crc_asset_formatter
+    weight: 1
+    region: content
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+  name:
+    type: string
+    weight: 0
+    region: content
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+hidden:
+  created: true
+  thumbnail: true
+  uid: true

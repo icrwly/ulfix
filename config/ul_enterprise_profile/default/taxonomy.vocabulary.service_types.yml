@@ -1,0 +1,8 @@
+uuid: ae8a8a1e-fe5f-4109-8547-df5ca2d93622
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service Types'
+vid: service_types
+description: 'Used for grouping service types.'
+weight: 0

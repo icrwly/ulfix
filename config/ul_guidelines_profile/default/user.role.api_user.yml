@@ -1,0 +1,19 @@
+uuid: 2e8611b5-69cc-42fe-ae1e-4756c27ea49c
+langcode: en
+status: true
+dependencies:
+  module:
+    - search
+    - system
+    - ul_crc_user
+_core:
+  default_config_hash: a2mhSykO-GWR11c3M4TDH2G3jEr8qgvc_3N1e__URL0
+id: api_user
+label: 'API User'
+weight: -5
+is_admin: null
+permissions:
+  - 'access content'
+  - 'bypass saml authentication'
+  - 'search content'
+  - 'use advanced search'

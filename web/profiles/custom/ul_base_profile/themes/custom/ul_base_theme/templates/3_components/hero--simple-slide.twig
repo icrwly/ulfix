@@ -1,0 +1,24 @@
+<div class="hero--default-slide swiper-slide">
+  {{- slide.image -}}
+  <div class="wrapper">
+    <div class="content-container hero-content--background gray">
+      {% block hero_slide_title %}
+        <h1>{{- slide.title -}}</h1>
+      {% endblock %}
+      {% block hero_slide_description %}
+        {% if slide.description %}
+          <p class="description">{{- slide.description -}}</p>
+        {% endif %}
+      {% endblock %}
+      {% block hero_slide_cta %}
+        {% if slide.cta %}
+          {% include '@ul_base_theme/2_pieces/button.twig' with {
+            link: slide.cta.link,
+            color: slide.cta.color,
+            name: slide.cta.name
+          } %}
+        {% endif %}
+      {% endblock %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+{% if grid %}
+<div class="grid-item">
+{% endif %}
+
+{% if item.type == 'card--aside-default' %}
+  {% include '@ul_base_theme/2_pieces/card/card--aside-default.twig' with item only %}
+{% elseif item.type == 'card--aside-download' %}
+  {% include '@ul_base_theme/2_pieces/card/card--aside-download.twig' with item only %}
+{% elseif item.type == 'widget--date-time' %}
+  {% include '@ul_base_theme/2_pieces/widget/widget--date-time.twig' with item only %}
+{% elseif item.type == 'widget--default' %}
+  {% include '@ul_base_theme/2_pieces/widget/widget--default.twig' with item only %}
+{% endif %}
+
+{% if grid %}
+</div>
+{% endif %}

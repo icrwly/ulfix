@@ -1,0 +1,35 @@
+<div id="{{ modal.id }}" style="display:none;">
+
+    {% block modal_title %}
+        {% if modal.title %}
+            <h2>{{ modal.title }}</h2>
+        {% endif %}
+    {% endblock %}
+
+    {% if modal.type == 'slider' %}
+      <div class='swiper-container' data-module="swiper">
+        <div class='swiper-wrapper'>
+            {% block modal_slides %}
+              {% for slide in modal.slides %}
+                {% include '@ul_guidelines_theme/3_components/modal--slide.twig' %}
+              {% endfor %}
+            {% endblock %}
+        </div>
+        <!-- <div class="swiper-button-next"></div> -->
+        <!-- <div class="swiper-button-prev"></div> -->
+        <div class="swiper-pagination"></div>
+      </div>
+
+    {% endif %}
+
+    {% block content %}
+        {% if modal.content %}
+          {{ modal.content }}
+        {% endif %}
+    {% endblock %}
+
+    {% if modal.cancel %}
+      <a href='#' class='cancel'>Cancel</a>
+    {% endif %}
+
+</div>

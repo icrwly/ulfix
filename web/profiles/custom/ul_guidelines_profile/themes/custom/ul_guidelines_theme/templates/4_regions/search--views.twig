@@ -1,0 +1,8 @@
+{% set search_views_classes = search.view_classes ?:[] %}
+{% set search_views_classes = search_views_classes|merge(['search--views']) %}
+<div class="{{ search_views_classes|join(' ') }}">
+    {% block content %}
+        {% include '@ul_guidelines_theme/3_components/search--popular.twig' %}
+        {% include '@ul_guidelines_theme/3_components/search--results.twig' %}
+    {% endblock %}
+</div>

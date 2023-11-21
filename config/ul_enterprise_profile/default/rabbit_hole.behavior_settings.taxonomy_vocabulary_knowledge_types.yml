@@ -1,0 +1,14 @@
+uuid: da1ffddc-c53e-48af-b457-e16602843aeb
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.knowledge_types
+id: taxonomy_vocabulary_knowledge_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

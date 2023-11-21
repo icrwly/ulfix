@@ -1,0 +1,8 @@
+uuid: 20ae5fec-622a-4498-abd3-4f412f762001
+langcode: en
+status: true
+dependencies: {  }
+name: 'Products and Components'
+vid: products_and_components
+description: ''
+weight: 0

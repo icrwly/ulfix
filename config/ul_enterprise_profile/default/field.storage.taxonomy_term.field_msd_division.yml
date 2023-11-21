@@ -1,0 +1,54 @@
+uuid: d5d30b69-050c-48fd-99a4-bf11df2805cc
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_msd_division
+field_name: field_msd_division
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: CRS
+      label: CRS
+    -
+      value: Energy
+      label: Energy
+    -
+      value: 'Field Services'
+      label: 'Field Services'
+    -
+      value: 'Functional Safety'
+      label: 'Functional Safety'
+    -
+      value: 'Hazardous Locations'
+      label: 'Hazardous Locations'
+    -
+      value: 'Health Sciences'
+      label: 'Health Sciences'
+    -
+      value: 'High Tech'
+      label: 'High Tech'
+    -
+      value: 'Industrial Systems and Components'
+      label: 'Industrial Systems and Components'
+    -
+      value: 'Power Distribution'
+      label: 'Power Distribution'
+    -
+      value: 'Transaction Security'
+      label: 'Transaction Security'
+    -
+      value: 'Wire & Cable'
+      label: 'Wire & Cable'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

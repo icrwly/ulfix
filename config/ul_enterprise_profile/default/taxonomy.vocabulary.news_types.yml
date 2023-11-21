@@ -1,0 +1,8 @@
+uuid: 887fda4c-523b-4d0c-a1f9-0f821b7579f0
+langcode: en
+status: true
+dependencies: {  }
+name: 'News Types'
+vid: news_types
+description: 'Used for grouping news.'
+weight: 0

@@ -1,0 +1,21 @@
+{% extends '@ul_base_theme/1_core/switch.twig' %}
+
+{% if type == 'banner' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--banner.twig' %}
+{% elseif type == 'cta' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--cta.twig' %}
+{% elseif type == 'data' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--data.twig' %}
+{% elseif type == 'events' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--events.twig' %}
+{% elseif type == 'featured' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--featured.twig' %}
+{% elseif type == 'read-more' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--read-more.twig' %}
+{% elseif type == 'solutions' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--solutions.twig' %}
+{% elseif type == 'spotlight' %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--spotlight.twig' %}
+{% else %}
+  {% set switch_template = '@ul_base_theme/2_pieces/card/card--default.twig' %}
+{% endif %}

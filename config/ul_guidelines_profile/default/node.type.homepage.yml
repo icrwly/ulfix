@@ -1,0 +1,20 @@
+uuid: 606fce2d-0dc2-4c38-8cfd-74ed9c986e1f
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+_core:
+  default_config_hash: U_G3SISRLULC0TkL3bluskOdyAHNbKqAlfkpgSXfcj4
+name: Homepage
+type: homepage
+description: 'Use <em>Homepage</em> for the main landing page of your site. '
+help: ''
+new_revision: false
+preview_mode: 1
+display_submitted: false

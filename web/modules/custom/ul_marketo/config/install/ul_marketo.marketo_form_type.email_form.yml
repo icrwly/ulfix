@@ -1,0 +1,26 @@
+uuid: 2bfe1547-6423-4561-aef7-3c1d7c12ed84
+langcode: en
+status: true
+dependencies: {  }
+id: email_form
+label: 'Newsletter Form'
+description: ''
+marketo_form_id:
+  0:
+    value: '1045'
+    filters:
+      instance: Enterprise
+      env: prod
+      langcode: en
+  1:
+    value: '2666'
+    filters:
+      instance: Enterprise
+      env: stage
+      langcode: en
+  actions: {  }
+settings:
+  settings__active_tab: edit-page
+  page_enable: 1
+  path: /newsletter-signup
+  block_enable: 0

@@ -1,0 +1,8 @@
+entity_type_groups:
+  node:
+    guideline:
+      basic: basic
+    homepage:
+      basic: basic
+    page:
+      basic: basic

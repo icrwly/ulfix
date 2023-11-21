@@ -1,0 +1,25 @@
+uuid: 37e013c6-6873-4d7d-9c59-af906350d8ab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_curated_list_references
+    - paragraphs.paragraphs_type.curated_list
+id: paragraph.curated_list.field_curated_list_references
+field_name: field_curated_list_references
+entity_type: paragraph
+bundle: curated_list
+label: 'Referenced Content'
+description: '&bull; You may add up to 5 referenced content links.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: published_nodes_for_paragraphs
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

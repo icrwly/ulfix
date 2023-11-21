@@ -1,0 +1,12 @@
+{% extends "@ul_base_theme/2_pieces/card/card--data.twig" %}
+
+{% set title = content.field_slide_title %}
+
+{% block card_description %}
+    {{ content.field_slide_body }}
+{% endblock %}
+
+{% if content.field_slide_image.0.src %}
+    {% set image = content.field_slide_image.0.src %}
+    {% set imageAlt = content.field_slide_image.0.alt %}
+{% endif %}

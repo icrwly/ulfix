@@ -1,0 +1,157 @@
+{
+  "submitPages" : [
+    {
+      "id" : 1,
+      "title": "Add Project Details for Visual",
+      "description" : "<p>Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>",
+      "form" : {
+        "focusArea" : {
+          "label" : "Focus Area",
+          "name" : "focusArea",
+          "required": true,
+          "options" : [
+            {
+              "label": "UL Logo",
+              "value" : "UL Logo"
+            },
+            {
+              "value": "UL Logo",
+              "label": "Visual"
+            },
+            {
+              "value": "UL Logo",
+              "label": "Brand"
+            },
+            {
+              "value": "UL Logo",
+              "label": "Another Item"
+            },
+            {
+              "value": "UL Logo",
+              "label": "Guidelines"
+            }
+          ]
+        },
+        "requestDetails" : {
+          "label": "Request Details",
+          "name" : "requestDetails",
+          "rows" : "8",
+          "cols": "80",
+          "required" : true,
+          "description" : "Please provide information on your project such as target audience, use/application, objective, draft stage."
+        }
+      }
+    },
+    {
+      "id" : 2,
+      "title" : "Project Context, Visibility & Files",
+      "description" : "<p>Curabitur blandit tempus porttitor. Maecenas sed diam eget risus varius blandit sit amet non magna.</p>",
+      "form" : {
+        "visibility" : {
+          "label" : "Visiiblty",
+          "name" : "visibility",
+          "required" : true,
+          "options" : [
+            {
+              "label" : "Internal",
+              "value" : "Internal"
+            },
+            {
+              "label" : "Visual",
+              "value" : "Visual"
+            },
+            {
+              "label" : "Brand",
+              "value" : "Brand"
+            },
+            {
+              "label" : "Another Item",
+              "value" : "Another Item"
+            },
+            {
+              "label" : "Guidelines",
+              "value" : "Guidelines"
+            }
+          ]
+        },
+        "division": {
+          "label" : "Division / Group",
+          "name": "divisionGroup",
+          "required": true,
+          "options": [
+            {
+              "label": "Consumer Products",
+              "value": "Consumer Products"
+            },
+            {
+              "label": "Visual Products",
+              "value": "Visual Products"
+            },
+            {
+              "label": "Brand Products",
+              "value": "Brand Products"
+            },
+            {
+              "label": "Another Item",
+              "value": "Another Item"
+            },
+            {
+              "label": "Guidelines",
+              "value": "Guidelines"
+            }
+          ]
+        },
+        "region": {
+          "label" : "Region",
+          "name" : "region",
+          "required": true,
+          "options" : [
+            {
+              "label" : "India",
+              "value" : "India"
+            },
+            {
+              "label" : "United States",
+              "value" : "United States"
+            },
+            {
+              "label" : "United Kingdom",
+              "value" : "United Kingdom"
+            },
+            {
+              "label" : "Germany",
+              "value" : "Germany"
+            },
+            {
+              "label" : "France",
+              "value" : "France"
+            }
+          ]
+        },
+        "upload" : {
+          "label": "Upload The File(s) For Review",
+          "name" : "files",
+          "required": "true"
+        }
+      }
+    }
+  ],
+  "breadcrumbShow": true,
+  "backButtonShow": false,
+  "wysiwyg": "<p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>",
+  "submitSteps": [
+    {
+      "label": "Step 1"
+    },
+    {
+      "label": "Step 2"
+    },
+    {
+      "label": "Step 3"
+    }
+  ],
+  "turnaround": {
+    "label": "Estimated Request Turnaround Time",
+    "time": "2 Days"
+  }
+}

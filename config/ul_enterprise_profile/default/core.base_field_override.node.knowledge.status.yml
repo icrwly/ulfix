@@ -1,0 +1,22 @@
+uuid: 7c38987a-1c94-4ed7-aab6-b9b61704e173
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.knowledge
+id: node.knowledge.status
+field_name: status
+entity_type: node
+bundle: knowledge
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

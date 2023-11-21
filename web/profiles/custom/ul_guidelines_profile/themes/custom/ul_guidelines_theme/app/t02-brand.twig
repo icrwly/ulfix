@@ -1,0 +1,13 @@
+{# t02-brand.twig #}
+{% extends '@ul_guidelines_theme/1_core/2-columns.twig' %}
+
+{% block page %}
+  <div class="column-wrapper">
+      <div class="column side-column">
+          {% include '@ul_guidelines_theme/4_regions/nav--side-rail.twig' with {nav: sideRail} %}
+      </div>
+      <div class="column main-column">
+        {% include '@ul_guidelines_theme/5_layouts/t02-brand.twig' %}
+      </div>
+  </div>
+{% endblock %}

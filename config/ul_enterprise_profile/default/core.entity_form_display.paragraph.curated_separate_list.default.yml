@@ -1,0 +1,67 @@
+uuid: 6c00f0a7-0075-4f65-9bfb-3023b66bf471
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.curated_separate_list.field_curated_separate_list
+    - field.field.paragraph.curated_separate_list.field_hash_target
+    - field.field.paragraph.curated_separate_list.field_shared_bg_color
+    - paragraphs.paragraphs_type.curated_separate_list
+  module:
+    - field_group
+    - paragraphs
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_bg_color
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.curated_separate_list.default
+targetEntityType: paragraph
+bundle: curated_separate_list
+mode: default
+content:
+  field_curated_separate_list:
+    type: entity_reference_paragraphs
+    weight: 0
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: open
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: ''
+    third_party_settings: {  }
+  field_hash_target:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

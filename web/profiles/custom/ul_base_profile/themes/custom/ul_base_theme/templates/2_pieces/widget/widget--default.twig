@@ -1,0 +1,11 @@
+{% extends "@ul_base_theme/2_pieces/widget/widget.twig" %}
+{% set class = "widget--default" %}
+
+{% block content %}
+  {% block widget_title %}
+    {% if title %}
+      <h3>{{- title -}}</h3>
+    {% endif %}
+  {% endblock %}
+  {{- content -}}
+{% endblock %}

@@ -1,0 +1,11 @@
+{# @file: marketo-form.html.twig #}
+
+{% block section_body %}
+  {% if marketo.is_modal %}
+    {# MODAL FORM: #}
+    {% include '@ul_enterprise_theme/marketo/marketo-form--modal.html.twig' %}
+  {% else %}
+    {# ROUTED PAGE'S FORM: #}
+    {% include '@ul_enterprise_theme/marketo/marketo-form--routed.html.twig' %}
+  {% endif %}
+{% endblock section_body %}

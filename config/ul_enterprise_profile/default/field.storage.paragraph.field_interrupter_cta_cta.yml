@@ -1,0 +1,20 @@
+uuid: ab7942b0-3b08-46b7-a755-108b4cb1c4a5
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - paragraphs
+id: paragraph.field_interrupter_cta_cta
+field_name: field_interrupter_cta_cta
+entity_type: paragraph
+type: entity_reference
+settings:
+  target_type: block_content
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

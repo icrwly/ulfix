@@ -1,0 +1,24 @@
+.filter-bar__toggle {
+  align-items: center;
+  background: $background-color;
+  color: $gray;
+  display: flex;
+  font-size: 1.6rem;
+  height: 100%;
+  justify-content: center;
+  min-height: 75px;
+  padding: $spacing-unit;
+  transition: background-color $transition;
+  width: 100%;
+  @include breakpoint($desktop) {
+    display: none;
+  }
+
+  span + span {
+    margin-#{$start-direction}: $spacing-unit--s;
+  }
+  .icon {
+    font-size: 1.6rem;
+    line-height: 1;
+  }
+}

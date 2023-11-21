@@ -1,0 +1,15 @@
+uuid: 7875161a-0d9f-4c8b-8f2d-e07f51bc806c
+langcode: en
+status: true
+dependencies: {  }
+name: grid_card_views
+label: 'Grid Card -- Views'
+effects:
+  1ded21d1-2ad8-4112-a1b5-2de8498bfbdc:
+    uuid: 1ded21d1-2ad8-4112-a1b5-2de8498bfbdc
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 530
+      height: 175
+      anchor: center-center

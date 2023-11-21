@@ -1,0 +1,18 @@
+uuid: 66024bf1-90b7-4f94-8f3c-2b4344a28aab
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: false
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: media.crc_asset
+target_entity_type_id: media
+target_bundle: crc_asset
+default_langcode: site_default
+language_alterable: false

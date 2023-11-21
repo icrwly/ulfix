@@ -1,0 +1,10 @@
+uuid: 5b4f2d2c-30ed-426a-b0f5-4ab1a864bcf2
+langcode: en
+status: true
+dependencies: {  }
+id: descript_link
+label: 'Descriptive Link Paragraph'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Descriptive Link Paragraph</em> for rendering an annotated link with title and description.'
+behavior_plugins: {  }

@@ -1,0 +1,16 @@
+uuid: ad2032e8-3059-4d71-b097-a29f3cd94e1f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.guidelines_list
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+id: node.guidelines_list
+target_entity_type_id: node
+target_bundle: guidelines_list
+default_langcode: site_default
+language_alterable: true

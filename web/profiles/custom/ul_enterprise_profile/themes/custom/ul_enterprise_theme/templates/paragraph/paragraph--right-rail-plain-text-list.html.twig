@@ -1,0 +1,16 @@
+{# @file: paragraph--right-rail-plain-text.list.html.twig #}
+{% set heading = content.field_plain_text_list_heading[0] %}
+{% set items = content.field_plain_text_list_item %}
+{% block content %}
+  <div class="right-rail-plain-text">
+    <h3>{{ heading }}</h3>
+    <ul>
+      {% for key, item in items %}
+        {# If the key is a number: #}
+        {% if key matches '/^\\d+$/' %}
+          <li>{{ item }}</li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  </div>
+{% endblock %}

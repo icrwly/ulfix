@@ -1,0 +1,86 @@
+{#
+/**
+ * @file
+ * Theme override for main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+
+{% include '@ul_guidelines_theme/3_components/nav--breadcrumbs.twig' with {
+  breadcrumbShow: true,
+  backButtonShow: true
+} %}
+
+{% include '@ul_guidelines_theme/4_regions/section--main.twig' with {title: header['result']['#markup']} %}
+
+{% embed '@ul_guidelines_theme/4_regions/section--cards.twig' with {
+  section: {
+    type: 'featured'
+}
+}%}
+  {% block card_list %}
+    {{ header['view']|render }}
+  {% endblock %}
+{% endembed %}
+
+{% if rows %}
+    {% embed '@ul_guidelines_theme/4_regions/section--listing-items.twig' with {section: {
+    title: 'Pages ' ~ '(' ~ (view.total_rows - view.getOffset() - attachment_after|length) ~ ')'
+    }}%}
+      {% block list_items %}
+        {{ rows }}
+      {% endblock %}
+      {#{{ pager }}#}
+      {% block view_more %}
+        {{ more }}
+      {% endblock %}
+    {% endembed %}
+{% endif %}
+
+{# Adding Assets from CRC to view #}
+{% if attachment_after %}
+    {% embed '@ul_guidelines_theme/4_regions/section--listing-items.twig' with {section: {
+    title: 'Assets ' ~ '(' ~ attachment_after|length ~ ')'
+    }}%}
+      {% block list_items %}
+        {% for asset in attachment_after %}
+          {% set item = {
+            title : asset.name,
+            linkHref: asset.original_url,
+            category: asset.node.title.value,
+            sectionIcon: 'file',
+            section: asset.file_extension|upper,
+            image: asset.sm_thumbnail_url,
+            alt: asset.name,
+            uploaded: 'Uploaded'|t ~ ' ' ~ asset.updated_at|format_date('date_short')
+          } %}
+          {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--search.twig' with { item: item } %}
+        {% endfor %}
+      {% endblock %}
+    {% endembed %}
+{% endif %}

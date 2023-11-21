@@ -1,0 +1,18 @@
+uuid: cdd662fb-28f3-497a-8432-71e52ef7f3b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.card_small_child
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.card_small_child
+target_entity_type_id: paragraph
+target_bundle: card_small_child
+default_langcode: site_default
+language_alterable: true

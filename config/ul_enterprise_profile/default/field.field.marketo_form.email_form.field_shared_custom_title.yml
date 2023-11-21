@@ -1,0 +1,21 @@
+uuid: d8114871-c713-4dbe-b457-76d3f20c5ea4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_shared_custom_title
+    - ul_marketo.marketo_form_type.email_form
+id: marketo_form.email_form.field_shared_custom_title
+field_name: field_shared_custom_title
+entity_type: marketo_form
+bundle: email_form
+label: 'Custom Title'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 'Stay informed'
+default_value_callback: ''
+settings: {  }
+field_type: string

@@ -1,0 +1,10 @@
+{% block events_title_bar %}
+  {% if titleBar %}
+    {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+  {% endif %}
+{% endblock %}
+<div class="column events-column">
+  {% block events_cards %}
+    {% include '@ul_base_theme/3_components/homepage__events-column__cards.twig' with cardList %}
+  {% endblock %}
+</div>

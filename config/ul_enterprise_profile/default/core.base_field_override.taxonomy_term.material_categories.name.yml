@@ -1,0 +1,18 @@
+uuid: 2ff33e8e-305d-41ed-9a0c-031ce159cb98
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.material_categories
+id: taxonomy_term.material_categories.name
+field_name: name
+entity_type: taxonomy_term
+bundle: material_categories
+label: Name
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

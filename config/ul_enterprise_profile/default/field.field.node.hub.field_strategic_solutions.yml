@@ -1,0 +1,29 @@
+uuid: e9a44090-6cf5-43e8-81d6-3ac5f4842d39
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_strategic_solutions
+    - node.type.hub
+    - taxonomy.vocabulary.strategic_solutions
+id: node.hub.field_strategic_solutions
+field_name: field_strategic_solutions
+entity_type: node
+bundle: hub
+label: 'Strategic Solutions'
+description: 'The strategic solutions related to this experience hub.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      strategic_solutions: strategic_solutions
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

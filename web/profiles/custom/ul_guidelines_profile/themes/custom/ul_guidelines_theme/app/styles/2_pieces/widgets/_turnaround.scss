@@ -1,0 +1,28 @@
+.turnaround {
+	background-color: $orangeLight;
+	border-radius: 4px;
+	font-family: $sans;
+	padding: 15px 15px 27px;
+	text-align: center;
+
+	.label,
+	h3 {
+		color: $white;
+	}
+
+	.label {
+		@include font-size(14, 20);
+		margin: 0 0 11px;
+	}
+
+	h3 {
+		@include font-size(31, 32);
+		font-weight: 700;
+		margin: 0;
+
+		&::before {
+			margin-right: 16px;
+			vertical-align: top;
+		}
+	}
+}

@@ -1,0 +1,26 @@
+uuid: 9d63c177-6c35-479d-939a-b102352ebd81
+langcode: en
+status: true
+dependencies: {  }
+id: event_form
+label: 'Event Registration'
+description: ''
+marketo_form_id:
+  0:
+    value: '1028'
+    filters:
+      instance: Enterprise
+      env: prod
+      langcode: en
+  1:
+    value: '2667'
+    filters:
+      instance: Enterprise
+      env: stage
+      langcode: en
+  actions: {  }
+settings:
+  settings__active_tab: edit-page
+  page_enable: 1
+  path: /event-signup
+  block_enable: 0

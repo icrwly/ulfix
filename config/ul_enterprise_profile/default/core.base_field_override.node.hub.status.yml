@@ -1,0 +1,24 @@
+uuid: 5abbbca5-cce8-4b04-be08-9f5fcc0fa5d7
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.hub
+_core:
+  default_config_hash: lHgaGK6lfYcaFxoifBt5fszgJ5t0DX5vKZz9VSm9veU
+id: node.hub.status
+field_name: status
+entity_type: node
+bundle: hub
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

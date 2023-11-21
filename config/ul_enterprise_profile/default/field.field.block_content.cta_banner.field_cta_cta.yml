@@ -1,0 +1,117 @@
+uuid: 4645a8ce-4534-46a0-8d0a-cf23249feffb
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.cta_banner
+    - field.storage.block_content.field_cta_cta
+    - paragraphs.paragraphs_type.call_to_action
+    - paragraphs.paragraphs_type.marketo_form
+  module:
+    - entity_reference_revisions
+id: block_content.cta_banner.field_cta_cta
+field_name: field_cta_cta
+entity_type: block_content
+bundle: cta_banner
+label: CTA
+description: "<p><strong>The \"Marketo by Industry\" Instance only supports the Long and Short contact forms. <br>\r\n Any other marketo form selected will not have the proper routing.</strong>\r\n</p>"
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      call_to_action: call_to_action
+      marketo_form: marketo_form
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 28
+        enabled: false
+      accordion_items:
+        weight: 29
+        enabled: false
+      basic_content:
+        weight: 11
+        enabled: false
+      call_to_action:
+        weight: 12
+        enabled: true
+      captioned_image:
+        weight: 32
+        enabled: false
+      crc_files:
+        weight: 34
+        enabled: false
+      curated_list:
+        weight: 36
+        enabled: false
+      curated_separate_list:
+        weight: 37
+        enabled: false
+      descript_link:
+        weight: 35
+        enabled: false
+      files:
+        weight: 36
+        enabled: false
+      hero:
+        weight: 37
+        enabled: false
+      image_gallery:
+        weight: 14
+        enabled: false
+      image_row:
+        weight: 39
+        enabled: false
+      interrupter_cta:
+        weight: 40
+        enabled: false
+      list_item:
+        weight: 15
+        enabled: false
+      location:
+        weight: 42
+        enabled: false
+      marketo_form:
+        weight: 43
+        enabled: true
+      menu_section:
+        weight: 44
+        enabled: false
+      people:
+        weight: 45
+        enabled: false
+      quote:
+        weight: 16
+        enabled: false
+      reference:
+        weight: 17
+        enabled: false
+      related_content:
+        weight: 18
+        enabled: false
+      sidebar_curated_related:
+        weight: 52
+        enabled: false
+      simple_menu:
+        weight: 49
+        enabled: false
+      single_related_content:
+        weight: 50
+        enabled: false
+      slide:
+        weight: 19
+        enabled: false
+      spotlight:
+        weight: 52
+        enabled: false
+      video:
+        weight: 53
+        enabled: false
+      view:
+        weight: 20
+        enabled: false
+field_type: entity_reference_revisions

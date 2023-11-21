@@ -1,0 +1,17 @@
+{% block brand %}
+  <span class="brand">
+    {% if brand.crc %}
+      <a class="color-white" href="{{- brand.crc.href -}}" aria-label="{{- brand.crc.label -}}">
+        <span class="link-underline">{{ brand.crc.text }}</span>
+      </a>
+    {% endif %}
+    {% if brand.home %}
+      <span class="accent">
+        <span class="spacer">/</span>
+        <a href="{{- brand.home.href -}}" aria-label="{{- brand.home.label -}}">
+          <span class="link-underline">{{ brand.home.text }}</span>
+        </a>
+      </span>
+    {% endif %}
+  </span>
+{% endblock %}

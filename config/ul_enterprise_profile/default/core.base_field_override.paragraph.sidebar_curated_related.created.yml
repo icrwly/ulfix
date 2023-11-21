@@ -1,0 +1,18 @@
+uuid: b2c5f923-0cb7-4a11-9349-091228abae69
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.sidebar_curated_related
+id: paragraph.sidebar_curated_related.created
+field_name: created
+entity_type: paragraph
+bundle: sidebar_curated_related
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

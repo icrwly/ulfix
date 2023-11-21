@@ -1,0 +1,58 @@
+uuid: 6afa6677-3fe8-4581-9ad8-4c5777a7bf75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.ul_alert.info.field_shared_dismiss
+    - field.field.ul_alert.info.field_shared_message
+    - field.field.ul_alert.info.field_shared_pages
+    - ul_alerts.ul_alert_type.info
+  module:
+    - text
+    - user
+id: ul_alert.info.default
+targetEntityType: ul_alert
+bundle: info
+mode: default
+content:
+  field_shared_dismiss:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_message:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_pages:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  user_id:
+    type: author
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  dismiss_timer: true
+  langcode: true
+  search_api_excerpt: true

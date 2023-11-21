@@ -1,0 +1,38 @@
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          exposed_sorts_label: 'Sort by'
+      fields:
+        langcode:
+          label: Language
+      filters:
+        langcode:
+          expose:
+            label: Language
+  data_export_marketo_cta:
+    display_options:
+      filters:
+        langcode:
+          expose:
+            label: Language
+  data_export_marketo_missing_customization:
+    display_options:
+      filters:
+        langcode:
+          expose:
+            label: Language
+  page_marketo_report_cta:
+    display_options:
+      filters:
+        langcode:
+          expose:
+            label: Language
+  page_marketo_report_missing_customization:
+    display_options:
+      filters:
+        langcode:
+          expose:
+            label: Language

@@ -1,0 +1,18 @@
+uuid: 151843af-43b7-4bed-bbdf-297f4e05af31
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.customer_operating_unit
+id: taxonomy_term.customer_operating_unit.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: customer_operating_unit
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

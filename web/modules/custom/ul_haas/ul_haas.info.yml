@@ -1,0 +1,5 @@
+name: UL Header as a Service
+type: module
+description: The header as a service allows each install profile create and modify specific blocks within the header.
+core_version_requirement: ^9 || ^10
+package: Web services

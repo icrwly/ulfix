@@ -1,0 +1,203 @@
+{
+  "hero_detail": {
+    "title": "Basic page with siderail",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "topics": [
+      {
+        "name": "Topic Name 1",
+        "href": "#"
+      }
+    ],
+    "primary_cta": {
+      "title": "Lorem ipsum dolor",
+      "url": "#"
+    },
+    "image": "http://via.placeholder.com/1000x715",
+    "image_alt": "PLACEHOLDER ALT"
+  },
+  "embedded_video": {
+    "video": "https://www.youtube.com/embed/PU3apx7gLVU?autoplay=0&amp;start=0&amp;rel=0",
+    "title": "Video paragraph - lorem ipsum dolor",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "bg_color_hex": "#f8f8f8",
+    "text_color": "#000000"
+  },
+  "spotlight_image": {
+    "title": "Lorem ipsum dolor sit amet",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "cta": {
+      "link": "#",
+      "name": "Primary Action",
+      "color": "black-outline"
+    },
+    "items": [
+      {
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT"
+      }
+    ]
+  },
+  "spotlight_card": {
+    "title": "Lorem ipsum dolor sit amet",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "cta": {
+      "link": "#",
+      "name": "Primary Action",
+      "color": "black-outline"
+    },
+    "items": [
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ]
+  },
+  "quote": {
+    "quote": "Integer adipiscing congue metus. Ut eu ligula. Integer volutpat ligula eget enim. Curabitur eleifend wisi iaculis ipsum.",
+    "author": {
+      "name": "Elizabeth Graves",
+      "company": "Company Name"
+    }
+  },
+  "file_list": {
+    "titleBar": {
+      "title": "Files List",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    "items": [
+      {
+        "link": "#",
+        "title": "Lorem_ipsum_dolor_sit_amet.png",
+        "meta": "42kb"
+      },
+      {
+        "link": "#",
+        "title": "Lorem ipsum dolor sit amet.png",
+        "meta": "42kb"
+      },
+      {
+        "link": "#",
+        "title": "Lorem ipsum dolor sit amet.png",
+        "meta": "42kb"
+      },
+      {
+        "link": "#",
+        "title": "Lorem ipsum dolor sit amet.png",
+        "meta": "42kb"
+      },
+      {
+        "link": "#",
+        "title": "Lorem ipsum dolor sit amet.png",
+        "meta": "42kb"
+      },
+      {
+        "link": "#",
+        "title": "Lorem ipsum dolor sit amet.png",
+        "meta": "42kb"
+      },
+      {
+        "link": "#",
+        "title": "Lorem ipsum dolor sit amet.png",
+        "meta": "42kb"
+      },
+      {
+        "link": "#",
+        "title": "Lorem ipsum dolor sit amet.png",
+        "meta": "42kb"
+      }
+    ]
+  },
+  "siderail_cta_1": {
+    "link": "#",
+    "name": "Call to Action",
+    "color": "button--red"
+  },
+  "siderail_cta_2": {
+    "link": "#",
+    "name": "1-800-555-1212",
+    "color": "button--black-outline"
+  },
+  "siderail_links_1": {
+    "title": "Related Offerings",
+    "cta": {
+      "link": "#",
+      "name": "View More"
+    },
+    "items":[
+      {
+        "link": "#",
+        "name": "Electromagnetic Compatability Testing"
+      },
+      {
+        "link": "#",
+        "name": "Electrical Medical Device Certification"
+      },
+      {
+        "link": "#",
+        "name": "Follow-Up Services"
+      },
+      {
+        "link": "#",
+        "name": "ISO 18562 VOC and Particle Testing for Medical Devices"
+      },
+      {
+        "link": "#",
+        "name": "INMETRO Certification Requirements"
+      }
+    ]
+  },
+  "siderail_links_2": {
+    "title": "Solutions",
+    "items":[
+      {
+        "link": "#",
+        "name": "Benchmarking"
+      },
+      {
+        "link": "#",
+        "name": "Risk Management"
+      },
+      {
+        "link": "#",
+        "name": "Supply Chain Assessment"
+      }
+    ]
+  },
+  "t02ActionBanner": {
+    "backgroundColor": "#c02032",
+    "items": [
+      {
+        "title": "Get in touch",
+        "description": "Have questions, need specifics? Let's get this conversation started.",
+        "ctas": [
+          {
+            "title": "Contact Us",
+            "url": "#"
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -1,0 +1,23 @@
+uuid: 2f09556f-af0c-4ab9-a75e-91254e02736c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_render_full_menu_section
+    - paragraphs.paragraphs_type.menu_section
+id: paragraph.menu_section.field_render_full_menu_section
+field_name: field_render_full_menu_section
+entity_type: paragraph
+bundle: menu_section
+label: 'Render Full Menu Section'
+description: 'Check this box to display all menu items down to the 3rd level (instead of just direct children) for this section from the main navigation menu'
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

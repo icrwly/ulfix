@@ -1,0 +1,19 @@
+uuid: 83577851-db8f-4972-89b5-55eff61e6f12
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_spotlight_link
+field_name: field_spotlight_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

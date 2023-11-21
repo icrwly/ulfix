@@ -1,0 +1,20 @@
+uuid: bdaa38ed-cc36-4972-bf52-5b6c05634e7a
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+id: media.crc_asset.name
+field_name: name
+entity_type: media
+bundle: crc_asset
+label: Name
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

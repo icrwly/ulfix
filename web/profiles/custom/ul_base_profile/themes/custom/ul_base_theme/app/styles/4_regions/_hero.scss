@@ -1,0 +1,70 @@
+.hero {
+  .swiper-container-horizontal {
+    .slide-content{
+      padding-bottom:100px;
+      @include breakpoint($desktop) {
+        padding-bottom: 0;
+      }
+    }
+    .swiper-pagination {
+      bottom: $spacing-unit;
+
+      &-bullet {
+        background: $white;
+        border: 1px solid $gray-lighter;
+        height: 14px;
+        opacity: 0.5;
+        width: 14px;
+        @include breakpoint($tablet) {
+          height: 16px;
+          width: 16px;
+        }
+      }
+      &-bullet-active {
+        background: $white;
+        opacity: 1;
+      }
+    }
+  }
+  h1{
+    font-size:3.2rem;
+  }
+
+  &__buttons {
+    .button-row {
+      &:not(:last-child){
+        margin-bottom: $spacing-unit;
+      }
+      &--half {
+        @include breakpoint($large-tablet) {
+          display: flex;
+          justify-content: space-between;
+        }
+
+        .button {
+          @include breakpoint($large-tablet) {
+            align-items: center;
+            display: flex !important;
+            flex-basis: calc(50% - #{$spacing-unit/2});
+            flex-direction: column;
+            justify-content: center;
+            padding-left: $button-padding * 2;
+            padding-right: $button-padding * 2;
+            width: calc(50% - #{$spacing-unit/2});
+          }
+          &:not(:last-child){
+            @include breakpoint(max-width $large-tablet - 1) {
+              margin-bottom: $spacing-unit;
+            }
+          }
+        }
+      }
+    }
+
+    &.has-multiple {
+      .button {
+        display: block;
+      }
+    }
+  }
+}

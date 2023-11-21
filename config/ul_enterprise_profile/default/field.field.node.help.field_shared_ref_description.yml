@@ -1,0 +1,21 @@
+uuid: e94db9a3-824c-468b-a003-908b2f4e0259
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_description
+    - node.type.help
+_core:
+  default_config_hash: 3sc6afv0JjkLNW-2NFdtuVhiIS8guxiYSZKNRN_5Wbg
+id: node.help.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+bundle: help
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

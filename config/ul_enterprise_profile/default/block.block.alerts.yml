@@ -1,0 +1,20 @@
+uuid: 72bb6077-9106-4a1c-af85-ab3cb4044df9
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_alerts
+  theme:
+    - ul_enterprise_theme
+id: alerts
+theme: ul_enterprise_theme
+region: header_before
+weight: 0
+provider: null
+plugin: ul_alerts_block
+settings:
+  id: ul_alerts_block
+  label: Alerts
+  label_display: '0'
+  provider: ul_alerts
+visibility: {  }

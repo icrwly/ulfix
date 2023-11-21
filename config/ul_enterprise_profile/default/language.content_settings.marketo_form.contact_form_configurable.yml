@@ -1,0 +1,18 @@
+uuid: 01670275-2e21-4cb3-abec-1250386219c5
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: marketo_form.contact_form_configurable
+target_entity_type_id: marketo_form
+target_bundle: contact_form_configurable
+default_langcode: site_default
+language_alterable: true

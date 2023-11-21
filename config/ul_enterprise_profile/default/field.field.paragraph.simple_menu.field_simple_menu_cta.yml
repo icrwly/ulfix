@@ -1,0 +1,23 @@
+uuid: 2202f848-76a7-4d39-b1a7-f335a6e391cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_simple_menu_cta
+    - paragraphs.paragraphs_type.simple_menu
+  module:
+    - link
+id: paragraph.simple_menu.field_simple_menu_cta
+field_name: field_simple_menu_cta
+entity_type: paragraph
+bundle: simple_menu
+label: 'Simple Menu CTA'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

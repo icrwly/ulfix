@@ -1,0 +1,23 @@
+uuid: 2e9f6bf9-fcb8-410e-95a9-9bb2822a72c6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_view_mode_hero
+    - node.type.offering
+  module:
+    - options
+id: node.offering.field_view_mode_hero
+field_name: field_view_mode_hero
+entity_type: node
+bundle: offering
+label: 'View mode'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: image_right
+default_value_callback: ''
+settings: {  }
+field_type: list_string

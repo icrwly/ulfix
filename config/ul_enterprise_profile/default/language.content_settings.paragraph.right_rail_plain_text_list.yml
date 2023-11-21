@@ -1,0 +1,18 @@
+uuid: d60d3423-4298-48e6-a111-831955d60de6
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.right_rail_plain_text_list
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: paragraph.right_rail_plain_text_list
+target_entity_type_id: paragraph
+target_bundle: right_rail_plain_text_list
+default_langcode: site_default
+language_alterable: true

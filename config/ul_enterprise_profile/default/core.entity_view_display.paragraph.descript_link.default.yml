@@ -1,0 +1,46 @@
+uuid: 07949e91-1821-4a41-9802-89587fe62edb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.descript_link.field_descript_link_description
+    - field.field.paragraph.descript_link.field_descript_link_link
+    - field.field.paragraph.descript_link.field_descript_link_title
+    - paragraphs.paragraphs_type.descript_link
+  module:
+    - link
+    - text
+id: paragraph.descript_link.default
+targetEntityType: paragraph
+bundle: descript_link
+mode: default
+content:
+  field_descript_link_description:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_descript_link_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_descript_link_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

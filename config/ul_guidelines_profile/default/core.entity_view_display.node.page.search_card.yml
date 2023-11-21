@@ -1,0 +1,76 @@
+uuid: b77590b3-37da-4820-b05e-dbdcd0152896
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.search_card
+    - field.field.node.page.body
+    - field.field.node.page.field_page_link
+    - field.field.node.page.field_page_media
+    - field.field.node.page.field_page_subtitle
+    - field.field.node.page.field_shared_country
+    - field.field.node.page.field_shared_domain
+    - field.field.node.page.field_shared_header_link
+    - field.field.node.page.field_shared_header_media
+    - field.field.node.page.field_shared_industry
+    - field.field.node.page.field_shared_market
+    - field.field.node.page.field_shared_metatags
+    - field.field.node.page.field_shared_ref_description
+    - field.field.node.page.field_shared_ref_image
+    - field.field.node.page.field_shared_subtitle
+    - field.field.node.page.field_shared_topic
+    - node.type.page
+  module:
+    - text
+    - user
+_core:
+  default_config_hash: kMFfjSwXN013oe5Ndgsk-8ppKSCiT0xR13kams_cRsI
+id: node.page.search_card
+targetEntityType: node
+bundle: page
+mode: search_card
+content:
+  body:
+    type: text_trimmed
+    label: hidden
+    settings:
+      trim_length: 300
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_ref_description:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_ref_image:
+    type: entity_reference_label
+    label: hidden
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  field_page_link: true
+  field_page_media: true
+  field_page_subtitle: true
+  field_shared_content_access: true
+  field_shared_country: true
+  field_shared_domain: true
+  field_shared_header_link: true
+  field_shared_header_media: true
+  field_shared_industry: true
+  field_shared_market: true
+  field_shared_metatags: true
+  field_shared_subtitle: true
+  field_shared_topic: true
+  langcode: true
+  links: true

@@ -1,0 +1,48 @@
+$admin-menu-height: 39px;
+$admin-tray-height: 40px;
+$admin-menu-height--h: $admin-menu-height + $admin-tray-height;
+$admin-menu-height--v: $admin-menu-height;
+
+.global-header--fix {
+  // default
+  .toolbar-fixed & {
+    top: $admin-menu-height;
+  }
+
+  // toolbar is open, horizontal orientation
+  .toolbar-tray-open.toolbar-horizontal & {
+    top: $admin-menu-height--h;
+  }
+
+  // toolbar is open, vertical orientation
+  .toolbar-tray-open.toolbar-vertical & {
+    top: $admin-menu-height--v;
+  }
+}
+
+.aside {
+  // default
+  .toolbar-fixed & {
+    top: 100 + $admin-menu-height;
+  }
+
+  // toolbar is open, horizontal orientation
+  .toolbar-tray-open.toolbar-horizontal & {
+    top: 100 + $admin-menu-height--h;
+  }
+
+  // toolbar is open, vertical orientation
+  .toolbar-tray-open.toolbar-vertical & {
+    top: 100 + $admin-menu-height--v;
+  }
+}
+
+.sticky-cta-nav.fixed {
+  .toolbar-tray-open.toolbar-horizontal & {
+    top: 100 + $admin-menu-height--h;
+  }
+}
+
+#block-tabs {
+  @include wrapper();
+}

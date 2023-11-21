@@ -1,0 +1,29 @@
+uuid: 52261aa6-c809-4bae-aaba-b2ca15f40da3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_market
+    - node.type.campaign_page
+    - taxonomy.vocabulary.markets
+id: node.campaign_page.field_shared_market
+field_name: field_shared_market
+entity_type: node
+bundle: campaign_page
+label: Market
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

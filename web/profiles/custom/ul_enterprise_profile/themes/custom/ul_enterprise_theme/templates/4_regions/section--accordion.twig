@@ -1,0 +1,19 @@
+{# @file: section--accordion.twig #}
+{% block content %}
+  <section class="section section--paragraph section--wysiwyg p-accordion-wrapper {{bgclass}}" data-module="contentAccordion">
+    {% if field_hash_target %}
+      {% include "@ul_base_theme/2_pieces/hash-target.twig" %}
+    {% endif %}
+    <div class="paragraph-gutter paragraph--accordion">
+      <div class="p-accordion--header">
+        <h2>{{ accordion_name }}</h2>
+        <p>{{ description }}</p>
+      </div>
+      <div class="p-accordion--content">
+        <dl class="p-accordion">
+          {{ items }}
+        </dl>
+      </div>
+    </div>
+  </section>
+{% endblock %}

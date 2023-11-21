@@ -1,0 +1,28 @@
+///*------------------------------------*\
+//    #UTILITY - FLEX GRID
+//\*------------------------------------*/
+/* Note: Base styles for grid-container and grid-item elements */
+
+@mixin flex-grid-container($gutter: $spacing-unit){
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: -$gutter/2;
+  margin-right: -$gutter/2;
+
+  @include breakpoint($desktop) {
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+  }
+}
+
+@mixin flex-grid-item($gutter: $spacing-unit){
+  flex: 1 1 100%;
+  margin-bottom: $spacing-unit--l;
+  padding-left: $gutter/2;
+  padding-right: $gutter/2;
+
+  @include breakpoint($desktop) {
+    padding-left: $gutter;
+    padding-right: $gutter;
+  }
+}

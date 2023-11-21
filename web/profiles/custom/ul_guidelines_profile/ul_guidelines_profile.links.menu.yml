@@ -1,0 +1,5 @@
+contact.site_page:
+  title: Feedback
+  route_name: contact.site_page
+  menu_name: footer
+  enabled: 1

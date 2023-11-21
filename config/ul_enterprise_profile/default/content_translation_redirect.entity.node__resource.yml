@@ -1,0 +1,8 @@
+uuid: 4b1ec46d-f434-4eb3-b87b-e60a357f93b2
+langcode: en
+status: true
+dependencies: {  }
+id: node__resource
+label: 'Content: Resource'
+code: null
+message: ''

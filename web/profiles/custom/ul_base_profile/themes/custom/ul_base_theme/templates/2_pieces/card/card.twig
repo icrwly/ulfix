@@ -1,0 +1,4 @@
+<div class="card {{ class }}"{% if background_image %} style="background-image:url({{background_image}})"{% endif %} {% if cardId %} id="{{ cardId }}"{% endif %}>
+  {% block content %}
+  {% endblock %}
+</div>

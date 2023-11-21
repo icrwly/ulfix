@@ -1,0 +1,20 @@
+uuid: p2a20038-114c-5c32-9d0f-b8cc59183378
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.help
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+_core:
+  default_config_hash: UA-BEKyOYxRqICMLxp4UObW-UDeGjc7wLuh1ghhIGXw
+id: node.help
+target_entity_type_id: node
+target_bundle: help
+default_langcode: site_default
+language_alterable: false

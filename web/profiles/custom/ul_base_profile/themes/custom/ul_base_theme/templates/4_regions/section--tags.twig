@@ -1,0 +1,14 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--tags max-width--large-tablet small-padding" %}
+
+{% block content %}
+  {% block section_tags %}
+  {% if tags %}
+    <ul>
+      {% for tag in tags %}
+        <li class="tag">{{- tag.name -}}</li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+  {% endblock %}
+{% endblock %}

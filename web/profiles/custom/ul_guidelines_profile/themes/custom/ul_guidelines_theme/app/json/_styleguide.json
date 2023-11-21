@@ -1,0 +1,40 @@
+{
+  "title": "Style Guide",
+
+  "style_modals" : [
+    {
+      "id": "feedback",
+      "type": "form",
+      "text": "Leave Feedback for the Brand Studio",
+      "title": "Leave Feedback for the Brand Studio",
+      "cancel": true,
+      "content": "<form class='contact-message-submit-request-form contact-message-form contact-form' data-drupal-selector='contact-message-submit-request-form' enctype='multipart/form-data' action='/contact/submit_request' method='post' id='contact-message-submit-request-form' accept-charset='UTF-8' data-drupal-form-fields='edit-field-request-type,edit-field-request-priority,edit-field-request-priority-explain-0-value,edit-field-request-visibility-0-value,edit-field-request-division-group,edit-field-request-division-group-exp-0-value,edit-field-request-region,edit-field-request-region-explain-0-value,edit-field-request-subject-0-value,edit-field-request-background-context-0-value,edit-field-request-description-0-value,edit-field-request-attachments-0-upload,edit-field-request-attachments-0-upload-button,edit-copy,edit-submit'> <div class='effect-none field-group-accordion-wrapper'> <div class='field--type-string field--name-field-request-visibility field--widget-string-textfield js-form-wrapper form-wrapper' data-drupal-selector='edit-field-request-visibility-wrapper' id='edit-field-request-visibility-wrapper'> <div class='js-form-item form-item js-form-type-textfield form-type-textfield js-form-item-field-request-visibility-0-value form-item-field-request-visibility-0-value'> <label for='edit-field-request-visibility-0-value'>Visibility</label> <input class='js-text-full text-full form-text' data-drupal-selector='edit-field-request-visibility-0-value' aria-describedby='edit-field-request-visibility-0-value--description' type='text' id='edit-field-request-visibility-0-value' name='field_request_visibility[0][value]' value='' size='60' maxlength='255' placeholder=''> </div></div></div><div class='effect-none field-group-accordion-wrapper'> <div class='js-form-item form-item js-form-type-textarea form-type-textarea js-form-item-field-request-description-0-value form-item-field-request-description-0-value'> <label for='edit-field-request-description-0-value' class='js-form-required form-required'>Your Request</label> <div class='form-textarea-wrapper'> <textarea class='js-text-full text-full form-textarea required resize-vertical' data-drupal-selector='edit-field-request-description-0-value' aria-describedby='edit-field-request-description-0-value--description' id='edit-field-request-description-0-value' name='field_request_description[0][value]' rows='5' cols='60' placeholder='' required='required' aria-required='true'></textarea> </div></div></div><div data-drupal-selector='edit-actions' class='form-actions js-form-wrapper form-wrapper' id='edit-actions'> <input data-drupal-selector='edit-submit' type='submit' id='edit-submit' name='op' value='Submit' class='button button--primary js-form-submit form-submit'> </div></form>",
+      "attributes": ""
+    },
+    {
+      "id": "slider",
+      "type": "slider",
+      "text": "Approval Process",
+      "title": "Approval Process",
+      "cancel": false,
+      "slides": [
+        {
+          "content": "<img src='images/approval_process.png' alt=''><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>"
+        },
+        {
+          "content": "<img src='images/approval_process.png' alt=''><p>Slide 2 - Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>"
+        },
+        {
+          "content": "<img src='images/approval_process.png' alt=''><p>Slide 3 - Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>"
+        },
+        {
+          "content": "<img src='images/approval_process.png' alt=''><p>Slide 4 - Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>"
+        },
+        {
+          "content": "<img src='images/approval_process.png' alt=''><p>Slide 5 - Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper.</p>"
+        }
+      ],
+      "content": "<div data-drupal-selector='edit-actions' class='form-actions js-form-wrapper form-wrapper' id='edit-actions'><input data-drupal-selector='edit-submit' type='submit' id='edit-submit' name='op' value='Submit Request' class='button button--primary js-form-submit form-submit'></div>"
+    }
+  ]
+}

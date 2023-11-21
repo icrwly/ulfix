@@ -1,0 +1,97 @@
+.section.section--related-content {
+  margin-bottom: $spacing-unit * 1.5;
+  padding-bottom: $spacing-unit * 1.5;
+  padding-top: $spacing-unit * 1.5;
+  @include breakpoint($tablet) {
+    margin-bottom: $spacing-unit--m;
+    padding-bottom: $spacing-unit--m;
+    padding-top: $spacing-unit--m;
+  }
+
+  &-single {
+    .card {
+      border: 0;
+    }
+  }
+
+  &-single-view {
+    .section--spotlight & {
+      padding: 0;
+      & > .section__inner {
+        padding: 0;
+        & > [class*="row-"] {
+          margin: 0;
+          & > [class*="span-"] {
+            padding: 0;
+            flex-basis: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+    }
+  }
+
+  .section__inner {
+    > .row {
+      > .span-auto {
+        width: 100%;
+        @include breakpoint($tablet) {
+          max-width: percentage(6/12);
+          flex-basis: percentage(6/12);
+        }
+        @include breakpoint($desktop) {
+          max-width: percentage(4/12);
+          flex-basis: percentage(4/12);
+        }
+        @include breakpoint($large-desktop) {
+          max-width: percentage(3/12);
+          flex-basis: percentage(3/12);
+        }
+        // Narrow column, Events detail
+        .main-column & {
+          @include breakpoint($desktop) {
+            max-width: percentage(6/12);
+            flex-basis: percentage(6/12);
+          }
+        }
+      }
+    }
+  }
+
+  .title-bar__description {
+    color: $black;
+  }
+
+  .card {
+    .content-container {
+      padding-left: $spacing-unit * 1.5;
+      padding-right: $spacing-unit * 1.5;
+    }
+  }
+
+  .mini-cards .card {
+    .date,
+    .meta,
+    .read-time,
+    .bottom-row,
+    p {
+      display: none;
+    }
+  }
+  .mini-cards .card--events .date {
+    display: inline-block;
+  }
+  .mini-cards .card .widget--topics{
+    width: 100%;
+  }
+  .mini-cards .card.card--default .content-container{
+    min-height: 20px;
+  }
+  .mini-cards .card h3 {
+    margin-bottom: 0;
+  }
+  .mini-cards .title-bar {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
+}

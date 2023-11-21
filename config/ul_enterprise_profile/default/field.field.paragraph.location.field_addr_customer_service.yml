@@ -1,0 +1,25 @@
+uuid: 5706c25a-ec30-4980-84ad-418f398983d0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_addr_customer_service
+    - paragraphs.paragraphs_type.location
+  module:
+    - telephone
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.location.field_addr_customer_service
+field_name: field_addr_customer_service
+entity_type: paragraph
+bundle: location
+label: 'Customer Service Tel'
+description: 'Enter this location''s Customer Service telephone number.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

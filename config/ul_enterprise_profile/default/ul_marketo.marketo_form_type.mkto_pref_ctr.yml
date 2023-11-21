@@ -1,0 +1,26 @@
+uuid: 2fd4da67-4264-41ec-819f-aa054b060b6a
+langcode: en
+status: true
+dependencies: {  }
+id: mkto_pref_ctr
+label: 'Preference Center'
+description: ''
+marketo_form_id:
+  0:
+    value: '2178'
+    filters:
+      instance: Enterprise
+      env: prod
+      langcode: en
+  1:
+    value: '2671'
+    filters:
+      instance: Enterprise
+      env: stage
+      langcode: en
+  actions: {  }
+settings:
+  settings__active_tab: edit-page
+  page_enable: 1
+  path: /preference-center
+  block_enable: 0

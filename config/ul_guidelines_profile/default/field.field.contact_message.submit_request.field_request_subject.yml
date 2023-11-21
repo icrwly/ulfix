@@ -1,0 +1,21 @@
+uuid: 38f91d4b-8050-4c5c-b5a5-3ec06dcf643b
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_subject
+_core:
+  default_config_hash: Pf1spotYV05dbiFTN1pqbTNugM-cRGL51AxP0Y2sXuU
+id: contact_message.submit_request.field_request_subject
+field_name: field_request_subject
+entity_type: contact_message
+bundle: submit_request
+label: Subject
+description: 'Please enter the subject of your request'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

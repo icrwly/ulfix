@@ -1,0 +1,84 @@
+uuid: 4343bdc4-b49e-4b47-a877-ab381704350f
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.media.media_ckeditor_view_mode
+  module:
+    - editor
+    - media
+    - ul_editorial
+_core:
+  default_config_hash: lB5AshHBot9ZkKuWEbt2fLESpb0b3F5eX6Lq9afCGBo
+name: 'Basic HTML'
+format: basic_html
+weight: -10
+filters:
+  filter_html:
+    id: filter_html
+    provider: filter
+    status: true
+    weight: -10
+    settings:
+      allowed_html: '<a href hreflang class title id rel target> <em> <strong> <cite> <blockquote cite class="text-align-left text-align-center text-align-right text-align-justify"> <code> <ul type> <ol type start> <li> <dl> <dt> <dd> <h2 id class="text-align-left text-align-center text-align-right text-align-justify"> <h3 id class="text-align-left text-align-center text-align-right text-align-justify"> <h4 id class="text-align-left text-align-center text-align-right text-align-justify"> <h5 id class="text-align-left text-align-center text-align-right text-align-justify"> <h6 id class="text-align-left text-align-center text-align-right text-align-justify"> <p class="text-align-left text-align-center text-align-right text-align-justify"> <br> <span> <img src alt data-src data-entity-type data-entity-uuid data-align data-caption width height class> <u> <table> <th class="text-align-left text-align-center text-align-right text-align-justify"> <tr class="text-align-left text-align-center text-align-right text-align-justify"> <td class="text-align-left text-align-center text-align-right text-align-justify"> <sup> <sub> <hr> <drupal-media data-entity-type data-entity-uuid data-view-mode data-align data-caption alt title data-width data-height width height>'
+      filter_html_help: false
+      filter_html_nofollow: false
+  filter_align:
+    id: filter_align
+    provider: filter
+    status: true
+    weight: 7
+    settings: {  }
+  filter_caption:
+    id: filter_caption
+    provider: filter
+    status: true
+    weight: 8
+    settings: {  }
+  editor_file_reference:
+    id: editor_file_reference
+    provider: editor
+    status: true
+    weight: 11
+    settings: {  }
+  media_embed:
+    id: media_embed
+    provider: media
+    status: true
+    weight: 20
+    settings:
+      default_view_mode: media_ckeditor_view_mode
+      allowed_view_modes:
+        media_ckeditor_view_mode: media_ckeditor_view_mode
+      allowed_media_types:
+        image: image
+  filter_autop:
+    id: filter_autop
+    provider: filter
+    status: false
+    weight: -10
+    settings: {  }
+  filter_htmlcorrector:
+    id: filter_htmlcorrector
+    provider: filter
+    status: false
+    weight: 9
+    settings: {  }
+  filter_html_escape:
+    id: filter_html_escape
+    provider: filter
+    status: false
+    weight: -50
+    settings: {  }
+  filter_html_image_secure:
+    id: filter_html_image_secure
+    provider: filter
+    status: false
+    weight: 0
+    settings: {  }
+  filter_lazyload:
+    id: filter_lazyload
+    provider: ul_editorial
+    status: false
+    weight: 10
+    settings: {  }

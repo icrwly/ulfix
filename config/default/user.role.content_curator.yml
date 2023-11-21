@@ -1,0 +1,15 @@
+uuid: ec1b5824-c98c-466b-900a-02702151c3bb
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: FaJxdQcMkkyxikbftB-oHfw8ymg1Q-jjUFl_WOKAvRc
+id: content_curator
+label: 'Content Curator'
+weight: 6
+is_admin: null
+permissions:
+  - 'access content overview'
+  - 'access toolbar'
+  - 'access workbench'
+  - 'view the administration theme'

@@ -1,0 +1,7 @@
+uuid: 37baad84-a6db-4ea9-a35e-95b758d1df0f
+langcode: en
+status: true
+dependencies: {  }
+id: general
+label: General
+description: "Use <em>general</em> for providing alerts that compel the user to perform an action. \r\n"

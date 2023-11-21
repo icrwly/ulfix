@@ -1,0 +1,24 @@
+<?php
+
+/**
+ * @file
+ * Contains ul_crc.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function ul_crc_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ul_crc module.
+    case 'help.page.ul_crc':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t("Integrate with UL's Commercial Resource Center") . '</p>';
+      return $output;
+
+    default:
+  }
+}

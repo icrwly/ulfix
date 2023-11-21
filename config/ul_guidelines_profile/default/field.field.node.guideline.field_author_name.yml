@@ -1,0 +1,28 @@
+uuid: 64d853d3-4db7-48ad-bfe5-75d84e4db9eb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_author_name
+    - node.type.guideline
+    - node.type.guideline_author
+id: node.guideline.field_author_name
+field_name: field_author_name
+entity_type: node
+bundle: guideline
+label: 'Guideline author'
+description: 'Use the menu to select an author. If none are available, please <a href="/node/add/guideline_author">add one first</a> and then return.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      guideline_author: guideline_author
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

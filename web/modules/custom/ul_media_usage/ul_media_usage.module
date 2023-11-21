@@ -1,0 +1,457 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for UL Media Usage module.
+ */
+
+use Drupal\Core\Link;
+use Drupal\Core\Url;
+use Drupal\Core\Render\Markup;
+use Drupal\node\Entity\Node;
+use Drupal\media\Entity\Media;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\node\NodeInterface;
+use Drupal\file\FileInterface;
+use Drupal\media\MediaInterface;
+
+/**
+ * Implements hook_preprocess_views_view_field().
+ */
+function ul_media_usage_preprocess_views_view_field(&$variables) {
+  // Change fields' resutls in View: ul_media_usage.
+  if (isset($variables['view'])
+  && $variables['view']->id() == 'ul_media_usage'
+  && isset($variables['field']->field)
+  && !empty($variables["row"]->id)) {
+    // Change filesize column: format 22.89KB.
+    if ($variables['field']->field == 'filesize') {
+      $newnumber = str_replace(',', '', $variables['output']);
+      if ($newnumber > 10) {
+        $variables['output'] = _format_bytes($newnumber);
+      }
+    }
+
+    // Change the absolute path to the full path with domain.
+    if ($variables['field']->field == "used_url") {
+      $alias = $abs_path = (string) $variables['output'];
+      if (!empty($abs_path)) {
+        $id = $variables["row"]->id;
+        $host = \Drupal::request()->getSchemeAndHttpHost();
+
+        // Change the path /fr/node/nid to path_alias.
+        if (preg_match('/\/node\/\d+/', $abs_path)) {
+          $pieces = explode("/", $abs_path);
+          $len = count($pieces);
+          $nid = $pieces[$len - 1];
+          $langcode = ($pieces[1] == 'node') ? 'en' : $pieces[1];
+          $lang_str = "";
+
+          if (stristr($host, 'shimadzu')) {
+            // The default lannguage is 'ja' on Shimadzu site.
+            $langcode = ($pieces[1] == 'node') ? 'ja' : $pieces[1];
+            $lang_str = ($langcode == 'ja') ? "" : "/$langcode";
+          }
+          else {
+            $lang_str = ($langcode == 'en') ? "" : "/$langcode";
+          }
+          $path_alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $nid, $langcode);
+          $alias = $lang_str . $path_alias;
+        }
+
+        $path = $host . $alias;
+        $url = Url::fromUri($path);
+        $variables['output'] = _generate_rendering_link($id, $path, $url, "");
+      }
+    }
+
+    // Change the timestamp to Data format.
+    if ($variables['field']->field == "changed") {
+      $datetime = (string) $variables['output'];
+      $date = date('m/d/Y - H:i', (int) $datetime);
+      $variables['output'] = $date;
+    }
+
+    // Generate the URL of thumnail.
+    if ($variables['field']->field == "thumbnail_url") {
+      $title = (string) $variables['output'];
+      $uri = _ul_media_usage_file_url_alter($title);
+      $variables['output'] = [
+        '#markup' => '<img src="' . $uri . '" width="100" alt="Thumbnail"/>',
+      ];
+    }
+
+    // Rest the published/unpublished status.
+    if ($variables['field']->field == "status") {
+      $title = (string) $variables['output'];
+      $title = ($title == 1) ? "Published" : "Unpublished";
+      $uri = _ul_media_usage_file_url_alter($title);
+      $variables['output'] = [
+        '#markup' => $title,
+      ];
+    }
+
+    // Rest the target type (Source).
+    if ($variables['field']->field == "target_type") {
+      $title = (string) $variables['output'];
+      $title = ucfirst($title);
+      $variables['output'] = [
+        '#markup' => $title,
+      ];
+    }
+
+  }
+
+}
+
+/**
+ * Private function to get a rendering array data from entity_usage.
+ *
+ * @param string $mid
+ *   A target entity ID.
+ * @param int $colunm
+ *   A number of column, 1, 2, or 3.
+ *
+ * @return mixed
+ *   The html content containing ULR links.
+ */
+function _get_entity_usage_list($mid, $colunm) {
+  $text = [];
+  $entity = Media::load($mid);
+  $usage_data = \Drupal::service('entity_usage.usage')->listSources($entity);
+  if (empty($usage_data)) {
+    return "";
+  }
+  foreach ($usage_data as $key => $value) {
+    if ($key == 'node') {
+      $text[] = _get_node_links($value, $key, $colunm);
+    }
+    if ($key == 'paragraph') {
+      $text[] = _get_node_paragraph_links($value, $key, $colunm);
+    }
+
+  }
+  return $text;
+
+}
+
+/**
+ * Help function to get array of rendering links to the node.
+ *
+ * @param array $value
+ *   A array [entity_id => $count].
+ * @param string $type
+ *   A entity type of object, 'node' or 'paragraph'.
+ * @param int $colunm
+ *   A number of (1, 2, 3) for a column of (Used in, Content type, Lanauge).
+ *
+ * @return mixed
+ *   The string of ULR links.
+ */
+function _get_node_links(array $value, $type, $colunm) {
+  $links = [];
+  foreach ($value as $key => $source) {
+    $links[] = _get_render_links($key, $source[0], $type, FALSE, $colunm);
+  }
+
+  return $links;
+}
+
+/**
+ * Help function to get array of rendering links for the nodes=>paragraphs.
+ *
+ * @param array $value
+ *   A array [entity_id => $count].
+ * @param string $type
+ *   A entity type of object, 'node' or 'paragraph'.
+ * @param int $colunm
+ *   A number of (1, 2, 3) for a column of (Used in, Content type, Lanauge).
+ *
+ * @return mixed
+ *   The string of ULR links.
+ */
+function _get_node_paragraph_links(array $value, $type, $colunm) {
+  $links = [];
+  foreach ($value as $key => $source) {
+    $node_id = _get_parent_node_paragraph($key, $type);
+    if ($node_id) {
+      $links[] = _get_render_links($node_id, $source[0], 'node', TRUE, $colunm);
+    }
+  }
+
+  return $links;
+}
+
+/**
+ * Provite function to get the parent Node ID from the Paragraph ID.
+ *
+ * @param string $id
+ *   A target entity ID.
+ * @param string $type
+ *   A paragraph entity type.
+ *
+ * @return mixed
+ *   Return the parent_id (node id) for the paragraph.
+ */
+function _get_parent_node_paragraph($id, $type) {
+  if ($type !== 'paragraph') {
+    return;
+  }
+  $database = \Drupal::database();
+  $query = $database->select('paragraphs_item_field_data', 'p');
+  $query->fields('p', ['parent_id', 'parent_type']);
+  $query->condition('id', $id, '=');
+  $query->range(0, 1);
+  $result = $query->execute();
+  $record = $result->fetchObject();
+  $parent_id = $record->parent_id;
+  $parent_type = $record->parent_type;
+
+  if ($parent_type == 'node') {
+    return $record->parent_id;
+  }
+  elseif ($parent_type == 'paragraph') {
+    return _get_parent_node_paragraph($parent_id, $parent_type);
+  }
+  else {
+    return FALSE;
+  }
+}
+
+/**
+ * Private function to get 'Used in' data from entity_usage.
+ *
+ * @param string $id
+ *   A target entity ID (Node ID).
+ * @param int $source
+ *   The number of usages for the media entity.
+ * @param string $entity_type
+ *   The entity type, 'node'.
+ * @param bool $is_paragraph
+ *   True or false.
+ * @param int $colunm
+ *   A number for a column of (Used in, Content type, Lanauge).
+ *
+ * @return mixed
+ *   A render array containing URL links.
+ */
+function _get_render_links($id, $source, $entity_type, $is_paragraph = FALSE, $colunm = 1) {
+  /* $source =
+   *   ["source_langcode"=>"zh-hans",
+   *    "source_vid=>"848857",
+   *    "method"=>"media_embed",
+   *    "field_name"=>"body",
+   *    "count": "1"]
+   */
+  $str_p = "";
+  $str_used = ($source['method'] == "media_embed") ? " (Used in CKEditor$str_p)" : " (Used in  Reference$str_p)";
+  $node = Node::load($id);
+  if (!$node instanceof Node) {
+    return [];
+  }
+
+  $content_type = node_get_type_label($node);
+  $langcode = $source["source_langcode"];
+  $language = \Drupal::languageManager()->getLanguage($langcode);
+  $langname = $language->getName();
+
+  $tmp_lang = ($langcode !== "en") ? "/$langcode" : "";
+  $alias = \Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $id);
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+  $media_path = "$host$tmp_lang$alias";
+  $url = Url::fromRoute('entity.node.canonical', ['node' => $id]);
+  $url->setOption('language', $language);
+  $class = 'ul_media_usage';
+
+  switch ($colunm) {
+    case 1:
+      $linkText = $media_path;
+      break;
+
+    case 2:
+      $linkText = "$content_type $str_used";
+      $class = 'ul_media_usage_diable';
+      break;
+
+    case 3:
+      $linkText = $langname;
+      $class = 'ul_media_usage_diable';
+      break;
+
+    default:
+      $linkText = $media_path . " ($content_type$str_p) ($langname)";
+      break;
+  }
+
+  return _generate_rendering_link($id, $linkText, $url, $class);
+}
+
+/**
+ * Generate the rendering link.
+ */
+function _generate_rendering_link($id, $text, $url, $class) {
+  $link_render = [];
+  $linkHTMLMarkup = Markup::create($text);
+  $link = Link::fromTextAndUrl($linkHTMLMarkup, $url);
+  $link_render[$id] = $link->toRenderable();
+  $link_render[$id]['#attributes']['class'][] = $class;
+  return $link_render;
+}
+
+/**
+ * Implements hook_page_attachments().
+ *
+ * Load the library (CSS).
+ */
+function ul_media_usage_page_attachments(&$attachments) {
+  $admin_context = \Drupal::service('router.admin_context');
+  if ($admin_context->isAdminRoute()) {
+    $attachments['#attached']['library'][] = 'ul_media_usage/ul-media-usage';
+  }
+}
+
+/**
+ * Generate KB, MB format.
+ */
+function _format_bytes($bytes, $precision = 2) {
+  $bytes = floatval($bytes);
+  $unit = ["B", "KB", "MB", "GB"];
+  $exp = floor(log($bytes, 1024)) | 0;
+  return round($bytes / (pow(1024, $exp)), $precision) . $unit[$exp];
+}
+
+/**
+ * Implements hook_entity_update().
+ *
+ * Update ul_media_usage data if a Node, Media or File is chaged.
+ */
+function ul_media_usage_entity_update(EntityInterface $entity) {
+  if ($entity instanceof NodeInterface || $entity instanceof MediaInterface) {
+    // Service \Drupal\ul_media_usage\EntityUsageBatchManager.
+    $batch_manager = \Drupal::service('ul_media_usage.batch_manager');
+    // Service \Drupal\ul_media_usage\MedaiUsage.
+    $media_usage = \Drupal::service('ul_media_usage.usage');
+
+    if ($entity instanceof NodeInterface) {
+      $batch_manager->generateDataMediaUsage(20);
+    }
+    // Act on Paragraph, Node, File, Media.
+    elseif ($entity instanceof FileInterface || $entity instanceof MediaInterface) {
+      // Update data if the entity is changed recently (20).
+      // Debug: $batch_manager->generateDataMediaUsage(20);.
+      if ($entity instanceof MediaInterface) {
+        $media_usage->updateMediaDataWhenEntityUpdate($entity);
+      }
+
+    }
+    else {
+      return;
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_insert().
+ *
+ * Update ul_media_usage data if adding a new Media or Node.
+ */
+function ul_media_usage_entity_insert(EntityInterface $entity) {
+  if ($entity instanceof NodeInterface || $entity instanceof MediaInterface) {
+    // Service \Drupal\ul_media_usage\EntityUsageBatchManager.
+    $batch_manager = \Drupal::service('ul_media_usage.batch_manager');
+    // Service \Drupal\ul_media_usage\MediaUsage.
+    $media_usage = \Drupal::service('ul_media_usage.usage');
+
+    if ($entity instanceof MediaInterface) {
+      $media_usage->saveUnusedMediaData('media_field_data');
+    }
+
+    if ($entity instanceof NodeInterface) {
+      $batch_manager->generateDataMediaUsage(20);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_delete().
+ *
+ * Update/delete ul_media_usage data if a Media or Node is deleted.
+ */
+function ul_media_usage_entity_delete(EntityInterface $entity) {
+
+  if ($entity instanceof NodeInterface || $entity instanceof MediaInterface) {
+    // Service \Drupal\ul_media_usage\MediaUsage.
+    $media_usage = \Drupal::service('ul_media_usage.usage');
+    // Service \Drupal\ul_media_usage\EntityUsageBatchManager.
+    $batch_manager = \Drupal::service('ul_media_usage.batch_manager');
+
+    $langcode = \Drupal::languageManager()->getCurrentLanguage()->getId();
+    $entity_langcode = $entity->langcode->value;
+    $result = 0;
+
+    // Delete data from ul_media_usage if a Node is deleted.
+    if ($entity instanceof NodeInterface) {
+      if ($langcode == $entity_langcode) {
+        $result = $media_usage->deleteBySourceEntity($entity->id(), $entity->bundle(), $langcode);
+      }
+    }
+    // Delete data from ul_media_usage if a Media is deleted.
+    elseif ($entity instanceof MediaInterface) {
+      $result = $media_usage->deleteByTargetEntity($entity);
+    }
+
+    if ($result) {
+      $batch_manager->generateDataMediaUsage(4);
+    }
+  }
+}
+
+/**
+ * Implements hook_entity_translation_delete().
+ *
+ * Update/delete ul_media_usage data if a Media or Node is deleted.
+ */
+function ul_media_usage_entity_translation_delete(EntityInterface $entity) {
+
+  if ($entity instanceof NodeInterface || $entity instanceof MediaInterface) {
+    // Service \Drupal\ul_media_usage\MediaUsage.
+    $media_usage = \Drupal::service('ul_media_usage.usage');
+
+    $langcode = $entity->langcode->value;
+
+    if ($entity instanceof NodeInterface) {
+      $media_usage->deleteBySourceEntity($entity->id(), $entity->bundle(), $langcode);
+    }
+    // Delete data from ul_media_usage if a Media is deleted.
+    elseif ($entity instanceof MediaInterface) {
+      $media_usage->deleteByTargetEntity($entity);
+    }
+  }
+
+}
+
+/**
+ * Implements hook_entity_revision_delete().
+ *
+ * Update/delete ul_media_usage data if a Media or Node is deleted.
+ */
+function ul_media_usage_entity_revision_delete(EntityInterface $entity) {
+
+  if ($entity instanceof NodeInterface) {
+    // Service \Drupal\ul_media_usage\MediaUsage.
+    $media_usage = \Drupal::service('ul_media_usage.usage');
+    $result = $media_usage->deleteBySourceRevision($entity);
+    if ($result) {
+      \Drupal::service('ul_media_usage.batch_manager')
+        ->generateDataMediaUsage(20);
+    }
+  }
+}
+
+/**
+ * Implements the function to generate the URL from uri.
+ */
+function _ul_media_usage_file_url_alter($uri) {
+  $fileGenerator = \Drupal::service('file_url_generator');
+  return $fileGenerator->generateAbsoluteString($uri);
+}

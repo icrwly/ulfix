@@ -1,0 +1,19 @@
+uuid: aa816172-0b99-45b7-b7d5-cd2da5f61cd7
+langcode: fr-ca
+status: true
+dependencies:
+  module:
+    - link
+    - node
+id: node.field_create_account_link
+field_name: field_create_account_link
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

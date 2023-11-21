@@ -1,0 +1,18 @@
+uuid: 7a3eb11d-ba68-4281-880b-63736a975b0f
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.knowledge
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: node.knowledge
+target_entity_type_id: node
+target_bundle: knowledge
+default_langcode: site_default
+language_alterable: true

@@ -1,0 +1,18 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+
+{% set class = class ~ " section--grid" %}
+{% set inner_class = "wrapper" %}
+
+{% block section_body %}
+  {% if items %}
+    <div class="row {{ row_class }}">
+      {% block items_container %}
+        {% for item in items %}
+          {% block item %}
+            {% include "@ul_base_theme/2_pieces/grid-item.twig" with { item: item, per_row: per_row, grid_class: grid_class } only %}
+          {% endblock %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+  {% endif %}
+{% endblock %}

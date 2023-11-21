@@ -1,0 +1,10 @@
+uuid: 967b3b59-2fd2-491b-bb63-48f00668a920
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.media_ckeditor_view_mode
+label: 'Media CKEditor View Mode'
+targetEntityType: media
+cache: true

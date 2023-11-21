@@ -1,0 +1,47 @@
+uuid: fb258fef-22dc-4ed7-bce4-4af0aca07716
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.crc_asset.field_media_crc_asset
+    - media.type.crc_asset
+  module:
+    - ul_crc_asset
+_core:
+  default_config_hash: pKwOpIxW1sl9jLGdcDfKOZxns07n6ZpsgOTvOYm18Wg
+id: media.crc_asset.default
+targetEntityType: media
+bundle: crc_asset
+mode: default
+content:
+  field_media_crc_asset:
+    type: ul_crc_remote_stream_wrapper
+    weight: 1
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 2
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  path: true
+  status: true
+  uid: true

@@ -1,0 +1,35 @@
+uuid: e38e8fc6-4507-45e5-9146-506e9200a8f4
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.account
+  module:
+    - system
+    - user
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: jvTdhUa2Et9vQG4v1QqA45ATnXuUyscfFviv4iJl2GU
+id: useraccountmenu
+theme: ul_guidelines_theme
+region: header_top
+weight: 0
+provider: null
+plugin: 'system_menu_block:account'
+settings:
+  id: 'system_menu_block:account'
+  label: 'User account menu'
+  provider: system
+  label_display: '0'
+  level: 1
+  depth: 0
+  expand_all_items: false
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

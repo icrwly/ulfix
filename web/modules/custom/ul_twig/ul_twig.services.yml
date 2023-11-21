@@ -1,0 +1,5 @@
+services:
+  ul_twig.twig.merge_field_values:
+      class: Drupal\ul_twig\MergeFieldValues
+      tags:
+        - { name: twig.extension }

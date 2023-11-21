@@ -1,0 +1,18 @@
+uuid: 8d97ec4c-c413-4bb2-a689-94c0cf78188b
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.guideline
+id: node.guideline.metatag
+field_name: metatag
+entity_type: node
+bundle: guideline
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

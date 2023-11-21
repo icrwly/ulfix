@@ -1,0 +1,14 @@
+{% extends '@ul_guidelines_theme/2_pieces/listing-item/listing-item--search.twig' %}
+
+{% set item = {
+    linkHref: url,
+    title: label,
+    category: topic,
+    section: node.type.entity.label,
+    sectionIcon: 'file'
+} %}
+
+{% block listingItem_image %}
+    {{ content.field_shared_ref_image }}
+{% endblock %}
+

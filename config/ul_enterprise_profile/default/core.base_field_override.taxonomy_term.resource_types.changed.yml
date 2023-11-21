@@ -1,0 +1,18 @@
+uuid: fff35e36-5f89-468d-a677-fcb587f25a8e
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.resource_types
+id: taxonomy_term.resource_types.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: resource_types
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

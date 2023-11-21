@@ -1,0 +1,8 @@
+uuid: 2abaef25-cc1b-4098-afae-bd2672f7ca73
+langcode: en
+status: true
+dependencies: {  }
+name: 'Training Category'
+vid: training_category
+description: 'Used for categorizing Training.'
+weight: 0

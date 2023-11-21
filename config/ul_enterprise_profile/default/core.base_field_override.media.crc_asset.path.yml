@@ -1,0 +1,20 @@
+uuid: b3498013-0dde-41e3-bc93-0565ce89051d
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+  module:
+    - path
+id: media.crc_asset.path
+field_name: path
+entity_type: media
+bundle: crc_asset
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

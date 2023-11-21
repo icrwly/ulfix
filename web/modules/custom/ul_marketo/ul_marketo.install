@@ -1,0 +1,500 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ul_marketo module.
+ */
+
+use Drupal\Core\Site\Settings;
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Implements hook_schema().
+ */
+function ul_marketo_schema() {
+  $schema['ul_marketo_entity_overrides'] = [
+    'description' => 'Holds marketo settings overridden by entities.',
+    'fields' => [
+      'id' => [
+        'description' => 'Override unique identifier.',
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'entity_type' => [
+        'description' => 'Entity type of the overriding entity.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'entity_id' => [
+        'description' => 'ID of the overriding entity.',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'marketo_settings' => [
+        'description' => 'Setting for the overriding entity.',
+        'type' => 'blob',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  return $schema;
+}
+
+/**
+ * Update to add new Marketo fields to old nodes.
+ */
+function ul_marketo_update_8001(&$sandbox) {
+  $connection = \Drupal::database();
+  // Get all results back from the entity overrides table.
+  $results = $connection->select('ul_marketo_entity_overrides', 'm')
+    ->fields('m', ['marketo_settings', 'entity_id'])
+    ->execute()
+    ->fetchAll();
+
+  // Loop through and check for existing values.
+  foreach ($results as $result) {
+    $clean = unserialize($result->marketo_settings);
+    $id = $result->entity_id;
+    $update_this = FALSE;
+    // Add a blank area_interest if it doesn't exist.
+    if (!array_key_exists('area_interest', $clean)) {
+      $clean['area_interest'] = '';
+      $update_this = TRUE;
+    }
+    // Send updated data to the table.
+    if ($update_this) {
+      $reserialized = serialize($clean);
+      $connection->update('ul_marketo_entity_overrides')
+        ->fields(['marketo_settings' => $reserialized])
+        ->condition('entity_id', $id)
+        ->execute();
+    }
+  }
+}
+
+/**
+ * Update to add new Marketo Form table.
+ */
+function ul_marketo_update_8002(&$sandbox) {
+  $connection = \Drupal::database();
+
+  if (!$connection->schema()->tableExists('marketo_form')) {
+    \Drupal::entityTypeManager()->clearCachedDefinitions();
+    \Drupal::entityDefinitionUpdateManager()
+      ->installEntityType((\Drupal::entityTypeManager()->getDefinition('marketo_form')));
+    \Drupal::entityDefinitionUpdateManager()
+      ->installEntityType((\Drupal::entityTypeManager()->getDefinition('marketo_form_type')));
+    \Drupal::service('config.installer')->installDefaultConfig('module', 'ul_marketo');
+  }
+}
+
+/**
+ * Update to add new Marketo fields to nodes.
+ */
+function ul_marketo_update_8003(&$sandbox) {
+  $custom_fields = [
+    'field.field.node.event.field_shared_marketo_custom',
+    'field.field.node.help.field_shared_marketo_custom',
+    'field.field.node.homepage.field_shared_marketo_custom',
+    'field.field.node.hub.field_shared_marketo_custom',
+    'field.field.node.knowledge.field_shared_marketo_custom',
+    'field.field.node.landing_page.field_shared_marketo_custom',
+    'field.field.node.news.field_shared_marketo_custom',
+    'field.field.node.offering.field_shared_marketo_custom',
+    'field.field.node.location.field_shared_marketo_custom',
+    'field.field.node.page.field_shared_marketo_custom',
+    'field.field.node.resource.field_shared_marketo_custom',
+    'field.field.node.tool.field_shared_marketo_custom',
+    'field.field.node.event.field_shared_marketo_forms',
+    'field.field.node.help.field_shared_marketo_forms',
+    'field.field.node.homepage.field_shared_marketo_forms',
+    'field.field.node.hub.field_shared_marketo_forms',
+    'field.field.node.knowledge.field_shared_marketo_forms',
+    'field.field.node.landing_page.field_shared_marketo_forms',
+    'field.field.node.location.field_shared_marketo_forms',
+    'field.field.node.news.field_shared_marketo_forms',
+    'field.field.node.offering.field_shared_marketo_forms',
+    'field.field.node.page.field_shared_marketo_forms',
+    'field.field.node.resource.field_shared_marketo_forms',
+    'field.field.node.tool.field_shared_marketo_forms',
+    'field.field.block_content.cta_banner.field_marketo_form_customization',
+  ];
+  $config_path = Settings::get('config_sync_directory');
+  $source = new FileStorage($config_path);
+  $config_storage = \Drupal::service('config.storage');
+  foreach ($custom_fields as $field) {
+    $config_storage->write($field, $source->read($field));
+  }
+}
+
+/**
+ * Update config to use newer, betterer config.
+ */
+function ul_marketo_update_8004(&$sandbox) {
+  $config_factory = \Drupal::configFactory();
+  $old_config = $config_factory->getEditable('ul_marketo.settings');
+  $data = $old_config->getRawData();
+  $new_config = $config_factory->getEditable('ul_marketo.metadata.settings');
+  foreach ($data as $k => $v) {
+    if (!$v) {
+      $v = '';
+    }
+    $new_config->set($k, $v);
+  }
+  $new_config->save();
+  $old_config->delete();
+}
+
+/**
+ * Prep for CloudWords uninstall.
+ */
+function ul_marketo_update_8100(&$sandbox) {
+  /*
+  Intenionally left blank:
+  We used the this update hook to empty out CloudWords content
+  and entities prior to uninstalling the CloudWords module.
+  The code ran during the 1.28.2 mini sprint, and we removed
+  the code from this hook after it ran.
+   */
+}
+
+/**
+ * UL-3977 .
+ *
+ * Remove 'Request Demo - Thank you' and
+ * 'Request Demo - Text Block' content blocks.
+ */
+function ul_marketo_update_8101(&$sandbox) {
+
+  // Disable the 'Request Demo - Thank you' and
+  // 'Request Demo - Text Block' in the block layout.
+  $disable_blocks = [
+    'block.block.ul_com_theme_requestdemothankyou',
+    'block.block.ul_com_theme_requestdemotextblock',
+  ];
+
+  foreach ($disable_blocks as $b) {
+    $config = \Drupal::configFactory()->getEditable($b);
+    $config->set('status', FALSE)->save();
+  }
+
+  // Delete block_content entities for 'Request Demo - Thank you' and
+  // 'Request Demo - Text Block'.
+  $connection = \Drupal::database();
+  $q = "SELECT id,info FROM block_content_field_data WHERE info LIKE concat('Request Demo - Thank you','%') OR info = 'Request Demo'";
+  $results = $connection->query($q)->fetchAll();
+
+  foreach ($results as $result) {
+    $id = $result->id;
+    $block = \Drupal::entityTypeManager()->getStorage('block_content')->load($id);
+    if ($block) {
+      $block->delete();
+    }
+  }
+
+}
+
+/**
+ * UL-3909 Cleanup after removing Request Demo Form.
+ */
+function ul_marketo_update_8102(&$sandbox) {
+
+  $connection = \Drupal::database();
+
+  // Delete marketo_form entities of type 'demo_form'.
+  $q = "select id from marketo_form where type = 'demo_form'";
+  $results = $connection->query($q)->fetchAll();
+
+  foreach ($results as $result) {
+    $id = $result->id;
+    $marketo_form = \Drupal::entityTypeManager()->getStorage('marketo_form')->load($id);
+    if ($marketo_form) {
+      $marketo_form->delete();
+    }
+  }
+
+  $q = "SELECT *
+  FROM information_schema.COLUMNS
+  WHERE TABLE_NAME = 'node__field_shared_marketo_forms'
+  AND COLUMN_NAME = 'field_shared_marketo_forms_product_interest';";
+
+  $results = $connection->query($q)->fetchAll();
+  if (count($results) > 0) {
+    $connection->query("ALTER TABLE node__field_shared_marketo_forms DROP COLUMN field_shared_marketo_forms_product_interest");
+  }
+
+}
+
+/**
+ * L2O: Adding new fields: `Sub-COU` and `Last Interest`.
+ */
+function ul_marketo_update_8103(&$sandbox) {
+
+  $database = \Drupal::database();
+  $schema = $database->schema();
+  $table_name = 'node__field_shared_marketo_forms';
+
+  if ($schema->tableExists($table_name)) {
+    $spec = [
+      'type' => 'varchar',
+      'description' => 'Sub-COU',
+      'length' => 255,
+      'not null' => FALSE,
+    ];
+    $schema->addField('node__field_shared_marketo_forms', 'field_shared_marketo_forms_sub_cou', $spec);
+    $schema->addField('node_revision__field_shared_marketo_forms', 'field_shared_marketo_forms_sub_cou', $spec);
+
+    $spec = [
+      'type' => 'varchar',
+      'description' => 'Last Interest',
+      'length' => 255,
+      'not null' => FALSE,
+    ];
+    $schema->addField('node__field_shared_marketo_forms', 'field_shared_marketo_forms_last_interest', $spec);
+    $schema->addField('node_revision__field_shared_marketo_forms', 'field_shared_marketo_forms_last_interest', $spec);
+  }
+}
+
+/**
+ * L2O: Remove FbtF Taxonomy, "Areas of Interest".
+ */
+function ul_marketo_update_8104(&$sandbox) {
+
+  $database = \Drupal::database();
+
+  // 1. Truncate tables:
+  $database->truncate('taxonomy_term__field_instance')->execute();
+  $database->truncate('taxonomy_term__field_marketo_options')->execute();
+  $database->truncate('taxonomy_term__field_msd_division')->execute();
+  $database->truncate('taxonomy_term__field_msd_subindustry')->execute();
+  $database->truncate('taxonomy_term__field_sfdc_area_of_interest')->execute();
+  $database->truncate('taxonomy_term__field_sfdc_subindustry')->execute();
+  $database->truncate('taxonomy_term__field_used_by')->execute();
+  $database->truncate('taxonomy_term_revision__field_instance')->execute();
+  $database->truncate('taxonomy_term_revision__field_marketo_options')->execute();
+  $database->truncate('taxonomy_term_revision__field_msd_division')->execute();
+  $database->truncate('taxonomy_term_revision__field_msd_subindustry')->execute();
+  $database->truncate('taxonomy_term_revision__field_sfdc_subindustry')->execute();
+  $database->truncate('taxonomy_term_revision__field_used_by')->execute();
+
+  // 2. Delete data from tables:
+  $database->delete('taxonomy_term__parent')->condition('bundle', 'areas_of_interest')->execute();
+  $database->delete('taxonomy_term_data')->condition('vid', 'areas_of_interest')->execute();
+  $database->delete('taxonomy_term_field_data')->condition('vid', 'areas_of_interest')->execute();
+  $database->delete('taxonomy_term_r__c81355dc29')->condition('bundle', 'areas_of_interest')->execute();
+  $database->delete('taxonomy_term_revision__parent')->condition('bundle', 'areas_of_interest')->execute();
+
+  // 3. Delete Areas of Interest vocab and terms.
+  $vid = 'areas_of_interest';
+  if ($vocabulary = \Drupal::entityTypeManager()->getStorage('taxonomy_vocabulary')->load($vid)) {
+    $vocabulary->load($vid)->delete();
+  }
+
+  // 4. Delete tables.
+  $database->schema()->dropTable('taxonomy_term__field_used_by');
+  $database->schema()->dropTable('taxonomy_term_revision__field_used_by');
+  $database->schema()->dropTable('taxonomy_term__field_instance');
+  $database->schema()->dropTable('taxonomy_term_revision__field_instance');
+  $database->schema()->dropTable('taxonomy_term__field_msd_division');
+  $database->schema()->dropTable('taxonomy_term_revision__field_msd_division');
+  $database->schema()->dropTable('taxonomy_term__field_msd_subindustry');
+  $database->schema()->dropTable('taxonomy_term_revision__field_msd_subindustry');
+  $database->schema()->dropTable('taxonomy_term__field_sfdc_area_of_interest');
+  $database->schema()->dropTable('taxonomy_term__field_sfdc_subindustry');
+  $database->schema()->dropTable('taxonomy_term_revision__field_sfdc_subindustry');
+}
+
+/**
+ * Migrate Marketo Routing Fields to Sub COU and Last Interest values.
+ */
+function ul_marketo_update_8105(&$sandbox) {
+  $site_name = \Drupal::config('system.site')->get('name');
+  $output = $site_name . ' - migration_report.xlsx';
+
+  \Drupal::service('ul_marketo.data_service')->migrateRoutingFields(NULL, FALSE, $output);
+}
+
+/**
+ * Retire the Long & Short forms. Migrate data to Generic form.
+ */
+function ul_marketo_update_8110(&$sandbox) {
+
+  // Get the connection and the database schema.
+  $connection = \Drupal::service('database');
+  $schema = $connection->schema();
+
+  // Marketo forms:
+  $tables = [
+    'marketo_form',
+    'marketo_form_field_data',
+  ];
+  // Loop through the tables:
+  foreach ($tables as $table) {
+    if ($schema->tableExists($table)) {
+      $connection->update($table)
+        ->fields(['type' => 'generic_form'])
+        ->condition('type', 'contact_form')
+        ->execute();
+      $connection->update($table)
+        ->fields(['type' => 'generic_form'])
+        ->condition('type', 'demand_gen_form')
+        ->execute();
+    }
+  }
+
+  // Marketo customizations:
+  $tables = [
+    'marketo_form_r__d136a8cd56',
+    'marketo_form__field_shared_button_text',
+    'marketo_form__field_shared_custom_title',
+    'marketo_form__field_shared_form_description',
+    'marketo_form__field_shared_thank_you_page',
+    'marketo_form_revision__field_shared_button_text',
+    'marketo_form_revision__field_shared_custom_title',
+  ];
+  // Loop through the tables:
+  foreach ($tables as $table) {
+    if ($schema->tableExists($table)) {
+      $connection->update($table)
+        ->fields(['bundle' => 'generic_form'])
+        ->condition('bundle', 'contact_form')
+        ->execute();
+      $connection->update($table)
+        ->fields(['bundle' => 'generic_form'])
+        ->condition('bundle', 'demand_gen_form')
+        ->execute();
+    }
+  }
+
+  // Nodes - Mkto header CTA links:
+  $tables = [
+    'node__field_shared_marketo_link',
+    'node_revision__field_shared_marketo_link',
+  ];
+  // Loop through the tables:
+  foreach ($tables as $table) {
+    if ($schema->tableExists($table)) {
+      $connection->update($table)
+        ->fields(['field_shared_marketo_link_value' => 'generic_form'])
+        ->condition('field_shared_marketo_link_value', 'contact_form')
+        ->execute();
+      $connection->update($table)
+        ->fields(['field_shared_marketo_link_value' => 'generic_form'])
+        ->condition('field_shared_marketo_link_value', 'demand_gen_form')
+        ->execute();
+    }
+  }
+
+  // Nodes - Mkto RR links:
+  $tables = [
+    'node__field_shared_rr_marketo_cta',
+    'node_revision__field_shared_rr_marketo_cta',
+  ];
+  // Loop through the tables:
+  foreach ($tables as $table) {
+    if ($schema->tableExists($table)) {
+      $connection->update($table)
+        ->fields(['field_shared_rr_marketo_cta_value' => 'generic_form'])
+        ->condition('field_shared_rr_marketo_cta_value', 'contact_form')
+        ->execute();
+      $connection->update($table)
+        ->fields(['field_shared_rr_marketo_cta_value' => 'generic_form'])
+        ->condition('field_shared_rr_marketo_cta_value', 'demand_gen_form')
+        ->execute();
+    }
+  }
+
+  // Paragraphs:
+  $tables = [
+    'paragraph__field_marketo_form',
+    'paragraph_revision__field_marketo_form',
+  ];
+  // Loop through the tables:
+  foreach ($tables as $table) {
+    if ($schema->tableExists($table)) {
+      $connection->update($table)
+        ->fields(['field_marketo_form_value' => 'generic_form'])
+        ->condition('field_marketo_form_value', 'contact_form')
+        ->execute();
+      $connection->update($table)
+        ->fields(['field_marketo_form_value' => 'generic_form'])
+        ->condition('field_marketo_form_value', 'demand_gen_form')
+        ->execute();
+    }
+  }
+}
+
+/**
+ * L2O: Adding new fields: `Marketo Campaign`.
+ */
+function ul_marketo_update_8111(&$sandbox) {
+
+  $database = \Drupal::database();
+  $schema = $database->schema();
+  $table_name = 'node__field_shared_marketo_forms';
+
+  if ($schema->tableExists($table_name)) {
+    $spec = [
+      'type' => 'varchar',
+      'description' => 'Sub-COU',
+      'length' => 255,
+      'not null' => FALSE,
+    ];
+    $schema->addField('node__field_shared_marketo_forms', 'field_shared_marketo_forms_mkto_campaign', $spec);
+    $schema->addField('node_revision__field_shared_marketo_forms', 'field_shared_marketo_forms_mkto_campaign', $spec);
+  }
+}
+
+/**
+ * AB#283550: Add default value for new Campaign Landing Page field.
+ */
+function ul_marketo_update_8112(&$sandbox) {
+
+  $connection = \Drupal::database();
+
+  // Just in case, delete data. We will add defaults below:
+  $delete = $connection->delete('node__field_shared_rr_checkbox')
+    ->condition('bundle', 'campaign_page')
+    ->execute();
+  $delete = $connection->delete('node_revision__field_shared_rr_checkbox')
+    ->condition('bundle', 'campaign_page')
+    ->execute();
+
+  // Get existing campaign pages:
+  $query = "SELECT entity_id, revision_id FROM node__field_campaign_page_marketo_form WHERE bundle = 'campaign_page' AND langcode = 'en' LIMIT 100";
+
+  $results = $connection->query($query)->fetchAll();
+
+  foreach ($results as $result) {
+    $node_id = $result->entity_id;
+    $rev_id = $result->revision_id;
+
+    // Insert defaults:
+    $result = $connection->insert('node__field_shared_rr_checkbox')
+      ->fields([
+        'bundle' => 'campaign_page',
+        'deleted' => 0,
+        'entity_id' => $node_id,
+        'revision_id' => $rev_id,
+        'langcode' => 'en',
+        'delta' => 0,
+        'field_shared_rr_checkbox_value' => 1,
+      ])
+      ->execute();
+
+    $result = $connection->insert('node_revision__field_shared_rr_checkbox')
+      ->fields([
+        'bundle' => 'campaign_page',
+        'deleted' => 0,
+        'entity_id' => $node_id,
+        'revision_id' => $rev_id,
+        'langcode' => 'en',
+        'delta' => 0,
+        'field_shared_rr_checkbox_value' => 1,
+      ])
+      ->execute();
+  }
+}

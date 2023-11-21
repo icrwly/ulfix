@@ -1,0 +1,21 @@
+uuid: c93fe0bd-0617-4e68-b7c5-1ee2061e3327
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - node
+_core:
+  default_config_hash: XoAMyrd8tiflZW0Q2Kn5D_dXX5u6QTNdVhxA13MNmNw
+id: node.field_event_link
+field_name: field_event_link
+entity_type: node
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,19 @@
+uuid: d3af847e-97b4-4cf5-8ce6-e3deabceedce
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - ul_marketo
+id: node.field_shared_marketo_link
+field_name: field_shared_marketo_link
+entity_type: node
+type: marketo_form
+settings: {  }
+module: ul_marketo
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

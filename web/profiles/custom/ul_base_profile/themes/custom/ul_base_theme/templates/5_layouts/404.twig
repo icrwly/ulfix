@@ -1,0 +1,8 @@
+<div class="page-404 text-center">
+    <h1>{{ title|default("Sorry, the page you were looking for has been moved or is unavailable.") }}</h1>
+    <div class="searchbox-404">
+      {% block bottom_msg %}
+        <p class="page-404--bottom_msg">{{ sub_title|default("The page you were trying to visit does not exist or has been relocated.") }}</p>
+      {% endblock %}
+    </div>
+</div>

@@ -1,0 +1,32 @@
+.editor-content {
+  @include trim-margin();
+
+  img {
+    margin-bottom: $spacing-unit;
+    margin-top: $spacing-unit;
+    max-width: 100%;
+    &.align-left{
+      margin-right: $spacing-unit;
+    }
+    &.align-right{
+      margin-left: $spacing-unit;
+    }
+  }
+
+  .flex-grid {
+    @include breakpoint(max-width $tablet - 1) {
+      // set to block so margins collapse
+      display: block;
+    }
+    .grid-item {
+      @include trim-margin();
+      margin-bottom: $spacing-unit;
+      margin-top: $spacing-unit;
+    }
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    margin-top: 1em;
+  }
+
+}

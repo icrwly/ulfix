@@ -1,0 +1,86 @@
+.card.card--aside-download {
+  background-color: $gray;
+  padding: $spacing-unit--l * .75;
+
+  @include breakpoint($desktop) {
+    align-items: center;
+    display: flex;
+    flex-basis: 25%;
+    padding: $spacing-unit--l;
+  }
+
+  h3 {
+    font-size: 1.8rem;
+    font-weight: 400;
+
+    @include breakpoint(max-width $desktop - 1) {
+      font-size: 2.4rem;
+    }
+  }
+
+  .image-container {
+    @include breakpoint(max-width $desktop - 1) {
+      margin-bottom: $spacing-unit--l;
+      margin-top: auto;
+    }
+
+    @include breakpoint($desktop) {
+      flex-basis: 25%;
+    }
+
+    img {
+      margin: auto;
+    }
+  }
+
+  .content-container {
+    padding: 0;
+
+    @include breakpoint(max-width $desktop - 1) {
+      margin-top: auto;
+    }
+
+    @include breakpoint($desktop) {
+      flex-basis: 75%;
+      order: -1;
+      padding-#{$end-direction}: $spacing-unit--l;
+    }
+  }
+
+  .topic {
+    @include breakpoint($desktop) {
+      font-size: 1.2rem;
+    }
+  }
+
+  .download-container {
+    display: flex;
+
+    @include breakpoint(max-width $desktop - 1) {
+      flex-direction: column;
+    }
+
+    @include breakpoint($desktop) {
+      @include trim-margin();
+      align-items: center;
+    }
+
+    .meta {
+      @include breakpoint(max-width $desktop - 1) {
+        order: -1;
+      }
+    }
+
+    .button {
+      @include breakpoint(max-width $desktop - 1) {
+        display: block;
+      }
+
+      @include breakpoint($desktop) {
+        font-size: 1.2rem;
+        margin-#{$end-direction}: $spacing-unit--m;
+        padding: $button-padding * .75 $button-padding * 2;
+      }
+    }
+  }
+}

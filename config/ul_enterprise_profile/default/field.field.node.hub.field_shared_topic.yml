@@ -1,0 +1,29 @@
+uuid: 80470cbc-7a75-44e6-a194-aa941412078f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_topic
+    - node.type.hub
+    - taxonomy.vocabulary.topics
+id: node.hub.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+bundle: hub
+label: Topic
+description: 'The topic related to this experience hub.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

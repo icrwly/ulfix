@@ -1,0 +1,10 @@
+uuid: 4c958f8d-ad19-4307-9ecd-e2ac69c03b94
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+id: media.media_for_ckeditor
+label: 'Media for CKEditor'
+targetEntityType: media
+cache: true

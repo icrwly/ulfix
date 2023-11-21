@@ -1,0 +1,20 @@
+.item--icon {
+  align-items: center;
+  display: flex;
+  height: 100%;
+
+  .item__icon {
+    color: $text-color--light;
+    font-size: 2rem;
+    line-height: 1;
+    padding-#{$end-direction}: $spacing-unit * 1.5;
+  }
+}
+
+a.item--icon {
+  color: $black;
+  &:hover,
+  &:focus {
+    text-decoration: none;
+  }
+}

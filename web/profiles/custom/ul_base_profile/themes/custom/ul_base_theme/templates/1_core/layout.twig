@@ -1,0 +1,33 @@
+{# layout.twig #}
+{% block head %}
+  {% include '@ul_base_theme/1_core/head.twig' %}
+{% endblock %}
+
+{% block body_open %}
+{% if bodyClass is defined %}
+<body class="{{ bodyClass }}">
+{% else %}
+<body>
+{% endif %}
+{% endblock %}
+
+{% include '@ul_base_theme/2_pieces/skip-to-content.twig' %}
+
+{% block content %}{% endblock %}
+
+{% if modal %}
+  {% include '@ul_base_theme/3_components/modal.twig' with modal only %}
+  {% include '@ul_base_theme/2_pieces/overlay.twig' %}
+{% endif %}
+
+{% block global_scripts %}
+  {% include '@ul_base_theme/1_core/global-scripts.twig' %}
+{% endblock %}
+
+{% block body_close %}
+</body>
+{% endblock %}
+
+{% block html_close %}
+</html>
+{% endblock %}

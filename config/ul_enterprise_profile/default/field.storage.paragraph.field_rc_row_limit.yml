@@ -1,0 +1,27 @@
+uuid: 2154a64a-2781-4f5b-acdc-84bf77258a78
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - paragraphs
+id: paragraph.field_rc_row_limit
+field_name: field_rc_row_limit
+entity_type: paragraph
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '3'
+      label: Three
+    -
+      value: '4'
+      label: Four
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

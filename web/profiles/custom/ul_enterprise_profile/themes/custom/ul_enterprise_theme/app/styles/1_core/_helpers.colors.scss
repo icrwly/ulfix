@@ -1,0 +1,34 @@
+$bg-colors: (
+  black: $black,
+  blue-light: $blue-light,
+  blue: $blue,
+  brown-light: $brown-light,
+  brown: $brown,
+  gray: $gray,
+  green: $green,
+  orange: $orange,
+  red: $red,
+  teal-dark: $teal-dark,
+  teal: $teal,
+  yellow: $yellow
+);
+
+$text-colors: (
+  black: $black,
+  gray: $gray,
+  gray-medium: $gray-medium,
+  gray-light: $gray-light,
+  gray-lighter: $gray-lighter
+);
+
+@each $name, $value in $bg-colors {
+  .bg-#{$name} {
+    background-color: #{$value};
+  }
+}
+
+@each $name, $value in $text-colors {
+  .text-#{$name} {
+    color: #{$value};
+  }
+}

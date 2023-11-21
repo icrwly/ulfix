@@ -1,0 +1,19 @@
+uuid: 39fc10c7-76b5-453b-9de4-54a2579d7ccf
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_spotlight_description
+field_name: field_spotlight_description
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

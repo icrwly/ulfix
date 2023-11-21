@@ -1,0 +1,8 @@
+uuid: 73b23ce5-9d21-44fe-a409-f71afe8ccec5
+langcode: en
+status: true
+dependencies: {  }
+id: mega_menu
+label: 'Mega Menu'
+revision: 1
+description: 'A Mega Menu is used for creating content rich menu sections.'

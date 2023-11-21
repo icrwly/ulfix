@@ -1,0 +1,9 @@
+{% extends "@ul_base_theme/3_components/nav.twig" %}
+{% set class = "nav--primary" %}
+{% set menu_class = "menu-list--primary-nav list-unstyled row" %}
+{% set type = "primary" %}
+{% set attributes = {
+  'data-module': 'primaryNav',
+  'data-max-width': '991'
+} %}
+{% set back_title = back_title|default('Back') %}

@@ -1,0 +1,52 @@
+uuid: 7e7dc031-da95-40f8-862d-d32b26162bd3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.cards_small.field_cards_sm_cards
+    - field.field.paragraph.cards_small.field_cards_sm_description
+    - field.field.paragraph.cards_small.field_cards_sm_title
+    - field.field.paragraph.cards_small.field_shared_view_mode
+    - paragraphs.paragraphs_type.cards_small
+  module:
+    - entity_reference_revisions
+    - text
+    - view_mode_selector
+id: paragraph.cards_small.default
+targetEntityType: paragraph
+bundle: cards_small
+mode: default
+content:
+  field_cards_sm_cards:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_cards_sm_description:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_cards_sm_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_shared_view_mode:
+    type: view_mode_selector
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 3
+    region: content
+hidden:
+  search_api_excerpt: true

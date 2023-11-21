@@ -1,0 +1,30 @@
+uuid: 9cc93f75-fae3-44d7-b91d-14c5650639df
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_of_contact_info
+    - node.type.offering
+    - node.type.person
+_core:
+  default_config_hash: 37yNug_CdwHvN-xbaxVj6ueurX0OamKUp-SBQG19AgY
+id: node.offering.field_of_contact_info
+field_name: field_of_contact_info
+entity_type: node
+bundle: offering
+label: 'Contact Info - deprecated'
+description: 'The contact info of this offering.'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

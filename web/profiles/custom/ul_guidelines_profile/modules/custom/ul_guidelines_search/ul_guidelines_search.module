@@ -1,0 +1,98 @@
+<?php
+
+use Drupal\views\ViewExecutable;
+
+/**
+ * Implements hook_views_data().
+ */
+function ul_guidelines_search_views_data() {
+  $data['views']['search_result_empty'] = [
+    'title' => t('Empty Search Result'),
+    'help' => t('Show no results found message.'),
+    'area' => [
+      'id' => 'search_result_empty',
+    ],
+  ];
+  return $data;
+}
+
+function ul_guidelines_search_theme($existing, $type, $theme, $path) {
+  return [
+    'search_results_empty' =>  [    
+    	'variables' => [
+        	'search' => NULL,
+        	'results' => NULL,
+      	],
+  	],
+  ];
+}
+
+/**
+* Implements hook_views_post_execute().
+*/
+function ul_guidelines_search_views_post_execute(ViewExecutable $view) {
+
+  if ($view->id() == 'search_results') {
+    // Use view arguments to pass to CRC API search.
+    // First check for any exposed filter arguments then search for contextual
+    // filter argument.
+    $exposed_arg = $view->getExposedInput();
+    $contextual_arg = $view->args;
+
+    if (!empty($exposed_arg['keyword'])) {
+      $keyword = $exposed_arg['keyword'];
+    }
+    elseif (!empty($contextual_arg[0])) {
+      $keyword = $contextual_arg[0];
+    }
+
+    if (!empty($keyword)) {
+      // Search all CRC assets.
+      $crc = \Drupal::service('ul_crc');
+      $results = $crc->searchAll($keyword);
+      $assets = [];
+      if (!empty($results['data'])) {
+        // Check results against local content.
+        foreach ($results['data'] as $result) {
+          // Does the CRC Asset exist in the system?
+          $asset = \Drupal::entityTypeManager()
+            ->getStorage('crc_asset')
+            ->load($result['id']);
+          if (!empty($asset)) {
+            // If the asset exists, check to see if it's attached to any local content.
+            $nodes = $asset->getReferencingEntities();
+            if (!empty($nodes)) {
+              foreach ($nodes as $node) {
+                $assets[] = [
+                  'id' => $asset->id(),
+                  'name' => $asset->getName(),
+                  'file_extension' => $asset->getCrcData('file_extension'),
+                  'updated_at' => strtotime($asset->getCrcData('updated_at')),
+                  'sm_thumbnail_url' => $asset->getCrcData('sm_thumbnail_url'),
+                  'file_type' => $asset->getCrcData('file_type'),
+                  'original_url' => $asset->getCrcData('original_url'),
+                  'node' => $node,
+                ];
+                // Increment the total number of results.
+                $view->total_rows++;
+              }
+            }
+          }
+        }
+      }
+      // Send nodes that have relevant assets to the view, if we have any.
+      if (!empty($assets)) {
+        $view->attachment_after = $assets;
+      }
+    }
+  }
+  // Accommodate for offset.
+  // Note: The total results in $view->total_rows doesn't accurately
+  // reflect the total number of results being rendered.
+  // It has an offset of 1 (to accommodate the featured result).
+  // Accurate number is $vew->total_rows + offset + number of assets.
+  $offset = $view->getOffset();
+  if ($view->total_rows > $offset) {
+    $view->total_rows += $offset;
+  }
+}

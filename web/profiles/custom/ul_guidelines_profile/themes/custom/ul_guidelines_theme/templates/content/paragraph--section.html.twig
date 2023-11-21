@@ -1,0 +1,12 @@
+{% if content.field_section_title|render|striptags|trim %}
+    {% include '@ul_guidelines_theme/4_regions/section--accordion.twig' with {
+        section: {
+            id: random(),
+            title: content.field_section_title,
+            description: content.field_section_body
+        },
+        item: {
+            id: random(),
+        }
+    } %}
+{% endif %}

@@ -1,0 +1,18 @@
+uuid: caab61d8-0585-407c-98cc-e0b118e6ff4e
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+id: node.person.created
+field_name: created
+entity_type: node
+bundle: person
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

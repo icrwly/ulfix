@@ -1,0 +1,14 @@
+uuid: b459abd0-1178-411f-974c-df1125c21865
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.market_access_profile
+id: node_type_market_access_profile
+entity_type_id: node_type
+entity_id: market_access_profile
+action: page_not_found
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

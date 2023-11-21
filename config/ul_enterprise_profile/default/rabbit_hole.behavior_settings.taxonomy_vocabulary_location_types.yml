@@ -1,0 +1,14 @@
+uuid: ea5bbac0-248c-4bf9-9d2f-49875c6f737c
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.location_types
+id: taxonomy_vocabulary_location_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

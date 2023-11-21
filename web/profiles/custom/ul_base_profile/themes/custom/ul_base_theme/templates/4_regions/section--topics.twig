@@ -1,0 +1,12 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--topics max-width--large-tablet small-padding" %}
+
+{% block content %}
+  {% block section_topic %}
+    {% if topics %}
+      {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {
+        widget: topics
+      } %}
+    {% endif %}
+  {% endblock %}
+{% endblock %}

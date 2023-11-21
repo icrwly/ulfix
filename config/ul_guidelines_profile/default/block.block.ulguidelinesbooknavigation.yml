@@ -1,0 +1,41 @@
+uuid: acea19bf-f1d6-4a82-a9c5-ef2dea4079c1
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - node
+    - ul_guidelines_navigation
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: zWoLgGsQDTk9hPRf4mDzFP0Ynub7Gzton-2sLSysCeM
+id: ulguidelinesbooknavigation
+theme: ul_guidelines_theme
+region: sidebar_first
+weight: 0
+provider: null
+plugin: ul_guidelines_book_navigation
+settings:
+  id: ul_guidelines_book_navigation
+  label: 'UL Guidelines Book navigation'
+  provider: ul_guidelines_navigation
+  label_display: '0'
+  block_mode: 'book pages'
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      guideline: guideline
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'
+  node_type:
+    id: node_type
+    bundles:
+      guideline: guideline
+      page: page
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

@@ -1,0 +1,87 @@
+.listing-item {
+  border: 1px solid $gray-lighter;
+  display: inline-block;
+  a{
+    display:block;
+    transition: background-color 0.3s ease-in-out;
+    &:hover{
+      background-color: $background-color--hover;
+      text-decoration: none;
+      h3{
+        color:$red;
+      }
+    }
+  }
+  @include breakpoint($large-mobile) {
+    border: 0;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .content-container,
+  .image-container {
+    min-height: auto;
+    @include breakpoint($large-mobile) {
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+    }
+  }
+
+  .image-container {
+    padding-#{$start-direction}: 0;
+    position: relative;
+  }
+
+  .content-container {
+    .widget ul {
+      margin-bottom: ($spacing-unit - 0.3);
+    }
+
+    .topic {
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    h3 {
+      color: $black;
+      font-weight: 300;
+      margin-bottom: $spacing-unit;
+      font-size: 1.8rem;
+      line-height: 1.4;
+      @include breakpoint($desktop) {
+        font-size: 2.2rem;
+      }
+    }
+
+    p {
+      font-size: 1.2rem;
+      @include breakpoint($tablet) {
+        font-size: 1.4rem;
+      }
+    }
+
+    .meta {
+      color: $black;
+      font-size: 1.2rem;
+      line-height: 1;
+      margin: 0;
+      padding-#{$end-direction}: $spacing-unit;
+      @include breakpoint(max-width ($large-mobile - 1)) {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+    }
+
+    .date,
+    .read-time {
+      font-size: 1.2rem;
+      line-height: 1;
+      margin: 0;
+    }
+  }
+
+  .bottom-row {
+    display: inline-block;
+    width: 100%;
+  }
+}

@@ -1,0 +1,28 @@
+<div id="headerTop" class="header__top">
+    {% block content %}
+        {% include '@ul_guidelines_theme/3_components/header--brand.twig' with {
+            brand: {
+                crc: {
+                    href: 'https://crc.ul.com',
+                    label: 'Commercial Resource Center',
+                    text: 'Commercial Resource Center'
+                },
+                home: {
+                    href: 'https://hub.ul.com',
+                    label: 'Brand Hub',
+                    text: 'Brand Hub'
+                }
+            }
+        } %}
+        {% include '@ul_guidelines_theme/3_components/header--user.twig' with {
+            user: {
+                userIntroduction: '',
+                userName: 'Username'
+            }
+        } only %}
+    {% endblock %}
+
+    {# {% block logo  %}
+        {% include '@ul_guidelines_theme/3_components/header--logo.twig' with { logo: logo } %}
+    {% endblock %} #}
+</div>

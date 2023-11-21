@@ -1,0 +1,97 @@
+uuid: 66c8c8d0-f949-4faf-9725-20795c93b6d9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_addresses
+    - node.type.location
+    - paragraphs.paragraphs_type.location
+  module:
+    - entity_reference_revisions
+id: node.location.field_location_addresses
+field_name: field_location_addresses
+entity_type: node
+bundle: location
+label: 'Location Addresses'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      location: location
+    negate: 0
+    target_bundles_drag_drop:
+      basic_content:
+        weight: 25
+        enabled: false
+      call_to_action:
+        weight: 26
+        enabled: false
+      captioned_image:
+        weight: 27
+        enabled: false
+      crc_files:
+        weight: 29
+        enabled: false
+      descript_link:
+        weight: 30
+        enabled: false
+      files:
+        weight: 31
+        enabled: false
+      hero:
+        weight: 32
+        enabled: false
+      image_gallery:
+        weight: 33
+        enabled: false
+      image_row:
+        weight: 34
+        enabled: false
+      interrupter_cta:
+        weight: 35
+        enabled: false
+      list_item:
+        weight: 36
+        enabled: false
+      location:
+        weight: 37
+        enabled: true
+      menu_section:
+        weight: 38
+        enabled: false
+      people:
+        weight: 39
+        enabled: false
+      quote:
+        weight: 40
+        enabled: false
+      reference:
+        weight: 41
+        enabled: false
+      related_content:
+        weight: 42
+        enabled: false
+      simple_menu:
+        weight: 43
+        enabled: false
+      single_related_content:
+        weight: 44
+        enabled: false
+      slide:
+        weight: 45
+        enabled: false
+      spotlight:
+        weight: 46
+        enabled: false
+      video:
+        weight: 47
+        enabled: false
+      view:
+        weight: 48
+        enabled: false
+field_type: entity_reference_revisions

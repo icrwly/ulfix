@@ -1,0 +1,27 @@
+uuid: ce8a6b43-6699-4a57-9490-4578e90bcb38
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_menu_section_section
+    - paragraphs.paragraphs_type.menu_section
+id: paragraph.menu_section.field_menu_section_section
+field_name: field_menu_section_section
+entity_type: paragraph
+bundle: menu_section
+label: Section
+description: 'The menu section to display with. '
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:menu_link_content'
+  handler_settings:
+    target_bundles:
+      menu_link_content: menu_link_content
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

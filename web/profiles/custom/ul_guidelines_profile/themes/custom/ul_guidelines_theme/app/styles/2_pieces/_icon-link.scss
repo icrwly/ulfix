@@ -1,0 +1,25 @@
+a{
+  &[class^='icon-'],
+  &[class*=' icon-'] {
+    @include font-size(16, 24);
+    font-weight:600;
+  }
+  &:before{
+    font-size:120%;
+    font-weight:400;
+    margin-right:10px;
+    position: relative;
+    top: 2px;
+  }
+  &:focus,
+  &:hover{
+    color:darken($blueHover, 7);
+  }
+  &.icon-arrow-left{
+    &:before{
+      font-size:170% !important;
+      margin-right:10px;
+      top:5px;
+    }
+  }
+}

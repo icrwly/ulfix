@@ -1,0 +1,57 @@
+///*------------------------------------*\
+//    #UTILITY - MARGIN CONTROL
+//\*------------------------------------*/
+
+/* Note: this keeps the margins consistent on the text elements between mobile and desktop
+* Adding a breakpoint will create unified control across breakpoints
+*
+* PARAMETERS
+* $center: will center any margins across the page
+* $override: adds !important to the style
+* $size: define large or small padding - default is small
+* $type: select if it is applied to margin or padding - default is margin
+*/
+
+$spacing-unit: 1.5rem;
+$spacing-unit--l: $spacing-unit * 2;
+$spacing-unit--xl: $spacing-unit * 4;
+$mobileMargin: $spacing-unit;
+
+@mixin margin-control($center: false, $override: false, $size: '', $type: '') {
+  @if $type == 'padding' {
+    @if $size == 'l' {
+      padding-bottom: $spacing-unit--l;
+      padding-top: $spacing-unit--l;
+    } @elseif $size == 'xl' {
+      padding-bottom: $spacing-unit--xl;
+      padding-top: $spacing-unit--xl;
+    } @else {
+      padding-bottom: $spacing-unit;
+      padding-top: $spacing-unit;
+    }
+  } @else {
+    @if $override == true {
+      margin: 0 !important;
+    } @else {
+      @if $size == 'l' {
+        @if $center == true {
+          margin: $spacing-unit--l auto;
+        } @else {
+          margin: $spacing-unit--l 0;
+        }
+      } @elseif $size == 'xl' {
+        @if $center == true {
+          margin: $spacing-unit--xl auto;
+        } @else {
+          margin: $spacing-unit--xl 0;
+        }
+      } @else {
+        @if $center == true {
+          margin: $spacing-unit auto;
+        } @else {
+          margin: $spacing-unit 0;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{% if content %}
+{% embed '@ul_guidelines_theme/4_regions/nav--side-rail.twig' %}
+    {% block side_rail_content %}
+        {{ content }}
+    {% endblock %}
+{% endembed %}
+{% endif %}

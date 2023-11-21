@@ -1,0 +1,10 @@
+uuid: 21ca5422-fa79-4337-b9c4-7cf334527d16
+langcode: en
+status: true
+dependencies: {  }
+id: hero
+label: Hero
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Hero</em> to create a hero banner with a background and description.'
+behavior_plugins: {  }

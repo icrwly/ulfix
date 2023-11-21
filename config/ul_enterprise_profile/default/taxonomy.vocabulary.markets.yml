@@ -1,0 +1,10 @@
+uuid: a94fab0f-ad9b-4500-aa0c-6d2b555532bd
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: pSIds22hYIHhpfY-MK6CUM06Ewvpr1EjgKLfC_tsdfI
+name: Markets
+vid: markets
+description: 'Used for grouping content by market.'
+weight: 0

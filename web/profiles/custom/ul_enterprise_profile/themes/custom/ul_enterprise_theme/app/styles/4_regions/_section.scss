@@ -1,0 +1,186 @@
+.section {
+  max-width: 100%;
+
+  &--paragraph {
+    @include center-block;
+    @include section-padding-rules;
+    margin: 0 auto;
+    max-width: 100%;
+    overflow: visible;
+
+    hr {
+      border-top: 1px solid #585858;
+    }
+    // Paragraph gutters.
+    .paragraph-gutter {
+      max-width: $text-field-max;
+      margin: 0 auto;
+      padding: 0;
+
+      // Variations:
+      &.paragraph--accordion,
+      &.paragraph--file-list,
+      &.paragraph--carousel,
+      &.paragraph--curated-separate-list,
+      &.related-content-3-col {
+        max-width: $large-desktop; //1200px
+      }
+      &.cards-small--full,
+      &.paragraph--gallery,
+      &.paragraph--related-content,
+      &.paragraph--spotlight,
+      &.paragraph--video,
+      &.paragraph--grid--cards,
+      &.paragraph--view,
+      &.paragraph-basic-fullwidth {
+        max-width: $xlarge-desktop; //1600px
+      }
+
+      .title-bar {
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
+    // Paragraph BG colors:
+    &.section--bgcolor-light-gray {
+      background: $gray-lightest;
+      hr {
+        border-top: 1px solid #585858;
+      }
+    }
+    &.section--bgcolor-black {
+      background: $black;
+      color: $white;
+      .swiper-icon {
+        color: $black;
+      }
+      hr {
+        border-top: 1px solid #fff;
+      }
+      .editor-content {
+        a {
+          color: $white;
+          text-decoration: underline;
+          &:hover {
+            color: $gray-lighter;
+          }
+        }
+      }
+    }
+    &.section--bgcolor-red {
+      background: $red;
+      color: $white;
+      .swiper-icon {
+        color: $black;
+      }
+      hr {
+        border-top: 1px solid #fff;
+      }
+      .editor-content {
+        a {
+          color: $white;
+          text-decoration: underline;
+          &:hover {
+            color: $gray-lighter;
+          }
+        }
+      }
+    }
+  }
+
+  &.hidden {
+    padding: 0;
+    display: none;
+    overflow: hidden;
+    @include breakpoint($desktop) {
+      padding: 0;
+    }
+  }
+
+  .icon_popup {
+    visibility:hidden;
+    display: block;
+    border: 1px solid #000;
+    border-radius: 100%;
+    color: #fff;
+    cursor: pointer;
+    font-size: 13px;
+    line-height: 37px;
+    width: 30px;
+    height: 30px;
+    background-color: #000;
+  }
+
+  .icon_popup:before {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -ms-transform: translate(-50%,-50%);
+    transform: translate(-50%,-50%);
+    font-weight: 600;
+    text-align: center;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    font-family: icomoon;
+    font-size: inherit;
+    font-style: normal;
+    line-height: inherit;
+    speak: none;
+    text-transform: none;
+    vertical-align: baseline;
+    content: "\e998";
+    color: #fff;
+  }
+}
+
+
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+  /* IE10+ specific styles go here */
+  .mfp-close {
+    top: 30px;
+  }
+  .mfp-close:active {
+    top: 31px;
+  }
+}
+
+// Remove the margin gutters, so sections will stack
+// on top of one another.
+#main-content > .section.has-bg:first-child,
+.main-container .section.has-bg.has-margin + .section.has-bg {
+  margin-top: 0;
+  @include breakpoint($desktop) {
+    margin-top: 0;
+  }
+}
+
+// Remove bottom margin from the last paragraph in
+// the basic content section.
+.section.section--basic-content {
+  p:last-child {
+    margin-bottom: 0;
+  }
+}
+
+// Locations page, limit view to 1200px width.
+.locations-page {
+  .section.section--paragraph {
+    .paragraph-gutter {
+      max-width: $large-desktop;
+    }
+  }
+}
+
+// One inside the other.
+.section--paragraph .section--paragraph {
+  padding: 0;
+  @include breakpoint($desktop) {
+    padding: 0;
+  }
+}
+.card--spotlight .swiper-slide a {
+  pointer-events: none;
+  cursor: default;
+}

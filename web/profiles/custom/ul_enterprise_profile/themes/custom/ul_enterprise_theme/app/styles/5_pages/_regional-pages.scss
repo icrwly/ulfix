@@ -1,0 +1,251 @@
+.page-node-type-regional-pages {
+
+  // UL logo.
+  .global-header__logo .brand-logo {
+    background: $red;
+  }
+  .global-header__logo svg {
+    fill: $white;
+  }
+
+  // Header Title & Mobile hamburger:
+  .global-header__title-container,
+  .global-header__hamburger {
+    visibility: hidden;
+    display: none;
+  }
+
+  // Page title (block).
+  .regional_page_title {
+    width: 52%;
+    @include breakpoint(640px) {
+      width: 68%;
+    }
+
+    .page-title {
+      color: white;
+      font-weight: 600;
+      font-size: 1.4rem;
+      position: relative;
+      top: 4px;
+      left: 4px;
+      @include breakpoint($desktop) {
+        font-size: 2rem;
+      }
+    }
+  }
+
+  // ======================================== //
+  // Dropdown Language Switcher: Start.
+  .block-dropdown-language {
+    height: 28px;
+    padding: 0;
+    margin: 0;
+    margin-left: auto;
+    position: relative;
+    right: 0;
+    @include breakpoint($desktop) {
+      //background: #991928;
+      margin-right: 1.5rem;
+      width: 200px;
+    }
+
+    .form-item {
+      margin: 0;
+    }
+
+    .fieldset-wrapper {
+      width: auto;
+      @include breakpoint($desktop) {
+        width: 200px;
+        max-width: 100%;
+      }
+    }
+
+    .dropbutton-widget {
+      border: none;
+      background-color: transparent;
+      @include breakpoint($desktop) {
+        background: #991928;
+        border: solid 1px #84101d;
+      }
+    }
+
+    .dropbutton {
+      border: none;
+      width: 60px;
+      overflow: visible;
+      @include breakpoint($desktop) {
+        width: 198px;
+      }
+
+      li {
+        font-size: 1.2rem;
+        min-height: 26px;
+        clear: both;
+
+        &.mobi-icon {
+          width: 26px;
+          background-color: $red;
+          background-image: url(/profiles/custom/ul_enterprise_profile/themes/custom/ul_enterprise_theme/images/icon-globe--60x60.png);
+          background-repeat: no-repeat;
+          background-size: 20px 20px;
+          background-position: 2px center;
+          border-bottom: solid 2px $red;
+          float: right;
+          position: relative;
+          right: -4px;
+          @include breakpoint($desktop) {
+            position: absolute;
+            top: 0;
+            left: 2px;
+            z-index: 3;
+            background-color: #991928;
+            border-bottom: none;
+          }
+        }
+
+        &.curr-lang {
+          display: none;
+          @include breakpoint($desktop) {
+            display: block;
+          }
+          span {
+            background: $gray-lighter;
+            color: $text-color;
+            @include breakpoint($desktop) {
+              background-color: #991928;
+              color: $white;
+              padding-left: 30px;
+            }
+          }
+        }
+
+        &.dropbutton-toggle {
+          @include breakpoint(max-width $desktop - 1) {
+            height: 23px;
+            background-color: $red;
+          }
+          @include breakpoint($desktop) {
+            background-color: #991928;
+            max-height: 26px;
+          }
+          button {
+            color: $text-color;
+          }
+        }
+
+        &.dropbutton-action > * {
+          margin-right: 0;
+          display: block;
+        }
+
+        &.secondary-action {
+          border-top: none;
+          float: none;
+          clear: both;
+        }
+
+        &.curr-lang span,
+        &.secondary-action {
+          @include breakpoint(max-width $desktop - 1) {
+            width: 170px;
+            position: relative;
+            right: 80px;
+            line-height: 2.4;
+          }
+          @include breakpoint($desktop) {
+            line-height: 2.0;
+          }
+        }
+
+        .dropbutton-arrow {
+          color: white;
+        }
+      }
+      a {
+        color: $text-color;
+        background-color: $white;
+        &.language-link:hover {
+          background-color: $gray-lighter;
+        }
+      }
+    }
+  }
+  // When the Language widget is OPEN:
+  .dropbutton-wrapper {
+    &.open {
+      .dropbutton {
+        li {
+          &.curr-lang {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  // END (lang switcher).
+  // ======================================== //
+
+  // Header region.
+  .global-header,
+  .global-header__container {
+    background: $red;
+  }
+  .global-header__container {
+    border-bottom: 1px solid #991928;
+  }
+
+  // Hero region.
+  .hero,
+  .hero.bg-gray-lightest {
+    background: $red;
+    color: $white;
+    .button,
+    .button.button--red {
+      @include button-variant($text-color, $white, $white);
+    }
+  }
+
+  // Main content:
+  .main-container {
+    .hero {
+      // Hero title.
+      .hero__title {
+        font-weight: 600;
+      }
+      // Hero button.
+      .hero__buttons .button {
+        font-weight: 600;
+
+        &::after {
+          position: absolute;
+          padding-left: 5px;
+          font-weight: 600;
+          -moz-osx-font-smoothing: grayscale;
+          -webkit-font-smoothing: antialiased;
+          display: inline-block;
+          font-family: icomoon;
+          font-size: inherit;
+          font-style: normal;
+          line-height: inherit;
+          speak: none;
+          text-transform: none;
+          vertical-align: baseline;
+          content: "\e90f";
+        }
+      }
+    }
+
+    // <hr> should be light gray.
+    hr {
+      border-top: 1px solid $gray-lighter;
+    }
+
+    // Marketo Modal CTA banner.
+    #marketo-modal-cta .paragraph--action-banner {
+      text-align: left;
+    }
+  }
+
+}

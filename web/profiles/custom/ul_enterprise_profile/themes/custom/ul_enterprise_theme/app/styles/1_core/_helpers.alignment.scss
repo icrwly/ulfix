@@ -1,0 +1,22 @@
+// Alignment
+// -------------------------
+.text-left {
+  text-align: $start-direction;
+}
+
+.text-right {
+  text-align: $end-direction;
+}
+
+.text-center {
+  text-align: center;
+}
+
+// Floats
+// -------------------------
+.pull-right {
+  float: $end-direction !important;
+}
+.pull-left {
+  float: $start-direction !important;
+}

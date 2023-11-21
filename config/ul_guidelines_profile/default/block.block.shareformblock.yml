@@ -1,0 +1,31 @@
+uuid: d8cce572-2e29-42b9-8690-94abc245de79
+langcode: en
+status: true
+dependencies:
+  module:
+    - ctools
+    - ul_guidelines_share
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: FLPypWWM6GflGLYER1PpYA0QG68tKtKHB8CXVyozMc8
+id: shareformblock
+theme: ul_guidelines_theme
+region: content
+weight: -3
+provider: null
+plugin: ul_guidelines_share_form_block
+settings:
+  id: ul_guidelines_share_form_block
+  label: 'Share Page'
+  provider: ul_guidelines_share
+  label_display: visible
+  my_block_settings: null
+visibility:
+  'entity_bundle:node':
+    id: 'entity_bundle:node'
+    bundles:
+      guideline: guideline
+    negate: false
+    context_mapping:
+      node: '@node.node_route_context:node'

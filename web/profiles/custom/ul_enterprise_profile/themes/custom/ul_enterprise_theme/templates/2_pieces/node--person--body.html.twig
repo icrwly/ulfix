@@ -1,0 +1,19 @@
+{# @file: node--person--body.html.twig #}
+{% block person_body %}
+  <section class="section section--paragraph section--wysiwyg section--person">
+    <div class="paragraph-gutter">
+      {# Main person content: #}
+      {% block personcontent %}
+        {{ content.body }}
+      {% endblock %}
+      {# Social button(s): #}
+      {% if linkedInUrl %}
+        {% block personlinkedin %}
+          <div class="person-social-gutter">
+            <a href="{{ linkedInUrl }}" title="LinkedIn" class="button button--black-outline">LinkedIn</a>
+          </div>
+        {% endblock %}
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

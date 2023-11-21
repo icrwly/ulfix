@@ -1,0 +1,38 @@
+.hero-content--background {
+  &.black {
+    background: $black;
+    background: rgba($black, 0.8);
+  }
+  &.blue {
+    background: $blue;
+    background: rgba($blue, 0.8);
+  }
+  &.gray {
+    background: $gray;
+    background: rgba($gray, 0.9);
+  }
+  &.orange {
+    background: $orange;
+    background: rgba($orange, 0.9);
+    h1,
+    p{
+      color:$black !important;
+    }
+  }
+  &.red {
+    background: $red;
+    background: rgba($red, 0.9);
+  }
+  &.teal {
+    background: $teal;
+    background: rgba($teal, 0.9);
+  }
+  &.yellow {
+    background: $yellow;
+    background: rgba($yellow, 0.8);
+    h1,
+    p{
+      color:$black !important;
+    }
+  }
+}

@@ -1,0 +1,8 @@
+uuid: 73d50785-cd00-478f-8f72-64f031470308
+langcode: en
+status: true
+dependencies: {  }
+id: node__tool
+label: 'Content: Tool'
+code: null
+message: ''

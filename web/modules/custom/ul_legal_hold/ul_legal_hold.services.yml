@@ -1,0 +1,4 @@
+services:
+  ul_legal_hold.formatter:
+    class: Drupal\ul_legal_hold\Plugin\Field\FieldFormatter\RevisionFieldFormatter
+    arguments: ['@entity_type.manager']

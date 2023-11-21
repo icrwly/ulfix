@@ -1,0 +1,23 @@
+uuid: f5c0eac6-821c-4513-ba8d-9025331ffce0
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rpwvgyEURXLz_JjgMCrkS1rUv-0k3L79BpO-ReN7fDI
+id: node
+label: Content
+tags:
+  title: '[node:title] | [site:name]'
+  canonical_url: '[node:url]'
+  description: '[node:field_shared_ref_description]'
+  og_image: '[node:field_shared_header_media:entity:field_media_image:hero_boxed_width:url]'
+  og_url: '[current-page:url:absolute]'
+  og_description: '[node:field_shared_ref_description]'
+  og_site_name: '[site:name]'
+  og_title: '[current-page:title]'
+  twitter_cards_image: '[node:field_shared_header_media:entity:field_media_image:hero_boxed_width:url]'
+  twitter_cards_page_url: '[current-page:url:absolute]'
+  twitter_cards_description: '[node:field_shared_ref_description]'
+  twitter_cards_image_alt: '[node:title]'
+  twitter_cards_type: summary_large_image
+  twitter_cards_title: '[node:title] | [site:name]'

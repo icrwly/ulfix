@@ -1,0 +1,10 @@
+uuid: 2e54df7e-0fde-44e3-830a-b3c190b7ec70
+langcode: en
+status: true
+dependencies: {  }
+id: carousel_slide
+label: 'Carousel Slide'
+icon_uuid: null
+icon_default: null
+description: 'Note: Component items of the Carousel paragraph type.'
+behavior_plugins: {  }

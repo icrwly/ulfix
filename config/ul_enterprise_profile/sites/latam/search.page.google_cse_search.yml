@@ -1,0 +1,39 @@
+uuid: 60934748-14e7-4275-add6-883e0d6556ef
+langcode: en
+status: false
+dependencies:
+  module:
+    - google_cse
+id: google_cse_search
+label: 'Google CSE Search'
+path: results
+weight: 0
+plugin: google_cse_search
+configuration:
+  cx: 94a4e6c8a255f4645
+  results_tab: ''
+  results_width: '1024'
+  cof_here: ''
+  cof_google: ''
+  results_prefix: ''
+  results_suffix: ''
+  results_searchbox_width: ''
+  results_display: here
+  results_display_images: 1
+  sitesearch: ''
+  sitesearch_form: ''
+  sitesearch_option: ''
+  sitesearch_default: 0
+  domain: ''
+  limit_domain: ''
+  cr: ''
+  gl: ''
+  hl: ''
+  locale_hl: 0
+  ie: ''
+  lr: ''
+  locale_lr: 0
+  oe: ''
+  safe: medium
+  custom_css: ''
+  custom_results_display: results-only

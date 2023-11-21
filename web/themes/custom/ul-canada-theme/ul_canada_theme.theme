@@ -1,0 +1,118 @@
+<?php
+
+/**
+ * @file
+ * UL Canada Theme file.
+ */
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function ul_canada_theme_preprocess_page(array &$variables) {
+  // We pass the current Language to the GNaaS JS.
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['#attached']['drupalSettings']['language'] = $language;
+
+  // GNaaS Script - used to determine environment.
+  // Use drupalSettings to pass val to JS.
+  $config = \Drupal::service('config.factory')->getEditable('ul_canada_theme.settings');
+  $gnaas_env = $config->get('gnaas_env', 'prod');
+
+  // Make sure we alwyas have a value, PROD is default!
+  if (empty($gnaas_env)) {
+    $gnaas_env = 'prod';
+  }
+
+  $variables['#attached']['drupalSettings']['gnaas_env'] = $gnaas_env;
+}
+
+/**
+ * Implements theme_preprocess_node().
+ */
+function ul_canada_theme_preprocess_node(&$variables) {
+  $node = &$variables['node'];
+  $urlNodeObject = $node->toUrl();
+
+  // The current language:
+  $currlang = \Drupal::languageManager()->getCurrentLanguage()->getId();
+
+  // If $currlang is "en" then get "fr-ca" translation:
+  if ($currlang == 'en') {
+    $getLang = 'fr-ca';
+  }
+  else {
+    $getLang = 'en';
+  }
+
+  // The current URL:
+  $variables['#attached']['drupalSettings']['gnaas'][$currlang] = $urlNodeObject->toString();
+
+  // Set the option to the $getLang value.
+  // Get and store the translation URL in our GNaaS array.
+  $language_manager = \Drupal::service('language_manager');
+  $translation = $language_manager->getLanguage($getLang);
+  $urlNodeObject->setOption('language', $translation);
+  $variables['#attached']['drupalSettings']['gnaas'][$getLang] = $urlNodeObject->toString();
+
+  // If "/node/" is in the Translation URL, it is a false positive.
+  // And there is no translation for this language.
+  if (strpos($variables['#attached']['drupalSettings']['gnaas'][$getLang] = $urlNodeObject->toString(), '/node/') !== false) {
+    // So then set the translations URL to "#".
+    $variables['#attached']['drupalSettings']['gnaas'][$getLang] = '#';
+  }
+}
+
+/**
+ * Implements hook_form_system_theme_settings_alter().
+ */
+function ul_canada_theme_form_system_theme_settings_alter(&$form, \Drupal\Core\Form\FormStateInterface $form_state) {
+  // Do not show this in PROD:
+  $host = \Drupal::request()->getSchemeAndHttpHost();
+  if ($host == 'https://news-canada.ul.com') {
+    return;
+  }
+
+  // Get the theme settings, and check which library is selected for this site.
+  $config = \Drupal::service('config.factory')->getEditable('ul_canada_theme.settings');
+
+  // The current value saved in config:
+  $gnaas_env = $config->get('gnaas_env');
+
+  // Make sure we alwyas have a value, PROD is default!
+  if (empty($gnaas_env)) {
+    $gnaas_env = 'prod';
+  }
+
+  // Create the form elements: make a wrapper to be pretty:
+  $form['gnaas_wrap'] = [
+    '#type' => 'details',
+    '#open' => TRUE,
+    '#title' => t('GnaaS Script Setting'),
+  ];
+
+  // Make the radio buttons, for user interaction:
+  $form['gnaas_wrap']['gnaas_env'] = [
+    '#type' => 'radios',
+    '#title' => t('Select the GnaaS script environment:'),
+    '#options' => [
+      'prod' => t('Production'),
+      'test' => t('Test'),
+    ],
+    '#default_value' => $gnaas_env,
+  ];
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ */
+function ul_canada_theme_page_attachments_alter(array &$attachments) {
+  // GnaaS:
+  $config = \Drupal::service('config.factory')->getEditable('ul_canada_theme.settings');
+  $gnaas_env = $config->get('gnaas_env', 'prod');
+  if ($gnaas_env == 'test') {
+    $attachments['#attached']['library'][] = 'ul_canada_theme/gnaas-test';
+  }
+  else {
+    $attachments['#attached']['library'][] = 'ul_canada_theme/gnaas-prod';
+  }
+}

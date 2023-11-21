@@ -1,0 +1,13 @@
+{% extends '@ul_base_theme/4_regions/section--references.twig'  %}
+{% set title = "References"|t %}
+{% set gutterclass = "paragraph-gutter paragraph--references" %}
+{% set class = "section--paragraph" %}
+{% if content.field_shared_bg_color.0 is not empty %}
+  {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+
+{% block references_list %}
+  <ol class="editor-content">
+    {{ content.field_ref_reference }}
+  </ol>
+{% endblock %}

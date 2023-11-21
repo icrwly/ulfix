@@ -1,0 +1,12 @@
+<div class="js-form-item form-item js-form-type-select form-type-select">
+  {% if label %}
+    <label for="{{ name }}" class="sr-only">{{ label }}</label>
+  {% endif %}
+  {% block select_list %}
+      <select data-drupal-selector="{{ id }}" id="{{ id }}" name="{{ name }}" class="form-select">
+          {% for item in options %}
+              <option value="{{ item.value }}">{{ item.text }}</option>
+          {% endfor %}
+      </select>
+  {% endblock %}
+</div>

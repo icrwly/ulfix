@@ -1,0 +1,23 @@
+uuid: b29f014d-e616-4d94-b3e9-4bb4b661051e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_location
+    - node.type.event
+  module:
+    - text
+_core:
+  default_config_hash: SoOh4unKjlUrF32-bJ7DlPiKDeSYECBtLam61oH7x48
+id: node.event.field_event_location
+field_name: field_event_location
+entity_type: node
+bundle: event
+label: Location
+description: 'Location or Address of this event.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

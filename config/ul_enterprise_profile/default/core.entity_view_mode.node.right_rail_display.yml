@@ -1,0 +1,10 @@
+uuid: 6f35abb2-6fff-4efd-8556-66c6443999a0
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: node.right_rail_display
+label: 'Right Rail display'
+targetEntityType: node
+cache: true

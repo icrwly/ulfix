@@ -1,0 +1,34 @@
+{% extends '@ul_base_theme/2_pieces/card/card--default.twig' %}
+{% if beforeDeadline %}
+    {% set badges = badges|without('new') %}
+{% endif %}
+{% set catch_cache = content|render %}
+{% set cardId = "node--card-" ~ node.id() %}
+{% set catch_cache = content|render %}
+{% if content.field_shared_header_media.0.url %}
+    {% set image = card_image %}
+    {% set imageAlt = content.field_shared_header_media.0.alt %}
+{% else %}
+    {% set imageAlt = '' %}
+{% endif %}
+{% set title = label %}
+{% set subtitle = content.field_shared_header_description %}
+{% set link = url %}
+{% set clickable = true %}
+{% set tags = badges %}
+{% if content.field_know_pub_name.0 %}
+    {% set meta = content.field_know_pub_name %}
+    {% set date = 0 %}
+{% else %}
+    {% set timestamp = node.created.value %}
+    {% set date = timestamp|format_date("medium_date_no_time") %}
+{% endif %}
+{% if content.field_know_type|render %}
+  {% set topics = [
+      {content: content.field_know_type|render}
+  ]%}
+{% endif %}
+{% set readTime = content.field_know_time_read|render %}
+{% block card_description %}
+    <p>{{ content.field_shared_ref_description|render}}</p>
+{% endblock %}

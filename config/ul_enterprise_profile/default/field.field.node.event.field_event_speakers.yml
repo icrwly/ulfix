@@ -1,0 +1,30 @@
+uuid: 6b832b38-646d-428c-a105-bf283fb0a424
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_speakers
+    - node.type.event
+    - node.type.person
+_core:
+  default_config_hash: p8SqzLrD3YwUZAW4CmQPDqTQDnNSHR9sz1OkpyvM4_M
+id: node.event.field_event_speakers
+field_name: field_event_speakers
+entity_type: node
+bundle: event
+label: Speakers
+description: 'Speakers at this event'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      person: person
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

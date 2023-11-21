@@ -1,0 +1,23 @@
+uuid: 97a09e48-4a5f-4e53-a64b-6000f8c6b0f8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_description
+    - paragraphs.paragraphs_type.view
+  module:
+    - text
+_core:
+  default_config_hash: wWr0JG_eRZRUY67NUCrhlXE1Vcd0e6h3Hooraso-0mk
+id: paragraph.view.field_view_description
+field_name: field_view_description
+entity_type: paragraph
+bundle: view
+label: Description
+description: 'Provide a brief description about this content. '
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

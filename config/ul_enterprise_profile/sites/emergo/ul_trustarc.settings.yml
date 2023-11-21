@@ -1,0 +1,8 @@
+module_enable: 1
+script_url: //consent.trustarc.com/notice
+domain: emergoweb.com
+target_element: teconsent
+country: ''
+language: ''
+behavior: ''
+privacy_policy_url: ''

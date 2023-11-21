@@ -1,0 +1,23 @@
+uuid: 53fdd095-7fdb-4faa-886c-684ee14f745a
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: card_small
+label: 'Card, small (700 x 350)'
+effects:
+  67c3e9d7-f698-4559-bc56-e6166055db1c:
+    uuid: 67c3e9d7-f698-4559-bc56-e6166055db1c
+    id: image_effects_auto_orient
+    weight: 1
+    data:
+      scan_exif: true
+  536d4804-3b32-4d68-9f9a-2f6e83d35b4e:
+    uuid: 536d4804-3b32-4d68-9f9a-2f6e83d35b4e
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 700
+      height: 350
+      anchor: center-center

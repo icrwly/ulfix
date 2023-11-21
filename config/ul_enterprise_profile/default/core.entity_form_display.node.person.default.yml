@@ -1,0 +1,421 @@
+uuid: f7a9a60c-9710-4639-b07c-c6e44ca31f28
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.body
+    - field.field.node.person.field_person_awards
+    - field.field.node.person.field_person_first_name
+    - field.field.node.person.field_person_job_title
+    - field.field.node.person.field_person_rr_topics
+    - field.field.node.person.field_person_secondary_content
+    - field.field.node.person.field_person_short_bio
+    - field.field.node.person.field_person_social_links
+    - field.field.node.person.field_shared_content_owner
+    - field.field.node.person.field_shared_cou
+    - field.field.node.person.field_shared_header_media
+    - field.field.node.person.field_shared_metatags
+    - field.field.node.person.field_shared_mktg_support_ticket
+    - field.field.node.person.field_shared_ref_description
+    - field.field.node.person.field_shared_review_comments
+    - field.field.node.person.field_shared_review_user
+    - field.field.node.person.field_shared_rr_checkbox
+    - node.type.person
+  module:
+    - chosen_field
+    - cm_submit
+    - field_group
+    - media_library
+    - metatag
+    - paragraphs
+    - path
+    - scheduler
+    - social_media_links_field
+    - text
+third_party_settings:
+  field_group:
+    group_tabs:
+      children:
+        - group_content
+        - group_summary
+        - group_right_rail_content
+        - group_review_notes
+      label: Tabs
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: tabs
+      format_settings:
+        classes: ''
+        id: ''
+        direction: horizontal
+    group_content:
+      children:
+        - title
+        - group_header
+        - group_main_content
+        - field_person_social_links
+        - group_secondary_content
+      label: Content
+      region: content
+      parent_name: group_tabs
+      weight: 9
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: open
+        description: ''
+        required_fields: true
+    group_review_notes:
+      children:
+        - field_shared_review_comments
+        - field_shared_review_user
+      label: 'Review Notes'
+      region: content
+      parent_name: group_tabs
+      weight: 12
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: 'Use this section to set the approver and communicate during the review process.'
+        required_fields: true
+    group_marketing_support_ticket:
+      children:
+        - field_shared_mktg_support_ticket
+      label: 'Marketing Support Ticket #'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+        weight: 0
+    group_header:
+      children:
+        - field_person_first_name
+        - field_person_job_title
+        - field_person_short_bio
+        - field_shared_header_media
+      label: Header
+      region: content
+      parent_name: group_content
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+    group_summary:
+      children:
+        - field_shared_ref_description
+      label: Summary
+      region: content
+      parent_name: group_tabs
+      weight: 10
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_right_rail_content:
+      children:
+        - field_shared_rr_checkbox
+        - field_person_rr_topics
+        - field_person_awards
+      label: 'Right Rail Content'
+      region: content
+      parent_name: group_tabs
+      weight: 11
+      format_type: tab
+      format_settings:
+        classes: ''
+        id: ''
+        formatter: closed
+        description: ''
+        required_fields: true
+    group_main_content:
+      children:
+        - body
+      label: 'Main Content'
+      region: content
+      parent_name: group_content
+      weight: 3
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+    group_secondary_content:
+      children:
+        - field_person_secondary_content
+      label: 'Secondary Content'
+      region: content
+      parent_name: group_content
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: true
+        description: ''
+        required_fields: true
+    group_owner_information:
+      children:
+        - field_shared_content_owner
+        - field_shared_cou
+      label: 'Owner Information'
+      region: content
+      parent_name: ''
+      weight: 13
+      format_type: details_sidebar
+      format_settings:
+        classes: ''
+        show_empty_fields: true
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+        weight: 0
+_core:
+  default_config_hash: lcV8R0xEkSlKcpNQQZFCjcI4GeB5I3x65x0CovL1sW4
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  body:
+    type: text_textarea_with_summary
+    weight: 3
+    region: content
+    settings:
+      rows: 9
+      summary_rows: 3
+      placeholder: ''
+      show_summary: false
+    third_party_settings: {  }
+  created:
+    type: datetime_timestamp
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_person_awards:
+    type: entity_reference_paragraphs
+    weight: 28
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_person_first_name:
+    type: string_textfield
+    weight: 2
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_person_job_title:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_person_rr_topics:
+    type: entity_reference_paragraphs
+    weight: 27
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_person_secondary_content:
+    type: entity_reference_paragraphs
+    weight: 4
+    region: content
+    settings:
+      title: Paragraph
+      title_plural: Paragraphs
+      edit_mode: closed
+      add_mode: dropdown
+      form_display_mode: default
+      default_paragraph_type: _none
+    third_party_settings: {  }
+  field_person_short_bio:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_person_social_links:
+    type: social_media_links_field_default
+    weight: 4
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_content_owner:
+    type: chosen_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_cou:
+    type: chosen_select
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_header_media:
+    type: media_library_widget
+    weight: 7
+    region: content
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+  field_shared_metatags:
+    type: metatag_firehose
+    weight: 6
+    region: content
+    settings:
+      sidebar: true
+      use_details: true
+    third_party_settings: {  }
+  field_shared_mktg_support_ticket:
+    type: string_textfield
+    weight: 12
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_ref_description:
+    type: string_textarea
+    weight: 6
+    region: content
+    settings:
+      rows: 5
+      placeholder: '250 characters or less'
+    third_party_settings:
+      maxlength:
+        maxlength_js: 250
+        maxlength_js_label: 'Google recommends a summary of <strong>160</strong> characters or less, Current length is <strong>@remaining</strong> of <strong>@limit</strong>.'
+        maxlength_js_enforce: true
+        maxlength_js_truncate_html: false
+  field_shared_review_comments:
+    type: text_textarea
+    weight: 12
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_review_user:
+    type: entity_reference_autocomplete
+    weight: 13
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_rr_checkbox:
+    type: boolean_checkbox
+    weight: 26
+    region: content
+    settings:
+      display_label: true
+    third_party_settings: {  }
+  langcode:
+    type: language_select
+    weight: 3
+    region: content
+    settings:
+      include_locked: true
+    third_party_settings: {  }
+  moderation_state:
+    type: cm_submit_buttons
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  path:
+    type: path
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  publish_on:
+    type: datetime_timestamp_no_default
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  scheduler_settings:
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 8
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  uid:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  unpublish_on:
+    type: datetime_timestamp_no_default
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  url_redirects:
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  promote: true
+  status: true
+  sticky: true

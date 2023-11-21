@@ -1,0 +1,14 @@
+{% embed '@ul_base_theme/4_regions/section--cards-featured.twig' %}
+    {% set section = {
+        intro: intro
+    }%}
+    {% block section_card_list %}
+        {%- for item in items -%}
+            {% embed '@ul_base_theme/3_components/section--featured-cards-slide.twig' %}
+                {% block content %}
+                    {{ item.content }}
+                {% endblock %}
+            {% endembed %}
+        {%- endfor -%}
+    {% endblock %}
+{% endembed %}

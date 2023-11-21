@@ -1,0 +1,170 @@
+uuid: 46680b28-2231-4d29-9183-f701f41140a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campaign_page_content
+    - node.type.campaign_page
+    - paragraphs.paragraphs_type.basic_content
+    - paragraphs.paragraphs_type.campaign_cards
+    - paragraphs.paragraphs_type.crc_files
+    - paragraphs.paragraphs_type.files
+    - paragraphs.paragraphs_type.quote
+    - paragraphs.paragraphs_type.reference
+    - paragraphs.paragraphs_type.video
+  module:
+    - entity_reference_revisions
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.campaign_page.field_campaign_page_content
+field_name: field_campaign_page_content
+entity_type: node
+bundle: campaign_page
+label: 'Page Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      basic_content: basic_content
+      campaign_cards: campaign_cards
+      crc_files: crc_files
+      files: files
+      quote: quote
+      reference: reference
+      video: video
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: -73
+        enabled: false
+      accordion_items:
+        weight: -72
+        enabled: false
+      basic_content:
+        weight: -71
+        enabled: true
+      call_to_action:
+        weight: -70
+        enabled: false
+      campaign_card:
+        weight: -69
+        enabled: false
+      campaign_cards:
+        weight: -68
+        enabled: true
+      campaign_form:
+        weight: 44
+        enabled: false
+      captioned_image:
+        weight: -67
+        enabled: false
+      card_small_child:
+        weight: 51
+        enabled: false
+      cards_small:
+        weight: 52
+        enabled: false
+      carousel:
+        weight: 53
+        enabled: false
+      carousel_slide:
+        weight: 54
+        enabled: false
+      crc_files:
+        weight: -66
+        enabled: true
+      curated_list:
+        weight: -65
+        enabled: false
+      curated_separate_list:
+        weight: -64
+        enabled: false
+      descript_link:
+        weight: -63
+        enabled: false
+      files:
+        weight: -62
+        enabled: true
+      hero:
+        weight: -61
+        enabled: false
+      image_gallery:
+        weight: -60
+        enabled: false
+      image_row:
+        weight: -59
+        enabled: false
+      interrupter_cta:
+        weight: -58
+        enabled: false
+      list_item:
+        weight: -57
+        enabled: false
+      list_item_plain_text:
+        weight: -56
+        enabled: false
+      location:
+        weight: -55
+        enabled: false
+      marketo_form:
+        weight: -54
+        enabled: false
+      menu_section:
+        weight: -53
+        enabled: false
+      mkto_inline_contact_form:
+        weight: 69
+        enabled: false
+      people:
+        weight: -52
+        enabled: false
+      quote:
+        weight: -51
+        enabled: true
+      reference:
+        weight: -50
+        enabled: true
+      related_content:
+        weight: -49
+        enabled: false
+      right_rail_external_links:
+        weight: -48
+        enabled: false
+      right_rail_plain_content:
+        weight: -47
+        enabled: false
+      right_rail_plain_text_list:
+        weight: -46
+        enabled: false
+      sidebar_curated_related:
+        weight: -45
+        enabled: false
+      simple_menu:
+        weight: -44
+        enabled: false
+      single_related_content:
+        weight: -43
+        enabled: false
+      slide:
+        weight: -42
+        enabled: false
+      spotlight:
+        weight: -41
+        enabled: false
+      text_and_form:
+        weight: -40
+        enabled: false
+      video:
+        weight: -39
+        enabled: true
+      view:
+        weight: -38
+        enabled: false
+field_type: entity_reference_revisions

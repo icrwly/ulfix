@@ -1,0 +1,23 @@
+{% import "@ul_base_theme/1_core/macros.twig" as mac %}
+
+{% extends "@ul_base_theme/3_components/nav.twig" %}
+{% set class = "nav--side-bar" %}
+{% set title_class = 'nav__title' %}
+{% set type = "side-bar" %}
+{% set accordion = accordion|default(true) %}
+
+{% if accordion %}
+  {% set title_class = title_class ~ ' accordion' %}
+  {% set title_attributes = {
+    'data-module': 'accordion',
+    'data-max-width': '991'
+  } %}
+{% endif %}
+
+{% block title %}
+  {% if title %}
+    <span class="{{ title_class }} h3"{{ mac.attributes(title_attributes) }}>
+      {{- title -}}
+    </span>
+  {% endif %}
+{% endblock %}

@@ -1,0 +1,19 @@
+<div id="{{ id }}" style="display:none;">
+  {% block modal_title %}
+    {% if title %}
+      <h2>{{ title }}</h2>
+    {% endif %}
+  {% endblock %}
+  {% block modal_content %}
+    {% if content %}
+    {{ content }}
+    {% endif %}
+  {% endblock %}
+  {% block modal_cancel %}
+    {% if cancel %}
+      <div>
+        <a href="#" title="Cancel" class="cancel">Cancel</a>
+      </div>
+    {% endif %}
+  {% endblock %}
+</div>

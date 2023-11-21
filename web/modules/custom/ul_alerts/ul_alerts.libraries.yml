@@ -1,0 +1,9 @@
+ul_alerts:
+  js:
+    js/ul_alerts.alerts.js: {}
+  dependencies:
+  - core/drupal
+  - core/jquery
+  - core/js-cookie
+  - core/once
+  - ul_base_theme/jquery-custom

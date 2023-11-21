@@ -1,0 +1,18 @@
+view unpublished marketo_form entities:
+  title: 'View Unpublished Marketo Form entity'
+view marketo_form entities:
+  title: 'View Published Marketo Form entities'
+add marketo_form entities:
+  title: 'Add Marketo Form entities'
+edit marketo_form entities:
+  title: 'Edit Marketo Form Entities'
+delete marketo_form entities:
+  title: 'Delete Marketo Form entities'
+administer marketo_form entities:
+  title: 'Administer Marketo Form entities'
+  restrict access: TRUE
+administer marketo_form_type entities:
+  title: 'Administer Marketo Form Type entities'
+  restrict access: TRUE
+translate marketo_form:
+  title: 'Translate Marketo Form entities'

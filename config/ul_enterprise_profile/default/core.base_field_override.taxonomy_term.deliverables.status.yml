@@ -1,0 +1,22 @@
+uuid: a3db1f68-f53d-4d2f-a38a-11b64879b2ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.deliverables
+id: taxonomy_term.deliverables.status
+field_name: status
+entity_type: taxonomy_term
+bundle: deliverables
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

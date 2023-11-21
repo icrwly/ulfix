@@ -1,0 +1,73 @@
+uuid: 2814ecde-6947-422c-b32a-d9a4143d398c
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.full_html
+  module:
+    - ckeditor
+_core:
+  default_config_hash: Tme8FSvLinlehrEg1uKsmXFtRKuD8QHZBcOS81A447U
+format: full_html
+editor: ckeditor
+settings:
+  toolbar:
+    rows:
+      -
+        -
+          name: Formatting
+          items:
+            - Bold
+            - Italic
+            - Underline
+            - Strike
+            - Superscript
+            - Subscript
+            - TextColor
+            - '-'
+            - RemoveFormat
+        -
+          name: Linking
+          items:
+            - DrupalLink
+            - DrupalUnlink
+        -
+          name: Lists
+          items:
+            - BulletedList
+            - NumberedList
+        -
+          name: Media
+          items:
+            - Blockquote
+            - DrupalImage
+            - Table
+            - HorizontalRule
+        -
+          name: 'Block Formatting'
+          items:
+            - Format
+        -
+          name: Tools
+          items:
+            - ShowBlocks
+            - Templates
+            - Source
+  plugins:
+    language:
+      language_list: un
+    stylescombo:
+      styles: ''
+    templates:
+      template_path: ''
+      replace_content: 0
+    colorbutton:
+      colors: 'FFFFF,939598,C4B8AA,A39382,65503E,000000,C02032,892433,661A29,F18A21,CF5F28,8D4921,FFC62F,D0922A,A96D29,92C83E,4C9E45,1E5632,59B7B3,007584,204B5A,67B1E2,00518A,0B3C61'
+image_upload:
+  status: true
+  scheme: public
+  directory: inline-images
+  max_size: ''
+  max_dimensions:
+    width: null
+    height: null

@@ -1,0 +1,8 @@
+uuid: 95f7c67b-3b31-4e5f-9355-05f4226692a1
+langcode: en
+status: true
+dependencies: {  }
+id: long_date_no_time
+label: 'Long Date No Time'
+locked: false
+pattern: 'F j, Y'

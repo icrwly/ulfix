@@ -1,0 +1,46 @@
+ul_gmap.configuration:
+  path: '/admin/config/services/ul_gmap_portal/config'
+  defaults:
+    _form: '\Drupal\ul_gmap\Form\ULGMAPSettings'
+    _title: 'UL Global Market Access Portal Settings'
+  requirements:
+    _permission: 'administer site configuration'
+
+
+# Global Market Access Index
+ul_gmap.index:
+  path: '/market-access-portal'
+  defaults:
+    _controller: '\Drupal\ul_gmap\Controller\ULGMAPIndexTwigController::content'
+    _title: 'UL Global Market Access'
+  requirements:
+    _permission: 'access content'
+
+
+# Global Market Access Glossary
+ul_gmap.glossary:
+  path: '/market-access-portal/directory'
+  defaults:
+    _controller: '\Drupal\ul_gmap\Controller\ULGMAPGlossaryTwigController::content'
+    _title: 'UL Global Market Access Directory'
+  requirements:
+    _permission: 'access content'
+
+
+# Global Market Access Steps
+ul_gmap.steps:
+  path: '/market-access-portal/steps'
+  defaults:
+    _controller: '\Drupal\ul_gmap\Controller\ULGMAPStepsTwigController::content'
+    _title: 'UL Global Market Access Steps'
+  requirements:
+    _permission: 'access content'
+
+# Global Market Access JSON
+ul_gmap.profiles:
+  path: '/global-market-access-portal/global-market-access-profiles.json'
+  defaults:
+    _controller: '\Drupal\ul_gmap\Controller\JsonApiGMAPDataController::index'
+  methods:  [GET]
+  requirements:
+    _permission: 'access content'

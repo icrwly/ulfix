@@ -1,0 +1,14 @@
+uuid: dbc68cbc-312f-4090-8d94-55d54af0694d
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.country
+id: taxonomy_vocabulary_country
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

@@ -1,0 +1,7 @@
+{# This is used for "Form Pages". #}
+{% embed '@ul_base_theme/4_regions/section.twig' %}
+  {% set class = class ~ ' max-width--large-tablet section--marketo form--wrap' %}
+  {% block section_body %}
+    {{ form }}
+  {% endblock %}
+{% endembed %}

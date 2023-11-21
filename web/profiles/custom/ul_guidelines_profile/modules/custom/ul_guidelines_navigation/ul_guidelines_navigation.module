@@ -1,0 +1,142 @@
+<?php
+
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\system\Entity\Action;
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_ENTITY_TYPE_update() for nodes.
+ */
+function ul_guidelines_navigation_node_update(EntityInterface $node) {
+  ul_guidelines_navigation_update_book_actions($node);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert() for nodes.
+ */
+function ul_guidelines_navigation_node_insert(EntityInterface $node) {
+  ul_guidelines_navigation_update_book_actions($node);
+}
+
+/**
+ * Helper function for updating book actions.
+ *
+ * @param $node
+ *  The node object.
+ */
+function ul_guidelines_navigation_update_book_actions(EntityInterface $node) {
+
+  // If this book is a top level item then register new actions.
+  if (!empty($node->book) && $node->book['pid'] === 0) {
+
+    // Create add book action.
+    $add_id = 'book_add_node_action.' . $node->book['bid'];
+    $add_action = Action::load($add_id);
+    $data = [
+      'id' => $add_id,
+      'type' => 'node',
+      'label' => t('Add content to @label book', ['@label' => $node->label()]),
+      'configuration' => [
+        'bid' => $node->book['bid'],
+      ],
+      'plugin' => 'book_add_node_action',
+    ];
+
+    // If action does not exist then create it.
+    if (empty($add_action)) {
+      $add_action = Action::create($data);
+      $add_action->trustData()->save();
+    }
+    // If action does exist then just update the label.
+    else {
+      $add_action->set('label', $data['label']);
+      $add_action->trustData()->save();
+    }
+
+    // Create remove book action.
+    $remove_id = 'book_remove_node_action.' . $node->book['bid'];
+    $remove_action = Action::load($remove_id);
+    $data = [
+      'id' => $remove_id,
+      'type' => 'node',
+      'label' => t('Remove content from @label book', ['@label' => $node->label()]),
+      'configuration' => [
+        'bid' => $node->book['bid'],
+      ],
+      'plugin' => 'book_remove_node_action',
+    ];
+
+    // If action does not exist then create it.
+    if (empty($remove_action)) {
+      $remove_action = Action::create($data);
+      $remove_action->trustData()->save();
+    }
+    // If action does exist then just update the label.
+    else {
+      $remove_action->set('label', $data['label']);
+      $remove_action->trustData()->save();
+    }
+  }
+
+}
+
+/**
+ * Helper function for deleting book actions.
+ *
+ * @param \Drupal\Core\Entity\EntityInterface $node
+ *  The node object.
+ */
+function ul_guidelines_navigation_delete_book_actions(EntityInterface $node) {
+
+  if (!empty($node->book)) {
+    $actions = Action::loadMultiple([
+      'book_add_node_action.' . $node->book['bid'],
+      'book_remove_node_action.' . $node->book['bid'],
+    ]);
+    if (!empty($actions)) {
+      foreach ($actions as $action) {
+        $action->delete();
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete() for nodes.
+ */
+function ul_guidelines_navigation_node_delete(EntityInterface $node) {
+  // Deleting book actions.
+  ul_guidelines_navigation_delete_book_actions($node);
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_guidelines_navigation_form_book_remove_form_alter(&$form, FormStateInterface &$form_state, $form_id) {
+
+  // When the node is removed from the hierarchy we need to make sure that
+  // any book actions are removed along with it.
+  $form['#submit'][] = 'ul_guidelines_navigation_book_remove_form_callback';
+}
+
+/**
+ * Form submit callback.
+ *
+ * @param $form
+ * @param $form_state
+ */
+function ul_guidelines_navigation_book_remove_form_callback($form, FormStateInterface &$form_state) {
+
+  // If form is confirmed then remove the book actions (if any).
+  if ($form_state->getValue('confirm')) {
+    // The confirm form does not pass through the entity so we need to grab it
+    // from the build info arguments.
+    $info = $form_state->getBuildInfo();
+    foreach ($info['args'] as $arg) {
+      if ($arg instanceof EntityInterface) {
+        // Deleting book actions.
+        ul_guidelines_navigation_delete_book_actions($arg);
+      }
+    }
+  }
+}

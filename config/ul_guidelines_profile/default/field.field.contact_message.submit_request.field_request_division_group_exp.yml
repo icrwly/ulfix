@@ -1,0 +1,21 @@
+uuid: 7ae12315-1b68-4f8d-b581-8a12280ce53a
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_division_group_exp
+_core:
+  default_config_hash: WoRo99di1ztlItxfOZOdmvBLYsc_hiY8VHimQQxzsgI
+id: contact_message.submit_request.field_request_division_group_exp
+field_name: field_request_division_group_exp
+entity_type: contact_message
+bundle: submit_request
+label: 'Other Division/Group name'
+description: 'Other Division/Group name'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

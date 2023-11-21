@@ -1,0 +1,160 @@
+<?php
+
+/**
+ * @file
+ * Placeholder for ul_report module code.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\views\ViewExecutable;
+use Drupal\views\Plugin\views\query\QueryPluginBase;
+
+/**
+ * Implements hook_cron().
+ */
+function ul_report_cron() {
+  \Drupal::service('ul_report.report_service')->updateMarketoReport();
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function ul_report_form_views_exposed_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  $marketo_forms = [
+    'views-exposed-form-marketo-report-page-marketo-report',
+  ];
+
+  if (in_array($form['#id'], $marketo_forms)) {
+    $form['#attributes']['data-exposed-form'] = 'marketo-report';
+
+    // Attach JS.
+    $form['#attached']['drupalSettings']['ulReport']['subCou'] = \Drupal::service('ul_marketo.data_service')->getLastInterestBySubCou();
+
+    $form['#attached']['library'][] = 'ul_report/ul_report.marketo_report';
+
+  }
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_insert() for node form.
+ */
+function ul_report_node_insert(EntityInterface $node) {
+  \Drupal::service('ul_report.report_service')->updateReferencedMediaAndFiles($node);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_update() for node form.
+ */
+function ul_report_node_update(EntityInterface $node) {
+  \Drupal::service('ul_report.report_service')->updateReferencedMediaAndFiles($node);
+}
+
+/**
+ * Implements hook_ENTITY_TYPE_delete() for node form.
+ */
+function ul_report_node_delete(EntityInterface $node) {
+  \Drupal::service('ul_report.report_service')->deleteReferencedMediaAndFiles($node->id());
+}
+
+/**
+ * Implements hook_views_query_alter() for node form.
+ */
+function ul_report_views_query_alter(ViewExecutable $view, QueryPluginBase $query) {
+
+  // Define array of language fields to sort by name and not langcode.
+  $language_fields = [
+    'media_field_data.langcode',
+    'node_field_data_node_media_file.langcode',
+    'file_managed.langcode',
+  ];
+
+  // Define array of content type fields that we want to sort by label
+  // and not the machine name.
+  $content_type_fields = [
+    'node_field_data_node_media_file.type',
+  ];
+
+  // Concatenate the view id and display so we can handle multiple views
+  // in a single case statement.
+  $view_string = $view->id() . '-' . $view->current_display;
+  switch ($view_string) {
+    case 'media-media_page_list':
+    case 'media-data_export_1':
+    case 'files-page_1':
+    case 'files-data_export_1':
+      for ($i = 0; $i < count($query->orderby); $i++) {
+        // Add custom language sort for specified language fields.
+        if (in_array($query->orderby[$i]['field'], $language_fields)) {
+          \Drupal::service('ul_report.report_service')->orderByLanguageName($query, $i);
+        }
+
+        // Add custom content type sort for specified content type fields.
+        if (in_array($query->orderby[$i]['field'], $content_type_fields)) {
+          \Drupal::service('ul_report.report_service')->orderByContentTypeName($query, $i);
+        }
+      }
+      break;
+
+    // Gated form view:
+    case 'marketo_gated_form-page_marketo_gated_form':
+      $query->distinct = TRUE;
+      $query->addGroupBy('nid');
+      break;
+
+  }
+}
+
+/**
+ * Implements hook_views_pre_render() for ul_report to remove the duplicate items.
+ */
+function ul_report_views_pre_render(ViewExecutable $view) {
+  // Fix issues in ul_report module: view.marketo_reprot.
+  if ($view->id() === 'marketo_report') {
+    $flag_empty = TRUE;
+
+    $view_required = [
+      'field_shared_marketo_forms_sub_cou' => 'node__field_shared_marketo_forms_field_shared_marketo_forms_',
+      'field_shared_marketo_forms_last_interest' => 'node__field_shared_marketo_forms_field_shared_marketo_forms__1',
+      'heaader_cta_form_name' => 'marketo_report_header_cta_form_name',
+      'rr_cta_form_name' => 'marketo_report_rr_cta_form_name',
+      'marketo_paragraphs' => 'marketo_report_marketo_paragraphs',
+      'marketo_customizations' => 'marketo_report_marketo_customizations',
+    ];
+    // Loop all items and found the one whose fields above are empty.
+    foreach ($view->result as $key => $result) {
+
+      foreach ($view_required as $field_key => $fieldname) {
+
+        if (array_key_exists($field_key, $view->field)) {
+          if (!isset($result->$fieldname) || empty(trim($result->$fieldname))) {
+            $flag_empty = TRUE;
+          }
+          else {
+            $flag_empty = FALSE;
+            break;
+          }
+        }
+      }
+      // Remove this item if all fields in array $view_required are empty.
+      if ($flag_empty) {
+        unset($view->result[$key]);
+      }
+    }
+  }
+
+  // Merge the develop and resolve the conflict in this function.
+  if ($view->current_display == 'page_marketo_gated_form') {
+    foreach ($view->result as $key => $val) {
+      if (property_exists($val, 'node_field_data_langcode')) {
+        $node_lang = $val->node_field_data_langcode;
+      }
+      if (property_exists($val, 'marketo_form_field_data_node__field_shared_marketo_custom_la')) {
+        $mkto_lang = $val->marketo_form_field_data_node__field_shared_marketo_custom_la;
+      }
+      if (($node_lang && $mkto_lang) && ($node_lang != $mkto_lang)) {
+        unset($view->result[$key]);
+      }
+    }
+  }
+}

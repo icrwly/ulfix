@@ -1,0 +1,43 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ ' section--image-row section--paragraph wrapper' %}
+
+{% block section_header %}
+  <div class="section__header">
+    {% block description %}
+      {% if description %}
+        <div class="description">
+          {{ description }}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}
+
+{% block section_body %}
+  <div class="section__body">
+    <div class="row">
+      {% block items %}
+        {% if items %}
+          {% for item in items %}
+            {% block item %}
+              <div class="row-item span-4-t">
+                {% block item_image %}
+                  <div class="image-container">
+                    <img src="{{ item.image }}" alt="{{ item.image_alt }}">
+                  </div>
+                {% endblock %}
+                {% block item_description %}
+                  {% if item.description  %}
+                    <div class="description">
+                      <p>{{ item.description }}</p>
+                    </div>
+                  {% endif %}
+                {% endblock %}
+              </div>
+            {% endblock %}
+          {% endfor %}
+        {% endif %}
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

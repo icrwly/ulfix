@@ -1,0 +1,56 @@
+.section--search-columns{
+  overflow: hidden;
+  .form-container,
+  aside{
+    display: inline-block;
+  }
+  .form-wrapper{
+    margin-bottom: 25px;
+  }
+  .form-container{
+    @include breakpoint($tablet){
+      float:left;
+      padding-right:$spacing-unit--xl;
+    }
+  }
+  aside{
+    @include breakpoint($tablet){
+      float:right;
+    }
+  }
+
+  .form-page {
+    display:none;
+    &.active{
+      display: block;
+    }
+
+    &__header {
+      margin-bottom: $spacing-unit--l;
+
+      @include breakpoint($tablet) {
+        // margin-bottom: $spacing-unit--xl;
+      }
+    }
+    select,
+    textarea,
+    input{
+      min-width:none;
+      width:100%;
+    }
+
+    &__footer {
+      align-items: center;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      overflow: hidden;
+      position: relative;
+
+      .required {
+        color: $redLight;
+        margin: 10px 0;
+      }
+    }
+  }
+}

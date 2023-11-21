@@ -1,0 +1,337 @@
+.footer {
+  color: $white;
+
+  a,
+  h4,
+  p {
+    color: $white;
+  }
+
+  h4 {
+    letter-spacing: 0.125rem;
+    font-size: 1.2rem;
+    font-weight: 500;
+    text-transform: uppercase;
+  }
+
+  a {
+    &:hover {
+      color: $blue-light;
+    }
+  }
+
+  &-choose-region {
+    h4 {
+      @include breakpoint($desktop) {
+        margin-bottom: ($spacing-unit + 0.5);
+      }
+    }
+    .js-form-type-select {
+      display: block;
+      margin: 0 auto;
+      max-width: 400px;
+      position: relative;
+      @include breakpoint($desktop) {
+        max-width: none;
+      }
+      select {
+        background: $gray-dark;
+        border: 0;
+        color: $gray-lighter;
+        &:focus {
+          border-color: rgba($white, 0.7);
+        }
+      }
+    }
+  }
+
+  &-nav {
+    font-size: 1.2rem;
+    padding-bottom: $spacing-unit * 2;
+    @include breakpoint($desktop) {
+      padding-bottom: $spacing-unit;
+      width: 60%;
+    }
+
+    .menu-item-no-link {
+      font-size: 1.3rem;
+      display: block;
+      margin-bottom: 2rem;
+      text-transform: uppercase;
+      font-weight: 600;
+    }
+
+    .menu-list--footer-nav {
+      &,
+      ul {
+        @include list-unstyled;
+      }
+
+      a {
+        color: $gray-lighter;
+        display: block;
+        font-size: 1.4rem;
+        font-weight: 300;
+      }
+
+      ul {
+        @include breakpoint($desktop) {
+          margin-bottom: -$spacing-unit--s;
+        }
+
+        li {
+          margin-bottom: $spacing-unit--s;
+        }
+      }
+
+      > li {
+        @include breakpoint(max-width $tablet - 1) {
+          &:not(:last-child) {
+            margin-bottom: $spacing-unit--l;
+          }
+        }
+        @include breakpoint($tablet) {
+          display: inline-block;
+          max-width: calc(33.33% - #{$spacing-unit--xl * 2 / 3}); // thirds minus margin
+          vertical-align: top;
+          margin-#{$start-direction}: $spacing-unit;
+          &:not(:first-child) {
+            margin-#{$start-direction}: $spacing-unit;
+          }
+        }
+        @include breakpoint($desktop) {
+          margin-#{$start-direction}: 0;
+          &:not(:first-child) {
+            margin-#{$start-direction}: $spacing-unit--l;
+          }
+        }
+        @include breakpoint($large-desktop) {
+          &:not(:first-child) {
+            margin-#{$start-direction}: $spacing-unit--xl - 1;
+          }
+        }
+
+        > a {
+          color: $white;
+          font-size: 1.2rem;
+          font-weight: 500;
+          letter-spacing: 0.125rem;
+          margin-bottom: $spacing-unit--s;
+          text-transform: uppercase;
+        }
+      }
+    }
+  }
+
+  .social-nav {
+    @include breakpoint($desktop) {
+      flex-basis: 30%;
+      max-width: 30%;
+      h4 {
+        margin-bottom: $spacing-unit--l;
+      }
+    }
+  }
+
+  .footer-logo {
+    img,
+    svg {
+      width: 90px;
+      position: relative;
+      top: 4px;
+    }
+  }
+
+  .social-nav {
+    ul {
+      display: block;
+      list-style-type: none;
+      margin: 0 auto;
+      padding: 0;
+      max-width: 100%;
+      width: 100%;
+      @include breakpoint($desktop) {
+        float: right;
+        margin: 0;
+      }
+      @include breakpoint($mobile) {
+        float: none;
+        margin: 0;
+      }
+    }
+
+    li {
+      display: inline-block;
+      font-size: 2rem;
+      margin: 0 $spacing-unit;
+      position: relative;
+      text-align: $start-direction;
+      &:before {
+        opacity: 0.7;
+        transition: opacity .2s ease;
+      }
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+
+    a {
+      background: transparent;
+      border: 0;
+      cursor: pointer;
+      height: 100%;
+      left: 0;
+      opacity: 0.7;
+      overflow: hidden;
+      padding: 0;
+      position: absolute;
+      text-indent: -999999px;
+      width: 100%;
+
+      &:after {
+        @include icon-settings();
+        color: currentColor;
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &-copyright {
+    font-size: 1.4rem;
+    font-weight: 300;
+    @include breakpoint($desktop) {
+      flex-basis: 50%;
+      max-width: 50%;
+      text-align: $start-direction;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__bottom,
+  &__top {
+    @include breakpoint(max-width ($desktop - 1)) {
+      padding: $spacing-unit 0;
+    }
+    .wrapper {
+      @include breakpoint($desktop) {
+        display: flex;
+        > *:first-child {
+          padding-#{$start-direction}: 0;
+        }
+      }
+    }
+  }
+
+  &__top {
+    background: $gray;
+    @include breakpoint($large-desktop) {
+      padding: $spacing-unit--l 0;
+    }
+    .footer-nav,
+    .footer-choose-region {
+      text-align: center;
+      padding: $spacing-unit;
+      width: 100%;
+      @include breakpoint($desktop) {
+        text-align: $start-direction;
+        padding: $spacing-unit--l;
+      }
+    }
+    .footer-nav {
+      @include breakpoint($desktop) {
+        flex-basis: 70%;
+        max-width: 70%;
+      }
+    }
+    .footer-choose-region {
+      @include breakpoint($desktop) {
+        flex-basis: 30%;
+        max-width: 30%;
+      }
+    }
+  }
+
+  &__bottom {
+    background: $gray-dark;
+    .wrapper {
+      @include breakpoint($desktop) {
+        align-items: center;
+      }
+    }
+    .footer-logo,
+    .social-nav{
+      text-align: center;
+      margin: 0 auto;
+      padding: $spacing-unit 0;
+      width: 100%;
+      @include breakpoint($desktop) {
+        text-align: $start-direction;
+        padding: 0 $spacing-unit;
+        @supports(object-fit: cover) {
+          padding: $spacing-unit--l $spacing-unit;
+        }
+      }
+    }
+    .footer-logo {
+      @include breakpoint($desktop) {
+        width: auto;
+      }
+    }
+    .footer-copyright,
+    .footer__menu{
+      padding-#{$start-direction}: $spacing-unit;
+      text-align: center;
+      @include breakpoint($desktop) {
+        text-align: $start-direction;
+        flex-basis: 100%;
+        max-width: 100%;
+      }
+    }
+    .footer-copyright-section{
+      @include breakpoint($desktop) {
+        flex-basis: 60%;
+        max-width: 60%;
+      }
+    }
+    .footer__menu {
+      a {
+        font-size: 1.4rem;
+        font-weight: 300;
+        text-decoration: underline;
+        white-space: nowrap;
+        text-align: center;
+        @include breakpoint(max-width ($desktop - 1)) {
+          display: block;
+          text-align: center;
+          margin: $spacing-unit--m auto 0 auto;
+          max-width: 300px;
+        }
+        @include breakpoint($desktop) {
+          &:not(:first-child) {
+            padding-#{$start-direction}: $spacing-unit--m;
+          }
+        }
+      }
+    }
+    .social-nav {
+      @include breakpoint($desktop) {
+        flex-basis: 40%;
+        max-width: 40%;
+        padding-#{$end-direction}: 0;
+        text-align: $end-direction;
+      }
+    }
+  }
+}
+
+#st_gdpr_iframe {
+  display: none;
+}
+#ul-global-footer {
+  z-index: 5 !important;
+}

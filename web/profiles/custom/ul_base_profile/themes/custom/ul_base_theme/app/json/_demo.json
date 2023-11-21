@@ -1,0 +1,2505 @@
+{
+  "styleguide": true,
+  "navigation": {
+    "items": [
+      {
+        "url": "#colors",
+        "title": "Colors"
+      },
+      {
+        "url": "#headings",
+        "title": "Headings"
+      },
+      {
+        "url": "#icons",
+        "title": "Icons"
+      },
+      {
+        "url": "#forms",
+        "title": "Forms"
+      },
+      {
+        "url": "#buttons",
+        "title": "Buttons"
+      },
+      {
+        "url": "#heroes",
+        "title": "Heroes"
+      },
+      {
+        "url": "#title-bars",
+        "title": "Title Bars"
+      },
+      {
+        "url": "#cards",
+        "title": "Cards"
+      },
+      {
+        "url": "#carousels",
+        "title": "Carousels"
+      },
+      {
+        "url": "#grid",
+        "title": "Grid"
+      },
+      {
+        "url": "#section",
+        "title": "Section"
+      }
+    ]
+  },
+  "colors": [
+    "black",
+    "blue",
+    "brown",
+    "brown-light",
+    "gray",
+    "gray-light",
+    "gray-lighter",
+    "gray-lightest",
+    "gray-medium",
+    "green",
+    "orange",
+    "red",
+    "teal",
+    "teal-dark",
+    "yellow"
+  ],
+  "local_nav": {
+    "title": "Offerings",
+    "items": [
+      {
+        "title": "Overview",
+        "url": "#"
+      },
+      {
+        "title": "by Industry",
+        "url": "#",
+        "in_active_trail": true
+      },
+      {
+        "title": "by Market",
+        "url": "#"
+      },
+      {
+        "title": "by Service Category",
+        "url": "#"
+      },
+      {
+        "title": "Business Needs",
+        "url": "#"
+      },
+      {
+        "title": "Solutions",
+        "url": "#"
+      },
+      {
+        "title": "All Offerings",
+        "url": "#"
+      }
+    ]
+  },
+  "hero_banner": {
+    "image": "http://via.placeholder.com/1600x900"
+  },
+  "hero_default": {
+    "logo": "http://via.placeholder.com/200x200",
+    "slides": [
+      {
+        "content_bg": "red",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+      }
+    ]
+  },
+  "hero_default_carousel": {
+    "logo": "http://via.placeholder.com/200x200",
+    "slides": [
+      {
+        "content_bg": "red",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+        "cta": {
+          "color": "white",
+          "name": "CTA Link",
+          "link": "#"
+        }
+      },
+      {
+        "content_bg": "blue",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+      },
+      {
+        "content_bg": "black",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+        "cta": {
+          "color": "red",
+          "name": "CTA Link",
+          "link": "#"
+        }
+      }
+    ]
+  },
+  "hero_detail": {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "topics": [
+      {
+        "name": "Topic Name 1",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 2",
+        "href": "#"
+      }
+    ],
+    "primary_cta": {
+      "title": "Lorem ipsum dolor",
+      "url": "#"
+    },
+    "image": "http://via.placeholder.com/1000x715",
+    "image_alt": "PLACEHOLDER ALT"
+  },
+  "hero_detail_buttons": {
+    "title": "Lorem ipsum dolor sit amet",
+    "meta": "Last updated Sept 1, 2018",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "topics": [
+      {
+        "name": "Topic Name 1",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 2",
+        "href": "#"
+      }
+    ],
+    "primary_cta": {
+      "title": "Lorem ipsum dolor",
+      "url": "#"
+    },
+    "secondary_ctas": [
+      {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      },
+      {
+        "title": "English",
+        "url": "#"
+      }
+    ],
+    "image": "http://via.placeholder.com/400x600",
+    "image_alt": "PLACEHOLDER ALT"
+  },
+  "hero_events": {
+    "slides": [
+      {
+        "image": "http://via.placeholder.com/1600x900",
+        "imageAlt": "Placeholder Alt"
+      },
+      {
+        "image": "http://via.placeholder.com/1600x900",
+        "imageAlt": "Placeholder Alt"
+      },
+      {
+        "image": "http://via.placeholder.com/1600x900",
+        "imageAlt": "Placeholder Alt"
+      }
+    ],
+    "date": "2018-03-31",
+    "location": "Northbrook, IL",
+    "title": "Excepteur sint occaecat cupidatat non proident",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "register": "https://www.google.com/"
+  },
+  "hero_news": {
+    "slides": [
+      {
+        "content_bg": "red",
+        "image": "http://via.placeholder.com/1200x800",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+      },
+      {
+        "content_bg": "blue",
+        "image": "http://via.placeholder.com/1200x800",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+        "cta": {
+          "color": "red",
+          "name": "CTA Link",
+          "link": "#"
+        }
+      },
+      {
+        "content_bg": "black",
+        "image": "http://via.placeholder.com/1200x800",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet.",
+        "cta": {
+          "color": "white",
+          "name": "CTA Link",
+          "link": "#"
+        }
+      }
+    ],
+    "aside_items": [
+      {
+        "bg_color": "blue",
+        "image": "http://via.placeholder.com/800x450",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "link": "#"
+      },
+      {
+        "bg_color": "blue",
+        "image": "http://via.placeholder.com/800x450",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "link": "#"
+      }
+    ]
+  },
+  "hero_static_1": {
+    "slides": [
+      {
+        "bg_color": "teal-dark",
+        "image": "http://via.placeholder.com/400x300",
+        "imageAlt": "Slide image",
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    "footer": {
+      "bg_color": "teal",
+      "title": "Ready to Talk? Take the next step with UL.",
+      "cta": {
+        "title": "Contact Us",
+        "url": "#"
+      }
+    }
+  },
+  "hero_static_2": {
+    "slides": [
+      {
+        "bg_color": "brown-light",
+        "image": "http://via.placeholder.com/400x300",
+        "imageAlt": "Slide image",
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    "footer": {
+      "bg_color": "brown",
+      "title": "Ready to Talk? Take the next step with UL.",
+      "cta": {
+        "title": "Contact Us",
+        "url": "#"
+      }
+    }
+  },
+  "nav_sub_bar": [
+    {
+      "url": "#overview",
+      "title": "Overview",
+      "in_active_trail": true
+    },
+    {
+      "url": "#business-need",
+      "title": "Business Need",
+      "in_active_trail": false,
+      "below": [
+        {
+          "url": "#sub-business-need",
+          "title": "SubBusiness Need",
+          "in_active_trail": false
+        },
+        {
+          "url": "#sub-use-cases",
+          "title": "SubUse Cases",
+          "in_active_trail": false
+        }
+      ]
+    },
+    {
+      "url": "#use-cases-1",
+      "title": "Use Cases",
+      "in_active_trail": false,
+      "below": [
+        {
+          "url": "#use-cases-1",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-2",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-3",
+          "title": "Use Cases",
+          "in_active_trail": false
+        }
+      ]
+    },
+    {
+      "url": "#use-cases-1",
+      "title": "Use Cases",
+      "in_active_trail": false,
+      "below": [
+        {
+          "url": "#use-cases-1",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-2",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-3",
+          "title": "Use Cases",
+          "in_active_trail": false
+        }
+      ]
+    },
+    {
+      "url": "#use-cases-1",
+      "title": "Use Cases",
+      "in_active_trail": false,
+      "below": [
+        {
+          "url": "#use-cases-1",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-2",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-3",
+          "title": "Use Cases",
+          "in_active_trail": false
+        }
+      ]
+    },
+    {
+      "url": "#use-cases-1",
+      "title": "Use Cases",
+      "in_active_trail": false,
+      "below": [
+        {
+          "url": "#use-cases-1",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-2",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-3",
+          "title": "Use Cases",
+          "in_active_trail": false
+        }
+      ]
+    },
+    {
+      "url": "#use-cases-1",
+      "title": "Use Cases",
+      "in_active_trail": false,
+      "below": [
+        {
+          "url": "#use-cases-1",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-2",
+          "title": "Use Cases",
+          "in_active_trail": false
+        },
+        {
+          "url": "#use-cases-3",
+          "title": "Use Cases",
+          "in_active_trail": false
+        }
+      ]
+    },
+    {
+      "url": "#use-cases-2",
+      "title": "Use Cases",
+      "in_active_trail": false
+    },
+    {
+      "url": "#use-cases-3",
+      "title": "Use Cases",
+      "in_active_trail": false
+    }
+  ],
+  "section_row": [
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    },
+    {
+      "content": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    }
+  ],
+  "card_list": [
+    {
+      "type": "events",
+      "class": "card--l",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/1400x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    }
+  ],
+  "card_list_data": [
+    {
+      "type": "data",
+      "image": "http://via.placeholder.com/600x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "20 Billion +",
+      "description": "UL Marks appear on more than 20 million products worldwide."
+    },
+    {
+      "type": "data",
+      "image": "http://via.placeholder.com/600x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "type": "data",
+      "image": "http://via.placeholder.com/600x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "A short title",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  ],
+  "card_list_highlight": [
+    {
+      "title": "Looking for Standards?",
+      "description": "Learn how UL Standards function as a benchmark that enables consumers and businesses to feel confident about the products and services they purchase.",
+      "cta": {
+        "link": "#",
+        "name": "Explore",
+        "color": "white-outline"
+      }
+    }
+  ],
+  "section_promo_materials": {
+    "title": "Lorem ipsum dolor sit amet",
+    "meta": "Last updated Sept 1, 2018",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+    "topics": [
+      {
+        "name": "Topic Name 1",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 2",
+        "href": "#"
+      }
+    ],
+    "primary_cta": {
+      "title": "Download",
+      "url": "#"
+    },
+    "secondary_ctas": [
+      {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      },
+      {
+        "title": "English",
+        "url": "#"
+      }
+    ],
+    "image": "http://via.placeholder.com/400x600",
+    "image_alt": "PLACEHOLDER ALT"
+  },
+  "section_featured_1": [
+    {
+      "bg_color": "gray",
+      "type": "spotlight",
+      "reverse_direction": true,
+      "primary_content": {
+        "type": "featured",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "link": "#",
+        "readTime": "5 min Read",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ]
+      },
+      "secondary_content": {
+        "card": {
+          "type": "solutions",
+          "title": "Building Brand Reputation",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+          "items": [
+            {
+              "link": "#",
+              "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+              "icon": "icon icon-heart"
+            },
+            {
+              "link": "#",
+              "name": "Consectetur adipiscing elit",
+              "icon": "icon icon-chat"
+            },
+            {
+              "link": "#",
+              "name": "Frequently Asked Question",
+              "icon": "icon icon-cart"
+            }
+          ],
+          "viewMore": {
+            "link": "path to url",
+            "name": "View More"
+          }
+        }
+      }
+    },
+    {
+      "type": "spotlight",
+      "primary_content": {
+        "type": "featured",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "link": "#",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "5 min Read",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ]
+      },
+      "secondary_content": {
+        "items": [
+          {
+            "link": "#",
+            "title": "Building Brand Reputation",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+            "author_name": "Elizabeth Groves",
+            "author_image": "http://via.placeholder.com/30x30",
+            "readTime": "5 minutes",
+            "tags": [
+              {
+                "type": "new",
+                "name": "New"
+              }
+            ]
+          },
+          {
+            "link": "#",
+            "title": "Building Brand Reputation",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+            "author_name": "Elizabeth Groves",
+            "author_image": "http://via.placeholder.com/30x30",
+            "readTime": "5 minutes",
+            "tags": [
+              {
+                "type": "new",
+                "name": "New"
+              }
+            ]
+          },
+          {
+            "link": "#",
+            "title": "Building Brand Reputation",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+            "author_name": "Elizabeth Groves",
+            "author_image": "http://via.placeholder.com/30x30",
+            "readTime": "5 minutes",
+            "tags": [
+              {
+                "type": "new",
+                "name": "New"
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "id": "123dr",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    }
+  ],
+  "section_featured_2": [
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    }
+  ],
+  "section_featured_3": [
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    }
+  ],
+  "section_link_list": {
+    "title": "Learn more about how we can best suit your needs:",
+    "items": [
+      {
+          "link": "#",
+          "name": "Host Testing",
+          "icon": "icon-heart"
+      },
+      {
+          "link": "#",
+          "name": "Card Issuance",
+          "icon": "icon-chat"
+      },
+      {
+          "link": "#",
+          "name": "Electronic Indentity Verification Electronic Indentity Verification",
+          "icon": "icon-cart"
+      },
+      {
+          "link": "#",
+          "name": "Terminal Testing & Certification Terminal Testing & Certification",
+          "icon": "icon-heart"
+      },
+      {
+          "link": "#",
+          "name": "Security",
+          "icon": "icon-heart"
+      },
+      {
+          "link": "#",
+          "name": "Mobile Payments",
+          "icon": "icon-heart"
+      },
+      {
+          "link": "#",
+          "name": "Mobile Testing",
+          "icon": "icon-heart"
+      }
+    ]
+  },
+  "titleBar": {
+    "title": "Related Articles",
+    "seeAll": {
+      "name": "View All",
+      "link": "https://www.google.com/"
+    }
+  },
+  "titleBar1": {
+    "title": "Related Articles",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+    "seeAll": {
+      "name": "View All",
+      "link": "https://www.google.com/"
+    }
+  },
+  "titleBar2": {
+    "title": "Related Articles",
+    "border": false,
+    "seeAll": {
+      "name": "View All",
+      "link": "https://www.google.com/"
+    }
+  },
+  "titleBar3": {
+    "title": "Related Articles",
+    "headingLevel": "h3",
+    "seeAll": {
+      "name": "View All",
+      "link": "https://www.google.com/"
+    }
+  },
+  "cards_default": [
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "date": "2018-03-31",
+      "meta": "Source/Author",
+      "readTime": "11 min"
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "date": "2018-03-31",
+      "meta": "Source/Author",
+      "readTime": "11 min"
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "date": "2018-03-31",
+      "meta": "Source/Author",
+      "readTime": "11 min"
+    }
+  ],
+  "cards_default_large": [
+    {
+      "class": "card--l",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "date": "2018-03-31",
+      "meta": "Source/Author",
+      "readTime": "11 min"
+    },
+    {
+      "class": "card--l",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "date": "2018-03-31",
+      "meta": "Source/Author",
+      "readTime": "11 min"
+    }
+  ],
+  "cards_banner": [
+    {
+      "type": "banner",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Excepteur sint occaecat",
+      "profile": {
+        "link": "https://www.google.com/",
+        "name": "Profile Name"
+      }
+    },
+    {
+      "type": "banner",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Excepteur sint occaecat",
+      "profile": {
+        "link": "https://www.google.com/",
+        "name": "Profile Name"
+      }
+    },
+    {
+      "type": "banner",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Excepteur sint occaecat",
+      "profile": {
+        "link": "https://www.google.com/",
+        "name": "Profile Name"
+      }
+    }
+  ],
+  "cards_cta": [
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    },
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    },
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    }
+  ],
+  "cards_data": [
+    {
+      "type": "data",
+      "image": "http://via.placeholder.com/600x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "Lorem ipsum dolor sit",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "type": "data",
+      "image": "http://via.placeholder.com/600x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "Lorem ipsum dolor sit",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    },
+    {
+      "type": "data",
+      "image": "http://via.placeholder.com/600x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "Lorem ipsum dolor sit",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+    }
+  ],
+  "cards_events": [
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    }
+  ],
+  "cards_featured": [
+    {
+      "type": "featured",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "meta": "Source/Author",
+      "date": "2018-03-31",
+      "link": "#",
+      "readTime": "5 min Read",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        },
+        {
+          "name": "Premium",
+          "type": "premium"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "featured",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "meta": "Source/Author",
+      "date": "2018-03-31",
+      "link": "#",
+      "readTime": "5 min Read",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        },
+        {
+          "name": "Premium",
+          "type": "premium"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "featured",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "meta": "Source/Author",
+      "date": "2018-03-31",
+      "link": "#",
+      "readTime": "5 min Read",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        },
+        {
+          "name": "Premium",
+          "type": "premium"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ]
+    }
+  ],
+  "cards_read_more": [
+    {
+      "type": "read-more",
+      "tags": [
+        {
+          "name": "New"
+        }
+      ],
+      "image": "http://via.placeholder.com/400x400",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "Title of Card",
+      "description": "Nulla facilisi. In vel sem. Morbi id urna  diam dignissim feugiat. Proin molese tortor eu velit. Aliquam erat volutpat.",
+      "viewMore": {
+        "link": "#",
+        "name": "Read more"
+      }
+    },
+    {
+      "type": "read-more",
+      "tags": [
+        {
+          "name": "New"
+        }
+      ],
+      "image": "http://via.placeholder.com/400x400",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "Title of Card",
+      "description": "Nulla facilisi. In vel sem. Morbi id urna  diam dignissim feugiat. Proin molese tortor eu velit. Aliquam erat volutpat.",
+      "viewMore": {
+        "link": "#",
+        "name": "Read more"
+      }
+    },
+    {
+      "type": "read-more",
+      "tags": [
+        {
+          "name": "New"
+        }
+      ],
+      "image": "http://via.placeholder.com/400x400",
+      "imageAlt": "PLACEHOLDER ALT",
+      "title": "Title of Card",
+      "description": "Nulla facilisi. In vel sem. Morbi id urna  diam dignissim feugiat. Proin molese tortor eu velit. Aliquam erat volutpat.",
+      "viewMore": {
+        "link": "#",
+        "name": "Read more"
+      }
+    }
+  ],
+  "cards_solutions": [
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    },
+    {
+      "type": "solutions",
+      "bg_color": "gray",
+      "title": "Building Brand Reputation",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus.",
+      "items": [
+        {
+          "link": "#",
+          "name": "Lorem ipsum dolor sit amet, consectetur adipiscing elit",
+          "icon": "icon icon-heart"
+        },
+        {
+          "link": "#",
+          "name": "Consectetur adipiscing elit",
+          "icon": "icon icon-chat"
+        },
+        {
+          "link": "#",
+          "name": "Frequently Asked Question",
+          "icon": "icon icon-cart"
+        }
+      ],
+      "viewMore": {
+        "link": "path to url",
+        "name": "View More"
+      }
+    }
+  ],
+  "cards_spotlight": [
+    {
+      "type": "spotlight",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        },
+        {
+          "name": "Premium",
+          "type": "premium"
+        }
+      ],
+      "title": "Lorem ipsum dolor sit amet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": "<ul><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li></ul>",
+      "image": "http://via.placeholder.com/800x400",
+      "imageAlt": "PLACEHOLDER ALT"
+    },
+    {
+      "type": "spotlight",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        },
+        {
+          "name": "Premium",
+          "type": "premium"
+        }
+      ],
+      "title": "Lorem ipsum dolor sit amet",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+      "links": "<ul><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li><li><a href='#'>Lorem Ipsum</a></li></ul>",
+      "image": "http://via.placeholder.com/800x400",
+      "imageAlt": "PLACEHOLDER ALT"
+    }
+  ],
+  "cards_default_buttons": [
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "primary_cta": {
+        "title": "Learn More",
+        "url": "#"
+      },
+      "secondary_cta": {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "primary_cta": {
+        "title": "Learn More",
+        "url": "#"
+      },
+      "secondary_cta": {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "primary_cta": {
+        "title": "Learn More",
+        "url": "#"
+      },
+      "secondary_cta": {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      }
+    }
+  ],
+  "cards_default_buttons_icon": [
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "primary_cta": {
+        "title": "Download",
+        "url": "#",
+        "icon": "download",
+        "download": true
+      },
+      "secondary_cta": {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "primary_cta": {
+        "title": "Download",
+        "url": "#",
+        "icon": "download",
+        "download": true
+      },
+      "secondary_cta": {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "primary_cta": {
+        "title": "Download",
+        "url": "#",
+        "icon": "download",
+        "download": true
+      },
+      "secondary_cta": {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      }
+    },
+    {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "string",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Topic Name 1",
+          "href": "#"
+        },
+        {
+          "name": "Topic Name 2",
+          "href": "#"
+        }
+      ],
+      "primary_cta": {
+        "title": "Download",
+        "url": "#",
+        "icon": "download",
+        "download": true
+      },
+      "secondary_cta": {
+        "title": "Lorem ipsum dolor",
+        "url": "#"
+      }
+    }
+  ],
+  "featured_carousel_1": {
+    "title": "Tailored to your needs",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Explore All Offerings",
+      "color": "black-outline"
+    },
+    "titleBar": {
+      "title": "Our Offerings",
+      "description": "Maecenas sed diam eget risus varius blandit sit amet non magna.",
+      "headingLevel": "h2"
+    },
+    "cardList":[
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ]
+  },
+  "featured_carousel_2": {
+    "intro": {
+      "title": "Lorem ipsum dolor sit amet",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "url": "#",
+        "title": "Lorem ipsum dolor",
+        "color": "black-outline"
+      }
+    },
+    "cardList": [
+      {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "primary_cta": {
+          "title": "Learn More",
+          "url": "#"
+        },
+        "secondary_cta": {
+          "title": "Lorem ipsum dolor",
+          "url": "#"
+        }
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "primary_cta": {
+          "title": "Learn More",
+          "url": "#"
+        },
+        "secondary_cta": {
+          "title": "Lorem ipsum dolor",
+          "url": "#"
+        }
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "primary_cta": {
+          "title": "Learn More",
+          "url": "#"
+        },
+        "secondary_cta": {
+          "title": "Lorem ipsum dolor",
+          "url": "#"
+        }
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "primary_cta": {
+          "title": "Learn More",
+          "url": "#"
+        },
+        "secondary_cta": {
+          "title": "Lorem ipsum dolor",
+          "url": "#"
+        }
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "primary_cta": {
+          "title": "Learn More",
+          "url": "#"
+        },
+        "secondary_cta": {
+          "title": "Lorem ipsum dolor",
+          "url": "#"
+        }
+      },
+      {
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "string",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          }
+        ],
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "primary_cta": {
+          "title": "Learn More",
+          "url": "#"
+        },
+        "secondary_cta": {
+          "title": "Lorem ipsum dolor",
+          "url": "#"
+        }
+      }
+    ]
+  },
+  "spotlight_1": {
+    "title": "Tailored to your needs",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Explore All Offerings",
+      "color": "black-outline"
+    },
+    "titleBar": {
+      "title": "Our Offerings",
+      "description": "Maecenas sed diam eget risus varius blandit sit amet non magna.",
+      "headingLevel": "h2"
+    },
+    "items":[
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ]
+  }
+}

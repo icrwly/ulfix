@@ -1,0 +1,22 @@
+uuid: b6e48da3-0772-42fd-b568-382d2708e513
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.regional_pages
+id: node.regional_pages.promote
+field_name: promote
+entity_type: node
+bundle: regional_pages
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

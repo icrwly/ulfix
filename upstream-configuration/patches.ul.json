@@ -1,0 +1,61 @@
+{
+    "drupal/config_ignore": {
+        "2857247 - Support for export filtering via Drush": "https://www.drupal.org/files/issues/2021-01-04/config_ignore_2857247-61.patch",
+        "2973431 - Ignore configuration storage collections?": "https://www.drupal.org/files/issues/2021-05-04/2973431-8.x-2.3-60.patch"
+    },
+    "drupal/field_group": {
+        "Tabs with invalid input are not focused": "https://www.drupal.org/files/issues/2018-12-13/open-tabs-with-errors-2894351-9.patch",
+        "AB#293224 - Fix the warning of variable label.": "patches/field_group-label-293224.patch"
+    },
+    "drupal/metatag": {
+        "Allow each tag to have its own permission (merge Metatag Access)": "https://www.drupal.org/files/issues/metatag-n2782797-16.patch"
+    },
+    "drupal/core": {
+        "Browser language detection is not cache aware": "https://www.drupal.org/files/issues/2020-11-09/2430335-183-8.9.patch",
+        "Views Date Filter Datetime Granularity Option": "https://www.drupal.org/files/issues/2018-12-17/views_date_filter_granularity_2868014-62.patch",
+        "Include Cache-Control header on 301 redirects. #3054821": "https://www.drupal.org/files/issues/2019-12-19/core-301-redirect-cache-control-27.patch",
+        "Set SameSite on session cookies.": "https://www.drupal.org/files/issues/2020-06-13/3150614-3.patch",
+        "Set SameSite attribute on session when deleting cookies.": "https://gist.githubusercontent.com/ul-rod/357a145eb14838d75170a1e843d37b64/raw/3e5e1f5d776748c1aef644f0b18c2e08630d9d6d/samesite_cookie_logout.patch",
+        "Cannot save translated nodes (UL-3168)": "https://www.drupal.org/files/issues/2020-02-12/translations_not_save_invalid_path-3101344-20.patch",
+        "Drupal 8 Content View with Multilingual modules and DISTINCT throws an SQL error (3065) on MySQL 5.7+. #2894688": "https://www.drupal.org/files/issues/2021-05-26/sql_error_distinct_order_by-2894688-27.patch",
+        "Allow profiles to define a base/parent profile. #1356276 and #3266057": "https://www.drupal.org/files/issues/2023-03-03/3266057-110.patch",
+        "Fix the php error of variable href in HtmlResponseAttachmentsProcessor (for D9.2.9)": "patches/UL-4224-patch-for-HtmlResponseAttachmentsPr-d9-2-9.patch",
+        "Inconsistent database because of a bug in the Content Moderation module": "https://www.drupal.org/files/issues/2020-06-09/3088790-10.patch",
+        "Deleting a translation leaves behind orphaned revisions": "https://www.drupal.org/files/issues/2019-11-25/8x9x-2815779-19.patch",
+        "Node revision UI will sometimes show no revisions on a page": "https://www.drupal.org/files/issues/2021-07-22/node-revision-overview-2916172-27.patch",
+        "FinishResponseSubscriber: Need warning/error when headers exceed 16k, 2844620":"https://www.drupal.org/files/issues/2022-01-23/2844620-933.patch",
+        "View CRC Asset Search: Invalid config structures can result in exceptions when saving a config entity":"https://www.drupal.org/files/issues/2022-02-08/2925890-37.patch",
+        "Media Library: Default value for data-align attribute should not be center":"https://www.drupal.org/files/issues/2022-12-16/3099878-37.patch",
+        "Link error, the internal path component is invalid": "https://www.drupal.org/files/issues/2021-12-01/2943135-31.patch",
+        "strtr(): Passing null to parameter #1 ($string) of type string is deprecated in locale_translation_build_server_pattern(). #3318180":"https://www.drupal.org/files/issues/2022-11-17/3318180-4_0.patch",
+        "Claro required indicator tweaks": "patches/claro-required-indicator-tweaks.patch",
+        "BaseFieldOverride fails to take into account ContentEntityInterface": "patches/2321071-39.patch",
+        "Fix error, `Invalid translation language specified`.": "https://www.drupal.org/files/issues/2021-09-07/3209204-adding-existing-translation_0.patch",
+        "Pagination and exposed filters fix":"https://www.drupal.org/files/issues/2022-04-04/drupal-3121172-17.patch"
+    },
+    "drupal/google_tag": {
+        "Make iframe (noscript) optionally": "https://www.drupal.org/files/issues/2020-01-29/make-noscript-optional-3106318-3.patch"
+    },
+    "drupal/chosen": {
+        "Set min-width on some elements for Claro theme": "patches/chosen-claro-min-width.patch"
+    },
+    "drupal/redirect": {
+        "Redirects not working properly based on redirect languages": "https://www.drupal.org/files/issues/2020-08-05/3163405.patch"
+    },
+    "drupal/entity_reference_revisions": {
+        "Non-translatable fields can only be changed when updating the current revision.": "https://www.drupal.org/files/issues/2020-06-09/3150084_2.patch"
+    },
+    "drupal/extlink": {
+        "AB#270820 - Replace confirm dialog with custom jQuery dailog": "patches/ul_extlink_dialog_replace.patch",
+        "AB#299122 - extlink-dependency JS drupal.dialog": "patches/299122-extlink-dependency-drupal.dialog.patch"
+    },
+    "drupal/diff": {
+        "AB#330510 - CSV button to download: TypeError: count(): Argument #1 ($value) must be of type Countable|array, string given.": "https://www.drupal.org/files/issues/2022-12-27/countable-3329887-2.patch"
+    },
+    "drupal/environment_indicator": {
+        "New toolbar handler prints random string for release when there is none. #3324621":"https://www.drupal.org/files/issues/2022-12-06/remove_environment_identifier.patch"
+    },
+    "drupal/content_translation_redirect": {
+        "Add query-string parameter before redirect.": "patches/add-querystring-params.patch"
+    }
+}

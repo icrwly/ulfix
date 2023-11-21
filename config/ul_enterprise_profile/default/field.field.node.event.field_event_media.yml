@@ -1,0 +1,30 @@
+uuid: 3da8c5fb-e465-4bb7-a6ec-f58a3090402a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_event_media
+    - media.type.image
+    - node.type.event
+_core:
+  default_config_hash: UcG6RYU8Y-gbJkWiVRALsNzXo5HBcEFfctboHNJvmRQ
+id: node.event.field_event_media
+field_name: field_event_media
+entity_type: node
+bundle: event
+label: 'Event Media - deprecated'
+description: 'Image(s) and Video(s) of this event'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

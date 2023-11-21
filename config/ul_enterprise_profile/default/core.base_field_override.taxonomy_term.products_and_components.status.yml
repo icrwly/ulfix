@@ -1,0 +1,22 @@
+uuid: 8023c3db-f62b-43db-a991-7b21f7e91fc0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.products_and_components
+id: taxonomy_term.products_and_components.status
+field_name: status
+entity_type: taxonomy_term
+bundle: products_and_components
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,168 @@
+{#
+/**
+ * @file: marketo-form--interrupter.html.twig
+ * USAGE: Short, Newsletter, or Event form.
+ * COMPONENTS: JS, Progress bar, Marketo form, reCaptcha.
+ *
+ * NOTE: Un-hiding the form handled by marketo-countries.js.
+ */
+#}
+{% embed '@ul_base_theme/4_regions/section.twig' %}
+  {% set forms_API = marketo.base_url ~ '/js/forms2/js/forms2.min.js' %}
+  {% set class = 'section--marketo section--paragraph marketo--interrupter ' ~ class %}
+  {% set inner_class = 'paragraph-gutter' %}
+
+  {% block section_body %}
+    {# If title and description. #}
+    {% if marketo.form_title %}
+      <h2>{{ marketo.form_title }}</h2>
+    {% endif %}
+    {% if marketo.form_description %}
+      <p>{{ marketo.form_description|nl2br }}</p>
+    {% endif %}
+
+    {# If the form type is "configurable": #}
+    {% if marketo.configurable %}
+      {% include '@ul_enterprise_theme/marketo/inc-customizable-fields.html.twig' %}
+    {% endif %}
+
+    {% block markto_wrap %}
+      {# Add the progress loading indicator. #}
+      {% include '@ul_enterprise_theme/marketo/inc-progress-bar.html.twig' %}
+
+      {# Add the form element. #}
+      <form id="mktoForm_{{ form_id }}" class="activeForm {{ formClass }}">
+        <div class="recapWrap">
+          <div id="mkto_recaptcha" class="g-recaptcha" data-sitekey="{{ marketo.recaptcha_site_key }}"></div>
+          <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha" value="">
+        </div>
+      </form>
+
+      {# Form JS. #}
+      <script id="mkto_intrptr">
+        let mktoForm;
+        (function ($, drplMkto) {
+          // Load the Marketo form.
+          MktoForms2.loadForm("{{ marketo.base_url }}", "{{ marketo.munchkin_code }}", {{ form_id }}, function (form){
+            $('#mktoForm_{{ form_id }}').addClass('formLoading');
+            mktoForm = form;
+            form.submittable(false);
+
+            // When the form is rendered:
+            MktoForms2.whenRendered(function(form){
+              // If Horizontal:
+              if(drplMkto.is_horizontal){
+                if($('#uLServiceSegment').length){
+                  $('#uLServiceSegment option[value="Other"]').each(function(){
+                    $(this).remove();
+                  });
+                  if(drplMkto.is_horizontal_soft) {
+                    $("#uLServiceSegment option[value*='Software']").prop("selected", true);
+                    $('#uLServiceSegment').trigger("change");
+                    const e = new Event("change");
+                    const element = document.querySelector('#uLServiceSegment');
+                    element.dispatchEvent(e);
+                  }
+                }
+                if($('#uLCatalogIndustry').length){
+                  $('#uLCatalogIndustry option[value="Other"]').each(function(){
+                    $(this).remove();
+                  });
+                }
+              }
+              // Else, there is Last Interest.
+              else {
+                if($('#uLServiceSegment').length){
+                  $('#uLServiceSegment').closest('.mktoFormRow').addClass('hidden');
+                  $('#uLServiceSegment').val('Other');
+                }
+                if($('#uLCatalogIndustry').length){
+                  $('#uLCatalogIndustry').closest('.mktoFormRow').addClass('hidden');
+                  $('#uLCatalogIndustry').val('Other');
+                }
+              }
+              // Button text.
+              if(drplMkto.button_text){
+                $('.mktoButton').text(drplMkto.button_text);
+              }
+            });
+
+            // When the form is ready:
+            MktoForms2.whenReady(function(form){
+              // Set form values.
+              form.vals({
+                "formButtonText": drplMkto.button_text,
+                "formDescription": drplMkto.form_description,
+                "formLanguage": drplMkto.form_language,
+                "formTitle": drplMkto.form_title,
+                "lastInterest": drplMkto.last_interest,
+                "pageCampaignAttribution": drplMkto.mkto_campaign,
+                "pageNodeID": drplMkto.node_nid,
+                "pageTitle": drplMkto.node_title,
+                "pageURL": window.location.href,
+                "pageURLReferral": document.referrer,
+                "pageUUID": drplMkto.node_uuid,
+                "websiteName": drplMkto.site_name,
+              });
+              // Newsletter:
+              if(drplMkto.newsletter_item){
+                form.vals({
+                  "oPSNewsletterName": drplMkto.newsletter_item,
+                });
+              }
+            });
+
+            // Validation callback.
+            form.onValidate(function(builtInValidation) {
+              if (!builtInValidation){
+                return;
+              }
+              var recaptchaResponse = grecaptcha.getResponse( $('#mkto_recaptcha').attr('data-widget-id') );
+              if (!recaptchaResponse) {
+                $('#reCaptcha_' + '{{ marketo.form_id }}').addClass('mktoInvalid');
+                $('.recapWrap iframe').css('border', 'solid 1px red');
+                form.submittable(false);
+              } else {
+                $('#reCaptcha_' + '{{ marketo.form_id }}').removeClass('mktoInvalid');
+                $('.recapWrap iframe').css('border', 'none');
+                form.vals({
+                  hiddenRecaptcha: recaptchaResponse
+                });
+                if(drplMkto.configurable){
+                  if(jQvalidate.form()){
+                    form.submittable(true);
+                  }
+                }
+                else {
+                  form.submittable(true);
+                }
+              }
+            });
+
+            // Success Handler.
+            form.onSuccess(function(values, followUpUrl){
+              // Track analytics.
+              if (typeof dataLayer !== 'undefined'){
+                dataLayer.push({
+                  event: drplMkto.dataLayerEvent,
+                  mktoFormId: form.getId(),
+                  'FormValues': cleanFormVals(form.getValues()),
+                  'FormFields': form.allFieldsFilled(),
+                  'Submittable': form.submittable()
+                });
+              }
+              // If function exists, delete UTM cookie:
+              if(typeof _deleteUtmCookie === "function"){
+                _deleteUtmCookie();
+              }
+              // Redirect to Thank You Page.
+              window.location.href = drplMkto.success_url;
+              // IMPORTANT: Return false to prevent further code execution.
+              return false;
+            });
+          });
+        })(jQuery, drupalSettings.marketo);
+      </script>
+    {% endblock markto_wrap %}
+  {% endblock %}
+{% endembed %}

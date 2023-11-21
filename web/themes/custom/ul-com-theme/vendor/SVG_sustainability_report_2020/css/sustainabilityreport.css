@@ -1,0 +1,23 @@
+.svg .svg_mobile_default {
+  display: none !important;
+}
+.svg img:not([src]) {
+    visibility: visible;
+}
+@media only screen and (max-width: 991px){
+  .flex-grid--break-lgtablet .grid-item {
+    flex-basis: 100% !important;
+    max-width: 100% !important;
+  }
+}
+@media only screen and (max-width: 500px){
+  .svg .svg_desktop_default,
+  #svg_planet section object,
+  #svg_planet_water section object,
+  #svg_planet_waste section object {
+    display: none;
+  }
+  .svg .svg_mobile_default {
+    display: block !important;
+  }
+}

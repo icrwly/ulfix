@@ -1,0 +1,29 @@
+uuid: 2bae986a-b15c-40e8-999a-894c608a4366
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_cou
+    - node.type.knowledge
+    - taxonomy.vocabulary.customer_operating_unit
+id: node.knowledge.field_shared_cou
+field_name: field_shared_cou
+entity_type: node
+bundle: knowledge
+label: 'Customer Operating Unit (COU)'
+description: 'Select the appropriate COU and SubCOU.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      customer_operating_unit: customer_operating_unit
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

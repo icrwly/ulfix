@@ -1,0 +1,15 @@
+{% for item in items %}
+    <div class="swiper-slide">
+    {% if '.svg' in item.content.url|render|render or '.gif' in item.content.url|render|render %}
+      <a href="{{ item.content.url|render|render|replace({'/styles/hero_boxed_width/public/': '/'}) }}" class="popup_spotlight" title="{{ item.content.alt }}">
+          <img src="{{ item.content.url|render|render|replace({'/styles/hero_boxed_width/public/': '/'}) }}" alt="{{ item.content.alt }}" />
+          <span class="icon_popup"></span>
+      </a>
+    {% else %}
+      <a href="{{ item.content.url }}" class="popup_spotlight" title="{{ item.content.alt }}">
+          <img src="{{ item.content.url }}" alt="{{ item.content.alt }}" />
+          <span class="icon_popup"></span>
+      </a>
+    {% endif %}
+    </div>
+{% endfor %}

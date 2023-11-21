@@ -1,0 +1,27 @@
+uuid: 405c0091-0d4b-4274-8dd1-a5ba3e4ed202
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field__job_title
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - options
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.contact_form_configurable.field__job_title
+field_name: field__job_title
+entity_type: marketo_form
+bundle: contact_form_configurable
+label: 'Job Title'
+description: ''
+required: true
+translatable: false
+default_value:
+  -
+    value: required
+default_value_callback: ''
+settings: {  }
+field_type: list_string

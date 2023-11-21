@@ -1,0 +1,70 @@
+uuid: ca45da9b-0329-4152-a9c8-cf7fa0ff97cf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_view_view
+    - paragraphs.paragraphs_type.view
+  module:
+    - viewsreference
+_core:
+  default_config_hash: BedM0BsLsT_lnRPN0j1Ob2bv-PYRkS6CCLjiZ-7uiec
+id: paragraph.view.field_view_view
+field_name: field_view_view
+entity_type: paragraph
+bundle: view
+label: View
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:view'
+  handler_settings:
+    target_bundles: null
+    auto_create: 0
+  plugin_types:
+    block: block
+    default: 0
+    page: 0
+    entity_browser: 0
+    feed: 0
+    embed: 0
+  preselect_views:
+    block_content: 0
+    comment: 0
+    comments_recent: 0
+    content: 0
+    content_recent: 0
+    crc_asset_search: 0
+    events: 0
+    experience_hub_default: 0
+    experience_hub_events: 0
+    experience_hub_knowledge: 0
+    experience_hub_news: 0
+    files: 0
+    file_selector: 0
+    frontpage: 0
+    hero: 0
+    image_selector: 0
+    knowledge_articles: 0
+    media: 0
+    news: 0
+    related_content: 0
+    search: 0
+    taxonomy_term: 0
+    user_admin_people: 0
+    watchdog: 0
+    who_s_new: 0
+    who_s_online: 0
+    workbench_current_user: 0
+    workbench_edited: 0
+    workbench_recent_content: 0
+  enabled_settings:
+    argument: argument
+    limit: limit
+    offset: 0
+    pager: 0
+    title: 0
+field_type: viewsreference

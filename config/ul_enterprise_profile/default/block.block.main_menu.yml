@@ -1,0 +1,32 @@
+uuid: 3e068697-4317-4205-9c80-87bc0b5e8673
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.main
+  module:
+    - menu_block
+  theme:
+    - ul_enterprise_theme
+id: main_menu
+theme: ul_enterprise_theme
+region: header_bottom
+weight: -4
+provider: null
+plugin: 'menu_block:main'
+settings:
+  id: 'menu_block:main'
+  label: 'Main navigation'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 0
+  expand_all_items: false
+  parent: 'main:'
+  suggestion: main_menu
+  expand: true
+visibility: {  }

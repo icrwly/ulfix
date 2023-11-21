@@ -1,0 +1,42 @@
+@mixin pseudo-line {
+  position: relative;
+  &:before {
+    content: '';
+    display: block;
+    left: 0;
+    opacity: 0;
+    position: absolute;
+    transition: opacity $transition;
+    width: 100%;
+  }
+}
+
+@mixin underline($color: $gray-medium, $radius: 0, $height: $spacing-unit--xs){
+  @include pseudo-line;
+  &:before {
+    background-color: $color;
+    border-radius: $radius;
+    height: $height;
+    top: 100%;
+  }
+}
+
+@mixin overline($color: $gray-medium, $radius: 0, $height: $spacing-unit--xs/2){
+  @include pseudo-line;
+  &:before {
+    background-color: $color;
+    border-radius: $radius;
+    height: $height;
+    top: 0;
+  }
+}
+
+@mixin line {
+  background: $black;
+  display: block;
+  height: $hamburger-line-height;
+  line-height: 1;
+  position: absolute;
+  transition: all $transition;
+  width: $hamburger-line-width;
+}

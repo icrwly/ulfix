@@ -1,0 +1,121 @@
+diff --git a/core/lib/Drupal/Core/Field/Entity/BaseFieldOverride.php b/core/lib/Drupal/Core/Field/Entity/BaseFieldOverride.php
+index 1178cb007b..d8a17c7170 100644
+--- a/core/lib/Drupal/Core/Field/Entity/BaseFieldOverride.php
++++ b/core/lib/Drupal/Core/Field/Entity/BaseFieldOverride.php
+@@ -109,49 +109,56 @@ public function __construct(array $values, $entity_type = 'base_field_override')
+    * {@inheritdoc}
+    */
+   public function getFieldStorageDefinition() {
+-    return $this->getBaseFieldDefinition()->getFieldStorageDefinition();
++    $base_field_definition = $this->getBaseFieldDefinition();
++    return $base_field_definition ? $base_field_definition->getFieldStorageDefinition() : NULL;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function isDisplayConfigurable($context) {
+-    return $this->getBaseFieldDefinition()->isDisplayConfigurable($context);
++    $base_field_definition = $this->getBaseFieldDefinition();
++    return $base_field_definition ? $base_field_definition->isDisplayConfigurable($context) : FALSE;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function getDisplayOptions($display_context) {
+-    return $this->getBaseFieldDefinition()->getDisplayOptions($display_context);
++    $base_field_definition = $this->getBaseFieldDefinition();
++    return $base_field_definition ? $base_field_definition->getDisplayOptions($display_context) : NULL;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function isReadOnly() {
+-    return $this->getBaseFieldDefinition()->isReadOnly();
++    $base_field_definition = $this->getBaseFieldDefinition();
++    return $base_field_definition ? $base_field_definition->isReadOnly() : TRUE;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function isComputed() {
+-    return $this->getBaseFieldDefinition()->isComputed();
++    $base_field_definition = $this->getBaseFieldDefinition();
++    return $base_field_definition ? $base_field_definition->isComputed() : FALSE;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function getClass() {
+-    return $this->getBaseFieldDefinition()->getClass();
++    $base_field_definition = $this->getBaseFieldDefinition();
++    return $base_field_definition ? $base_field_definition->getClass() : NULL;
+   }
+ 
+   /**
+    * {@inheritdoc}
+    */
+   public function getUniqueIdentifier() {
+-    return $this->getBaseFieldDefinition()->getUniqueIdentifier();
++    $base_field_definition = $this->getBaseFieldDefinition();
++    return $base_field_definition ? $base_field_definition->getUniqueIdentifier() : NULL;
+   }
+ 
+   /**
+@@ -162,7 +169,9 @@ public function getUniqueIdentifier() {
+   protected function getBaseFieldDefinition() {
+     if (!isset($this->baseFieldDefinition)) {
+       $fields = \Drupal::service('entity_field.manager')->getBaseFieldDefinitions($this->entity_type);
+-      $this->baseFieldDefinition = $fields[$this->getName()];
++      if (!empty($fields[$this->getName()])) {
++        $this->baseFieldDefinition = $fields[$this->getName()];
++      }
+     }
+     return $this->baseFieldDefinition;
+   }
+@@ -202,7 +211,10 @@ public function preSave(EntityStorageInterface $storage) {
+       $previous_definition = $this->original;
+     }
+     // Notify the entity storage.
+-    $this->entityTypeManager()->getStorage($this->getTargetEntityTypeId())->onFieldDefinitionUpdate($this, $previous_definition);
++    if ($previous_definition) {
++      // Notify the entity storage.
++      $this->entityTypeManager()->getStorage($this->getTargetEntityTypeId())->onFieldDefinitionUpdate($this, $previous_definition);
++    }
+   }
+ 
+   /**
+@@ -219,7 +231,9 @@ public static function postDelete(EntityStorageInterface $storage, array $field_
+       // @todo This assumes that there isn't a non-config-based override that
+       //   we're returning to, but that might not be the case:
+       //   https://www.drupal.org/node/2321071.
+-      $entity_type_manager->getStorage($field_override->getTargetEntityTypeId())->onFieldDefinitionUpdate($field_override->getBaseFieldDefinition(), $field_override);
++      if ($field_override->getBaseFieldDefinition()) {
++        $entity_type_manager->getStorage($field_override->getTargetEntityTypeId())->onFieldDefinitionUpdate($field_override->getBaseFieldDefinition(), $field_override);
++      }
+     }
+   }
+ 
+diff --git a/core/lib/Drupal/Core/Field/FieldConfigBase.php b/core/lib/Drupal/Core/Field/FieldConfigBase.php
+index 44e415ace7..94fca5c5b6 100644
+--- a/core/lib/Drupal/Core/Field/FieldConfigBase.php
++++ b/core/lib/Drupal/Core/Field/FieldConfigBase.php
+@@ -286,9 +286,11 @@ public function postSave(EntityStorageInterface $storage, $update = TRUE) {
+     \Drupal::service('entity_field.manager')->clearCachedFieldDefinitions();
+ 
+     // Invalidate the render cache for all affected entities.
+-    $entity_type = $this->getFieldStorageDefinition()->getTargetEntityTypeId();
+-    if ($this->entityTypeManager()->hasHandler($entity_type, 'view_builder')) {
+-      $this->entityTypeManager()->getViewBuilder($entity_type)->resetCache();
++    if ($field_storage_definition = $this->getFieldStorageDefinition()) {
++      $entity_type = $field_storage_definition->getTargetEntityTypeId();
++      if ($this->entityTypeManager()->hasHandler($entity_type, 'view_builder')) {
++        $this->entityTypeManager()->getViewBuilder($entity_type)->resetCache();
++      }
+     }
+   }
+ 

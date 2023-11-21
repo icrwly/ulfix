@@ -1,0 +1,122 @@
+#!/bin/bash
+
+# Abort if anything fails.
+set -e
+
+testStatus=""
+changedFiles=""
+docksalExists=0
+testingPassed=0
+untestedProfile=0
+changedProfiles=()
+
+exit_testing() {
+  exitStatus=$1
+
+  if [[ -f "git-hooks/teststatus.local" ]]; then
+    rm git-hooks/teststatus.local
+  fi
+
+  if [[ $exitStatus -eq 1 ]]; then
+    echo "*************************************"
+    echo "* WARNING: Testing needs to be run   "
+    echo "* before this code can be pushed.    "
+    echo "* Run tests with following command:  "
+    echo "*                                    "
+    echo "* > fin run-tests                    "
+    echo "*                                    "
+    echo "*************************************"
+  fi
+
+  exit $exitStatus
+}
+
+get_status_file() {
+  if [[ -f "git-hooks/teststatus.local" ]]; then
+    testStatus=$(<git-hooks/teststatus.local)
+  else
+    exit_testing 1
+  fi
+}
+
+get_changed_files() {
+  lastCommit=$(git rev-list --simplify-by-decoration -1 HEAD)
+  headCommit=$(git rev-list --simplify-by-decoration -2 HEAD | sed -n 2p)
+  changedFiles=$(git log --pretty="format:" --name-only $headCommit..$lastCommit)
+}
+
+get_changed_profiles() {
+  get_changed_files
+
+  # Get list of all custom install profiles.
+  profiles=(docroot/profiles/custom/*/)
+  profileNames=()
+
+  # Loop through each custom profile
+  for install_profile in "${profiles[@]}"
+  do
+    install_profile=`basename $install_profile`
+    profileNames+=("$install_profile")
+
+    # If changed files is empty OR contains profile name.
+    if [[ -z $changedFiles ]] || [[ $changedFiles = *"$install_profile"* ]]; then
+      # Add it to global array.
+      changedProfiles+=("$install_profile")
+    fi
+  done
+
+  # Check for empty profiles, or if ul_base_profile is included. Set to all profiles.
+  if [[ -z $changedProfiles ]] || [[ "${changedProfiles[*]}" = *"ul_base_profile"* ]]; then
+    changedProfiles=("${profileNames[@]}")
+  fi
+
+}
+
+check_profiles_status() {
+  for profile in "${changedProfiles[@]}"
+  do
+    # Check if changed profile is not in the test status file.
+    if ! [[ $testStatus = *"$profile"* ]]; then
+      untestedProfile=1
+      break
+    fi
+  done
+}
+
+check_docksal_status() {
+  # Check to see if `fin` command exists, to assume using Docksal.
+  if [ -x "$(command -v fin)" ] || [ -x "$(command -v /usr/local/bin/fin)" ]; then
+    docksalExists=1
+  fi
+}
+
+check_testing_status(){
+  get_status_file
+
+  # if testing Status is set to PASS, then no further checks needed.
+  if [[ $testStatus = *"PASS"* ]]; then
+    testingPassed=1
+  else
+    get_changed_profiles
+    # Unable to find any effected profiles, no further checks needed.
+    if [ ${#changedProfiles[@]} -eq 0 ]; then
+      testingPassed=1
+    else
+      check_profiles_status
+      # Confirm there are not untested effected profiles.
+      if [[ $untestedProfile -eq 0 ]]; then
+        testingPassed=1
+      fi
+    fi
+  fi
+}
+
+check_docksal_status
+if [[ $docksalExists -eq 1 ]]; then
+  check_testing_status
+  if [[ testingPassed -eq 0 ]]; then
+    exit_testing 1
+  fi
+fi
+
+exit_testing 0

@@ -1,0 +1,7 @@
+name: Vde drush add-on
+type: module
+description: Drush support for Views Data Export.
+package: Views
+core_version_requirement: ^9 || ^10
+dependencies:
+  - views_data_export

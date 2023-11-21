@@ -1,0 +1,54 @@
+///*------------------------------------*\
+//    #UTILITY - BUTTON VARIANTS
+//\*------------------------------------*/
+/* Set default styles, as well as :hover, :focus, :active, and disabled options for all buttons
+ * Based on: https://getbootstrap.com/docs/3.3/css/#buttons
+ */
+
+ @mixin button-variant($color, $background, $border) {
+  color: $color;
+  background-color: $background;
+  border-color: $border;
+  $active-background: darken($background, 10%);
+  $active-border: darken($border, 10%);
+  $active-color: $color;
+  @if $background == transparent and $border != transparent {
+    $active-background: $border;
+    $active-border: $border;
+    $active-color: $white;
+    @if $color == $white {
+      $active-color: $black;
+    }
+
+  }
+  &:focus,
+  &.focus {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+               color: $active-color;
+  }
+  &:hover {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+               color: $active-color;
+  }
+  &:active,
+  &.active {
+    color: $color;
+    background-color: $active-background;
+        border-color: $active-border;
+               color: $active-color;
+  }
+  &.disabled,
+  &[disabled],
+  fieldset[disabled] & {
+    &:hover,
+    &:focus,
+    &.focus {
+      background-color: $background;
+          border-color: $border;
+    }
+  }
+}

@@ -1,0 +1,47 @@
+# Global CSS styles for Enterprise Profile:
+global-styling:
+  version: VERSION
+  header: true
+  css:
+    base:
+      build/styles/screen.css: {weight: 2000}
+  js:
+    build/scripts/app_enterprise.built.js: {preprocess: false}
+  dependencies:
+    - core/jquery
+    - core/jquery.cookie
+    - ul_base_theme/jquery-custom
+
+# Global JS scripts for Enterprise Profile:
+global-scripts:
+  header: false
+  js:
+    js/global_scripts.js: {}
+    js/translation_unavailable.js: {}
+  dependencies:
+    - core/jquery
+    - ul_base_theme/jquery-custom
+
+# The Lift 4 "fade in" function:
+lift-fade:
+  header: true
+  js:
+    js/lift_fade.js: { attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '3', defer: true } }
+  dependencies:
+    - core/jquery
+    - ul_base_theme/jquery-custom
+
+# This overwrites the Drupal core "throbber":
+throbber:
+  js:
+    js/throbber.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - ul_base_theme/jquery-custom
+
+# JS for Regional Pages:
+regional_pages:
+  header: true
+  js:
+    js/regional_pages.js: {}

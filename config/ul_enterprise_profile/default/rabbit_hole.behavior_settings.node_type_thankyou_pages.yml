@@ -1,0 +1,14 @@
+uuid: c777b949-c001-4462-a0cd-3a18b34a3265
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.thankyou_pages
+id: node_type_thankyou_pages
+entity_type_id: node_type
+entity_id: thankyou_pages
+action: display_page
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: access_denied

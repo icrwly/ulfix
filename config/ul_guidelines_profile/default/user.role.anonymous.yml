@@ -1,0 +1,31 @@
+uuid: 5cd24006-45db-4580-b72c-88d9196b4d7d
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.restricted_html
+  module:
+    - comment
+    - filter
+    - media
+    - node_view_permissions
+    - samlauth
+    - search
+    - system
+    - ul_crc_asset
+_core:
+  default_config_hash: KkOEe6_j26KO6Qmcr1BiaV3Psh_nk_vZpSco-DzxnFs
+id: anonymous
+label: 'Anonymous user'
+weight: -10
+is_admin: false
+permissions:
+  - 'access comments'
+  - 'access content'
+  - 'search content'
+  - 'use text format restricted_html'
+  - 'view any homepage content'
+  - 'view media'
+  - 'view own homepage content'
+  - 'view published crc asset entities'
+  - 'view sp metadata'

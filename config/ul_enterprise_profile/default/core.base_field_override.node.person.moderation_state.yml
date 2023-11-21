@@ -1,0 +1,20 @@
+uuid: 0725a096-a9e5-4398-9df1-5983689cf0cc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.person
+id: node.person.moderation_state
+field_name: moderation_state
+entity_type: node
+bundle: person
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

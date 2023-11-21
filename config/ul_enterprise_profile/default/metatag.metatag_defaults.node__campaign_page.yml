@@ -1,0 +1,8 @@
+uuid: 6928c201-0c35-4bb2-be05-5e4731a2dc14
+langcode: en
+status: true
+dependencies: {  }
+id: node__campaign_page
+label: 'Content: Campaign Landing Pages'
+tags:
+  robots: 'noindex, nofollow, noarchive, nosnippet, noodp, noydir, noimageindex, notranslate'

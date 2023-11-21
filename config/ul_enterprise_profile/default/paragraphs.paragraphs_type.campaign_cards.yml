@@ -1,0 +1,10 @@
+uuid: 2fabf0b5-d6ec-4f79-8fbf-a4773ba7dc02
+langcode: en
+status: true
+dependencies: {  }
+id: campaign_cards
+label: 'Campaign Cards'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Campaign Cards</em> to create cards composed of an image, title and description text. These cards have no hyperlinks or CTAs, and are specifically for <em>Campaign Landing Pages</em>.'
+behavior_plugins: {  }

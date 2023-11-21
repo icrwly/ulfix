@@ -1,0 +1,21 @@
+uuid: ec0c6e47-34d9-4d5d-a863-8d7db6cd7321
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_business
+  module:
+    - options
+id: contact_message.submit_request.field_request_business
+field_name: field_request_business
+entity_type: contact_message
+bundle: submit_request
+label: 'Business Unit'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,32 @@
+<div class="landing">
+	<div class="landing__header">
+		{% include '@ul_guidelines_theme/3_components/header--logo.twig' with {
+			logo: {
+				alt: "UL",
+				href: "https://crc.ul.com"
+			}
+		} %}
+	</div>
+	<div class="landing__content">
+		<div class="landing__content__wrap">
+			<p>{{ t07Content.description }}</p>
+                {% block list_buttons %}
+                {% for button in t07Content.buttons %}
+                    <a class="button" href="{{ button.buttonHref }}">{{ button.buttonText }}</a>
+                {% endfor %}
+            {% endblock %}
+			{% if t07Content.links.linkList|length > 0 %}
+			<div class="landing__links">
+				<h3>{{ t07Content.links.title }}</h3>
+				<ul>
+				{% block list_links %}
+				{% for link in t07Content.links.linkList %}
+					<li><a href="{{ link.linkHref }}">{{ link.linkName }}</a></li>
+				{% endfor %}
+				{% endblock %}
+			</ul>
+			</div>
+			{% endif %}
+		</div>
+	</div>
+</div>

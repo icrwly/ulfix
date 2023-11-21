@@ -1,0 +1,20 @@
+uuid: 56db25bb-4dc0-4dc2-9d12-f8349f7bfe6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+id: media.crc_asset.uid
+field_name: uid
+entity_type: media
+bundle: crc_asset
+label: 'Authored by'
+description: 'The user ID of the author.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: 'Drupal\media\Entity\Media::getDefaultEntityOwner'
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

@@ -1,0 +1,23 @@
+uuid: 6a296cf0-4a6f-418f-80e7-1ae7502a46f7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.mkto_inline_contact_form.field_marketo_form
+    - paragraphs.paragraphs_type.mkto_inline_contact_form
+  module:
+    - ul_marketo
+id: paragraph.mkto_inline_contact_form.default
+targetEntityType: paragraph
+bundle: mkto_inline_contact_form
+mode: default
+content:
+  field_marketo_form:
+    type: marketo_form_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

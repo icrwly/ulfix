@@ -1,0 +1,33 @@
+uuid: 3214a33f-af3c-42f1-8861-852bb1c4cd37
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_view_mode_hero
+field_name: field_view_mode_hero
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: image_right
+      label: 'Image on Right'
+    -
+      value: regular_image_video
+      label: 'Regular Hero video/image'
+    -
+      value: tall_image_video
+      label: 'Tall Hero video/image-dark gradient'
+    -
+      value: tall_image_video_light
+      label: 'Tall Hero video/image-light gradient'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

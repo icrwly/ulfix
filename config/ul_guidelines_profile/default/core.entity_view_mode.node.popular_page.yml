@@ -1,0 +1,12 @@
+uuid: 3c7d6727-30b2-407d-a08b-1ae5b776dbc2
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: _Juf7kA-6mwleCFHOp10JsJYeA07GjfOrSXGOExDEJQ
+id: node.popular_page
+label: 'Popular Page'
+targetEntityType: node
+cache: true

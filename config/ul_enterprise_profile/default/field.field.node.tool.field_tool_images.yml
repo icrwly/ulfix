@@ -1,0 +1,30 @@
+uuid: 2f1cbc31-ea8d-427f-a48d-2222540b616c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tool_images
+    - media.type.image
+    - node.type.tool
+_core:
+  default_config_hash: IxxrX81msWCg5lvH_eA0XAMf1uZMxvwyucTzeZO7ExM
+id: node.tool.field_tool_images
+field_name: field_tool_images
+entity_type: node
+bundle: tool
+label: 'Images - Deprecated'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

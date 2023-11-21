@@ -1,0 +1,10 @@
+uuid: d4689399-c092-42d7-948a-f5edc46f1777
+langcode: en
+status: true
+dependencies: {  }
+id: people
+label: People
+icon_uuid: null
+icon_default: null
+description: 'Display <em>people</em> (not users) related to content.'
+behavior_plugins: {  }

@@ -1,0 +1,16 @@
+{# 1-column.twig #}
+<div class="main-container">
+  {% block before_content %}{% endblock %}
+  {% block breadcrumbs %}{% endblock %}
+  <main id="main-content" class="{{ mainClass }}">
+    {# If solo segment search results: #}
+    {# Content populated via a REACT app. #}
+    {% if solosegment_search_results %}
+      <div id="solosegment-main-binder"></div>
+    {# Else, regular page content. #}
+    {% else %}
+      {% block content_top %}{% endblock %}
+      {% block page %}{% endblock %}
+    {% endif %}
+  </main>
+</div>

@@ -1,0 +1,141 @@
+uuid: b7ca6b99-495b-4afc-a66a-247da07d422c
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.field.contact_message.submit_request.field_request_attachments
+    - field.field.contact_message.submit_request.field_request_background_context
+    - field.field.contact_message.submit_request.field_request_business
+    - field.field.contact_message.submit_request.field_request_description
+    - field.field.contact_message.submit_request.field_request_division_group
+    - field.field.contact_message.submit_request.field_request_division_group_exp
+    - field.field.contact_message.submit_request.field_request_media
+    - field.field.contact_message.submit_request.field_request_priority
+    - field.field.contact_message.submit_request.field_request_priority_explain
+    - field.field.contact_message.submit_request.field_request_region
+    - field.field.contact_message.submit_request.field_request_region_explain
+    - field.field.contact_message.submit_request.field_request_subject
+    - field.field.contact_message.submit_request.field_request_type
+    - field.field.contact_message.submit_request.field_request_visibility
+  module:
+    - file
+    - options
+_core:
+  default_config_hash: aufbN7wmHRPrw5n74eV-dIcdzR5B7-qaPLUfDPbnVh0
+id: contact_message.submit_request.default
+targetEntityType: contact_message
+bundle: submit_request
+mode: default
+content:
+  field_request_attachments:
+    type: file_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_request_background_context:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_request_business:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_request_description:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_request_division_group:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_request_division_group_exp:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_request_media:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_request_priority:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_request_priority_explain:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_request_region:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_request_region_explain:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_request_subject:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_request_type:
+    type: list_default
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_request_visibility:
+    type: string
+    label: inline
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  message:
+    type: basic_string
+    label: inline
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  langcode: true

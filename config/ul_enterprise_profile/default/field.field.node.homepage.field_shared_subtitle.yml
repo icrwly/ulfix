@@ -1,0 +1,21 @@
+uuid: 01a31167-a3a0-4090-958b-c02e20709b75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_subtitle
+    - node.type.homepage
+_core:
+  default_config_hash: 5iyyT7xLAH1Um6-uOXZomVh5Gngl3jbgukLxW7tGjVE
+id: node.homepage.field_shared_subtitle
+field_name: field_shared_subtitle
+entity_type: node
+bundle: homepage
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

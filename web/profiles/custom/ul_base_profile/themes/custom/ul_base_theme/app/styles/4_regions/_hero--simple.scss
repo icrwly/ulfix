@@ -1,0 +1,62 @@
+.hero--simple {
+  .swiper-container {
+    height: 100%;
+  }
+
+  .swiper-slide {
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    max-width: 100%;
+    position: relative;
+    &:before {
+      @include fit();
+      background: rgba($black, 0.7);
+      content: "";
+    }
+
+    @include breakpoint($tablet) {
+      min-height: 240px;
+      max-height: 25vh;
+    }
+
+    @include breakpoint($large-desktop) {
+      min-height: 280px;
+    }
+
+    .content-container__wrapper {
+      position: absolute;
+      align-items: center;
+      display: flex;
+      flex-grow: 1;
+      height: 100%;
+      padding-bottom: $spacing-unit--l*3; // make space for pagination
+      padding-top: $spacing-unit--l*3; // make space for breadcrumbs
+      width: 100%;
+      z-index: index($globalIndex, base);
+    }
+
+    .content-container {
+      color: $white;
+      max-width: 55rem;
+
+      h1 {
+        font-size: 4rem;
+        font-weight: 300;
+        line-height: 4.5rem;
+        margin-bottom: $spacing-unit--xs;
+      }
+
+      p {
+        font-size: 1.8rem;
+        line-height: 2.8rem;
+        margin-bottom: 0;
+      }
+
+      a{
+        margin-top:$spacing-unit--l;
+      }
+    }
+  }
+}

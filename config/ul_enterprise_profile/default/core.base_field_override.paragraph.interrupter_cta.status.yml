@@ -1,0 +1,22 @@
+uuid: 8e5b5685-a2b9-41b9-a105-58f58e492a6a
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.interrupter_cta
+id: paragraph.interrupter_cta.status
+field_name: status
+entity_type: paragraph
+bundle: interrupter_cta
+label: Published
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

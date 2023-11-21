@@ -1,0 +1,55 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--paragraph section--video wrapper" %}
+{% if not sectionGutterClass %}
+  {% set sectionGutterClass = "section-gutter" %}
+{% endif %}
+
+{# Make urls like https://*.wistia.com/media/  working #}
+{% set wistiaBaseUrl = 'wistia.com/medias/' %}
+
+{% block content %}
+  <div class="{{ sectionGutterClass }}">
+    {# This is for wistia video only. #}
+    {% if wistiaBaseUrl in videoURL %}
+      {% set wistiaID = videoURL | split('/') | last %}
+      {% block embedded_videos %}
+          {% include '@ul_base_theme/3_components/wistia-video.twig' %}
+      {% endblock %}
+    {% else %}
+    {# This is for other vidoes such as youtube video. #}
+    {% block embedded_video %}
+      {# NOTE: Drupal module includes a similar responsive wrapper, ours can be overwritten completely #}
+      <div class="embed-responsive embed-responsive-16by9">
+        <iframe width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen" src="{{ video }}"></iframe>
+      </div>
+    {% endblock %}
+    {% endif %}
+
+    {% if title or description %}
+      <div class="section__content">
+        {% set span_class = (title and description) ? 'span-6-t' : '' %}
+        <div class="row">
+          {% block title %}
+            {% if title %}
+              <div class="span-12 {{ span_class }}">
+                <h3 class="section__title mb-t-0">{{ title }}</h3>
+              </div>
+            {% endif %}
+          {% endblock %}
+          {% block description %}
+            {% if description %}
+              <div class="span-12 {{ span_class }}">
+                {% block description_inner %}
+                  <div class="editor-content">
+                    <p>{{ description }}</p>
+                  </div>
+                {% endblock %}
+              </div>
+            {% endif %}
+          {% endblock %}
+
+        </div>
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

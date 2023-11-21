@@ -1,0 +1,35 @@
+{% extends '@ul_base_theme/2_pieces/card/card--default.twig' %}
+{% set cardId = "node--card-" ~ node.id() %}
+{% if content.field_shared_header_media.0.url %}
+    {% set image = content.field_shared_header_media.0.url %}
+    {% set imageAlt = content.field_shared_header_media.0.alt %}
+{% else %}
+    {% set imageAlt = '' %}
+{% endif %}
+{% set title = label %}
+{% set subtitle = content.field_shared_subtitle %}
+{% set link = url %}
+{% set clickable = true %}
+
+{#
+/**
+ * Date by default should not display on cards.
+ * Content types needing date should overwrite the "date" value.
+ */
+ #}
+{% set date = 0 %}
+
+{% set topics = [
+    {content: content.field_shared_topic|render},
+    {content: content.field_shared_industry|render}
+]%}
+{% block card_description %}
+    {% if content.field_shared_ref_description|render %}
+        <p>{{ content.field_shared_ref_description }}</p>
+    {% else %}
+        {{ content.body }}
+    {% endif %}
+{% endblock %}
+{% block card_tags %}
+    {# Intentionally left blank #}
+{% endblock %}

@@ -1,0 +1,59 @@
+<?php
+
+/**
+ * @file
+ * Contains ul_alerts.module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function ul_alerts_theme() {
+  $theme = [];
+  $theme['ul_alert_block'] = [
+    'render element' => 'elements',
+  ];
+  $theme['ul_alert'] = [
+    'render element' => 'elements',
+    'file' => 'ul_alert.page.inc',
+    'template' => 'ul-alert',
+  ];
+
+  return $theme;
+}
+
+/**
+ * Implements hook_preprocess_ul_alert().
+ */
+function ul_alerts_preprocess_ul_alert(&$variables) {
+  $alert = $variables['elements']['#ul_alert'];
+
+  // Pass the alert entity to the template.
+  $variables['ul_alert'] = $alert;
+
+  // Process the shared_auto_dismiss value. Need to ensure that it returns
+  // its value as an integer.
+  if (!empty($alert->get('dismiss_timer')->first())) {
+    $dismiss = $alert->get('dismiss_timer')->first()->getValue();
+    if (!empty($dismiss['value'])) {
+      $variables['dismiss_timer'] = intval($dismiss['value']);
+    }
+  }
+
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK().
+ */
+function ul_alerts_theme_suggestions_ul_alert(array $variables) {
+  $suggestions = [];
+  $entity = $variables['elements']['#ul_alert'];
+  $sanitized_view_mode = strtr($variables['elements']['#view_mode'], '.', '_');
+
+  $suggestions[] = 'ul_alert__' . $sanitized_view_mode;
+  $suggestions[] = 'ul_alert__' . $entity->bundle();
+  $suggestions[] = 'ul_alert__' . $entity->bundle() . '__' . $sanitized_view_mode;
+  $suggestions[] = 'ul_alert__' . $entity->id();
+  $suggestions[] = 'ul_alert__' . $entity->id() . '__' . $sanitized_view_mode;
+  return $suggestions;
+}

@@ -1,0 +1,21 @@
+/**
+ * @TODO: Can this ported into the Base Profile Theme's CSS?
+ */
+.mobile-menu__button {
+	width: 3rem;
+}
+.mobile-menu__title {
+	font-size: 1.8rem;
+	display: block;
+	padding-top: 35px;
+}
+.mobile-menu__back {
+	top: 15px;
+}
+.mobile-menu {
+  .accordion::before {
+    margin-right: 0;
+    position: absolute;
+    left: -3px;
+  }
+}

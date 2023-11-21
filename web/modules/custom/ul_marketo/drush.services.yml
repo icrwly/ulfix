@@ -1,0 +1,6 @@
+services:
+  ul_marketo.commands:
+    class: Drupal\ul_marketo\Commands\MarketoCommands
+    arguments: ['@messenger', '@logger.factory']
+    tags:
+      -  { name: drush.command }

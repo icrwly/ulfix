@@ -1,0 +1,65 @@
+diff --git a/core/themes/claro/css/components/fieldset.css b/core/themes/claro/css/components/fieldset.css
+index c5ffdbbead..9528b79792 100644
+--- a/core/themes/claro/css/components/fieldset.css
++++ b/core/themes/claro/css/components/fieldset.css
+@@ -77,14 +77,14 @@ _:-ms-fullscreen,
+ }
+ 
+ .fieldset__label {
+-  display: block;
+-  padding: 1rem;
++  display: inline-block;
++  padding: 1rem 0 1rem 1rem;
+   line-height: 1rem;
+ }
+ 
+ @media screen and (min-width: 48em) {
+   .fieldset__label {
+-    padding-right: 1.5rem;
++    padding-right: 0;
+     padding-left: 1.5rem;
+   }
+ }
+diff --git a/core/themes/claro/css/components/form.css b/core/themes/claro/css/components/form.css
+index 8cd0d6f27e..ad51f92a93 100644
+--- a/core/themes/claro/css/components/form.css
++++ b/core/themes/claro/css/components/form.css
+@@ -92,8 +92,11 @@ tr .form-item,
+   color: #828388;
+ }
+ 
++/* borrows from https://www.drupal.org/files/issues/2022-07-17/3160987-10.patch */
+ .form-item__label.form-required::after,
+-.fieldset__label.form-required::after {
++.fieldset__label.form-required::after,
++.horizontal-tabs .form-required::after,
++.vertical-tabs .form-required::after {
+   display: inline-block;
+   margin-right: 0.15em;
+   margin-left: 0.15em;
+@@ -102,6 +105,10 @@ tr .form-item,
+   font-size: 0.875rem;
+ }
+ 
++.horizontal-tabs .claro-details__summary.form-required::after {
++  content: "";
++}
++
+ /**
+  * Form item description.
+  */
+diff --git a/core/themes/claro/css/components/form.pcss.css b/core/themes/claro/css/components/form.pcss.css
+index 28a73ae2bb..79dd87542f 100644
+--- a/core/themes/claro/css/components/form.pcss.css
++++ b/core/themes/claro/css/components/form.pcss.css
+@@ -69,7 +69,9 @@ tr .form-item,
+   color: var(--input--disabled-fg-color);
+ }
+ .form-item__label.form-required::after,
+-.fieldset__label.form-required::after {
++.fieldset__label.form-required::after,
++.horizontal-tabs .form-required::after,
++.vertical-tabs .form-required::after {
+   display: inline-block;
+   margin-right: 0.15em;
+   margin-left: 0.15em;

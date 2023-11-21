@@ -1,0 +1,30 @@
+{% extends "@ul_base_theme/2_pieces/listing-item/listing-item.twig" %}
+{% set class = "listing-item--events-simple" %}
+{% set type = 'Event' %}
+
+{% block content %}
+  <a href="{{- link -}}" title="{{- title -}}">
+    <div class="inner-container">
+      <div class="top-row">
+        {% block date_block %}
+          {% include '@ul_base_theme/2_pieces/block-date.twig' with { date: date } %}
+        {% endblock %}
+        <div class="content-container">
+          {% block listing_item_topic %}
+            {% if topics %}
+              {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with { widget: topics } %}
+            {% endif %}
+          {% endblock %}
+          {% block listing_item_title %}
+            <h3>{{- title -}}</h3>
+          {% endblock %}
+        </div>
+      </div>
+      <div class="bottom-row">
+        {% block listing_item_description %}
+          <p>{{- description -}}</p>
+        {% endblock %}
+      </div>
+    </div>
+  </a>
+{% endblock %}

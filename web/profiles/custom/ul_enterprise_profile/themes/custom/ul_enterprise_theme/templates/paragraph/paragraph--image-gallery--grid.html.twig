@@ -1,0 +1,15 @@
+{% embed '@ul_enterprise_theme/4_regions/section--gallery.twig' %}
+  {% if content.field_shared_bg_color.0 is not empty %}
+    {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+  {% endif %}
+  {% if content.field_shared_img_no_border.0|render == "On" %}
+      {% set class = class ~ ' images_no_border' %}
+  {% endif %}
+  {% set gutterclass = "paragraph-gutter paragraph--gallery" %}
+  {% set title = content.field_image_gallery_title %}
+  {% set is_carousel = false %}
+  {% set items = true %}
+  {% block grid_items %}
+    {{ content.field_image_gallery_images }}
+  {% endblock %}
+{% endembed %}

@@ -1,0 +1,21 @@
+uuid: 0c414a2a-b73a-434a-8eee-472dafeffe90
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_campaign_page_bottom
+    - node.type.campaign_page
+  module:
+    - text
+id: node.campaign_page.field_campaign_page_bottom
+field_name: field_campaign_page_bottom
+entity_type: node
+bundle: campaign_page
+label: 'Closing Argument'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,33 @@
+uuid: 83709776-1265-494e-b562-855f8d6feeb5
+langcode: en
+status: true
+dependencies:
+  module:
+    - menu_ui
+    - scheduler
+third_party_settings:
+  menu_ui:
+    available_menus:
+      - main
+    parent: 'main:'
+  scheduler:
+    expand_fieldset: when_required
+    fields_display_mode: vertical_tab
+    publish_enable: true
+    publish_past_date: error
+    publish_past_date_created: false
+    publish_required: false
+    publish_revision: false
+    publish_touch: false
+    unpublish_enable: true
+    unpublish_required: false
+    unpublish_revision: false
+_core:
+  default_config_hash: 3LclvNsNaWYVLp6I1ZB_xTdO4VqBNR5UmAkFtJ6E9Zg
+name: Tools
+type: tool
+description: 'Use <em>Tools</em> for displaying information about Apps and Databases.'
+help: ''
+new_revision: true
+preview_mode: 0
+display_submitted: false

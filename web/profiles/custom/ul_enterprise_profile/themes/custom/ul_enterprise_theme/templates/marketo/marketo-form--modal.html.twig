@@ -1,0 +1,31 @@
+{#
+ * @file: marketo-form--modal.html.twig
+ * @usage: Provide wrapper divs for form within a Modal Window.
+ * Note: Post submit, JS hides the form and shows the "Thank You" mssg.
+ #}
+
+{% block section_body %}
+<div class="mktoModal">
+  <div class="mktoModalMask"></div>
+  <div class="mktoModalContent">
+    <div class="mktoModalMain">
+      <a class="mktoModalClose" href="#" title="{{ 'Close'|t }}">X</a>
+
+      {# Form content (PRE-submit): #}
+      {% block modal_form %}
+        <div class="mkto-form mkto-presubmit">
+          {% include '@ul_enterprise_theme/marketo/marketo-form--routed.html.twig' %}
+        </div>
+      {% endblock %}
+
+      {# Thank You message (POST-submit): #}
+      {% block modal_thnx %}
+        <div class="mkto-thnx mkto-postsubmit hidden">
+          {% include "@ul_enterprise_theme/marketo/inc-modal-thankyou-mssg.html.twig" %}
+        </div>
+      {% endblock %}
+
+    </div>
+  </div>
+</div>
+{% endblock %}

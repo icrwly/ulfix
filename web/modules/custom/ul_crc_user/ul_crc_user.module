@@ -1,0 +1,126 @@
+<?php
+
+/**
+ * @file
+ * Contains ul_crc_user.module.
+ */
+
+use Drupal\user\Entity\User;
+use Drupal\ul_crc\CRCRequest;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Entity\EntityStorageException;
+
+/**
+ * Implements hook_help().
+ */
+function ul_crc_user_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the ul_crc_user module.
+    case 'help.page.ul_crc_user':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Integrate Drupal&#039;s user accounts with UL CRC service.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_user_login().
+ */
+function ul_crc_user_user_login(User $account) {
+
+  if ($account->hasPermission('bypass saml authentication')) {
+    return;
+  }
+
+  $crc_config = \Drupal::config('ul_crc.settings');
+  $is_crc = $crc_config->get('auth_token') ?: NULL;
+  $crc_env = $crc_config->get('environment');
+  switch ($crc_env) {
+    case 'Production':
+      $url = CRCRequest::URL_PROD;
+      break;
+
+    case 'Staging':
+      $url = CRCRequest::URL_STAGE;
+      break;
+
+    default:
+      // If CRC config is not set, no need for a URL.
+      $url = NULL;
+      break;
+  }
+  $id = $account->id();
+  $update = FALSE;
+  $field_mappings = [
+    'field_first_name' => 'first_name',
+    'field_last_name' => 'last_name',
+    'mail' => 'email',
+  ];
+  // User 1 can do all the things.
+  if ((int) $id !== 1 && $is_crc) {
+    // Load user data from CC.
+    $crc_service = \Drupal::service('ul_crc');
+
+    $crc_user = $crc_service->getUserById($account->getAccountName()) ?: $crc_service->getUserByEmail($account->getEmail());
+
+    if (!empty($crc_user)) {
+      // Keep the data in sync between CRC and Drupal.
+      foreach ($field_mappings as $field => $crc_field) {
+        if ($account->get($field)->value != $crc_user['user'][$crc_field]) {
+          $update = TRUE;
+          $account->set($field, $crc_user['user'][$crc_field]);
+        }
+        // Adding second if instead of adding ul_id to field mappings because I
+        // ran into the issue where some ul_ids were returned NULL and caused an
+        // error in saving the account.
+        if ($account->getAccountName() != $crc_user['user']['ul_id'] && !empty($crc_user['user']['ul_id'])) {
+          $update = TRUE;
+          $account->setUsername($crc_user['user']['ul_id']);
+        }
+      }
+      //
+      // Save if we're updating the user.
+      if ($update) {
+        try {
+          $account->save();
+        }
+        catch (EntityStorageException $e) {
+          \Drupal::logger('ul_crc_user')->error($e);
+        }
+      }
+    }
+    else {
+      if ($url) {
+        // If we're not in the CRC then send the user to register.
+        // Ensure that there is no trailing slash so the redirect URL works.
+        $host = rtrim(\Drupal::request()->getHost(), '/');
+        $path = '/saml/init?';
+        $params = 'redirect_url=https://' . $host . '/user/login';
+        $full_url = $url . $path . $params;
+        user_logout();
+
+        // Fix the fatal error in ticket 264033, Failed to start the session
+        // because headers have already been sent.
+        // $response = new RedirectResponse($full_url);
+        // $response->send();
+        \Drupal::service('request_stack')->getCurrentRequest()->query->set('destination', $full_url);
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_toolbar_alter().
+ */
+function ul_crc_user_toolbar_alter(&$items) {
+
+  // Remove the edit profile link of user does not have permission.
+  $user = \Drupal::currentUser();
+  if (!$user->hasPermission('administer users')) {
+    unset($items['user']['tray']['user_links']['#links']['account_edit']);
+  }
+}

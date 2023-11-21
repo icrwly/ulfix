@@ -1,0 +1,10 @@
+{% block content_inner %}
+  <section class="thankyou-page-hero">
+    <div class="wrapper max-width--large-tablet">
+      <h1 class="thankyou-page-hero--title" data-page-title>{{- title -}}</h1>
+      {% if description %}
+        <p>{{- description -}}</p>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

@@ -1,0 +1,91 @@
+{% extends '@ul_base_theme/1_core/1-column.twig' %}
+{# If gated content. #}
+{% if marketo.gated_form %}
+  {% set mainClass = mainClass ~ ' gated-content' %}
+{% endif %}
+{% set title = label.0['#context'].value %}
+{% set description = content.field_shared_header_description.0['#context'].value %}
+{% set image = content.field_shared_header_media.0.url %}
+{% set span_class = image ? "span-12 span-6-t span-5-lt offset-1-lt span-6-d offset-1-d" : "span-12" %}
+{% set span_image_class = 'span-12 span-6-t span-6-lt span-5-d' %}
+{% set image_alt = content.field_shared_header_media.0.alt %}
+{% set topics = [
+  {content: content.field_of_service_category|render},
+] %}
+{% set tags = [] %}
+{% set sectionTags = {
+  'tags': tags
+} %}
+
+{# If use header media as full-width hero. #}
+{% if content.field_view_mode_hero.0|render is not empty %}
+{% if content.field_view_mode_hero.0|render|lower|replace({' ': '-'}) != "image-on-right" %}
+  {% set video_background = content.field_shared_header_video|render|replace({ '<a href="https://ul.wistia.com/medias/': '' })|striptags|trim|replace({ '">':'' }) %}
+  {% set heroFullwidth = true %}
+  {% if content.field_view_mode_hero.0|render|lower|replace({' ': '-'}) == "tall-hero-video/image-dark-gradient" %}
+    {% set tall_hero_class = "tall-hero" %}
+  {% endif %}
+  {% if content.field_view_mode_hero.0|render|lower|replace({' ': '-'}) == "tall-hero-video/image-light-gradient" %}
+    {% set tall_hero_class = "tall-hero light-gradient" %}
+  {% endif %}
+  {% set slide = [{
+    'title': title,
+    'image': image,
+    'image_alt': image_alt,
+    'description': description
+    }]
+  %}
+{% endif %}
+{% endif %}
+
+{# If header link. #}
+{% if content.field_shared_header_link|render %}
+  {% set primary_cta = {
+    title: content.field_shared_header_link.0['#title'],
+    url: content.field_shared_header_link.0['#url'],
+    class: content.field_shared_header_link.0['#attributes']['class']|join(' '),
+  }%}
+{% endif %}
+
+{# If Marketo cta. #}
+{% if content.field_shared_marketo_link|render %}
+  {% set primary_cta = {
+    title: content.field_shared_marketo_link.0['#title'],
+    url: content.field_shared_marketo_link.0['#url'],
+    class: content.field_shared_marketo_link.0['#attributes']['class']|join(' '),
+  }%}
+{% endif %}
+
+{# If secondary cta. #}
+{% if content.field_shared_secondary_hdr_link.0 %}
+  {% set additional_cta = {
+    title: content.field_shared_secondary_hdr_link.0['#title'],
+    url: content.field_shared_secondary_hdr_link.0['#url'],
+  }%}
+  {% set buttons_class = 'additional_cta' %}
+{% endif %}
+
+{% block before_content %}
+  {# If full-width hero. #}
+  {% if heroFullwidth %}
+    {% embed '@ul_enterprise_theme/3_components/offerings--hero-fullwidth.html.twig' %}{% endembed %}
+  {# If regular header media. #}
+  {% else %}
+    {% embed '@ul_enterprise_theme/4_regions/hero--detail.twig' %}{% endembed %}
+  {% endif %}
+{% endblock %}
+
+{# Breadcrumbs: #}
+{% block breadcrumbs %}
+  {{ drupal_block('system_breadcrumb_block') }}
+{% endblock %}
+
+{% block page %}
+  {{ content.field_of_content }}
+  {{ content.marketo }}
+  {% embed "@ul_base_theme/4_regions/section--addtoany.twig" %}
+    {% block content %}
+      {{ content.addtoany }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

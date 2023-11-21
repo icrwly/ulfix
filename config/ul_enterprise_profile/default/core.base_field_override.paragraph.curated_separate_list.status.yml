@@ -1,0 +1,22 @@
+uuid: b1095c89-e39a-4e16-b2db-f0c95293d431
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.curated_separate_list
+id: paragraph.curated_separate_list.status
+field_name: status
+entity_type: paragraph
+bundle: curated_separate_list
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

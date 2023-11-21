@@ -1,0 +1,22 @@
+uuid: 665d38c3-a4e4-49b6-9982-1461ac7114a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.strategic_solutions
+id: taxonomy_term.strategic_solutions.status
+field_name: status
+entity_type: taxonomy_term
+bundle: strategic_solutions
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

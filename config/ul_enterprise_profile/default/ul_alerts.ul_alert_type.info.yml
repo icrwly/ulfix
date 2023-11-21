@@ -1,0 +1,7 @@
+uuid: 54b79d59-f003-42cf-bb1a-f2414a354b78
+langcode: en
+status: true
+dependencies: {  }
+id: info
+label: Informational
+description: 'Use <em>Informational</em> for providing alerts about the site or its features. '

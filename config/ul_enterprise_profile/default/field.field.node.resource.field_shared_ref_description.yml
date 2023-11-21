@@ -1,0 +1,19 @@
+uuid: 1c260501-5dfa-4987-8a3b-80d5365764fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_description
+    - node.type.resource
+id: node.resource.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+bundle: resource
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

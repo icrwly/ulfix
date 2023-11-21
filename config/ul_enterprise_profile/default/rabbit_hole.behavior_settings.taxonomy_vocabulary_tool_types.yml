@@ -1,0 +1,14 @@
+uuid: f20445d8-fb43-425e-b6b8-5ddb3caf9997
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.tool_types
+id: taxonomy_vocabulary_tool_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

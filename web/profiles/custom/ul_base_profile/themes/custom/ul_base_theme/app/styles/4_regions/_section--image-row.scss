@@ -1,0 +1,51 @@
+.section--image-row {
+  text-align: center;
+
+  .section__header {
+    margin-bottom: $spacing-unit--xl;
+
+    .description {
+      font-size: 3.2rem;
+      font-weight: 300;
+      line-height: 1.4;
+      margin: 0 auto;
+      max-width: $large-tablet;
+      @include breakpoint($desktop) {
+        font-size: 4.6rem;
+      }
+    }
+  }
+
+  .section__body {
+    .description {
+      p {
+        font-size: 1.4rem;
+        @include breakpoint($desktop) {
+          font-size: 1.8rem;
+        }
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  .row {
+    justify-content: left;
+  }
+
+  .image-container {
+    margin-bottom: $spacing-unit--l;
+
+    img {
+      display: block;
+      margin: 0 auto;
+      border: 1px solid $border-color;
+    }
+  }
+}
+.section--image-row.images_no_border {
+  .image-container {
+    img {
+      border: 0;
+    }
+  }
+}

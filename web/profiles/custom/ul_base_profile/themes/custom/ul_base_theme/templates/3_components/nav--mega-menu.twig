@@ -1,0 +1,109 @@
+{% import "@ul_base_theme/1_core/macros.twig" as mac %}
+{% if target_id %}
+  {% set attributes = {
+    'data-trigger-id': target_id
+  } %}
+  {% set data_attrs = mac.attributes(attributes) %}
+{% endif %}
+
+{% if full_menu_section == 1 %}
+  {% set display_aside = "display-none" %}
+  {% set nav_content_width = "12" %}
+    {% if description is not empty %}
+      {% set menu_class = "full-menu-section col-count-3" %}
+      {% set nav__menu_width = "span-8 span-8-ld" %}
+      {% set display_overview = "" %}
+      {% set view_all_link = "display-none" %}
+      {% if section_image %}
+        {% set image_class = "image_left" %}
+      {% endif %}
+    {% else %}
+      {% set menu_class = "full-menu-section col-count-" ~ columns_amount %}
+      {% set display_overview = "display-none" %}
+      {% set nav__menu_width = "span-12 span-12-ld" %}
+      {% set image_class = "" %}
+    {% endif %}
+{% else %}
+  {% set menu_class = "" %}
+  {% set display_none = "display-none" %}
+  {% set nav_content_width = "8" %}
+  {% set nav__menu_width = "span-8" %}
+  {% set display_aside = "" %}
+  {% set view_all_link = "display-none" %}
+{% endif %}
+<section class="nav--mega-menu" {{ data_attrs }}>
+  <div class="wrapper {{ image_class }}">
+    <span class="nav--mega-menu--panel--title h2">{{ title }}</span>
+    <div class="row">
+      <div class="nav__content span-{{ nav_content_width }}">
+        <div class="row">
+          <div class="nav__overview span-4 span-4-ld {{ display_overview }} ">
+          {% if section_image %}
+            <img class="mega_menu_image {{ display_none }}" src=" {{ section_image }} ">
+          {% endif %}
+          {% if label %}
+            <span class="nav--mega-menu--links--title h4 {{ display_none }}">{{ label }}</span>
+          {% endif %}
+            {% block overview %}
+              {% block description %}
+                {% if description is not empty  %}
+                  <div class="nav__description">
+                    {% block description_inner %}
+                      <p>{{ description }} </p>
+                    {% endblock %}
+                  </div>
+                {% endif %}
+              {% endblock %}
+            {% if section_overview.url %}
+              <a href="{{ section_overview.url }}" class="ul-ga-megamenu-cta button button--black-outline" title="{{ section_overview.title }}">{{ section_overview.title }}</a>
+            {% else %}
+              {% block cta %}
+                {% if cta %}
+                  <a href="{{ cta.url }}" class="ul-ga-megamenu-cta button button--black-outline" title="{{ cta.title }}">{{ cta.title }}</a>
+                {% endif %}
+              {% endblock %}
+            {% endif %}
+            {% endblock %}
+          </div>
+          <div class="nav__menu {{ nav__menu_width }} {{ menu_class }}">
+            {% block menu_title %}
+              {% if label %}
+                <span class="nav--mega-menu--links--title h4">{{ label }}</span>
+              {% endif %}
+            {% endblock %}
+            {% block menu %}
+              <nav>
+                {% include '@ul_base_theme/3_components/menu.twig' with {
+                  items: items,
+                  menu_class: "menu-list--mega-menu"
+                } only %}
+              </nav>
+            {% endblock %}
+        </div>
+      </div>
+    </div>
+      <div class="nav__aside span-4 {{ display_aside }}">
+        {% block aside %}
+          {% if aside %}
+            {% if aside.type == 'gallery-grid' %}
+              {% include '@ul_base_theme/4_regions/section--gallery.twig' with aside only %}
+            {% elseif aside.type == 'gallery-carousel' %}
+              {% include '@ul_base_theme/4_regions/section--gallery.twig' with aside|merge({is_carousel: true}) only %}
+            {% elseif aside.type == 'card' %}
+              {% include '@ul_base_theme/1_core/switch--card.twig' with aside.content only %}
+            {% elseif aside.type == 'simple-menu' %}
+              {% include '@ul_base_theme/4_regions/section--simple-menu.twig' with aside only %}
+            {% endif %}
+          {% endif %}
+        {% endblock %}
+      </div>
+    </div>
+  </div>
+    {% block view_all_cta %}
+      {% if view_all_cta %}
+      <div class="view_all_mega_menu">
+        <a href="{{ view_all_cta.url }}" class="ul-ga-megamenu-cta button button--black-outline button--s">{{ view_all_cta.title }}</a>
+      </div>
+      {% endif %}
+    {% endblock %}
+</section>

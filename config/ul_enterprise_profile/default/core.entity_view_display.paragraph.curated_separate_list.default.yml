@@ -1,0 +1,43 @@
+uuid: bf4e4363-92e3-4a78-a69e-81572c371e7b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.curated_separate_list.field_curated_separate_list
+    - field.field.paragraph.curated_separate_list.field_hash_target
+    - field.field.paragraph.curated_separate_list.field_shared_bg_color
+    - paragraphs.paragraphs_type.curated_separate_list
+  module:
+    - entity_reference_revisions
+    - options
+id: paragraph.curated_separate_list.default
+targetEntityType: paragraph
+bundle: curated_separate_list
+mode: default
+content:
+  field_curated_separate_list:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_hash_target:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_bg_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

@@ -1,0 +1,22 @@
+uuid: 96193824-80b7-40d3-9143-fc8bcc1f6645
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - node
+_core:
+  default_config_hash: xXmAPP772PhLffjiKDvgX9Sh82S0EgCbAvg39Izi-wc
+id: node.field_event_media
+field_name: field_event_media
+entity_type: node
+type: entity_reference
+settings:
+  target_type: media
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

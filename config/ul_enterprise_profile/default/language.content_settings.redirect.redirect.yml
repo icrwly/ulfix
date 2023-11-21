@@ -1,0 +1,11 @@
+uuid: b71ab11c-a96b-41ae-9976-d5427b96d19a
+langcode: en
+status: true
+dependencies:
+  module:
+    - redirect
+id: redirect.redirect
+target_entity_type_id: redirect
+target_bundle: redirect
+default_langcode: site_default
+language_alterable: false

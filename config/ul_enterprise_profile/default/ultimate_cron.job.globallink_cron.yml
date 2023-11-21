@@ -1,0 +1,17 @@
+uuid: dae85ae2-c380-4d89-9c50-e1e14828cec3
+langcode: en
+status: true
+dependencies:
+  module:
+    - globallink
+title: 'Default cron handler'
+id: globallink_cron
+weight: 0
+module: globallink
+callback: globallink_cron
+scheduler:
+  id: simple
+launcher:
+  id: serial
+logger:
+  id: database

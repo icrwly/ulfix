@@ -1,0 +1,32 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = "card--read-more" %}
+{% set background_image = image %}
+
+{% block content %}
+  {% block card_image %}
+    {% if image %}
+      <img src="{{- image -}}" alt="{{- imageAlt -}}"/>
+    {% endif %}
+  {% endblock %}
+  <div class="tags">
+    {% block card_tags %}
+      {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with {widget: tags} %}
+    {% endblock %}
+  </div>
+  <div class="content-container">
+    {% block card_topic %}
+      {% if topics %}
+        {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+      {% endif %}
+    {% endblock %}
+    {% block card_title %}
+      <h3>{{- title -}}</h3>
+    {% endblock %}
+    {% block card_description %}
+      {% if description %}
+        <p>{{- description -}}</p>
+      {% endif %}
+    {% endblock %}
+    <a href="{{- viewMore.link -}}" class="button button--red" title="{{- viewMore.name -}}">{{- viewMore.name -}}</a>
+  </div>
+{% endblock %}

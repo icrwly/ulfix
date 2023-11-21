@@ -1,0 +1,24 @@
+@keyframes arrowBounce {
+	from,
+	50%,
+	to {
+		transform: translate3d(0, 0, 0);
+	}
+
+	25% {
+		transform: translate3d(0, 3px, 0);
+	}
+
+	30% {
+		transform: translate3d(0, 2.7px, 0);
+	}
+
+	40% {
+		transform: translate3d(0, 2px, 0);
+	}
+}
+
+.arrowBounce {
+	animation-name: arrowBounce;
+	transform-origin: center bottom;
+}

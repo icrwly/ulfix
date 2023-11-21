@@ -1,0 +1,37 @@
+{# Paragraph "50/50 Text and Form" form template. #}
+{# Usage: Creates 2 columns: Left = Text, Right = Marketo. #}
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = 'section--paragraph section--text-and-form' %}
+{% set gutterclass = 'paragraph-gutter text-and-form' %}
+{% if fullwidth == 'On' %}
+  {% set gutterclass = gutterclass ~ ' paragraph-basic-fullwidth' %}
+{% endif %}
+{% if content.field_shared_bg_color.0 is not empty %}
+  {% set class = class ~ ' section--bgcolor-' ~ content.field_shared_bg_color.0|render|lower|replace({' ': '-'}) %}
+{% endif %}
+
+{# Marketo form as a banner (T), or inline (F)? #}
+{% set showBanner = false %}
+{# Marketo form ID. #}
+{% set form_id = marketo.form_id %}
+{# Marketo forms API URL. #}
+{% set forms_API = marketo.base_url ~ '/js/forms2/js/forms2.min.js' %}
+{# Marketo form language: #}
+{% if not form_language %}
+  {% set form_language = 'en' %}
+{% endif %}
+
+{% block section_body %}
+  <div class="row row--gutter-l">
+    <div class="span-12 span-6-d">
+      <div class="editor-content">
+        {# Left Column: Rich text content: #}
+        {{- content.field_text_and_form_content.0 -}}
+      </div>
+    </div>
+    <div class="span-12 span-6-d">
+      {# Right Column: Marketo form here: #}
+      {% include "@ul_enterprise_theme/marketo/marketo-form--interrupter.html.twig" %}
+    </div>
+  </div>
+{% endblock %}

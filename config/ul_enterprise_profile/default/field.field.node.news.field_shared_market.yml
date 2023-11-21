@@ -1,0 +1,29 @@
+uuid: b8c67e75-07a9-4418-b4de-3ebd13510487
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_market
+    - node.type.news
+    - taxonomy.vocabulary.markets
+id: node.news.field_shared_market
+field_name: field_shared_market
+entity_type: node
+bundle: news
+label: Market
+description: '&bull; The market related to this news item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      markets: markets
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

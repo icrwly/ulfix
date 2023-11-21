@@ -1,0 +1,141 @@
+uuid: 5e218024-e79b-41ab-bb72-f42d1785f7fe
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.contact_form_configurable.field__customer_comments
+    - field.field.marketo_form.contact_form_configurable.field__department
+    - field.field.marketo_form.contact_form_configurable.field__job_title
+    - field.field.marketo_form.contact_form_configurable.field__phone_number
+    - field.field.marketo_form.contact_form_configurable.field__preferred_language
+    - field.field.marketo_form.contact_form_configurable.field__purchase_timeframe
+    - field.field.marketo_form.contact_form_configurable.field_shared_button_text
+    - field.field.marketo_form.contact_form_configurable.field_shared_cta_button_text
+    - field.field.marketo_form.contact_form_configurable.field_shared_custom_title
+    - field.field.marketo_form.contact_form_configurable.field_shared_form_description
+    - field.field.marketo_form.contact_form_configurable.field_shared_thank_you_page
+    - ul_marketo.marketo_form_type.contact_form_configurable
+  module:
+    - field_group
+third_party_settings:
+  field_group:
+    group_mkto_field_settings:
+      children:
+        - field__customer_comments
+        - field__purchase_timeframe
+        - field__department
+        - field__job_title
+        - field__phone_number
+        - field__preferred_language
+      label: 'Form Field Settings'
+      region: content
+      parent_name: ''
+      weight: 5
+      format_type: details
+      format_settings:
+        classes: ''
+        show_empty_fields: false
+        id: ''
+        open: true
+        description: "<p>The fields listed below can be configured as follows:</p>\r\n<ul>\r\n  <li>Hidden: The field is hidden from the user.</li>\r\n  <li>Optional: The field is displayed, but a response from the user is optional.</li>\r\n  <li>Required: The field is displayed and a response from the user is required before the form will submit.</li>\r\n</ul>"
+        required_fields: true
+id: marketo_form.contact_form_configurable.default
+targetEntityType: marketo_form
+bundle: contact_form_configurable
+mode: default
+content:
+  field__customer_comments:
+    type: options_select
+    weight: 9
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field__department:
+    type: options_select
+    weight: 11
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field__job_title:
+    type: options_select
+    weight: 12
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field__phone_number:
+    type: options_select
+    weight: 13
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field__preferred_language:
+    type: options_select
+    weight: 14
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field__purchase_timeframe:
+    type: options_select
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_button_text:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_cta_button_text:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_custom_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_form_description:
+    type: string_textarea
+    weight: 2
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_thank_you_page:
+    type: entity_reference_autocomplete
+    weight: 6
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 7
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  langcode: true
+  status: true
+  user_id: true

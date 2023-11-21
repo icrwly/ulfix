@@ -1,0 +1,198 @@
+.card {
+  border: 1px solid $border-color;
+  line-height: 1.5;
+  margin-bottom: $spacing-unit;
+  transition: all $transition;
+
+  .card {
+    border: none;
+  }
+
+  &--link {
+    &:hover {
+      @include breakpoint($desktop) {
+        transition-duration: $transition-duration--slow;
+        transform: scale(1.02);
+      }
+      .swiper-slide & {
+        transform: none;
+      }
+    }
+  }
+
+  .image-container{
+    img{
+      transform: scale(1);
+      transition: transform 10s ease-in-out;
+      width:100%;
+      margin-bottom: 0;
+      margin-top: 0;
+    }
+  }
+
+  & > a {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    transition: all $transition;
+
+    h3,
+    p{
+      color: $gray;
+      transition: color $transition;
+      overflow-wrap: break-word;
+      -ms-hyphens: auto;
+      -moz-hyphens: auto;
+      -webkit-hyphens: auto;
+      hyphens: auto;
+    }
+
+    &:hover{
+      text-decoration: none;
+    }
+    .grid-item > & {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+
+  &:not(.card--featured){
+    > a {
+      &:hover{
+        h3{
+          color: $red;
+        }
+        p{
+          color: $gray;
+        }
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    margin-bottom: 0;
+  }
+
+  .image-container {
+    overflow: hidden;
+    position: relative;
+  }
+
+  .content-container {
+    @include trim-margin('bottom');
+    padding: $spacing-unit--l $spacing-unit--l * .75;
+
+    @include breakpoint($desktop) {
+      padding: $spacing-unit * 1.5;
+    }
+
+    @include breakpoint($large-desktop) {
+      padding: $spacing-unit--l;
+    }
+  }
+
+  .bottom-row {
+    margin-top: auto;
+    padding: 0 $spacing-unit--l * .75 $spacing-unit--l * .75;
+
+    @include breakpoint($desktop) {
+      padding: 0 $spacing-unit * 1.5 $spacing-unit * 1.5;
+    }
+
+    @include breakpoint($large-desktop) {
+      padding: 0 $spacing-unit--l $spacing-unit--l;
+    }
+
+    .row {
+      justify-content: space-between;
+      &:last-child {
+        margin-bottom: -$spacing-unit;
+      }
+
+      [class*='span-'] {
+        margin-bottom: $spacing-unit;
+      }
+    }
+  }
+
+  h3 {
+    margin-bottom: $spacing-unit--l * .75;
+
+    a {
+      color: inherit;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .widget--topics {
+    margin-bottom: $spacing-unit;
+    width:50%;
+    display: inline-block;
+    @include breakpoint(max-width $large-desktop) {
+      width: 100%;
+    }
+    @include breakpoint(max-width $large-tablet) {
+      width: 50%;
+    }
+  }
+
+  p {
+    color: $text-color;
+    font-size: 1.4rem;
+  }
+
+  .meta {
+    color: $black;
+    font-size: 1.2rem;
+  }
+  .date,
+  .read-time {
+    color: $text-color--light;
+    font-size: 1.2rem;
+  }
+  .meta,
+  .date{
+    width: 45%;
+    display: inline-block;
+    text-align: right;
+    padding: 0;
+    @include breakpoint(max-width $large-desktop) {
+      width: 100%;
+      text-align: left;
+      margin-bottom: $spacing-unit;
+    }
+    @include breakpoint(max-width $large-tablet) {
+      width: 45%;
+      text-align: right;
+    }
+  }
+  &.card--color-teal {
+    background-color: $teal;
+  }
+
+  &.card--color-teal{
+    &,
+    .meta,
+    .topic {
+      @include font-smoothing();
+      color: $white;
+    }
+  }
+
+  ul:not(:last-child) {
+    margin-bottom: $spacing-unit--l;
+  }
+
+  .item--icon {
+    font-size: 1.4rem;
+  }
+
+  .button {
+    // TODO: required to override classy CSS, see if we can remove this.
+    margin-left: 0;
+    margin-right: 0;
+    word-wrap: normal;
+  }
+}

@@ -1,0 +1,10 @@
+contact_us_landing:
+  subtitle: "Whether you have a sales inquiry, need help with a product or service, or any other issue, we want to connect you with information as quickly as possible."
+  how_can_we_help: "\n<div class=\"how-can-we-help\">\n<h3>@how_can_we_help</h3>\n\n<div class=\"editor-template row\">\n<div class=\"span-4-d\">\n<p><a class=\"button button--red\" href=\"@lang/sales-inquiries\">@sales_inquiries</a></p>\n</div>\n\n<div class=\"span-4-d\">\n<p><a class=\"button button--red\" href=\"@lang/customer-service\">@customer_service</a></p>\n</div>\n\n<div class=\"span-4-d\">\n<p><a class=\"button button--red\" href=\"@lang/give-feedback\">@general_feedback</a></p>\n</div>\n</div>\n</div>"  
+  global_contacts: "<div class=\"contactus-widget\">\n<h3>@global_contacts</h3>\n<p>@view_detailed_information_for_our</p>\n<p><a href=\"https://www.ul.com/about/locations\">@find_contact_information</a></p>\n</div>\n\n<div class=\"contactus-widget\">\n<h3>@help_and_support</h3>\n<p>@get_additional_assistance_and_information</p>\n<p><a href=\"https://www.ul.com/resources/help\">@visit_the_help_and_support</a></p>\n</div>"
+report_your_concerns:
+  report_your_concerns_title: 'Report suspicious or fraudulent activity'
+  report_your_concerns_content: 'If you wish to report a concern with a UL certified product or advertising concern, please submit a Market Surveillance Report.'
+  make_a_report: 'Make a report'
+customer_service_thank_you:
+  content: '<div class="main-container customer-service-thank-you"><div class="section section--paragraph page--field--body"><div class="paragraph-gutter"><div class="customer-service-thank-you-image">&nbsp;</div><h2>@thank_you_weve_received_your</h2><p>@one_of_our_team_members</p></div></div></div>'

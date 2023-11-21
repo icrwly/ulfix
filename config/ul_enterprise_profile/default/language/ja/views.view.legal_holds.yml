@@ -1,0 +1,9 @@
+display:
+  default:
+    display_options:
+      exposed_form:
+        options:
+          submit_button: 検索
+          exposed_sorts_label: 'Sort by'
+  page_1:
+    display_title: ページ

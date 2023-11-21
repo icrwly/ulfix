@@ -1,0 +1,24 @@
+///*------------------------------------*\
+//    #UTILITY - SPACING
+//\*------------------------------------*/
+
+$spacing-unit: 1.5rem;
+$spacing-unit--xs: .5rem;
+$spacing-unit--s: 1rem;
+$spacing-unit--m: $spacing-unit;
+$spacing-unit--l: $spacing-unit * 2;
+$spacing-unit--xl: $spacing-unit * 3;
+$spacing-unit--xxl: $spacing-unit * 4;
+$spacing-unit--xxxl: $spacing-unit * 5;
+
+// 1k each uncompressed with only top-bottom spacing options enabled
+// 3k each uncompressed with all spacing options enabled
+$spacing-units: (
+  0: 0,
+  // 1: $spacing-unit--xs,
+  2: $spacing-unit--s,
+  3: $spacing-unit--m,
+  4: $spacing-unit--l,
+  // 5: $spacing-unit--xl,
+  // 6: $spacing-unit--xxl
+);

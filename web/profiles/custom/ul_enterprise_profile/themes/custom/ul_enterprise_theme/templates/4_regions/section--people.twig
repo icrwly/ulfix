@@ -1,0 +1,33 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ ' section--paragraph section--people' %}
+{% set gutterclass = 'paragraph-gutter' %}
+
+{% block section_header %}
+  <div class="section__header">
+  {% block title %}
+    {% if title != '' %}
+      <h2 class="section__title">{{ title }}</h2>
+    {% endif %}
+  {% endblock %}
+  </div>
+{% endblock %}
+
+{% block section_body %}
+  <div class="section__body">
+    {% if items %}
+      <div class="row row--gutter-s justify-content-start">
+        {% block grid_items %}
+          {% for key,item in items %}
+            {% if key matches '/^\\d+$/' %}
+              {% block grid_item %} 
+                <div class="span-6-t span-4-d section--grid--item">
+                  {{ item }}
+                </div>
+              {% endblock %}
+            {% endif %}
+          {% endfor %}
+        {% endblock %}
+      </div>
+    {% endif %}
+  </div>
+{% endblock %}

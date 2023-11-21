@@ -1,0 +1,20 @@
+uuid: 02e0437d-2c9d-447d-86c6-576a9f28d3a0
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_alerts.ul_alert_type.critical
+id: ul_alert.critical.name
+field_name: name
+entity_type: ul_alert
+bundle: critical
+label: Name
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: ''
+default_value_callback: ''
+settings: {  }
+field_type: string

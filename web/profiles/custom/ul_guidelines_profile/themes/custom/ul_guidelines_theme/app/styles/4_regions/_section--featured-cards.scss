@@ -1,0 +1,63 @@
+.section--featured-cards {
+	background-color: $graySideRail;
+	border: none;
+	margin: 0;
+	padding: $spacing-unit--l 0;
+
+	@include breakpoint($tablet) {
+		padding: $spacing-unit--xl 0;
+	}
+
+	h2 {
+		// @include font-size(24, 30);
+		// font-weight: 700;
+		margin: 0 0 $spacing-unit--l;
+	}
+
+	.card .image-container img {
+		width: 100%;
+	}
+
+	&.default {
+		.card {
+			background-color: $white;
+			
+			@include breakpoint($tablet) {
+				width:calc(50% - #{$spacing-unit * 1.5});
+			}
+
+			&:nth-child(odd) {
+				@include breakpoint($tablet) {
+					margin-right: $spacing-unit * 1.5;
+				}
+			}
+
+			&:nth-child(even) {
+				@include breakpoint($tablet) {
+					margin-left: $spacing-unit * 1.5;
+				}
+			}
+
+			&:last-child {
+				@include breakpoint(max-width $tablet - 1) {
+					margin-bottom: 0;
+				}
+			}
+		}
+	}
+
+	&.file {
+		.card {
+			@include breakpoint($tablet){
+				margin-right: $spacing-unit--l;
+				width: calc((100% - #{$spacing-unit--l * 2}) / 3);
+				&:nth-child(2n) {
+					margin-right: $spacing-unit--l;
+				}
+				&:nth-child(3n) {
+					margin-right: 0;
+				}
+			}
+		}
+	}
+}

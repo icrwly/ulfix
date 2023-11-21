@@ -1,0 +1,5 @@
+{% if item.type == 'Event' %}
+  {# include listing-item--event.twig #}
+{% else %}
+  {% include '@ul_base_theme/2_pieces/listing-item/listing-item--default.twig' with item %}
+{% endif %}

@@ -1,0 +1,19 @@
+{% set class = class ~ ' button' %}
+
+{% if color %}
+  {% set class = class ~ ' button--' ~ color %}
+{% endif %}
+
+<a href="{{- link -}}" title="{{- name -}}" class="{{ class }}"{% if download %} download{% endif %}>
+  {% if icon %}
+    {% if icon_before %}
+      <span class="icon is-before icon-{{ icon }}"></span>
+      {{- name -}}
+    {% else %}
+      {{- name -}}
+      <span class="icon is-after icon-{{ icon }}"></span>
+    {% endif %}
+  {% else %}
+    {{- name -}}
+  {% endif %}
+</a>

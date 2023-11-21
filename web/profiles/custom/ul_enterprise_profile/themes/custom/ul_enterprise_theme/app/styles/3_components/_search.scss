@@ -1,0 +1,269 @@
+/* Trying to kick off pipeline build. */
+
+@mixin searchButton() {
+  padding: 10px 26px;
+  color: #fff;
+  background-color: #6c757d;
+
+  &:hover {
+    background-color: #2e2321;
+  }
+}
+
+#search-block-form {
+  label {
+    display:  none;
+  }
+
+  .form-actions {
+    margin-top: 0;
+    margin-bottom: 0;
+    width: 3.8rem; // match width of logo to center
+    background-image: url("../../images/search-icon.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 22px;
+  }
+
+  .form-search {
+    padding-right: 30px;
+  }
+
+}
+
+#search-form {
+  label {
+    display: none;
+  }
+
+  #edit-keys {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-align-items: stretch;
+    align-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
+    font-size: 1.6rem;
+    color: black;
+  }
+
+  #edit-basic {
+    text-align: center;
+
+    > .form-item-keys {
+      width: 70%;
+      display: inline-block;
+      position: relative;
+      min-width: 320px;
+    }
+
+    .form.action {
+      display: inline-block;
+      clear: both;
+      width: 180px;
+    }
+
+    .button {
+      @include searchButton;
+      margin-top: -3px;
+    }
+  }
+
+  #edit-advanced {
+    display: none;
+  }
+}
+
+
+#google-json-api-search-box-form {
+  .gjas-form-elements {
+    text-align: center;
+    .gjas-keys {
+      width: 56%;
+    }
+
+    .gjas-element-keys {
+      width: 99.5%;
+      color: black;
+    }
+  }
+
+  .gjas-element-sort {
+    padding: 0 4px;
+    font-size: 17px;
+    height: 32px;
+  }
+
+  #edit-submit.button {
+    @include searchButton;
+  }
+
+  @media (max-width: 779px) {
+    .gjas-sort {
+      margin-left: 0px;
+    }
+  }
+}
+
+body.path-search {
+
+  .mainpagecontent {
+    // text-align: center;
+    .main-container {
+      min-height: 80px;
+    }
+
+    h3 {
+      font-size: 1.2em;
+      padding: 20px;
+    }
+
+    .search-results {
+      text-align: left;;
+      border-color: #FFFFFF;
+      background-color: #FFFFFF;
+
+    .result {
+      clear: both;
+    }
+
+    .url {
+        color: #486c96;
+      }
+
+    .gs-image {
+        max-width: 85px;
+        float: left;
+        margin: 4px 10px 10px 0;
+      }
+    }
+
+    .pager {
+      margin-left: auto;
+      margin-right: auto;
+      max-width: 1200px;
+      background: white;
+    }
+  }
+
+  h2 {
+    display: none;
+  }
+
+
+  .item-list {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+  }
+
+  #google-cse-results {
+    text-align: left;
+
+    .form-item {
+      margin-bottom: 0;
+    }
+  }
+
+  #edit-help-link {
+    display: none;
+  }
+
+
+  .max-width--large-desktop {
+    background-color: white;
+  }
+
+  .url {
+
+    /* These are technically the same, but use both */
+    overflow-wrap: break-word;
+    word-wrap: break-word;
+
+    -ms-word-break: break-all;
+    /* This is the dangerous one in WebKit, as it breaks things wherever */
+    word-break: break-all;
+    /* Instead use this non-standard one: */
+    word-break: break-word;
+
+    /* Adds a hyphen where the word breaks, if supported (No Blink) */
+    -ms-hyphens: auto;
+    -moz-hyphens: auto;
+    -webkit-hyphens: auto;
+    hyphens: auto;
+
+  }
+
+}
+
+ol.ul_google_json_api_search-results{
+  padding-bottom: 35px;
+  padding-left: 5%;
+  padding-right: 5%;
+}
+
+#google-cse-results {
+  .gs-web-image-box,
+  .gs-promotion-image-box {
+    max-width: 100px;
+    width: 85px;
+    margin-right: 15px;
+
+    .gs-image, .gs-promotion-image {
+      float: left;
+      max-width: 85px;
+      max-height: 85px;
+    }
+  }
+
+  table {
+    margin: 0;
+    td {
+      border: none;
+      line-height: 0;
+    }
+  }
+  .gsc-results .gsc-cursor-box {
+    .gsc-cursor-page {
+      font-size: 18px;
+      margin-right: 0;
+      padding: 6px 17px;
+
+      border: 1px solid #eaeaea;
+
+      &:active,
+      &:focus {
+        background-color: rgb(177, 8, 32);
+        color: white;
+      }
+    }
+    .gsc-cursor-current-page {
+      background-color: rgb(177, 8, 32);
+      color: white;
+    }
+
+  }
+
+
+  .gsc-control-cse .gs-result .gs-title {
+    font-size: 2rem;
+  }
+
+  .gsc-orderby-container {
+    text-align: left;
+  }
+  .gsc-result-info {
+    display: none;
+  }
+
+  .gsc-control-cse,
+  .gsc-control-cse .gsc-table-result {
+    font-family: OpenSans,-apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif !important;
+    font-size: 1.6rem
+  }
+
+}

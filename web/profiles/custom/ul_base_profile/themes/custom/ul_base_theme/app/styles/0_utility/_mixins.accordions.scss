@@ -1,0 +1,12 @@
+@mixin accordion-caret() {
+  position: relative;
+  &:after {
+    @include icon-settings();
+    #{$end-direction}: $spacing-unit;
+    content: $icon-caret-down-solid;
+    font-size: 1.5rem;
+    position: absolute;
+    top: 50%;
+    transform: translate(50% * $transform-direction, -50%);
+  }
+}

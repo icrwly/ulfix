@@ -1,0 +1,101 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ul_testing module.
+ */
+
+use Symfony\Component\Yaml\Yaml;
+
+/**
+ * Implements hook_install().
+ */
+function ul_testing_install() {
+  create_ul_testing_views();
+}
+
+/**
+ * Create the views required for the ul_testing module.
+ */
+function create_ul_testing_views() {
+  // Make sure that the test_node view is installed.
+  $config_path = \Drupal::service('file_system')->realpath(\Drupal::service('module_handler')->getModule('ul_testing')->getPath()) . '/config/install/';
+  $yml = file_get_contents($config_path . 'views.view.test_node.yml');
+
+  $view_config = Yaml::parse($yml);
+  $view_manager = \Drupal::entityTypeManager()->getStorage('view');
+
+  $loaded = $view_manager->load('test_node');
+  if (!$loaded) {
+    $view_manager->create($view_config)->save();
+  }
+
+}
+
+/**
+ * Implements hook_schema().
+ */
+function ul_testing_schema() {
+  $schema['ul_testing_test_node'] = [
+    'description' => 'Stored which nodes have been created through ul_testing test content creation tools.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'not null' => TRUE,
+        'description' => 'unique id for the generated test node.',
+      ],
+      'qa_id' => [
+        'description' => 'User entered identifier for the test case',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'nid' => [
+        'description' => 'node ID of the the test node.',
+        'type' => 'int',
+        'size' => 'normal',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'test_group' => [
+        'description' => 'The test group used for creating the test node',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+      'type' => [
+        'description' => 'The type of test node created',
+        'type' => 'varchar',
+        'length' => 32,
+        'not null' => TRUE,
+      ],
+    ],
+    'primary key' => ['id'],
+    'auto increment' => 1,
+  ];
+
+  return $schema;
+}
+
+/**
+ * UL-4825.
+ *
+ * Update test_node view from config/install.
+ */
+function ul_testing_update_8001(&$sandbox) {
+
+  // Views are in config ignore, so updated to view config needs to be done in an update hook.
+  $config_path = \Drupal::service('file_system')->realpath(\Drupal::service('module_handler')->getModule('ul_testing')->getPath()) . '/config/install/';
+  $yml = file_get_contents($config_path . 'views.view.test_node.yml');
+
+  $view_config = Yaml::parse($yml);
+  $view_manager = \Drupal::entityTypeManager()->getStorage('view');
+
+  $view = $view_manager->load('test_node');
+  if ($view) {
+    $view_manager->delete([$view]);
+  }
+
+  $view_manager->create($view_config)->save();
+
+}

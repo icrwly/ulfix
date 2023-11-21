@@ -1,0 +1,8 @@
+uuid: 37baccad-b175-4653-bdde-0573e286931c
+langcode: en
+status: true
+dependencies: {  }
+name: 'Content Access Levels'
+vid: content_access_levels
+description: 'Indicate access levels required for pieces of content.'
+weight: 0

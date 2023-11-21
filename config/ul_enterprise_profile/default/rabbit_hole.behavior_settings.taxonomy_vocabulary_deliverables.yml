@@ -1,0 +1,14 @@
+uuid: 142e1fcc-be69-4346-88f5-f2e06c943578
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.deliverables
+id: taxonomy_vocabulary_deliverables
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

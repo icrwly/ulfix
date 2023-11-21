@@ -1,0 +1,16 @@
+{# @file: paragraph--card-small.html.twig #}
+{% set card_title = content.field_card_sm_child_title.0|render %}
+{% set card_desc = content.field_card_sm_child_description.0|render %}
+{% set img_src = content.field_card_sm_child_img.0["url"]["#markup"] %}
+{% set img_alt = content.field_card_sm_child_img.0["alt"]["#markup"] %}
+
+{# If Display mode is set to "Full", the 'span-var-d' class
+   will kick in and show 4 cards per row for Large Desktops.
+   Else, the max cards per row will be 3 by default.
+#}
+<div class="span-var-ld span-4-d span-6-t campaign-card">
+  {# Lazy load the images. #}
+  <img class="lazy" data-src="{{ img_src }}" alt="{{ img_alt }}" />
+  <h3>{{ card_title }}</h3>
+  <p>{{ card_desc }}</p>
+</div>

@@ -1,0 +1,86 @@
+.section-cards{
+  border-top:1px solid $gray;
+  margin-top: 30px;
+  padding-bottom: 30px;
+  padding-top: 30px;
+  h2{
+    margin-top: 0;
+  }
+  .card-container{
+    display: flex;
+    flex-wrap: wrap;
+  }
+  .card{
+    display: block;
+    margin-bottom: $spacing-unit--l;
+    width:100%;
+    @include breakpoint($tablet){
+      margin-right: $spacing-unit;
+      width:calc(50% - #{$spacing-unit});
+      &:nth-child(2n) {
+        margin-right: 0;
+      }
+    }
+  }
+  &.page{
+    .card{
+      display: block;
+      width:100%;
+      @include breakpoint($tablet){
+        margin-right: $spacing-unit--l;
+        width:calc(50% - #{$spacing-unit--l});
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  &.file{
+    .card{
+      display: block;
+      width:100%;
+      @include breakpoint($tablet){
+        margin-right: $spacing-unit;
+        width:calc(33% - #{$spacing-unit});
+        &:nth-child(3n) {
+          margin-right: 0;
+        }
+      }
+      h3 {
+        word-wrap: break-word;
+      }
+    }
+  }
+  &.quarter{
+    .card{
+      display: block;
+      width:100%;
+      @include breakpoint($tablet){
+        margin-right: $spacing-unit;
+        width:calc(50% - #{$spacing-unit});
+        &:nth-child(2n) {
+          margin-right: 0;
+        }
+      }
+      @include breakpoint($desktop){
+        margin-right: $spacing-unit;
+        width:calc(25% - #{$spacing-unit});
+        &:nth-child(2n) {
+          margin-right: $spacing-unit;
+        }
+        &:nth-child(4n) {
+          margin-right: 0;
+        }
+      }
+    }
+  }
+  &.featured {
+    border-top: none;
+
+    .card {
+      display: block;
+      margin-right: 0;
+      width: 100%;
+    }
+  }
+}

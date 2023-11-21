@@ -1,0 +1,52 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = class ~ " card--spotlight" %}
+
+{% block content %}
+    <div class="image-container">
+      {% block card_tags %}
+        {% if tags %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with { widget: tags } only %}
+        {% endif %}
+      {% endblock %}
+      {% block card_image %}
+        {% if image %}
+          <img src="{{- image -}}" alt="{{- imageAlt -}}" />
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% if title or description or links or cta %}
+    <div class="content-container">
+      {% block card_title %}
+        {% if title %}
+          <h3 class="card__title h2">{{- title -}}</h3>
+        {% endif %}
+      {% endblock %}
+      {% block card_description %}
+        {% if description %}
+          <div class="card__description">
+            <p>{{- description -}}</p>
+          </div>
+        {% endif %}
+      {% endblock %}
+      {% block card_cta %}
+        {% if cta %}
+          <div class="card__cta">
+            <a href="{{ cta.url }}" class="button button--black-outline" title="{{ cta.name }}">{{ cta.name }}</a>
+          </div>
+        {% endif %}
+      {% endblock %}
+      {% block card_links %}
+        {% if links %}
+          <div class="card__links">
+            {% block card_links_inner %}
+            <div class="editor-content">
+              {{- links -}}
+            </div>
+            {% endblock %}
+          </div>
+        {% endif %}
+      {% endblock %}
+    </div>
+  {% endif %}
+
+{% endblock %}

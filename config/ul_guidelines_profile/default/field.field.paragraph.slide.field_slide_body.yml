@@ -1,0 +1,23 @@
+uuid: 3288ecd2-dea9-4797-a566-acbc5d42cdea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_slide_body
+    - paragraphs.paragraphs_type.slide
+  module:
+    - text
+_core:
+  default_config_hash: H1MZ3hhwWg7MtdQCGvgOrmjRxE6HHGF0r-sEQnf-Bes
+id: paragraph.slide.field_slide_body
+field_name: field_slide_body
+entity_type: paragraph
+bundle: slide
+label: Body
+description: 'Provide a brief description for this slide. '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

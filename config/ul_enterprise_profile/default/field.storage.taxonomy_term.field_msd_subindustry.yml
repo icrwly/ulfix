@@ -1,0 +1,111 @@
+uuid: 48795f37-c7fd-45ef-8c28-a7d455b66b09
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - taxonomy
+id: taxonomy_term.field_msd_subindustry
+field_name: field_msd_subindustry
+entity_type: taxonomy_term
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Appliances / Lighting'
+      label: 'Appliances / Lighting'
+    -
+      value: Automotive
+      label: Automotive
+    -
+      value: 'Batteries / Charging'
+      label: 'Batteries / Charging'
+    -
+      value: 'Circuit Protection'
+      label: 'Circuit Protection'
+    -
+      value: 'CRS - Private Label'
+      label: 'CRS - Private Label'
+    -
+      value: 'CRS - Retail'
+      label: 'CRS - Retail'
+    -
+      value: 'Dietary Supplements'
+      label: 'Dietary Supplements'
+    -
+      value: 'Digital Health'
+      label: 'Digital Health'
+    -
+      value: 'Electrical Distribution'
+      label: 'Electrical Distribution'
+    -
+      value: 'EMC Testing'
+      label: 'EMC Testing'
+    -
+      value: E-Mobility
+      label: E-Mobility
+    -
+      value: 'Energy Systems'
+      label: 'Energy Systems'
+    -
+      value: 'Factory Control Systems'
+      label: 'Factory Control Systems'
+    -
+      value: 'Field Evaluation'
+      label: 'Field Evaluation'
+    -
+      value: 'Healthcare Product Testing & Certification'
+      label: 'Healthcare Product Testing & Certification'
+    -
+      value: 'IOT Smart Cars'
+      label: 'IOT Smart Cars'
+    -
+      value: Laboratory
+      label: Laboratory
+    -
+      value: 'N/A - Energy & Power Technologies'
+      label: 'N/A - Energy & Power Technologies'
+    -
+      value: 'N/A - Functional Safety'
+      label: 'N/A - Functional Safety'
+    -
+      value: 'N/A - Health Sciences'
+      label: 'N/A - Health Sciences'
+    -
+      value: 'N/A - High Tech'
+      label: 'N/A - High Tech'
+    -
+      value: 'N/A - Wire & Cable'
+      label: 'N/A - Wire & Cable'
+    -
+      value: 'Non-Clinical Testing'
+      label: 'Non-Clinical Testing'
+    -
+      value: 'Oil & Gas'
+      label: 'Oil & Gas'
+    -
+      value: 'OTC & Pharmaceuticals'
+      label: 'OTC & Pharmaceuticals'
+    -
+      value: 'PCB / PWB / Components'
+      label: 'PCB / PWB / Components'
+    -
+      value: PSS
+      label: PSS
+    -
+      value: 'QMS Certification'
+      label: 'QMS Certification'
+    -
+      value: 'Transit and Transportation'
+      label: 'Transit and Transportation'
+    -
+      value: 'Wiring Devices'
+      label: 'Wiring Devices'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

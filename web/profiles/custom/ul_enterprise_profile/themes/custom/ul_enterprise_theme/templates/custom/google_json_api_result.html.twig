@@ -1,0 +1,7 @@
+<div class="result">
+  <div class="title"><a href="{{ result.link }}">{{ result.htmlTitle | raw }}</a></div>
+  <div class="gs-image-box gs-web-image-box gs-web-image-box-landscape">
+  </div>
+  <div class="url gs-bidi-start-align gs-visibleUrl gs-visibleUrl-long">{{ result.link }}</div>
+  <div class="snippet html-snippet">{{ highlight_search(result.htmlSnippet, term) }}</div>
+</div>

@@ -1,0 +1,10 @@
+{# Image Gallery grid items. Loops through "images" array: #}
+{% for item in images %}
+  <div class="row-item span-6-lm span-4-d">
+  <a href="{{ item.image }}" title="{{ item.image_alt }}">
+      <img class="lazy" data-src="{{ item.image }}" alt="{{ item.image_alt }}">
+      <span class="icon_popup"></span>
+  </a>
+  </div>
+
+{% endfor %}

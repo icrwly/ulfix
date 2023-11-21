@@ -1,0 +1,10 @@
+uuid: 1c1a6b70-3539-4682-89dd-b6e160831320
+langcode: en
+status: true
+dependencies: {  }
+id: curated_separate_list
+label: 'Curated Related Separate Lists'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Curated Related Separate Lists</em> to create 1-3 columns of curated related items displayed as a list of links with headings.'
+behavior_plugins: {  }

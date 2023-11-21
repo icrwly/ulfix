@@ -1,0 +1,18 @@
+uuid: 5bee38d8-44c5-4113-b953-dccc519bcfd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.material_categories
+id: taxonomy_term.material_categories.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: material_categories
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

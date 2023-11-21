@@ -1,0 +1,79 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ul_crc_asset module.
+ */
+
+use Drupal\Core\Field\BaseFieldDefinition;
+
+/**
+ * Implements hook_update_N().
+ */
+function ul_crc_asset_update_8901() {
+  $connection = \Drupal::database();
+  $field_storage_definition1 = BaseFieldDefinition::create('integer')
+    ->setLabel(t('CRC ID'))
+    ->setDescription(t('CRC Asset ID.'))
+    ->setReadOnly(TRUE)
+    ->setTranslatable(FALSE)
+    ->setStorageRequired(FALSE);
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('crc_id', 'crc_asset', 'crc_asset', $field_storage_definition1);
+
+  $field_storage_definition2 = BaseFieldDefinition::create('string')
+    ->setLabel(t('CRC Language'))
+    ->setDescription(t('The Lanuage of a CRC Asset.'))
+    ->setTranslatable(FALSE)
+    ->setStorageRequired(FALSE);
+  \Drupal::entityDefinitionUpdateManager()
+    ->installFieldStorageDefinition('crc_language', 'crc_asset', 'crc_asset', $field_storage_definition2);
+
+  $schema = $connection->schema();
+  if (!$schema->tableExists('crc_asset_field_data')) {
+    // Copy all old id values to the crc_id column.
+    $connection->query('UPDATE {crc_asset} SET crc_id=id where crc_id is NULL');
+    $connection->query('UPDATE {crc_asset} SET crc_language=langcode where crc_language is null');
+
+  }
+}
+
+/**
+ * Implements hook_update_N().
+ */
+function ul_crc_asset_update_9201() {
+  // The new installation of ul_crc_asset module creates 2 tables,
+  // rc_asset & crc_asset_field_data.
+  $connection = \Drupal::database();
+  $schema = $connection->schema();
+
+  $tbl_crc = 'crc_asset';
+  $tbl_crc_data = 'crc_asset_field_data';
+
+  if ($schema->tableExists($tbl_crc) && $schema->tableExists($tbl_crc_data)) {
+    // Set uid field "not null" and default = 1.
+    $spec_uid = [
+      'type' => 'int',
+      'not null' => TRUE,
+      'default' => 1,
+    ];
+    $schema->changeField($tbl_crc_data, 'uid', 'uid', $spec_uid);
+    // The value of crc_id field may be "null".
+    $spec_crc_id = [
+      'type' => 'int',
+      'not null' => FALSE,
+    ];
+    $schema->changeField($tbl_crc_data, 'crc_id', 'crc_id', $spec_crc_id);
+    // The value of crc_language field may be "null".
+    $spec_crc_language = [
+      'type' => 'varchar',
+      'length' => 12,
+      'not null' => FALSE,
+    ];
+    $schema->changeField($tbl_crc_data, 'crc_language', 'crc_language', $spec_crc_language);
+  }
+  else {
+    return t('Nothing to update for CRC.');
+  }
+
+}

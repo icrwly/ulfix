@@ -1,0 +1,14 @@
+uuid: ba160a42-b7bf-4161-b9d8-92f779d39f9c
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.guidelines_approver
+  module:
+    - user
+id: user_add_role_action.guidelines_approver
+label: 'Add the Guidelines Approver role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: guidelines_approver

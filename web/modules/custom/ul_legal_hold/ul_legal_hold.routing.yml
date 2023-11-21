@@ -1,0 +1,14 @@
+entity.ul_legal_hold.content:
+  path: 'node/{node}/legal-holds'
+  defaults:
+    _controller: '\Drupal\ul_legal_hold\Controller\LegalHoldController::build'
+    _title: 'Legal Holds'
+  requirements:
+    _permission: 'view legal holds'
+entity.ul_legal_hold.add_form:
+  path: 'node/{node}/legal-holds/add'
+  defaults:
+    _entity_form: ul_legal_hold.add
+    _title: 'Add Legal Hold'
+  requirements:
+    _permission: 'add legal hold'

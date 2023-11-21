@@ -1,0 +1,25 @@
+.section--homepage-articles{
+  .featured-card-link{
+    h3,
+    p{
+      color:$text-color;
+    }
+  }
+  .section--banner{
+    .section--banner__content{
+      margin: 4.5rem 0;
+      max-width: 63rem;
+      padding:$spacing-unit--l;
+    }
+  }
+  .section--cards{
+    padding-top:$spacing-unit--l;
+    &:last-child{
+      padding-bottom: 0;
+    }
+    .wrapper{
+      padding-left:0;
+      padding-right:0;
+    }
+  }
+}

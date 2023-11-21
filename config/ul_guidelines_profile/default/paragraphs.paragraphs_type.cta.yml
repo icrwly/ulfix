@@ -1,0 +1,11 @@
+uuid: bfb55df6-f7cb-474b-b7c1-51035e0d654e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ZTYCg9Op02YZ0HDznpEDBo3ENfLSY3Kt4ZRSESjy_E0
+id: cta
+label: 'Call to action'
+icon_uuid: null
+description: 'Use <em>Call to action</em> for content with a link and description. '
+behavior_plugins: {  }

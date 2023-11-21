@@ -1,0 +1,29 @@
+uuid: 53b0ac07-ab5d-4e9d-9883-4c1fb356a2cb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_content_owner
+    - node.type.knowledge
+    - taxonomy.vocabulary.content_owner
+id: node.knowledge.field_shared_content_owner
+field_name: field_shared_content_owner
+entity_type: node
+bundle: knowledge
+label: 'Content Owner'
+description: 'Select the person responsible for the page content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_owner: content_owner
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

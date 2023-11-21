@@ -1,0 +1,10 @@
+uuid: 5d84c885-4775-408c-9864-2c056630fd31
+langcode: en
+status: true
+dependencies: {  }
+id: location
+label: 'Location Address'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Location Address</em> to enter the address and contact information of a UL office or laboratory location.'
+behavior_plugins: {  }

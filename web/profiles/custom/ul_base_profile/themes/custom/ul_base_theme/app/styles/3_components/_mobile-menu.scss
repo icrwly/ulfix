@@ -1,0 +1,130 @@
+.mobile-menu {
+  &__header {
+    border-bottom: 1px solid $border-color;
+    padding: $spacing-unit;
+    position: relative;
+    @include breakpoint(max-width $desktop - 1) {
+      padding-left: $spacing-unit--l;
+      padding-right: $spacing-unit--l;
+    }
+    @include breakpoint(max-width $tablet - 1) {
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+    }
+    @include breakpoint($desktop) {
+      display: none;
+    }
+
+    .inner-wrapper {
+      position: relative;
+    }
+  }
+
+  &__title {
+    color: $black;
+    font-size: 2.2rem;
+    margin: 0;
+  }
+
+  &__button {
+    border-radius: $border-radius;
+    color: $black;
+    height: 100%;
+    position: absolute;
+    right: -$spacing-unit * .75;
+    text-align: center;
+    top: 0;
+    width: $mobile-button-size;
+    @include breakpoint($desktop) {
+      display: none;
+    }
+    &:before {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+    &:hover,
+    &:focus {
+      background: $background-color--hover;
+      outline: none;
+    }
+  }
+
+  &__back {
+    border-radius: $border-radius;
+    color: $black;
+    display: block;
+    font-size: 1.4rem;
+    font-weight: 300;
+    line-height: 2;
+    margin-#{$end-direction}: -$spacing-unit--s;
+    padding: $spacing-unit/4 $spacing-unit * .75;
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    &:hover,
+    &:focus {
+      background: $background-color--hover;
+      outline: none;
+    }
+  }
+
+  &__icon {
+    color: $black;
+    display: inline-block;
+    font-size: 2.1rem;
+    font-weight: 600;
+    line-height: 1;
+    margin-#{$end-direction}: $spacing-unit--xs;
+    position: relative;
+    transform: translateY(12.5%);
+  }
+
+  .menu-list--group {
+    @include breakpoint(max-width $desktop - 1) {
+      padding-left: $spacing-unit--l;
+      padding-right: $spacing-unit--l;
+      .menu-item {
+        margin-left: -$spacing-unit--s;
+        margin-right: -$spacing-unit--s;
+      }
+    }
+    @include breakpoint(max-width $tablet - 1) {
+      padding-left: $spacing-unit;
+      padding-right: $spacing-unit;
+    }
+  }
+  ul {
+    & ul {
+      list-style-type: none;
+      padding-left: $spacing-unit + 1;
+    }
+  }
+  /*
+   * Ticket 345230: not sure why the ul max-height is set as 0 by JS.
+   * So, reset it as !important.
+   */
+  ul.menu-list--group li.menu-item ul {
+    max-height: 100% !important;
+  }
+  .accordion{
+    &:before {
+      content: "\f078";
+      font-family: FontAwesome;
+      display: inline-block;
+      width: 1em;
+      margin-right: $spacing-unit--s;
+    }
+  }
+  .active-trail .accordion.first-level.active-trail {
+    &:before {
+      content: "\f077";
+      font-family: FontAwesome;
+      display: inline-block;
+      width: 1em;
+      margin-right: $spacing-unit--s;
+    }
+  }
+}

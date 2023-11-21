@@ -1,0 +1,13 @@
+entity.ul_alert.collection:
+  title: 'Alerts'
+  route_name: entity.ul_alert.collection
+  description: 'List Alert entities'
+  parent: system.admin_content
+  weight: 100
+
+entity.ul_alert_type.collection:
+  title: 'Alert types'
+  route_name: entity.ul_alert_type.collection
+  description: 'Create and manage fields, forms and display settings for your alerts.'
+  parent: system.admin_structure
+  weight: 99

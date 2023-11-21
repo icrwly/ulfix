@@ -1,0 +1,483 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "content_bg": "red",
+        "image": "http://via.placeholder.com/1600x900",
+        "image_alt": "Image Alt",
+        "title": "Your Business is complex.<br>We help you make better choices.",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean euismod bibendum laoreet."
+      }
+    ]
+  },
+  "filter_bar": {
+    "filter_toggle": {
+      "href": "#filter",
+      "name": "Filter"
+    },
+    "filter_options": [
+      {
+        "id": "select-1",
+        "name": "select-1",
+        "options": [
+          {
+            "text": "Date Range",
+            "value": "date-range"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      },
+      {
+        "id": "select-2",
+        "name": "select-2",
+        "options": [
+          {
+            "text": "Topics",
+            "value": "topics"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      },
+      {
+        "id": "select-3",
+        "name": "select-3",
+        "options": [
+          {
+            "text": "Industries",
+            "value": "industries"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      },
+      {
+        "id": "select-4",
+        "name": "select-4",
+        "options": [
+          {
+            "text": "Reports",
+            "value": "reports"
+          },
+          {
+            "text": "Two",
+            "value": "two"
+          }
+        ]
+      }
+    ],
+    "view_options": [
+      {
+        "id": "select-1",
+        "name": "select-1",
+        "options": [
+          {
+            "text": "Newest",
+            "value": "newest"
+          }
+        ]
+      }
+    ],
+    "active_filters": [
+      { "name": "Selection" },
+      { "name": "Selection" },
+      { "name": "Selection" },
+      { "name": "Selection" }
+    ],
+    "pager": {
+      "prev": true,
+      "next": true,
+      "pages": [
+        {
+          "active": true,
+          "link": "#",
+          "title": "One"
+        },
+        {
+          "link": "#",
+          "title": "Two"
+        },
+        {
+          "link": "#",
+          "title": "Three"
+        },
+        {
+          "link": "#",
+          "title": "Four"
+        },
+        {
+          "link": "#",
+          "title": "Five"
+        },
+        {
+          "link": "#",
+          "title": "Six"
+        },
+        {
+          "link": "#",
+          "title": "Seven"
+        }
+      ]
+    }
+  },
+  "card_list": [
+    {
+      "type": "events",
+      "class": "card--l",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/1400x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "class": "full-width",
+      "clickable": true,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Excepteur sint occaecat",
+      "profile": {
+        "link": "https://www.google.com/",
+        "name": "Profile Name"
+      }
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "events",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Northbrook, IL",
+      "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "image": "http://via.placeholder.com/800x600",
+      "imageAlt": "PLACEHOLDER ALT",
+      "date": "2018-03-31",
+      "tags": [
+        {
+          "name": "New",
+          "type": "new"
+        }
+      ],
+      "topics": [
+        {
+          "name": "Event Type",
+          "href": "#"
+        }
+      ]
+    },
+    {
+      "type": "banner",
+      "clickable": true,
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "subtitle": "Excepteur sint occaecat",
+      "profile": {
+        "link": "https://www.google.com/",
+        "name": "Profile Name"
+      }
+    }
+  ],
+  "pager": {
+    "prev": true,
+    "next": true,
+    "pages": [
+      {
+        "active": true,
+        "link": "#",
+        "title": "One"
+      },
+      {
+        "link": "#",
+        "title": "Two"
+      },
+      {
+        "link": "#",
+        "title": "Three"
+      },
+      {
+        "link": "#",
+        "title": "Four"
+      },
+      {
+        "link": "#",
+        "title": "Five"
+      },
+      {
+        "link": "#",
+        "title": "Six"
+      },
+      {
+        "link": "#",
+        "title": "Seven"
+      }
+    ]
+  }
+}

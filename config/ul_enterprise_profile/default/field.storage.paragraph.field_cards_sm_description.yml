@@ -1,0 +1,19 @@
+uuid: a7032090-44dc-46d3-92d7-d193199472ea
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+id: paragraph.field_cards_sm_description
+field_name: field_cards_sm_description
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

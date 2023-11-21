@@ -1,0 +1,161 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ *
+ * Adds a OneTrust JavaScript snippet to page.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_help().
+ */
+function ul_onetrust_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    case 'help.page.ul_onetrust':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The UL OneTrust module provides integration with <a href = "https://www.onetrust.com/">OneTrust Privacy Management</a> JS API.') . '</p>';
+      $output .= '<h3>' . t('Cookie Banner Configuration') . '</h3>';
+      $output .= '<p>' . t('Both of the following configurations are required to enable the banner.') . '</p>';
+      $output .= '<dl>';
+      $output .= '<dt>' . t('Script URL:') . '</dt>';
+      $output .= '<dd>' . t("The full and absolute path (including the protocol, e.g. https://) to the OneTrust JavaScript.") . '</dd>';
+      $output .= '<dd>' . t("E.g. https://cdn.cookielaw.org/scripttemplates/otSDKStub.js") . '</dd>';
+      $output .= '<dt>' . t('Data Domain Script ID:') . '</dt>';
+      $output .= '<dd>' . t('This is the unique ID that links your site with OneTrust.') . '</dd>';
+      $output .= '<dd>' . t('This value is passed to OneTrust via an HTML5 data-attribute.') . '</dd>';
+      $output .= '<dd>' . t('E.g. data-domain-script="b060a578-9830-448d-9d34-2419f2b5d3cb"') . '</dd>';
+      $output .= '</dl>';
+      $output .= '<p>' . t('Note: Once enabled, the cookie banner will only display for un-authenticated users, and will be hidden for logged-in site administrators.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_library_info_alter().
+ *
+ * This is to re-write the JS script tags with info that
+ * OneTrust can use to auto-block / allow cookies based
+ * on user preferences and consent!
+ * NOTE: The number in the class identifier corresponds to
+ * the cookie group id for the cookies that the script loads.
+ * C0001 = strictly necessary (not blocked!)
+ * C0002 = performance.
+ * C0003 = functional.
+ * C0004 = tracking.
+ */
+function ul_onetrust_library_info_alter(&$libraries, $extension) {
+  switch ($extension) {
+    // Back Button - in the ul_enterprise_profile:
+    case 'ul_enterprise_profile';
+      if (isset($libraries['back-button']['js'])) {
+        $libraries['back-button']['js']['js/back_button.js']['attributes'] = [
+          'type' => 'text/plain',
+          'class' => 'optanon-category-C0003',
+        ];
+      }
+      break;
+
+    // HotJar - in the ul_com_theme:
+    case 'ul_com_theme';
+      if (isset($libraries['ul-com-hotjar']['js'])) {
+        $libraries['ul-com-hotjar']['js']['scripts/hotjar.js']['attributes'] = [
+          'async' => TRUE,
+          'type' => 'text/plain',
+          'class' => 'optanon-category-C0002',
+        ];
+      }
+      break;
+
+  }
+}
+
+/**
+ * Implements hook_page_attachments_alter().
+ *
+ *  Add OneTrust Cookie JS and re-write Acquia Lift JS.
+ */
+function ul_onetrust_page_attachments_alter(array &$attachments) {
+
+  // ACQUIA LIFT - targeting (tracking) cookie: Add category C0004.
+  if (isset($attachments['#attached']['html_head']) && is_array($attachments['#attached']['html_head'])) {
+    foreach ($attachments['#attached']['html_head'] as $key => $val) {
+      if (is_array($val) && isset($val[1]) && $val[1] == 'acquia_lift_javascript') {
+        $attributes = [
+          'type' => 'text/plain',
+          'class' => 'optanon-category-C0004',
+        ];
+        $attachments['#attached']['html_head'][$key][0]['#attributes'] = array_merge($attributes, $attachments['#attached']['html_head'][$key][0]['#attributes']);
+      }
+    }
+  }
+
+  // BEGIN ONE TRUST JS.
+  // Look at the user:
+  $user_isAnonymous = \Drupal::currentUser()->isAnonymous();
+
+  // Module configurations.
+  $config = \Drupal::config('ul_onetrust.settings');
+
+  // ANONYMOUS USER and MODULE ENABLED:
+  if ($user_isAnonymous && $config->get('consent_notice_enable')) {
+
+    // The script URL is hard coded. It does not change.
+    $script_url = 'https://cdn.cookielaw.org/scripttemplates/otSDKStub.js';
+
+    // This does change based on site so get config value.
+    $data_domain = $config->get('data_domain_script');
+
+    // LEGACY: If the data domain script is set to "new",
+    // then get the value from the text field:
+    if ($data_domain == 'new') {
+      $data_domain = $config->get('data_domain_script_new');
+    }
+
+    // Only allow the testing script in the lower environments!
+    if (!isset($_ENV['AH_PRODUCTION']) || empty($_ENV['AH_PRODUCTION'])) {
+
+      // If the testing script is enabled:
+      $use_testing_script = $config->get('use_testing_script');
+
+      // If enabled, add string to data domain value:
+      if (!empty($use_testing_script) && $use_testing_script == 1) {
+        $data_domain = $data_domain . '-test';
+      }
+    }
+
+    // Attach the OneTrust JS with custom data-domain:
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'script',
+        '#attributes' => [
+          'src' => $script_url,
+          'data-domain-script' => $data_domain,
+          'type' => 'text/javascript',
+          'charset' => 'UTF-8',
+        ],
+      ],
+      'ul_onetrust_JS',
+    ];
+
+    // Add the OneTrust Optanon Wrapper as JS <script> to the <head>:
+    $script = "\n" . 'if (typeof $ === "undefined" && typeof jQuery !== "undefined") { var $ = jQuery; }'
+            . "\n" . 'function OptanonWrapper() {}' . "\n";
+
+    $attachments['#attached']['html_head'][] = [
+      [
+        '#type' => 'html_tag',
+        '#tag' => 'script',
+        '#value' => Markup::create($script),
+      ],
+      'ul_onetrust_optanon_wrapper',
+    ];
+
+  }
+
+}

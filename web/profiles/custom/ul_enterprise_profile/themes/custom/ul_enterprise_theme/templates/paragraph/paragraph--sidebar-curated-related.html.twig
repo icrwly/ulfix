@@ -1,0 +1,12 @@
+{% extends '@ul_base_theme/2_pieces/siderail--links.twig' %}
+{% set items = content.sidebar_links %}
+{% block content %}
+  <h3>{{ content.field_rr_curated_heading }}</h3>
+  {% if items %}
+    <ul>
+    {% for item in items %}
+      <li><a href="{{ item['#url']|render }}" title="{{ item['#title'] }}">{{ item['#title'] }}</a></li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endblock %}

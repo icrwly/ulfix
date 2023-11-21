@@ -1,0 +1,32 @@
+{# @file: @ul_enterprise_theme/marketo/inc-customizable-fields.html.twig #}
+{# 
+  /**
+   * Marketo customizable fields:
+   *
+   * Array of both "Required" and "Hidden" fields - for processing in the
+   * Marketo Countries JS. "Optional" fields need no processing.
+   */
+#}
+
+<script id="mkto_fields">
+let mkto_fields = {};
+
+{% if marketo.fields["required"] %}
+  /* "Required" */
+  mkto_fields.required = [
+    {% for value in marketo.fields["required"] %}
+      '{{ value }}',
+    {% endfor %}
+  ];
+{% endif %}
+
+{% if marketo.fields["hidden"] %}
+  /* "Hidden" */
+  mkto_fields.hidden = [
+    {% for value in marketo.fields["hidden"] %}
+      '{{ value }}',
+    {% endfor %}
+  ];
+{% endif %}
+
+</script>

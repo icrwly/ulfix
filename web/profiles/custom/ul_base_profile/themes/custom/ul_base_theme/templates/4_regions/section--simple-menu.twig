@@ -1,0 +1,27 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--simple-menu section--paragraph has-bg has-margin wrapper" %}
+
+{% block section_body %}
+  <div class="section__inner wrapper">
+    {% block link_list %}
+      {% if items %}
+        <div class="section__links">
+          {% for item in items %}
+            {% include "@ul_base_theme/3_components/descriptive-link.twig" with item only %}
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endblock %}
+    {% block cta %}
+      {% if cta %}
+        <div class="section__cta">
+          {% include '@ul_base_theme/2_pieces/button.twig' with {
+            name: cta.title,
+            link: cta.url,
+            class: 'ul-ga-megamenu-cta button--gray button--m'
+          } %}
+        </div>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

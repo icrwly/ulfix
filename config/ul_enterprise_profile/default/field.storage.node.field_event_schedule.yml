@@ -1,0 +1,21 @@
+uuid: dcd34d23-f1b6-474a-8b81-ac83f3cd032f
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+_core:
+  default_config_hash: Q7CLf6URQN57yh2c0KNXfTyfqLb5mRYoAh8TxR8GXAQ
+id: node.field_event_schedule
+field_name: field_event_schedule
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

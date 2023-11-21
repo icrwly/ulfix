@@ -1,0 +1,29 @@
+uuid: a1e757a2-8a12-4130-8539-4a9827819c77
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_country
+    - node.type.campaign_page
+    - taxonomy.vocabulary.country
+id: node.campaign_page.field_shared_country
+field_name: field_shared_country
+entity_type: node
+bundle: campaign_page
+label: Country
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

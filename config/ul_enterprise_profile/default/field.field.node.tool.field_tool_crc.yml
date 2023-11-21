@@ -1,0 +1,23 @@
+uuid: 60ba64a6-dbcd-400d-adbc-650e8d7beda9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_tool_crc
+    - node.type.tool
+  module:
+    - ul_crc_asset
+id: node.tool.field_tool_crc
+field_name: field_tool_crc
+entity_type: node
+bundle: tool
+label: 'CRC File - Deprecated'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crc_asset'
+  handler_settings: {  }
+field_type: crc_asset_item

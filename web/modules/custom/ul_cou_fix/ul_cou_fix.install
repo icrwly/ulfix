@@ -1,0 +1,14 @@
+<?php
+
+/**
+ * @file
+ * Prepares for the uninstall of WBM and install of CM.
+ */
+
+/**
+ * Implements hook_install().
+ */
+function ul_cou_fix_install() {
+  // Make sure this module runs AFTER all others are finished with this form.
+  module_set_weight('ul_cou_fix', 999);
+}

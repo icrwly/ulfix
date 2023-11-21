@@ -1,0 +1,21 @@
+uuid: 3db43353-be41-46b5-9fa5-88a7120ff87a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_bg_color
+    - paragraphs.paragraphs_type.accordion
+  module:
+    - options
+id: paragraph.accordion.field_shared_bg_color
+field_name: field_shared_bg_color
+entity_type: paragraph
+bundle: accordion
+label: 'Background Color'
+description: 'You may select the background color for this paragraph (content section).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,23 @@
+uuid: b4a7d133-ba23-432a-9004-a48a654b6ae6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rr_curated_link
+    - paragraphs.paragraphs_type.sidebar_curated_related
+  module:
+    - link
+id: paragraph.sidebar_curated_related.field_rr_curated_link
+field_name: field_rr_curated_link
+entity_type: paragraph
+bundle: sidebar_curated_related
+label: 'Additional Link'
+description: 'An optional link, either external or internal, that can be added to the list of related links. An example would be to add a "View All" link pointing to a landing page.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

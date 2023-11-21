@@ -1,0 +1,6 @@
+// vertical align logo:
+.global-header__logo .brand-logo {
+  @include breakpoint($desktop) {
+    margin-top: 4px;
+  }
+}

@@ -1,0 +1,17 @@
+uuid: b85e418d-346a-4da5-9fea-5cf679d38c51
+langcode: en
+status: false
+dependencies: {  }
+id: latam
+label: latam
+description: 'Split for latam.ul.com and the corresponding site on lower environments.'
+weight: 0
+folder: ../config/ul_enterprise_profile/sites/latam
+module: {  }
+theme: {  }
+blacklist: {  }
+graylist:
+  - search.page.google_cse_search
+  - search.page.google_json_api_search
+graylist_dependents: true
+graylist_skip_equal: true

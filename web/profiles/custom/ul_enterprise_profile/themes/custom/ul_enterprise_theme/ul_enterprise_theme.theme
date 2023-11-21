@@ -1,0 +1,648 @@
+<?php
+
+/**
+ * @file
+ * UL Enterprise Profile Theme file.
+ */
+
+use Drupal\file\Entity\File;
+use Drupal\block\Entity\Block;
+use Drupal\media\Entity\Media;
+use Drupal\image\Entity\ImageStyle;
+use Drupal\Core\Menu\MenuTreeParameters;
+use Drupal\Core\Url;
+use Drupal\node\NodeInterface;
+use Drupal\views\Entity\View;
+use Drupal\views\Views;
+
+/**
+ * Implements hook_theme().
+ */
+function ul_enterprise_theme_theme($existing, $type, $theme, $path) {
+
+  return [
+    'paragraph_wrapper_section_grid_cards' => [
+      'template' => 'custom/paragraph-wrapper--section-grid-cards',
+      'variables' => [
+        'items' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements template_preprocess_field().
+ */
+function ul_enterprise_theme_preprocess_field(array &$variables, $hook) {
+  // Checking the view mode of each paragraph. If it's using card or grid then
+  // we pass it through a special theme function to ensure that it gets
+  // rendered correctly.
+  if ($variables['field_type'] == 'entity_reference_revisions') {
+    $delta = 0;
+    $index = 0;
+    $items = [];
+    while (!empty($variables['items'][$delta])) {
+      $item = $variables['items'][$delta];
+      $content = $item['content'];
+      $view_mode = isset($content['#view_mode']) ? $content['#view_mode'] : 'default';
+
+      // Wrap spotlight fields in a new theme. This makes the grid layout
+      // possible. Note: right now this just targets spotlights but it could
+      // easily be used for other paragraphs.
+      if (isset($content['#paragraph']) && $content['#paragraph']->getType() == 'spotlight' && $view_mode == 'card') {
+        $items[$index]['content']['#theme'] = 'paragraph_wrapper_section_grid_cards';
+        $items[$index]['content']['#items'][] = $content;
+      }
+      // Else continue rebuilding the items array with unchanged items.
+      else {
+        // When wrapping the spotlight items $index never gets incremented.
+        // doing that here.
+        if (isset($items[$index])) {
+          $index++;
+        }
+        $items[$index] = $item;
+        $index++;
+      }
+      $delta++;
+    }
+    if (!empty($items)) {
+      $variables['items'] = $items;
+    }
+  }
+
+  // If field is a Paragraphs Image Gallery:
+  if ($variables['field_name'] == 'field_image_gallery_images') {
+    $temp = [];
+    foreach ($variables['items'] as $key => $val) {
+      $image_style = $val['content']['#image_style'];
+      $fid = $val['content']['#item']->getValue()['target_id'];
+      $file = File::load($fid);
+      $temp[$key]['image'] = ImageStyle::load($image_style)->buildUrl($file->getFileUri());
+      $temp[$key]['image_alt'] = $val['content']['#item']->getValue()['alt'];
+    }
+    $variables['images'] = $temp;
+    unset($temp, $image_style, $fid, $file);
+  }
+
+  // Get file size and file URL - Files paragraph:
+  if ($variables['field_name'] == 'field_media_file') {
+    foreach ($variables['items'] as $key => $val) {
+      $file = $val['content']['#file'];
+      $variables['file_size'] = format_size($file->getSize());
+      $variables['file_url'] = file_create_url($file->getFileUri());
+      $variables['file_name_media'] = $file->getFilename();
+    }
+  }
+  if ($variables['field_name'] == 'field_images_for_attachments') {
+
+    foreach ($variables['items'] as $key => $val) {
+      $image_style = $val['content']['#image_style'];
+      $iid = $val['content']['#item']->getValue()['target_id'];
+      $file = File::load($iid);
+      $variables['file_img_url'] = ImageStyle::load($image_style)->buildUrl($file->getFileUri());
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_menu()
+ */
+function ul_enterprise_theme_preprocess_menu(array &$variables) {
+
+  switch ($variables['menu_name']) {
+    // Adding a unique ID to every top-level menu item in the main menu.
+    case 'main':
+      foreach ($variables['items'] as $id => &$item) {
+        // Right now the id is prefixed with the menu link title which is easily
+        // changed. Remove that to make the uuid consistent.
+        $uuid = explode(':', $id);
+        $uuid = array_pop($uuid);
+        $item['id'] = $uuid;
+      }
+      break;
+  }
+  if (isset($variables['menu_block_configuration']['suggestion']) && $variables['menu_block_configuration']['suggestion'] == 'local_nav') {
+    $menus = 'main';
+
+    $menu_tree = \Drupal::menuTree();
+    $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menus);
+
+    $tree_items = $menu_tree->load($menus, $parameters);
+    $manipulators = [
+      // Show links to nodes that are accessible for the current user.
+      ['callable' => 'menu.default_tree_manipulators:checkNodeAccess'],
+      // Only show links that are accessible for the current user.
+      ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+      // Use the default sorting of menu links.
+      ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+    ];
+
+    $tree = $menu_tree->transform($tree_items, $manipulators);
+
+    foreach ($tree as $id => $tree_item) {
+      $child = $tree_item->hasChildren;
+      $trail = $tree_item->inActiveTrail;
+      if ($child == TRUE && $trail == TRUE) {
+        $url_object = $tree_item->link->getUrlObject();
+        $url = $url_object->toString();
+        $node = \Drupal::request()->attributes->get('node');
+        $node_id = $node->id();
+        $menu_link_manager = \Drupal::service('plugin.manager.menu.link');
+        $links = $menu_link_manager->loadLinksByRoute('entity.node.canonical', ['node' => $node_id]);
+        if ($link = reset($links)) {
+          if ($parent = $link->getParent()) {
+            $parent = $menu_link_manager->createInstance($parent);
+            $parent_title = $parent->getTitle();
+            $parent_url = $parent->getUrlObject()->toString();
+            // Found a match in item.
+            $variables['title'] = $parent_title;
+            $variables['url'] = $parent_url;
+          }
+          else {
+            $variables['title'] = $tree_item->link->getTitle();
+            $variables['url'] = $url;
+          }
+        }
+
+        // Will leave foreach loop and if statement if item is found.
+        break;
+      }
+    }
+  }
+}
+
+/**
+ * Implements template_preprocess_node().
+ */
+function ul_enterprise_theme_preprocess_node(array &$variables) {
+  // Get the node var:
+  $node = $variables['node'];
+  // Get the content type (node type).
+  $nodeType = $node->bundle();
+  // View mode:
+  $view_mode = $variables['view_mode'];
+
+  // Unique Badges.
+  // @todo Move to its own module.
+  // Note this code isn't meant to reside here permanently. It will be moved
+  // into its own module (e.g ul_badges) after more details have be provided
+  // on how marketo and statistics will work.
+  $badges = [];
+  // Is this node new?
+  // Anything newer than 14 days is considered new.
+  $day_threshold = 14;
+  $created = $node->getCreatedTime();
+  if ($created >= time() - ($day_threshold * 86400)) {
+    $badges['new'] = [
+      'name' => 'new',
+      'label' => t('New'),
+    ];
+  }
+
+  // Final processing of badges.
+  if (!empty($badges)) {
+    foreach ($badges as $id => $badge) {
+      $variables['badges'][$id] = [
+        'type' => $badge['name'],
+        'name' => $badge['label'],
+      ];
+    }
+  }
+
+  // Implementing some time based functionality.
+  // This logic will only be applied for the 14 days following launch of UL.com.
+  // @todo Remove this code after the deadline has passed.
+  $current_date = date('Ymd');
+  $deadline_date = date('Ymd', mktime(0, 0, 0, 6, 15, 2019));
+
+  // If not yet at the deadline and node is of type knowledge.
+  if (($current_date < $deadline_date) && ($node->getType() == 'knowledge')) {
+    $variables['beforeDeadline'] = 1;
+    // If have a new badge, remove it.
+    if (isset($variables['badges']['new'])) {
+      unset($variables['badges']['new']);
+    }
+  }
+
+  // If view mode = 'card':
+  if ($view_mode === 'card') {
+    // Get the parent of the card.
+    $referringItem = $node->_referringItem;
+    // Run some checks to make sure it's an entity before doing things.
+    // If first val passed to method_exists() is null, PHP8 produces a 503.
+    $parent = NULL;
+    $bundle = NULL;
+    $parent_view_mode = NULL;
+    if (!is_null($referringItem)) {
+      $parent = method_exists($referringItem, 'getEntity') ? $referringItem->getEntity() : NULL;
+      if (!is_null($parent)) {
+        $bundle = method_exists($parent, 'bundle') ? $parent->bundle() : NULL;
+        // Check if parent has a special view mode:
+        if (method_exists($parent, 'get') && $parent->hasField('field_shared_view_mode')) {
+          $parent_view_mode = $parent->get('field_shared_view_mode')->value;
+        }
+      }
+    }
+
+    // Unset the summary if it's a mini-card.
+    if ($bundle === 'related_content' && $parent_view_mode === 'default') {
+      unset($variables['content']['field_shared_ref_description']);
+    }
+    // Get the image style from the build array.
+    if (array_key_exists('#image_style', $variables['elements'])) {
+      $image_style = $variables['elements']['#image_style'];
+    }
+    else {
+      $image_style = FALSE;
+    }
+
+    // Get the image in question and run checks to prevent fails.
+    $image_field = $node->get('field_shared_header_media')->first() ?? NULL;
+    $image_value = $image_field ? $image_field->getValue() : NULL;
+    $media = $image_value ? Media::load($image_value['target_id']) : NULL;
+
+    // If not people card images.
+    if (($bundle !== 'people') && (!is_null($media))) {
+      if (!is_null($media->get('field_media_image')->first())) {
+        if ($media && $media->get('field_media_image') && $media->get('field_media_image')->first() && method_exists($media->get('field_media_image')->first(), 'getValue')) {
+          $media_field = $media ? $media->get('field_media_image')->first()->getValue() : NULL;
+
+          // Move this because the var $media_field should be defined.
+          $file = $media_field ? File::load($media_field['target_id']) : NULL;
+          // Push the styled image to the template.
+          if ($file && $image_style) {
+            $uri = $file->getFileUri();
+            $styled = ImageStyle::load($image_style)->buildUrl($uri);
+            $variables['card_image'] = $styled;
+          }
+        }
+      }
+    }
+  }
+  // Else, if view mode = 'full':
+  elseif ($view_mode === 'full') {
+    // If content type is 'homepage':
+    if ($nodeType == 'homepage') {
+      $intro_items = [];
+      // If there is an intro title:
+      if ($node->get('field_shared_intro_title')->first()) {
+        $intro_items['title'] = TRUE;
+      }
+      // If there are intro slides:
+      if ($node->get('field_homepage_slides')->first()) {
+        $intro_items['slides'] = TRUE;
+      }
+      // If there is intro CTA:
+      if ($node->get('field_homepage_cta_description')->first()
+        || $node->get('field_homepage_cta_link')->first()) {
+        $intro_items['cta'] = TRUE;
+      }
+      // Pass the number of intro items to content/variables:
+      $variables['intro_items'] = $intro_items;
+    }
+  }
+
+  // If locations page.
+  if (\Drupal::service('path_alias.manager')->getAliasByPath('/node/' . $variables['node']->id()) == '/about/locations') {
+    unset($variables['attributes']['class']);
+    $variables['attributes']['class'][] = 'locations-page';
+  }
+
+  // If node type == Regional Pages:
+  if ($nodeType == 'regional_pages') {
+    $variables['#attached']['library'][] = 'ul_enterprise_theme/regional_pages';
+  }
+
+  // Add current language to vars:
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  $variables['language'] = $language;
+
+  // Do we need to display the Legal Disclaimer?
+  if (in_array($view_mode, ['full', 'right_rail_display'])) {
+    // Resources:
+    if ($nodeType == 'resource') {
+      if ($language == 'en') {
+        if (isset($variables['content']['field_resource_type'][0]['#plain_text'])) {
+          if ($variables['content']['field_resource_type'][0]['#plain_text'] == 'On-demand Webinar') {
+            $variables['legal_disclaimer'] = 1;
+          }
+        }
+      }
+      // Need to do translation stuff for taxonomy term!
+      else {
+        if ($tid = @$node->get('field_resource_type')->first()->getValue()['target_id']) {
+          $database = \Drupal::database();
+          $query = $database->select('taxonomy_term_field_data', 'tbl')
+            ->condition('tid', $tid, '=')
+            ->condition('langcode', 'en', '=')
+            ->fields('tbl', ['name'])
+            ->range(0, 1);
+
+          if ($result = $query->execute()) {
+            foreach ($result as $record) {
+              if ($record->name == 'On-demand Webinar') {
+                $variables['legal_disclaimer'] = 1;
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+    // Events:
+    if ($nodeType == 'event') {
+      if ($language == 'en') {
+        if (isset($variables['content']['field_event_type'][0]['#plain_text'])) {
+          if ($variables['content']['field_event_type'][0]['#plain_text'] == 'Webinar') {
+            $variables['legal_disclaimer'] = 1;
+          }
+        }
+      }
+      // Need to do translation stuff for taxonomy term!
+      else {
+        if ($tid = @$node->get('field_event_type')->first()->getValue()['target_id']) {
+          $database = \Drupal::database();
+          $query = $database->select('taxonomy_term_field_data', 'tbl')
+            ->condition('tid', $tid, '=')
+            ->condition('langcode', 'en', '=')
+            ->fields('tbl', ['name'])
+            ->range(0, 1);
+
+          if ($result = $query->execute()) {
+            foreach ($result as $record) {
+              if ($record->name == 'Webinar') {
+                $variables['legal_disclaimer'] = 1;
+                break;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_preprocess_page().
+ */
+function ul_enterprise_theme_preprocess_page(&$variables) {
+  if (isset($variables['node'])) {
+    $node = $variables['node'];
+    if (is_object($node)) {
+      // Get the content type (node type).
+      $nodeType = $node->bundle();
+      // Campaign Landing Pages:
+      if ($nodeType == 'campaign_page') {
+        // Remove blocks that is unused for this content type.
+        unset(
+          $variables['page']['header_before'],
+          $variables['page']['header_bottom']['ul_com_theme_main_menu'],
+          $variables['page']['header_bottom']['ul_emergo_theme_main_menu'],
+          $variables['page']['header_bottom']['searchform'],
+          $variables['page']['header_after'],
+          $variables['page']['bottom'],
+          $variables['page']['content']['ul_com_theme_local_nav'],
+          $variables['page']['content']['breadcrumbs'],
+          $variables['page']['footer_top']
+        );
+      }
+      // Landing Pages:
+      elseif ($nodeType == 'landing_page') {
+        // If field exists and has a value:
+        if (
+          $node->hasField('field_alternate_display')
+          &&
+          $node->get('field_alternate_display')->first()
+        ) {
+          // Get field value (Boolean):
+          $alternate_display = $node->get('field_alternate_display')->first()->getValue()['value'];
+          // If value:
+          if ($alternate_display) {
+            // Unset these UI elements:
+            unset(
+              $variables['page']['header_bottom']['ul_com_theme_main_menu'],
+              $variables['page']['header_bottom']['searchform'],
+              $variables['page']['header_after'],
+              $variables['page']['content']['breadcrumbs'],
+              $variables['page']['footer_top'],
+              // LATAM.
+              $variables['page']['header_bottom']['ul_latam_theme_main_menu'],
+              // SHIMADZU.
+              $variables['page']['header_bottom']['ul_shimadzu_theme_main_menu'],
+              // AU-NZ.
+              $variables['page']['header_bottom']['ul_anz_theme_main_menu'],
+              // EMERGO.
+              $variables['page']['header_bottom']['ul_emergo_theme_main_menu'],
+            );
+          }
+        }
+      }
+      // If Help, Location, GMAP, or Regional Page:
+      // Remove the searchform block.
+      else {
+        $no_search_block_nodes = [
+          'help',
+          'location',
+          'market_access_profile',
+          'regional_pages',
+        ];
+        if (in_array($nodeType, $no_search_block_nodes)) {
+          unset($variables['page']['header_bottom']['searchform']);
+        }
+      }
+    }
+  }
+
+  // Add Sitename in the Dialog box of Extlink.
+  if (!isset($variables['site_name'])) {
+    $variables['site_name'] = \Drupal::config('system.site')->get('name');
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function ul_enterprise_theme_theme_suggestions_menu_alter(array &$suggestions, array $variables) {
+  // Remove the block and replace dashes with underscores in the block ID to
+  // use for the hook name.
+  if (isset($variables['attributes']['block'])) {
+    $hook = str_replace(['block-', '-'], ['', '_'], $variables['attributes']['block']);
+    $block = Block::load($hook);
+    if (!empty($block) && $region = $block->getRegion()) {
+      $suggestions[] = $variables['theme_hook_original'] . '__' . $region;
+    }
+  }
+}
+
+/**
+ * Implements hook_preprocess_paragraph().
+ */
+function ul_enterprise_theme_preprocess_paragraph(array &$variables) {
+  $paragraph = $variables['paragraph'];
+  $paragraph_type = $paragraph->bundle();
+
+  // Menu section paragraph.
+  // Inject second-level menu items into the Menu section paragraph.
+  if ($paragraph_type == 'menu_section') {
+    // This should only return one item.
+    /** @var \Drupal\menu_link_content\Entity\MenuLinkContent[] $menu_items */
+    $menu_items = $paragraph->get('field_menu_section_section')->referencedEntities();
+    if (!empty($menu_items)) {
+      foreach ($menu_items as $menu_item) {
+        $menu_name = 'main';
+        $menu_tree = \Drupal::menuTree();
+        // Set parameters. This should only load the child elements of
+        // the menu item specified in field_menu_section_section.
+        $parameters = new MenuTreeParameters();
+        if ($paragraph->get('field_render_full_menu_section')->getString() === '1') {
+          // Get all child elements of the current menu item marked as
+          // 'expanded'.
+          $expanded_parents = array_values($menu_tree->getExpanded($menu_name, [$menu_item->getPluginId()]));
+          // Add the expanded parents as a parameter.
+          $parameters->addExpandedParents($expanded_parents);
+          $parameters->setMaxDepth(3);
+        }
+        else {
+          $parameters->addExpandedParents([$menu_item->getPluginId()]);
+          $parameters->setMaxDepth(2);
+        }
+        $parameters->setMinDepth(2);
+        $parameters->onlyEnabledLinks();
+        $tree = $menu_tree->load($menu_name, $parameters);
+
+        $manipulators = [
+          ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+          ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+        ];
+        $tree = $menu_tree->transform($tree, $manipulators);
+
+        $build = $menu_tree->build($tree);
+        $build['#theme'] = 'menu__mega_menu';
+        // Adding additional variables here because Drupal does not pass
+        // menu item entity objects for cached blocks. If it has a translation
+        // then pass the translated entity.
+        $current_language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+        if ($menu_item->hasTranslation($current_language)) {
+          $menu_item = $menu_item->getTranslation($current_language);
+        }
+        $variables['menu_section'] = [
+          'title' => $menu_item->label(),
+          'id' => $menu_item->uuid(),
+          'url' => $menu_item->link->uri,
+          'menu_items' => $build,
+        ];
+        $variables['menu_section_menu_items'] = $build;
+      }
+    }
+  }
+
+  // Set correct image style for image gallery.
+  if ($paragraph_type == 'image_gallery') {
+    $bundle = $paragraph->getParentEntity()->bundle();
+    if ($bundle === 'menu_section') {
+      foreach ($variables['content']['field_image_gallery_images'] as $key => $image) {
+        if (is_numeric($key)) {
+          $variables['content']['field_image_gallery_images'][$key]['#image_style'] = 'card';
+        }
+      }
+    }
+  }
+
+  // Views in a paragraph.
+  if ($paragraph_type == 'view') {
+    $display_mode = $paragraph->field_view_view[0]->display_id;
+    if ($display_mode == 'cards_nofilters') {
+      $variables['attributes']['class'][] = $display_mode;
+    }
+  }
+
+  // Marketo Modal.
+  if ($paragraph_type == 'marketo_modal') {
+    $variables['#attached']['library'][] = 'ul_enterprise_theme/mkto_modal';
+  }
+
+  // Video.
+  if ($paragraph_type == 'video') {
+    $variables['#attached']['library'][] = 'ul_base_theme/wistia';
+  }
+}
+
+/**
+ * Implements hook_preprocess_region__footer_bottom().
+ */
+function ul_enterprise_theme_preprocess_region__footer_bottom(array &$variables) {
+
+  $menu_name = 'policy-menu';
+  $level = 1;
+  $depth = 0;
+  $expand = FALSE;
+  /** @var \Drupal\Core\Menu\MenuLinkTreeInterface $menu_tree */
+  $menu_tree = \Drupal::service('menu.link_tree');
+  $parameters = $menu_tree->getCurrentRouteMenuTreeParameters($menu_name);
+
+  // Adjust the menu tree parameters based on the block's configuration.
+  $parameters->setMinDepth($level);
+  // When the depth is configured to zero, there is no depth limit. When depth
+  // is non-zero, it indicates the number of levels that must be displayed.
+  // Hence this is a relative depth that we must convert to an actual
+  // (absolute) depth, that may never exceed the maximum depth.
+  if ($depth > 0) {
+    $parameters->setMaxDepth(min($level + $depth - 1, $menu_tree->maxDepth()));
+  }
+
+  // If expandedParents is empty, the whole menu tree is built.
+  if ($expand) {
+    $parameters->expandedParents = [];
+  }
+
+  $tree = $menu_tree->load($menu_name, $parameters);
+  $manipulators = [
+    ['callable' => 'menu.default_tree_manipulators:checkAccess'],
+    ['callable' => 'menu.default_tree_manipulators:generateIndexAndSort'],
+  ];
+  $tree = $menu_tree->transform($tree, $manipulators);
+  $build = $menu_tree->build($tree);
+  $variables['policy_menu'] = $build;
+}
+
+/**
+ * Implements hook_preprocess_block().
+ */
+function ul_enterprise_theme_preprocess_block__sitebranding__header_bottom(&$variables) {
+  $front_page = Url::fromRoute('<front>')->setAbsolute()->toString();
+  $variables['front_page'] = $front_page;
+}
+
+/**
+ * Implements function theme_preprocess_block().
+ */
+function ul_enterprise_theme_preprocess_block(&$variables) {
+  $request_attributes = \Drupal::request()->attributes;
+  if ($request_attributes->has('node')) {
+    // Get a String nid on the page /revision/*/view
+    // or a Node object on the normal page.
+    $node = $request_attributes->get('node');
+    if (!($node instanceof NodeInterface)) {
+      // Load Node object from nid.
+      $node = \Drupal::entityTypeManager()->getStorage('node')->load($node);
+    }
+    $nodeType = $node->bundle();
+    // Regional Pages:
+    if ($nodeType == 'regional_pages') {
+      if ($variables['attributes']['id'] == 'block-pagetitle') {
+        $variables['attributes']['class'][] = 'regional_page_title';
+        $variables['#cache']['max-age'] = 0;
+      }
+    }
+  }
+}
+
+/**
+ * Implements hook_theme_suggestions_HOOK_alter().
+ */
+function ul_enterprise_theme_theme_suggestions_fieldset_alter(array &$suggestions, array $variables, $hook) {
+  $element = $variables['element'];
+  if (isset($variables['element']['#id'])) {
+    $suggestions[] = $hook . '__multiselect__' . $element['#type'];
+  }
+}

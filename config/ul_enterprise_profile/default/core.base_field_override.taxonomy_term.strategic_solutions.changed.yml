@@ -1,0 +1,18 @@
+uuid: 65a2f9b4-61dd-4e65-95b6-e1b32ce2438a
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.strategic_solutions
+id: taxonomy_term.strategic_solutions.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: strategic_solutions
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

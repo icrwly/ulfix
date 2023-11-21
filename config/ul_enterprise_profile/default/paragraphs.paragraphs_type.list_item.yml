@@ -1,0 +1,12 @@
+uuid: 79256049-607d-4c8b-9734-e7b9201396ad
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: YIUmRCsSvMvOSQnaav2YJ4Lc3A5Ad_ui_Ku9mR5ZHnw
+id: list_item
+label: 'List Item'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>list item</em> for content that appears in a list. '
+behavior_plugins: {  }

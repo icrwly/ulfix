@@ -1,0 +1,27 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--references section--paragraph" %}
+{% if gutterclass is not defined %}
+  {% set class = class ~ ' has-border wrapper max-width--large-tablet' %}
+  {% set sectionGutterClass = 'section__inner' %}
+{% else %}
+  {% set sectionGutterClass = gutterclass %}
+{% endif %}
+
+{% block content %}
+  <div class="{{ sectionGutterClass }}">
+    {% block references_title %}
+      {% if title %}
+        <h2 class="h4">{{- title -}}</h2>
+      {% endif %}
+    {% endblock %}
+    {% block references_list %}
+    {% if references %}
+      <ol>
+        {% for reference in references %}
+          {% include '@ul_base_theme/2_pieces/section--references__citation.twig' with reference only %}
+        {% endfor %}
+      </ol>
+    {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

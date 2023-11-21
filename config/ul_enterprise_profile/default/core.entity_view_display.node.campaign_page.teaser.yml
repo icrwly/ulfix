@@ -1,0 +1,91 @@
+uuid: f0226a3e-dce3-48c5-8dab-cc207ace837b
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.campaign_page.body
+    - field.field.node.campaign_page.field_campaign_page_bottom
+    - field.field.node.campaign_page.field_campaign_page_content
+    - field.field.node.campaign_page.field_campaign_page_marketo_form
+    - field.field.node.campaign_page.field_shared_content_owner
+    - field.field.node.campaign_page.field_shared_cou
+    - field.field.node.campaign_page.field_shared_country
+    - field.field.node.campaign_page.field_shared_hdr_login_cta
+    - field.field.node.campaign_page.field_shared_header_media
+    - field.field.node.campaign_page.field_shared_header_video
+    - field.field.node.campaign_page.field_shared_industry
+    - field.field.node.campaign_page.field_shared_market
+    - field.field.node.campaign_page.field_shared_marketo_custom
+    - field.field.node.campaign_page.field_shared_marketo_forms
+    - field.field.node.campaign_page.field_shared_metatags
+    - field.field.node.campaign_page.field_shared_mktg_support_ticket
+    - field.field.node.campaign_page.field_shared_products_components
+    - field.field.node.campaign_page.field_shared_ref_description
+    - field.field.node.campaign_page.field_shared_review_comments
+    - field.field.node.campaign_page.field_shared_review_user
+    - field.field.node.campaign_page.field_shared_rr_checkbox
+    - field.field.node.campaign_page.field_shared_service_type
+    - field.field.node.campaign_page.field_shared_solutions
+    - field.field.node.campaign_page.field_shared_subtitle
+    - field.field.node.campaign_page.field_shared_topic
+    - node.type.campaign_page
+  module:
+    - text
+    - user
+id: node.campaign_page.teaser
+targetEntityType: node
+bundle: campaign_page
+mode: teaser
+content:
+  body:
+    type: text_summary_or_trimmed
+    label: hidden
+    settings:
+      trim_length: 600
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+hidden:
+  addtoany: true
+  field_campaign_page_bottom: true
+  field_campaign_page_content: true
+  field_campaign_page_marketo_form: true
+  field_shared_content_owner: true
+  field_shared_cou: true
+  field_shared_country: true
+  field_shared_hdr_login_cta: true
+  field_shared_header_media: true
+  field_shared_header_video: true
+  field_shared_industry: true
+  field_shared_market: true
+  field_shared_marketo_custom: true
+  field_shared_marketo_forms: true
+  field_shared_metatags: true
+  field_shared_mktg_support_ticket: true
+  field_shared_products_components: true
+  field_shared_ref_description: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  field_shared_rr_checkbox: true
+  field_shared_service_type: true
+  field_shared_solutions: true
+  field_shared_subtitle: true
+  field_shared_topic: true
+  langcode: true
+  search_api_excerpt: true

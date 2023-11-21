@@ -1,0 +1,28 @@
+uuid: 3d39b180-25f7-451c-bec4-1b3bcc667c1a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_market_access_label_req
+    - node.type.market_access_profile
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.market_access_profile.field_market_access_label_req
+field_name: field_market_access_label_req
+entity_type: node
+bundle: market_access_profile
+label: 'Label Required'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'Yes'
+  off_label: 'No'
+field_type: boolean

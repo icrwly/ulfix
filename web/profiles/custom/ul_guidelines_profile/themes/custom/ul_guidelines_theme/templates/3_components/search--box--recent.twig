@@ -1,0 +1,10 @@
+<div class="search-recent" data-count="{{ searchData.recent.searchList|length }}">
+    <h2>{{ searchData.recent.title }}</h2>
+    <ul>
+        {% for item in searchData.recent.searchList %}
+            <li>
+                {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--search-recent.twig' %}
+            </li>
+        {% endfor %}
+    </ul>
+</div>

@@ -1,0 +1,1041 @@
+{
+  "base_path": "../../../../themes/custom/ul_base_theme",
+  "global_nav": [
+    {
+      "title": "UL.com",
+      "url": "#",
+      "in_active_trail": true
+    },
+    {
+      "title": "Regional Sites",
+      "url": "#"
+    },
+    {
+      "title": "Explore UL",
+      "url": "#"
+    }
+  ],
+  "primary_nav": [
+    {
+      "title": "Offerings",
+      "id": "nav-item--offerings",
+      "url": "#",
+      "className": "primary-navigation__item--offerings",
+      "in_active_trail": true,
+      "below": [
+        {
+          "title": "Services",
+          "url": "#"
+        },
+        {
+          "title": "Strategic Solutions",
+          "url": "#"
+        },
+        {
+          "title": "Business Needs",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "Industries",
+      "id": "nav-item--industries",
+      "url": "#",
+      "className": "primary-navigation__item--industries",
+      "in_active_trail": false,
+      "below": [
+        {
+          "title": "Automotive and Mobility",
+          "url": "#"
+        },
+        {
+          "title": "Built Environment",
+          "url": "#"
+        },
+        {
+          "title": "Consumer Products",
+          "url": "#"
+        },
+        {
+          "title": "Energy and Utilities",
+          "url": "#"
+        },
+        {
+          "title": "Financial and Professional Services",
+          "url": "#"
+        },
+        {
+          "title": "Government",
+          "url": "#"
+        },
+        {
+          "title": "Health and Life Sciences",
+          "url": "#"
+        },
+        {
+          "title": "Industrial Products and Services",
+          "url": "#"
+        },
+        {
+          "title": "Life Safety",
+          "url": "#"
+        },
+        {
+          "title": "Material and Chemicals",
+          "url": "#"
+        },
+        {
+          "title": "Retail",
+          "url": "#"
+        },
+        {
+          "title": "Technology and Electronics",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "Insights",
+      "id": "nav-item--insights",
+      "url": "#",
+      "className": "primary-navigation__item--insights",
+      "in_active_trail": false,
+      "below": [
+        {
+          "title": "Connected Ecosystems",
+          "url": "#"
+        },
+        {
+          "title": "Innovation Safety",
+          "url": "#"
+        },
+        {
+          "title": "Sustainable Business",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "News",
+      "id": "nav-item--news",
+      "url": "#",
+      "className": "primary-navigation__item--news",
+      "in_active_trail": false,
+      "below": [
+        {
+          "title": "News Stories",
+          "url": "#"
+        },
+        {
+          "title": "Press Releases",
+          "url": "#"
+        },
+        {
+          "title": "Feature Stories",
+          "url": "#"
+        },
+        {
+          "title": "Public Notices",
+          "url": "#"
+        },
+        {
+          "title": "Newsletters",
+          "url": "#"
+        },
+        {
+          "title": "Media Center",
+          "url": "#"
+        },
+        {
+          "title": "Company Information",
+          "url": "#"
+        },
+        {
+          "title": "Leadership",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "Events",
+      "id": "nav-item--events",
+      "url": "#",
+      "className": "primary-navigation__item--events",
+      "in_active_trail": false,
+      "below": [
+        {
+          "title": "Trade Shows",
+          "url": "#"
+        },
+        {
+          "title": "Training",
+          "url": "#"
+        },
+        {
+          "title": "Workshops",
+          "url": "#"
+        },
+        {
+          "title": "Upcoming Webinars",
+          "url": "#"
+        },
+        {
+          "title": "On-demand Webinars",
+          "url": "#"
+        },
+        {
+          "title": "Conferences",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "About UL",
+      "id": "nav-item--about",
+      "url": "#",
+      "className": "primary-navigation__item--about",
+      "in_active_trail": false,
+      "below": [
+        {
+          "title": "Mission",
+          "url": "#"
+        },
+        {
+          "title": "Corporate Sustainability",
+          "url": "#"
+        },
+        {
+          "title": "Leadership",
+          "url": "#"
+        },
+        {
+          "title": "Board of Directors",
+          "url": "#"
+        },
+        {
+          "title": "Careers",
+          "url": "#"
+        },
+        {
+          "title": "Diversity and Inclusion",
+          "url": "#"
+        },
+        {
+          "title": "Ethics and Compliance",
+          "url": "#"
+        },
+        {
+          "title": "Ventures",
+          "url": "#"
+        },
+        {
+          "title": "History",
+          "url": "#"
+        },
+        {
+          "title": "Brand Integrity",
+          "url": "#"
+        },
+        {
+          "title": "Locations",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "Resources",
+      "id": "nav-item--resources",
+      "url": "#",
+      "className": "primary-navigation__item--resources",
+      "below": [
+        {
+          "title": "Tools, Apps and Databases",
+          "url": "#"
+        },
+        {
+          "title": "Help and Support",
+          "url": "#"
+        },
+        {
+          "title": "Frequently Asked Questions",
+          "url": "#"
+        },
+        {
+          "title": "Marks and Labels",
+          "url": "#"
+        },
+        {
+          "title": "UL Standards",
+          "url": "#"
+        },
+        {
+          "title": "Terms and Legal Information",
+          "url": "#"
+        }
+      ]
+    }
+  ],
+  "secondary_nav": [
+    {
+      "title": "About UL",
+      "url": "#"
+    },
+    {
+      "title": "Customer Center",
+      "url": "#",
+      "below": [
+        [
+          {
+            "title": "Sign In",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "title": "Tools & Databases",
+            "url": "#"
+          },
+          {
+            "title": "Promotional Materials",
+            "url": "#"
+          },
+          {
+            "title": "Compliance Materials",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "title": "Customer Training",
+            "url": "#"
+          },
+          {
+            "title": "Help & Support",
+            "url": "#"
+          }
+        ],
+        [
+          {
+            "title": "Contact Center",
+            "url": "#"
+          },
+          {
+            "title": "Locations",
+            "url": "#"
+          }
+        ]
+      ],
+      "image": "http://placehold.it/610x370",
+      "imageAlt": "image alt"
+    }
+  ],
+  "mega_menu": [
+    {
+      "title": "Offerings",
+      "target_id": "nav-item--offerings",
+      "description": "We help you tackle your challenges with offerings tailored to business needs and industry issues, strategic solutions for the most complex problems and services to address specific concerns.",
+      "label": "Overview",
+      "cta": {
+        "title": "View All",
+        "url": "#"
+      },
+      "items": [
+        {
+          "title": "Services",
+          "url": "#"
+        },
+        {
+          "title": "Advisory",
+          "url": "#"
+        },
+        {
+          "title": "Analytics and Intelligence",
+          "url": "#"
+        },
+        {
+          "title": "Auditing",
+          "url": "#"
+        },
+        {
+          "title": "Certification",
+          "url": "#"
+        },
+        {
+          "title": "Digital Applications",
+          "url": "#"
+        },
+        {
+          "title": "Inspection",
+          "url": "#"
+        },
+        {
+          "title": "Learning and Development",
+          "url": "#"
+        },
+        {
+          "title": "Testing",
+          "url": "#"
+        },
+        {
+          "title": "Verification",
+          "url": "#"
+        }
+      ],
+      "image": "http://placehold.it/610x370",
+      "imageAlt": "image alt",
+      "aside": {
+        "type": "gallery-grid",
+        "title": "Lorem ipsum dolor sit amet",
+        "items": [
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          },
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          },
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Industries",
+      "target_id": "nav-item--industries",
+      "description": "",
+      "cta": {
+        "title": "View All",
+        "url": "#"
+      },
+      "label": "Industries",
+      "items": [
+        {
+          "title": "Automotive and Mobility",
+          "url": "#"
+        },
+        {
+          "title": "Motor Vehicles and Heavy Equipment",
+          "url": "#"
+        },
+        {
+          "title": "Transit",
+          "url": "#"
+        },
+        {
+          "title": "Built Environment",
+          "url": "#"
+        },
+        {
+          "title": "Architecture, Engineering and Construction",
+          "url": "#"
+        },
+        {
+          "title": "Building Products",
+          "url": "#"
+        },
+        {
+          "title": "Building Science and Technology",
+          "url": "#"
+        },
+        {
+          "title": "HVAC/R",
+          "url": "#"
+        },
+        {
+          "title": "Interiors, Fixtures and Furniture",
+          "url": "#"
+        },
+        {
+          "title": "Lighting",
+          "url": "#"
+        }
+      ],
+      "image": "http://placehold.it/610x370",
+      "imageAlt": "image alt",
+      "aside": {
+        "type": "gallery-carousel",
+        "title": "Lorem ipsum dolor sit amet",
+        "items": [
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          },
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          },
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Insights",
+      "target_id": "nav-item--insights",
+      "description": "Navigate your business in an increasingly complex world with industry leading research and actionable insights from UL.",
+      "cta": {
+        "title": "View All",
+        "url": "#"
+      },
+      "label": "Insights",
+      "items": [
+        {
+          "title": "Connected Ecosystems",
+          "url": "#"
+        },
+        {
+          "title": "Innovation Safety",
+          "url": "#"
+        },
+        {
+          "title": "Sustainable Business",
+          "url": "#"
+        }
+      ],
+      "image": "http://placehold.it/610x370",
+      "imageAlt": "image alt",
+      "aside": {
+        "type": "gallery-carousel",
+        "title": "Lorem ipsum dolor sit amet",
+        "items": [
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          },
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          },
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          }
+        ]
+      }
+    },
+    {
+      "title": "News",
+      "target_id": "nav-item--news",
+      "description": "Explore our press releases and news updates. Delve into detailed press kits for information on our work. If it’s UL and newsworthy, it’s here.",
+      "cta": {
+        "title": "View All",
+        "url": "#"
+      },
+      "label": "News Types",
+      "items": [
+        {
+          "title": "News Stories",
+          "url": "#"
+        },
+        {
+          "title": "Press Releases",
+          "url": "#"
+        },
+        {
+          "title": "Feature Stories",
+          "url": "#"
+        },
+        {
+          "title": "Public Notices",
+          "url": "#"
+        },
+        {
+          "title": "Newsletters",
+          "url": "#"
+        },
+        {
+          "title": "Media Center",
+          "url": "#"
+        },
+        {
+          "title": "Company Information",
+          "url": "#"
+        },
+        {
+          "title": "Leadership",
+          "url": "#"
+        }
+      ],
+      "aside": {
+        "type": "gallery-carousel",
+        "title": "Lorem ipsum dolor sit amet",
+        "items": [
+          {
+            "image": "http://via.placeholder.com/1200x900",
+            "image_alt": "Image alt"
+          }
+        ]
+      }
+    },
+    {
+      "title": "Events",
+      "target_id": "nav-item--events",
+      "description": "Connect with us in person or online, around the globe. We’re everywhere your business needs us to be.",
+      "cta": {
+        "title": "View All",
+        "url": "#"
+      },
+      "label": "Event Types",
+      "items": [
+        {
+          "title": "Trade shows",
+          "url": "#"
+        },
+        {
+          "title": "Training",
+          "url": "#"
+        },
+        {
+          "title": "Workshops",
+          "url": "#"
+        },
+        {
+          "title": "Upcoming webinars",
+          "url": "#"
+        },
+        {
+          "title": "On-demand webinars",
+          "url": "#"
+        },
+        {
+          "title": "Conferences",
+          "url": "#"
+        }
+      ],
+      "aside": {
+        "type": "card",
+        "content": {
+          "type": "events",
+          "class": "",
+          "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+          "subtitle": "Northbrook, IL",
+          "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "image": "http://via.placeholder.com/1400x600",
+          "imageAlt": "PLACEHOLDER ALT",
+          "date": "2018-03-31",
+          "tags": [
+            {
+              "name": "New",
+              "type": "new"
+            }
+          ],
+          "topics": [
+            {
+              "name": "Event Type",
+              "href": "#"
+            }
+          ]
+        }
+      }
+    },
+    {
+      "title": "About",
+      "target_id": "nav-item--about",
+      "description": "We help people achieve what’s possible by empowering trust. Businesses, industries, governments, regulatory authorities and the public put their trust in us so they can make smarter decisions.",
+      "cta": {
+        "title": "Overview",
+        "url": "#"
+      },
+      "label": "About Types",
+      "items": [
+        {
+          "title": "Mission",
+          "url": "#"
+        },
+        {
+          "title": "Corporate Sustainability",
+          "url": "#"
+        },
+        {
+          "title": "Leadership",
+          "url": "#"
+        },
+        {
+          "title": "Board of Directors",
+          "url": "#"
+        },
+        {
+          "title": "Careers",
+          "url": "#"
+        },
+        {
+          "title": "Diversity and Inclusion",
+          "url": "#"
+        },
+        {
+          "title": "Ethics and Compliance",
+          "url": "#"
+        },
+        {
+          "title": "Ventures",
+          "url": "#"
+        },
+        {
+          "title": "History",
+          "url": "#"
+        },
+        {
+          "title": "Brand Integrity",
+          "url": "#"
+        },
+        {
+          "title": "Locations",
+          "url": "#"
+        }
+      ],
+      "aside": {
+        "type": "simple-menu",
+        "titleBar": {
+          "title": "Menu Title"
+        },
+        "cta": {
+          "title": "View More",
+          "url": "#"
+        },
+        "items": [
+          {
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta": {
+              "title": "Lorem",
+              "url": "#"
+            }
+          },
+          {
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta": {
+              "title": "Lorem",
+              "url": "#",
+              "icon": "key",
+              "icon_before": true
+            }
+          },
+          {
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta": {
+              "title": "Lorem",
+              "url": "#",
+              "icon": "key"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "title": "Resources",
+      "target_id": "nav-item--resources",
+      "description": "Explore our business intelligence-building digital tools and databases, search for help, review our business information, or share your concerns and questions.",
+      "cta": {
+        "title": "Overview",
+        "url": "#"
+      },
+      "label": "Resource Types",
+      "items": [
+        {
+          "title": "Tools, Apps and Databases",
+          "url": "#"
+        },
+        {
+          "title": "Help and Support",
+          "url": "#"
+        },
+        {
+          "title": "Frequently Asked Questions",
+          "url": "#"
+        },
+        {
+          "title": "Marks and Labels",
+          "url": "#"
+        },
+        {
+          "title": "UL Standards",
+          "url": "#"
+        },
+        {
+          "title": "Terms and Legal Information",
+          "url": "#"
+        }
+      ],
+      "aside": {
+        "type": "simple-menu",
+        "titleBar": {
+          "title": "Menu Title"
+        },
+        "cta": {
+          "title": "View More",
+          "url": "#"
+        },
+        "items": [
+          {
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta": {
+              "title": "Lorem",
+              "url": "#"
+            }
+          },
+          {
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta": {
+              "title": "Lorem",
+              "url": "#",
+              "icon": "key",
+              "icon_before": true
+            }
+          },
+          {
+            "title": "Lorem ipsum dolor",
+            "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+            "cta": {
+              "title": "Lorem",
+              "url": "#",
+              "icon": "key"
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "modal": {
+    "id": "sample-modal-id",
+    "title": "Lorem ipsum dolor sit amet",
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>",
+    "cancel": true
+  },
+  "hero_banner": {
+    "image": "http://via.placeholder.com/1600x800"
+  },
+  "section_cards": {
+    "titleBar": {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "seeAll": {
+        "name": "See All",
+        "link": "https://www.google.com/"
+      }
+    },
+    "cardList": [
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 3",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "meta": "Source/Author",
+        "date": "2018-03-31",
+        "readTime": "5 Minutes"
+      }
+    ]
+  },
+  "section_cards_signup": {
+    "titleBar": {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "seeAll": {
+        "name": "See All",
+        "link": "https://www.google.com/"
+      }
+    },
+    "cardList": [
+      {
+        "type": "banner",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "subtitle": "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        "profile": {
+          "link": "https://www.google.com/",
+          "name": "Profile Name"
+        }
+      }
+    ]
+  },
+  "section_cards_events": {
+    "titleBar": {
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+      "seeAll": {
+        "name": "See All",
+        "link": "https://www.google.com/"
+      }
+    },
+    "cardList": [
+      {
+        "type": "events",
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 3",
+            "href": "#"
+          }
+        ],
+        "day": "Saturday",
+        "date": "2018-03-31",
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+      }
+    ]
+  },
+  "section_wysiwyg": {
+    "content": "<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>"
+  },
+  "section_author": {
+    "image": "http://via.placeholder.com/400x400",
+    "imageAlt": "PLACEHOLDER ALT",
+    "name": "Author Name",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+  },
+  "section_published": {
+    "timeStamp": "1522497600"
+  },
+  "section_references": {
+    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+    "references": [
+      {
+        "citation": "Sample Citation"
+      }
+    ]
+  },
+  "section_tags": [
+    {
+      "name": "Tag Name 1"
+    }
+  ],
+  "section_title": {
+    "pageTitle": true,
+    "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+    "topics": [
+      {
+        "name": "Topic Name 1",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 2",
+        "href": "#"
+      },
+      {
+        "name": "Topic Name 3",
+        "href": "#"
+      }
+    ]
+  },
+  "socialNav": [
+    {
+      "name": "Facebook",
+      "link": "https://www.facebook.com",
+      "class": "facebook"
+    },
+    {
+      "name": "Twitter",
+      "link": "https://www.twitter.com",
+      "class": "twitter"
+    },
+    {
+      "name": "YouTube",
+      "link": "https://www.youtube.com",
+      "class": "youtube"
+    },
+    {
+      "name": "LinkedIn",
+      "link": "https://www.linkedin.com",
+      "class": "linkedin"
+    }
+  ],
+  "footer_nav": [
+    {
+      "title": "Careers",
+      "url": "#",
+      "below": [
+        {
+          "title": "Working at UL",
+          "url": "#"
+        },
+        {
+          "title": "Job Search Dashboard",
+          "url": "#"
+        },
+        {
+          "title": "Internship",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "Help & Support",
+      "url": "#",
+      "below": [
+        {
+          "title": "Working at UL",
+          "url": "#"
+        },
+        {
+          "title": "Job Search Dashboard",
+          "url": "#"
+        },
+        {
+          "title": "Internship",
+          "url": "#"
+        }
+      ]
+    },
+    {
+      "title": "Contact",
+      "url": "#",
+      "below": [
+        {
+          "title": "Working at UL",
+          "url": "#"
+        },
+        {
+          "title": "Job Search Dashboard",
+          "url": "#"
+        }
+      ]
+    }
+  ]
+}

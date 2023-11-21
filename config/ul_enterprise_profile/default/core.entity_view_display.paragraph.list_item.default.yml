@@ -1,0 +1,25 @@
+uuid: bc2a6b27-c892-4e51-8e89-4627c0a108c0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_item.field_list_item_body
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - text
+_core:
+  default_config_hash: w1KJ3OZ_rSPkgbiqr6ZKPAut4LX9tOS28-Q10O5M7ds
+id: paragraph.list_item.default
+targetEntityType: paragraph
+bundle: list_item
+mode: default
+content:
+  field_list_item_body:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

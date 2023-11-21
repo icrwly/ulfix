@@ -1,0 +1,48 @@
+{% extends '@ul_base_theme/2_pieces/card/card--events.twig' %}
+{% set cardId = "node--card-" ~ node.id() %}
+{% set title = label %}
+{% set catch_cache = content|render %}
+{% if content.field_shared_header_media.0.url %}
+    {% set image = card_image %}
+    {% set imageAlt = content.field_shared_header_media.0.alt %}
+{% else %}
+    {% set imageAlt = '' %}
+{% endif %}
+
+{# Format Date: #}
+{% set dateField = node.field_event_date.0.start_date %}
+{% set newDateField = dateField|date('m/d/Y') %}
+{% set timestamp = newDateField|date("U") %}
+{% set day = dateField|date('D')|t %}
+{# If Spanish or Portuguese, use lowercase letters. #}
+{% if language == 'es' or language == 'pt-br' %}
+  {% set date = timestamp|format_date('medium_date_no_time')|lower %}
+{% else %}
+  {% set date = timestamp|format_date('medium_date_no_time') %}
+{% endif %}
+{% set displayDate = {
+  day: day,
+  date: date,
+}%}
+
+{% if timestamp > 'today'|date('U') %}
+  {% set tags = badges %}
+{% endif %}
+
+{% set subtitle = content.field_shared_subtitle %}
+{% set link = url %}
+{% set topics = [
+  {content: content.field_event_type|render}
+]%}
+
+{% if content.field_event_link.0 is not empty %}
+  {% set register_link = content.field_event_link.0 %}
+{% endif %}
+
+{% block card_description %}
+  {% if content.field_shared_ref_description|render %}
+    <p>{{ content.field_shared_ref_description }}</p>
+  {% else %}
+    {{ content.body }}
+  {% endif %}
+{% endblock %}

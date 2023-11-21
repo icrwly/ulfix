@@ -1,0 +1,26 @@
+.nav--mega-menu {
+  .full-menu-section {
+    ul ul li a:only-child {
+      display: inline;
+      @supports (display: initial) {
+          display: initial;
+      }
+    }
+    li {
+      padding-bottom: 10px;
+      line-height: 17px;
+    }
+  }
+  .nav__aside {
+    .section--gallery .swiper-slide img {
+      width: 100%;
+    }
+  }
+
+  // Display only for mobile devices.
+  .mobile-only {
+    @include breakpoint($tablet){
+      display: none !important;
+    }
+  }
+}

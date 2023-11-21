@@ -1,0 +1,30 @@
+uuid: 088edc75-d270-4bcd-af27-ee7214415bcf
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_guidelines_forms
+    - user
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: 7czbdylu3N50cffJ1b12EthOqiBGYZ9wcWVGFyltDkw
+id: feedbackformblock
+theme: ul_guidelines_theme
+region: content
+weight: -2
+provider: null
+plugin: ul_guidelines_feedback_form_block
+settings:
+  id: ul_guidelines_feedback_form_block
+  label: 'Leave feedback for the Guidelines site'
+  provider: ul_guidelines_forms
+  label_display: visible
+visibility:
+  user_role:
+    id: user_role
+    roles:
+      authenticated: authenticated
+    negate: false
+    context_mapping:
+      user: '@user.current_user_context:current_user'

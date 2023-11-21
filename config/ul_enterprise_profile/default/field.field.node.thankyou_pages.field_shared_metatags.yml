@@ -1,0 +1,21 @@
+uuid: 70e99f4c-6a02-433b-8436-a653f2be6b86
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_metatags
+    - node.type.thankyou_pages
+  module:
+    - metatag
+id: node.thankyou_pages.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+bundle: thankyou_pages
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

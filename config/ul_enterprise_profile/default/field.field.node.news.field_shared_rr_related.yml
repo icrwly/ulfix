@@ -1,0 +1,120 @@
+uuid: 2b34db21-80da-45f2-821a-136a0c943838
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_rr_related
+    - node.type.news
+    - paragraphs.paragraphs_type.right_rail_external_links
+    - paragraphs.paragraphs_type.sidebar_curated_related
+  module:
+    - entity_reference_revisions
+id: node.news.field_shared_rr_related
+field_name: field_shared_rr_related
+entity_type: node
+bundle: news
+label: 'Sidebar Curated Related'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sidebar_curated_related: sidebar_curated_related
+      right_rail_external_links: right_rail_external_links
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: 30
+        enabled: false
+      accordion_items:
+        weight: 31
+        enabled: false
+      basic_content:
+        weight: 32
+        enabled: false
+      call_to_action:
+        weight: 33
+        enabled: false
+      captioned_image:
+        weight: 34
+        enabled: false
+      crc_files:
+        weight: 35
+        enabled: false
+      curated_list:
+        weight: 36
+        enabled: false
+      curated_separate_list:
+        weight: 37
+        enabled: false
+      descript_link:
+        weight: 38
+        enabled: false
+      files:
+        weight: 39
+        enabled: false
+      hero:
+        weight: 40
+        enabled: false
+      image_gallery:
+        weight: 41
+        enabled: false
+      image_row:
+        weight: 42
+        enabled: false
+      interrupter_cta:
+        weight: 43
+        enabled: false
+      list_item:
+        weight: 44
+        enabled: false
+      location:
+        weight: 45
+        enabled: false
+      marketo_form:
+        weight: 46
+        enabled: false
+      menu_section:
+        weight: 47
+        enabled: false
+      people:
+        weight: 48
+        enabled: false
+      quote:
+        weight: 49
+        enabled: false
+      reference:
+        weight: 50
+        enabled: false
+      related_content:
+        weight: 51
+        enabled: false
+      right_rail_external_links:
+        weight: 53
+        enabled: true
+      sidebar_curated_related:
+        weight: 52
+        enabled: true
+      simple_menu:
+        weight: 53
+        enabled: false
+      single_related_content:
+        weight: 54
+        enabled: false
+      slide:
+        weight: 55
+        enabled: false
+      spotlight:
+        weight: 56
+        enabled: false
+      video:
+        weight: 57
+        enabled: false
+      view:
+        weight: 58
+        enabled: false
+field_type: entity_reference_revisions

@@ -1,0 +1,41 @@
+{% extends "@ul_base_theme/4_regions/hero.twig" %}
+{% set class = "hero--news" %}
+{% set isCarousel = slides|length > 1 %}
+
+{% if isCarousel %}
+  {% set class = class ~ " is-carousel" %}
+{% endif %}
+
+{% block content %}
+  <div class="carousel max-width--xlarge-desktop" data-module="heroCarousel" data-navigation="true">
+    <div class="carousel-container">
+      <div class="swiper-container">
+        <div class="swiper-wrapper">
+          {% block hero_slides %}
+            {% for slide in slides %}
+              {% include '@ul_base_theme/3_components/slide--hero--news.twig' with slide only %}
+            {% endfor %}
+          {% endblock %}
+        </div>
+        <div class="swiper-pagination"></div>
+        <div class="swiper-navigation">
+          <div class="swiper-button swiper-button-next">
+            <span class="swiper-icon icon-bracket-r"><span class="sr-only">Next</span></span>
+          </div>
+          <div class="swiper-button swiper-button-prev">
+            <span class="swiper-icon icon-bracket-l"><span class="sr-only">Previous</span></span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="content-container">
+      <aside class="hero__aside">
+        {% block hero_aside %}
+          {% for item in aside_items %}
+            {% include '@ul_base_theme/3_components/hero__aside-item.twig' with item only %}
+          {% endfor %}
+        {% endblock %}
+      </aside>
+    </div>
+  </div>
+{% endblock %}

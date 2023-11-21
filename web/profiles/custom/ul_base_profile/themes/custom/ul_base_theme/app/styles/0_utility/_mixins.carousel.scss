@@ -1,0 +1,5 @@
+@mixin calc-slide-width($width: 25%, $count: 4, $gutter: 25px){
+  // Use ceil() to always round up
+  $offset: ceil(($gutter * ($count - 1))/$count);
+  width: calc(#{$width} - #{$offset});
+}

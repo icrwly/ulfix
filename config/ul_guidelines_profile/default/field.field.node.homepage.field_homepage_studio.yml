@@ -1,0 +1,39 @@
+uuid: a8b73da6-189b-4806-8755-f58eaca5dafa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_homepage_studio
+    - node.type.homepage
+    - paragraphs.paragraphs_type.cta
+  module:
+    - entity_reference_revisions
+_core:
+  default_config_hash: jS9CIX7s3YDP5EBrZmq6j9DBZ67N5ywnF765t-HjAEE
+id: node.homepage.field_homepage_studio
+field_name: field_homepage_studio
+entity_type: node
+bundle: homepage
+label: 'My Studio'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      cta: cta
+    negate: 0
+    target_bundles_drag_drop:
+      cta:
+        weight: 4
+        enabled: true
+      section:
+        weight: 5
+        enabled: false
+      slide:
+        weight: 6
+        enabled: false
+field_type: entity_reference_revisions

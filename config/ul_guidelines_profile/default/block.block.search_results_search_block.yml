@@ -1,0 +1,26 @@
+uuid: fceb3e35-0b7b-450a-a314-bbd33469d34d
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.search_results
+  module:
+    - views
+  theme:
+    - ul_guidelines_theme
+_core:
+  default_config_hash: blBe2LTAEFlNHH1QS3-sPLkE2tki5vKoWcQYbp4dH3w
+id: search_results_search_block
+theme: ul_guidelines_theme
+region: search
+weight: -5
+provider: null
+plugin: 'views_block:search_results-search_block'
+settings:
+  id: 'views_block:search_results-search_block'
+  label: ''
+  provider: views
+  label_display: '0'
+  views_label: ''
+  items_per_page: none
+visibility: {  }

@@ -1,0 +1,36 @@
+/**
+ * Campaign Cards (on the Campaign Landing Pages).
+ */
+
+.section.section--campaign-cards {
+  @include breakpoint($desktop) {
+    margin: 2rem 0;
+  }
+  h2 {
+    font-size: 3rem;
+    margin: 0 0 3rem 0;
+  }
+  .campaign-card {
+    margin: 0 0 3rem 0;
+    &:last-child {
+      margin: 0;
+      @include breakpoint($desktop) {
+        margin: 0 0 3rem 0;
+      }
+    }
+    img {
+      display: block;
+      width: 100%;
+      max-width: 100%;
+    }
+    h3 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin: 1rem 1.5rem;
+    }
+    p {
+      margin: 1rem 1.5rem;
+      font-size: 1.4rem;
+    }
+  }
+}

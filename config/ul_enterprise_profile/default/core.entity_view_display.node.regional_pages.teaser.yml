@@ -1,0 +1,56 @@
+uuid: 245a6cfb-c9f0-4591-85a4-edd1614b0c38
+langcode: de
+status: false
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.regional_pages.field_regional_page_content
+    - field.field.node.regional_pages.field_regional_page_title
+    - field.field.node.regional_pages.field_shared_content_owner
+    - field.field.node.regional_pages.field_shared_cou
+    - field.field.node.regional_pages.field_shared_header_media
+    - field.field.node.regional_pages.field_shared_marketo_custom
+    - field.field.node.regional_pages.field_shared_marketo_forms
+    - field.field.node.regional_pages.field_shared_marketo_link
+    - field.field.node.regional_pages.field_shared_metatags
+    - field.field.node.regional_pages.field_shared_mktg_support_ticket
+    - field.field.node.regional_pages.field_shared_ref_description
+    - field.field.node.regional_pages.field_shared_review_comments
+    - field.field.node.regional_pages.field_shared_review_user
+    - field.field.node.regional_pages.field_shared_subtitle
+    - node.type.regional_pages
+  module:
+    - user
+id: node.regional_pages.teaser
+targetEntityType: node
+bundle: regional_pages
+mode: teaser
+content:
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+hidden:
+  addtoany: true
+  field_regional_page_content: true
+  field_regional_page_title: true
+  field_shared_content_owner: true
+  field_shared_cou: true
+  field_shared_header_media: true
+  field_shared_marketo_custom: true
+  field_shared_marketo_forms: true
+  field_shared_marketo_link: true
+  field_shared_metatags: true
+  field_shared_mktg_support_ticket: true
+  field_shared_ref_description: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  field_shared_subtitle: true
+  langcode: true
+  search_api_excerpt: true

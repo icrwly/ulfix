@@ -1,0 +1,29 @@
+{% extends "@ul_base_theme/2_pieces/card/card--default.twig" %}
+{% set cardId = "node--card-" ~ node.id() %}
+{% if content.field_shared_header_media.0.url %}
+    {% set image = card_image %}
+    {% set imageAlt = content.field_shared_header_media.0.alt %}
+{% else %}
+    {% set imageAlt = '' %}
+{% endif %}
+
+{% set clickable = true %}
+{% set date = '' %}
+{% set title = label %}
+{% set subtitle = content.field_shared_header_description %}
+{% set link = url %}
+
+{% set tags = [] %}
+{% if badges.gated %}
+    {% set tags = tags|merge([badges.gated]) %}
+{% endif %}
+
+{% if content.field_resource_type|render %}
+  {% set topics = [
+      {content: content.field_resource_type|render}
+  ]%}
+{% endif %}
+
+{% block card_description %}
+    <p>{{ content.field_shared_ref_description|render}}</p>
+{% endblock %}

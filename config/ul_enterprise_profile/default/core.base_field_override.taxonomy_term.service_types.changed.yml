@@ -1,0 +1,18 @@
+uuid: 7d11859d-0f1b-4fed-a3fa-4e67ed1a1714
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.service_types
+id: taxonomy_term.service_types.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: service_types
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,19 @@
+uuid: 013891db-ee8b-4279-a0d9-0ebce62f0186
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_description
+    - node.type.landing_page
+id: node.landing_page.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+bundle: landing_page
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

@@ -1,0 +1,39 @@
+<div class="hero--default-slide swiper-slide wistia-background" >
+  {{- image -}}
+  {% block media %}
+    {{ attach_library('ul_base_theme/wistia') }}
+    <div class="hero--layout-block-view" id="wistiaBackground" data-vid-id="{{ video_background }}" data-fallback="">
+      <div id="video_container" style="">
+      <div id="wistia_{{ video_background }}" class="wistia_embed wistia_async_{{ video_background }} overlayVideo wistia-background-video" style="width:1920px;height:1080px;"></div>
+      </div>
+      <button class="header__background-video--controls" id="hero-video-controls" aria-pressed="false" title="play" aria-label="play">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewbox="0 0 36 36">
+              <path id="a" d="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26"><animate fill="freeze" attributename="d" attributetype="XML" begin="indefinite" dur="0.1s" from="M11,10 L17,10 17,26 11,26 M20,10 L26,10 26,26 20,26" keysplines=".4 0 1 1" repeatcount="1" to="M11,10 L18,13.74 18,22.28 11,26 M18,13.74 L26,18 26,18 18,22.28"/></path>
+            </svg>
+      </button>
+    </div>
+  {% endblock %}
+  <div class="wrapper">
+    <div class="content-container hero-content--background {{ content_bg }}">
+      {% block hero_slide_title %}
+        {% if title %}
+          <h1>{{- title -}}</h1>
+        {% endif %}
+      {% endblock %}
+      {% block hero_slide_description %}
+        {% if description %}
+          <p class="description">{{- description -}}</p>
+        {% endif %}
+      {% endblock %}
+      {% block hero_slide_cta %}
+        {% if cta.link %}
+          {% include '@ul_base_theme/2_pieces/button.twig' with {
+            link: cta.link,
+            color: cta.color,
+            name: cta.name
+          } %}
+        {% endif %}
+      {% endblock %}
+    </div>
+  </div>
+</div>

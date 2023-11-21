@@ -1,0 +1,18 @@
+uuid: 384e4905-50d2-447e-a2bb-723aa5b156fd
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.interrupter_cta
+id: paragraph.interrupter_cta.created
+field_name: created
+entity_type: paragraph
+bundle: interrupter_cta
+label: 'Authored on'
+description: 'The time that the Paragraph was created.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

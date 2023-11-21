@@ -1,0 +1,54 @@
+uuid: b8f23ae0-f311-4a74-9c56-7b0dc6563b1c
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.image_selector
+  module:
+    - entity_browser_entity_form
+    - views
+_core:
+  default_config_hash: 5ew_6vBiiP9B6X2hbbWpP8Dpk1yqIgPc96YUvhApFuM
+name: image
+label: Image
+display: modal
+display_configuration:
+  width: ''
+  height: '500'
+  link_text: 'Select image'
+  auto_open: false
+selection_display: no_display
+selection_display_configuration: {  }
+widget_selector: tabs
+widget_selector_configuration: {  }
+widgets:
+  594c868b-c37a-48ba-9927-74aa13e4e2a3:
+    id: view
+    uuid: 594c868b-c37a-48ba-9927-74aa13e4e2a3
+    label: 'All Images'
+    weight: -8
+    settings:
+      submit_text: 'Select image'
+      auto_select: false
+      view: image_selector
+      view_display: entity_browser_images
+  f10ebfcd-718d-43c4-9803-bb022ce6186f:
+    id: entity_form
+    uuid: f10ebfcd-718d-43c4-9803-bb022ce6186f
+    label: Upload
+    weight: -10
+    settings:
+      submit_text: 'Save image'
+      entity_type: media
+      bundle: image
+      form_mode: default
+  1adf43bb-50c8-4e3f-871c-7c6ed4ff4aed:
+    id: entity_form
+    uuid: 1adf43bb-50c8-4e3f-871c-7c6ed4ff4aed
+    label: 'Import Collateral Asset'
+    weight: -9
+    settings:
+      submit_text: 'Save image'
+      entity_type: media
+      bundle: crc_asset
+      form_mode: default

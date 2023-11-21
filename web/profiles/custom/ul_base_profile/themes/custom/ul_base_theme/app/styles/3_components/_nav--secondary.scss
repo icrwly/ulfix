@@ -1,0 +1,36 @@
+.nav--secondary {
+  .menu-item--secondary-nav {
+    > a {
+      @include font-smoothing;
+      @include underline($radius: $spacing-unit--xs);
+      color: $black;
+      display: block;
+      font-size: 1.6rem;
+      line-height: 1.5;
+      margin: 0 $spacing-unit--xs;
+      padding: $spacing-unit--s/3 0;
+
+      &:hover {
+        &:before {
+          opacity: 1;
+        }
+      }
+
+      &.accordion {
+        @include accordion-caret;
+        padding-#{$end-direction}: $spacing-unit--l;
+        &:before {
+          width: calc(100% - #{$spacing-unit--l});
+        }
+      }
+    }
+
+    &.active-trail {
+      > a {
+        &:before {
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

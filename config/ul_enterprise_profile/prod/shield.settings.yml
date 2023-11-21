@@ -1,0 +1,9 @@
+allow_cli: true
+shield_enable: false
+whitelist: ''
+print: ''
+method: 0
+paths: "/acquia-contenthub/*\r\n/acquia_contenthub/*"
+credential_provider: shield
+credentials:
+  shield: null

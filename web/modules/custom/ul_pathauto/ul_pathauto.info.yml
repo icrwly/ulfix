@@ -1,0 +1,7 @@
+name: UL Pathauto
+type: module
+description: 'Pathauto customization for UL'
+package: Web services
+core_version_requirement: ^9 || ^10
+dependencies:
+- pathauto

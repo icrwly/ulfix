@@ -1,0 +1,50 @@
+uuid: 74d1229c-e770-426a-9919-5db321078dcb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.sidebar_curated_related.field_rr_curated_heading
+    - field.field.paragraph.sidebar_curated_related.field_rr_curated_link
+    - field.field.paragraph.sidebar_curated_related.field_rr_curated_references
+    - paragraphs.paragraphs_type.sidebar_curated_related
+  module:
+    - link
+id: paragraph.sidebar_curated_related.default
+targetEntityType: paragraph
+bundle: sidebar_curated_related
+mode: default
+content:
+  field_rr_curated_heading:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_rr_curated_link:
+    type: link_default
+    weight: 3
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_rr_curated_references:
+    type: entity_reference_autocomplete
+    weight: 2
+    region: content
+    settings:
+      match_operator: CONTAINS
+      match_limit: 10
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

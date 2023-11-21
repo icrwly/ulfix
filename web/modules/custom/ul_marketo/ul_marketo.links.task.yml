@@ -1,0 +1,5 @@
+entity.marketo_form.collection:
+  title: Default Marketo Forms
+  route_name: entity.marketo_form.collection
+  base_route: system.admin_content
+  weight: 10

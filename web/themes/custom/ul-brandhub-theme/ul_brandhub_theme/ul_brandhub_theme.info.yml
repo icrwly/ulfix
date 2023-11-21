@@ -1,0 +1,20 @@
+name: UL Brandhub Theme
+type: theme
+base theme: ul_guidelines_theme
+description: 'Theme for the UL Brandhub website..'
+package: Core
+version: VERSION
+core_version_requirement: ^9 || ^10
+
+regions:
+  header_top: 'Header Top'
+  header_bottom: 'Header Bottom'
+  primary_menu: 'Primary menu'
+  search: Search
+  page_top: 'Page top'
+  page_bottom: 'Page bottom'
+  highlighted: Highlighted
+  content: Content
+  sidebar_first: 'Sidebar first'
+  footer_first: 'Footer first'
+  footer_second: 'Footer second'

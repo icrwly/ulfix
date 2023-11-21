@@ -1,0 +1,155 @@
+uuid: e7ab4f10-2a6e-4dd5-b36d-ffe0064ca771
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.card
+    - field.field.node.tool.field_shared_content_owner
+    - field.field.node.tool.field_shared_cou
+    - field.field.node.tool.field_shared_country
+    - field.field.node.tool.field_shared_domain
+    - field.field.node.tool.field_shared_header_description
+    - field.field.node.tool.field_shared_header_link
+    - field.field.node.tool.field_shared_header_media
+    - field.field.node.tool.field_shared_industry
+    - field.field.node.tool.field_shared_market
+    - field.field.node.tool.field_shared_marketo_custom
+    - field.field.node.tool.field_shared_marketo_forms
+    - field.field.node.tool.field_shared_marketo_link
+    - field.field.node.tool.field_shared_metatags
+    - field.field.node.tool.field_shared_mktg_support_ticket
+    - field.field.node.tool.field_shared_products_components
+    - field.field.node.tool.field_shared_ref_description
+    - field.field.node.tool.field_shared_review_comments
+    - field.field.node.tool.field_shared_review_user
+    - field.field.node.tool.field_shared_secondary_hdr_link
+    - field.field.node.tool.field_shared_service_type
+    - field.field.node.tool.field_shared_solutions
+    - field.field.node.tool.field_shared_topic
+    - field.field.node.tool.field_tool_category
+    - field.field.node.tool.field_tool_content
+    - field.field.node.tool.field_tool_crc
+    - field.field.node.tool.field_tool_images
+    - field.field.node.tool.field_tool_types
+    - image.style.card
+    - node.type.tool
+  module:
+    - link
+    - metatag
+    - ul_media
+    - user
+_core:
+  default_config_hash: cJq-7-og3Q9dyUeu8rz82xw1DUAYW-VDa-NbXJ47Hns
+id: node.tool.card
+targetEntityType: node
+bundle: tool
+mode: card
+content:
+  field_shared_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  field_shared_domain:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_shared_header_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_shared_header_media:
+    type: media_url
+    label: above
+    settings:
+      image_style: card
+      alt_tag: '1'
+      image_link: ''
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_shared_industry:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_shared_market:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_shared_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_shared_ref_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_tool_types:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_shared_content_owner: true
+  field_shared_cou: true
+  field_shared_header_description: true
+  field_shared_marketo_custom: true
+  field_shared_marketo_forms: true
+  field_shared_marketo_link: true
+  field_shared_mktg_support_ticket: true
+  field_shared_products_components: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  field_shared_secondary_hdr_link: true
+  field_shared_service_type: true
+  field_shared_solutions: true
+  field_shared_topic: true
+  field_tool_category: true
+  field_tool_content: true
+  field_tool_crc: true
+  field_tool_images: true
+  langcode: true
+  search_api_excerpt: true

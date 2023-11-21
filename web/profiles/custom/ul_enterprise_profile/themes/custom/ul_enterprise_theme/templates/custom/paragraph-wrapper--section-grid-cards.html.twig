@@ -1,0 +1,26 @@
+{#
+# This is a custom template defined to handle grid items in the middle of a multi-type paragraph field.
+# See ul_enterprise_theme::ul_enterprise_theme_theme().
+#}
+{% extends "@ul_base_theme/4_regions/section--grid--cards.twig" %}
+{% set class = "section--paragraph section--grid--item section--grid--cards spotlight--cards" %}
+{% set spotlight_cards = true %}
+{% set items = items %}
+{% set per_row = 2 %}
+{% if items[0]['#paragraph'].field_hash_target %}
+  {% set field_hash_target = items[0]['#paragraph'].field_hash_target.value %}
+{% endif %}
+
+{% block item %}
+  {% embed "@ul_base_theme/2_pieces/grid-item.twig" with { per_row: per_row } %}
+    {% block content %}
+      {{ item }}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}
+
+{% block hash_target %}
+  {% if field_hash_target %}
+    <div class="hash-target" id="{{- field_hash_target -}}"></div>
+  {% endif %}
+{% endblock %}

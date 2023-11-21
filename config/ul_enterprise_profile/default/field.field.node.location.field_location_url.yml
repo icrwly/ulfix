@@ -1,0 +1,23 @@
+uuid: 30b8d84a-b1f0-453d-9eda-e4f0e51317ea
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_location_url
+    - node.type.location
+  module:
+    - link
+id: node.location.field_location_url
+field_name: field_location_url
+entity_type: node
+bundle: location
+label: 'Location Site URL'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 0
+  link_type: 16
+field_type: link

@@ -1,0 +1,13 @@
+diff --git a/src/MigrateBatchExecutable.php b/src/MigrateBatchExecutable.php
+index 27b34e1..2c7ae3c 100644
+--- a/src/MigrateBatchExecutable.php
++++ b/src/MigrateBatchExecutable.php
+@@ -295,7 +295,7 @@ class MigrateBatchExecutable extends MigrateExecutable {
+    */
+   public function calculateBatchLimit(array $context) {
+     // TODO Maybe we need some other more sophisticated logic here?
+-    return ceil($context['sandbox']['total'] / 100);
++    return ceil($context['sandbox']['total'] / 10);
+   }
+ 
+ }

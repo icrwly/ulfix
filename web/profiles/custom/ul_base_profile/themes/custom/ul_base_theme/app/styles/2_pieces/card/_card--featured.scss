@@ -1,0 +1,99 @@
+.card--featured {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  margin-bottom: 0;
+  position: relative;
+  transition: background $transition;
+
+  @include breakpoint($tablet) {
+    height: 0;
+    padding-top: 70%;
+  }
+
+  @include breakpoint($desktop) {
+    height: 100%;
+    min-height: 520px;
+    padding-top: 0;
+    position: relative;
+    width: 100%;
+  }
+
+  &:before {
+    background: linear-gradient(transparent, $blue);
+    bottom: 0;
+    content: "";
+    height: 100%;
+    left: 0;
+    pointer-events: none;
+    position: absolute;
+    transition:background 0.3s ease-in-out;
+    width: 100%;
+    z-index: index($globalIndex, base);
+  }
+
+  &.is-link {
+    &:hover {
+      &:before {
+        background: linear-gradient(transparent, lighten($blue, 6));
+      }
+
+      a {
+        background: transparent;
+      }
+    }
+  }
+
+  a {
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+  }
+
+  .tags {
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: index($globalIndex, page);
+  }
+
+  .content-container {
+    bottom: 0;
+    left: 0;
+    padding-top: ($spacing-unit--xl * 2.5);
+    position: relative;
+    width: 100%;
+    z-index: index($globalIndex, page);
+    @include breakpoint($tablet) {
+      padding-left: ($spacing-unit--l * 2);
+      padding-right: ($spacing-unit--l * 2);
+      padding-top: 0;
+      position: absolute;
+    }
+
+    a,
+    p,
+    h3,
+    li {
+      color: $white;
+    }
+  }
+
+  .bottom-row {
+    padding: 0 !important;
+    img {
+      display: none;
+    }
+    .date,
+    .read-time {
+      color: $white;
+    }
+  }
+
+  img {
+    display: none;
+  }
+
+}

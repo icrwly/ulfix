@@ -1,0 +1,26 @@
+uuid: ede5cf83-b7e1-4e82-99ef-af93b8a2d1a6
+langcode: en
+status: true
+dependencies: {  }
+id: gated_content_form
+label: 'Gated Content Form'
+description: ''
+marketo_form_id:
+  0:
+    value: '1044'
+    filters:
+      instance: Enterprise
+      env: prod
+      langcode: en
+  1:
+    value: '2668'
+    filters:
+      instance: Enterprise
+      env: stage
+      langcode: en
+  actions: {  }
+settings:
+  settings__active_tab: edit-page
+  page_enable: 0
+  path: ''
+  block_enable: 0

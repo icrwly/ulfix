@@ -1,0 +1,21 @@
+uuid: c4be0f19-b773-4877-b5d4-0dde2748f83f
+langcode: en
+status: true
+dependencies:
+  module:
+    - block_content
+    - entity_reference_revisions
+    - ul_marketo
+id: block_content.field_marketo_form_customization
+field_name: field_marketo_form_customization
+entity_type: block_content
+type: entity_reference_revisions
+settings:
+  target_type: marketo_form
+module: entity_reference_revisions
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

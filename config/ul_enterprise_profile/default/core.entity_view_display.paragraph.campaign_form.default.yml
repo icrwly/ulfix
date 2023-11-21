@@ -1,0 +1,23 @@
+uuid: 04c3f3fb-fde4-4b49-939c-9dca73f893a9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.campaign_form.field_marketo_form
+    - paragraphs.paragraphs_type.campaign_form
+  module:
+    - ul_marketo
+id: paragraph.campaign_form.default
+targetEntityType: paragraph
+bundle: campaign_form
+mode: default
+content:
+  field_marketo_form:
+    type: marketo_form_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

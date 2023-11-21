@@ -1,0 +1,88 @@
+#main-content {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  > .section.has-bg:first-child {
+    margin-top: $spacing-unit--xl;
+    @include breakpoint($desktop) {
+      margin-top: $spacing-unit--xxl;
+    }
+  }
+}
+
+.main-column {
+  > .section--topics{
+    padding-top:0!important;
+    @include breakpoint($desktop){
+      padding-top:$spacing-unit--xxl !important;
+    }
+    + .section--wysiwyg{
+      padding-top:$spacing-unit !important;
+    }
+  }
+}
+
+.side-column {
+  > .section {
+    &:first-child {
+      padding-top: 0;
+    }
+  }
+}
+
+.main-container {
+  .section {
+    // remove padding unless section has a bg or border
+    // and unless it is a section--paragraph.
+    &:not(.has-bg):not(.has-border):not(.section--paragraph) {
+      + .section {
+        &:not(.has-bg):not(.has-border):not(.section--paragraph) {
+          padding-top: 0;
+        }
+      }
+    }
+
+    // certain sections with bg's still have margin
+    &.has-bg.has-margin {
+      + .section {
+        &.has-bg {
+          margin-top: $spacing-unit--xl;
+          @include breakpoint($desktop) {
+            margin-top: $spacing-unit--xxl;
+          }
+        }
+      }
+    }
+  }
+}
+
+.region-bottom {
+  .views-element-container {
+    &:first-child {
+      .section--grid.has-bg {
+        border-top: 1px solid $border-color;
+        padding-top: $spacing-unit--l;
+        @include breakpoint($large-mobile){
+          padding-top: $spacing-unit--xl;
+        }
+      }
+    }
+    &:not(:last-child) {
+      .section--grid.has-bg {
+        padding-bottom: $grid-gutter;
+        @include breakpoint($large-mobile){
+          padding-bottom: $grid-gutter * 2;
+        }
+      }
+    }
+    + .views-element-container {
+      .section--grid.has-bg {
+        padding-top: 0 !important;
+
+        .title-bar {
+          display: none;
+        }
+      }
+    }
+  }
+}

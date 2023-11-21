@@ -1,0 +1,9 @@
+{% set item = {
+    image: content.field_person_image.0.src,
+    image_alt: content.field_person_image.0.alt,
+    name: label,
+    position: content.field_person_title
+} %}
+{% include "@ul_base_theme/2_pieces/section--people__person.twig" %}
+
+

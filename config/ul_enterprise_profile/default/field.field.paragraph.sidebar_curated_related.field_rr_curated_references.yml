@@ -1,0 +1,25 @@
+uuid: 711964f8-456e-4ae6-9e5a-1304c892cfec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_rr_curated_references
+    - paragraphs.paragraphs_type.sidebar_curated_related
+id: paragraph.sidebar_curated_related.field_rr_curated_references
+field_name: field_rr_curated_references
+entity_type: paragraph
+bundle: sidebar_curated_related
+label: 'Referenced Content'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: views
+  handler_settings:
+    view:
+      view_name: published_nodes_for_paragraphs
+      display_name: entity_reference_1
+      arguments: {  }
+field_type: entity_reference

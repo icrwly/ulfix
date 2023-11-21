@@ -1,0 +1,21 @@
+uuid: ffef21dc-123b-4180-b836-fbbaf4490eae
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_ref_reference
+    - paragraphs.paragraphs_type.reference
+  module:
+    - text
+id: paragraph.reference.field_ref_reference
+field_name: field_ref_reference
+entity_type: paragraph
+bundle: reference
+label: References
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

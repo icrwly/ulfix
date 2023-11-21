@@ -1,0 +1,154 @@
+.hero--default {
+
+  .hero--default-slide.swiper-slide {
+    :not(.tall-hero) {
+      @include breakpoint(max-width $tablet - 1) {
+        background-image: none !important;
+      }
+    }
+    @include breakpoint($desktop) {
+      height: 75vw * $hero-aspect-ratio;
+      max-height: 56vh;
+      min-height: 210px;
+    }
+    @include breakpoint($desktop, min-height (675px * $hero-aspect-ratio)) {
+      max-height: 675px * $hero-aspect-ratio;
+    }
+
+    // Offerings full-width hero:
+    &.offerings-fullwidth-hero {
+      @include breakpoint($desktop) {
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        -o-background-size: cover;
+        background-size: cover;
+      }
+      img {
+        width: 100%;
+        height: auto;
+        @include breakpoint(max-width $desktop - 1) {
+          max-height: 300px;
+        }
+        @include breakpoint($desktop - 1) {
+          display: none;
+        }
+        display: none;
+      }
+      a {
+        display: inline-block;
+        margin-right: 20px;
+        margin-bottom: 15px;
+        @include breakpoint(max-width $tablet - 1) {
+          display: block;
+          margin: 15px 15px 15px 0;
+        }
+      }
+      .button--white-outline {
+        margin-left: 0;
+      }
+      @include breakpoint(max-width $desktop - 1) {
+        #wistiaBackground {
+          min-height: 280px;
+        }
+      }
+    }
+  }
+  .hero_img_offerings {
+    @include breakpoint($tablet) {
+      display: none;
+    }
+  }
+  .hero--default-slide.swiper-slide.tall-hero.light-gradient {
+    .wrapper {
+      background: rgb(175,175,175);
+      background: linear-gradient(90deg, rgba(175,175,175,0.9) 0%, rgba(175,175,175,0.9) 50%, rgba(255,255,255,0) 100%);
+      @include breakpoint(max-width $tablet - 1) {
+        background: rgba(175,175,175, 0.85);
+        padding: 50px 0;
+      }
+    }
+  }
+  .hero--default-slide.swiper-slide.tall-hero {
+    @include breakpoint($tablet) {
+      height: 600px;
+      max-height: 600px;
+    }
+    img {
+      @include breakpoint($tablet - 1) {
+        display: none;
+      }
+      display: none;
+    }
+    .content-container {
+      @include breakpoint(max-width $desktop - 1) {
+        top: 30%;
+      }
+      @include breakpoint($tablet) {
+        max-width: 100%;
+        margin: 0 auto;
+        text-align: center;
+        h1 {
+          font-size: 3.6rem;
+          width: 500px;
+          text-align: left;
+          letter-spacing: 1.5px;
+        }
+        p {
+            width: 600px;
+            margin: 0 auto 3rem 0;
+            text-align: left;
+        }
+      }
+      a {
+        display: initial;
+        float: left;
+        @include breakpoint(max-width $tablet - 1) {
+          display: block;
+          margin: 15px 15px 15px 0;
+        }
+      }
+    }
+    .wrapper {
+      background: rgb(88,88,88);
+      background: linear-gradient(90deg, rgba(88,88,88,0.9) 0%, rgba(88,88,88,0.9) 50%, rgba(255,255,255,0) 100%);
+      max-width: 100%;
+      @include breakpoint(max-width $tablet - 1) {
+        background: rgba(88,88,88, 0.85);
+        padding: 50px 0;
+      }
+    }
+    .hero-content--background.gray {
+        background: none;
+        background: transparent;
+    }
+    #wistiaBackground {
+      @include breakpoint( max-width $desktop - 1 ) {
+        min-height: 0px;
+      }
+      @include breakpoint( max-width $tablet - 1 ) {
+        min-height: 280px;
+      }
+    }
+  }
+
+  // Hero with 2 CTAs:
+  &.has-secondary-cta {
+    .content-container {
+      a {
+        width: 100%;
+        max-width: 400px;
+        @include breakpoint($large-mobile){
+          display: inline-block;
+          width: auto;
+        }
+      }
+      > a:last-child {
+        margin-top: 1.5rem;
+        @include breakpoint($large-mobile){
+          margin-top: 0;
+          margin-left: 1.5rem;
+        }
+      }
+    }
+  }
+}

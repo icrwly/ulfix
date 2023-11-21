@@ -1,0 +1,10 @@
+uuid: bcf0cb41-d472-4ee5-b287-8d0e26e85b2e
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: SPzJ-1GL0mipqRsB9Wu17GA7Hc3ARj783f1uoP4dvZ8
+name: 'Event Types'
+vid: event_types
+description: 'Used for defining different types of UL events'
+weight: 0

@@ -1,0 +1,26 @@
+{#
+ * @file: inc-modal-thankyou-mssg.html.twig
+ * @usage: Marketo Modal's  "post" submit thank you message.
+#}
+
+<div class="mkto-post-submit">
+  {% if thank_you_img %}
+    <div class="row">
+      <div class="mkto-img item">
+        <img src="{{ thank_you_img }}" alt="{{ thank_you_alt }}" />
+      </div>
+      <div class="mkto-thanks item">
+  {% endif %}
+
+  {% if thank_you_mssg is null %}
+    <h2> {{ 'Thank you!'|t }} </h2>
+    <p>{{ 'One of our team members will respond to your request as soon as possible. To ensure that you receive our reply, please whitelist our domain @emergo.ul.com and add it as a safe sender in your list of approved contacts.'|t }}</p>
+  {% else %}
+    {{ thank_you_mssg|raw }}
+  {% endif %}
+
+  {% if thank_you_img %}
+      </div><!-- /.mkto-thanks .item -->
+    </div><!-- /.row -->
+  {% endif %}
+</div>

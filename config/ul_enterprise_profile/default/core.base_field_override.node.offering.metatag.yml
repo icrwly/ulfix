@@ -1,0 +1,18 @@
+uuid: d44cab46-fd3b-4e75-92a3-2f5c898d065d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.offering
+id: node.offering.metatag
+field_name: metatag
+entity_type: node
+bundle: offering
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

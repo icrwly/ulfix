@@ -1,0 +1,74 @@
+{
+  "title": "72 Results for \"Logo\"",
+  "breadcrumbShow": true,
+  "backButtonShow": true,
+  "t06FeaturedCard" : {
+    "type": "featured",
+    "cardList": [
+      {
+        "linkHref": "#",
+        "linkName": "Go to UL Logo",
+        "image": "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97340&w=340&h=340",
+        "imageAlt": "Image Alt String",
+        "title": "UL Logo",
+        "description": "<p>In keeping with the new UL brand architecture, the UL logo will consist of the UL wordmark and circle, without the “Underwriters Laboratories” wordmark.</p><p>The UL logo may be used on external-facing communications such as print collateral, marketing materials, advertising and stationery, as well as internal.</p><h4>Approval Process</h4><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>"
+      }
+    ]
+  },
+  "t06ListingItems": {
+    "sectionList": {
+      "list": [
+        {
+          "linkHref": "#",
+          "image": "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+          "imageAlt": "Alt tag",
+          "category": "Grid System",
+          "title": "Frame and grid system",
+          "type": "Page",
+          "sectionIcon": "file",
+          "section": "Brand"
+        },
+        {
+          "linkHref": "#",
+          "image": "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+          "imageAlt": "Alt tag",
+          "category": "Grid System",
+          "title": "Frame and grid system",
+          "type": "Page",
+          "sectionIcon": "file",
+          "section": "Brand"
+        },
+        {
+          "linkHref": "#",
+          "image": "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+          "imageAlt": "Alt tag",
+          "category": "Brand",
+          "title": "Branding system",
+          "type": "Page",
+          "sectionIcon": "file",
+          "section": "Brand"
+        },
+        {
+          "linkHref": "#",
+          "image": "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+          "imageAlt": "Alt tag",
+          "category": "Ul Logo",
+          "title": "UL logo system",
+          "type": "Page",
+          "sectionIcon": "file",
+          "section": "Brand"
+        },
+        {
+          "linkHref": "#",
+          "image": "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+          "imageAlt": "Alt tag",
+          "category": "Grid System",
+          "title": "Frame",
+          "type": "Page",
+          "sectionIcon": "file",
+          "section": "Brand"
+        }
+      ]
+    }
+  }
+}

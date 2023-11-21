@@ -1,0 +1,29 @@
+uuid: 0d0e5fe2-65ab-4d4b-af8b-a00e84792e57
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_attachments
+  module:
+    - file
+_core:
+  default_config_hash: _jbOxf49VS81W55v4_vh4oIJBRszVJGObcARIwygwaA
+id: contact_message.submit_request.field_request_attachments
+field_name: field_request_attachments
+entity_type: contact_message
+bundle: submit_request
+label: 'Attachments (if any)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'txt pdf jpg jpeg gif png mov mp4 ppt pptx doc docx xls xlsx'
+  max_filesize: '25 MB'
+  description_field: false
+field_type: file

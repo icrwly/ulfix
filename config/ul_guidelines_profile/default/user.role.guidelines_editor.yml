@@ -1,0 +1,171 @@
+uuid: eb5afec8-2ad2-4640-9a71-f6d4060d46b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - media.type.crc_asset
+    - media.type.file
+    - media.type.image
+    - node.type.guideline
+    - node.type.guideline_author
+    - node.type.guidelines_list
+    - taxonomy.vocabulary.categories
+    - taxonomy.vocabulary.content_access_levels
+    - taxonomy.vocabulary.content_domain
+    - taxonomy.vocabulary.country
+    - taxonomy.vocabulary.industries
+    - taxonomy.vocabulary.markets
+    - taxonomy.vocabulary.stakeholder_needs
+    - taxonomy.vocabulary.standards_types
+    - taxonomy.vocabulary.topics
+    - workflows.workflow.content_publication
+  module:
+    - book
+    - cm_workbench
+    - content_moderation
+    - content_translation
+    - entity_browser
+    - environment_indicator
+    - file
+    - filter
+    - media
+    - node
+    - node_view_permissions
+    - path
+    - system
+    - taxonomy
+    - toolbar
+id: guidelines_editor
+label: 'Guidelines Editor'
+weight: 1
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access cm_workbench'
+  - 'access content'
+  - 'access content overview'
+  - 'access crc_asset entity browser pages'
+  - 'access environment indicator'
+  - 'access file entity browser pages'
+  - 'access files overview'
+  - 'access image entity browser pages'
+  - 'access media overview'
+  - 'access printer-friendly version'
+  - 'access site in maintenance mode'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access wysiwyg entity browser pages'
+  - 'add content to books'
+  - 'administer book outlines'
+  - 'administer media'
+  - 'administer menu'
+  - 'administer nodes'
+  - 'administer taxonomy'
+  - 'bypass node access'
+  - 'create content translations'
+  - 'create crc_asset media'
+  - 'create file media'
+  - 'create guideline content'
+  - 'create guideline_author content'
+  - 'create guidelines_list content'
+  - 'create image media'
+  - 'create media'
+  - 'create new books'
+  - 'create terms in categories'
+  - 'create terms in content_access_levels'
+  - 'create terms in content_domain'
+  - 'create terms in country'
+  - 'create terms in industries'
+  - 'create terms in markets'
+  - 'create terms in stakeholder_needs'
+  - 'create terms in standards_types'
+  - 'create terms in topics'
+  - 'create url aliases'
+  - 'delete all revisions'
+  - 'delete any crc_asset media'
+  - 'delete any file media'
+  - 'delete any guideline content'
+  - 'delete any guideline_author content'
+  - 'delete any guidelines_list content'
+  - 'delete any image media'
+  - 'delete any media'
+  - 'delete content translations'
+  - 'delete guideline revisions'
+  - 'delete guidelines_list revisions'
+  - 'delete media'
+  - 'delete own crc_asset media'
+  - 'delete own file media'
+  - 'delete own guideline content'
+  - 'delete own guideline_author content'
+  - 'delete own guidelines_list content'
+  - 'delete own image media'
+  - 'delete terms in categories'
+  - 'delete terms in content_access_levels'
+  - 'delete terms in content_domain'
+  - 'delete terms in country'
+  - 'delete terms in industries'
+  - 'delete terms in markets'
+  - 'delete terms in stakeholder_needs'
+  - 'delete terms in standards_types'
+  - 'delete terms in topics'
+  - 'edit any crc_asset media'
+  - 'edit any file media'
+  - 'edit any guideline content'
+  - 'edit any guideline_author content'
+  - 'edit any guidelines_list content'
+  - 'edit any image media'
+  - 'edit own crc_asset media'
+  - 'edit own file media'
+  - 'edit own guideline content'
+  - 'edit own guideline_author content'
+  - 'edit own guidelines_list content'
+  - 'edit own image media'
+  - 'edit terms in categories'
+  - 'edit terms in content_access_levels'
+  - 'edit terms in content_domain'
+  - 'edit terms in country'
+  - 'edit terms in industries'
+  - 'edit terms in markets'
+  - 'edit terms in stakeholder_needs'
+  - 'edit terms in standards_types'
+  - 'edit terms in topics'
+  - 'link to any page'
+  - 'revert all revisions'
+  - 'revert guideline revisions'
+  - 'revert guidelines_list revisions'
+  - 'translate guideline node'
+  - 'translate guidelines_list node'
+  - 'update any media'
+  - 'update content translations'
+  - 'update media'
+  - 'use content_publication transition archive'
+  - 'use content_publication transition create_new_draft'
+  - 'use content_publication transition keep_in_review'
+  - 'use content_publication transition publish'
+  - 'use content_publication transition request_review'
+  - 'use content_publication transition send_back_for_revision'
+  - 'use content_publication transition send_back_to_draft'
+  - 'use content_publication transition send_back_to_review'
+  - 'use content_publication transition un_archive'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any guideline content'
+  - 'view any guideline_author content'
+  - 'view any guidelines_list content'
+  - 'view any unpublished content'
+  - 'view guideline revisions'
+  - 'view guidelines_list revisions'
+  - 'view latest version'
+  - 'view media'
+  - 'view own guideline content'
+  - 'view own guideline_author content'
+  - 'view own guidelines_list content'
+  - 'view own unpublished content'
+  - 'view own unpublished media'
+  - 'view the administration theme'

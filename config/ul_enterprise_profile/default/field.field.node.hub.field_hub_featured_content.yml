@@ -1,0 +1,42 @@
+uuid: d0730861-b20d-4a4e-850a-ed385facc11f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hub_featured_content
+    - node.type.event
+    - node.type.help
+    - node.type.hub
+    - node.type.knowledge
+    - node.type.landing_page
+    - node.type.news
+    - node.type.offering
+    - node.type.resource
+    - node.type.tool
+id: node.hub.field_hub_featured_content
+field_name: field_hub_featured_content
+entity_type: node
+bundle: hub
+label: 'Featured Content - deprecated'
+description: 'Search for News, Events, Offerings, Knowledge Articles, Tools, Standards, Help or Promotional Materials '
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:node'
+  handler_settings:
+    target_bundles:
+      event: event
+      help: help
+      knowledge: knowledge
+      landing_page: landing_page
+      news: news
+      offering: offering
+      resource: resource
+      tool: tool
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: knowledge
+field_type: entity_reference

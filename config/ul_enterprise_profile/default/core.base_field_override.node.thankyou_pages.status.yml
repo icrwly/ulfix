@@ -1,0 +1,22 @@
+uuid: a1c0059d-7afd-4001-9d5b-f6ed39431f0c
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.thankyou_pages
+id: node.thankyou_pages.status
+field_name: status
+entity_type: node
+bundle: thankyou_pages
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

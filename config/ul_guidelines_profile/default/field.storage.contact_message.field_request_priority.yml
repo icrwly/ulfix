@@ -1,0 +1,32 @@
+uuid: b840637c-2af4-4328-98f3-a8469f92baf9
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: VLQWblgvAnatrvqBY2fld-sW324qIHj8Ya016_o_lOE
+id: contact_message.field_request_priority
+field_name: field_request_priority
+entity_type: contact_message
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Exceptional
+      label: Exceptional
+    -
+      value: Standard
+      label: Standard
+    -
+      value: Planned
+      label: Planned
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

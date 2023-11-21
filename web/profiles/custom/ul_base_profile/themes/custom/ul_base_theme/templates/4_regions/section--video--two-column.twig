@@ -1,0 +1,57 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--video--two-column section--paragraph wrapper"%}
+{% if not sectionGutterClass %}
+  {% set sectionGutterClass = "section-gutter" %}
+{% endif %}
+
+{# Make urls like https://*.wistia.com/media/  working #}
+{% set wistiaBaseUrl = 'wistia.com/medias/' %}
+
+{% block section_body %}
+  <div class="row row--gutter-l">
+    <div class="span-12 span-6-t">
+      {# This is for wistia video only. #}
+      {% if wistiaBaseUrl in videoURL %}
+        {% set wistiaID = videoURL | split('/') | last %}
+        {% block embedded_videos %}
+            {% include '@ul_base_theme/3_components/wistia-video.twig' %}
+        {% endblock %}
+      {% else %}
+      {# This is for other vidoes such as youtube video. #}
+      {% block embedded_video %}
+        {# NOTE: Drupal module includes a similar responsive wrapper, ours can be overwritten completely #}
+        <div class="embed-responsive embed-responsive-16by9">
+          <iframe width="854" height="480" frameborder="0" allowfullscreen="allowfullscreen" src="{{ video }}"></iframe>
+        </div>
+      {% endblock %}
+      {% endif %}
+    </div>
+    <div class="span-12 span-6-t">
+      <div class="section__content">
+        {% block title %}
+          {% if title %}
+            <h2 class="section__title">{{- title -}}</h2>
+          {% endif %}
+        {% endblock %}
+        {% block description %}
+          {% if description %}
+            <div class="section__description">
+              {% block description_inner %}
+                {% include '@ul_base_theme/2_pieces/editor-content.twig' with { content: description } only %}
+              {% endblock %}
+            </div>
+          {% endif %}
+        {% endblock %}
+
+        {# Add CTA Link button to the Video paragraph #}
+        {% block cta_link %}
+          {% if content.field_spotlight_link %}
+            <div class="section__link">
+            </div>
+          {% endif %}
+        {% endblock %}
+        
+      </div>
+    </div>
+  </div>
+{% endblock %}

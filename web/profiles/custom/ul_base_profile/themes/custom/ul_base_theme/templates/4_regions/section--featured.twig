@@ -1,0 +1,49 @@
+{% extends "@ul_base_theme/4_regions/section--grid.twig" %}
+{% set class = "section--featured" %}
+
+{# Section featured has a special grid layout depending upon what content is entered... #}
+
+{# Total number of items #}
+{% set length = items|length %}
+
+{# Loop through list and count number of "spotlight" items #}
+{% set spotlight_count = 0 %}
+{% for item in items %}
+  {% if item.type == "spotlight" %}
+    {% set spotlight_count = spotlight_count + 1 %}
+  {% endif %}
+{% endfor %}
+
+{# If list contains any spotlights, subtract those from the total number of items #}
+{% set updated_length = length - spotlight_count ? : length %}
+
+{# If remaining items do not divide evenly into groups of 3 store the remainder #}
+{% set remainder = updated_length % 3 %}
+
+{# Default to 1 per row #}
+{% set grid_class = "span-12" %}
+
+{# If even number of items, display 2 per row #}
+{% if updated_length is even %}
+  {% set grid_class = "span-6-t" %}
+{% endif %}
+
+{# If odd number of items or more than six, display 3 per row #}
+{% if updated_length is odd or updated_length >= 6 %}
+  {% set grid_class = "span-6-t span-4-d" %}
+{% endif %}
+
+{% block item %}
+  {# If this is a spotlight item set 1 per row #}
+  {% if item.type == "spotlight" %}
+    {% set grid_class = "span-12" %}
+  {% elseif remainder and loop.index > length - remainder %}
+    {# Otherwise if there is one of the remaining items, set to 2 per row #}
+    {% set grid_class = "span-6-d" %}
+  {% endif %}
+  {% embed "@ul_base_theme/2_pieces/grid-item.twig" with { item: item, per_row: per_row, grid_class: grid_class } only %}
+    {% block content %}
+      {% include "@ul_base_theme/1_core/switch--feature.twig" with item only %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

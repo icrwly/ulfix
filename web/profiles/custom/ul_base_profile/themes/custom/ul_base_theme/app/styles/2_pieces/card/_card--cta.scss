@@ -1,0 +1,14 @@
+.card.card--cta {
+  h3 {
+    @include breakpoint($tablet) {
+      font-size: 2.4rem;
+    }
+  }
+
+  p {
+    font-weight: 300;
+    @include breakpoint($tablet) {
+      font-size: 1.6rem;
+    }
+  }
+}

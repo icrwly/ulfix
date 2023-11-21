@@ -1,0 +1,6 @@
+{% for item in items %}
+  {% set reference = {
+      'citation': item.content|render
+  } %}
+  {% include '@ul_base_theme/2_pieces/section--references__citation.twig' with reference only %}
+{% endfor %}

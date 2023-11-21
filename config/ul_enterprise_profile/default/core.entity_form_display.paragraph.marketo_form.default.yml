@@ -1,0 +1,62 @@
+uuid: 3ec2ae29-6b75-45fd-b6c8-0d70ab2b395a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.marketo_form.field_hash_target
+    - field.field.paragraph.marketo_form.field_marketo_form
+    - field.field.paragraph.marketo_form.field_shared_bg_color
+    - paragraphs.paragraphs_type.marketo_form
+  module:
+    - field_group
+    - ul_marketo
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_bg_color
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.marketo_form.default
+targetEntityType: paragraph
+bundle: marketo_form
+mode: default
+content:
+  field_hash_target:
+    type: string_textfield
+    weight: 3
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_marketo_form:
+    type: marketo_form_widget
+    weight: 0
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 2
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

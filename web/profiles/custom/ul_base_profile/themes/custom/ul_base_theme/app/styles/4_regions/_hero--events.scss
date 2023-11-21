@@ -1,0 +1,156 @@
+.hero--events {
+  .carousel {
+    @include breakpoint($desktop) {
+      display: flex;
+    }
+  }
+
+  .carousel-container {
+    @include breakpoint($desktop) {
+      flex-basis: percentage(7/12);
+      max-width: percentage(7/12);
+    }
+
+    .swiper-container {
+      height: 100%;
+      max-width: 100%;
+    }
+
+    .swiper-navigation {
+      display: none;
+
+      @include breakpoint(max-width $desktop - 1) {
+        .swiper-button-prev {
+          #{$start-direction}: 0;
+          transform: translateY(-50%) scaleX($transform-direction);
+        }
+        .swiper-button-next {
+          #{$end-direction}: 0;
+          transform: translateY(-50%) scaleX($transform-direction);
+        }
+      }
+
+      @include breakpoint($mobile $desktop - 1) {
+        display: block;
+      }
+    }
+  }
+
+  .content-container {
+    padding: $spacing-unit--l $spacing-unit;
+    position: relative;
+
+    @include breakpoint(max-width $desktop - 1) {
+      .date,
+      .location,
+      .description {
+        display: none;
+      }
+
+      .title {
+        margin-top: 0 !important;
+      }
+    }
+
+    @include breakpoint($large-mobile){
+      padding-right: $spacing-unit--l;
+      padding-left: $spacing-unit--l;
+    }
+
+    @include breakpoint($desktop) {
+      background-color: #f8f8f8; // TODO: refactor gray palette, make this lightest
+      display: flex;
+      flex-basis: percentage(5/12);
+      flex-direction: column;
+      justify-content: center;
+      max-width: percentage(5/12);
+      padding: $spacing-unit--xl;
+    }
+
+    @include breakpoint($large-desktop) {
+      padding: $spacing-unit--xxl;
+    }
+
+    .swiper-navigation {
+      @include breakpoint(max-width $desktop - 1) {
+        display: none;
+      }
+    }
+
+    .date {
+      font-size: 2.4rem;
+    }
+
+    .location {
+      font-weight: 300;
+      font-size: 1.8rem;
+    }
+
+    .title {
+      margin: $spacing-unit--l 0;
+    }
+
+    .description {
+      font-size: 2.1rem;
+    }
+
+    .button {
+      width: 250px;
+    }
+  }
+
+  .swiper-pagination {
+    bottom: $spacing-unit !important;
+
+    .swiper-pagination-bullet {
+      background: $white;
+      height: 15px;
+      margin: 0 8px !important;
+      opacity: .5;
+      width: 15px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: $white;
+      opacity: 1;
+    }
+  }
+
+  .swiper-navigation {
+    @include breakpoint($desktop) {
+      height: 100%;
+      #{$start-direction}: 0;
+      position: absolute;
+      top: 0;
+      z-index: index($globalIndex, page);
+    }
+
+    .swiper-button {
+      background-color: $white;
+      background-image: none;
+      font-size: 1rem;
+      height: 50px;
+      line-height: 1;
+      margin: 0;
+      width: 50px;
+
+      @include breakpoint($desktop) {
+        #{$start-direction}: 0;
+        #{$end-direction}: auto;
+        &-next {
+          transform: translate(-50% * $transform-direction, 0%) scaleX($transform-direction);
+        }
+        &-prev {
+          transform: translate(-50% * $transform-direction, -100%) scaleX($transform-direction);
+        }
+      }
+
+      .swiper-icon {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

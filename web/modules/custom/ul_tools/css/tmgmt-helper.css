@@ -1,0 +1,5 @@
+body.path-admin .dropbutton-multiple.open .dropbutton .abort,
+#tmgmt-job-item-edit-form #edit-abort-job-item {
+  display: none !important;
+  visibility: hidden;
+}

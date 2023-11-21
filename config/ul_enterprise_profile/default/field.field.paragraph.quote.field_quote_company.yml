@@ -1,0 +1,21 @@
+uuid: f84335cb-90e6-441f-bbf9-2d4e060cdf5c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote_company
+    - paragraphs.paragraphs_type.quote
+_core:
+  default_config_hash: WDV0pvSBHek_jOOMUdytFhrxm1mpBzEE_aK4lWGVe18
+id: paragraph.quote.field_quote_company
+field_name: field_quote_company
+entity_type: paragraph
+bundle: quote
+label: Company
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

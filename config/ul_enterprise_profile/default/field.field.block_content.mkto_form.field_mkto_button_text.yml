@@ -1,0 +1,19 @@
+uuid: 4f5d5b5c-d48d-4cce-8415-487b3e0f5d90
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mkto_form
+    - field.storage.block_content.field_mkto_button_text
+id: block_content.mkto_form.field_mkto_button_text
+field_name: field_mkto_button_text
+entity_type: block_content
+bundle: mkto_form
+label: 'Button Text'
+description: 'Use this to change the text on the submit button.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

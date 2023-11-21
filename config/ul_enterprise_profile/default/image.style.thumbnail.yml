@@ -1,0 +1,25 @@
+uuid: 4b2d57fe-facd-45fb-b961-19eddf5b77fb
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+_core:
+  default_config_hash: cCiWdBHgLwj5omG35lsKc4LkW4MBdmcctkVop4ol5x0
+name: thumbnail
+label: 'Thumbnail (200 × 200)'
+effects:
+  e1a6b8e6-7c88-493a-8a98-c427d0349825:
+    uuid: e1a6b8e6-7c88-493a-8a98-c427d0349825
+    id: image_scale_and_crop
+    weight: -9
+    data:
+      width: 200
+      height: 200
+      anchor: center-center
+  a4c10757-23ff-4955-ac6a-1c945b30427c:
+    uuid: a4c10757-23ff-4955-ac6a-1c945b30427c
+    id: image_effects_auto_orient
+    weight: -10
+    data:
+      scan_exif: true

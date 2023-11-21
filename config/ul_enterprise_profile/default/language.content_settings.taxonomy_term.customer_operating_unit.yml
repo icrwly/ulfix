@@ -1,0 +1,18 @@
+uuid: bd6477c0-bcc9-4ef9-a61d-383629332d13
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.customer_operating_unit
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.customer_operating_unit
+target_entity_type_id: taxonomy_term
+target_bundle: customer_operating_unit
+default_langcode: site_default
+language_alterable: true

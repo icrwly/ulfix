@@ -1,0 +1,22 @@
+{% embed '@ul_base_theme/4_regions/footer--bottom.twig' %}
+    {% block content %}
+        {% include '@ul_base_theme/2_pieces/footer--logo.twig' with {
+            href: path('<front>')
+        }%}
+        {% set message_template = '&copy; @date EMERGO by UL. All rights reserved.'|t %}
+        {% set copyright_message = copyright_message ?? message_template|replace({'@date': now|date('Y')}) %}
+        {% set copyright_extra = 'Within UL Solutions we provide a broad portfolio of offerings to all the medical device industries. This includes certification, Approved/Notified Body and consultancy services. In order to protect and prevent any conflict of interest, perception of conflict of interest and protection of both our brand and our customers brand, we have processes in place to identify and manage any potential conflicts of interest and maintain impartiality. UL Solutions is unable to provide consultancy services to EU MDD, MDR or IVDD Notified Body, UKCA MD Approved Body or MDSAP Customers.'|t %}
+        <div class="footer-copyright-section">
+        <div class="footer-copyright">
+            {% block copyright %}
+              {% autoescape false %}
+                <p>{{ copyright_message }}</p>
+                <div class="copyright-extra"><p>{{ copyright_extra }}</p></div>
+              {% endautoescape %}
+            {% endblock %}
+        </div>
+          {{ policy_menu }}
+        </div>
+        {{ content }}
+    {% endblock %}
+{% endembed %}

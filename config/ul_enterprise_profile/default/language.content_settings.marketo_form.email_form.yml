@@ -1,0 +1,18 @@
+uuid: 38a68295-4ae1-49be-a66b-814bf18ce658
+langcode: en
+status: true
+dependencies:
+  config:
+    - ul_marketo.marketo_form_type.email_form
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: marketo_form.email_form
+target_entity_type_id: marketo_form
+target_bundle: email_form
+default_langcode: site_default
+language_alterable: true

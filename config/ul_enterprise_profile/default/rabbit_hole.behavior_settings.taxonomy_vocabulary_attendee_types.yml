@@ -1,0 +1,14 @@
+uuid: 9ba5023e-1d52-4d94-b3d6-5a6d1068aa0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.attendee_types
+id: taxonomy_vocabulary_attendee_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

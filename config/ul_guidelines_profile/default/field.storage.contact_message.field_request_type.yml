@@ -1,0 +1,38 @@
+uuid: efe6831a-5700-4a46-8896-682209044956
+langcode: en
+status: true
+dependencies:
+  module:
+    - contact
+    - options
+_core:
+  default_config_hash: 1p8en3bJbqpMKIHf2DKLxpIuLGJyyrDvoI0b6hxtdTI
+id: contact_message.field_request_type
+field_name: field_request_type
+entity_type: contact_message
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: 'Complex Review'
+      label: 'Complex Review'
+    -
+      value: 'General Inquiry/Request'
+      label: 'General Inquiry/Request'
+    -
+      value: 'Legal Review'
+      label: 'Legal Review'
+    -
+      value: 'Online Issue or Update'
+      label: 'Online Issue or Update'
+    -
+      value: 'Plain Review'
+      label: 'Plain Review'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

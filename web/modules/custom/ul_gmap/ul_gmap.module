@@ -1,0 +1,65 @@
+<?php
+
+/**
+ * @file
+ * Provides support for the UL Global Market Access module.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function ul_gmap_theme($existing, $type, $theme, $path) {
+
+  return [
+    'ul_gmap_index_hook' => [
+      'render element' => 'children',
+      'template' => 'ul-gmap-index-hook',
+      'path' => $path . '/templates',
+    ],
+
+    'ul_gmap_glossary_hook' => [
+      'render element' => 'children',
+      'template' => 'ul-gmap-glossary-hook',
+      'path' => $path . '/templates',
+      'variables' => [
+        'req_types' => NULL,
+        'contact_url' => NULL,
+        'not_sure_url' => NULL,
+        'lang_code' => NULL,
+        'page_uuid' => NULL,
+      ],
+    ],
+
+    'ul_gmap_steps_hook' => [
+      'render element' => 'children',
+      'template' => 'ul-gmap-steps-hook',
+      'path' => $path . '/templates',
+      'variables' => [
+        'req_types' => NULL,
+        'contact_url' => NULL,
+        'not_sure_url' => NULL,
+        'lang_code' => NULL,
+        'page_uuid' => NULL,
+      ],
+    ],
+  ];
+}
+
+/**
+ * Implements page_attachments().
+ */
+function ul_gmap_page_attachments(array &$attachments) {
+  $current_path = \Drupal::service('path.current')->getPath();
+  $current_path_array = array_filter(explode("/", $current_path));
+
+  if ($current_path_array[1] == 'market-access-portal') {
+    if (array_key_exists(2, $current_path_array)) {
+      if ($current_path_array[2] != 'info') {
+        $attachments['#attached']['library'][] = 'ul_gmap/ul_gmap';
+      }
+    }
+    else {
+      $attachments['#attached']['library'][] = 'ul_gmap/ul_gmap';
+    }
+  }
+}

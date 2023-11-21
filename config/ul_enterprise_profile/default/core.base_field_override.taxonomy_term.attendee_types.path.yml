@@ -1,0 +1,20 @@
+uuid: 697b9de6-10b5-4616-95fc-6dcff5fd67e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.attendee_types
+  module:
+    - path
+id: taxonomy_term.attendee_types.path
+field_name: path
+entity_type: taxonomy_term
+bundle: attendee_types
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,46 @@
+# Admin settings form. (Restricted access.)
+ul_salesforce.settings_form:
+  path: '/admin/config/services/salesforce'
+  defaults:
+    _form: '\Drupal\ul_salesforce\Form\SettingsForm'
+    _title: 'UL Salesforce Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+
+# Web to case form. (Unrestricted access.)
+ul_salesforce.web_to_case_form:
+  path: '/web-to-case/{form}'
+  defaults:
+    _controller: '\Drupal\ul_salesforce\Controller\WebToCaseController::getForm'
+    _title: 'Web To Case'
+  requirements:
+    _access: 'TRUE'
+
+# Contact Us form. (Unrestricted access.)
+ul_salesforce.contactus_form:
+  path: '/contact-us-form'
+  defaults:
+    _form: '\Drupal\ul_salesforce\Form\ContactUsForm'
+    _title_callback: '\Drupal\ul_salesforce\Controller\WebToCaseController::getTitle'
+  requirements:
+    _access: 'TRUE'
+
+# Thank you page. (Unrestricted access.)
+ul_salesforce.customer_service_thank_you:
+  path: '/contact-us/thank-you'
+  defaults:
+    _controller: '\Drupal\ul_salesforce\Controller\WebToCaseController::thankYou'
+    _title_callback: '\Drupal\ul_salesforce\Controller\WebToCaseController::getTitle'
+  requirements:
+    _access: 'TRUE'
+
+# Thank you page / translated. (Unrestricted access.)
+ul_salesforce.customer_service_thank_you_translated:
+  path: '{lang}/contact-us/thank-you'
+  defaults:
+    _controller: '\Drupal\ul_salesforce\Controller\WebToCaseController::thankYou'
+    _title_callback: '\Drupal\ul_salesforce\Controller\WebToCaseController::getTitle'
+  requirements:
+    _access: 'TRUE'

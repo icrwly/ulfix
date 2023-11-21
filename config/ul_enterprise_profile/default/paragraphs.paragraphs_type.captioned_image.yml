@@ -1,0 +1,10 @@
+uuid: 9d304efa-cee2-44fd-b3eb-09c63dfef17d
+langcode: en
+status: true
+dependencies: {  }
+id: captioned_image
+label: 'Image with Caption'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Image with Caption</em> to display an image with custom caption text.'
+behavior_plugins: {  }

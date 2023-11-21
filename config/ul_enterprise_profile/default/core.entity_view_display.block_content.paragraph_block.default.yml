@@ -1,0 +1,26 @@
+uuid: 2b14a61e-e878-4a1e-b050-91cde10dedf2
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.paragraph_block
+    - field.field.block_content.paragraph_block.field_paragraph_block_paragraph
+  module:
+    - entity_reference_revisions
+id: block_content.paragraph_block.default
+targetEntityType: block_content
+bundle: paragraph_block
+mode: default
+content:
+  field_paragraph_block_paragraph:
+    type: entity_reference_revisions_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  langcode: true
+  search_api_excerpt: true

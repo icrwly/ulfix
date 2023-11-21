@@ -1,0 +1,231 @@
+{
+    "name": "pantheon-upstreams/ul-upstream",
+    "description": "Install Drupal 9 with Composer on Pantheon.",
+    "type": "project",
+    "license": "MIT",
+    "prefer-stable": true,
+    "repositories": {
+        "asset-packagist": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "0": {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        "1": {
+            "type": "path",
+            "url": "upstream-configuration"
+        },
+        "2": {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        "3": {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/colorbutton",
+                "version": "4.9.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/colorbutton/releases/colorbutton_4.9.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "4": {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/panelbutton",
+                "version": "4.9.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/panelbutton/releases/panelbutton_4.9.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "5": {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/templates",
+                "version": "4.9.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/templates/releases/templates_4.9.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "6": {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/panelbutton",
+                "version": "4.9.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/panelbutton/releases/panelbutton_4.9.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "7": {
+            "type": "package",
+            "package": {
+                "name": "ckeditor/templates",
+                "version": "4.9.1",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://download.ckeditor.com/templates/releases/templates_4.9.1.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "8": {
+            "type": "package",
+            "package": {
+                "name": "harvesthq/chosen",
+                "version": "1.8.7",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/harvesthq/chosen/releases/download/v1.8.7/chosen_v1.8.7.zip",
+                    "type": "zip"
+                }
+            }
+        },
+        "9": {
+            "type": "package",
+            "package": {
+                "name": "furf/jquery-ui-touch-punch",
+                "version": "1.8.17",
+                "type": "drupal-library",
+                "dist": {
+                    "url": "https://github.com/furf/jquery-ui-touch-punch/archive/refs/heads/master.zip",
+                    "type": "zip"
+                }
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "require": {
+        "composer/installers": "^1.7",
+        "cweagans/composer-patches": "^1.7",
+        "pantheon-systems/drupal-integrations": "^9",
+        "pantheon-systems/upstream-management": "^1",
+        "pantheon-upstreams/upstream-configuration": "*",
+        "topfloor/composer-cleanup-vcs-dirs": "^1.1"
+    },
+    "require-dev": {
+        "acquia/blt-phpcs": "^1.0",
+        "acquia/coding-standards": "^0.7.0",
+        "brainmaestro/composer-git-hooks": "^2.8",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7.1",
+        "drupal/stage_file_proxy": "^2.0"
+    },
+    "autoload": {
+        "classmap": [
+            "upstream-configuration/scripts/ComposerScripts.php",
+            "custom-dependencies/scripts/CustomComposerScripts.php"
+        ]
+    },
+    "scripts": {
+        "pre-command-run": [
+            "ULCustomScripts\\CustomComposerScripts::checkCommand",
+            "DrupalComposerManaged\\ComposerScripts::writeComposerPatchFile"
+        ],
+        "pre-update-cmd": ["DrupalComposerManaged\\ComposerScripts::preUpdate"],
+        "post-update-cmd": ["DrupalComposerManaged\\ComposerScripts::postUpdate"],
+        "custom-require": ["ULCustomScripts\\CustomComposerScripts::customRequire"],
+        "custom-remove": ["ULScripts\\CustomComposerScripts::customRemove"],
+        "build-assets": "echo 'Nothing to do.'",
+        "nuke": [
+            "rm -rf vendor composer.lock web/core web/modules/contrib web/profiles/contrib web/themes/contrib",
+            "@composer clearcache --ansi",
+            "@composer install --ansi"
+        ],
+        "phpcs": "phpcs",
+        "mac-setup": "scripts/mac-setup.sh",
+        "unit-test": "echo 'No unit test step defined.'",
+        "lint": "find web/modules/custom web/themes/custom -name '*.php' -exec php -l {} \\;",
+        "code-sniff": [
+            "./vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 --standard=phpcs.xml ./web/themes/custom",
+            "./vendor/bin/phpcs --runtime-set ignore_errors_on_exit 1 --runtime-set ignore_warnings_on_exit 1 --standard=phpcs.xml ./web/modules/custom"
+        ],
+        "clean-install": [
+            "rm -rf vendor web/core web/modules/contrib web/profiles/contrib web/themes/contrib",
+            "@composer clearcache --ansi",
+            "@composer install --ansi --no-interaction --optimize-autoloader"
+        ]
+    },
+    "extra": {
+        "enable-patching": true,
+        "patches-file": "composer.patches.json",
+        "composer-exit-on-patch-failure": true,
+        "patchLevel": {
+            "drupal/core": "-p2"
+        },
+        "installer-types": [
+            "bower-asset",
+            "npm-asset",
+            "drupal-library"
+        ],
+        "installer-paths": {
+            "web/core": ["type:drupal-core"],
+            "web/modules/contrib/{$name}": ["type:drupal-module"],
+            "web/modules/custom/{$name}": ["type:drupal-custom-module"],
+            "web/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "web/themes/contrib/{$name}": ["type:drupal-theme"],
+            "web/themes/custom/{$name}": ["type:drupal-custom-theme"],
+            "web/libraries/{$name}": [
+                "type:drupal-library",
+                "type:bower-asset",
+                "type:npm-asset"
+            ],
+            "web/libraries/jquery-simple-color": ["recurser/jquery-simple-color"],
+            "web/libraries/chosen": ["harvesthg/chosen"],
+            "web/libraries/jquery-ui-touch-punch": ["furf/jquery-ui-touch-punch"],
+            "drush/Commands/{$name}": ["type:drupal-drush"]
+        },
+        "drupal-scaffold": {
+            "allowed-packages": ["pantheon-systems/drupal-integrations"],
+            "locations": {
+                "web-root": "./web"
+            },
+            "file-mapping": {
+                "[web-root]/.htaccess": false,
+                "[project-root]/.editorconfig": false,
+                "[project-root]/pantheon.upstream.yml": false,
+                "[project-root]/.gitattributes": false
+            }
+        },
+        "hooks": {
+            "pre-commit": "vendor/bin/phpcs",
+            "pre-push": "vendor/bin/phpcs"
+        },
+        "phpcodesniffer-search-depth": "4"
+    },
+    "config": {
+        "discard-changes": true,
+        "sort-packages": true,
+        "preferred-install": {
+            "drupal/advanced_scheduler": "source"
+        },
+        "allow-plugins": {
+            "dealerdirect/phpcodesniffer-composer-installer": true,
+            "composer/installers": true,
+            "cweagans/composer-patches": true,
+            "acquia/blt": true,
+            "drupal/core-composer-scaffold": true,
+            "acquia/blt-phpcs": true,
+            "oomphinc/composer-installers-extender": true,
+            "php-http/discovery": true,
+            "zaporylie/composer-drupal-optimizations": true,
+            "pantheon-systems/drupal-integrations": true,
+            "pantheon-systems/upstream-management": true,
+            "topfloor/composer-cleanup-vcs-dirs": true
+        },
+        "platform": {
+            "php": "8.1.13"
+        }
+    }
+}

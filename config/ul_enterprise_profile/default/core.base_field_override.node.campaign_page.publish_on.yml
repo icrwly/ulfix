@@ -1,0 +1,18 @@
+uuid: 9f00a8e3-a75d-4f20-a897-9cc5bf9f38c8
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campaign_page
+id: node.campaign_page.publish_on
+field_name: publish_on
+entity_type: node
+bundle: campaign_page
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

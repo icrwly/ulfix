@@ -1,0 +1,33 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--cards " ~ class %}
+{% set grid = grid|default(true) %}
+{% set gridClass = "flex-grid " ~ gridClass|default("flex-grid--third") %}
+
+{% block content %}
+  <div class="wrapper{% if wrapperClass %} {{ wrapperClass }}{% endif %}">
+    {% block title_bar %}
+      {% if titleBar %}
+        {% include '@ul_base_theme/3_components/title-bar.twig' with titleBar only %}
+      {% endif %}
+    {% endblock %}
+    {% block card_list %}
+      <div class="card-container{% if grid %} {{ gridClass }}{% endif %}">
+        {% block section_card %}
+          {% for card in cardList %}
+
+            {% if grid %}
+              <div class="grid-item">
+            {% endif %}
+
+            {% include '@ul_base_theme/1_core/switch--card.twig' with card only %}
+
+            {% if grid %}
+              </div>
+            {% endif %}
+
+          {% endfor %}
+        {% endblock %}
+      </div>
+    {% endblock %}
+  </div>
+{% endblock %}

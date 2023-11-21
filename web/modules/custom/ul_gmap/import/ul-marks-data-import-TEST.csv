@@ -1,0 +1,139 @@
+"csv_id","mark_image","mark_title","mark_region_country","mark_requirements","mark_validity_period","mark_logo_label_required"
+1,"modules/custom/ul_gmap/import/images/UL-AR S Mark.png","UL-AR S Mark","Argentina","Safety","No expiration",1
+2,"modules/custom/ul_gmap/import/images/ENACOM.png","ENACOM","Argentina","Wireless","3 years",1
+3,"modules/custom/ul_gmap/import/images/UL-AU Mark.png","UL-AU Mark","Australia","Safety;EMC","10 years",1
+4,"modules/custom/ul_gmap/import/images/MEPS_min_energy.png","MEPS Minimum Energy Performance Standards","Australia;New Zealand","Energy Efficiency","5 years",0
+5,"modules/custom/ul_gmap/import/images/Energy Efficiency Labelling.png","Energy Efficiency Labelling","Australia;New Zealand","Energy Efficiency","5 years",1
+6,"modules/custom/ul_gmap/import/images/RCM Mark.png","RCM Mark","Australia;New Zealand","Safety;EMC;Wireless","Safety: 5 years EMC, Wireless: No expiration",1
+7,"modules/custom/ul_gmap/import/images/certificate_compliance_approval.png","Certificate of Compliance / Approval","Australia;New Zealand","Safety","5 years",1
+8,"modules/custom/ul_gmap/import/images/UL-BR INMETRO Mark.png","UL-BR INMETRO Mark","Brazil","Safety","Different validity based on product categories",1
+9,"modules/custom/ul_gmap/import/images/Anatel Mark.png","Anatel Mark","Brazil","Safety;EMC;Wireless","2 years",1
+10,"modules/custom/ul_gmap/import/images/UL Listing Mark Canada.png","UL Certification Marks for Canada","Canada","Safety","No expiration",1
+11,"modules/custom/ul_gmap/import/images/Canadian EnerGuide label.jpg","Canadian EnerGuide label","Canada","Energy Efficiency","No expiration",1
+12,"modules/custom/ul_gmap/import/images/new_mark_us_canada.png","Combined UL Recognized Component Mark for US and Canada","Canada;United States","Safety","No expiration",1
+13,"modules/custom/ul_gmap/import/images/UL Recognized Component Mark Canada.png","UL Recognized Component Mark Canada","Canada","Safety","No expiration",1
+14,"modules/custom/ul_gmap/import/images/ISED Canada (Innovation, Science and Economic Development Canada).png","ISED Canada (Innovation, Science and Economic Development Canada)","Canada","EMC;Wireless","No expiration",1
+15,"modules/custom/ul_gmap/import/images/CCC Mark.png","CCC Mark","China","Safety;EMC","5 years",1
+16,"modules/custom/ul_gmap/import/images/CQC Mark China.png","CQC Mark China","China","Safety;EMC","No expiration",1
+17,"modules/custom/ul_gmap/import/images/SRRC Approval.png","SRRC Approval (State Radio Regulatory Commission)","China","Wireless","5 years",1
+18,"modules/custom/ul_gmap/import/images/Network Access License.png","Network Access License (NAL)","China","Wireless","Different validity based on product categories",1
+19,"modules/custom/ul_gmap/import/images/China Energy Label.png","China Energy Label","China","Energy Efficiency","No expiration",1
+20,"modules/custom/ul_gmap/import/images/UL_D_Mark.png","UL D Mark","Denmark;European Union","Safety","10 years",1
+21,"modules/custom/ul_gmap/import/images/ENEC Plus Performance Mark.png","ENEC Plus Performance Mark","European Union;United Kingdom (Excluding Northern Ireland)","Energy Efficiency","No expiration",1
+22,"modules/custom/ul_gmap/import/images/UL-EU Mark.png","UL-EU Mark","European Union;United Kingdom (Excluding Northern Ireland)","Safety","10 years",1
+23,"modules/custom/ul_gmap/import/images/CE Marking.png","CE Marking","European Union","Safety;EMC;Wireless;RoHS;Energy Efficiency;Explosive Atmosphere","No expiration",1
+24,"modules/custom/ul_gmap/import/images/ENEC Mark.png","ENEC Mark","European Union;United Kingdom (Excluding Northern Ireland)","Safety","No expiration",1
+25,"modules/custom/ul_gmap/import/images/ATEX Directive Marking.png","ATEX Directive Marking","European Union;Ukraine","Explosive Atmosphere","No expiration",1
+26,"modules/custom/ul_gmap/import/images/Combined UL Mark for Europe, Canada, US.png","Combined UL Mark for Europe, Canada, US","European Union;Canada;United States","Safety","10 years",1
+27,"modules/custom/ul_gmap/import/images/UL GS Mark.png","UL GS Mark","Germany;European Union","Safety;EMC","5 years",1
+28,"modules/custom/ul_gmap/import/images/EMSD Approval.png","EMSD Approval","Hong Kong","Safety","No expiration",0
+29,"modules/custom/ul_gmap/import/images/Hong Kong Energy Label.png","Hong Kong Energy Label","Hong Kong","Energy Efficiency","5 years",1
+30,"modules/custom/ul_gmap/import/images/Hong Kong OFCA Approval.jpg","Hong Kong OFCA Approval","Hong Kong","Wireless","No expiration",1
+31,"modules/custom/ul_gmap/import/images/ISI Mark (BIS Bureau of Indian Standards).png","ISI Mark (BIS Bureau of Indian Standards)","India","Safety","2 years",1
+32,"modules/custom/ul_gmap/import/images/BIS Mark (Compulsory Registration Scheme).png","BIS Mark (Compulsory Registration Scheme)","India","Safety","2 years",1
+33,"modules/custom/ul_gmap/import/images/India Energy Efficiency Label (BEE Approval).jpg","India Energy Efficiency Label (BEE Approval)","India","Energy Efficiency","3 Years",1
+34,"modules/custom/ul_gmap/import/images/India TEC Certification Label.png","India TEC Certification Label","India","Safety;EMC;Wireless","10 years",1
+35,"modules/custom/ul_gmap/import/images/Equipment Type Approval (ETA) from WPC wing of Department of Telecommunications.png","Equipment Type Approval (ETA) from WPC wing of Department of Telecommunications","India","Wireless","No expiration",0
+36,"modules/custom/ul_gmap/import/images/SNI_Mark_Indonesia.png","SNI Mark Indonesia","Indonesia","Safety","Different validity based on product categories",1
+37,"modules/custom/ul_gmap/import/images/Indonesia Energy Label.png","Indonesia Energy Label","Indonesia","Energy Efficiency","4 years",1
+38,"modules/custom/ul_gmap/import/images/Direktorat_Jenderal.png","Direktorat Jenderal Sumber Daya Dan Perangkat Pos Dan Informatika","Indonesia","Wireless","3 years",1
+39,"modules/custom/ul_gmap/import/images/SII Safety Mark.png","SII Safety Mark","Israel","Safety;EMC","No expiration",1
+40,"modules/custom/ul_gmap/import/images/Israel Certificate of Compliance.png","Israel Certificate of Compliance","Israel","Safety;EMC","No expiration",0
+41,"modules/custom/ul_gmap/import/images/MoC (Ministry of Communications) Approval.png","MoC (Ministry of Communications) Approval","Israel","Wireless","2 years",1
+42,"modules/custom/ul_gmap/import/images/UL Japan Mark.png","UL Japan Mark","Japan","Safety","10 years",1
+43,"modules/custom/ul_gmap/import/images/Japan Kentei Mark (TIIS Approval).png","Japan Kentei Mark (TIIS Approval)","Japan","Explosive Atmosphere","5 years",1
+44,"modules/custom/ul_gmap/import/images/Japan Energy Label.png","Japan Energy Label","Japan","Energy Efficiency","No expiration",1
+45,"modules/custom/ul_gmap/import/images/S Mark Japan.png","S Mark Japan","Japan","Safety;EMC","No expiration",1
+46,"modules/custom/ul_gmap/import/images/PSE Mark.png","PSE Mark","Japan","Safety;EMC","Different validity based on product categories",1
+47,"modules/custom/ul_gmap/import/images/VCCI Mark.png","VCCI Mark","Japan","EMC","No expiration",0
+48,"modules/custom/ul_gmap/import/images/MIC (Ministry of Internal Affairs and Communications).png","MIC (Ministry of Internal Affairs and Communications)","Japan","Wireless","No expiration",1
+49,"modules/custom/ul_gmap/import/images/Telecommunications Regulatory Commission (TRC).png","Telecommunications Regulatory Commission (TRC)","Jordan","Wireless","1 year",0
+50,"modules/custom/ul_gmap/import/images/KC Mark.png","KC Mark","Korea","Safety;EMC;Wireless","No expiration",1
+51,"modules/custom/ul_gmap/import/images/Energy Efficiency Labelling.png","Energy Efficiency Labelling","Korea","Energy Efficiency","No expiration",1
+52,"modules/custom/ul_gmap/import/images/High Efficiency Appliance Certification Program.png","High Efficiency Appliance Certification Program","Korea","Energy Efficiency","No expiration",1
+53,"modules/custom/ul_gmap/import/images/e-Standby Program.png","e-Standby Program","Korea","Energy Efficiency","No expiration",1
+54,"modules/custom/ul_gmap/import/images/Communication and Information Technology Regulatory Authority.png","Communication and Information Technology Regulatory Authority","Kuwait","Wireless","3 Years",0
+55,"modules/custom/ul_gmap/import/images/Kuwait Conformity Assurance Scheme (KUCAS).png","Kuwait Conformity Assurance Scheme (KUCAS)","Kuwait","Safety","Single shipment",0
+56,"modules/custom/ul_gmap/import/images/ST Certificate of Approval (SIRIM-ST Label).png","ST Certificate of Approval (SIRIM-ST Label)","Malaysia","Safety","1 year",1
+57,"modules/custom/ul_gmap/import/images/MC Mark.png","MC Mark","Malaysia","Safety","Single shipment",1
+58,"modules/custom/ul_gmap/import/images/MCMC Mark.png","MCMC Mark","Malaysia","Wireless","1 year",1
+59,"modules/custom/ul_gmap/import/images/Energy Efficiency Label.png","Energy Efficiency Label","Malaysia","Energy Efficiency","1 year",1
+60,"modules/custom/ul_gmap/import/images/UL-MX NOM Mark.png","UL-MX NOM Mark","Mexico","Safety;Energy Efficiency;Wireless","Different validity based on product categories",1
+61,"modules/custom/ul_gmap/import/images/Instituto Federal de Telecomunicaciones.png","Instituto Federal de Telecomunicaciones","Mexico","Wireless","1 year",1
+62,"modules/custom/ul_gmap/import/images/SASO IECEE Recognition Certificate  (SIRC Certificate).png","SASO IECEE Recognition Certificate  (SIRC Certificate)","Saudi Arabia","Safety","1 year",0
+63,"modules/custom/ul_gmap/import/images/SASO Quality Mark.png","SASO Quality Mark","Saudi Arabia","Safety","3 years",1
+64,"modules/custom/ul_gmap/import/images/SASO Energy Efficiency Labelling.png","SASO Energy Efficiency Labelling","Saudi Arabia","Energy Efficiency","1 year",1
+65,"modules/custom/ul_gmap/import/images/CITC Communications and Information (Technology Commission).png","CITC Communications and Information (Technology Commission)","Saudi Arabia","Wireless","2 years",1
+66,"modules/custom/ul_gmap/import/images/Singapore Safety Mark.png","Singapore Safety Mark","Singapore","Safety","3 Years",1
+67,"modules/custom/ul_gmap/import/images/Singapore NEA Energy Label.png","Singapore NEA Energy Label","Singapore","Energy Efficiency","3 Years",1
+68,"modules/custom/ul_gmap/import/images/IMDA Compliance Label (Infocomm Media Development Authority).png","IMDA Compliance Label (Infocomm Media Development Authority)","Singapore","Wireless","5 years",1
+69,"modules/custom/ul_gmap/import/images/South African NRCS Letter of Authority (LOA).png","South African NRCS Letter of Authority (LOA)","South Africa","Safety;Energy Efficiency","3 years",0
+70,"modules/custom/ul_gmap/import/images/South African SABS Certificate of Compliance (CoC).png","South African SABS Certificate of Compliance (CoC)","South Africa","EMC","3 years",0
+71,"modules/custom/ul_gmap/import/images/ICASA Type Approval (Independent Communications Authority of South Africa).png","ICASA Type Approval (Independent Communications Authority of South Africa)","South Africa","Safety;EMC;Wireless","No expiration",1
+72,"modules/custom/ul_gmap/import/images/BSMI Mark.png","BSMI Mark","Taiwan","Safety;EMC;RoHS","3 years",1
+73,"modules/custom/ul_gmap/import/images/Taiwan Energy Efficiency Rating Labeling.png","Taiwan Energy Efficiency Rating Labeling","Taiwan","Energy Efficiency","No expiration",1
+74,"modules/custom/ul_gmap/import/images/NCC (National Communications Commission).png","NCC (National Communications Commission)","Taiwan","Wireless","No expiration",1
+75,"modules/custom/ul_gmap/import/images/Ukraine Energy Labelling.png","Ukraine Energy Labelling","Ukraine","Energy Efficiency","No expiration",1
+76,"modules/custom/ul_gmap/import/images/Ukraine Conformity Mark.png","Ukraine Conformity Mark","Ukraine","Safety;EMC;Wireless;Energy Efficiency;RoHS;Explosive Atmosphere","No expiration",1
+77,"modules/custom/ul_gmap/import/images/Gulf Conformity Mark (G-Mark).jpg","Gulf Conformity Mark (G-Mark)","United Arab Emirates;Saudi Arabia;Yemen;Oman;Bahrain;Kuwait;Qatar","Safety;EMC","3 years",1
+78,"modules/custom/ul_gmap/import/images/Emirates Quality Mark (EQM).png","Emirates Quality Mark (EQM)","United Arab Emirates","Safety","3 years",1
+79,"modules/custom/ul_gmap/import/images/tdra.png","TDRA (The Telecommunications and Digital Government Regulatory Authority)","United Arab Emirates","Wireless","3 years",1
+80,"modules/custom/ul_gmap/import/images/ECAS Certification.png","ECAS Certification","United Arab Emirates","Safety;Energy Efficiency;RoHS","1 year",1
+81,"modules/custom/ul_gmap/import/images/mark_us_combined.png","UL Certification Marks for the U.S","United States","Safety","No expiration",1
+82,"modules/custom/ul_gmap/import/images/UL Recognized Component Mark US.png","UL Recognized Component Mark US","United States","Safety","No expiration",1
+83,"modules/custom/ul_gmap/import/images/Federal Communications Commission Mark.png","Federal Communications Commission Mark","United States","EMC;Wireless","No Expiration",1
+84,"modules/custom/ul_gmap/import/images/mark_hazloc.png","HAZLOC Certification","United States","Explosive Atmosphere","No Expiration",1
+85,"modules/custom/ul_gmap/import/images/California Energy Commission (CEC) Certification.png","California Energy Commission (CEC) Certification","United States","Energy Efficiency","No Expiration",1
+86,"modules/custom/ul_gmap/import/images/Department of Energy (DOE) Certification.png","Department of Energy (DOE) Certification","United States","Energy Efficiency","No Expiration",1
+87,"modules/custom/ul_gmap/import/images/Cool Roof Rating Council (CRRC) Certification.jpg","Cool Roof Rating Council (CRRC) Certification","United States","Energy Efficiency","No Expiration",1
+88,"modules/custom/ul_gmap/import/images/CR Mark.png","CR Mark","Vietnam","Safety;EMC","Different validity based on product categories",1
+89,"modules/custom/ul_gmap/import/images/Vietnam Energy Label.png","Vietnam Energy Label","Vietnam","Energy Efficiency","No expiration",1
+90,"modules/custom/ul_gmap/import/images/ICT Certification (Ministry of Information and Communications of the Socialist Republic of Vietnam - MIC).png","ICT Certification (Ministry of Information and Communications of the Socialist Republic of Vietnam - MIC)","Vietnam","Wireless","3 years",1
+91,"modules/custom/ul_gmap/import/images/Giteki Mark T(Certification of Type procedure) or A (Technical Standards Compliance Approval procedure).png","Giteki Mark T(Certification of Type procedure) or A (Technical Standards Compliance Approval procedure)","Japan","Wireless","No expiration",1
+92,"modules/custom/ul_gmap/import/images/Type designation mark.png","Type designation mark","Japan","Wireless","No expiration",1
+93,"modules/custom/ul_gmap/import/images/saber.png","SABER Product Certificate of Conformity","Saudi Arabia","Safety","1 Year",0
+94,"modules/custom/ul_gmap/import/images/UK Conformity Assessed.png","UK Conformity Assessed","United Kingdom (Excluding Northern Ireland)","Safety;EMC;Wireless;RoHS;Explosive Atmosphere;Energy Efficiency","No expiration",1
+95,"modules/custom/ul_gmap/import/images/J-MOSS.png","J-MOSS","Japan","RoHS","No expiration",1
+96,"modules/custom/ul_gmap/import/images/NEA RoHS.png","NEA RoHS","Singapore","RoHS","No expiration",0
+97,"modules/custom/ul_gmap/import/images/Vietnam RoHS SDoC.png","Vietnam RoHS SDoC","Vietnam","RoHS","No expiration",0
+98,"modules/custom/ul_gmap/import/images/Oman Energy Labelling.png","Oman Energy Labelling","Oman","Energy Efficiency","3 Years",1
+99,"modules/custom/ul_gmap/import/images/Pre-shipment inspection Program.png","Pre-shipment inspection Program","Iraq","Safety","Single shipment",0
+100,"modules/custom/ul_gmap/import/images/Iraq Energy Efficiency.png","Iraq Energy Efficiency","Iraq","Energy Efficiency","No expiration",0
+101,"modules/custom/ul_gmap/import/images/mark_canada_combined.png","UL Certification Marks for Canada","Canada","Safety;Functional Safety","No expiration",1
+102,"modules/custom/ul_gmap/import/images/mark_north_america.png","UL Certification Marks for North America","Canada;United States","Safety;Functional Safety","No expiration",1
+103,"modules/custom/ul_gmap/import/images/mark_us_ca_eu_combined.png","UL Certification Marks for Europe, Canada, US","European Union;Canada;United States","Safety;Functional Safety","No expiration",1
+104,"modules/custom/ul_gmap/import/images/mark_europe_combined.png","UL Certification Marks for Europe","European Union","Safety;Functional Safety","No expiration",1
+105,"modules/custom/ul_gmap/import/images/Bahrain Energy Labelling.png","Bahrain Energy Labelling","Bahrain","Energy Efficiency","3 years",1
+106,"modules/custom/ul_gmap/import/images/Tunisia Energy Labelling.png","Tunisia Energy Labelling","Tunisia","Energy Efficiency","No expiration",1
+107,"modules/custom/ul_gmap/import/images/Marocco Energy Labelling.png","Marocco Energy Labelling","Morocco","Energy Efficiency","No expiration",1
+108,"modules/custom/ul_gmap/import/images/KCs mark.png","KCs mark","South Korea","Explosive Atmosphere;Safety","No expiration",1
+109,"modules/custom/ul_gmap/import/images/Indonesia K3L.png","Indonesia K3L","Indonesia","Safety","5 years",1
+110,"modules/custom/ul_gmap/import/images/retilap_retie.png","RETILAP RETIE","Colombia","Safety","Scheme 5 - 3 years Scheme 4 - 1 year Batch - Valid only for the batch",0
+111,"modules/custom/ul_gmap/import/images/Panama Energy Labelling.png","Panama Energy Labelling","Panama","Energy Efficiency","3 years",1
+112,"modules/custom/ul_gmap/import/images/Korea Energy Labelling.png","Korea Energy Labelling","South Korea","Energy Efficiency","No expiration",1
+113,"modules/custom/ul_gmap/import/images/Kuwait Energy Labelling.png","Kuwait Energy Labelling","Kuwait","Energy Efficiency","3 years",1
+114,"modules/custom/ul_gmap/import/images/UAE.png","UAE - Energy Efficiency Standardization & Labeling (EESL)","United Arab Emirates","Energy Efficiency","1 year",1
+115,"modules/custom/ul_gmap/import/images/China RoHS - Voluntary Certification Mark.png","China RoHS - Voluntary Certification Mark","China","RoHS","5 years",1
+116,"modules/custom/ul_gmap/import/images/China RoHS - SDoC.png","China RoHS - SDoC","China","RoHS","N/A",1
+117,"modules/custom/ul_gmap/import/images/AZS Mark.png","AZS Mark","Azerbaijan","Safety;EMC","1 year",1
+118,"modules/custom/ul_gmap/import/images/Energy Conservation Label- Voluntary.png","Energy Conservation Label- Voluntary","Taiwan","Energy Efficiency","3 years",1
+119,"modules/custom/ul_gmap/import/images/UL China Mark- Voluntary A.png","UL China Mark- Voluntary","China","Safety;EMC","10 years",1
+120,"modules/custom/ul_gmap/import/images/SASO Water Efficiency Labelling.png","SASO Water Efficiency Labelling","Saudi Arabia","Water Efficiency","1 year",1
+121,"modules/custom/ul_gmap/import/images/water-green-label.png","Water Green Label","United Arab Emirates","Water Efficiency","1 year",1
+122,"modules/custom/ul_gmap/import/images/EU Energy Labelling A.png","EU Energy Labelling","European Union","Energy Efficiency","No expiration",1
+123,"modules/custom/ul_gmap/import/images/UK Energy Labelling A.png","UK Energy Labelling","United Kingdom (Excluding Northern Ireland)","Energy Efficiency","No expiration",1
+124,"modules/custom/ul_gmap/import/images/ar_energy_label.png","UL-AR Mark","Argentina","Energy Efficiency","No expiration",1
+125,"modules/custom/ul_gmap/import/images/Brazil Energy Labelling.png","Brazil Energy Labelling","Brazil","Energy Efficiency","No expiration",1
+126,"modules/custom/ul_gmap/import/images/Energy Star (Voluntary).png","Energy Star (Voluntary)","Canada;United States","Energy Efficiency","No expiration",1
+127,"modules/custom/ul_gmap/import/images/PUB Water Efficiency Labelling.jpg","PUB Water Efficiency Labelling","Singapore","Water Efficiency","No expiration",1
+128,"modules/custom/ul_gmap/import/images/Oman TRA Approval.png","Oman TRA Approval","Oman","Wireless","No Expiration",0
+129,"modules/custom/ul_gmap/import/images/Iraq CMC Approval.png","Iraq CMC Approval","Iraq","Wireless","1 year",0
+130,"modules/custom/ul_gmap/import/images/Bahrain TRA Approval.png","Bahrain TRA Approval","Bahrain","Wireless","3 Years",0
+131,"modules/custom/ul_gmap/import/images/Azerbaijan Radio Approval.png","Azerbaijan Radio Approval","Azerbaijan","Wireless","1 year",0
+132,"modules/custom/ul_gmap/import/images/water-efficiency-labelling-voluntary.jpg","Water Efficiency Labelling (Voluntary)","Malaysia","Water Efficiency","3 years",1
+133,"modules/custom/ul_gmap/import/images/Water Efficiency Labelling.png","Water Efficiency Labelling","Australia;New Zealand","Water Efficiency","1 year",1
+134,"modules/custom/ul_gmap/import/images/China Energy Conservation Program (CECP).png","China Energy Conservation Program (CECP)","China","Energy Efficiency","5 years",1
+135,"modules/custom/ul_gmap/import/images/retiq.png","RETIQ","Colombia","Energy Efficiency","Scheme 5 - 3 years Scheme 4 - 1 year Batch - Valid only for the batch",1
+136,"modules/custom/ul_gmap/import/images/israel_energy_label.png","Israel Energy Labelling","Israel","Energy Efficiency","No expiration as long as the product is in compliance with the relevant regulation",1
+137,"modules/custom/ul_gmap/import/images/morocco_voc.png","Morocco verification of conformity (VoC) scheme","Morocco","Safety;EMC","One Shipment",1
+138,"modules/custom/ul_gmap/import/images/morocco_anrt.jpg","ANRT Type Approval","Morocco","Wireless","10 years",1

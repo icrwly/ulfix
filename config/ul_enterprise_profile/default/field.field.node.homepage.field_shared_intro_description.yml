@@ -1,0 +1,21 @@
+uuid: 152e1897-34b1-4f79-b6b3-c6fda7add2ec
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_intro_description
+    - node.type.homepage
+  module:
+    - text
+id: node.homepage.field_shared_intro_description
+field_name: field_shared_intro_description
+entity_type: node
+bundle: homepage
+label: 'Intro Description'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

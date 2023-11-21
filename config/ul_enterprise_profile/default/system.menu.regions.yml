@@ -1,0 +1,8 @@
+uuid: 31f8d121-f23b-44a2-953e-09a4050ed2a9
+langcode: en
+status: true
+dependencies: {  }
+id: regions
+label: Regions
+description: 'Internal and external region site links.'
+locked: false

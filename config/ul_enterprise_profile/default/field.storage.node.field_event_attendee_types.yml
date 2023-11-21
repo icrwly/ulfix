@@ -1,0 +1,22 @@
+uuid: ec875811-61c6-4a25-bca1-34fe869b7464
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - taxonomy
+_core:
+  default_config_hash: O7ugUKc6sfUDaMhednQ5ribVUrTLdZH80UR01byQCuI
+id: node.field_event_attendee_types
+field_name: field_event_attendee_types
+entity_type: node
+type: entity_reference
+settings:
+  target_type: taxonomy_term
+module: core
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

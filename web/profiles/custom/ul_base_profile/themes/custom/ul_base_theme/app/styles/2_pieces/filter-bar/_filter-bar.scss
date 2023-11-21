@@ -1,0 +1,100 @@
+.filter-bar {
+  &__top {
+    border-top: 1px solid $border-color--dark;
+    border-bottom: 1px solid $border-color--dark;
+    position: relative;
+    .filter-bar__item {
+      min-height: 75px;
+    }
+  }
+
+  &__bottom {
+    border-bottom: 1px solid $border-color--dark;
+    @include breakpoint(max-width $desktop - 1) {
+      display: none;
+    }
+  }
+
+  &__inner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__item {
+    align-items: center;
+    display: flex;
+    flex-shrink: 1;
+    min-height: 60px;
+    &:after {
+      // IE workaround for min-height
+      content: '';
+      font-size: 0;
+      min-height: inherit;
+    }
+  }
+
+  a {
+    &:active,
+    &:hover {
+      text-decoration: none;
+    }
+  }
+
+  .form-item {
+    margin-bottom: $spacing-unit--xs;
+    margin-top: $spacing-unit--xs;
+    width: 100%;
+    @include breakpoint($tablet) {
+      max-width: 220px;
+    }
+
+    select {
+      border: none;
+      transition: background $transition;
+      @include breakpoint($desktop) {
+        background: $background-color;
+      }
+
+      &:focus,
+      &:hover,
+      &:checked {
+        background: $white;
+        outline: none;
+        @include breakpoint($desktop) {
+          background: $background-color--hover;
+        }
+      }
+    }
+  }
+
+  // TODO: Quick fix for datepicker. Need proper way to do this.
+  .exposed-form-datepicker {
+    padding-right: 0;
+  }
+
+  &--pager-fix {
+    // In Drupal, pagination is not a part of filter bar. Add this wrapper to fake it.
+    position: relative;
+
+    .section--pager {
+      #{$end-direction}: 0;
+      background-color: transparent;
+      bottom: 0;
+      padding-bottom: 0 !important;
+      padding-top: 0 !important;
+      position: absolute;
+      @include breakpoint(max-width $desktop - 1) {
+        display: none;
+      }
+    }
+
+    .filter-bar {
+      &__top,
+      &__bottom {
+        border-color: transparent;
+        position: relative;
+      }
+    }
+  }
+}

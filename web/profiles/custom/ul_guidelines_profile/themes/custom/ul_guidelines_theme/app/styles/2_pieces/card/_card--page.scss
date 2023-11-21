@@ -1,0 +1,33 @@
+.card.card--page{
+  background-color: $white;
+  .image-container {
+    overflow: hidden;
+    padding-bottom: 56.25%;
+    position: relative;
+    img{
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate3d(-50%, -50%, 0) scale(1);
+      transition: .3s ease-in-out;
+      width:100%;
+      will-change: transform;
+    }
+  }
+  h3{
+    @include font-size(16, 20);
+  }
+  p{
+    @include font-size(12, 18);
+    color:$gray;
+    font-weight: 600;
+  }
+  &:hover{
+    img{
+      transform: translate3d(-50%, -50%, 0) scale(1.05);
+    }
+    h3{
+      color:$blue;
+    }
+  }
+}

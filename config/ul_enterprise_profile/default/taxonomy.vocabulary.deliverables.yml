@@ -1,0 +1,8 @@
+uuid: 68b55d39-3809-46aa-a2ca-83f296c3fc83
+langcode: en
+status: true
+dependencies: {  }
+name: Deliverables
+vid: deliverables
+description: 'Used for listing actions for Offerings. '
+weight: 0

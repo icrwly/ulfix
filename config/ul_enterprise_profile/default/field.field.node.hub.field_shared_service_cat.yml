@@ -1,0 +1,29 @@
+uuid: 94c6f980-df19-49f3-8ad1-6e345507252a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_service_cat
+    - node.type.hub
+    - taxonomy.vocabulary.service_categories
+id: node.hub.field_shared_service_cat
+field_name: field_shared_service_cat
+entity_type: node
+bundle: hub
+label: Eyebrow
+description: 'The eyebrow related to this experience hub.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_categories: service_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,9 @@
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          exposed_sorts_label: 'Sort by'
+  page_1:
+    display_title: Pagina

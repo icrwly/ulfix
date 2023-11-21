@@ -1,0 +1,24 @@
+uuid: ccc5ad17-b964-4268-b1be-b37cf2c67da2
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.tool
+_core:
+  default_config_hash: Kj87QYym6yyGY1mmvZ56ki_Z-kPGnHNDDfQ3E1blako
+id: node.tool.promote
+field_name: promote
+entity_type: node
+bundle: tool
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

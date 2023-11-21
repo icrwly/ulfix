@@ -1,0 +1,26 @@
+.filter-bar__pagination {
+  @include breakpoint($desktop) {
+    margin-#{$start-direction}: auto;
+  }
+
+  .pager {
+    &__select {
+      &.is-open {
+        .pager__menu {
+          bottom: auto;
+          top: 100%;
+        }
+      }
+    }
+
+    &__active-page {
+      border-#{$start-direction}: none;
+    }
+
+    &__active-page,
+    &__navigation {
+      border-bottom: none;
+      border-top: none;
+    }
+  }
+}

@@ -1,0 +1,157 @@
+/**
+ * "Contact Us" landing page.
+ * @Last Updated: Feb 22, 2023
+ */
+
+.region-content #block-contactusformblock,
+.col-aside .section--marketo {
+  display: none;
+}
+
+.path-contact-us .col-aside .section,
+.path-contact-us .col-aside .paragraph-gutter,
+.path-contact-us .col-aside .section__inner {
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.section--action-banner {
+  color: #585858 !important;
+}
+
+.section--action-banner a.button--white {
+  background: none;
+  border: 1px solid black;  
+}
+
+.section--action-banner a.button--white:hover {
+  background: black;
+  color: #fff;
+}
+
+.section--paragraph .contactus-widget {
+  margin-top: 25px;
+}
+
+.button.button--red {
+	color: #fff;
+	background-color: #ca0123;
+	border-color: #ca0123;
+}
+
+.form-submit.button--red {
+  display: block;
+  max-width: 304px;
+  margin-top: 25px;
+}
+
+.path-contact-us .activeForm,
+.path-contact-us .mktoForm {
+  min-height: 0 !important;
+}
+
+.path-contact-us .mktoHtmlText,
+.path-contact-us legend,
+.path-contact-us .hidden,
+.path-contact-us .col-aside.mobile-top,
+.path-contact-us .col.social {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  overflow: hidden;
+}
+
+@media only screen and (min-width: 992px) {
+  .section--paragraph.section--contactus .paragraph-gutter {
+    background-color: #f8f8f8;
+    padding: 20px;
+  }
+}
+
+@media only screen and (max-width: 891px) {
+  .path-contact-us .section.section--action-banner {
+    text-align: left;
+  }
+}
+
+/* Language specific css */
+/* The translatated text of some buttons causes them to span multiple lines - add css to make heights consistent in desktop mode * /
+@media only screen and (min-width: 992px) {
+  html[lang=fr-ca] .how-can-we-help div div:nth-child(2) a,
+  html[lang=fr-ca] .how-can-we-help div:nth-child(3) a {
+    min-height: 60px;
+    line-height: 36px;
+  }
+}
+*/
+
+/**
+ * Web to case form styles.
+ */
+.web-to-case .form-select,
+.web-to-case .form-text,
+.web-to-case .form-textarea,
+.web-to-case .form-email,
+.web-to-case .form-tel {
+  background: #fff;
+  border: none;
+  border: solid 1px #e2e2e2;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.web-to-case .form-select {
+  padding: 1rem;
+  max-height: 41px;
+}
+
+.web-to-case *:disabled {
+  background-color: #e2e2e2;
+  opacity: 1;
+}
+
+.web-to-case .error {
+  display: block;
+  padding: 0.25rem 1rem;
+  background: #ca0123;
+  color: #fff;
+}
+
+.web-to-case .button-container {
+  margin-top: 25px;
+}
+
+.web-to-case .form-required::before {
+  width: 6px;
+  height: 6px;
+  margin: 0 0.3em 0 0;
+  content: "";
+  vertical-align: super;
+  background-image: url(/core/misc/icons/ee0000/required.svg);
+  background-repeat: no-repeat;
+  background-size: 6px 6px;
+  display: inline-block;
+}
+.web-to-case .form-required::after {
+  display: none;
+}
+
+.gdpr_target input[type="checkbox"] {
+  display: inline;
+}
+
+.gdpr_target .required,
+.gdpr_target .asterisk {
+  color: #ca0123;
+}
+
+.button[disabled],
+.button[disabled]:hover,
+.button--red.disabled:hover,
+.button--red[disabled]:hover {
+  cursor: disabled;
+  opacity: .65;
+  color: #444;
+  border-color: #aaa !important;
+  background-color: #e2e2e2 !important;
+}

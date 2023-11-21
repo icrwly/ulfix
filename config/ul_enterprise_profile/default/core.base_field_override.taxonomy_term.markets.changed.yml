@@ -1,0 +1,18 @@
+uuid: bb258f61-428a-499c-8527-d9ad4ed22d15
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.markets
+id: taxonomy_term.markets.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: markets
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

@@ -1,0 +1,11 @@
+{% set first_name = user_display_name | split(' ') %}
+{% embed '@ul_guidelines_theme/3_components/header--user.twig' with {
+    user: {
+        userIntroduction: '',
+        userName: first_name[0]
+    }
+} %}
+    {% block user_menu %}
+        {% include '@classy/navigation/menu.html.twig' %}
+    {% endblock %}
+{% endembed %}

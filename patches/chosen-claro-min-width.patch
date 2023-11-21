@@ -1,0 +1,20 @@
+diff --git a/css/chosen.claro.css b/css/chosen.claro.css
+index 95e604a..546128c 100644
+--- a/css/chosen.claro.css
++++ b/css/chosen.claro.css
+@@ -34,3 +34,15 @@
+   background: none !important;
+   border: 0 none !important;
+ }
++
++.layout-region--node-secondary .form-element.chosen-container-single {
++  min-width: 100%;
++}
++
++.layout-region--node-secondary .form-element.chosen-container-multi {
++  min-width: 100%;
++}
++
++.layout-region--node-secondary .form-element--type-select {
++  min-width: 100%;
++}

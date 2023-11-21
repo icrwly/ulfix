@@ -1,0 +1,5 @@
+ul_legal_hold.add_form:
+  route_name: entity.ul_legal_hold.add_form
+  title: 'Add legal hold'
+  appears_on:
+    - entity.ul_legal_hold.content

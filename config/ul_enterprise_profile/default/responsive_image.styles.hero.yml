@@ -1,0 +1,35 @@
+uuid: 6a7c8db6-7965-45ad-8c61-9acb6c8aa414
+langcode: en
+status: true
+dependencies:
+  config:
+    - image.style.hero_full_width
+    - image.style.inline
+    - image.style.inline_small
+  theme:
+    - ul_enterprise_theme
+id: hero
+label: 'Hero (full width)'
+image_style_mappings:
+  -
+    image_mapping_type: image_style
+    image_mapping: hero_full_width
+    breakpoint_id: ul_enterprise_theme.desktop
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: inline
+    breakpoint_id: ul_enterprise_theme.tablet
+    multiplier: 1x
+  -
+    image_mapping_type: image_style
+    image_mapping: inline
+    breakpoint_id: ul_enterprise_theme.large-mobile
+    multiplier: 2x
+  -
+    image_mapping_type: image_style
+    image_mapping: inline_small
+    breakpoint_id: ul_enterprise_theme.mobile
+    multiplier: 1x
+breakpoint_group: ul_enterprise_theme
+fallback_image_style: hero_full_width

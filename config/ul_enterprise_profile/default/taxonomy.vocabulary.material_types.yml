@@ -1,0 +1,8 @@
+uuid: be7c72b4-2b2a-4e56-a167-7410ffbd77a9
+langcode: en
+status: true
+dependencies: {  }
+name: 'Material Types'
+vid: material_types
+description: 'Used for grouping promotional materials.'
+weight: 0

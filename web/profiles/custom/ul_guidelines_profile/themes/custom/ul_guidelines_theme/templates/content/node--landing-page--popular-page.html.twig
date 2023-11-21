@@ -1,0 +1,10 @@
+{% set card = {
+    title: label,
+    meta: content.updated_date,
+    linkHref: content.url_path
+} %}
+{% embed '@ul_guidelines_theme/2_pieces/card/card--page.twig' with {card: card}%}
+    {% block card_image %}
+        {{ content.field_shared_ref_image }}
+    {% endblock %}
+{% endembed %}

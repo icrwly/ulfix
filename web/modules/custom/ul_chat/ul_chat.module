@@ -1,0 +1,54 @@
+<?php
+
+/**
+ * @file
+ * Provides primary Drupal hook implementations.
+ *
+ * Adds a Chat JavaScript snippet to page.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_page_attachments_alter().
+ *
+ */
+  function ul_chat_page_attachments_alter(array &$attachments) {
+
+    $config = \Drupal::config('ul_chat.settings');
+    $uri = \Drupal::request()->getPathInfo();
+
+    if($config->get('allowed_pages')) {
+      $chat_paths = explode(",", $config->get('allowed_pages'));
+      $allowed_pages = array_map('trim', $chat_paths);
+      if (in_array($uri, $allowed_pages)) {
+        $attachments['#attached']['library'][] = "ul_chat/ul_chat_js";
+      }
+    }
+  }
+
+  function ul_chat_page_attachments(array &$attachments) {
+    $config = \Drupal::config('ul_chat.settings');
+
+    $env = $config->get('select_enviroment');
+
+    $attachments['#attached']['drupalSettings']['chat_settings'] = [
+      'script_url' => $config->get('script_url'),
+      'sf_script_url' => $config->get('sf_script_url'),
+      'embedded_svc' => $config->get('sf_subdomain_url_'.$env),
+      'sf_community_url'=> $config->get('sf_community_url_'.$env),
+      'gslbBaseURL' => $config->get('sf_org_id_'.$env),
+      'sf_chat_poc'=> $config->get('sf_chat_poc_'.$env),
+      'baseLiveAgentContentURL' => $config->get('baseLiveAgentContentURL_'.$env),
+      'deploymentId'=> $config->get('deploymentId_'.$env),
+      'buttonId' => $config->get('buttonId_'.$env),
+      'baseLiveAgentURL'=> $config->get('baseLiveAgentURL_'.$env),
+      'eswLiveAgentDevName' => $config->get('eswLiveAgentDevName_'.$env),
+      'isOfflineSupportEnabled'=> $config->get('isOfflineSupportEnabled_'.$env),
+      'chat_offlile_modal_title'=> $config->get('chat_offlile_modal_title'),
+      'allowed_pages'=> $config->get('allowed_pages'),
+      'chat_offlile_title'=> $config->get('chat_offlile_title'),
+      'chat_offlile_message'=> $config->get('chat_offlile_message'),
+    ];
+  }

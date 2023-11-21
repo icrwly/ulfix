@@ -1,0 +1,13 @@
+{% for item in items %}
+<div class="span-6-t span-4-ld files_row file-list--item">
+  <article class="crc-file-download">
+    {% block item %}
+        {% embed '@ul_enterprise_theme/2_pieces/item/item--file-crc.twig' with item.content %}
+            {% set link = url %}
+            {% set title = name %}
+            {% set alt = name %}
+        {% endembed %}
+    {% endblock %}
+  </article>
+</div>
+{% endfor %}

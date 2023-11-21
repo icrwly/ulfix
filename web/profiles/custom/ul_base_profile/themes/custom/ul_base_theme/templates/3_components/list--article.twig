@@ -1,0 +1,8 @@
+{% extends "@ul_base_theme/3_components/list.twig" %}
+{% set class = class ~ ' list--article' %}
+
+{% block item %}
+  {% include '@ul_base_theme/2_pieces/item/item--article.twig' with
+    item|merge({class: item_class}) only
+  %}
+{% endblock %}

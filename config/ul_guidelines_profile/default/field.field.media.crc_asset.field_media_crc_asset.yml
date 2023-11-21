@@ -1,0 +1,25 @@
+uuid: c2b60a5f-ac7b-4e1b-a65f-123c84c8743f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.media.field_media_crc_asset
+    - media.type.crc_asset
+  module:
+    - ul_crc_asset
+_core:
+  default_config_hash: '-KBpTJ4W6EF2yfxE7FV2378ump1Z2tKK2QvIhsp1bug'
+id: media.crc_asset.field_media_crc_asset
+field_name: field_media_crc_asset
+entity_type: media
+bundle: crc_asset
+label: URL
+description: 'Provide a direct URL to the asset in the Collateral Library. After the image is imported this field will be disabled and cannot be changed. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:crc_asset'
+  handler_settings: {  }
+field_type: crc_asset_item

@@ -1,0 +1,19 @@
+uuid: 8ca2ad8d-a3f5-48c5-876b-a37e1c2d4edb
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_subtitle
+    - node.type.thankyou_pages
+id: node.thankyou_pages.field_shared_subtitle
+field_name: field_shared_subtitle
+entity_type: node
+bundle: thankyou_pages
+label: Subtitle
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

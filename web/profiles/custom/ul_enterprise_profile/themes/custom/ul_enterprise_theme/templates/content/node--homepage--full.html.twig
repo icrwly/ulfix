@@ -1,0 +1,46 @@
+{% set homepage = TRUE %}
+{% set catch_cache = content|render %}
+
+{# Only embed if there are intro items: #}
+{% if intro_items|length %}
+    {% embed '@ul_base_theme/4_regions/section--homepage-intro.twig' %}
+        {% set intro_items_class = 'intro_items_' ~ intro_items|length %}
+        {% set section = {
+            'title': content.field_shared_intro_title,
+            'description': content.field_shared_intro_description
+        } %}
+
+        {# The introduction text. #}
+        {% block intro_description_inner %}
+            {{- section.description -}}
+        {% endblock %}
+
+        {# The slides with icons/text. #}
+        {% block intro_slides %}
+            {{ content.field_homepage_slides }}
+        {% endblock %}
+
+        {# The red highlight card (right side). #}
+        {% block intro_hightlight_card %}
+            {% if content.field_homepage_cta_description|render %}
+                {% embed '@ul_base_theme/3_components/highlight-card.twig' %}
+                    {% block highlight_card_title %}
+                        {# Intentially left blank #}
+                    {% endblock %}
+                    {% block highlight_card_description %}
+                        {{ content.field_homepage_cta_description }}
+                    {% endblock %}
+                    {% block hightlight_card_button %}
+                        {{ content.field_homepage_cta_link }}
+                    {% endblock %}
+                {% endembed %}
+            {% endif %}
+        {% endblock %}
+    {% endembed %}
+{% endif %}
+
+{# The homepage paragraphs. #}
+{{ content.field_homepage_content }}
+
+{# Marketo. #}
+{{ content.marketo }}

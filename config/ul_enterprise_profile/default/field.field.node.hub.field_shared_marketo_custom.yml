@@ -1,0 +1,43 @@
+uuid: 6489569f-a709-4114-b363-67385c487b31
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_marketo_custom
+    - node.type.hub
+    - ul_marketo.marketo_form_type.contact_form_configurable
+    - ul_marketo.marketo_form_type.email_form
+    - ul_marketo.marketo_form_type.event_form
+    - ul_marketo.marketo_form_type.gated_content_form
+    - ul_marketo.marketo_form_type.generic_form
+  module:
+    - entity_reference_revisions
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.hub.field_shared_marketo_custom
+field_name: field_shared_marketo_custom
+entity_type: node
+bundle: hub
+label: 'Marketo Customizations'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:marketo_form'
+  handler_settings:
+    target_bundles:
+      generic_form: generic_form
+      contact_form_configurable: contact_form_configurable
+      event_form: event_form
+      gated_content_form: gated_content_form
+      email_form: email_form
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: event_form
+field_type: entity_reference_revisions

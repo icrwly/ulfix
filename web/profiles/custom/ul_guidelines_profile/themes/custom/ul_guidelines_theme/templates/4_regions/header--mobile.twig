@@ -1,0 +1,44 @@
+<header
+	id="mobileHeader"
+	class="header--mobile"
+	data-module="mobileHeader"
+	data-target="#navMobile"
+	data-active-class="nav-active"
+	>
+	<div class="header--mobile__inner">
+		<div class="header--mobile__Start">
+			<div class="header--mobile__logo">
+                {% block logo %}
+                    {% include '@ul_guidelines_theme/3_components/header--logo.twig' with { logo: logo} %}
+                {% endblock %}
+			</div>
+		</div>
+		<div class="header--mobile__end">
+			<div class="header--mobile__search">
+				<a
+					href="#"
+					class=""
+					aria-label="Open the search overlay"
+					data-search-toggle
+					data-search-position="#mobileHeader"
+					>
+					<span class="icon icon-search"></span>
+				</a>
+			</div>
+			{% block content %}
+				{# logo and search HTML moved out of content block, now static #}
+			{% endblock %}
+			<div class="header--mobile__hamburger">
+				<a
+					id="toggle-navigation"
+					href="#"
+					class="navigation-button"
+					data-toggle
+					aria-expanded="false"
+					aria-label="Open the main navigation overlay"
+					><span class=""></span></a>
+			</div>
+		</div>
+	</div>
+</header>
+{% include '@ul_guidelines_theme/3_components/nav--mobile.twig' %}

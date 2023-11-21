@@ -1,0 +1,5 @@
+name: 'UL Alerts'
+type: module
+description: 'Provides critical and informational alerts for UL'
+core_version_requirement: ^9 || ^10
+package: Other

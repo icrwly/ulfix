@@ -1,0 +1,18 @@
+uuid: 3e603c72-a864-4682-926d-0785c1048f00
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.regional_pages
+id: node.regional_pages.title
+field_name: title
+entity_type: node
+bundle: regional_pages
+label: 'Region Name'
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

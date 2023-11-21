@@ -1,0 +1,10 @@
+uuid: 777af071-e40f-42df-a8ae-f2c586c70dd7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: G7GjUqr55E8yNQ_Z_Hvj8DUDsg9iddZYSUZ5u6GkDR4
+name: 'Attendee Types'
+vid: attendee_types
+description: 'Used for defining different types of event audiences'
+weight: 0

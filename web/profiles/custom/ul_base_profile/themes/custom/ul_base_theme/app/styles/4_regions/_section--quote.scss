@@ -1,0 +1,105 @@
+.section--quote {
+  text-align: center;
+
+  &.has-bg {
+    background-color: $gray-lightest;
+
+    blockquote {
+      padding-bottom: 0;
+      padding-top: 0;
+
+      &:before,
+      &:after {
+        display: none;
+      }
+    }
+
+    .meta li {
+      @include breakpoint($large-mobile) {
+        border: none !important;
+      }
+    }
+  }
+
+  blockquote {
+    margin: 0 auto;
+    max-width: 640px;
+    padding-left: $spacing-unit * 1.5;
+    padding-right: $spacing-unit * 1.5;
+    @include breakpoint($large-mobile) {
+      padding-bottom: $spacing-unit--l * 1.5;
+      padding-top: $spacing-unit--l * 1.5;
+    }
+
+    // Set font styles on all these elements until we can clean up the template
+    &,
+    .editor-content,
+    .editor-content p {
+      font-size: 2.4rem;
+      line-height: 1.4;
+      @include breakpoint($desktop) {
+        font-size: 3.4rem;
+        max-width: 72rem;
+      }
+    }
+  }
+
+  cite {
+    display: block;
+    font-style: normal;
+    font-size: 1.8rem;
+    margin-top: $spacing-unit--l;
+  }
+  .meta {
+    @include list-unstyled;
+    display: inline-block;
+    // display: flex;
+    // flex-wrap: wrap;
+    // align-items: center;
+    // justify-content: center;
+
+    li {
+      color: $gray;
+
+      @include breakpoint(max-width $large-mobile - 1) {
+        padding: $spacing-unit--s 0;
+        &:first-child {
+          padding-top: 0;
+        }
+        &:not(:last-child) {
+          border-bottom: 1px dotted $gray-lighter;
+        }
+      }
+
+      @include breakpoint($large-mobile) {
+        border: 0;
+        display: inline-block;
+        padding: 0;
+        &:not(:last-child) {
+          &:after {
+            content: '|';
+            display: inline-block;
+            margin-left: 2px;
+            margin-right: 2px;
+          }
+        }
+      }
+
+      img {
+        border-radius: 50%;
+        display: inline-block;
+        margin-#{$end-direction}: $spacing-unit--s;
+        max-width: 100%;
+        width: auto;
+        @include breakpoint(max-width $large-mobile - 1) {
+          @include center-block;
+          margin-bottom: $spacing-unit--s;
+        }
+      }
+    }
+  }
+
+  .view-source {
+    margin-top: $spacing-unit--l;
+  }
+}

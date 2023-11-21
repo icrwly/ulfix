@@ -1,0 +1,25 @@
+uuid: e040174e-1688-4481-90ea-a84b6fc9d7ad
+langcode: en
+status: true
+dependencies:
+  config:
+    - crop.type.images_for_attachments
+  module:
+    - crop
+name: images_for_attachments
+label: 'Images for attachments'
+effects:
+  770447bc-34df-41f7-a4c7-888aab073740:
+    uuid: 770447bc-34df-41f7-a4c7-888aab073740
+    id: crop_crop
+    weight: 1
+    data:
+      crop_type: images_for_attachments
+  95cf2f4c-9681-4c7c-8c6b-ea3cab8b7879:
+    uuid: 95cf2f4c-9681-4c7c-8c6b-ea3cab8b7879
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 200
+      height: 200
+      anchor: center-center

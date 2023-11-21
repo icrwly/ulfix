@@ -1,0 +1,16 @@
+# UL Shimadzu CSS overrides to enterprise theme.
+ul-shimadzu-styles:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/ul-shimadzu-styles.css: { weight: 2000 }
+
+# UL Shimadzu JS (global) scripts:
+global-scripts:
+  version: 1.x
+  js:
+    scripts/shimadzu.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

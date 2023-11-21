@@ -1,0 +1,69 @@
+uuid: 2856783a-f462-4fe4-99b5-7609cdb0daf3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.right_rail_external_links.field_rr_extern_links_title
+    - field.field.paragraph.right_rail_external_links.field_rr_external_link
+    - paragraphs.paragraphs_type.right_rail_external_links
+  module:
+    - field_group
+    - link
+    - maxlength
+third_party_settings:
+  field_group:
+    group_rr_help_text:
+      children:
+        - field_rr_extern_links_title
+        - field_rr_external_link
+      label: 'Use this field to create links that cannot be added with curated related content, such as pages on external sites.'
+      region: content
+      parent_name: ''
+      weight: 0
+      format_type: html_element
+      format_settings:
+        classes: ''
+        id: ''
+        element: div
+        show_label: true
+        label_element: span
+        label_element_classes: ''
+        attributes: ''
+        effect: none
+        speed: fast
+        required_fields: false
+id: paragraph.right_rail_external_links.default
+targetEntityType: paragraph
+bundle: right_rail_external_links
+mode: default
+content:
+  field_rr_extern_links_title:
+    type: string_textfield
+    weight: 1
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 40
+        maxlength_js_label: 'Limit to @limit characters, remaining: <strong>@remaining</strong>'
+  field_rr_external_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings:
+      maxlength:
+        maxlength_js: 160
+        maxlength_js_label: 'Limit to @limit characters, remaining: <strong>@remaining</strong>'
+  translation:
+    weight: 10
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true

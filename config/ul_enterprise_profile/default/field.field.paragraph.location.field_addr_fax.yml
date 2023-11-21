@@ -1,0 +1,21 @@
+uuid: cbf30ac6-decc-48d8-8d90-96d1c5289e59
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_addr_fax
+    - paragraphs.paragraphs_type.location
+  module:
+    - telephone
+id: paragraph.location.field_addr_fax
+field_name: field_addr_fax
+entity_type: paragraph
+bundle: location
+label: Fax
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: telephone

@@ -1,0 +1,20 @@
+uuid: 15efc70a-4106-4895-aa18-a0b39f68c531
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.material_categories
+  module:
+    - path
+id: taxonomy_term.material_categories.path
+field_name: path
+entity_type: taxonomy_term
+bundle: material_categories
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

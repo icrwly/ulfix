@@ -1,0 +1,29 @@
+uuid: c2e5e82b-33bc-4aff-8ff4-eadb1e8801fc
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_of_service_category
+    - node.type.offering
+    - taxonomy.vocabulary.service_categories
+id: node.offering.field_of_service_category
+field_name: field_of_service_category
+entity_type: node
+bundle: offering
+label: Eyebrow
+description: 'The offering identifier in the top left of the offering card and the top of the offering page header'
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      service_categories: service_categories
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

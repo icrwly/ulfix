@@ -1,0 +1,80 @@
+///*------------------------------------*\
+//    #UTILITY - COLORS
+//\*------------------------------------*/
+/* Note: the palette function is included here (vs in the tools directory)
+ * since both of these needed in order to work properly
+ */
+
+@function palette($palette, $tone: 'base') {
+  @return map-get(map-get(map-get($palettes, colors), $palette), $tone);
+}
+
+$palettes: (
+  colors: (
+    black: (
+      base: #000,
+    ),
+    white: (
+      base: #fff,
+    ),
+    gray: (
+      base: #585858,
+      medium: #979797,
+      light: #d0d0d0,
+      lighter: #e2e2e2,
+      lightest: #f8f8f8,
+      dark: #3D3D3D,
+      darker: #9B9B9B,
+      darkest: #1F2327,
+    ),
+    blue: (
+      base: #00518A,
+      light: #64B0E4,
+    ),
+    red: (
+      base: #ca0123,
+      dark: #892433,
+    ),
+    green: (
+      base: #387433,
+    ),
+    yellow: (
+      base: #f5a623,
+    ),
+    orange: (
+      base: #ef8200,
+    ),
+    teal: (
+      base: #006a79,
+      light: #59b7b3,
+      dark: #1d4250
+    ),
+    brown: (
+      base: #5a4636,
+      light: #998877
+    )
+  )
+);
+
+$white: palette(white);
+$black: palette(black);
+$gray: palette(gray);
+$gray-medium: palette(gray, medium);
+$gray-light: palette(gray, light);
+$gray-lighter: palette(gray, lighter);
+$gray-lightest: palette(gray, lightest);
+$gray-dark: palette(gray, dark);
+$gray-darker: palette(gray, darker);
+$gray-darkest: palette(gray, darkest);
+$blue: palette(blue);
+$blue-light: palette(blue, light);
+$red: palette(red);
+$red-dark: palette(red, dark);
+$yellow: palette(yellow);
+$orange: palette(orange);
+$teal: palette(teal);
+$teal-light: palette(teal, light);
+$teal-dark: palette(teal, dark);
+$green: palette(green);
+$brown: palette(brown);
+$brown-light: palette(brown, light);

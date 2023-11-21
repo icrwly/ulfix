@@ -1,0 +1,12 @@
+display:
+  default:
+    display_title: Master
+    display_options:
+      exposed_form:
+        options:
+          exposed_sorts_label: 'Sort by'
+      empty:
+        title:
+          title: 'Welcome to [site:name]'
+  page_1:
+    display_title: ページ

@@ -1,0 +1,4 @@
+services:
+  ul_datalayer:
+    class: Drupal\ul_datalayer\ULDataLayerService
+    arguments: ['@current_user','@current_route_match','@entity_type.manager']

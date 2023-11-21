@@ -1,0 +1,6 @@
+services:
+  cache_context.card_count:
+    class: Drupal\ul_enterprise_profile\Cache\CardCountCacheContext
+    arguments: ['@entity_type.manager']
+    tags:
+      - { name: cache.context }

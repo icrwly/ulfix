@@ -1,0 +1,21 @@
+uuid: 4fa71ccc-a5e8-453d-9c80-45e3bf382fc3
+langcode: en
+status: true
+dependencies:
+  module:
+    - metatag
+    - node
+_core:
+  default_config_hash: 0jgsY3_bZ14fizBj4DkPbgtHV1jkcvS6ihwnORX2y6c
+id: node.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+type: metatag
+settings: {  }
+module: metatag
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

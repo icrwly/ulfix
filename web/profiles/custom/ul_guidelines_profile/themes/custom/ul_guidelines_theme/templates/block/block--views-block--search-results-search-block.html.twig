@@ -1,0 +1,8 @@
+{% set search = {
+    closeText: 'Close Search'|t
+} %}
+{% embed '@ul_guidelines_theme/4_regions/search.twig' with {search: search} %}
+    {% block search_inner %}
+        {{ content }}
+    {% endblock %}
+{% endembed %}

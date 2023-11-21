@@ -1,0 +1,36 @@
+.footer {
+  h4 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: 0;
+  }
+
+  .footer-copyright {
+    font-weight: 400;
+  }
+
+  &-nav {
+
+    .menu-item-no-link {
+      font-size: 1.4rem;
+      font-weight: 600;
+    }
+    .menu-list--footer-nav {
+      a {
+        font-size: 1.4rem;
+        font-weight: 400;
+      }
+      .menu-item {
+        padding-left: 0;
+      }
+    }
+  }
+  .footer__menu {
+    a {
+      font-weight: 400;
+    }
+  }
+}
+.buorg {
+  background-color: #ffa700 !important;
+}

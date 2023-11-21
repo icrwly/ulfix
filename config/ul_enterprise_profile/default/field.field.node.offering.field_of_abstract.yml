@@ -1,0 +1,23 @@
+uuid: 9fede811-69b1-40f7-b93d-c117365a2122
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_of_abstract
+    - node.type.offering
+  module:
+    - text
+_core:
+  default_config_hash: pmuTusGku8Oby1SyDLdy-42ZeDjnrbELbjNE9rdMj6k
+id: node.offering.field_of_abstract
+field_name: field_of_abstract
+entity_type: node
+bundle: offering
+label: 'Abstract - deprecated'
+description: 'The abstract information of this offering.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

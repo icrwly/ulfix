@@ -1,0 +1,5 @@
+ul_report.report_list:
+  title: 'UL Reports'
+  parent: system.admin_reports
+  description: 'List custom UL Reports.'
+  route_name: ul_report.report_list

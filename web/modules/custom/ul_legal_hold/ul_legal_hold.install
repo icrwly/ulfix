@@ -1,0 +1,52 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the UL Legal Hold module.
+ */
+
+use Drupal\Core\Config\FileStorage;
+
+/**
+ * Implements hook_install().
+ */
+function ul_legal_hold_install() {
+  // Make sure that the view is installed on install of module.
+  $module_handler = \Drupal::service('module_handler');
+  $path = $module_handler->getModule('ul_legal_hold')->getPath();
+  $config_path = $path . '/config/optional';
+  $source = new FileStorage($config_path);
+
+  $view_manager = \Drupal::entityTypeManager()->getStorage('view');
+  $loaded = $view_manager->load('legal_holds');
+  $read = $source->read('views.view.legal_holds');
+  if (!$loaded) {
+    $view_manager->create($read)
+      ->save();
+  }
+}
+
+/**
+ * Implements hook_uninstall().
+ */
+function ul_legal_hold_uninstall() {
+  \Drupal::messenger()->addStatus(__FUNCTION__);
+}
+
+/**
+ * Implements hook_requirements().
+ */
+function ul_legal_hold_requirements($phase) {
+  $requirements = [];
+
+  if ($phase == 'runtime') {
+    $value = mt_rand(0, 100);
+    $requirements['ul_legal_hold_status'] = [
+      'title' => t('UL Legal Hold status'),
+      'value' => t('UL Legal Hold value: @value', ['@value' => $value]),
+      'severity' => $value > 50 ? REQUIREMENT_INFO : REQUIREMENT_WARNING,
+    ];
+  }
+
+  return $requirements;
+}

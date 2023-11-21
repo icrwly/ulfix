@@ -1,0 +1,31 @@
+uuid: e2967276-c660-4f5c-beb3-72f1924eaeda
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_topic
+    - node.type.event
+    - taxonomy.vocabulary.topics
+_core:
+  default_config_hash: PpteXVSgU-knZddbatmHkb18QVLSSB4Ss0nzOB82KXI
+id: node.event.field_shared_topic
+field_name: field_shared_topic
+entity_type: node
+bundle: event
+label: Topic
+description: '&bull; The topic related to this event.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      topics: topics
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

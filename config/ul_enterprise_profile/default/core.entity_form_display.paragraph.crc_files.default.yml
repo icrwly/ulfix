@@ -1,0 +1,88 @@
+uuid: 8c402b1e-9b17-4e9b-bce1-405f41e87d61
+langcode: en
+status: true
+dependencies:
+  config:
+    - entity_browser.browser.crc_asset
+    - field.field.paragraph.crc_files.field_crc_files_description
+    - field.field.paragraph.crc_files.field_crc_files_files
+    - field.field.paragraph.crc_files.field_crc_files_title
+    - field.field.paragraph.crc_files.field_hash_target
+    - field.field.paragraph.crc_files.field_shared_bg_color
+    - paragraphs.paragraphs_type.crc_files
+  module:
+    - entity_browser
+    - field_group
+    - text
+third_party_settings:
+  field_group:
+    group_display:
+      children:
+        - field_shared_bg_color
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+id: paragraph.crc_files.default
+targetEntityType: paragraph
+bundle: crc_files
+mode: default
+content:
+  field_crc_files_description:
+    type: text_textarea
+    weight: 1
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_crc_files_files:
+    type: crc_asset_widget
+    weight: 2
+    region: content
+    settings:
+      entity_browser: crc_asset
+      field_widget_remove: '1'
+      open: '1'
+      selection_mode: selection_append
+      field_widget_edit: true
+      field_widget_replace: false
+    third_party_settings: {  }
+  field_crc_files_title:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_hash_target:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

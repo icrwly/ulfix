@@ -1,0 +1,24 @@
+uuid: b40231a2-3f72-469f-8a56-bdbc75266f40
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: person
+label: Person
+type: 'canonical_entities:node'
+pattern: '/about/people/[node:title]'
+selection_criteria:
+  6d8743cc-824f-4af9-a031-b24bd3213048:
+    id: node_type
+    negate: false
+    uuid: 6d8743cc-824f-4af9-a031-b24bd3213048
+    context_mapping:
+      node: node
+    bundles:
+      person: person
+selection_logic: and
+weight: 5
+relationships:
+  'node:langcode:language':
+    label: Language

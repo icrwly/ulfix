@@ -1,0 +1,23 @@
+uuid: 5d47d5c9-ce86-4253-9a85-5f60c75470b8
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_hero_fullwidth
+    - node.type.offering
+id: node.offering.field_shared_hero_fullwidth
+field_name: field_shared_hero_fullwidth
+entity_type: node
+bundle: offering
+label: 'Hero Full Width'
+description: 'Use this to make the header image into a full-width hero.'
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: '1'
+  off_label: '0'
+field_type: boolean

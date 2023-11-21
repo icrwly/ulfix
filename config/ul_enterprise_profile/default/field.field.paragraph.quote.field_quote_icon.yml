@@ -1,0 +1,50 @@
+uuid: e44fd3de-7629-4d19-b9d2-680c44e2bad6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote_icon
+    - paragraphs.paragraphs_type.quote
+  module:
+    - content_translation
+    - image
+    - tmgmt_content
+third_party_settings:
+  content_translation:
+    translation_sync:
+      file: file
+      alt: '0'
+      title: '0'
+  tmgmt_content:
+    excluded: false
+_core:
+  default_config_hash: o8-B5GUa4PfWR2s2ntVcK3PR4T2HTUl4bN_doIdM--Y
+id: paragraph.quote.field_quote_icon
+field_name: field_quote_icon
+entity_type: paragraph
+bundle: quote
+label: 'Icon image'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: '[date:custom:Y]-[date:custom:m]'
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

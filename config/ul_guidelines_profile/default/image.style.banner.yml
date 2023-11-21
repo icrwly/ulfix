@@ -1,0 +1,17 @@
+uuid: 816f0711-e019-428d-b25b-d0c6c66e311b
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ajaAT655Th20L2GsGyuHTBApdKgJk1jLL6O2Z243a-0
+name: banner
+label: 'Banner (1020 x 250) '
+effects:
+  b2dce2e7-4a21-400e-980f-9c2a55a8c8c6:
+    uuid: b2dce2e7-4a21-400e-980f-9c2a55a8c8c6
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 1600
+      height: 400
+      anchor: center-center

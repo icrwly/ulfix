@@ -1,0 +1,23 @@
+uuid: 3567e41a-0322-4afe-b863-09ce7a4371d1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_header_link
+    - node.type.hub
+  module:
+    - link
+id: node.hub.field_shared_header_link
+field_name: field_shared_header_link
+entity_type: node
+bundle: hub
+label: 'Header Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

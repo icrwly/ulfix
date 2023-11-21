@@ -1,0 +1,72 @@
+.card.card--default {
+  background-color: $white;
+
+  h3 {
+    font-size: 2.2rem;
+    line-height: 1.4;
+  }
+  .content-container {
+
+    @include breakpoint($desktop) {
+      min-height:240px;
+    }
+
+    @include breakpoint($large-desktop) {
+      min-height:210px;
+    }
+  }
+  .bottom-row {
+    margin-top: auto;
+
+    &--cta {
+      margin-top: auto;
+      padding: $spacing-unit/2 $spacing-unit * 1.5 $spacing-unit * 1.5;
+
+      @include breakpoint($large-desktop) {
+        padding: $spacing-unit/2 $spacing-unit--l $spacing-unit--l;
+      }
+
+      &:after {
+        content: none !important; // TODO: can be removed after card refactor
+      }
+
+      a {
+        display: block;
+      }
+
+      .span-auto {
+        max-width: 50%;
+        @include breakpoint(max-width $large-mobile - 1) {
+          flex-basis: 100%;
+          max-width: 100%;
+        }
+        // Grid with 4 per row
+        .span-6-t.span-3-d & {
+          @include breakpoint($desktop $large-desktop - 1) {
+            flex-basis: 100%;
+            max-width: 100%;
+          }
+        }
+      }
+
+      .button {
+        @include font-smoothing;
+        text-transform: none;
+        padding-left: $button-padding;
+        padding-right: $button-padding;
+
+        &--link {
+          padding-left: 0;
+          padding-right: 0;
+        }
+
+        // TODO: refactor into default button styles
+        .icon {
+          font-size: 1.4rem;
+          margin-#{$start-direction}: $spacing-unit--s;
+        }
+      }
+    }
+  }
+
+}

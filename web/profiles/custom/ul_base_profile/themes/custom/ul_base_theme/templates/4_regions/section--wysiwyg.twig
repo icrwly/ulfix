@@ -1,0 +1,15 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ " section--wysiwyg section--paragraph" %}
+{% set dataModule = "dataTables" %}
+{% if gated %}
+    {% set class = class ~ " is-gated" %}
+{% endif %}
+{% if full_width %}
+    {% set class = class ~ " max-width--large-desktop" %}
+{% else %}
+    {% set class = class ~ " max-width--large-tablet" %}
+{% endif %}
+
+{% block content %}
+    {{- content -}}
+{% endblock %}

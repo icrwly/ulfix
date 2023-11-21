@@ -1,0 +1,129 @@
+uuid: cf0ccdf3-3e65-4111-902e-f619eda9219a
+langcode: en
+status: true
+dependencies:
+  module:
+    - options
+    - ul_marketo
+id: marketo_form.field_newsletter_type
+field_name: field_newsletter_type
+entity_type: marketo_form
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: '3D Printing Newsletter'
+      label: '3D Printing Newsletter'
+    -
+      value: 'Additive Manufacturing Newsletter'
+      label: 'Additive Manufacturing Newsletter'
+    -
+      value: 'Appliance Advisor'
+      label: 'Appliance Advisor'
+    -
+      value: 'The Code Authority Electrical Connections Newsletter'
+      label: 'The Code Authority Electrical Connections Newsletter'
+    -
+      value: 'The Code Authority Newsletter'
+      label: 'The Code Authority Newsletter'
+    -
+      value: 'Consumer Technology and Wireless Products Outlook'
+      label: 'Consumer Technology and Wireless Products Outlook'
+    -
+      value: 'Consumer Technology Newsletter Japan'
+      label: 'Consumer Technology Newsletter Japan'
+    -
+      value: 'Energy & Industrial Outlook'
+      label: 'Energy & Industrial Outlook'
+    -
+      value: 'Furnishings Focus'
+      label: 'Furnishings Focus'
+    -
+      value: 'Generic Email Sign Up'
+      label: 'Generic Email Sign Up'
+    -
+      value: 'Global Market Access (GMA) Newsletter (English)'
+      label: 'Global Market Access (GMA) Newsletter (English)'
+    -
+      value: 'Global Market Access (GMA) Newsletter (Japanese)'
+      label: 'Global Market Access (GMA) Newsletter (Japanese)'
+    -
+      value: 'Global Market Access (GMA) Newsletter (Korean)'
+      label: 'Global Market Access (GMA) Newsletter (Korean)'
+    -
+      value: Healthcare
+      label: Healthcare
+    -
+      value: 'The Health Sciences Wire'
+      label: 'The Health Sciences Wire'
+    -
+      value: 'Insights Incubator'
+      label: 'Insights Incubator'
+    -
+      value: 'Lumen Insights'
+      label: 'Lumen Insights'
+    -
+      value: 'Performance Matters e-Magazine'
+      label: 'Performance Matters e-Magazine'
+    -
+      value: 'Regulatory Roundup'
+      label: 'Regulatory Roundup'
+    -
+      value: 'Sales and Marketing Newsletter'
+      label: 'Sales and Marketing Newsletter'
+    -
+      value: SPIRE
+      label: SPIRE
+    -
+      value: SPOT
+      label: SPOT
+    -
+      value: 'Sustainability Matters'
+      label: 'Sustainability Matters'
+    -
+      value: 'Taiwan UL ACCESS'
+      label: 'Taiwan UL ACCESS'
+    -
+      value: 'UL Japan Lighting Newsletter'
+      label: 'UL Japan Lighting Newsletter'
+    -
+      value: 'UL Japan Mail Magazine'
+      label: 'UL Japan Mail Magazine'
+    -
+      value: 'UL Korea InfoNet Newsletter'
+      label: 'UL Korea InfoNet Newsletter'
+    -
+      value: 'UL Pulse'
+      label: 'UL Pulse'
+    -
+      value: 'UL Pulse for Italy in Italian'
+      label: 'UL Pulse for Italy in Italian'
+    -
+      value: 'UL Pulse for North Africa in French'
+      label: 'UL Pulse for North Africa in French'
+    -
+      value: 'UL Pulse for Turkey in Turkish'
+      label: 'UL Pulse for Turkey in Turkish'
+    -
+      value: 'UL Pulse in Simplified Chinese'
+      label: 'UL Pulse in Simplified Chinese'
+    -
+      value: 'UL Taiwan HazLoc News'
+      label: 'UL Taiwan HazLoc News'
+    -
+      value: 'Wire and Cable Software'
+      label: 'Wire and Cable Software'
+    -
+      value: 'Wire Talk'
+      label: 'Wire Talk'
+    -
+      value: 'The World Runs on Trust'
+      label: 'The World Runs on Trust'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

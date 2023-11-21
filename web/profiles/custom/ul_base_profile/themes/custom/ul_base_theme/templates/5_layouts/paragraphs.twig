@@ -1,0 +1,72 @@
+{% embed '@ul_base_theme/4_regions/section--wysiwyg.twig' with { wysiwyg_content: wysiwyg_content } %}
+  {% block content %}
+    <h2>Two Column List</h2>
+    <!-- Two Column List -->
+    {% include '@ul_base_theme/3_components/list--two-col.twig' with {items: list_two_col_short} only %}
+    <hr>
+    {% include '@ul_base_theme/3_components/list--two-col.twig' with {items: list_two_col_long} only %}
+
+    <h2>Two Column List (Flexible)</h2>
+    <!-- Two Column List (flexible) -->
+    {% include '@ul_base_theme/3_components/list--two-col--flexible.twig' with {items: list_two_col_short} only %}
+    <hr>
+    {% include '@ul_base_theme/3_components/list--two-col--flexible.twig' with {items: list_two_col_long} only %}
+  {% endblock %}
+{% endembed %}
+
+<!-- Image Row -->
+{% include '@ul_base_theme/4_regions/section--image-row.twig' with image_row only %}
+
+<!-- People -->
+{% include '@ul_base_theme/4_regions/section--people.twig' with people only %}
+
+<!-- Quote -->
+{% include '@ul_base_theme/4_regions/section--quote.twig' with quote only %}
+
+<!-- Quote (Full) -->
+{% include '@ul_base_theme/4_regions/section--quote.twig' with quote_full only %}
+
+<!-- Gallery (Grid) -->
+{% include '@ul_base_theme/4_regions/section--gallery.twig' with gallery only %}
+
+<!-- Gallery (Short Carousel) -->
+{% include '@ul_base_theme/4_regions/section--gallery.twig' with gallery|merge({is_carousel: true}) only %}
+
+<!-- Gallery (Long Carousel) -->
+{% include '@ul_base_theme/4_regions/section--gallery.twig' with gallery_long|merge({is_carousel: true}) only %}
+
+<!-- Inline Image -->
+{% include '@ul_base_theme/4_regions/section--inline-image.twig' with inline_image only %}
+
+<!-- Embedded Video -->
+{% include '@ul_base_theme/4_regions/section--video.twig' with embedded_video only %}
+
+<!-- Spotlight with Image -->
+{% include '@ul_base_theme/4_regions/section--spotlight.twig' with spotlight_image only %}
+
+<!-- Spotlight with Card -->
+{% include '@ul_base_theme/4_regions/section--spotlight.twig' with spotlight_card only %}
+
+<!-- Spotlight with Image Carousel -->
+{% include '@ul_base_theme/4_regions/section--spotlight.twig' with spotlight_image_carousel only %}
+
+<!-- Spotlight with Card Carousel -->
+{% include '@ul_base_theme/4_regions/section--spotlight.twig' with spotlight_card_carousel only %}
+
+<!-- Spotlight Cards -->
+{% include '@ul_base_theme/4_regions/section--spotlight--card.twig' with spotlight_cards only %}
+
+<!-- Simple Menu -->
+{% include '@ul_base_theme/4_regions/section--simple-menu.twig' with simple_menu only %}
+
+<!-- Files -->
+{% include '@ul_base_theme/4_regions/section--file-list.twig' with file_list only %}
+
+<!-- Related Content -->
+{% include '@ul_base_theme/4_regions/section--related-content.twig' with related_content only %}
+
+<!-- Action Banner -->
+{% include '@ul_base_theme/4_regions/section--action-banner.twig' with action_banner_1 only %}
+
+<!-- Action Banner -->
+{% include '@ul_base_theme/4_regions/section--action-banner.twig' with action_banner_2 only %}

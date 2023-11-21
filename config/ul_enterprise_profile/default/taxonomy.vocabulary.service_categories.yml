@@ -1,0 +1,8 @@
+uuid: d317b5c4-1d63-4d62-96c1-5b2c5868f490
+langcode: en
+status: true
+dependencies: {  }
+name: 'Service Categories'
+vid: service_categories
+description: 'Used for sorting services into easily-findable classifications based on the services'' core functions.'
+weight: 0

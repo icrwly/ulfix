@@ -1,0 +1,52 @@
+// Alignment
+// -------------------------
+.text-left {
+  text-align: $start-direction;
+}
+
+.text-right {
+  text-align: $end-direction;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.center-block {
+  @include center-block;
+}
+
+// Grid alignment
+.align-items-center {
+  align-items: center;
+}
+
+.align-items-start {
+  align-items: flex-start;
+}
+
+.align-items-end {
+  align-items: flex-end;
+}
+
+.justify-content-center {
+  justify-content: center;
+}
+
+.justify-content-start {
+  justify-content: flex-start;
+}
+
+.justify-content-end {
+  justify-content: flex-end;
+}
+
+
+// Floats
+// -------------------------
+.pull-right {
+  float: $end-direction !important;
+}
+.pull-left {
+  float: $start-direction !important;
+}

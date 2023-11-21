@@ -1,0 +1,55 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = class ~ ' section--gallery section--paragraph' %}
+{% set gutterclass = "paragraph-gutter paragraph--gallery" %}
+{% if is_carousel %}
+  {% set class = class ~ " is-carousel" %}
+{% endif %}
+
+{% block section_header %}
+  <div class="section__header">
+    {% block title %}
+      {% if title != '' %}
+        <div class="section__title h2">{{ title }}</div>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}
+
+{% block section_body %}
+  <div class="section__body">
+    {% if items %}
+      {# Carousel: #}
+      {% if is_carousel %}
+        <div class="carousel--default center-block" data-module="contentCarousel">
+          <div class="swiper-container swiper-container--has-outset-nav">
+            <div class="swiper-wrapper">
+              {% block carousel_item %}
+                {# Images rendered via: field--paragraph--field-image-gallery-images.htnml.twig #}
+              {% endblock %}
+            </div>
+            <div class="swiper-pagination swiper-pagination--l"></div>
+            <div class="swiper-navigation swiper-navigation--arrows">
+              <div class="swiper-button swiper-button-next">
+                <span class="swiper-icon icon-bracket-r"><span class="sr-only">Next</span></span>
+              </div>
+              <div class="swiper-button swiper-button-prev">
+                <span class="swiper-icon icon-bracket-l"><span class="sr-only">Previous</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      {# Grid Items: #}
+      {% else %}
+        <div class="row row--gutter-s justify-content-start popup-gallery-img">
+          {% block grid_items %}
+            {% for item in items %}
+              {% block grid_item %}
+                {# Images rendered via: field--paragraph--field-image-gallery-images-grid.htnml.twig #}
+              {% endblock %}
+            {% endfor %}
+          {% endblock %}
+        </div>
+      {% endif %}
+    {% endif %}
+  </div>
+{% endblock %}

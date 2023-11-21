@@ -1,0 +1,10 @@
+uuid: 10c2f9c9-2829-48e9-b863-a5c23b5c05f3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: tp7fRTbQEX9PqewPigQG5PhxXCjuOtUzokDBhqoMkW0
+name: 'Article Categories'
+vid: article_categories
+description: 'Used for grouping article content.'
+weight: 0

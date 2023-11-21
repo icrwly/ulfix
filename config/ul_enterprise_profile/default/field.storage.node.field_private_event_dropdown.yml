@@ -1,0 +1,27 @@
+uuid: 23bfa8aa-eb42-47bb-83dd-e8de60333fa6
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+id: node.field_private_event_dropdown
+field_name: field_private_event_dropdown
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: Private
+      label: Private
+    -
+      value: Public
+      label: Public
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

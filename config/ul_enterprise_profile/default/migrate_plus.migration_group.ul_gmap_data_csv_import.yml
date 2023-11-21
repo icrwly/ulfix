@@ -1,0 +1,10 @@
+uuid: b81bcb02-b7ee-4093-b2bb-b98e66ef7fdb
+langcode: en
+status: true
+dependencies: {  }
+id: ul_gmap_data_csv_import
+label: 'UL Global Market Access CSV Import'
+description: ''
+source_type: 'CSV source'
+module: null
+shared_configuration: null

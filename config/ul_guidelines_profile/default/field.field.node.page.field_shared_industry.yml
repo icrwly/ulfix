@@ -1,0 +1,31 @@
+uuid: 84d2b009-a99e-48f7-8e51-eb392df87702
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_industry
+    - node.type.page
+    - taxonomy.vocabulary.industries
+_core:
+  default_config_hash: b10oRr5xgutz5YPvn8BTxYwaqWLIf6VOmXzTlBcc8Ok
+id: node.page.field_shared_industry
+field_name: field_shared_industry
+entity_type: node
+bundle: page
+label: Industry
+description: 'The industry related to this page.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      industries: industries
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

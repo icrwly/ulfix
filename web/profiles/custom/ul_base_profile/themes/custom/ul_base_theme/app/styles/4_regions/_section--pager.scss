@@ -1,0 +1,12 @@
+.section--pager {
+  .pager {
+    justify-content: flex-end;
+  }
+  .pager__active-page {
+    border: none;
+    border-#{$end-direction}: 1px solid $border-color--dark;
+  }
+  .pager__navigation {
+    background-color: $white;
+  }
+}

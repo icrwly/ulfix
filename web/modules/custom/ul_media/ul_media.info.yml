@@ -1,0 +1,7 @@
+name: UL Media
+type: module
+description: 'Media Tools for UL'
+package: Media
+core_version_requirement: ^9 || ^10
+dependencies:
+  - drupal:media

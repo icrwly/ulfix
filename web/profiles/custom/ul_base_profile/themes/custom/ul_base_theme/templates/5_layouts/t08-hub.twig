@@ -1,0 +1,11 @@
+{% extends '@ul_base_theme/1_core/1-column.twig' %}
+{% set mainClass = mainClass %}
+
+{% block page %}
+  {% block listing %}
+    {% include '@ul_base_theme/4_regions/section--grid--cards-alt.twig' with { items: card_list } only %}
+  {% endblock %}
+  {% block pager %}
+    {% include '@ul_base_theme/4_regions/section--pager.twig' with { pager: pager } only %}
+  {% endblock %}
+{% endblock %}

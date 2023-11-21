@@ -1,0 +1,23 @@
+// View cards inside of 2-column layout
+// should have three items/row max.
+.two-col {
+  .section.section--view {
+    .span-3-ld {
+      @include breakpoint($desktop) {
+        -webkit-box-flex: 0;
+        flex: 0 0 33.33333%;
+        max-width: 33.33333%;
+      }
+    }
+  }
+}
+
+// Views of display type "cards no filters".
+.section.section--view {
+  &.cards_nofilters {
+    overflow: visible;
+    .filter-bar--pager-fix .section--pager {
+      position: relative;
+    }
+  }
+}

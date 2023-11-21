@@ -1,0 +1,19 @@
+{% extends "@ul_base_theme/4_regions/hero.twig" %}
+{% set class = "hero--default" %}
+{% set isCarousel = hero.slides|length > 1 %}
+
+{% block content %}
+  <div class="swiper-container">
+    <div class="swiper-wrapper">
+      {% block hero_slides %}
+        {% for slide in hero.slides %}
+          {% include '@ul_base_theme/3_components/hero--simple-slide.twig' %}
+        {% endfor %}
+      {% endblock %}
+    </div>
+    <div class="swiper-pagination"></div>
+  </div>
+  {% if hero.logo %}
+  <img class="ul-logo" src="{{ hero.logo }}" alt="UL Logo" />
+  {% endif %}
+{% endblock %}

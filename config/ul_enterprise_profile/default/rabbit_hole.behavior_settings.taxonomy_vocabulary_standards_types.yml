@@ -1,0 +1,14 @@
+uuid: d7e49d22-7ffd-4c45-926c-397098863079
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.standards_types
+id: taxonomy_vocabulary_standards_types
+entity_type_id: null
+entity_id: null
+action: access_denied
+allow_override: 0
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

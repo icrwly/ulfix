@@ -1,0 +1,50 @@
+.descriptive-link {
+  color: $black;
+  font-size: 1.6rem;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid $border-color;
+    margin-bottom: $spacing-unit;
+    padding-bottom: $spacing-unit;
+  }
+
+  &__title {
+    font-size: 1.6rem;
+    font-weight: 400;
+    margin-bottom: $spacing-unit--s;
+  }
+
+  &__description {
+    font-size: 1.4rem;
+    font-weight: 300;
+
+    &,
+    .editor-content p {
+      line-height: 1.25;
+    }
+  }
+
+  &__cta {
+    align-items: center;
+    display: flex;
+  }
+
+  .button {
+    flex-basis: 100%;
+    width: 100%;
+
+    .icon {
+      font-size: 1.4rem;
+      line-height: 1;
+      &.is-before {
+        margin-#{$end-direction}: $spacing-unit--s * .75;
+      }
+      &.is-after {
+        margin-#{$start-direction}: $spacing-unit--s * .75;
+      }
+      &:before {
+        transform: translateY(5%);
+      }
+    }
+  }
+}

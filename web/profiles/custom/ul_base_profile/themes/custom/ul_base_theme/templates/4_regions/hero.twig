@@ -1,0 +1,8 @@
+<section class="hero {{ class }}"{% if isCarousel %} data-module="heroCarousel"{% endif %}>
+  {% block content %}
+    <div class="hero__inner {{ inner_class }}">
+      {% block content_inner %}
+      {% endblock %}
+    </div>
+  {% endblock %}
+</section>

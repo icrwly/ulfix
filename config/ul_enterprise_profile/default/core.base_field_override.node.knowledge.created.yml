@@ -1,0 +1,18 @@
+uuid: 7e19f969-cf42-407b-aef6-d50d76b45491
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.knowledge
+id: node.knowledge.created
+field_name: created
+entity_type: node
+bundle: knowledge
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

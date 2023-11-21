@@ -1,0 +1,30 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the ul_crc_user module.
+ */
+
+/**
+ * Updates all current usernames to match email address in the system.
+ */
+function ul_crc_user_update_8001() {
+  $user_storage = \Drupal::service('entity_type.manager')->getStorage('user');
+
+  $ids = $user_storage->getQuery()
+    ->execute();
+
+  $users = $user_storage->loadMultiple($ids);
+
+  foreach ($users as $user) {
+    $email = $user->getEmail();
+    if ($user->getAccountName() == $email) {
+      $crc_id = \Drupal::service('ul_crc')->getUserByEmail(mb_strtolower($email));
+      if (isset($crc_id) && !empty($crc_id['user']['ul_id'])) {
+        $user->setUsername($crc_id['user']['ul_id']);
+        $user->save();
+      }
+    }
+  }
+
+}

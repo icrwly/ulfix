@@ -1,0 +1,18 @@
+uuid: 5578fe87-4236-492d-b741-5eaabbb48ae2
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.products_and_components
+id: taxonomy_term.products_and_components.changed
+field_name: changed
+entity_type: taxonomy_term
+bundle: products_and_components
+label: Changed
+description: 'The time that the term was last edited.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: changed

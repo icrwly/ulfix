@@ -1,0 +1,30 @@
+uuid: e0972b44-6cbd-4c75-ba65-04b2d6d60bdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_image
+    - media.type.image
+    - node.type.page
+_core:
+  default_config_hash: eDHpbizhouMvz-JDtz0eNwiz98QL54elt1Aue0uJo8w
+id: node.page.field_shared_ref_image
+field_name: field_shared_ref_image
+entity_type: node
+bundle: page
+label: 'Reference Image'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,29 @@
+uuid: 3f303e68-26d1-44da-afe6-050250b61eab
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_form_mode.media.media_library
+    - field.field.media.crc_asset.field_media_crc_asset
+    - media.type.crc_asset
+id: media.crc_asset.media_library
+targetEntityType: media
+bundle: crc_asset
+mode: media_library
+content:
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+hidden:
+  created: true
+  field_media_crc_asset: true
+  langcode: true
+  path: true
+  status: true
+  translation: true
+  uid: true

@@ -1,0 +1,63 @@
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.marketo_form.gated_content_form.field_node_is_gated
+    - field.field.marketo_form.gated_content_form.field_shared_button_text
+    - field.field.marketo_form.gated_content_form.field_shared_custom_title
+    - field.field.marketo_form.gated_content_form.field_shared_form_description
+    - ul_marketo.marketo_form_type.gated_content_form
+  module:
+id: marketo_form.gated_content_form.default
+targetEntityType: marketo_form
+bundle: gated_content_form
+mode: default
+content:
+  field_node_is_gated:
+    weight: 11
+    settings:
+      display_label: true
+    third_party_settings: {  }
+    type: boolean_checkbox
+    region: content
+  field_shared_button_text:
+    weight: 3
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_shared_custom_title:
+    weight: 1
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textfield
+    region: content
+  field_shared_form_description:
+    weight: 2
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  name:
+    type: string_textfield
+    weight: 0
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  translation:
+    weight: 10
+    settings: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  langcode: true
+  status: true
+  user_id: true

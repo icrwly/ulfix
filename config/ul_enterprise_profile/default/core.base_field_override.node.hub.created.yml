@@ -1,0 +1,18 @@
+uuid: 4cdc3e31-8a6b-4616-8a45-7c3a58278acc
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.hub
+id: node.hub.created
+field_name: created
+entity_type: node
+bundle: hub
+label: 'Authored on'
+description: 'The time that the node was created.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: created

@@ -1,0 +1,7 @@
+# Definitions to add link to the Admin menu.
+ul_onetrust.settings_form:
+  title: 'UL OneTrust'
+  description: 'Configure settings for the OneTrust cookie banner.'
+  route_name: ul_onetrust.settings_form
+  parent: 'system.admin_config_services'
+  weight: 99

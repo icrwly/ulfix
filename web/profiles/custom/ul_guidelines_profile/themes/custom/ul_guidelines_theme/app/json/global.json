@@ -1,0 +1,440 @@
+{
+  "base_path": "/profiles/custom/ul_base_profile/themes/custom/ul_base_theme",
+  "guidelines_path": "/profiles/custom/ul_guidelines_profile/themes/custom/ul_guidelines_theme",
+  "primaryNavItems": [
+    {
+      "name": "Home",
+      "link": "#",
+      "active": false
+    },
+    {
+      "name": "Guidelines",
+      "link": "#",
+      "active": true
+    },
+    {
+      "name": "Creator Resources",
+      "link": "#",
+      "active": false
+    },
+    {
+      "name": "My Studio",
+      "link": "#",
+      "active": false,
+      "modifier": "extra"
+    },
+    {
+      "name": "Support Services",
+      "link": "#",
+      "active": false
+    }
+  ],
+  "mobileNavItems": [
+    {
+      "id": "main",
+      "footer": {
+        "name": "Joy Bauer",
+        "link": "#",
+        "menu": "account"
+      },
+      "menu": [
+        {
+          "name": "Home",
+          "link": "#",
+          "active": false
+        },
+        {
+          "name": "Guidelines",
+          "link": "#",
+          "active": true,
+          "menu": "guidelines"
+        },
+        {
+          "name": "Creator Resources",
+          "link": "#",
+          "active": false,
+          "menu": "creatorresources"
+        },
+        {
+          "name": "My Studio",
+          "link": "#",
+          "active": false
+        },
+        {
+          "name": "Support Services",
+          "link": "#",
+          "active": false
+        }
+      ]
+    },
+    [
+      {
+        "id": "account",
+        "parent": "main",
+        "title": "Joy Bauer",
+        "menu": [
+          {
+            "name": "Profile",
+            "link": "#",
+            "active": false
+          },
+          {
+            "name": "Log Out",
+            "link": "#",
+            "active": false
+          }
+        ]
+      },
+      {
+        "id": "guidelines",
+        "parent": "main",
+        "title": "Guidelines",
+        "menu": [
+          {
+            "name": "The UL Brand",
+            "link": "#",
+            "active": false
+          },
+          {
+            "name": "Visual",
+            "link": "#",
+            "active": false,
+            "menu": "visual"
+          },
+          {
+            "name": "Voice and Tone",
+            "link": "#",
+            "active": false,
+            "id": "voicetone"
+          },
+          {
+            "name": "Digital",
+            "link": "#",
+            "active": false,
+            "id": "digital"
+          },
+          {
+            "name": "Brand Architecture",
+            "link": "#",
+            "active": false,
+            "id": "brandarchitecture"
+          },
+          {
+            "name": "Naming Guidelines",
+            "link": "#",
+            "active": false,
+            "id": "namingguidelines"
+          },
+          {
+            "name": "Brand Strategy",
+            "link": "#",
+            "active": false,
+            "id": "brandstrategy"
+          }
+        ]
+      },
+      {
+        "id": "creatorresources",
+        "parent": "main",
+        "title": "Creator Resources",
+        "menu": [
+          {
+            "name": "Test Link 1",
+            "link": "#",
+            "active": false
+          },
+          {
+            "name": "Test Link 2",
+            "link": "#",
+            "active": false
+          }
+        ]
+      }
+    ],
+    [
+      {
+        "parent": "guidelines",
+        "title": "Visual",
+        "id": "visual",
+        "menu": [
+          {
+            "name": "UL Logo",
+            "link": "#",
+            "active": true,
+            "submenu": [
+              {
+                "name": "Clear space and minimum size",
+                "link": "#",
+                "active": false
+              },
+              {
+                "name": "Color presentation",
+                "link": "#",
+                "active": false
+              },
+              {
+                "name": "Usage",
+                "link": "#",
+                "active": false
+              }
+            ]
+          },
+          {
+            "name": "Tagline",
+            "link": "#",
+            "active": false,
+            "submenu": [
+              {
+                "name": "Clear space and minimum size",
+                "link": "#",
+                "active": false
+              },
+              {
+                "name": "Usage",
+                "link": "#",
+                "active": false
+              }
+            ]
+          },
+          {
+            "name": "Color strategy",
+            "link": "#",
+            "active": false,
+            "submenu": [
+              {
+                "name": "Color palette",
+                "link": "#",
+                "active": false
+              },
+              {
+                "name": "Color blends",
+                "link": "#",
+                "active": false
+              },
+              {
+                "name": "Usage",
+                "link": "#",
+                "active": false
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  ],
+  "header": {
+    "logo": {
+      "image": "./logo.svg",
+      "alt": "Image Alt",
+      "href": "#"
+    },
+    "brand": {
+      "title": "Aria Label",
+      "href": "#",
+      "content":
+        "Commercial Resource Center <span class='accent'>/ Brand Studio</span>"
+    }
+  },
+  "headerMobile": {
+    "logo": {
+      "image": "./logo.svg",
+      "alt": "Image Alt",
+      "href": "#"
+    },
+    "brand": {
+      "title": "Aria Label",
+      "href": "#",
+      "content": "Brand Studio"
+    }
+  },
+  "searchData": {
+    "results": {
+      "featured": {
+        "type": "featured",
+        "cardList": [
+          {
+            "linkHref": "#",
+            "linkName": "Go to UL Logo",
+            "image":
+              "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97340&w=340&h=340",
+            "imageAlt": "Image Alt String",
+            "title": "UL Logo",
+            "description":
+              "<p>In keeping with the new UL brand architecture, the UL logo will consist of the UL wordmark and circle, without the “Underwriters Laboratories” wordmark.</p><p>The UL logo may be used on external-facing communications such as print collateral, marketing materials, advertising and stationery, as well as internal.</p><h4>Approval Process</h4><p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Morbi leo risus, porta ac consectetur ac, vestibulum at eros. Vestibulum id ligula porta felis euismod semper. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>"
+          }
+        ]
+      },
+      "pages": {
+        "title": "Pages",
+        "sectionList": {
+          "type": "search",
+          "list": [
+            {
+              "linkHref": "#",
+              "image":
+                "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+              "imageAlt": "Alt tag",
+              "category": "UL Logo",
+              "title": "UL Logo",
+              "uploaded": "Uploaded 7.12.17",
+              "size": "12MB",
+              "sectionIcon": "file",
+              "section": "JPG"
+            },
+            {
+              "linkHref": "#",
+              "image":
+                "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+              "imageAlt": "Alt tag",
+              "category": "UL Logo",
+              "title": "Clear space and minimum size",
+              "uploaded": "Uploaded 7.12.17",
+              "size": "12MB",
+              "sectionIcon": "file",
+              "section": "JPG"
+            },
+            {
+              "linkHref": "#",
+              "image":
+                "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+              "imageAlt": "Alt tag",
+              "category": "UL Logo",
+              "title": "Color Presentation",
+              "uploaded": "Uploaded 7.12.17",
+              "size": "12MB",
+              "sectionIcon": "file",
+              "section": "JPG"
+            }
+          ]
+        },
+        "viewMore": "View (38 More)"
+      },
+      "assets": {
+        "title": "Assets",
+        "sectionList": {
+          "type": "search",
+          "list": [
+            {
+              "linkHref": "#",
+              "image":
+                "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+              "imageAlt": "Alt tag",
+              "category": "UL Logo",
+              "title": "Usage",
+              "sectionIcon": "file",
+              "section": "Brand"
+            },
+            {
+              "linkHref": "#",
+              "image":
+                "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+              "imageAlt": "Alt tag",
+              "category": "UL Logo",
+              "title": "Incorrect Usage",
+              "sectionIcon": "file",
+              "section": "Brand"
+            },
+            {
+              "linkHref": "#",
+              "image":
+                "https://placeholdit.imgix.net/~text?txtsize=33&txt=50%C3%9750&w=50&h=50",
+              "imageAlt": "Alt tag",
+              "category": "UL Logo",
+              "title": "Frame and grid System",
+              "sectionIcon": "file",
+              "section": "Brand"
+            }
+          ]
+        },
+        "viewMore": "View (38 More)"
+      }
+    },
+    "cards": {
+      "title": "Popular Pages",
+      "type": "page",
+      "cardList": [
+        {
+          "linkHref": "#",
+          "image":
+            "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+          "imageAlt": "Image Alt String",
+          "title": "UL Logo",
+          "meta": "Updated 7.12.17"
+        },
+        {
+          "linkHref": "#",
+          "image":
+            "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+          "imageAlt": "Image Alt String",
+          "title": "Color Palette",
+          "meta": "Updated 5.2.16"
+        },
+        {
+          "linkHref": "#",
+          "image":
+            "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+          "imageAlt": "Image Alt String",
+          "title": "Photography",
+          "meta": "Updated 7.12.17"
+        },
+        {
+          "linkHref": "#",
+          "image":
+            "http://placeholdit.imgix.net/~text?txtsize=33&txt=340%C3%97200&w=340&h=200",
+          "imageAlt": "Image Alt String",
+          "title": "UL Primary Typeface",
+          "meta": "Updated 6.3.17"
+        }
+      ]
+    },
+    "recent": {
+      "title": "Recent Searches",
+      "searchList": [
+        {
+          "link": "#",
+          "color": "#c30e2e",
+          "image": "http://placeholdit.imgix.net/~text?txt=50x50&w=50&h=50",
+          "imageAlt": "Image Alt String",
+          "navTitle": "UL Logo",
+          "pageTitle": "UL Logo"
+        },
+        {
+          "link": "#",
+          "color": "#0086e2",
+          "image": "http://placeholdit.imgix.net/~text?txt=50x50&w=50&h=50",
+          "imageAlt": "Image Alt String",
+          "navTitle": "Photography",
+          "pageTitle": "Photography"
+        },
+        {
+          "link": "#",
+          "color": "#6fc618",
+          "image": "http://placeholdit.imgix.net/~text?txt=50x50&w=50&h=50",
+          "imageAlt": "Image Alt String",
+          "navTitle": "Color Palette",
+          "pageTitle": "Color Palette"
+        }
+      ]
+    }
+  },
+  "footer": {
+    "logo": "http://placeholdit.imgix.net/~text?txt=27x27&w=27&h=27",
+    "logoAlt": "A Alt string",
+    "copyright":
+      "UL LLC &copy; 2022. All rights reserved.",
+    "links": [
+      {
+        "href": "#",
+        "name": "Terms & Conditions"
+      },
+      {
+        "href": "#",
+        "name": "Launchpad"
+      },
+      {
+        "href": "#",
+        "name": "Feedback"
+      }
+    ]
+  }
+}

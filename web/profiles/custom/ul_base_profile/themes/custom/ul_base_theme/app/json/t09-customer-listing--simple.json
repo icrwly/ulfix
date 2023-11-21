@@ -1,0 +1,68 @@
+{
+  "hero": {
+    "slides": [
+      {
+        "bg_color": "teal-dark",
+        "image": "http://via.placeholder.com/400x300",
+        "imageAlt": "Slide image",
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    "footer": {
+      "bg_color": "teal",
+      "title": "Ready to Talk? Take the next step with UL.",
+      "cta": {
+        "title": "Contact Us",
+        "url": "#"
+      }
+    }
+  },
+  "card_list": [
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    },
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    },
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    },
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    },
+    {
+      "type": "cta",
+      "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit.",
+      "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+      "cta": {
+        "title": "Lorem ipsum",
+        "url": "#"
+      }
+    }
+  ]
+}

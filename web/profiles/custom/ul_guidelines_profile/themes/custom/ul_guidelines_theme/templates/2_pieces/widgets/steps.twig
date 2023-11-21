@@ -1,0 +1,14 @@
+<div class="steps">
+  <div class="connector"></div>
+  <div class="progress" data-progress></div>
+  <ul>
+    {% block submit_steps %}
+      {% for step in widget %}
+        <li{% if loop.index == 1 %} class="active-step"{% endif %}>
+          <p class="label">{{- step.label -}}</p>
+          <div class="circle"></div>
+        </li>
+      {% endfor %}
+    {% endblock %}
+  </ul>
+</div>

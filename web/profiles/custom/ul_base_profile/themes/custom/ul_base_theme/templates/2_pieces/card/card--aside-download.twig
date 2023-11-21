@@ -1,0 +1,33 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = "card--aside-download" %}
+{% if color %}
+  {% set class = class ~ " card--color-#{color}" %}
+{% endif %}
+
+{% block content %}
+  <div class="image-container">
+    {% block card_image %}
+      <img src="{{- image -}}" alt="{{- imageAlt -}}"/>
+    {% endblock %}
+  </div>
+  <div class="content-container">
+    {% block card_topic %}
+      {% if topics %}
+        {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+      {% endif %}
+    {% endblock %}
+    {% block card_title %}
+      <h3>{{- title -}}</h3>
+    {% endblock %}
+    <div class="download-container">
+      {% block card_download %}
+        {% if download %}
+          <a class="button button--white" href="{{- download -}}">{{ 'Download'|t }}</a>
+        {% endif %}
+      {% endblock %}
+      {% block card_meta %}
+        <p class="meta">{{- meta -}}</p>
+      {% endblock %}
+    </div>
+  </div>
+{% endblock %}

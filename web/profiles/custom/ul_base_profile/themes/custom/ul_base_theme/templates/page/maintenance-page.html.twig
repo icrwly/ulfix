@@ -1,0 +1,30 @@
+{#
+    This template is for maintenance page.
+#}
+{% extends '@ul_base_theme/page/page.html.twig' %}
+{% block content %}
+    {% embed '@ul_base_theme/1_core/page.twig' %}
+        {% block header %}
+        {% endblock %}
+        {% block page_top %}
+        {% endblock %}
+        {% block page %}
+            {% embed "@ul_base_theme/4_regions/section.twig" %}
+                {% set class = 'wrapper max-width--desktop' %}
+                {% block content %}
+                    {% embed '@ul_base_theme/5_layouts/offline.twig' %}
+                        {% set title = 'Site offline'|t %}
+                        {% set sub_title = page.content %}
+                        {% block bottom_msg %}
+                            {{ page.content }}
+                        {% endblock %}
+                    {% endembed %}
+                {% endblock %}
+            {% endembed %}
+        {% endblock %}
+        {% block page_bottom %}
+        {% endblock %}
+        {% block footer %}
+        {% endblock %}
+    {% endembed %}
+{% endblock %}

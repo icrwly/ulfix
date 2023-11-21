@@ -1,0 +1,25 @@
+// Event cards.
+.card.card--events {
+  z-index: 1;
+  .block-date {
+    padding-bottom: 5px;
+    .date {
+      margin-bottom: 8px;
+    }
+  }
+  .event-buttons {
+    z-index: 2;
+    padding: 2rem 2rem 0 2rem;
+    .button {
+      float: right;
+      position: relative;
+      top: -15px;
+      &:first-child {
+        float: left;
+      }
+      &.button--link {
+        padding: 6px;
+      }
+    }
+  }
+}

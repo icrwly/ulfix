@@ -1,0 +1,38 @@
+uuid: 035bd875-0a0a-47a4-8f1b-62aac8e20766
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.taxonomy_term.field_deliverable_icon
+    - taxonomy.vocabulary.deliverables
+  module:
+    - image
+id: taxonomy_term.deliverables.field_deliverable_icon
+field_name: field_deliverable_icon
+entity_type: taxonomy_term
+bundle: deliverables
+label: Icon
+description: 'The icon for this deliverable. '
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:file'
+  handler_settings: {  }
+  file_directory: deliverable_icons
+  file_extensions: 'png gif jpg jpeg'
+  max_filesize: ''
+  max_resolution: ''
+  min_resolution: ''
+  alt_field: true
+  alt_field_required: true
+  title_field: false
+  title_field_required: false
+  default_image:
+    uuid: ''
+    alt: ''
+    title: ''
+    width: null
+    height: null
+field_type: image

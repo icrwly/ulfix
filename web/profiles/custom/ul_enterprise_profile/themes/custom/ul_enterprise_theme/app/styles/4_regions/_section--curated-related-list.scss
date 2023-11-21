@@ -1,0 +1,45 @@
+/**
+ * Curated Related Content - List Display Mode.
+ * With help from: http://techneblog.com/article/creating-responsive-multiple-column-list
+ */
+.section.section--related-content-list {
+  ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 0;
+    li {
+      display: inline-block;
+      margin-bottom: 1rem;
+      line-height: 1.4;
+      width: 100%;
+      // Correct webkit/chrome uneven margin on the first column.
+      &:first-child {
+        margin-top: 0;
+      }
+    }
+  }
+
+  // 2 columns of links.
+  .related-content-2-col {
+    .columns {
+      @include breakpoint($large-tablet) {
+        -webkit-column-count: 2;
+        -moz-column-count: 2;
+        column-count: 2;
+        column-gap: 3rem;
+      }
+    }
+  }
+
+  // 3 columns of links.
+  .related-content-3-col {
+    .columns {
+      @include breakpoint($large-tablet) {
+        -webkit-column-count: 3;
+        -moz-column-count: 3;
+        column-count: 3;
+        column-gap: 3rem;
+      }
+    }
+  }
+}

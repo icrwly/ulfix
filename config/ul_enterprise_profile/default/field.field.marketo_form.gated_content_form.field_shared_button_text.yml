@@ -1,0 +1,26 @@
+uuid: 1774bd17-9fca-446d-90b8-3eb54063a098
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.marketo_form.field_shared_button_text
+    - ul_marketo.marketo_form_type.gated_content_form
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: marketo_form.gated_content_form.field_shared_button_text
+field_name: field_shared_button_text
+entity_type: marketo_form
+bundle: gated_content_form
+label: 'Submit Button Text'
+description: ''
+required: true
+translatable: true
+default_value:
+  -
+    value: Submit
+default_value_callback: ''
+settings: {  }
+field_type: string

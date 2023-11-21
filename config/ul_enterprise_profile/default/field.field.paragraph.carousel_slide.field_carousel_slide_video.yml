@@ -1,0 +1,30 @@
+uuid: 581a98f7-94e0-49be-9ac8-7b1a93de74dd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel_slide_video
+    - paragraphs.paragraphs_type.carousel_slide
+  module:
+    - tmgmt_content
+    - video_embed_field
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.carousel_slide.field_carousel_slide_video
+field_name: field_carousel_slide_video
+entity_type: paragraph
+bundle: carousel_slide
+label: Video
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  allowed_providers:
+    vimeo: vimeo
+    youtube: youtube
+    wistia: wistia
+    youtube_playlist: '0'
+field_type: video_embed_field

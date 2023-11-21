@@ -1,0 +1,19 @@
+.hero--events__slide {
+  @include breakpoint(max-width $desktop - 1) {
+    background: none !important;
+  }
+
+  @include breakpoint($desktop) {
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    height: 100% !important;
+  }
+
+  .swiper-slide-image {
+    @include breakpoint($desktop) {
+      align-self: center;
+      opacity: 0;
+    }
+  }
+}

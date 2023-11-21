@@ -1,0 +1,14 @@
+uuid: e0600eed-e8bb-4b69-992f-3fb78c69a836
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.content_curator
+  module:
+    - user
+id: user_add_role_action.content_curator
+label: 'Add the Content Curator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: content_curator

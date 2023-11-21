@@ -1,0 +1,31 @@
+uuid: 1180922e-ec44-48c2-84d8-0972b37e27b0
+langcode: en
+status: true
+dependencies:
+  config:
+    - views.view.cm_current_user
+  module:
+    - system
+    - views
+  theme:
+    - claro
+_core:
+  default_config_hash: tUsP2JAA8qYT3VP5HnvU7qKMnt5jBn1AgNvJ2_SD_ZY
+id: views_block__cm_current_user_block_1
+theme: claro
+region: content
+weight: 0
+provider: null
+plugin: 'views_block:cm_current_user-block_1'
+settings:
+  id: 'views_block:cm_current_user-block_1'
+  label: ''
+  label_display: visible
+  provider: views
+  views_label: ''
+  items_per_page: none
+visibility:
+  request_path:
+    id: request_path
+    negate: false
+    pages: /admin/cm-workbench

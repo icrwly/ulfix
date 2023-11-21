@@ -1,0 +1,35 @@
+<div class="global-header__row global-header__row--bottom">
+  <div class="wrapper">
+    <div class="global-header__main global-header__row-inner row">
+
+      {% block content %}
+
+        {% block content_inner %}
+
+          {% block logo %}
+              {% include '@ul_base_theme/3_components/header--bottom--logo.twig' with { front_page : '/' } %}
+          {% endblock %}
+
+          {% block primary_nav %}
+              {% include '@ul_base_theme/3_components/header--bottom--primary-nav.twig' %}
+          {% endblock %}
+
+          {% block search %}
+              {% include '@ul_base_theme/3_components/header--bottom--search.twig' %}
+          {% endblock %}
+
+        {% endblock %}
+
+        {% block hamburger %}
+            {% include '@ul_base_theme/3_components/header--bottom--hamburger.twig' %}
+        {% endblock %}
+
+        {% block title %}
+            {% include '@ul_base_theme/3_components/header--bottom--title.twig' %}
+        {% endblock %}
+
+      {% endblock %}
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,14 @@
+_core:
+  default_config_hash: bMOl3jD7ZuzZMuaUYzyqadr56G486ldo28NYIkK_54g
+api_endpoint: 'https://api.mailgun.net'
+api_key: key-2h2j6l8tijo0cw4f05w9g1paopy2khm7
+working_domain: hub.ul.com
+debug_mode: false
+test_mode: false
+tracking_opens: ''
+tracking_clicks: ''
+tracking_exception: ''
+format_filter: plain_text
+use_queue: false
+use_theme: false
+tagging_mailkey: false

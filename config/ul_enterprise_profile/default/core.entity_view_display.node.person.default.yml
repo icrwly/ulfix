@@ -1,0 +1,178 @@
+uuid: 6dd792dd-a016-45c8-9320-d4cc11319954
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.person.body
+    - field.field.node.person.field_person_awards
+    - field.field.node.person.field_person_first_name
+    - field.field.node.person.field_person_job_title
+    - field.field.node.person.field_person_rr_topics
+    - field.field.node.person.field_person_secondary_content
+    - field.field.node.person.field_person_short_bio
+    - field.field.node.person.field_person_social_links
+    - field.field.node.person.field_shared_content_owner
+    - field.field.node.person.field_shared_cou
+    - field.field.node.person.field_shared_header_media
+    - field.field.node.person.field_shared_metatags
+    - field.field.node.person.field_shared_mktg_support_ticket
+    - field.field.node.person.field_shared_ref_description
+    - field.field.node.person.field_shared_review_comments
+    - field.field.node.person.field_shared_review_user
+    - field.field.node.person.field_shared_rr_checkbox
+    - image.style.hero_boxed_width
+    - node.type.person
+  module:
+    - entity_reference_revisions
+    - metatag
+    - social_media_links_field
+    - text
+    - ul_media
+    - user
+_core:
+  default_config_hash: QVo_tfDtjaCHx4CmP5e4o6Yw0uP__QOon8nnqa4u-1Q
+id: node.person.default
+targetEntityType: node
+bundle: person
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_person_awards:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 13
+    region: content
+  field_person_first_name:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_person_job_title:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_person_rr_topics:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 12
+    region: content
+  field_person_secondary_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_person_short_bio:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_person_social_links:
+    type: social_media_links_field_default
+    label: above
+    settings:
+      appearance: {  }
+      link_attributes: {  }
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_shared_content_owner:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 15
+    region: content
+  field_shared_cou:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 14
+    region: content
+  field_shared_header_media:
+    type: media_url
+    label: above
+    settings:
+      image_style: hero_boxed_width
+      alt_tag: '1'
+      title: 0
+      image_link: ''
+      image_loading:
+        attribute: lazy
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_shared_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 16
+    region: content
+  field_shared_mktg_support_ticket:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_shared_ref_description:
+    type: basic_string
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  field_shared_rr_checkbox: true
+  langcode: true
+  search_api_excerpt: true

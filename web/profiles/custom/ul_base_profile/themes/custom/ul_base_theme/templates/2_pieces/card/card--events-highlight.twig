@@ -1,0 +1,18 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = "card--events-highlight" %}
+
+{% block content %}
+  {% block block_date %}
+    {% include '@ul_base_theme/2_pieces/block-date.twig' with { date: date } } %}
+  {% endblock %}
+  <div class="content-container">
+    {% block card_title %}
+      <h3>{{- title -}}</h3>
+    {% endblock %}
+    {% block card_description %}
+      {% if description %}
+        <p>{{- description -}}</p>
+      {% endif %}
+    {% endblock %}
+  </div>
+{% endblock %}

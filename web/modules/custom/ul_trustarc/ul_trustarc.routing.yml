@@ -1,0 +1,10 @@
+# Add the Administration page route.
+ul_trustarc.settings:
+  path: '/admin/config/services/trustarc'
+  defaults:
+    _form: '\Drupal\ul_trustarc\Form\SettingsForm'
+    _title: 'UL TrustArc Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE

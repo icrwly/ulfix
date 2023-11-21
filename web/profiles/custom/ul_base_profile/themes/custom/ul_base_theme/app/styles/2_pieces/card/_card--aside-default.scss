@@ -1,0 +1,47 @@
+.card.card--aside-default {
+  .topic,
+  h3{
+    color:$gray;
+  }
+  h3 {
+    font-size: 1.8rem;
+    line-height: 1.4;
+  }
+
+  .bottom-row {
+    margin-top: auto;
+  }
+  a{
+    &:hover{
+      .topic,
+      h3{
+        color:$red;
+      }
+    }
+  }
+
+  @include breakpoint($desktop) {
+    border: none;
+    border-bottom: 1px solid $gray-lightest;
+    a{
+      display: flex;
+      flex-direction: row !important;
+      padding-bottom: $spacing-unit--l;
+      padding-top: $spacing-unit--l;
+      .content-container {
+        flex-basis: 75%;
+        max-width: 75%;
+        order: -1;
+        padding: 0;
+        padding-#{$end-direction}: $spacing-unit--l;
+      }
+      .image-container {
+        max-width: 25%;
+        flex-basis: 25%;
+      }
+      .topic {
+        font-size: 1.2rem;
+      }
+    }
+  }
+}

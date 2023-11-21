@@ -1,0 +1,23 @@
+uuid: 43230029-3f20-461a-a133-a5eab95c581c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_private_event_dropdown
+    - node.type.event
+  module:
+    - options
+id: node.event.field_private_event_dropdown
+field_name: field_private_event_dropdown
+entity_type: node
+bundle: event
+label: 'Private Event'
+description: 'Private Events will not appear on Event Hubs or in Google search. They will appear in UL.com internal search.'
+required: false
+translatable: false
+default_value:
+  -
+    value: Public
+default_value_callback: ''
+settings: {  }
+field_type: list_string

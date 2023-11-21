@@ -1,0 +1,10 @@
+uuid: 66f656eb-98b1-4914-bcdc-57f926d69710
+langcode: en
+status: true
+dependencies: {  }
+id: node__thankyou_pages
+label: 'Content: Thank You Pages'
+tags:
+  title: '[current-page:title]'
+  robots: 'noindex, nofollow, noarchive, nosnippet, noodp, noydir, noimageindex, notranslate'
+  description: '[node:field_shared_subtitle]'

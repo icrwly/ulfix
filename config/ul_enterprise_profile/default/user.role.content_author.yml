@@ -1,0 +1,170 @@
+uuid: fc2c717e-5593-4dd1-adab-8c3f9506e65c
+langcode: en
+status: true
+dependencies:
+  config:
+    - filter.format.basic_html
+    - filter.format.full_html
+    - filter.format.restricted_html
+    - node.type.campaign_page
+    - node.type.event
+    - node.type.help
+    - node.type.homepage
+    - node.type.hub
+    - node.type.knowledge
+    - node.type.landing_page
+    - node.type.location
+    - node.type.market_access_profile
+    - node.type.news
+    - node.type.offering
+    - node.type.page
+    - node.type.person
+    - node.type.regional_pages
+    - node.type.resource
+    - node.type.thankyou_pages
+    - node.type.tool
+    - workflows.workflow.content_publication
+  module:
+    - cm_workbench
+    - content_moderation
+    - content_translation
+    - entity_browser
+    - environment_indicator
+    - file
+    - filter
+    - media
+    - node
+    - paragraphs
+    - system
+    - taxonomy
+    - toolbar
+    - ul_marketo
+_core:
+  default_config_hash: 1RZOpQaWxGKjrytCaaCyXBlKRjKE1DoTLha4ccIoD4g
+id: content_author
+label: 'Content Author'
+weight: -5
+is_admin: null
+permissions:
+  - 'access administration pages'
+  - 'access cm_workbench'
+  - 'access content overview'
+  - 'access crc_asset entity browser pages'
+  - 'access environment indicator'
+  - 'access file entity browser pages'
+  - 'access files overview'
+  - 'access image entity browser pages'
+  - 'access media overview'
+  - 'access taxonomy overview'
+  - 'access toolbar'
+  - 'access wysiwyg entity browser pages'
+  - 'add marketo_form entities'
+  - 'create campaign_page content'
+  - 'create event content'
+  - 'create help content'
+  - 'create homepage content'
+  - 'create hub content'
+  - 'create knowledge content'
+  - 'create landing_page content'
+  - 'create location content'
+  - 'create market_access_profile content'
+  - 'create media'
+  - 'create news content'
+  - 'create offering content'
+  - 'create page content'
+  - 'create person content'
+  - 'create regional_pages content'
+  - 'create resource content'
+  - 'create thankyou_pages content'
+  - 'create tool content'
+  - 'delete marketo_form entities'
+  - 'delete media'
+  - 'edit any campaign_page content'
+  - 'edit any event content'
+  - 'edit any help content'
+  - 'edit any homepage content'
+  - 'edit any hub content'
+  - 'edit any knowledge content'
+  - 'edit any landing_page content'
+  - 'edit any location content'
+  - 'edit any market_access_profile content'
+  - 'edit any news content'
+  - 'edit any offering content'
+  - 'edit any page content'
+  - 'edit any person content'
+  - 'edit any regional_pages content'
+  - 'edit any resource content'
+  - 'edit any thankyou_pages content'
+  - 'edit any tool content'
+  - 'edit marketo_form entities'
+  - 'edit own campaign_page content'
+  - 'edit own event content'
+  - 'edit own help content'
+  - 'edit own homepage content'
+  - 'edit own hub content'
+  - 'edit own knowledge content'
+  - 'edit own landing_page content'
+  - 'edit own location content'
+  - 'edit own market_access_profile content'
+  - 'edit own news content'
+  - 'edit own offering content'
+  - 'edit own page content'
+  - 'edit own person content'
+  - 'edit own regional_pages content'
+  - 'edit own resource content'
+  - 'edit own thankyou_pages content'
+  - 'edit own tool content'
+  - 'translate campaign_page node'
+  - 'translate event node'
+  - 'translate help node'
+  - 'translate homepage node'
+  - 'translate hub node'
+  - 'translate knowledge node'
+  - 'translate landing_page node'
+  - 'translate location node'
+  - 'translate market_access_profile node'
+  - 'translate news node'
+  - 'translate offering node'
+  - 'translate page node'
+  - 'translate person node'
+  - 'translate regional_pages node'
+  - 'translate resource node'
+  - 'translate thankyou_pages node'
+  - 'translate tool node'
+  - 'update content translations'
+  - 'update media'
+  - 'use content_publication transition create_new_draft'
+  - 'use content_publication transition keep_in_review'
+  - 'use content_publication transition request_review'
+  - 'use content_publication transition send_back_for_revision'
+  - 'use content_publication transition send_back_to_draft'
+  - 'use content_publication transition send_back_to_review'
+  - 'use content_publication transition un_archive'
+  - 'use text format basic_html'
+  - 'use text format full_html'
+  - 'use text format restricted_html'
+  - 'view all media revisions'
+  - 'view all revisions'
+  - 'view any unpublished content'
+  - 'view campaign_page revisions'
+  - 'view event revisions'
+  - 'view help revisions'
+  - 'view hub revisions'
+  - 'view knowledge revisions'
+  - 'view landing_page revisions'
+  - 'view latest version'
+  - 'view location revisions'
+  - 'view market_access_profile revisions'
+  - 'view marketo_form entities'
+  - 'view news revisions'
+  - 'view offering revisions'
+  - 'view own unpublished content'
+  - 'view page revisions'
+  - 'view person revisions'
+  - 'view regional_pages revisions'
+  - 'view resource revisions'
+  - 'view thankyou_pages revisions'
+  - 'view the administration theme'
+  - 'view tool revisions'
+  - 'view unpublished marketo_form entities'
+  - 'view unpublished paragraphs'

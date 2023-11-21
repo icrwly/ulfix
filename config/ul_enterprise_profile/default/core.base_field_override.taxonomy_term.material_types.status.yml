@@ -1,0 +1,22 @@
+uuid: f1671862-b2bb-4b16-a54c-14cca3f02fc4
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.material_types
+id: taxonomy_term.material_types.status
+field_name: status
+entity_type: taxonomy_term
+bundle: material_types
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

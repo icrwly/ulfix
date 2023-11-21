@@ -1,0 +1,29 @@
+uuid: bc15b152-05c1-4c97-bd91-a702e20c381d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_solutions
+    - node.type.landing_page
+    - taxonomy.vocabulary.solutions
+id: node.landing_page.field_shared_solutions
+field_name: field_shared_solutions
+entity_type: node
+bundle: landing_page
+label: Solutions
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      solutions: solutions
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

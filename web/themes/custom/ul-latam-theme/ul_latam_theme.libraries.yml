@@ -1,0 +1,51 @@
+# UL LATAM CSS overrides to enterprise theme.
+ul-latam-styles:
+  version: 1.x
+  header: true
+  css:
+    theme:
+      css/ul-latam-styles.css: { weight: 2000 }
+
+# UL LATAM JS (global) scripts:
+global-scripts:
+  version: 1.x
+  js:
+    scripts/latam.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# Gets the current node language and saves to cookie: (Only included for anonymous users.)
+latam-language:
+  version: 1.x
+  header: true
+  js:
+    scripts/language.js: {}
+  dependencies:
+    - core/jquery
+    - core/js-cookie
+
+# ====================================== #
+# NOTE: The site admin can switch between
+# the PROD and TEST GnaaS scripts:
+# ====================================== #
+
+# "PROD":
+gnaas-prod:
+  version: 1.x
+  js:
+    https://commons.ul.com/gnaas/prod/index.js: { type: external }
+    scripts/gnaas.js: { preprocess: false, attributes: { defer: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings
+
+# "TEST":
+gnaas-test:
+  version: 1.x
+  js:
+    https://commons.ul.com/gnaas/test/index.js: { type: external }
+    scripts/gnaas.js: { preprocess: false, attributes: { defer: true } }
+  dependencies:
+    - core/jquery
+    - core/drupalSettings

@@ -1,0 +1,21 @@
+<?php
+
+/**
+ * @file
+ * UL Emergo Theme file.
+ */
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function ul_emergo_theme_preprocess_page(array &$variables) {
+  // Check if home page.
+  $uri = \Drupal::service('path.matcher')->isFrontPage();
+  if ($uri) {
+    $variables['#attached']['library'][] = 'ul_emergo_theme/globe';
+  }
+  // Add qualtrics JS:
+  $variables['#attached']['library'][] = 'ul_emergo_theme/qualtrics';
+  // Add global JS:
+  $variables['#attached']['library'][] = 'ul_emergo_theme/global-scripts';
+}

@@ -1,0 +1,6 @@
+name: UL Base Configuration
+description: "Provides configuration management support for UL's Site Factory architecture."
+type: module
+core_version_requirement: ^9 || ^10
+dependencies:
+  - config_filter:config_filter

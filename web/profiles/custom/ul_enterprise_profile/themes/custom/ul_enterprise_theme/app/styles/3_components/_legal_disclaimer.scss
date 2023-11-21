@@ -1,0 +1,12 @@
+
+.legal-disclaimer {
+  text-align: center;
+  margin: 0 auto;
+  padding: 2 * $spacing-unit;
+  max-width: $large-desktop;
+  font-size: 14px;
+}
+
+.page-node-type-resource .legal-disclaimer {
+  padding-bottom: 0;
+}

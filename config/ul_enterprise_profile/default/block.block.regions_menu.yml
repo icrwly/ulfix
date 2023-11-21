@@ -1,0 +1,32 @@
+uuid: 98b30eda-8cb7-45d9-8472-f409e7b9f72c
+langcode: en
+status: true
+dependencies:
+  config:
+    - system.menu.regions
+  module:
+    - menu_block
+  theme:
+    - ul_enterprise_theme
+id: regions_menu
+theme: ul_enterprise_theme
+region: footer_top
+weight: 0
+provider: null
+plugin: 'menu_block:regions'
+settings:
+  id: 'menu_block:regions'
+  label: 'Regions Menu'
+  label_display: '0'
+  provider: menu_block
+  follow: false
+  follow_parent: child
+  label_link: false
+  label_type: block
+  level: 1
+  depth: 1
+  expand_all_items: false
+  parent: 'regions:'
+  suggestion: regions
+  expand: true
+visibility: {  }

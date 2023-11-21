@@ -1,0 +1,44 @@
+environment:
+  dev:
+    url: 'https://ulenterpriseorg--intdev.sandbox.my.salesforce.com/'
+    orgid: 00D7b000000A1sJ
+    confirmation_url: 'https://www-vader.ul.com/contact-us/thank-you'
+  sit:
+    url: 'https://ulenterpriseorg--sit.sandbox.my.salesforce.com/'
+    orgid: 00D030000004gGk
+    confirmation_url: 'https://www-dev.ul.com/contact-us/thank-you'
+  uat:
+    url: 'https://ulenterpriseorg--uat.sandbox.my.salesforce.com/'
+    orgid: 00DDe0000008aIn
+    confirmation_url: 'https://www-stage.ul.com/contact-us/thank-you'
+  prod:
+    url: 'https://ulenterpriseorg.my.salesforce.com/'
+    orgid: 00D4x00000676e4
+    confirmation_url: 'https://www.ul.com/contact-us/thank-you'
+debug: 0
+debugEmail: ''
+web_to_case_path: '/servlet/servlet.WebToCase?encoding=UTF-8'
+recaptcha_site_key: 6Lc8EScUAAAAAJgkVXpbftgmDSdpToOyTVFPWwKL
+custom_fields:
+  language:
+    dev: 00N4x00000REgiW
+    sit: 00N4x00000REgiW
+    uat: 00N4x00000REgiW
+    prod: 00N4x00000REgiW
+  web_country:
+    dev: 00N4x00000REgil
+    sit: 00N4x00000REgil
+    uat: 00N4x00000REgil
+    prod: 00N4x00000REgil
+  web_inquiry_type:
+    dev: 00N4x00000REgim
+    sit: 00N4x00000REgim
+    uat: 00N4x00000REgim
+    prod: 00N4x00000REgim
+_core:
+  default_config_hash: S2OJNw-FyDM4m883DpjaUtSHnmMRJbbdTQWoSsBza5Y
+record_type:
+  dev: 0124x000000VAL2
+  sit: 0124x000000VAL2
+  uat: 0124x000000VAL2
+  prod: 0124x000000VAL2

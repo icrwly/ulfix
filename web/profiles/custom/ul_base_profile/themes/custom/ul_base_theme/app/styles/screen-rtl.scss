@@ -1,0 +1,28 @@
+// ========================================================================= //
+//
+//    _____ ______ _   _ _    _ _____ _   _ ______
+//   / ____|  ____| \ | | |  | |_   _| \ | |  ____|
+//  | |  __| |__  |  \| | |  | | | | |  \| | |__
+//  | | |_ |  __| | . ` | |  | | | | | . ` |  __|
+//  | |__| | |____| |\  | |__| |_| |_| |\  | |____
+//   \_____|______|_| \_|\____/|_____|_| \_|______|
+//
+// ========================================================================= //
+
+//Tools
+// The node_modules folder is auto-included in the styles Gulp task
+@import 'breakpoint-sass/stylesheets/breakpoint.scss';
+
+// Language Direction
+@import '0_utility/_settings.direction-rtl.scss';
+
+// Utilities
+@import '0_utility/_utility.scss';
+
+// Theme Imports
+@import '1_core/**/*.scss';
+@import '2_pieces/**/*.scss';
+@import '3_components/**/*.scss';
+@import '4_regions/**/*.scss';
+@import '5_pages/**/*.scss';
+@import '6_vendors/**/*.scss';

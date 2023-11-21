@@ -1,0 +1,21 @@
+uuid: bac29578-af54-489e-9af2-b4a33873120d
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+_core:
+  default_config_hash: JZGezZMhDLrVsu-eGX2cc6ow7oOZJurjnHgaiMlR1hc
+id: node.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+type: string_long
+settings:
+  case_sensitive: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

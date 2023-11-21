@@ -1,0 +1,15 @@
+{% if form_attributes is not defined %}
+    {% set form_attributes %}
+        id="searchForm" action="{{ search.action }}" method="get" autocomplete="off"
+    {% endset %}
+{% endif %}
+<form {{ form_attributes }}>
+    <div class="search-box__group">
+        {% block search_field %}
+            {% include '@ul_guidelines_theme/2_pieces/inputs/search-inputs.twig' %}
+        {% endblock %}
+        {% block search_recents %}
+            {% include '@ul_guidelines_theme/3_components/search--box--recent.twig' %}
+        {% endblock %}
+    </div>
+</form>

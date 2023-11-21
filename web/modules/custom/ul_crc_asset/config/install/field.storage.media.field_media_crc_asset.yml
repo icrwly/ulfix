@@ -1,0 +1,21 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - media
+    - ul_crc_asset
+id: media.field_media_crc_asset
+field_name: field_media_crc_asset
+entity_type: media
+type: crc_asset_item
+settings:
+  target_type: crc_asset
+  display_field: false
+  display_default: false
+module: ul_crc_asset
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

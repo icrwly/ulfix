@@ -1,0 +1,65 @@
+{% extends "@ul_base_theme/2_pieces/menu-item/menu-item.twig" %}
+{% set class = "menu-item--primary-nav span-auto" %}
+
+{# Important: always set is_collapsed here to true, adds the accordion data-module attr.
+   JS will ignore if accordion content is missing #}
+{% set is_collapsed = true %}
+
+{% set add_link_attr = {} %}
+
+{% if id %}
+  {% set target = "[data-trigger-id='" ~ id ~ "']" %}
+  {% set add_link_attr = add_link_attr|merge({
+    'id': id,
+    'data-target': target
+  }) %}
+{% endif %}
+
+{% set add_link_attr = add_link_attr|merge({
+  'data-group': 'main-menu',
+  'data-no-transition-after-open': 'true',
+  'data-close-on-load': 'true',
+  'data-min-width': '992',
+}) %}
+
+{% if below %}
+  {% set add_link_attr = add_link_attr|merge({
+    'class': 'has-mobile-menu'
+  }) %}
+{% endif %}
+
+{% block below %}
+  {% if below %}
+    <div class="mobile-menu popover">
+
+      <div class="mobile-menu__header">
+        <div class="inner-wrapper">
+          <span class="mobile-menu__title h3">{{ title }}</span>
+          <a href="#" class="mobile-menu__back" title="mobile menu back">
+            <span class="mobile-menu__icon icon-angle-left"></span>
+            {{ back_title }}
+          </a>
+        </div>
+      </div>
+
+      {# If item does not have a title and is iterable, it is a nested menu not an item #}
+      {% if not below|first.title and below|first is iterable %}
+        {% for item in below %}
+          {% include '@ul_base_theme/3_components/menu.twig' with {
+            items: item,
+            menu_class: 'menu-list--group list-unstyled',
+            link_class_ga: 'ul-ga-megamenu-link',
+            menu_level: 0
+          } only %}
+        {% endfor %}
+      {% else %}
+        {% include '@ul_base_theme/3_components/menu.twig' with {
+          items: below,
+          menu_class: 'menu-list--group list-unstyled',
+          link_class_ga: 'ul-ga-megamenu-link',
+          menu_level: 0
+        } only %}
+      {% endif %}
+    </div>
+  {% endif %}
+{% endblock %}

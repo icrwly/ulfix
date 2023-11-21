@@ -1,0 +1,72 @@
+///*------------------------------------*\
+//    #UTILITY - GRID
+//\*------------------------------------*/
+/* Note: Base styles for flex-based grid system */
+
+
+@mixin grid-column($size, $columns: $grid-columns) {
+  @if $size < 12 {
+    flex: 0 0 percentage($size/$columns);
+  }
+  max-width: percentage($size/$columns);
+}
+
+
+@mixin grid-offset($size, $columns: $grid-columns) {
+  margin-#{$start-direction}: percentage($size/$columns);
+}
+
+@mixin add-grid-columns($columns: $grid-columns, $gutter: $grid-gutter, $breakpoints: $grid-breakpoints){
+  // Add column classes
+  @for $i from 1 through $columns {
+    .span-#{$i} {
+      @include grid-column($i, $grid-columns);
+    }
+  }
+  .span-auto {
+    flex: 0 0 auto;
+    max-width: none;
+    width: auto;
+  }
+
+  @if $add-grid-breakpoints {
+    // Add column classes with breakpoints
+    @each $breakpoint in map-keys($breakpoints) {
+      @for $i from 1 through $columns {
+        .span-#{$i}-#{$breakpoint} {
+          @include breakpoint(map-get($grid-breakpoints, $breakpoint)) {
+            @include grid-column($i, $grid-columns);
+          }
+        }
+      }
+      .span-auto-#{$breakpoint} {
+        @include breakpoint(map-get($grid-breakpoints, $breakpoint)) {
+          flex: 0 0 auto;
+          max-width: none;
+          width: auto;
+        }
+      }
+    }
+  }
+
+  @if $add-grid-offsets {
+    // Add offset classes
+    @for $i from 1 through $columns - 1 {
+      .offset-#{$i} {
+        @include grid-offset($i, $grid-columns);
+      }
+    }
+    @if $add-grid-breakpoints {
+      // Add offset classes with breakpoints
+      @each $breakpoint in map-keys($breakpoints) {
+        @for $i from 1 through $columns - 1 {
+          .offset-#{$i}-#{$breakpoint} {
+            @include breakpoint(map-get($grid-breakpoints, $breakpoint)) {
+              @include grid-offset($i, $grid-columns);
+            }
+          }
+        }
+      }
+    }
+  }
+}

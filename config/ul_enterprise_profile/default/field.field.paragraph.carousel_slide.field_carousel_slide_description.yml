@@ -1,0 +1,24 @@
+uuid: ab95d1cb-ebb2-40ed-93f2-fda6be53800b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel_slide_description
+    - paragraphs.paragraphs_type.carousel_slide
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.carousel_slide.field_carousel_slide_description
+field_name: field_carousel_slide_description
+entity_type: paragraph
+bundle: carousel_slide
+label: 'Slide Description'
+description: 'Maximum character count is 175.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

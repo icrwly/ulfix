@@ -1,0 +1,17 @@
+{% extends '@ul_base_theme/1_core/2-column.twig' %}
+{% set mainClass = 'max-width--large-desktop main--events' %}
+{% set columnClass = 'direction-reverse--max-desktop' %}
+
+{% block page %}
+
+  {% block body %}
+
+    {% include '@ul_base_theme/5_layouts/paragraphs.twig' %}
+
+  {% endblock %}
+
+{% endblock %}
+
+{% block aside %}
+  {% include '@ul_base_theme/3_components/aside.twig' with aside only %}
+{% endblock %}

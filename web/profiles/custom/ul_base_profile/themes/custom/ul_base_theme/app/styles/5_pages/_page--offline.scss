@@ -1,0 +1,34 @@
+.page--offline {
+  padding:10% 0;
+
+  &__logo {
+    margin-#{$start-direction}: 0;
+    position: relative;
+    transition: margin $transition;
+    z-index: index($globalIndex, header);
+    text-align:center;
+
+    a {
+      align-items: center;
+      display: flex;
+    }
+
+    img,
+    svg {
+      fill: $red;
+      margin:auto;
+    }
+
+    .brand-logo {
+      background: $white;
+      height: ($global-header-logo-height--mobile + 10rem);
+      width: ($global-header-logo-width--mobile + 10rem);
+
+      @include breakpoint($desktop) {
+        height: ($global-header-logo-height--desktop + 10rem);
+        width: ($global-header-logo-width--desktop + 10rem);
+      }
+    }
+  }
+}
+

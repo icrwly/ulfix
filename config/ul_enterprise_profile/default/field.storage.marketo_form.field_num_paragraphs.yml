@@ -1,0 +1,20 @@
+uuid: 6ed6f7b4-bc1b-44e5-8997-048190977689
+langcode: en
+status: true
+dependencies:
+  module:
+    - ul_marketo
+id: marketo_form.field_num_paragraphs
+field_name: field_num_paragraphs
+entity_type: marketo_form
+type: integer
+settings:
+  unsigned: false
+  size: normal
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,28 @@
+.arrow-link {
+	position: relative;
+
+	*:first-child {
+		display: inline-block;
+		vertical-align: middle;
+	}
+
+	&--right {
+		&::after {
+			@extend %icon-arrow-right;
+			display: inline-block;
+			font-family: $iconfont;
+			font-size: 150%;
+			line-height: 1;
+			margin-top: 2px;
+			vertical-align: middle;
+			transform: translate3d(0, 0, 0);
+			transition: all 0.3s ease;
+		}
+
+		&:hover {
+			&::after {
+				transform: translate3d(7px, 0, 0);
+			}
+		}
+	}
+}

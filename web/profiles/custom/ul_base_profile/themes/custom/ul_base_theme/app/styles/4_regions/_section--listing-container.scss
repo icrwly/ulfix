@@ -1,0 +1,18 @@
+.section--listing-container {
+  .listing-item {
+    margin-top: ($spacing-unit * 2);
+    @include breakpoint($large-mobile) {
+      border-top: 1px solid $gray-lighter;
+      padding-top: ($spacing-unit * 2);
+    }
+    &:first-child {
+      border-top: 0;
+      margin-top: 0;
+      padding: 0;
+    }
+  }
+  .pagination--listing{
+    border-top:1px solid $gray-lighter;
+    padding-top:$spacing-unit--xl
+  }
+}

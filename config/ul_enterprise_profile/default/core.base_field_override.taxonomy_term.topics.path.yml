@@ -1,0 +1,20 @@
+uuid: d248419b-2114-4b6f-b4c6-21b65b3389a7
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.topics
+  module:
+    - path
+id: taxonomy_term.topics.path
+field_name: path
+entity_type: taxonomy_term
+bundle: topics
+label: 'URL alias'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: path

@@ -1,0 +1,18 @@
+uuid: 2ea4d8f3-6475-4741-983b-d0324c3fd4db
+langcode: en
+status: true
+dependencies:
+  config:
+    - taxonomy.vocabulary.offering_types
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: taxonomy_term.offering_types
+target_entity_type_id: taxonomy_term
+target_bundle: offering_types
+default_langcode: site_default
+language_alterable: true

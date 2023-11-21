@@ -1,0 +1,12 @@
+{% extends "@ul_base_theme/2_pieces/widget/widget.twig" %}
+{% set class = "widget--card-tags" %}
+
+{% block content %}
+  <ul>
+    {% block tags %}
+      {% for tag in widget %}
+        {% include '@ul_base_theme/2_pieces/widget/widget--card-tags__item.twig' with tag only %}
+      {% endfor %}
+    {% endblock %}
+  </ul>
+{% endblock %}

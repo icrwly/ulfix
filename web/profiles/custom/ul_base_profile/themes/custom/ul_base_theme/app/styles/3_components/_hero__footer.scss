@@ -1,0 +1,57 @@
+.hero__footer {
+  color: $white;
+  position: relative;
+  z-index: index($globalIndex, block);
+  @include breakpoint($desktop) {
+    margin-top: -$spacing-unit * 1.5;
+  }
+
+  .content-wrapper {
+    @include trim-margin;
+    align-items: center;
+    display: flex;
+    height: 100%;
+    padding: $spacing-unit--l;
+  }
+}
+
+.hero__footer-inner {
+  align-items: center;
+  box-shadow: $box-shadow--level-3;
+  @include breakpoint($desktop) {
+    padding: $spacing-unit $spacing-unit--l;
+  }
+  @include breakpoint($large-desktop) {
+    padding-left: $spacing-unit--l * 2;
+    padding-right: $spacing-unit--l * 2;
+  }
+}
+
+.hero__footer-title {
+  font-size: 2.2rem;
+  font-weight: 400;
+  @include breakpoint($tablet) {
+    font-size: 2.8rem;
+    line-height: 1.2;
+  }
+}
+
+.hero__footer-cta {
+  @include breakpoint($tablet) {
+    align-items: center;
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .button {
+    border-width: 2px;
+  }
+}
+
+.hero__footer-content + .hero__footer-cta {
+  .content-wrapper {
+    @include breakpoint(max-width $tablet - 1) {
+      padding-top: 0;
+    }
+  }
+}

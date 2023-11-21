@@ -1,0 +1,87 @@
+$colors: (
+  black: $black,
+  blue-light: $blue-light,
+  blue: $blue,
+  brown-light: $brown-light,
+  brown: $brown,
+  gray-light: $gray-light,
+  gray-lighter: $gray-lighter,
+  gray-lightest: $gray-lightest,
+  gray-medium: $gray-medium,
+  gray: $gray,
+  green: $green,
+  orange: $orange,
+  red: $red,
+  teal-dark: $teal-dark,
+  teal-light: $teal-light,
+  teal: $teal,
+  yellow: $yellow
+);
+
+@each $name, $value in $colors {
+  .swatch-#{$name} {
+    background-color: #{$value};
+  }
+  .hex-#{$name} {
+    &:after {
+      content: '#{$value}';
+    }
+  }
+}
+
+.section--styleguide {
+  .grid-blocks {
+    .row {
+      &:not(:last-child) {
+        [class^='span-'] {
+          margin-bottom: 1.5rem;
+          @include breakpoint($tablet){
+            margin-bottom: 3rem;
+          }
+        }
+      }
+    }
+    .inner {
+      @include trim-margin;
+      background-color: #f2f2f2;
+      border:1px solid #999;
+      height: 100%;
+      padding: 1.5rem;
+      text-align:center;
+    }
+  }
+}
+
+.page--styleguide {
+  .icon-list {
+    @include list-unstyled;
+    li {
+      margin-bottom: $spacing-unit--l;
+      text-align: center;
+    }
+    .icon {
+      display: block;
+      margin-bottom: $spacing-unit;
+    }
+    .text {
+      font-size: 1.2rem;
+    }
+  }
+
+  .color-palette {
+    font-size: 1.4rem;
+
+    li {
+      margin-bottom: $spacing-unit--l;
+    }
+
+    .swatch {
+      display: block;
+      height: 4rem;
+    }
+
+    .swatch-info {
+      justify-content: space-between;
+    }
+  }
+}

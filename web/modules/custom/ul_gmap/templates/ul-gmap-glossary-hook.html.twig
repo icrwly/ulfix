@@ -1,0 +1,134 @@
+{# Get the requirement types from taxonomy #}
+{% set all_reqs = '' %}
+{% for term in req_types %}{% if loop.index == 1 %}{% set all_reqs = term.name %}{% else %}{% set all_reqs = all_reqs ~ ',' ~ term.name %}{% endif %}{% endfor %}
+{% set all_reqs =  all_reqs|replace({', ': ','}) %}
+
+<section class="ul-intro-map-section bg-white">
+    <div class="">
+
+      <div class="row">
+        <div class="ul-glossary-container w-full">
+            <!-- Share Button -->
+            <button class='ul-glossary-share js-glossary-share'><span class='ul-share-text'>{{ 'Share'|t }}</span><div class='clipboard-alert'>{{ 'Copied to clipboard'|t }}</div></button>
+
+            <!-- Title Start -->
+            <h1 class="fs-title mb-24px ul-glossary-title">{{ 'Market Access Requirements Directory'|t }}</h1>
+
+            <!-- The Lists of countries and regulations that are populated by JSON Object (Needs to be Alphebetical, Defaults as all types) -->
+            <div class='ul-glossary-list js-country-list'>
+                <p>{{ 'Market:'|t }}</p>
+
+                <!-- This would be where the list of countries is looped over -->
+                <div class='js-selected-countries'>
+                    <button class='ul-glossary-button no-close'>{{ 'All Markets'|t }}</button>
+                </div>
+
+            </div>
+
+            <div class='ul-glossary-list js-regulate-list'>
+                <p>{{ 'Requirement Type:'|t }}</p>
+
+                <!-- This would be where the list of Regulatory Types is looped over -->
+                <div class='js-selected-regulations'> 
+                    <button class='ul-glossary-button no-close'>{{ 'All Types'|t }}</button>
+                </div>
+            </div>
+
+            <!-- Filter Drop Down lists -->
+            <div class='ul-glossary-filters'>
+
+                <div class='js-country-filter ul-glossary-filter order-2 sm:order-1'>
+
+                    <select id="select-country" placeholder="{{ 'Filter Markets:'|t }}" multiple>
+                    </select>
+
+                </div>
+
+                <div class='js-regulate-filter ul-glossary-filter order-3 sm:order-2'>
+
+                    <select id="select-regulation" placeholder="{{ 'Filter Requirement Types:'|t }}" multiple>
+                    </select>
+
+                </div>
+
+                <p class='ul-glossary-filters-clear w-1/4 js-clear-filters order-1 sm:order-3'>{{ 'Clear all filters'|t }}</p>
+            </div>
+
+            <div class='ul-glossary-help-container'>
+                <p class='ul-glossary-help-text'>{{ "Don't see your market?"|t }}</p>
+                <a class='ul-glossary-help-text ul-glossary-help-text-link' href='{{ contact_url }}'>{{ "Contact us"|t }}</a>
+            <div>
+
+            <!-- The Resulting cards ordered alphabetically by country, then alphabetically by Regulatory Type -->
+            <div class='ul-cert-rows-container'>
+                
+            </div>
+
+        </div>
+      </div>
+    </div>
+    
+</section>
+<div class='ul-bottom-cert-bar glossary-bar'>
+    <!-- <p class='ul-bottom-cert-bar-text fs-1'>Get your products to market</p> -->
+    {# href='{{ contact_url }}' #}
+    <button class='ul-bottom-cert-bar-button fs-0 js-contact-page' data-contact='{{ contact_url }}'>{{ "Bring your products to market"|t }}</button>
+</div>
+
+<!-- Hidden modal that will reveal on click of the cards -->
+<div class="modal micromodal-slide" id="modal-1" aria-hidden="true">
+    <div class="modal__overlay" tabindex="-1" data-custom-close="modal-1">
+        <div class="modal__container" role="dialog" aria-modal="true" aria-labelledby="modal-1-title">
+        <header class="modal__header">
+            <img class='modal__image mx-auto js-modal-image' src='/../src/assets/cert_images/ul_certified.png' alt='modal__image'>
+            <h2 class="modal__title js-modal-title" id="modal-1-title">Functional Safety Listed</h2>
+            <div class='modal__line'></div>
+            <button class="modal__close" aria-label="Close modal" data-custom-close="modal-1"></button>
+        </header>
+        <main class="modal__content" id="modal-1-content">
+
+            <p class='modal__content__body js-modal-country fs-0'>{{ "Market / Markets:"|t }} <span class='modal__content__strong'>USA</span></p>
+            <p class='modal__content__body js-modal-requirement fs-0'>{{ "Requirements:"|t }} <span class='modal__content__strong'>Safety (Functional Safety)</span></p>
+            <p class='modal__content__body js-modal-valid fs-0'>{{ "Validity Period of Certification:"|t }} <span class='modal__content__strong'>Unlimited</span></p>
+            <p class='modal__content__body js-modal-mark fs-0'>{{ "Mark Required:"|t }} <span class='modal__content__strong'>yes</span></p>
+
+        </main>
+        <footer class="modal__footer">
+            <!-- <button data-custom-close="modal-1">close</button> -->
+            <button class='modal__button__left'></button> 
+            <button class='modal__button__right'></button> 
+        </footer>
+        </div>
+    </div>
+</div>
+
+<script>
+
+    window.addEventListener('load', (event) => {
+
+        // URL = '?reg_types=safety,emc&countries=usa,argentina'
+        const urlParams = new URLSearchParams(window.location.search);
+
+        // Get the regulatory type and countries from url
+        var reg_types = urlParams.get('reg_types'),
+            countries = urlParams.get('countries'),
+            req_names = `{{ all_reqs }}`,
+            lang_code = "{{ lang_code }}";
+
+        req_names = req_names.replace(/(\r\n|\n|\r)/gm, "");
+        
+        //If the url parameters are null load step 1
+        if ((reg_types == null && countries == null) || !onlyLettersSpacesCommasParens(reg_types) || !onlyLettersSpacesCommasParens(countries)) {
+            window.startGlossary(req_names);     
+        }
+        else {
+            window.startGlossary(req_names); 
+            window.saveGlossaryFilters(countries, reg_types);
+        }
+    });    
+    
+    // Allowing only letters, spaces, commas, and parens to avoid Cross Site Scripting attack.
+    function onlyLettersSpacesCommasParens(str) {
+        return /^[A-Za-z\s\,\(\)]*$/.test(str);
+    }
+</script>

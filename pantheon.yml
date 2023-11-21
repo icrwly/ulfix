@@ -1,0 +1,14 @@
+# Copy this file to "pantheon.yml" in the root directory of your site repository
+# to override values configured in pantheon.upstream.yml.
+
+api_version: 1
+web_docroot: true
+php_version: 8.1
+#drush_version: 10
+build_step: true
+workflows:
+  clone_database:
+    after:
+      - type: webphp
+        description: Sanitize Database
+        script: private/scripts/db_sanitization.php

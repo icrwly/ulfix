@@ -1,0 +1,54 @@
+uuid: 7900197b-9ce8-42fa-bd63-9089614f91db
+langcode: en
+status: true
+dependencies: {  }
+id: mark_logo
+class: null
+field_plugin_method: null
+cck_plugin_method: null
+migration_tags:
+  - CSV
+migration_group: null
+label: 'Image importer'
+source:
+  constants:
+    source_base_path: modules/custom/ul_gmap/import/images
+    uri_file: 'public://mark_logo/image'
+  plugin: csv
+  track_changes: true
+  path: modules/custom/ul_gmap/import/ul-marks-data-import-TEST.csv
+  header_row_count: 1
+  ids:
+    - csv_id
+  keys:
+    - field_market_access_profile_logo
+process:
+  source_full_path:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/source_base_path
+        - field_market_access_profile_logo
+    -
+      plugin: urlencode
+  uri_file:
+    -
+      plugin: concat
+      delimiter: /
+      source:
+        - constants/uri_file
+        - field_market_access_profile_logo
+    -
+      plugin: urlencode
+  filename: field_market_access_profile_logo
+  uri:
+    plugin: file_copy
+    source:
+      - '@source_full_path'
+      - '@uri_file'
+destination:
+  plugin: 'entity:file'
+migration_dependencies:
+  required: {  }
+  optional: {  }

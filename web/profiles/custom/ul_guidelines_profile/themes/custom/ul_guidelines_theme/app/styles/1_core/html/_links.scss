@@ -1,0 +1,22 @@
+///*------------------------------------*\
+//    #CORE/HTML - LINKS
+//\*------------------------------------*/
+
+a {
+  color:$blue;
+  transition: color 0.3s ease-in-out;
+  text-decoration: none;
+
+  &:active,
+  &:hover{
+    color:$blueHover;
+    text-decoration: none;
+  }
+  &.color-white {
+    color:$white;
+    &:active,
+    &:hover{
+      color:$white;
+    }
+  }
+}

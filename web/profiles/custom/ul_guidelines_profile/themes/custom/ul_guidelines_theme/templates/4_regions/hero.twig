@@ -1,0 +1,23 @@
+<div class="hero" data-module="heroCarousel" data-opts='{ "autoplay": { "delay": 4000 }, "effect": "fade" }'>
+	<div class="swiper-container">
+        <div class="swiper-wrapper">
+            {% block hero_slides %}
+              {% for slide in hero.imageSlides %}
+                {% include '@ul_guidelines_theme/3_components/hero--background-slide.twig' %}
+              {% endfor %}
+            {% endblock %}
+        </div>
+	</div>
+	 <div class="content-container wrapper">
+         <div class="inner">
+            {% block hero_title %}
+                <h1>{{- hero.title -}}</h1>
+            {% endblock %}
+            {% block hero_description_desktop %}
+                {% if hero.description %}
+                <p class="hidden-mobile">{{- hero.description -}}</p>
+                {% endif %}
+            {% endblock %}
+         </div>
+    </div>
+</div>

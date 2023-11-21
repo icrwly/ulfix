@@ -1,0 +1,27 @@
+/**
+ * Campaign Form (on the Campaign Landing Pages).
+ */
+
+.section.section--marketo.campaign-form-wrap {
+  h2 {
+    font-size: 2.6rem;
+    @include breakpoint($large-desktop) {
+      font-size: 2.25rem;
+      font-weight: 400;
+    }
+  }
+  p,
+  .mktoFormRow {
+    font-size: 1.4rem;
+  }
+  legend {
+    font-size: 1.6rem;
+  }
+  .mktoButtonRow {
+    @include breakpoint(max-width $tablet - 1) {
+      width: 300px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+  }
+}

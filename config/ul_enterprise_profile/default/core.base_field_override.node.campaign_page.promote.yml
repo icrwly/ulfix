@@ -1,0 +1,22 @@
+uuid: a6e371f2-07df-4c48-b81a-238e5c092de0
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.campaign_page
+id: node.campaign_page.promote
+field_name: promote
+entity_type: node
+bundle: campaign_page
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

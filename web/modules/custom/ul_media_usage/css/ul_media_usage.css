@@ -1,0 +1,121 @@
+.ul_media_usage,
+.ul_media_usage_diable {
+  display: inline-block;
+  padding: 2px;
+  width: 100%;
+}
+
+.ul_media_usage {
+  min-width: 430px;
+}
+
+.ul_media_usage_diable {
+  white-space:nowrap;
+  color: black;
+}
+
+.view-id-media .views-view-table tr {
+  border-bottom: 2px solid #e6e4df;
+}
+
+.view-id-media .views-view-table td {
+  padding: 7px 3px;
+}
+
+.view-id-media .csv-feed .feed-icon {
+  background-size: 39px;
+  width: 37px;
+  height: 13px;
+  border: 4px solid #f60;
+  background-position: -1px;
+  border-radius: 20px;
+  background-color: #f60;
+}
+
+.view-id-media #view-langcode-1-table-column a:hover,
+.view-id-media #view-langcode-table-column a:hover,
+.view-id-media #view-type-table-column a:hover{
+  text-decoration: unset !important;
+}
+.view-id-media .views-field-thumbnail__target-id img,
+.ul-media-usage .views-field-thumbnail__target-id img {
+  max-width: 80px;
+}
+
+.view-id-media form.views-exposed-form input,
+.view-id-media form.views-exposed-form .form-select {
+  max-width: 200px !important;
+}
+
+
+.ul-media-usage table td {
+  max-width: 250px;
+  overflow-wrap: break-word;
+  padding: 5px;
+}
+
+.ul-media-usage table td.views-field-used-url {
+  max-width: 400px;
+  min-width: 360px;
+}
+
+.ul-media-usage .form-text,
+.ul-media-usage .form-autocomplete,
+.ul-media-usage .form-select {
+  max-width: 200px !important;
+}
+
+.ul-media-usage .view-header {
+  /* text-align: right; */
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+.ul-media-usage-header  {
+  display: flex;
+}
+
+.ul-media-usage-header .space{
+  margin: auto 30px;
+}
+.ul-media-usage-header .button--secondary {
+  float: right;
+}
+
+.ul-media-usage .view-footer {
+  display: flex;
+  padding-top: 30px;
+}
+
+#download_all_data {
+  margin-right: 40px;
+}
+
+#total_result {
+  float: right;
+  border: solid 3px #dfdfff;
+  padding: 3px;
+  margin-top: -20px;
+}
+
+/* Hide the Image Icon#cke_1_top {} */
+.cke_top  .cke_button__drupalimage {
+  height: 1px;
+  padding: 0;
+  width: 1px;
+}
+
+.cke_top .cke_button__drupalimage_icon {
+  background-image: none !important;
+}
+
+.ul-media-usage .views-field-nothing a {
+  border-radius: 2px 0 0 2px;
+  padding: 5px 15px;
+  font-size: 0.79rem;
+  line-height: 0.75rem;
+  background-color: lightgray;
+  font-weight: bold;
+  color: black;
+  text-decoration: none;
+}

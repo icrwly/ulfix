@@ -1,0 +1,17 @@
+<section class="section--listing-items {{ section.sectionList.type ? 'section--listing-items--' ~ section.sectionList.type : '' }}">
+  {% if section.title %}
+    <h3>{{- section.title -}}</h3>
+  {% endif %}
+  <div class="section--listing-items_listing">
+    <div class="list-container">
+      {% block list_items %}
+        {% include '@ul_guidelines_theme/3_components/listing-item--router.twig' with { type: section.sectionList.type, listingItems: section.sectionList.list } %}
+      {% endblock %}
+    </div>
+    {% block view_more %}
+      {% if section.viewMore %}
+        {% include '@ul_guidelines_theme/2_pieces/widgets/view-more.twig' %}
+      {% endif %}
+    {% endblock %}
+  </div>
+</section>

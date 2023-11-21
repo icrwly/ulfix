@@ -1,0 +1,19 @@
+uuid: b2a9bf12-fa89-4f7a-a56b-6b486ae64eaf
+langcode: en
+status: true
+dependencies:
+  module:
+    - link
+    - paragraphs
+id: paragraph.field_rr_curated_link
+field_name: field_rr_curated_link
+entity_type: paragraph
+type: link
+settings: {  }
+module: link
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

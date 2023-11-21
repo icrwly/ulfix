@@ -1,0 +1,23 @@
+uuid: ca18194a-a52a-4158-98df-994ab0c8ebda
+langcode: en
+status: true
+dependencies:
+  module:
+    - image_effects
+name: card_campaign
+label: 'Card - Campaign (850 × 450)'
+effects:
+  cad228c1-2df6-4105-ae74-d132a8debd88:
+    uuid: cad228c1-2df6-4105-ae74-d132a8debd88
+    id: image_effects_auto_orient
+    weight: 1
+    data:
+      scan_exif: true
+  c451e930-a9c0-45c0-a299-12dd281a8a22:
+    uuid: c451e930-a9c0-45c0-a299-12dd281a8a22
+    id: image_scale_and_crop
+    weight: 2
+    data:
+      width: 850
+      height: 450
+      anchor: center-center

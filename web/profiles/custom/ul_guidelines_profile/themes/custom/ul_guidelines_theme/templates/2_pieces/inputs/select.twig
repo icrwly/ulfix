@@ -1,0 +1,8 @@
+<div class="form-group">
+	<label for="{{ input.name }}" class="label {{ input.required ? 'label--required' : ''}}">{{ input.label }}</label>
+	<select aria-label="{{ input.label }}" name="{{ input.name }}" {{ input.required ? 'required' : ''}}>
+		{% for option in input.options %}
+			<option value="{{ option.value }}" {{option.selected ? 'selected' : ''}}>{{ option.label }}</option>
+		{% endfor %}
+	</select>
+</div>

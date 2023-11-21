@@ -1,0 +1,5 @@
+cm_workbench.toolbar:
+  version: VERSION
+  css:
+    theme:
+      css/cm_workbench.toolbar.css: {}

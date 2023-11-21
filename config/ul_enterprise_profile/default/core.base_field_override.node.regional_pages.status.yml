@@ -1,0 +1,22 @@
+uuid: b16022f0-6387-4f86-bbe8-6f692fc26628
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.regional_pages
+id: node.regional_pages.status
+field_name: status
+entity_type: node
+bundle: regional_pages
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

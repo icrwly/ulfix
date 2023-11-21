@@ -1,0 +1,7 @@
+name: UL Enterprise Site
+type: profile
+description: 'Install profile for an enterprise level site'
+version: VERSION
+core_version_requirement: ^9 || ^10
+'base profile': ul_base_profile
+config_install: true

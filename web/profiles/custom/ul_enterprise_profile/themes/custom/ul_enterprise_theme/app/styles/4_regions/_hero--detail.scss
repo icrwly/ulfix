@@ -1,0 +1,138 @@
+.hero--detail {
+  .hero__title {
+    font-weight: 300;
+    @include breakpoint($desktop) {
+      font-size: 3.6rem;
+    }
+    @include breakpoint($large-desktop) {
+      font-size: 3.6rem;
+    }
+  }
+  .hero__description {
+    font-weight: 400;
+    @include trim-margin;
+    &,
+    p {
+      @include breakpoint($large-desktop) {
+        font-size: 1.6rem;
+        line-height: 1.66;
+      }
+    }
+  }
+  .topic {
+    @include breakpoint($large-desktop) {
+      font-size: 1.4rem;
+      font-weight: 400;
+    }
+  }
+  .hero__inner {
+    >.row {
+      @include breakpoint(max-width $large-tablet - 1) {
+        flex-direction: initial;
+      }
+      @include breakpoint(max-width $tablet - 1) {
+        flex-direction: column-reverse;
+      }
+      &.row--reverse {
+        @include breakpoint($tablet) {
+          -webkit-box-orient: horizontal;
+          -webkit-box-direction: reverse;
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+  .image-container {
+    @include breakpoint( max-width $tablet - 1) {
+      max-height: 29vw;
+      height: 29vw;
+    }
+    @include breakpoint( max-width $large-mobile - 1) {
+      max-height: 60vw;
+      height: 60vw;
+    }
+    overflow: hidden;
+    img {
+      @include breakpoint( max-width $tablet - 1) {
+        display: block;
+        width: 100%;
+        height: auto;
+        min-height: 100%;
+        @supports (object-fit: cover) {
+          object-fit: cover;
+          height: 100%;
+          max-height: 29vw;
+        }
+      }
+    }
+  }
+  /**
+   * Hero Title section for `Person` content type.
+   */
+  &.hero--person {
+    .hero__inner {
+      @include breakpoint(max-width $tablet - 1) {
+        padding-top: 3rem;
+      }
+    }
+    .hero__image {
+      .image-container {
+        @include breakpoint(max-width $tablet - 1) {
+          height: 50vw;
+          max-height: 50vw;
+          width: 60%;
+          max-width: 60%;
+          margin: 0 auto;
+        }
+      }
+    }
+    .hero__content {
+      .hero--person--title {
+        h1,
+        h2 {
+          text-align: center;
+          @include breakpoint($tablet) {
+            text-align: left;
+          }
+        }
+        h2 {
+          font-size: 2.4rem;
+        }
+        h3 {
+          font-size: 1.6rem;
+          text-align: center;
+          @include breakpoint($tablet) {
+            text-align: left;
+          }
+        }
+      }
+    }
+  }
+  /**
+   * Make this wider if there is an additional CTA
+   * inline with the Primary CTA.
+   */
+  .hero__buttons {
+    &.additional_cta {
+      @include breakpoint($desktop) {
+        max-width: 800px;
+      }
+      .button {
+        display: block;
+        max-width: 400px;
+        margin-left: auto;
+        margin-right: auto;
+        @include breakpoint($desktop) {
+          display: inline-block;
+        }
+        &:first-child {
+          margin-bottom: 3rem;
+          @include breakpoint($desktop) {
+            margin-bottom: 0;
+            margin-right: 3rem;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+uuid: 269f1309-df03-4ecb-b5c6-fe28f272b30a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_shared_bg_color
+    - paragraphs.paragraphs_type.related_content
+  module:
+    - options
+id: paragraph.related_content.field_shared_bg_color
+field_name: field_shared_bg_color
+entity_type: paragraph
+bundle: related_content
+label: 'Background Color'
+description: 'You may select the background color for this paragraph (content section).'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

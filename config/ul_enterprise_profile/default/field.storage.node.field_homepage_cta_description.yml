@@ -1,0 +1,19 @@
+uuid: 2dbe7c7e-dfc2-41f8-934f-fa496c25db4b
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - text
+id: node.field_homepage_cta_description
+field_name: field_homepage_cta_description
+entity_type: node
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

@@ -1,0 +1,53 @@
+# Module settings.
+ul_marketo.settings_form:
+  path: '/admin/config/services/marketo'
+  defaults:
+    _form: '\Drupal\ul_marketo\Form\SettingsForm'
+    _title: 'UL Marketo Settings'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+
+# List all Default MarketoForm entities.
+entity.marketo_form.collection:
+  path: '/admin/content/marketo_form'
+  defaults:
+  # Calls the list controller, defined in the annotation of the marketo form entity.
+    _entity_list: 'marketo_form'
+    _title: 'Default Marketo Forms'
+  requirements:
+  # Checks for permission directly.
+    _permission: 'administer marketo_form entities'
+
+# Edit a defatult MarketoForm entity.
+entity.marketo_form.edit_form:
+  path: '/admin/content/marketo_form/{marketo_form}/edit'
+  defaults:
+  # Calls the form.edit controller, defined in the contact entity.
+    _entity_form: marketo_form.edit
+    _title: 'Edit the Marketo Form'
+  requirements:
+    _permission: 'administer marketo_form entities'
+
+# Provide a list to download migration reports from the private files folder.
+ul_marketo.migration_report:
+  path: '/admin/reports/migration-report'
+  defaults:
+    _controller: '\Drupal\ul_marketo\Controller\MigrationReportController::list'
+    _title: 'Migration Reports'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE
+
+# Downloads the migration reports with the specified file id.
+ul_marketo.migration_report_download:
+  path: '/admin/reports/migration-report/{fid}'
+  defaults:
+    _controller: '\Drupal\ul_marketo\Controller\MigrationReportController::download'
+    _title: 'Migration Reports'
+  requirements:
+    _permission: 'administer site configuration'
+  options:
+    _admin_route: TRUE 

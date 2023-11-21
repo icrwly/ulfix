@@ -1,0 +1,15 @@
+uuid: b243025b-7c8a-4798-a8e0-5dab0a43d8bc
+langcode: en
+status: true
+dependencies: {  }
+name: icon_large
+label: 'Icon Large (130 x 130)'
+effects:
+  b02e1f2f-8b16-436c-921a-45d99211872d:
+    uuid: b02e1f2f-8b16-436c-921a-45d99211872d
+    id: image_scale_and_crop
+    weight: 1
+    data:
+      width: 130
+      height: 130
+      anchor: center-center

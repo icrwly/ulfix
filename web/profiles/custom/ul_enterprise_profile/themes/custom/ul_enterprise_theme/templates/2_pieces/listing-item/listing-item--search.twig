@@ -1,0 +1,39 @@
+{% extends "@ul_base_theme/2_pieces/listing-item/listing-item.twig" %}
+{% set class = "listing-item--search" %}
+
+{% block content %}
+  <a href="{{- link -}}" title="{{- title -}}" aria-label="{{- title -}}">
+    {% block card_tags %}
+      {% if tags %}
+        {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with {widget: tags} only %}
+      {% endif %}
+    {% endblock %}
+    <div class="flex-grid">
+      {% if image %}
+        <div class="grid-item image">
+          <div class="image-container" style="background-image: url('{{- image -}}')">
+            {% block listing_item_image %}
+              <img src="{{- image -}}" alt="{{- imageAlt -}}"/>
+            {% endblock %}
+          </div>
+        </div>
+      {% endif %}
+      {% if image %}<div class="grid-item content">{% endif %}
+        <div class="content-container">
+          {% block listing_item_topic %}
+            {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+          {% endblock %}
+          {% block listing_item_title %}
+            <h3>{{ title }}</h3>
+          {% endblock %}
+          {% block listing_item_description %}
+            <p>{{ description }}</p>
+          {% endblock %}
+          {% block listing_item_meta %}
+            <p class="meta pull-left">{{- meta -}}</p>
+          {% endblock %}
+        </div>
+      {% if image %}</div>{% endif %}
+    </div>
+  </a>
+{% endblock %}

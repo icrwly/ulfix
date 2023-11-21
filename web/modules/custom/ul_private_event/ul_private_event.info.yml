@@ -1,0 +1,5 @@
+name: UL Private Event
+type: module
+description: 'UL Private Event'
+package: Custom
+core_version_requirement: ^9 || ^10

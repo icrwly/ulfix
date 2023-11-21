@@ -1,0 +1,38 @@
+name: Release to Live - All sites
+on:
+  workflow_dispatch:
+jobs:
+  deploy_to_live:
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_CONTEXT: ${{ toJson(github) }}
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.1'
+
+      - name: Installing Terminus
+        uses: pantheon-systems/terminus-github-actions@main
+        with:
+          pantheon-machine-token: ${{ secrets.TERMINUS_TOKEN }}
+          terminus-version: 3.1.8
+
+      - name: Install SSH Key
+        uses: shimataro/ssh-key-action@v2.0.3
+        with:
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
+          known_hosts: drush.in
+
+      - name: Authenticate Terminus
+        run: |
+          terminus auth:login --machine-token=${TERMINUS_TOKEN}
+        env:
+          TERMINUS_TOKEN: ${{ secrets.TERMINUS_TOKEN }}
+
+      - name: Release to live in parallel
+        run: |
+          chmod +x ./.ci/deploy/pantheon/deploy-live.sh
+          terminus org:site:list 9e2d9645-e21e-4e9b-8523-41d20f69e574 --upstream=2d7e7a2a-a699-49a3-876b-8fa95c53c169 --tag=ul --field=name | sort -V | parallel --jobs 15  ./.ci/deploy/pantheon/deploy-live.sh {}

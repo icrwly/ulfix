@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Generator: Adobe Illustrator 27.2.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Offline_00000014616927370014205900000006940387761132402619_"
+	 xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64"
+	 style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill:#929292;}
+	.st1{fill:#FFFFFF;}
+</style>
+<circle class="st0" cx="31.5" cy="32" r="28"/>
+<g>
+	<rect x="25.5" y="27.3" class="st1" width="12" height="2"/>
+	<rect x="25.5" y="31.8" class="st1" width="12" height="2"/>
+	<path class="st1" d="M43.3,19H19.6c-0.3,0-0.5,0.1-0.7,0.3l-0.1,0.1c-0.2,0.2-0.3,0.4-0.3,0.7V44c0,0.6,0.4,1,1,1h0.2
+		c0.2,0,0.5-0.1,0.6-0.2l4.5-3.7h7.7v-2h-8.1c-0.2,0-0.5,0.1-0.6,0.2l-3.4,2.7V21h21.9v18.1h-2.6c-0.4-0.8-1.2-1.4-2.2-1.4
+		c-1.4,0-2.5,1.1-2.5,2.5c0,1.4,1.1,2.5,2.5,2.5c1.1,0,2-0.7,2.3-1.6h3.4c0.6,0,1.1-0.5,1.1-1.1V20.1C44.4,19.5,43.9,19,43.3,19z"/>
+</g>
+<g id="Offline" transform="translate(-1996.001 -7.001)">
+	<g id="Status" transform="translate(2035 45)">
+		<g>
+			<circle class="st1" cx="12.5" cy="13" r="9"/>
+		</g>
+	</g>
+</g>
+<g>
+	<circle class="st0" cx="51.5" cy="51" r="7"/>
+</g>
+<polygon class="st1" points="55,48.9 53.6,47.5 51.5,49.6 49.4,47.5 48,48.9 50.1,51 48,53.1 49.4,54.5 51.5,52.4 53.6,54.5 
+	55,53.1 52.9,51 "/>
+</svg>

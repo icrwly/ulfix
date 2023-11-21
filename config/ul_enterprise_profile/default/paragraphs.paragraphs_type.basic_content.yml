@@ -1,0 +1,10 @@
+uuid: af261035-8aef-4bc5-8ca6-1acd07a462fe
+langcode: en
+status: true
+dependencies: {  }
+id: basic_content
+label: 'Basic Content'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>basic content</em> for Rich Text content (WYSIWYG).'
+behavior_plugins: {  }

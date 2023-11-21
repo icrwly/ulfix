@@ -1,0 +1,11 @@
+<div class="header__menu">
+    {% block menu %}
+    <ul>
+        {% for link in primaryNavItems %}
+            <li>
+                <a href="{{ link.link }}" class="header__link {{ link.active ? 'header__link--active' : '' }} {{ link.modifier ? 'header__link--' ~ link.modifier : '' }}">{{ link.name }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+    {% endblock %}
+</div>

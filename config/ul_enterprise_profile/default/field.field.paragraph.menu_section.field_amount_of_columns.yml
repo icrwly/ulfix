@@ -1,0 +1,23 @@
+uuid: f8c9db47-12cf-472b-94ff-05f6e81ba065
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_amount_of_columns
+    - paragraphs.paragraphs_type.menu_section
+  module:
+    - options
+id: paragraph.menu_section.field_amount_of_columns
+field_name: field_amount_of_columns
+entity_type: paragraph
+bundle: menu_section
+label: 'Amount of columns'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 4
+default_value_callback: ''
+settings: {  }
+field_type: list_integer

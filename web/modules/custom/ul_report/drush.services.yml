@@ -1,0 +1,6 @@
+services:
+  ul_report.commands:
+    class: Drupal\ul_report\Commands\ReportCommands
+    arguments: ['@ul_report.report_service']
+    tags:
+      -  { name: drush.command }

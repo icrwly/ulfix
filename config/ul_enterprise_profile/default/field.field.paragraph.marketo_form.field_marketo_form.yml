@@ -1,0 +1,26 @@
+uuid: 4c551758-d18f-446c-9d90-5d93ef235a23
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_marketo_form
+    - paragraphs.paragraphs_type.marketo_form
+  module:
+    - tmgmt_content
+    - ul_marketo
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: paragraph.marketo_form.field_marketo_form
+field_name: field_marketo_form
+entity_type: paragraph
+bundle: marketo_form
+label: 'Marketo Form'
+description: 'Choose which Marketo Form you want to show on your content. '
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  marketo_forms: {  }
+field_type: marketo_form

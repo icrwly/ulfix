@@ -1,0 +1,7 @@
+# Definitions to add link to the Admin menu.
+ul_chat.settings_form:
+  title: 'UL Chat'
+  description: 'Configure settings for the Chat.'
+  route_name: ul_chat.settings_form
+  parent: 'system.admin_config_services'
+  weight: 99

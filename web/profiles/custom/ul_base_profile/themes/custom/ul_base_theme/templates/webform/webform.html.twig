@@ -1,0 +1,12 @@
+{% embed "@ul_base_theme/4_regions/section.twig" %}
+    {% set class = 'wrapper max-width--tablet' %}
+
+    {% set titleBar={
+        'title': label
+    } %}
+
+    {% block section_body %}
+        {{ children }}
+        {{ title_suffix }}
+    {% endblock %}
+{% endembed %}

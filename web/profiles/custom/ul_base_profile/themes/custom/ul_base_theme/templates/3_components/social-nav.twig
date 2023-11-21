@@ -1,0 +1,7 @@
+<nav class="social-nav">
+    <ul>
+        {% for link in socialNav %}
+            <li class="icon icon-{{- link.class -}}"><a href="{{- link.link -}}" title="{{- link.name -}}">{{- link.name -}}</a></li>
+        {% endfor %}
+    </ul>
+</nav>

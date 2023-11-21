@@ -1,0 +1,101 @@
+.hidden-pagination {
+  .swiper-wrapper {
+    transform: translate3d(0px, 0, 0) !important;
+  }
+}
+
+.swiper-container {
+  &--has-outset-nav {
+    // pushes nav down, below slide
+    padding-bottom: $carousel-button-size !important;
+    .swiper-navigation--arrows {
+      .swiper-button {
+        @include breakpoint($tablet){
+          margin-top: -$carousel-button-size/2;
+        }
+      }
+    }
+  }
+}
+
+.swiper-container-horizontal > .swiper-pagination-bullets {
+  &.swiper-pagination-bullets-dynamic {
+    .swiper-pagination-bullet {
+      margin-bottom: 3px !important;
+    }
+    &.swiper-pagination--l {
+      @include breakpoint($tablet){
+        .swiper-pagination-bullet {
+          margin-bottom: -7px !important;
+        }
+      }
+    }
+  }
+}
+
+.swiper-pagination {
+  &--l {
+    height: $carousel-button-size;
+    line-height: $carousel-button-size;
+
+    .swiper-pagination-bullet {
+      margin: 0 5px !important;
+      width: 10px;
+      height: 10px;
+      @include breakpoint($tablet){
+        margin: 0 8px !important;
+        width: 15px;
+        height: 15px;
+      }
+    }
+  }
+  .swiper-pagination-bullet-active {
+    background: $red;
+  }
+}
+
+.swiper-navigation--arrows {
+  width: 100%;
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+
+  .swiper-button {
+    background-color: $white;
+    background-image: none;
+    bottom: 0;
+    font-size: 1rem;
+    height: $carousel-button-size;
+    line-height: 1;
+    margin: 0;
+    opacity: .75;
+    top: initial;
+    transform: translateY(0) scale($transform-direction);
+    transition: all $transition;
+    width: $carousel-button-size;
+    @include breakpoint($tablet){
+      bottom: initial;
+      top: 50%;
+      transform: translateY(-50%) scale($transform-direction);
+    }
+    &:hover {
+      opacity: 1;
+    }
+
+    .swiper-icon {
+      left: 50%;
+      position: absolute;
+      top: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+
+  .swiper-button-next {
+    #{$end-direction}: 0;
+  }
+
+  .swiper-button-prev {
+    #{$start-direction}: 0;
+  }
+}

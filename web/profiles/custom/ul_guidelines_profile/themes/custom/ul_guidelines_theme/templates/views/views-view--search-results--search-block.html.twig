@@ -1,0 +1,153 @@
+{#
+/**
+ * @file
+ * Theme override for a main view template.
+ *
+ * Available variables:
+ * - attributes: Remaining HTML attributes for the element.
+ * - css_name: A css-safe version of the view name.
+ * - css_class: The user-specified classes names, if any.
+ * - header: The optional header.
+ * - footer: The optional footer.
+ * - rows: The results of the view query, if any.
+ * - empty: The content to display if there are no rows.
+ * - pager: The optional pager next/prev links to display.
+ * - exposed: Exposed widget form/info to display.
+ * - feed_icons: Optional feed icons to display.
+ * - more: An optional link to the next page of results.
+ * - title: Title of the view, only used when displaying in the admin preview.
+ * - title_prefix: Additional output populated by modules, intended to be
+ *   displayed in front of the view title.
+ * - title_suffix: Additional output populated by modules, intended to be
+ *   displayed after the view title.
+ * - attachment_before: An optional attachment view to be displayed before the
+ *   view content.
+ * - attachment_after: An optional attachment view to be displayed after the
+ *   view content.
+ * - dom_id: Unique id for every view being printed to give unique class for
+ *   Javascript.
+ *
+ * @see template_preprocess_views_view()
+ */
+#}
+
+{%
+set classes = [
+      'view',
+      'view-' ~ id|clean_class,
+      'view-id-' ~ id,
+      'view-display-id-' ~ display_id,
+      dom_id ? 'js-view-dom-id-' ~ dom_id
+    ]
+%}
+<div class="{{ classes|join(' ') }}">
+    {% embed '@ul_guidelines_theme/4_regions/search--box.twig'%}
+      {% block content %}
+        {% if exposed %}
+            {{ exposed }}
+        {% endif %}
+      {% endblock %}
+    {% endembed %}
+    {% embed '@ul_guidelines_theme/4_regions/search--views.twig' with { search: { view_classes:['view-content']}} %}
+      {% block content %}
+        {% if attachment_before %}
+          <div class="attachment attachment-before">
+            {{ attachment_before }}
+          </div>
+        {% endif %}
+        {% if empty %}
+          {% if empty.search_result_empty and empty.search_result_empty['#search'].keyword is empty %}
+            {% embed '@ul_guidelines_theme/3_components/search--popular.twig' %}
+              {% block content %}
+                {% set section = {
+                  title: "Popular Pages"|t,
+                  type: "page"
+                } %}
+                {% embed '@ul_guidelines_theme/4_regions/section--cards.twig' with { section: section } %}
+                  {% block card_list %}
+                    {{ empty.view }}
+                  {% endblock %}
+                {% endembed %}
+              {% endblock %}
+            {% endembed %}
+          {% else %}
+            {% if attachment_after is empty and header.view['#view'].result|length == 0 %}
+              {% embed '@ul_guidelines_theme/4_regions/section--cards.twig' with { section: section } %}
+                {% block card_list %}
+                  {{ empty.search_result_empty }}
+                {% endblock %}
+              {% endembed %}
+            {% endif %}
+          {% endif %}
+        {% endif %}
+        {% embed '@ul_guidelines_theme/3_components/search--results.twig' %}
+          {% block search_featured %}
+            {% if header.view['#view'].result|length > 0 %}
+              {% set section = {
+                 type: "featured",
+              } %}
+              {% embed '@ul_guidelines_theme/4_regions/section--cards.twig' with { section: section } %}
+                  {% block card_list %}
+                    {{ header }}
+                  {% endblock %}
+                {% endembed %}
+            {% endif %}
+          {% endblock %}
+          {% block search_pages %}
+            {% if rows %}
+                {% set section = {
+                    type: 'search',
+                    title: 'Pages'|t
+                } %}
+                {% embed '@ul_guidelines_theme/4_regions/section--listing-items.twig' with { section: section } %}
+                    {% block list_items %}
+                       {{ rows }}
+                   {% endblock %}
+                    {% block view_more %}
+                        {% if more %}
+                            {{ more }}
+                        {% endif %}
+                    {% endblock %}
+                {% endembed %}
+            {% endif %}
+          {% endblock %}
+          {% block search_assets %}
+              {% if attachment_after %}
+                  {% set section = {
+                     type: 'search',
+                    title: 'Assets'|t
+                  } %}
+                  {% embed '@ul_guidelines_theme/4_regions/section--listing-items.twig' with { section: section } %}
+                      {% block list_items %}
+                          {% for asset in attachment_after %}
+                              {# Show the same number of assets as pages #}
+                              {% if loop.index <= view.getItemsPerPage() %}
+                                  {% set item = {
+                                      title : asset.name,
+                                      linkHref: asset.original_url,
+                                      category: asset.node.title.value,
+                                      sectionIcon: 'file',
+                                      section: asset.file_extension|upper,
+                                      image: asset.sm_thumbnail_url,
+                                      alt: asset.name,
+                                      uploaded: 'Uploaded'|t ~ ' ' ~ asset.updated_at|format_date('date_short')
+                                  } %}
+                                  {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--search.twig' with { item: item } %}
+                              {% endif %}
+                          {% endfor %}
+                      {% endblock %}
+                      {% block view_more %}
+                          {{ more_attach }}
+                      {% endblock %}
+                  {% endembed %}
+                {% endif %}
+              {% endblock %}
+        {% endembed %}
+        {% if pager %}
+          {{ pager }}
+        {% endif %}
+      {% endblock %}
+    {% endembed %}
+</div>
+
+

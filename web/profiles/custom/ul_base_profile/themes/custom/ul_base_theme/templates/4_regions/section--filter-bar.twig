@@ -1,0 +1,86 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--filter-bar" %}
+
+{% if titleBar %}
+  {% set titleBar = titleBar|merge({class: "wrapper"}) %}
+{% endif %}
+
+{% block section_body %}
+<div class="filter-bar">
+  <div class="filter-bar__top">
+    <div class="wrapper">
+        <div class="filter-bar__inner row row--gutter-l">
+          <div class="filter-bar__item filter-bar__search span-12-d">
+            {% block search %}
+              {% include '@ul_base_theme/2_pieces/search-bar--group.twig' with {
+                name: 'Search Articles',
+                placeholder: 'Search Articles',
+                value: 'search-basic-listing',
+                icon: true,
+                type: 'filter'
+              } %}
+            {% endblock %}
+            <div class="form-action search{% if icon is not defined or icon == true %} icon-search {% endif %} input-submit-wrap">
+              {% block submit_input %}
+                <label for="search-submit" class="sr-only">Search Submit</label>
+                <input type="submit" name="search-submit" value="{{ value }}" class="search-submit" aria-label="{{ name }}">
+              {% endblock %}
+            </div>
+          </div>
+          <div class="filter-bar__item filter-bar__filter-options span-12-d">
+            {% if active_filters %}
+                {% set link_class = 'active-trail' %}
+            {% endif %}
+            {% block filter_options %}
+              <a href="{{ filter_toggle.href }}" class="filter-bar__toggle accordion {{ link_class }}" title="{{ filter_toggle.name }}" data-module="accordion" data-max-width="991">
+                <span>{{ filter_toggle.name }}</span>
+                <span class="icon icon-filter"></span>
+              </a>
+              <div class="form-group">
+                  <div class="row">
+                {% block filter_options_form %}
+                    {% for item in filter_options %}
+                      <div class="span-auto-t">
+                        {% include '@ul_base_theme/2_pieces/form-item--select.twig' with item only %}
+                      </div>
+                    {% endfor %}
+                {% endblock %}
+                  </div>
+              </div>
+            {% endblock %}
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="filter-bar__bottom">
+      <div class="wrapper">
+        <div class="filter-bar__inner row">
+          {% block active_filters %}
+            <div class="filter-bar__item filter-bar__active-filters span-auto">
+              {% if active_filters %}
+                {% for item in active_filters %}
+                    <a href="{{ item.href ?: '#' }}" data-target="{{ item.id }}" class="button button--black-outline button--xs active-filter" title="{{ item.name }}">{{ item.name }}</a>
+                {% endfor %}
+                {% block clear_button %}
+                <button class="filter-bar__clear" title="{{ clear_all_text ?: 'Clear All' }}">{{ clear_all_text ?: 'Clear All' }}</button>
+                {% endblock %}
+              {% endif %}
+            </div>
+          {% endblock %}
+          {% block pager %}
+            <div class="filter-bar__item filter-bar__pagination span-auto">
+              {% include '@ul_base_theme/2_pieces/pagination.twig' with { pager: pager } only %}
+            </div>
+          {% endblock %}
+          {% block view_options %}
+            <div class="filter-bar__item filter-bar__view-options span-auto">
+              {% for item in view_options %}
+                {% include '@ul_base_theme/2_pieces/form-item--select.twig' with item only %}
+              {% endfor %}
+            </div>
+          {% endblock %}
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

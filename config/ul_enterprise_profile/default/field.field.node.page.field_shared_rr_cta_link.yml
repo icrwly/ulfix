@@ -1,0 +1,23 @@
+uuid: 7cd90652-3359-4b80-9df1-2c2fe42e801a
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_rr_cta_link
+    - node.type.page
+  module:
+    - link
+id: node.page.field_shared_rr_cta_link
+field_name: field_shared_rr_cta_link
+entity_type: node
+bundle: page
+label: 'CTA Link'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 2
+  link_type: 17
+field_type: link

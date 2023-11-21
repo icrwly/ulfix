@@ -1,0 +1,25 @@
+uuid: cf08d7cd-da64-406f-803d-5adbc90daa12
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.body
+    - node.type.guideline
+  module:
+    - text
+_core:
+  default_config_hash: 2z5vCL7JYhNEo6XcBWgsYxHcRauvE3IKifnCq3Mb-T4
+id: node.guideline.body
+field_name: body
+entity_type: node
+bundle: guideline
+label: Body
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  display_summary: true
+  required_summary: false
+field_type: text_with_summary

@@ -1,0 +1,35 @@
+{% block header_before %}
+  {% block alert %}
+    {% if alert %}
+      {% include '@ul_base_theme/1_core/switch--alert.twig' with alert only %}
+    {% endif %}
+  {% endblock %}
+{% endblock %}
+
+<header class="global-header" data-module="globalHeader">
+
+  {% block content %}
+    <div class="global-header__inner">
+
+      {% block inner %}
+        <div class="global-header__container">
+
+            {% block header_top %}
+              {% include '@ul_base_theme/4_regions/header--top.twig' %}
+            {% endblock %}
+
+            {% block header_bottom %}
+              {% include '@ul_base_theme/4_regions/header--bottom.twig' %}
+            {% endblock %}
+
+        </div>
+      {% endblock %}
+
+    </div>
+  {% endblock %}
+
+</header>
+
+{% block header_after %}
+  {% include '@ul_base_theme/4_regions/mega-menu.twig' with { items: mega_menu } only %}
+{% endblock %}

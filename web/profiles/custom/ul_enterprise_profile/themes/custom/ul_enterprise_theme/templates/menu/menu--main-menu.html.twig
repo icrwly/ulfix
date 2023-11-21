@@ -1,0 +1,14 @@
+{{ attach_library('ul_base_theme/fontawesome') }}
+
+{% embed '@ul_base_theme/3_components/nav--primary.twig' %}
+  {% block menu %}
+    {% if items %}
+      {% include '@ul_base_theme/3_components/menu.twig' with {
+        items: items,
+        type: "primary",
+        menu_class: "menu-list--primary-nav list-unstyled row",
+        back_title: 'Back'
+      } only %}
+    {% endif %}
+  {% endblock %}
+{% endembed %}

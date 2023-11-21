@@ -1,0 +1,146 @@
+uuid: a10910c7-ba26-4af4-b5e9-3c63f4a542f6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.node.market_access_profile.body
+    - field.field.node.market_access_profile.field_certification_mark
+    - field.field.node.market_access_profile.field_map_service
+    - field.field.node.market_access_profile.field_mark_media_library
+    - field.field.node.market_access_profile.field_market_access_label_req
+    - field.field.node.market_access_profile.field_market_access_requirement
+    - field.field.node.market_access_profile.field_shared_content_owner
+    - field.field.node.market_access_profile.field_shared_cou
+    - field.field.node.market_access_profile.field_shared_country
+    - field.field.node.market_access_profile.field_shared_mktg_support_ticket
+    - field.field.node.market_access_profile.field_shared_review_comments
+    - field.field.node.market_access_profile.field_shared_review_user
+    - field.field.node.market_access_profile.field_validity_period_map
+    - node.type.market_access_profile
+  module:
+    - file
+    - text
+    - user
+id: node.market_access_profile.default
+targetEntityType: node
+bundle: market_access_profile
+mode: default
+content:
+  body:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 101
+    region: content
+  content_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: -20
+    region: content
+  field_certification_mark:
+    type: file_default
+    label: above
+    settings:
+      use_description_as_link_text: true
+    third_party_settings: {  }
+    weight: 108
+    region: content
+  field_map_service:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 107
+    region: content
+  field_mark_media_library:
+    type: entity_reference_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 114
+    region: content
+  field_market_access_label_req:
+    type: boolean
+    label: above
+    settings:
+      format: default
+      format_custom_false: ''
+      format_custom_true: ''
+    third_party_settings: {  }
+    weight: 104
+    region: content
+  field_market_access_requirement:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 105
+    region: content
+  field_shared_content_owner:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 109
+    region: content
+  field_shared_cou:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 111
+    region: content
+  field_shared_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 103
+    region: content
+  field_shared_mktg_support_ticket:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 110
+    region: content
+  field_shared_review_comments:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 113
+    region: content
+  field_shared_review_user:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 112
+    region: content
+  field_validity_period_map:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 106
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 100
+    region: content
+hidden:
+  addtoany: true
+  langcode: true
+  search_api_excerpt: true

@@ -1,0 +1,48 @@
+{# Used when creating alternate display (Supply Chain Management) #}
+{% if
+  vars.field_link_description.0
+  or
+  vars.field_create_account_link.0 is iterable
+  or
+  vars.field_login_link.0 is iterable
+%}
+  <div id="lp_hdr_links" class="hidden lp_hdr_links">
+    {% if vars.field_link_description.0 %}
+      <span class="lp_hdr_links__desc">{{ vars.field_link_description.0 }}:</span>
+    {% endif %}
+    {% if
+      vars.field_create_account_link.0 is iterable
+      or
+      vars.field_login_link.0 is iterable
+    %}
+      <span class="lp_hdr_links__links">
+        {{ vars.field_create_account_link.0 }}
+        {% if
+          vars.field_create_account_link.0 is iterable
+          and
+          vars.field_login_link.0 is iterable
+        %} | {% endif %}
+        {{ vars.field_login_link.0 }}
+      </span>
+    {% endif %}
+  </div>
+{% endif %}
+
+<script>
+(function($){
+  // If Canada:
+  if ($('.canada-header').length) {
+    $('.canada-header').append( $('#lp_hdr_links') );
+  }
+  // Other sites:
+  else {
+    $('.global-header__main').append( $('#lp_hdr_links') );
+  }
+  // Add class to body for CSS:
+  $('body').addClass('lp-alt-display');
+  // Remove hamburger (mobile):
+  $('.global-header__hamburger').remove();
+  // After the element has been moved, show it:
+  $('#lp_hdr_links').removeClass('hidden');
+})(jQuery);
+</script>

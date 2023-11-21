@@ -1,0 +1,124 @@
+report-only:
+  enable: false
+  reporting:
+    plugin: none
+enforce:
+  enable: true
+  directives:
+    default-src:
+      base: self
+      flags:
+        - unsafe-inline
+        - unsafe-eval
+      sources:
+        - 'https://*.zdassets.com'
+        - 'https://ulmarketing.zendesk.com'
+        - 'https://www.google-analytics.com'
+        - 'https://*.google.com'
+        - 'https://*.s3.amazonaws.com'
+        - 'https://airtable.com'
+        - 'https://ul.sharepoint.com'
+        - 'https://login.windows.net'
+        - 'https://login.microsoftonline.com'
+        - 'blob:'
+    connect-src:
+      base: self
+      sources:
+        - 'https://*.wistia.com'
+        - 'https://www.google-analytics.com'
+        - 'https://*.google.com'
+        - 'https://ekr.zdassets.com'
+        - 'https://embedwistia-a.akamaihd.net'
+        - 'https://ulmarketing.zendesk.com'
+        - 'https://*.nr-data.net'
+        - 'https://*.litix.io'
+        - 'https://*.trustarc.com'
+    font-src:
+      base: self
+      sources:
+        - 'https://*.ul.com'
+        - 'https://fonts.gstatic.com'
+        - 'data:'
+    frame-src:
+      base: self
+      sources:
+        - 'https://airtable.com'
+        - 'http://*.ul.com'
+        - 'https://*.ul.com'
+    img-src:
+      base: self
+      sources:
+        - 'https://*.ul.com'
+        - 'https://www.google-analytics.com'
+        - 'https://*.google.com'
+        - 'https://embedwistia-a.akamaihd.net'
+        - 'https://*.wistia.com'
+        - 'https://*.s3.amazonaws.com'
+        - 'https://www.googletagmanager.com'
+        - '*.trustarc.com'
+        - 'https://live-hubul.pantheonsite.io'
+        - 'https://hub.psapp.dev'
+        - 'https://id.rlcdn.com'
+        - 'https://segments.company-target.com/validateCookie'
+        - 'data:'
+    media-src:
+      base: self
+      sources:
+        - 'https://*.s3.amazonaws.com'
+        - 'https://*.wistia.com'
+        - 'https://embedwistia-a.akamaihd.net'
+        - 'blob:'
+        - 'data:'
+    script-src:
+      base: self
+      flags:
+        - unsafe-inline
+        - unsafe-eval
+      sources:
+        - 'https://www.googletagmanager.com'
+        - 'https://www.google-analytics.com'
+        - 'https://*.google.com'
+        - 'https://static.zdassets.com'
+        - 'https://code.jquery.com'
+        - 'https://js-agent.newrelic.com'
+        - 'https://*.nr-data.net'
+        - 'https://*.wistia.com'
+        - 'https://static.airtable.com'
+        - 'http://*.ul.com'
+        - 'https://*.ul.com'
+        - 'blob:'
+    script-src-attr:
+      base: self
+      flags:
+        - unsafe-inline
+    script-src-elem:
+      base: self
+      flags:
+        - unsafe-inline
+      sources:
+        - 'https://www.googletagmanager.com'
+        - 'https://www.google-analytics.com'
+        - 'https://*.google.com'
+        - 'https://static.zdassets.com'
+        - 'https://fast.wistia.com'
+        - 'https://js-agent.newrelic.com'
+        - 'https://*.nr-data.net'
+    style-src:
+      base: self
+      flags:
+        - unsafe-inline
+      sources:
+        - 'http://*.ul.com'
+        - 'https://*.ul.com'
+    style-src-attr:
+      base: self
+      flags:
+        - unsafe-inline
+    style-src-elem:
+      base: self
+      flags:
+        - unsafe-inline
+    frame-ancestors:
+      base: self
+  reporting:
+    plugin: none

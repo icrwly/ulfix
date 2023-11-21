@@ -1,0 +1,22 @@
+uuid: 7b57c6eb-12a5-437f-8788-567a0dbdbd85
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.campaign_cards
+id: paragraph.campaign_cards.status
+field_name: status
+entity_type: paragraph
+bundle: campaign_cards
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

@@ -1,0 +1,18 @@
+display:
+  default:
+    display_options:
+      empty:
+        area:
+          content:
+            value: "<div class=\"wrapper\">\r\n<div class=\"span-col-12\">\r\n<h2>検索に一致する情報が見つかりません。</h2>\r\n\r\n<p>お探しのものを見つけるお手伝いをします。次の方法を試してみてください。別の用語（またはスペルを確認）で再度試す、<a href=\"/customer-resources/faq\">よくあるご質問を確認する</a>、<a href=\"/contact-us\">カスタマーサポートに問い合わせる。</a></p>\r\n</div>\r\n</div>\r\n"
+            format: full_html
+      filters:
+        field_shared_service_type_target_id:
+          expose:
+            label: サービスの紹介
+        field_shared_country_target_id:
+          expose:
+            label: 市場
+        title:
+          expose:
+            placeholder: 検索

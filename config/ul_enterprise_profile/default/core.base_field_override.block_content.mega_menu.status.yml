@@ -1,0 +1,22 @@
+uuid: 4d34b34e-22d2-452d-96c6-7be0fbe7157e
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mega_menu
+id: block_content.mega_menu.status
+field_name: status
+entity_type: block_content
+bundle: mega_menu
+label: Published
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 1
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

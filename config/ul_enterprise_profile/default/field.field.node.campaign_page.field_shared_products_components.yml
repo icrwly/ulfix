@@ -1,0 +1,29 @@
+uuid: 91f2594b-a14a-4896-857b-29424316c4f1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_products_components
+    - node.type.campaign_page
+    - taxonomy.vocabulary.products_and_components
+id: node.campaign_page.field_shared_products_components
+field_name: field_shared_products_components
+entity_type: node
+bundle: campaign_page
+label: 'Products and Components'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      products_and_components: products_and_components
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

@@ -1,0 +1,9 @@
+$hero-aspect-ratio: 9/16;
+
+.hero {
+  &--banner {
+    @include hero-height;
+    background-position: center;
+    background-size: cover;
+  }
+}

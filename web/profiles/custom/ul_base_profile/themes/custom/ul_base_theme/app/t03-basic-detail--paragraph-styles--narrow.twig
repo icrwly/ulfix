@@ -1,0 +1,17 @@
+{# t03-basic-detail.twig #}
+{% extends '@ul_base_theme/1_core/layout.twig' %}
+
+{% block content %}
+  {% embed '@ul_base_theme/1_core/page.twig' %}
+    {% block page %}
+      {% include '@ul_base_theme/5_layouts/t03-basic-detail--paragraph-styles--narrow.twig' %}
+    {% endblock %}
+    {% block page_bottom %}
+      {% include '@ul_base_theme/4_regions/section--related-content.twig' with related_content only %}
+      <br>
+      {% include '@ul_base_theme/4_regions/section--action-banner.twig' with action_banner_3 only %}
+      <br>
+      {% include '@ul_base_theme/4_regions/section--action-banner.twig' with action_banner_4 only %}
+    {% endblock %}
+  {% endembed %}
+{% endblock %}

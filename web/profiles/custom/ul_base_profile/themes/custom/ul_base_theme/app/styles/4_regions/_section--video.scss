@@ -1,0 +1,88 @@
+.section--video {
+  &.has-bg {
+    padding: $spacing-unit;
+    @include breakpoint($mobile) {
+      padding: $spacing-unit * 1.5;
+    }
+    @include breakpoint($desktop) {
+      padding: $spacing-unit--l;
+    }
+    @include breakpoint($large-desktop) {
+      padding: $spacing-unit--xl;
+    }
+  }
+
+  .section__title {
+    margin-bottom: $spacing-unit;
+  }
+
+  .section__content {
+    padding-top: $spacing-unit * 1.5;
+    @include breakpoint($tablet) {
+      padding-top: $spacing-unit--l;
+    }
+    &.video-title {
+      margin-left: auto;
+      margin-right: auto;
+      margin-bottom: $spacing-unit--l;
+      padding-top: 0;
+    }
+  }
+
+  .row {
+    align-items: center;
+  }
+
+  &.section--video--two-column .video-text {
+    @include breakpoint(max-width $tablet) {
+      margin-top: $spacing-unit;
+    }
+  }
+}
+
+.wistia_responsive_padding {
+  padding: 66% 0 0 0;
+  position: relative;
+  margin-bottom: 0rem;
+
+  .wistia_responsive_wrapper {
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+
+    .wistia_embed {
+      height: 100%;
+      position: relative;
+      width: 100%;
+
+      .wistia_swatch {
+        height: 100%;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        position: absolute;
+        top: 0;
+        transition: opacity 200ms;
+        width: 100%;
+
+        img {
+          filter: blur(5px);
+          height: 100%;
+          object-fit: contain;
+          width: 100%;
+        }
+      }
+    }
+  }
+}
+
+div[id*='wistia_grid'][id$='top_inside'] {
+  z-index: 1 !important;
+}
+
+// CTA link button
+.section__link {
+  margin-top: $spacing-unit--l;
+}

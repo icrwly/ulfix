@@ -1,0 +1,36 @@
+uuid: 6af9e214-2be9-4aa5-86fc-232a27ad6a9d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_mark_media_library
+    - media.type.image
+    - media.type.svg
+    - node.type.market_access_profile
+  module:
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.market_access_profile.field_mark_media_library
+field_name: field_mark_media_library
+entity_type: node
+bundle: market_access_profile
+label: 'Mark (Media Library)'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+      svg: svg
+    sort:
+      field: _none
+      direction: ASC
+    auto_create: false
+    auto_create_bundle: image
+field_type: entity_reference

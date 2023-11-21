@@ -1,0 +1,30 @@
+{# EMERGO `Contact Us` Landing Page template. #}
+{% extends '@ul_enterprise_theme/content/node--landing-page--full.html.twig' %}
+{% set mainClass = 'one-col-mkto-contactus' %}
+{% set title = label.0['#context'].value %}
+{% set description = content.field_shared_subtitle.0['#context'].value %}
+
+{% block before_content %}
+  {# Intentionally empty. #}
+{% endblock %}
+{% block breadcrumbs %}
+  {# Intentionally empty. #}
+{% endblock %}
+{% block page %}
+  <section class="section section--paragraph section--contactus">
+    <div class="paragraph-gutter">
+      <h1 class="page-title">{{ title }}</h1>
+      <h2>{{ description }}</h2>
+      {{ content.field_landing_page_content }}
+    </div>
+    <script defer>
+    setTimeout(function() {
+      if (waitForElm instanceof Function) {
+        waitForElm('.formLoaded').then((elm) => {
+          jQuery('.formLoaded').removeClass('hidden');
+        });
+      } 
+    }, 2000);
+    </script>
+  </section>
+{% endblock page %}

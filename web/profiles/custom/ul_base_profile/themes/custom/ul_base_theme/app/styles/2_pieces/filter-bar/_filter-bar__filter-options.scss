@@ -1,0 +1,40 @@
+.filter-bar__filter-options {
+  @include breakpoint(max-width $desktop - 1) {
+    min-width: 115px;
+    width: 25%;
+  }
+  @include breakpoint(max-width $tablet - 1) {
+    margin-#{$end-direction}: -$spacing-unit;
+  }
+  @include breakpoint($desktop) {
+    border-#{$start-direction}: 1px solid $border-color--dark;
+    padding-#{$start-direction}: $spacing-unit--l;
+  }
+
+  .form-group {
+    align-items: center;
+    display: block;
+    height: 100%;
+    width: 100%;
+    padding-bottom: $spacing-unit--xs;
+    padding-top: $spacing-unit--xs;
+    @include breakpoint(max-width $desktop - 1) {
+      #{$start-direction}: 0;
+      background-color: $background-color;
+      border-bottom: 1px solid $border-color--dark;
+      height: auto;
+      position: absolute;
+      top: calc(100% + 1px);
+      width: 100%;
+      z-index: index($globalIndex, overlay);
+      display: block;
+    }
+    .filters_actions {
+      width: 100%;
+      padding-top: 20px;
+      input {
+        width: 100%;
+      }
+    }
+  }
+}

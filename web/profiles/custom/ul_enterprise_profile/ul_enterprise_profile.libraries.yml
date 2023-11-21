@@ -1,0 +1,9 @@
+back-button:
+  js:
+    /profiles/custom/ul_enterprise_profile/js/back_button.js: { type: external, preprocess: false, attributes: { type: 'text/plain', class: 'trustecm', data-cookiecategory: '2', defer: true } }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/jquery.once
+    - core/jquery.cookie
+    - ul_base_theme/jquery-custom

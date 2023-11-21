@@ -1,0 +1,18 @@
+uuid: d076a009-a8c8-4c00-94f7-0e9c3e6b1fc7
+langcode: en
+status: true
+dependencies:
+  config:
+    - block_content.type.mkto_form
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: block_content.mkto_form
+target_entity_type_id: block_content
+target_bundle: mkto_form
+default_langcode: site_default
+language_alterable: false

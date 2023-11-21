@@ -1,0 +1,33 @@
+# Web to case validation:
+ul_salesforce.web_to_case:
+  footer: true
+  js:
+    js/jquery.validate.min.js: {}
+    js/web_to_case.js: {}
+  css:
+    theme:
+      css/web_to_case.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+
+# Contact Us landing page assets:
+ul_salesforce.contact_us_landing:
+  js:
+    js/contact_us_landing.js: {}
+  css:
+    theme:
+      css/contact_us_landing.css: {}
+
+# Return link (aka "Back" button):
+ul_salesforce.return_link:
+  header: true
+  js:
+    js/return_link.js: {}
+  css:
+    theme:
+      css/return_link.css: {}
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - core/once

@@ -1,0 +1,158 @@
+.hero {
+	font-family: $sans;
+	position: relative;
+
+	&__description {
+		padding: 30px 0;
+		text-align: center;
+	}
+
+	&__arrow {
+		@extend .arrowBounce;
+		animation-duration: 2s;
+		animation-iteration-count: infinite;
+		animation-timing-function: ease-in-out;
+		bottom: 32px;
+		color: $white;
+		display: none;
+		height: 16px;
+		left: 0;
+		margin: 0 auto;
+		position: absolute;
+		right: 0;
+		width: 21px;
+
+		span {
+			display: block;
+			transform: rotate(-90deg);
+			transform-origin: center;
+		}
+
+		@include breakpoint($large-tablet) {
+			display: block;
+		}
+	}
+
+	.content-container {
+		align-content: center;
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		justify-content: center;
+		left: 50%;
+		position: absolute;
+		top: 50%;
+		transform:translate(-50%, -50%);
+		width: 100%;
+		z-index: 1;
+
+		@include breakpoint($desktop) {
+			align-content: flex-start;
+			justify-content: flex-end;
+		}
+
+		.inner {
+			margin: $spacing-unit--l;
+			max-width: 50%;
+			margin: $spacing-unit auto;
+			padding: $spacing-unit;
+			position: relative;
+			z-index:2;
+			max-width:75%;
+
+			@include breakpoint(max-width $desktop - 1) {
+				text-align: center;
+			}
+
+			@include breakpoint($desktop) {
+				margin: $spacing-unit 0 $spacing-unit--l * 2;
+				padding: $spacing-unit * 1.5;
+				// width: 62.5%;
+			}
+
+			@include breakpoint($large-desktop) {
+				margin-bottom: $spacing-unit--l * 2;
+				width: 62.5%;
+			}
+
+			&:before {
+				background-color:#000;
+				content:'';
+				display: block;
+				height: 100%;
+				left: 0;
+				opacity:0.65;
+				position: absolute;
+				top:0;
+				width: 100%;
+				z-index: -1;
+			}
+
+			> :last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	h1 {
+		@include font-size(24, 26);
+		color: $white;
+		margin-top:0;
+
+		@include breakpoint(max-width $desktop - 1) {
+			margin: 0;
+		}
+
+		@include breakpoint($large-tablet) {
+			@include font-size(36, 40);
+		}
+	}
+
+	p {
+		// @include font-size(18, 24);
+		color: $blueDark;
+		margin: 0 auto;
+		// max-width: 293px;
+
+		@include breakpoint($tablet) {
+			max-width: 70%;
+		}
+
+		@include breakpoint($large-tablet) {
+			color: $white;
+			max-width: 100%;
+		}
+	}
+
+	.hidden-desktop {
+		@include breakpoint($desktop) {
+			display: none;
+		}
+	}
+
+	.hidden-mobile {
+		@include breakpoint(max-width $desktop - 1) {
+			display: none;
+		}
+	}
+
+	.swiper-slide {
+		align-items: center;
+		background: #fff;
+		display: flex;
+		font-size: 18px;
+		justify-content: center;
+		text-align: center;
+		img {
+			max-width: none;
+			height: 300px;
+			@include breakpoint($desktop) {
+				height: 350px;
+			}
+			@include breakpoint($large-desktop) {
+				height: auto;
+				width: 100%;
+			}
+		}
+	}
+}

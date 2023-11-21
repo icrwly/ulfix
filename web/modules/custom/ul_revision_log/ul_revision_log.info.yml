@@ -1,0 +1,5 @@
+name: UL Revision Log
+type: module
+description: 'Alter the revision log to make it rquired for actions of "Save and Archive" and "Save and Publish"'
+package: Custom
+core_version_requirement: ^9 || ^10

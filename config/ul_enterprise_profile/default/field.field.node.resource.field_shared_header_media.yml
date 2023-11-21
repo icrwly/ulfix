@@ -1,0 +1,28 @@
+uuid: 4a26cdb6-eb3a-4587-9a75-18f81856ee75
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_header_media
+    - media.type.image
+    - node.type.resource
+id: node.resource.field_shared_header_media
+field_name: field_shared_header_media
+entity_type: node
+bundle: resource
+label: 'Header Media'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:media'
+  handler_settings:
+    target_bundles:
+      image: image
+    sort:
+      field: _none
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

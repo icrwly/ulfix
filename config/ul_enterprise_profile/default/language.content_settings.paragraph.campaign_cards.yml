@@ -1,0 +1,18 @@
+uuid: 7163fccc-346a-4f3a-924c-0c323d7157c7
+langcode: en
+status: true
+dependencies:
+  config:
+    - paragraphs.paragraphs_type.campaign_cards
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '0'
+id: paragraph.campaign_cards
+target_entity_type_id: paragraph
+target_bundle: campaign_cards
+default_langcode: site_default
+language_alterable: true

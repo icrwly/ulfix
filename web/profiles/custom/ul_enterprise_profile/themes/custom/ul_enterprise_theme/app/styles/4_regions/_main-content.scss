@@ -1,0 +1,43 @@
+.main-container {
+  min-height: 135px;
+  .section {
+    .row {
+      @include breakpoint(max-width $tablet - 1) {
+        margin-left: 0;
+        margin-right: 0;
+      }
+    }
+    .row--gutter-l > [class*="span-"] {
+      @include breakpoint(max-width $tablet - 1) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .row--gutter-s > [class*="span-"] {
+      @include breakpoint(max-width $tablet - 1) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    [class*="span-"] {
+      @include breakpoint(max-width $tablet - 1) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+    .span-auto {
+      @include breakpoint(max-width $tablet - 1) {
+        padding-left: 0;
+        padding-right: 0;
+      }
+    }
+
+    .title-bar.has-cta .title-bar__title-wrapper.span-auto {
+      padding-right: $spacing-unit;
+    }
+  }
+}
+
+.spacer-top {
+	padding-top: $spacing-unit--xl;
+}

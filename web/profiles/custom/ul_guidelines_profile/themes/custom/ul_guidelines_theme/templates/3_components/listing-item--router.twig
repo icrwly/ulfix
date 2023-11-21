@@ -1,0 +1,17 @@
+{% if type == 'request' %}
+  {% for item in listingItems %}
+    {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--request.twig' %}
+  {% endfor %}
+{% elseif type == 'studio' %}
+  {% for item in listingItems %}
+    {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--studio.twig' %}
+  {% endfor %}
+{% elseif type == 'search' %}
+  {% for item in listingItems %}
+    {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item--search.twig' %}
+  {% endfor %}
+{% else  %}
+  {% for item in listingItems %}
+    {% include '@ul_guidelines_theme/2_pieces/listing-item/listing-item.twig' %}
+  {% endfor %}
+{% endif %}

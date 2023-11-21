@@ -1,0 +1,11 @@
+uuid: 2973dabc-c7e6-4cbc-9c26-fc8883e847c7
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: ANvYn_CiEea8p8l6EBHUylfswtYjR88CgTvCeRoixeU
+id: slide
+label: Slide
+icon_uuid: null
+description: 'Use <em>Slide</em> for content that appears in an interactive carousel.'
+behavior_plugins: {  }

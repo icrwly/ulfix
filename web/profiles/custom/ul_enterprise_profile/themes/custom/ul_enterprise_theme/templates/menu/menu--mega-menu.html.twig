@@ -1,0 +1,7 @@
+{# @see ul_enterprise_theme_preprocess_paragraph() #}
+{% include '@ul_base_theme/3_components/menu.twig' with {
+    items: items,
+    menu_class: "menu-list--mega-menu",
+    link_class_ga: 'ul-ga-megamenu-link',
+    is_accordion: false,
+} only %}

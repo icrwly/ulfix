@@ -1,0 +1,61 @@
+///*------------------------------------*\
+//    #CORE/HTML - TYPOGRAPHY
+//\*------------------------------------*/
+
+em {
+  font-style: normal;
+}
+
+strong {
+  font-weight: 700;
+}
+
+p {
+  margin-bottom: $spacing-unit--l;
+  margin-top: 0;
+}
+
+blockquote {
+  @include trim-margin('bottom');
+  font-size: 2.4rem;
+  font-weight: 300;
+  margin: $spacing-unit--xl auto;
+  max-width: 87.5%;
+  padding-bottom: $spacing-unit--l;
+  padding-top: $spacing-unit--l;
+  position: relative;
+  text-align: center;
+  @include breakpoint($tablet) {
+    font-size: 3.2rem;
+    line-height: 1.2;
+    margin-bottom: $spacing-unit--xl * 2;
+    margin-top: $spacing-unit--xl * 2;
+    max-width: 62.5%;
+  }
+  &:before,
+  &:after {
+    background: $border-color;
+    content: '';
+    display: block;
+    height: 1px;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%);
+    width: 50%;
+  }
+  &:before {
+    top: 0;
+  }
+  &:after {
+    bottom: 0;
+  }
+}
+
+cite {}
+
+hr {
+  margin-top: $spacing-unit--l;
+  margin-bottom: $spacing-unit--l;
+  border: 0;
+  border-top: 1px solid $border-color;
+}

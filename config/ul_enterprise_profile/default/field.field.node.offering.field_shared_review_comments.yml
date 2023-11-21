@@ -1,0 +1,25 @@
+uuid: f843463f-0d73-446f-908a-1a53d086ae7c
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_review_comments
+    - node.type.offering
+  module:
+    - text
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: true
+id: node.offering.field_shared_review_comments
+field_name: field_shared_review_comments
+entity_type: node
+bundle: offering
+label: 'Review Comments'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

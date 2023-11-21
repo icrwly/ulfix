@@ -1,0 +1,158 @@
+uuid: 298cf4ce-1ac1-4e14-8df1-2516a119d829
+langcode: en
+status: true
+dependencies:
+  config:
+    - core.entity_view_mode.node.teaser
+    - field.field.node.homepage.field_homepage_content
+    - field.field.node.homepage.field_homepage_cta_description
+    - field.field.node.homepage.field_homepage_cta_link
+    - field.field.node.homepage.field_homepage_slides
+    - field.field.node.homepage.field_shared_content_owner
+    - field.field.node.homepage.field_shared_cou
+    - field.field.node.homepage.field_shared_country
+    - field.field.node.homepage.field_shared_header_link
+    - field.field.node.homepage.field_shared_header_media
+    - field.field.node.homepage.field_shared_header_video
+    - field.field.node.homepage.field_shared_industry
+    - field.field.node.homepage.field_shared_intro_description
+    - field.field.node.homepage.field_shared_intro_title
+    - field.field.node.homepage.field_shared_market
+    - field.field.node.homepage.field_shared_marketo_custom
+    - field.field.node.homepage.field_shared_marketo_forms
+    - field.field.node.homepage.field_shared_marketo_link
+    - field.field.node.homepage.field_shared_metatags
+    - field.field.node.homepage.field_shared_review_comments
+    - field.field.node.homepage.field_shared_review_user
+    - field.field.node.homepage.field_shared_stakeholder_needs
+    - field.field.node.homepage.field_shared_subtitle
+    - field.field.node.homepage.field_shared_topic
+    - image.style.card
+    - node.type.homepage
+  module:
+    - entity_reference_revisions
+    - link
+    - metatag
+    - ul_media
+    - user
+_core:
+  default_config_hash: 05PFZCRcCj-O4Q7j0BdIa40cORTKfmeLx1Kndws4kps
+id: node.homepage.teaser
+targetEntityType: node
+bundle: homepage
+mode: teaser
+content:
+  field_homepage_content:
+    type: entity_reference_revisions_entity_view
+    label: above
+    settings:
+      view_mode: default
+      link: ''
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_shared_country:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 10
+    region: content
+  field_shared_header_link:
+    type: link
+    label: above
+    settings:
+      trim_length: 80
+      url_only: false
+      url_plain: false
+      rel: ''
+      target: ''
+    third_party_settings: {  }
+    weight: 11
+    region: content
+  field_shared_header_media:
+    type: media_url
+    label: above
+    settings:
+      image_style: card
+      alt_tag: '1'
+      title: 0
+      image_link: ''
+    third_party_settings: {  }
+    weight: 4
+    region: content
+  field_shared_industry:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 5
+    region: content
+  field_shared_market:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 7
+    region: content
+  field_shared_metatags:
+    type: metatag_empty_formatter
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 6
+    region: content
+  field_shared_stakeholder_needs:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 8
+    region: content
+  field_shared_subtitle:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 3
+    region: content
+  field_shared_topic:
+    type: entity_reference_label
+    label: above
+    settings:
+      link: true
+    third_party_settings: {  }
+    weight: 9
+    region: content
+  links:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  workbench_moderation_control:
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  addtoany: true
+  field_homepage_cta_description: true
+  field_homepage_cta_link: true
+  field_homepage_slides: true
+  field_shared_content_owner: true
+  field_shared_cou: true
+  field_shared_header_video: true
+  field_shared_intro_description: true
+  field_shared_intro_title: true
+  field_shared_marketo_custom: true
+  field_shared_marketo_forms: true
+  field_shared_marketo_link: true
+  field_shared_review_comments: true
+  field_shared_review_user: true
+  langcode: true
+  search_api_excerpt: true

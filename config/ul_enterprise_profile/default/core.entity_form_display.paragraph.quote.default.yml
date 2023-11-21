@@ -1,0 +1,144 @@
+uuid: 35a3243d-285a-4a07-99d8-dc0d5250f0fa
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.quote.field_hash_target
+    - field.field.paragraph.quote.field_quote_company
+    - field.field.paragraph.quote.field_quote_icon
+    - field.field.paragraph.quote.field_quote_link
+    - field.field.paragraph.quote.field_quote_location
+    - field.field.paragraph.quote.field_quote_name
+    - field.field.paragraph.quote.field_quote_text
+    - field.field.paragraph.quote.field_shared_bg_color
+    - image.style.thumbnail
+    - paragraphs.paragraphs_type.quote
+  module:
+    - field_group
+    - image
+    - link
+    - text
+third_party_settings:
+  field_group:
+    group_author:
+      children:
+        - field_quote_icon
+        - field_quote_name
+        - field_quote_company
+        - field_quote_location
+      label: Author
+      region: content
+      parent_name: ''
+      weight: 1
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+    group_quote_link:
+      children:
+        - field_quote_link
+      label: Link
+      region: content
+      parent_name: ''
+      weight: 2
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        required_fields: true
+    group_display:
+      children:
+        - field_shared_bg_color
+      label: Display
+      region: content
+      parent_name: ''
+      weight: 4
+      format_type: details
+      format_settings:
+        classes: ''
+        id: ''
+        open: false
+        description: ''
+        required_fields: true
+_core:
+  default_config_hash: A9HUL8wHJBdF7hUrHZtjknyHu4iCRuHafmOz9qAUQ_I
+id: paragraph.quote.default
+targetEntityType: paragraph
+bundle: quote
+mode: default
+content:
+  field_hash_target:
+    type: string_textfield
+    weight: 7
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quote_company:
+    type: string_textfield
+    weight: 5
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quote_icon:
+    type: image_image
+    weight: 3
+    region: content
+    settings:
+      progress_indicator: throbber
+      preview_image_style: thumbnail
+    third_party_settings: {  }
+  field_quote_link:
+    type: link_default
+    weight: 2
+    region: content
+    settings:
+      placeholder_url: ''
+      placeholder_title: ''
+    third_party_settings: {  }
+  field_quote_location:
+    type: string_textfield
+    weight: 6
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quote_name:
+    type: string_textfield
+    weight: 4
+    region: content
+    settings:
+      size: 60
+      placeholder: ''
+    third_party_settings: {  }
+  field_quote_text:
+    type: text_textarea
+    weight: 0
+    region: content
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+  field_shared_bg_color:
+    type: options_select
+    weight: 5
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+  translation:
+    weight: 3
+    region: content
+    settings: {  }
+    third_party_settings: {  }
+hidden:
+  created: true
+  status: true
+  uid: true

@@ -1,0 +1,139 @@
+.nav--side-bar {
+  background: $white;
+  border: 1px solid $border-color;
+
+  @include breakpoint($desktop) {
+    max-width: 450px;
+  }
+
+  ul {
+    @include list-unstyled;
+  }
+
+  .nav__title {
+    font-size: 1.8rem;
+    font-weight: 400;
+    margin: 0;
+    padding: $spacing-unit;
+
+    @include breakpoint($tablet) {
+      font-size: 2.1rem;
+      padding: $spacing-unit * 1.5;
+    }
+
+    @include breakpoint($desktop) {
+      font-size: 2.8rem;
+      padding: $spacing-unit--l;
+      padding-#{$end-direction}: $spacing-unit--l !important;
+    }
+
+    &.accordion {
+      @include breakpoint($desktop) {
+        cursor: default;
+        &:after {
+          content: none;
+        }
+      }
+    }
+  }
+
+  .menu-list {
+    ul {
+      background: $background-color;
+      padding: 0 $spacing-unit;
+
+      @include breakpoint($tablet) {
+        padding: 0 $spacing-unit * 1.5;
+      }
+
+      @include breakpoint($desktop) {
+        padding: 0 $spacing-unit * 2;
+      }
+    }
+
+    li {
+      &:not(:last-child) {
+        border-bottom: 1px solid $border-color;
+      }
+      li {
+        border-color: lighten($border-color, 5%) !important;
+      }
+    }
+
+    a {
+      color: $gray;
+      display: block;
+      font-size: 1.4rem;
+      padding: $spacing-unit;
+
+      &.active-trail,
+      &:focus,
+      &:hover {
+        color: $blue;
+        text-decoration: none;
+      }
+
+      @include breakpoint($tablet) {
+        font-size: 1.6rem;
+        padding: $spacing-unit $spacing-unit * 1.5;
+      }
+
+      @include breakpoint($desktop) {
+        padding: $spacing-unit * 1.5 $spacing-unit--l;
+      }
+
+      &.second-level {
+        font-size: 1.2rem;
+        @include breakpoint($tablet) {
+          font-size: 1.4rem;
+        }
+        @include breakpoint($desktop) {
+          padding-#{$start-direction}: $spacing-unit * 1.5;
+        }
+      }
+    }
+  }
+
+  // TODO: setup default accordion style
+  .accordion {
+    cursor: pointer;
+    padding-#{$end-direction}: $spacing-unit--l * 1.5;
+    position: relative;
+
+    @include breakpoint($tablet) {
+      padding-#{$end-direction}: $spacing-unit--l * 2;
+    }
+
+    &:after {
+      @include icon-settings();
+      color: $text-color--light;
+      content: $icon-solid-arrow-r;
+      font-size: .5rem;
+      font-weight: 300;
+      position: absolute;
+      #{$end-direction}: $spacing-unit * 1.5;
+      top: 50%;
+      transform: translate(50% * $transform-direction, -50%);
+      transition: transform $transition;
+
+      @include breakpoint($tablet) {
+        font-size: 1rem;
+        #{$end-direction}: $spacing-unit--l;
+      }
+    }
+
+    &.active-trail,
+    &.is-animating {
+      border-bottom: 1px solid $gray-lighter;
+      &:not(.first-level){
+        border-color: lighten($gray-lighter, 5%);
+      }
+    }
+    &.active-trail {
+      &:after {
+        transform: translate(50% * $transform-direction, -50%) rotate(90deg);
+      }
+    }
+  }
+
+}

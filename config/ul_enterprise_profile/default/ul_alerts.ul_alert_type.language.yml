@@ -1,0 +1,7 @@
+uuid: 1d66baf5-3f52-44bf-b17b-f19f8fe63df1
+langcode: en
+status: true
+dependencies: {  }
+id: language
+label: Language
+description: 'Use <em>Language</em> for providing alerts related to a users browser language.'

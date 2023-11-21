@@ -1,0 +1,37 @@
+/* "Back to" button */
+.global-header--fix,
+.toolbar-tray-open.toolbar-horizontal .global-header--fix {
+  top: 42px !important;
+  z-index: 6 !important;
+}
+.canada-header {
+  background: #c02032;
+  color: #fff;
+}
+/* "Back to" button IE fix */
+.dialog-off-canvas-main-canvas {
+  position: static !important;
+}
+/* GNaaS wrapper */
+#ul-global-nav {
+	z-index: 7 !important;
+}
+#ul-global-nav #ul-global-language-selector li a.disabled {
+  color: #bbb;
+}
+#ul-global-nav #ul-global-language-selector li a.disabled:hover {
+  color: #bbb;
+  background: #fff;
+  cursor: not-allowed;
+}
+
+/* AB#290229: Supply Chain Management; Landing Page "alt display" */
+.lp-alt-display .canada-header {
+  display: flex;
+  padding: 10px 0;
+}
+.lp-alt-display .canada-header .lp_hdr_links {
+  color: #585858;
+  margin-right: 3rem;
+  line-height: 2.1;
+}

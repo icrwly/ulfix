@@ -1,0 +1,38 @@
+<section class="ul-intro-map-section">
+  <div class="">
+
+    <div class="row">
+      <div class="w-full">
+        <div class="bg-white">
+
+          <div class='ul-intro-map'>
+            <div class='ul-intro-map-overlay'></div>
+            <div class='ul-intro-icons-overlay'></div>
+            <div class='ul-intro-text text-white text-center font-sans'>
+              <h2 class='ul-intro-supertitle fs-3 animate__animated'>{{ 'UL Solutions Market Access Portal'|t }}</h2>
+              <h1 class='ul-intro-title fs-intro-title animate__animated animate__fadeInUp'>{{ 'Enter markets with confidence'|t }}</h1>
+              <p class='ul-intro-description fs-0 mx-auto animate__animated'>
+                {{ "Bringing products to the global marketplace is complex. We're here to help make it easier. Select \“Get Started,\” and choose the appropriate options to view the requirements for your target locations worldwide."|t }}
+              </p>
+
+              <div class='ul-intro-buttons animate__animated'>
+                <a href='/market-access-portal/directory' class='ul-intro-button glossary-button fs--1'>{{ 'View Market Access Directory'|t }}</a>
+                <a href='/market-access-portal/steps' class='ul-intro-button cert-button fs--1'>{{ 'Get Started'|t }}</a>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  window.addEventListener('load', (event) => {
+    setTimeout(() => {
+      //trigger the animation for the icons after the 1second animation of the fade in up title
+      window.introAnimations();
+    }, "500")
+  });
+</script>

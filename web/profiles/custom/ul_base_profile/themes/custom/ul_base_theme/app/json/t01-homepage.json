@@ -1,0 +1,452 @@
+{
+  "hero": {
+    "tall": "true",
+    "logo": "http://via.placeholder.com/200x200",
+    "slides": [
+      {
+        "image": "http://via.placeholder.com/1600x900",
+        "title": "Your business is complex. We help you make better choices.",
+        "description": "Trust and experience are the solution when today's marketplace is riskier and more complex than ever before.",
+        "cta": {
+          "name": "Learn More",
+          "link": "#",
+          "color": "red"
+        }
+      }
+    ]
+  },
+  "t01Intro": {
+    "title": "Building Trust in Today’s Marketplace",
+    "description": "UL Connects people to safer, more secure, more sustainable products, services, experiences and environments - enabling smart choices and better lives.",
+    "slides": [
+      {
+        "type": "data",
+        "image": "http://via.placeholder.com/600x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "title": "20 Billion +",
+        "description": "UL Marks appear on more than 20 million products worldwide."
+      },
+      {
+        "type": "data",
+        "image": "http://via.placeholder.com/600x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "title": "Lorem ipsum dolor sit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "type": "data",
+        "image": "http://via.placeholder.com/600x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "title": "A short title",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ],
+    "hightlightCard": {
+      "title": "Looking for Standards?",
+      "description": "Learn how UL Standards function as a benchmark that enables consumers and businesses to feel confident about the products and services they purchase.",
+      "cta": {
+        "link": "#",
+        "name": "Explore",
+        "color": "white-outline"
+      }
+    }
+  },
+  "spotlight_1": {
+    "title": "Tailored to your needs",
+    "description": "UL helps companies demonstrate safety, confirm compliance, enhance sustainability, manage transparency, deliver quality and performance, strengthen security, protect brand reputation, build workplace excellence, and advance societal wellbeing.",
+    "cta": {
+      "link": "#",
+      "name": "Explore All Offerings",
+      "color": "black-outline"
+    },
+    "titleBar": {
+      "title": "Our Offerings",
+      "description": "Maecenas sed diam eget risus varius blandit sit amet non magna.",
+      "headingLevel": "h2"
+    },
+    "items":[
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+      }
+    ]
+  },
+  "t01Articles":{
+    "titleBar": {
+      "title": "Knowledge Articles",
+      "description": "Maecenas sed diam eget risus varius blandit sit amet non magna.",
+      "headingLevel": "h2",
+      "seeAll": {
+        "link": "#",
+        "name": "View All"
+      }
+    },
+    "banner": {
+      "link": "#",
+      "contentRight": true,
+      "image": "http://placehold.it/1600x640",
+      "title": "The future of healthcare: Finding the opportunities in uncertainty.",
+      "description": "See how UL’s Transaction Security service line becomes the leading test authority for Dubai’s Road and Transport Authority. Curabitur blandit tempus porttitor. Etiam porta sem malesuada magna mollis euismod.",
+      "topics": [
+        {
+          "name": "Industry"
+        },
+        {
+          "name": "Article Type"
+        }
+      ]
+    },
+    "cardList": [
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "readTime": "5 min Read"
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "readTime": "5 min Read"
+      },
+      {
+        "tags": [
+          {
+            "name": "New",
+            "type": "new"
+          },
+          {
+            "name": "Premium",
+            "type": "premium"
+          }
+        ],
+        "image": "http://via.placeholder.com/800x600",
+        "imageAlt": "PLACEHOLDER ALT",
+        "topics": [
+          {
+            "name": "Topic Name 1",
+            "href": "#"
+          },
+          {
+            "name": "Topic Name 2",
+            "href": "#"
+          }
+        ],
+        "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+        "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "meta": "Source/Author",
+        "readTime": "5 min Read"
+      }
+    ]
+  },
+  "t01HomepageNewsEvents": {
+    "news": {
+      "titleBar": {
+        "title": "News",
+        "border": false,
+        "headingLevel": "h2",
+        "seeAll": {
+          "link": "#",
+          "name": "View All"
+        }
+      },
+      "cardList": [
+        {
+          "tags": [
+            {
+              "name": "New",
+              "type": "new"
+            },
+            {
+              "name": "Premium",
+              "type": "premium"
+            }
+          ],
+          "image": "http://via.placeholder.com/1600x900",
+          "imageAlt": "PLACEHOLDER ALT",
+          "topics": [
+            {
+              "name": "Topic Name 1",
+              "href": "#"
+            },
+            {
+              "name": "Topic Name 2",
+              "href": "#"
+            }
+          ],
+          "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+          "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "meta": "Source/Author",
+          "date": "2018-03-31",
+          "readTime": "5 min Read"
+        },
+        {
+          "tags": [
+            {
+              "name": "New",
+              "type": "new"
+            },
+            {
+              "name": "Premium",
+              "type": "premium"
+            }
+          ],
+          "image": "http://via.placeholder.com/1600x900",
+          "imageAlt": "PLACEHOLDER ALT",
+          "topics": [
+            {
+              "name": "Topic Name 1",
+              "href": "#"
+            },
+            {
+              "name": "Topic Name 2",
+              "href": "#"
+            }
+          ],
+          "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+          "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "meta": "Source/Author",
+          "date": "2018-03-31",
+          "readTime": "5 min Read"
+        },
+        {
+          "tags": [
+            {
+              "name": "New",
+              "type": "new"
+            },
+            {
+              "name": "Premium",
+              "type": "premium"
+            }
+          ],
+          "image": "http://via.placeholder.com/1600x900",
+          "imageAlt": "PLACEHOLDER ALT",
+          "topics": [
+            {
+              "name": "Topic Name 1",
+              "href": "#"
+            },
+            {
+              "name": "Topic Name 2",
+              "href": "#"
+            }
+          ],
+          "title": "Lorem ipsum dolor sit amet, consectetur adipisicing elit",
+          "description": "Consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+          "meta": "Source/Author",
+          "date": "2018-03-31",
+          "readTime": "5 min Read"
+        }
+      ]
+    },
+    "events": {
+      "titleBar": {
+        "title": "Events",
+        "border": false,
+        "headingLevel": "h2",
+        "seeAll": {
+          "link": "#",
+          "name": "View All"
+        }
+      },
+      "cardList": [
+        {
+          "link": "#",
+          "type": "events",
+          "tags": [
+            {
+              "name": "Premium",
+              "type": "premium"
+            }
+          ],
+          "image": "http://via.placeholder.com/1600x900",
+          "imageAlt": "PLACEHOLDER ALT",
+          "topics": [
+            {
+              "name": "Topic Name 1"
+            }
+          ],
+          "date": "2018-03-31",
+          "title": "Lorem ipsum dolor",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor aliqua."
+        },
+        {
+          "link": "#",
+          "type": "events",
+          "topics": [
+            {
+              "name": "Topic Name 1"
+            },
+            {
+              "name": "Topic Name 2"
+            }
+          ],
+          "date": "2018-03-31",
+          "title": "Lorem ipsum",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
+        },
+        {
+          "link": "#",
+          "type": "events",
+          "topics": [
+            {
+              "name": "Topic Name 1"
+            }
+          ],
+          "date": "2018-03-31",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore."
+        },
+        {
+          "link": "#",
+          "type": "events",
+          "topics": [
+            {
+              "name": "Topic Name 1"
+            }
+          ],
+          "date": "2018-03-31",
+          "title": "Lorem ipsum dolor sit amet",
+          "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor."
+        }
+      ]
+    }
+  },
+  "t01ActionBanner": {
+    "items": [
+      {
+        "title": "Lorem ipsum dolor sit amet",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        "ctas": [
+          {
+            "title": "Primary action",
+            "url": "#"
+          },
+          {
+            "title": "Secondary action",
+            "url": "#"
+          }
+        ]
+      }
+    ]
+  }
+}

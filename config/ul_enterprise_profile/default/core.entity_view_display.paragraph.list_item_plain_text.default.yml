@@ -1,0 +1,22 @@
+uuid: 1dd4f520-9b87-4af8-87bf-956c996e574b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_item_plain_text.field_content
+    - paragraphs.paragraphs_type.list_item_plain_text
+id: paragraph.list_item_plain_text.default
+targetEntityType: paragraph
+bundle: list_item_plain_text
+mode: default
+content:
+  field_content:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  search_api_excerpt: true

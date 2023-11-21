@@ -1,0 +1,22 @@
+uuid: 1b58dac5-b2b1-44fa-9cf3-180c79d5aba4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_video_background_color
+    - paragraphs.paragraphs_type.video
+  module:
+    - color_field
+id: paragraph.video.field_video_background_color
+field_name: field_video_background_color
+entity_type: paragraph
+bundle: video
+label: 'Background Color - deprecated'
+description: 'Background color for this video'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  opacity: 1
+field_type: color_field_type

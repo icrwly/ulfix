@@ -1,0 +1,10 @@
+uuid: e257aabe-8ea6-41c7-b8ac-64c9c6b847c0
+langcode: en
+status: true
+dependencies: {  }
+id: image_gallery
+label: 'Image Gallery'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Image Gallery</em> to display a collection of images.'
+behavior_plugins: {  }

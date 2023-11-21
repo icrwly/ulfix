@@ -1,0 +1,37 @@
+uuid: f7a40f78-be98-4d47-ad14-345a94765e5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.media.crc_asset.field_media_crc_asset
+    - media.type.crc_asset
+  module:
+    - ul_crc_asset
+_core:
+  default_config_hash: 3W__ALV3uIsiYDkE4n_0dx2buUW3Fy6hkrASDAuxDC4
+id: media.crc_asset.default
+targetEntityType: media
+bundle: crc_asset
+mode: default
+content:
+  field_media_crc_asset:
+    type: crc_asset_formatter
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  name:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden:
+  created: true
+  langcode: true
+  search_api_excerpt: true
+  thumbnail: true
+  uid: true

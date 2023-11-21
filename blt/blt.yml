@@ -1,0 +1,66 @@
+blt:
+  alias:
+    auto-install: true
+project:
+  machine_name: ulplatform
+  prefix: AB|CH2
+  human_name: 'UL Platform'
+  profile:
+    name: ul_base_profile
+  local:
+    protocol: http
+    hostname: '${project.machine_name}.docksal.site'
+git:
+  default_branch: master-build
+  remotes:
+    - 'ulacsf@svn-1402.enterprise-g1.hosting.acquia.com:ulacsf.git'
+  hooks:
+    pre-push: false
+  commit-msg:
+    # Commit messages must conform to this pattern.
+    pattern: "/(^${project.prefix}#[0-9]+(: )[^ ].{15,}\\.)|(Merge branch (.)+)/"
+    # Human readable help description explaining the pattern/restrictions.
+    help_description: "The Commit Message should include your project prefix AB or CH2,
+                      followed by a hashtag(#) and ticket number, followed by a colon and a space,
+                      fifteen characters or more describing the commit, and end with a period."
+    # Provide an example of a valid commit message.
+    example: "AB#255001: Update module configuration."
+deploy:
+  tag_source: true
+drush:
+  aliases:
+    remote: '${project.machine_name}.test'
+    local: self
+    ci: self
+  default_alias: '${drush.aliases.local}'
+behat:
+  config: '${repo.root}/tests/behat/local.yml'
+  profile: local
+  paths:
+    - '${repo.root}/tests/behat'
+  tags: '~ajax&&~experimental&&~lightningextension'
+  extra: ''
+  web-driver: phantomjs
+multisites:
+  - ul_enterprise_profile
+  - ul_guidelines_profile
+command-hooks:
+  frontend-assets:
+    dir: '${repo.root}/blt/scripts'
+    command: 'bash frontend-setup.sh ${repo.root}'
+cm:
+  allow-overrides: true
+  strategy: config-split
+  core:
+    key: sync
+    dirs: { ul_guidelines_profile: { path: '${cm.core.path}/ul_guidelines_profile/default' }, ul_enterprise_profile: { path: '${cm.core.path}/ul_enterprise_profile/default' } }
+setup:
+  toggle-modules: true
+  strategy: install
+tests:
+  selenium:
+    port: 4444
+    url: 'http://127.0.0.1:${behat.selenium.port}/wd/hub'
+disable-targets:
+  drupal:
+    toggle: { modules: true }

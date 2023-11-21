@@ -1,0 +1,8 @@
+_core:
+  default_config_hash: Va-P5Ms9pofEFf3wdNM_DoKADazr9L8uXi-qim-iPf4
+allowed_types:
+  - guideline
+block:
+  navigation:
+    mode: 'all pages'
+child_type: guideline

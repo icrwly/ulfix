@@ -1,0 +1,41 @@
+uuid: 8408b825-fe81-4b85-9502-4627a86d3e78
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.reference.field_hash_target
+    - field.field.paragraph.reference.field_ref_reference
+    - field.field.paragraph.reference.field_shared_bg_color
+    - paragraphs.paragraphs_type.reference
+  module:
+    - options
+    - text
+id: paragraph.reference.default
+targetEntityType: paragraph
+bundle: reference
+mode: default
+content:
+  field_hash_target:
+    type: string
+    label: above
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 2
+    region: content
+  field_ref_reference:
+    type: text_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 0
+    region: content
+  field_shared_bg_color:
+    type: list_default
+    label: above
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+hidden:
+  search_api_excerpt: true

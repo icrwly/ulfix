@@ -1,0 +1,28 @@
+uuid: 8568f00d-c089-4867-8951-ea06e447bc1d
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.list_item.field_list_item_body
+    - paragraphs.paragraphs_type.list_item
+  module:
+    - text
+_core:
+  default_config_hash: _TAYVK0szLEHOq3kEEHg6-Zvcs9corTrrHL5H3V6Vf4
+id: paragraph.list_item.default
+targetEntityType: paragraph
+bundle: list_item
+mode: default
+content:
+  field_list_item_body:
+    weight: 6
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: text_textarea
+    region: content
+hidden:
+  created: true
+  status: true
+  uid: true

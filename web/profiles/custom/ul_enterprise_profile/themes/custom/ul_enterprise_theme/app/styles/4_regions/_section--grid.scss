@@ -1,0 +1,140 @@
+// TODO: 7/19 - Remove references to section--row after next release. Leaving in
+// for now to support patch to IMS theme which still uses a copy of section--row.
+.section.section--row, // TODO: Remove after next release
+.section.section--grid {
+  .wrapper, // TODO: Remove after next release
+  .section__inner {
+    > .row {
+      // this negative margin is to counter-act
+      // the section's last card's margin-bottom.
+      margin-bottom: -$spacing-unit;
+
+      > [class*="span-"] {
+        @include breakpoint($tablet) {
+          margin-bottom: 0;
+          >.card {
+            height: 100%;
+            margin-bottom: 0;
+
+            &--link {
+              >a {
+                display: flex;
+                flex-direction: column;
+                height: 100%;
+              }
+            }
+          }
+        }
+        @include breakpoint($tablet) {
+          margin-bottom: $grid-gutter * 2;
+        }
+      }
+
+      > .span-auto {
+        width: 100%;
+         @include breakpoint($tablet) {
+           max-width: percentage(6/12);
+           flex-basis: percentage(6/12);
+
+            >.card {
+              height: 100%;
+              margin-bottom: 0;
+
+              &--link {
+                >a {
+                  display: flex;
+                  flex-direction: column;
+                  height: 100%;
+                }
+              }
+            }
+
+         }
+         @include breakpoint($desktop) {
+           max-width: percentage(4/12);
+           flex-basis: percentage(4/12);
+         }
+         @include breakpoint($large-desktop) {
+           max-width: percentage(3/12);
+           flex-basis: percentage(3/12);
+         }
+      }
+
+      &.row--gutter-s {
+        @include breakpoint($tablet) {
+          >[class*='span-'] {
+            margin-bottom: $grid-gutter;
+          }
+
+          .card--link:hover {
+            transform: scale(1.02);
+          }
+        }
+      }
+
+      &.row--gutter-l {
+        @include breakpoint($tablet) {
+          >[class*='span-'] {
+            margin-bottom: $grid-gutter * 3;
+          }
+
+          .card--link:hover {
+            transform: translateY(-$grid-gutter);
+          }
+        }
+      }
+    }
+  }
+  > .section__inner.wrapper {
+    @include breakpoint(1660px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+
+  // Two-column layout with right rail.
+  .two-col & {
+    .section__inner,
+    .section.section--grid .wrapper,
+    .section.section--row .section__inner,
+    .section.section--row .wrapper {
+      > .row {
+        > .span-auto {
+          @include breakpoint($desktop) {
+            max-width: percentage(4/12);
+            flex-basis: percentage(4/12);
+          }
+        }
+      }
+    }
+  }
+}
+
+.section.section--grid .section__inner > .row > .section--grid--item  {
+  @include breakpoint(min-width $large-mobile) {
+    margin-bottom: 0;
+  }
+  @include breakpoint($tablet) {
+    margin-bottom: $spacing-unit;
+    padding-left: $spacing-unit * .5;
+    padding-right: $spacing-unit * .5;
+  }
+}
+
+// Grid item wrapper.
+.section.section--grid--item .wrapper {
+  padding: 0;
+}
+
+// Grid item and spotlight card wrapper.
+.section.section--grid--item.section--grid--cards .wrapper {
+  padding: 0 $spacing-unit;
+  @include breakpoint($tablet) {
+    padding: 0 $spacing-unit--l;
+  }
+}
+
+// Section grids (that are not experience hubs or grid items).
+.section.section--grid:not(.section--hub):not(.section--grid--item) .section__inner > .row > [class*="span-"] {
+  margin-bottom: 0;
+}

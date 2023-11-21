@@ -1,0 +1,83 @@
+<?php
+
+/**
+ * @file
+ * UL Profile Theme file.
+ */
+
+/**
+ * Implements theme_preprocess_page().
+ */
+function ul_com_theme_preprocess_page(array &$variables) {
+  // Current page request:
+  $uri = \Drupal::request()->getPathInfo();
+
+  // Add the new theme CSS.
+  $variables['#attached']['library'][] = 'ul_com_theme/ul-com-styles';
+
+  // Add airlock / External Link module.
+  $variables['#attached']['library'][] = 'ul_com_theme/ul-com-core-drupal-dialog-ajax';
+
+  //spiresmartbuildings js
+  if (str_contains($uri, 'first-comprehensive-smart-building-assessment-and-rating-program') || str_contains($uri, 'spire-qualification-program')) {
+    $variables['#attached']['library'][] = 'ul_com_theme/spiresmartbuildings';
+  }
+
+  $variables['#attached']['library'][] = 'ul_com_theme/ul-com-accessibe';
+
+
+  // Add Qualtrics:
+  $variables['#attached']['library'][] = 'ul_com_theme/qualtrics';
+
+  // ADD SVG JS for the Sustainability Report Page:
+  if (str_contains($uri, '2020-ul-sustainability-report')) {
+    $variables['#attached']['library'][] = 'ul_com_theme/ul-com-svg';
+  }
+
+  // History/Timeline (only for 1 page):
+  if ('/about/history' == substr($uri, -14)) {
+    $variables['#attached']['library'][] = 'ul_com_theme/ul-com-timeline';
+    $variables['#attached']['library'][] = 'ul_com_theme/ul-com-history';
+  }
+
+  // Request for Quote (only for 1 page):
+  if ('/resources/request-for-quote' == substr($uri, -28)) {
+    $variables['#attached']['library'][] = 'ul_com_theme/ul-com-rfq';
+  }
+
+  if (str_contains($uri, 'lithium-ion-battery-incident')) {
+    $variables['#attached']['library'][] = 'ul_com_theme/ul-com-charts';
+  }
+
+  // HotJar (condition via helper function below):
+  _ul_com_theme_add_hotjarjs($variables, $uri);
+
+}
+
+/**
+ * Helper function to add Hotjar JS.
+ */
+function _ul_com_theme_add_hotjarjs(array &$variables, $uri) {
+  // Remove the HotjarJS from any non-English page:
+  $language = \Drupal::languageManager()->getCurrentLanguage()->getId();
+  if ($language !== 'en') {
+    return;
+  }
+
+  // If user is anonymous:
+  if (\Drupal::currentUser()->isAnonymous()) {
+
+    // Array of whitelisted hosts:
+    $hosts = ['www-dev.ul.com', 'www-stage.ul.com', 'www.ul.com', 'ul.com'];
+
+    // Current host:
+    $host = \Drupal::request()->getHost();
+
+    // If the host is one of our whitelisted hosts:
+    if (in_array($host, $hosts)) {
+      // Include the Hotjar JS.
+      $variables['#attached']['library'][] = 'ul_com_theme/ul-com-hotjar';
+    }
+  }
+
+}

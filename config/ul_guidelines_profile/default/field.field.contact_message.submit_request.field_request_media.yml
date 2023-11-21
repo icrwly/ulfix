@@ -1,0 +1,21 @@
+uuid: 1c35bcc0-a46a-4f44-8471-62883b5a3952
+langcode: en
+status: true
+dependencies:
+  config:
+    - contact.form.submit_request
+    - field.storage.contact_message.field_request_media
+  module:
+    - options
+id: contact_message.submit_request.field_request_media
+field_name: field_request_media
+entity_type: contact_message
+bundle: submit_request
+label: Media
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

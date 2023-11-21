@@ -1,0 +1,14 @@
+uuid: 487d6777-beb4-453f-9907-a7092fe9c034
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.page
+id: node_type_page
+entity_type_id: null
+entity_id: null
+action: display_page
+allow_override: 1
+redirect: ''
+redirect_code: 301
+redirect_fallback_action: null

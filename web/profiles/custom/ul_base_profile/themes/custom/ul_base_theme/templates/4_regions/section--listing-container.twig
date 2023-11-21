@@ -1,0 +1,16 @@
+{% extends "@ul_base_theme/4_regions/section.twig" %}
+{% set class = "section--listing-container" %}
+{% block content %}
+  {% block section_listing_items %}
+    {% for item in listings %}
+      {% include '@ul_base_theme/1_core/switch--listing-item.twig' with item %}
+    {% endfor %}
+  {% endblock %}
+  {% block section_pagination %}
+    <div class="pagination--listing">
+      <div class="pull-right">
+        {% include '@ul_base_theme/2_pieces/pagination.twig' %}
+      </div>
+    </div>
+  {% endblock %}
+{% endblock %}

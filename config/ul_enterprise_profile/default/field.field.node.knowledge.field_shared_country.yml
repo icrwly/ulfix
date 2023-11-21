@@ -1,0 +1,29 @@
+uuid: 5c9ffe4a-425b-4f51-a488-9fa6567be2c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_country
+    - node.type.knowledge
+    - taxonomy.vocabulary.country
+id: node.knowledge.field_shared_country
+field_name: field_shared_country
+entity_type: node
+bundle: knowledge
+label: Country
+description: '&bull; The country related to this item.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      country: country
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

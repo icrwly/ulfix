@@ -1,0 +1,231 @@
+_core:
+  default_config_hash: o4-eDkmTmVdUICtL1VxWD3S9Ze8kNq_lHj6DskF8U8o
+report-only:
+  enable: false
+  reporting:
+    plugin: none
+enforce:
+  enable: true
+  directives:
+    default-src:
+      base: self
+      sources:
+        - 'https://maxcdn.bootstrapcdn.com'
+        - 'https://cdn.knightlab.com'
+        - 'https://*.marketo.com'
+        - 'https://*.google.com'
+        - 'https://*.youtube.com'
+        - 'https://*.gstatic.com'
+        - 'https://*.gstatic.cn'
+        - 'https://*.ul.com'
+        - 'https://player.vimeo.com'
+        - 'https://www.recaptcha.net'
+        - '*.salesforce-sites.com'
+        - 'data:'
+        - 'blob:'
+    connect-src:
+      base: self
+      sources:
+        - 'https://*.lift.acquia.com'
+        - 'https://*.acquia.io'
+        - 'https://*.wistia.com'
+        - 'http://*.wistia.com'
+        - 'https://*.ul.com'
+        - 'https://www.google-analytics.com'
+        - 'https://*.google.com'
+        - 'https://www.facebook.com'
+        - 'https://stats.addtoany.com'
+        - 'https://*.hotjar.com'
+        - 'https://*.hotjar.io'
+        - 'https://*.mktoutil.com'
+        - 'https://*.mktoresp.com'
+        - 'http://*.mktoresp.com'
+        - 'https://embedwistia-a.akamaihd.net'
+        - 'https://sessions.bugsnag.com'
+        - 'https://stats.g.doubleclick.net'
+        - 'https://fg8vvsvnieiv3ej16jby.litix.io'
+        - 'https://*.nr-data.net'
+        - 'https://sheets-proxy.knightlab.com'
+        - 'wss://*.hotjar.com'
+        - 'https://csp.withgoogle.com'
+        - 'https://cdn.linkedin.oribi.io'
+        - 'https://*.qualtrics.com'
+        - 'https://en.wikipedia.org/'
+        - '*.my.salesforce-sites.com'
+        - 'https://api.company-target.com'
+        - 'https://acsbapp.com'
+        - 'https://cdn.acsbapp.com'
+        - 'https://*.trustarc.com'
+        - '*.demandbase.com'
+        - demandbase.com
+        - company-target.com
+        - '*.company-target.com'
+    font-src:
+      base: self
+      sources:
+        - 'https://maxcdn.bootstrapcdn.com'
+        - 'http://maxcdn.bootstrapcdn.com'
+        - 'https://cdn.knightlab.com'
+        - 'https://*.gstatic.com'
+        - 'https://*.gstatic.cn'
+        - 'https://script.hotjar.com'
+        - 'https://*.ul.com'
+        - 'https://fast.wistia.com/'
+        - 'https://acsbapp.com'
+        - 'https://consent.trustarc.com'
+        - 'https://cdnjs.cloudflare.com'
+        - 'data:'
+    frame-src:
+      base: self
+      sources:
+        - 'https://*.marketo.com'
+        - 'https://*.google.com'
+        - 'https://player.vimeo.com'
+        - 'https://*.youtube.com'
+        - 'https://fast.wistia.com'
+        - 'https://vars.hotjar.com'
+        - 'https://www.facebook.com'
+        - 'http://*.ul.com'
+        - 'https://*.ul.com'
+        - 'https://www.recaptcha.net'
+        - 'https://*.addtoany.com'
+        - 'https://*.doubleclick.net'
+        - 'https://airtable.com'
+        - 'https://ulsolutions.qualtrics.com'
+        - '*.salesforce.com'
+        - '*.salesforce-sites.com'
+        - 'http://consent-pref.trustarc.com'
+        - company-target.com
+        - '*.company-target.com'
+    img-src:
+      base: self
+      sources:
+        - 'https://*.adroll.com'
+        - 'https://*.linkedin.com'
+        - 'https://*.facebook.com'
+        - 'https://*.gstatic.com'
+        - 'https://*.gstatic.cn'
+        - 'https://*.google.com'
+        - 'https://*.googleapis.com'
+        - 'https://*.doubleclick.net'
+        - 'https://www.googletagmanager.com'
+        - 'https://www.google-analytics.com'
+        - 'https://*.wistia.com'
+        - 'https://*.wistia.net'
+        - 'https://embedwistia-a.akamaihd.net'
+        - 'https://*.ul.com'
+        - 'https://s.ml-attr.com'
+        - 'https://*.adnxs.com'
+        - 'https://attr.ml-api.io'
+        - 'https://pixel.mathtag.com'
+        - 'https://*.amazonaws.com'
+        - 'https://*.acsbapp.com'
+        - 'https://*.qualtrics.com'
+        - '*.trustarc.com'
+        - 'https://live-shimadzu.pantheonsite.io'
+        - 'https://live-wwwul.pantheonsite.io'
+        - 'https://live-latamul.pantheonsite.io'
+        - 'https://live-emergo1.pantheonsite.io'
+        - 'https://live-aunzul.pantheonsite.io'
+        - 'https://aunz.pasapp.dev'
+        - 'https://emergo.psapp.dev'
+        - 'https://latam.psapp.dev'
+        - 'https://shimadzu.psapp.dev'
+        - 'https://ul.psapp.dev'
+        - 'https://ul.com'
+        - 'https://id.rlcdn.com'
+        - 'https://segments.company-target.com/validateCookie'
+        - 'data:'
+    media-src:
+      base: self
+      sources:
+        - 'https://embedwistia-a.akamaihd.net'
+        - 'https://*.wistia.com'
+        - 'https://*.youtube.com'
+        - 'blob:'
+        - 'data:'
+    script-src:
+      base: self
+      flags:
+        - unsafe-inline
+        - unsafe-eval
+      sources:
+        - 'https://*.acquia.com'
+        - 'http://*.acquia.com'
+        - 'https://*.acquia.io'
+        - 'https://*.wistia.com'
+        - 'http://*.wistia.net'
+        - 'https://*.wistia.net'
+        - 'https://*.youtube.com'
+        - 'http://*.youtube.com'
+        - 'https://*.vimeo.com'
+        - 'https://connect.facebook.net'
+        - 'https://*.googleadservices.com'
+        - 'https://www.google-analytics.com'
+        - 'https://www.googletagmanager.com'
+        - 'https://*.gstatic.com'
+        - 'https://*.gstatic.cn'
+        - 'https://*.google.com'
+        - 'https://googleads.g.doubleclick.net'
+        - 'https://*.ul.com'
+        - 'https://*.ul-renewables.com'
+        - 'https://*.hotjar.com'
+        - 'https://*.marketo.net'
+        - 'https://www.recaptcha.net'
+        - 'https://*.adroll.com'
+        - 'https://*.ytimg.com'
+        - 'https://snap.licdn.com'
+        - 'https://*.adroll.mgr.consensu.org'
+        - 'https://js-agent.newrelic.com'
+        - 'https://bam.nr-data.net'
+        - 'https://bam-cell.nr-data.net'
+        - 'https://cdn.c212.net'
+        - 'https://c212.net'
+        - 'https://pixel.mathtag.com'
+        - '*.cloudflare.com'
+        - 'http://empoweringtrust.ul.com'
+        - 'https://empoweringtrust.ul.com'
+        - 'https://*.marketo.com'
+        - 'https://browser-update.org'
+        - 'http://browser-update.org'
+        - 'https://acsbapp.com'
+        - 'https://cdn.acsbapp.com'
+        - 'https://*.qualtrics.com'
+        - 'https://en.wikipedia.org'
+        - 'https://tag.demandbase.com'
+        - 'http://munchkin.marketo.net'
+        - 'https://service.force.com'
+        - '*.salesforce.com'
+        - '*.salesforceliveagent.com'
+        - '*.salesforce-sites.com'
+        - '*.lightning.force.com'
+        - 'http://consent.trustarc.com'
+        - '*.demandbase.com'
+        - demandbase.com
+        - company-target.com
+        - '*.company-target.com'
+        - 'blob:'
+    style-src:
+      base: self
+      flags:
+        - unsafe-inline
+        - unsafe-eval
+      sources:
+        - 'https://*.marketo.com'
+        - 'https://static.addtoany.com'
+        - 'https://*.acquia.com'
+        - 'https://*.acquia.io'
+        - 'https://*.google.com'
+        - 'https://fonts.googleapis.com'
+        - 'https://cdnjs.cloudflare.com'
+        - 'http://empoweringtrust.ul.com'
+        - 'https://empoweringtrust.ul.com'
+        - '*.salesforce.com'
+        - '*.salesforce-sites.com'
+    frame-ancestors:
+      base: self
+      sources:
+        - '*.salesforce-sites.com'
+        - '*.force.com'
+  reporting:
+    plugin: none

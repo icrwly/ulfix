@@ -1,0 +1,6 @@
+{# Image Gallery slide. Loops through "images" array: #}
+{% for item in images %}
+  <div class="swiper-slide">
+    <img class="lazy" data-src="{{ item.image }}" alt="{{ item.image_alt }}">
+  </div>
+{% endfor %}

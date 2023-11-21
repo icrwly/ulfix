@@ -1,0 +1,19 @@
+uuid: d366619b-52fe-4031-a870-d5dacbae4cab
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_ref_description
+    - node.type.person
+id: node.person.field_shared_ref_description
+field_name: field_shared_ref_description
+entity_type: node
+bundle: person
+label: Summary
+description: ''
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

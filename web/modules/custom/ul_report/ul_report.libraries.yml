@@ -1,0 +1,7 @@
+# This is loaded on marketo report view
+ul_report.marketo_report:
+  js:
+    js/marketo_report.js: {}
+  dependencies:
+    - core/drupal
+    - core/jquery

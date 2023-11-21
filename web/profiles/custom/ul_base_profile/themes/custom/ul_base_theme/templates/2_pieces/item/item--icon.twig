@@ -1,0 +1,12 @@
+{% extends "@ul_base_theme/2_pieces/item/item.twig" %}
+{% set class = class ~ ' item--icon' %}
+{% if link %}
+  {% set class = class ~ ' item--block-link' %}
+{% endif %}
+
+{% block content %}
+  {% if icon %}
+    <span class="item__icon icon {{ icon }}"></span>
+  {% endif %}
+  <span class="item__title">{{ name }}</span>
+{% endblock %}

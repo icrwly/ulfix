@@ -1,0 +1,8 @@
+name: UL Reports
+type: module
+description: 'Custom UL Reports'
+package: Custom
+core_version_requirement: ^9 || ^10
+dependencies:
+  - ul_marketo
+  - vde_drush

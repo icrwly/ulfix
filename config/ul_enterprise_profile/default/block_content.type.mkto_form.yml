@@ -1,0 +1,8 @@
+uuid: e8dd945b-e514-453e-a303-bf21b94c0521
+langcode: en
+status: true
+dependencies: {  }
+id: mkto_form
+label: 'Deprecated - Marketo Form'
+revision: 1
+description: 'NOTE: This block type has been deprecated. Please do not use!'

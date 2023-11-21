@@ -1,0 +1,8 @@
+{% if page.sidebar_first %}
+    {% include '@ul_guidelines_theme/page/page--2-columns.twig' %}
+{% elseif page.homepage %}
+    {% include '@ul_guidelines_theme/page/page--homepage.twig' %}
+{% else %}
+    {% include '@ul_guidelines_theme/page/page--1-column.twig' %}
+{% endif %}
+

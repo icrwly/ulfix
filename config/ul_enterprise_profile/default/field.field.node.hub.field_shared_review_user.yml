@@ -1,0 +1,49 @@
+uuid: 47318604-8bb7-4b16-8648-8272bcde38c1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_review_user
+    - node.type.hub
+id: node.hub.field_shared_review_user
+field_name: field_shared_review_user
+entity_type: node
+bundle: hub
+label: Reviewer
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:user'
+  handler_settings:
+    target_bundles: null
+    sort:
+      field: _none
+    auto_create: false
+    filter:
+      type: role
+      role:
+        content_approver: content_approver
+        administrator: '0'
+        content_author: '0'
+        content_editor: '0'
+        content_curator: '0'
+        taxonomist: '0'
+        event_author: '0'
+        news_author: '0'
+        event_approver: '0'
+        news_approver: '0'
+        knowledge_approver: '0'
+        knowledge_author: '0'
+        offerings_approver: '0'
+        offerings_author: '0'
+        resource_approver: '0'
+        resource_author: '0'
+        location_author: '0'
+        location_approver: '0'
+        tool_author: '0'
+        tool_approver: '0'
+    include_anonymous: false
+field_type: entity_reference

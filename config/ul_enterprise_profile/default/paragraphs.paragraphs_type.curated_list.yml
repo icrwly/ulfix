@@ -1,0 +1,10 @@
+uuid: 372d056d-4d56-4355-bfef-678866ca5892
+langcode: en
+status: true
+dependencies: {  }
+id: curated_list
+label: 'Curated List'
+icon_uuid: null
+icon_default: null
+description: 'Note: These are only the required component items of the Curated Related Separate Lists paragraph type. This is not intended to be used outside of that context.'
+behavior_plugins: {  }

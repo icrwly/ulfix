@@ -1,0 +1,29 @@
+uuid: d3a96387-98fb-4382-8f5c-5a7ec6d9c870
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_content_owner
+    - node.type.campaign_page
+    - taxonomy.vocabulary.content_owner
+id: node.campaign_page.field_shared_content_owner
+field_name: field_shared_content_owner
+entity_type: node
+bundle: campaign_page
+label: 'Content Owner'
+description: 'Select the person responsible for the page content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_owner: content_owner
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

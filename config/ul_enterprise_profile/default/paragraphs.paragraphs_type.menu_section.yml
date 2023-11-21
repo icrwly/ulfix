@@ -1,0 +1,10 @@
+uuid: 2e8e0033-ab02-49da-bd35-cfb20ee46ccd
+langcode: en
+status: true
+dependencies: {  }
+id: menu_section
+label: 'Menu Section'
+icon_uuid: null
+icon_default: null
+description: 'Use <em>Menu Section</em> for creating sections in a mega menu.'
+behavior_plugins: {  }

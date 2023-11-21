@@ -1,0 +1,31 @@
+{
+  "title": "Front End Template Directory",
+  "utilityLinks": [
+      {
+        "name": "Grid Structure",
+        "link": "/_grid.html"
+      },
+      {
+        "name": "Base Style Guide",
+        "link": "/_styleguide.html"
+      }
+  ],
+  "layoutLinks": [
+    {
+      "name": "T01 - Homepage",
+      "link": "t01-homepage.html"
+    },
+    {
+      "name": "T02 - Landing Page with Siderail",
+      "link": "t02-landing-page-with-siderail.html"
+    },
+    {
+      "name": "T03 - Basic Page with Siderail",
+      "link": "t03-basic-page-with-siderail.html"
+    },
+    {
+      "name": "T03 - Offering with Siderail",
+      "link": "t03-offering-with-siderail.html"
+    }
+  ]
+}

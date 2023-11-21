@@ -1,0 +1,42 @@
+<?php
+
+/**
+ * @file
+ * Install, update and uninstall functions for the cm_workbench module.
+ */
+
+/**
+ * AB#256960: shimadzu "Workbench: My content".
+ *
+ * Change the translation of locales_target for 12836.
+ */
+function cm_workbench_update_9001() {
+  $result = t("No update!");
+
+  $connection = \Drupal::database();
+  $table = 'locales_target';
+  if (!$connection->schema()->tableExists($table)) {
+    return $result;
+  }
+
+  $host = \Drupal::request()->getHost();
+  $host = isset($host) ? $host : "#";
+  $result = t("No update for the site :@host.", [$host]);
+  if (stristr($host, 'shimadzu') || stristr($host, 'ulplatform.docksal.site')) {
+    $num_updated = $connection->update($table)
+      ->fields([
+        'translation' => 'My Edits',
+      ])
+      ->condition('lid', '12836', '=')
+      ->condition('language', 'ja', '=')
+      ->execute();
+
+    if ($num_updated > 0) {
+      $result = t("Update for shimadzu site: 'Workbench: My content' to 'My Edits'");
+    }
+    else {
+      $result = t('No update on the locales_target table.');
+    }
+  }
+  return $result;
+}

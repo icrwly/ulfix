@@ -1,0 +1,21 @@
+uuid: 96323fb2-c0d9-4e79-a007-10eb43f0f85f
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_hub_featured_description
+    - node.type.hub
+  module:
+    - text
+id: node.hub.field_hub_featured_description
+field_name: field_hub_featured_description
+entity_type: node
+bundle: hub
+label: 'Description - deprecated'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

@@ -1,0 +1,23 @@
+uuid: 6cccea01-0ede-432a-8368-38af7a80c2e1
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_spotlight_link
+    - paragraphs.paragraphs_type.video
+  module:
+    - link
+id: paragraph.video.field_spotlight_link
+field_name: field_spotlight_link
+entity_type: paragraph
+bundle: video
+label: 'Video CTA Link'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  title: 1
+  link_type: 17
+field_type: link

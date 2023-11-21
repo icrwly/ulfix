@@ -1,0 +1,6 @@
+services:
+  ul_duplicate_aliases.remove:
+    class: Drupal\ul_duplicate_aliases\Commands\UlDuplicateAliases
+    tags:
+      - { name: drush.command }
+    arguments: ['@database']

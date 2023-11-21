@@ -1,0 +1,18 @@
+uuid: 0d3e7d8b-fdfc-407a-8165-7accee1455d2
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.file
+id: media.file.metatag
+field_name: metatag
+entity_type: media
+bundle: file
+label: Metatags
+description: 'The meta tags for the entity.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: map

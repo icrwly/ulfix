@@ -1,0 +1,61 @@
+.section--studio {
+	padding: $spacing-unit--l 0;
+
+	@include breakpoint($tablet) {
+		padding: $spacing-unit--xl 0;
+	}
+
+	h2 {
+		// @include font-size(24, 30);
+		margin: 0 0 $spacing-unit--l;
+	}
+
+	.content-container {
+		@include breakpoint($large-tablet) {
+			white-space: nowrap;
+		}
+	}
+
+	.list-container,
+	.image-container {
+		@include breakpoint($large-tablet) {
+			display: inline-block;
+			vertical-align: top;
+			white-space: normal;
+		}
+	}
+
+	.list-container {
+		margin-bottom: 40px;
+
+		@include breakpoint($large-tablet) {
+			margin-bottom: 0;
+			margin-right: 5%;
+			width: 60%;
+		}
+
+		@include breakpoint($desktop) {
+			margin-right: 22%;
+			width: 45%;
+		}
+	}
+
+	.image-container {
+		margin: 0 0 20px;
+		max-width: 309px;
+
+		img {
+			height: auto;
+			width: 100%;
+		}
+
+		@include breakpoint($large-tablet) {
+			margin-bottom: 0;
+			width: 35%;
+		}
+
+		@include breakpoint($desktop) {
+			width: 33%;
+		}
+	}
+}

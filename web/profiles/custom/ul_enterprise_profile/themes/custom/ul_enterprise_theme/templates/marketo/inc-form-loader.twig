@@ -1,0 +1,214 @@
+{#
+ /**
+  * @file: inc-form-loader.twig
+  * @usage: This file loads Marketo form via Marketo JS API.
+  *
+  * Note: Form remains hidden until fully loaded.
+  * Note: Un-hiding the form handled by marketo-countries.js.
+  */
+#}
+{# Add default Page Title: #}
+{% if not marketo.node_title %}
+  {% set marketo = marketo|merge({ 'node_title': 'General Contact'|t }) %}
+{% endif %}
+
+{% block markto_wrap %}
+  {# Add the progress loading indicator. #}
+  {% include '@ul_enterprise_theme/marketo/inc-progress-bar.html.twig' %}
+
+  {# If the form type is "configurable": #}
+  {% if marketo.configurable %}
+    {% include '@ul_enterprise_theme/marketo/inc-customizable-fields.html.twig' %}
+  {% endif %}
+
+  {# If there is a Thank You Message or this is a Marketo Modal. #}
+  {# But they do not want to use a Custom Thank You page. #}
+  {% if marketo.is_modal == TRUE and marketo.custom_thank_you_url is not defined %}
+    <script id="modal-success">const use_post_submit_mssg = true;</script>
+  {% else %}
+    <script id="modal-success">const use_post_submit_mssg = false;</script>
+  {% endif %}
+
+  {# Add the form element. #}
+  <form id="mktoForm_{{ marketo.form_id }}" class="activeForm">
+    <div class="recapWrap">
+      <div id="mkto_recaptcha" class="g-recaptcha" data-sitekey="{{ marketo.recaptcha_site_key }}"></div>
+      <input type="hidden" class="hiddenRecaptcha required" name="hiddenRecaptcha" id="hiddenRecaptcha" value="">
+    </div>
+  </form>
+
+  {# The JS for all forms (except gated content). #}
+  <script id="form-loader">
+    let mktoForm;
+    (function ($, drplMkto) {
+      // Load the Marketo form.
+      MktoForms2.loadForm("{{ marketo.base_url }}", "{{ marketo.munchkin_code }}", {{ marketo.form_id }}, function(form){
+        mktoForm = form;
+        form.submittable(false);
+        $('#mktoForm_{{ marketo.form_id }}').addClass('formLoading');
+        // When the form is rendered:
+        MktoForms2.whenRendered(function(form) {
+          // If Horizontal:
+          if(drplMkto.is_horizontal){
+            if($('#uLServiceSegment').length){
+              $('#uLServiceSegment option[value="Other"]').each(function(){
+                $(this).remove();
+              });
+              if(drplMkto.is_horizontal_soft) {
+                $("#uLServiceSegment option[value*='Software']").prop("selected", true);
+                $('#uLServiceSegment').trigger("change");
+                const e = new Event("change");
+                const element = document.querySelector('#uLServiceSegment');
+                element.dispatchEvent(e);
+              }
+            }
+            if($('#uLCatalogIndustry').length){
+              $('#uLCatalogIndustry option[value="Other"]').each(function(){
+                $(this).remove();
+              });
+            }
+          }
+          // Else, there is Last Interest.
+          else {
+            if($('#uLServiceSegment').length){
+              $('#uLServiceSegment').closest('.mktoFormRow').addClass('hidden');
+              $('#uLServiceSegment').val('Other');
+            }
+            if($('#uLCatalogIndustry').length){
+              $('#uLCatalogIndustry').closest('.mktoFormRow').addClass('hidden');
+              $('#uLCatalogIndustry').val('Other');
+            }
+          }
+          // Button text.
+          if(drplMkto.button_text){
+            $('.mktoButton').text(drplMkto.button_text);
+          }
+        });
+
+        // When the form is ready:
+        MktoForms2.whenReady(function(form) {
+          // In L2O R3 users may go through the landing page to get to the
+          // generic form, losing the referrer in the process. We need to
+          // get the referrer from the query string if it is provided. If
+          // there is a referrer param for the sales-inquiries page we'll
+          // remove it from the pageUrl for readability.
+          var contactUsReferrer;
+          var pageUrl = window.location.href;
+          var params = [];
+
+          if (drupalSettings.path.currentPath == 'sales-inquiries'
+            && drupalSettings.path.currentQuery != undefined
+            && drupalSettings.path.currentQuery.referrer != undefined
+          ) {
+            contactUsReferrer = drupalSettings.path.currentQuery.referrer;
+
+            // Remove referrer param from pageUrl.
+            var parts = pageUrl.split('?');
+            if (parts.length > 1) {
+              params = parts[1].split('&');
+            }
+            // rebuild pageUrl withour referrer param.
+            pageUrl = parts[0];
+            var pCount = 0;
+            for (var i = 0; i < params.length; i++) {
+              if (params[i].substr(0,9) != 'referrer=') {
+                if (pCount < 1) {
+                  pageUrl += '?' + params[i];
+                }
+                else {
+                  pageUrl += '&' + params[i];
+                }
+                pCount++;
+              }
+            }
+          }
+
+          // Set form values.
+          form.vals({
+            "formButtonText": drplMkto.button_text,
+            "formDescription": drplMkto.form_description,
+            "formLanguage": drplMkto.form_language,
+            "formTitle": drplMkto.form_title,
+            "lastInterest": drplMkto.last_interest,
+            "pageCampaignAttribution": drplMkto.mkto_campaign,
+            "pageNodeID": drplMkto.node_nid,
+            "pageTitle": drplMkto.node_title,
+            "pageURL": pageUrl,
+            "pageURLReferral": contactUsReferrer != undefined ? contactUsReferrer: document.referrer,
+            "pageUUID": drplMkto.node_uuid,
+            "websiteName": drplMkto.site_name,
+          });
+          // If there is a newsletter:
+          if(drplMkto.newsletter_item){
+            form.vals({
+              "oPSNewsletterName": drplMkto.newsletter_item,
+            });
+          }
+        });
+
+        // Validation callback; only for non-configurable forms.
+        form.onValidate(function(builtInValidation) {
+          if (!builtInValidation){
+            return;
+          }
+          var recaptchaResponse = grecaptcha.getResponse( $('#mkto_recaptcha').attr('data-widget-id') );
+          if (!recaptchaResponse) {
+            $('#reCaptcha_' + '{{ marketo.form_id }}').addClass('mktoInvalid');
+            $('.recapWrap iframe').css('border', 'solid 1px red');
+            form.submittable(false);
+          } else {
+            $('#reCaptcha_' + '{{ marketo.form_id }}').removeClass('mktoInvalid');
+            $('.recapWrap iframe').css('border', 'none');
+            form.vals({
+              hiddenRecaptcha: recaptchaResponse
+            });
+            if(drplMkto.configurable){
+              if(jQvalidate.form()){
+                form.submittable(true);
+              }
+            }
+            else {
+              form.submittable(true);
+            }
+          }
+        });
+
+        // Success callback.
+        form.onSuccess(function(values, followUpUrl){
+
+          // Track analytics.
+          if (typeof dataLayer !== 'undefined'){
+            dataLayer.push({
+              event: drplMkto.dataLayerEvent,
+              mktoFormId: form.getId(),
+              'FormValues': cleanFormVals(form.getValues()),
+              'FormFields': form.allFieldsFilled(),
+              'Submittable': form.submittable()
+            });
+          }
+          // If function exists, delete UTM cookie:
+          if(typeof _deleteUtmCookie === "function"){
+            _deleteUtmCookie();
+          }
+          // Marketo Modal "Thank You" message:
+          if(use_post_submit_mssg){
+            $('html, body').animate({ scrollTop: 0 }, 'slow');
+            $('.mkto-presubmit').addClass('hidden');
+            $('.mktoModalContent').addClass('mkto_thnx_center');
+            $('.mktoModalMask').addClass('not_clicable');
+            $('.mkto-postsubmit').removeClass('hidden');
+            $('.mktoButton').removeAttr('disabled').text(drupalSettings.marketo.button_text);
+            $('.mktoForm')[0].reset();
+            grecaptcha.reset();
+          }
+          // Else, redirect user:
+          else {
+            window.location.href = drplMkto.success_url;
+          }
+          // IMPORTANT: Return false to prevent further code execution.
+          return false;
+        });
+      });
+    })(jQuery, drupalSettings.marketo);
+  </script>
+{% endblock markto_wrap %}

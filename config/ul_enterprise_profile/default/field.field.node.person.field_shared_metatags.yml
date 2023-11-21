@@ -1,0 +1,25 @@
+uuid: f45cc1db-fb22-405e-a5cc-c4311ad20cb9
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_metatags
+    - node.type.person
+  module:
+    - metatag
+    - tmgmt_content
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.person.field_shared_metatags
+field_name: field_shared_metatags
+entity_type: node
+bundle: person
+label: 'Meta Tags'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: metatag

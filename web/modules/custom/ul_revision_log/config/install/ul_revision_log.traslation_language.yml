@@ -1,0 +1,156 @@
+en:
+  en: English
+  fr: French
+  fr-ca: French Canadian
+  de: German
+  it: Italian
+  ja: Japanese
+  ko: Korean
+  pt-br: Portuguese, Brazil
+  zh-hans: 'Simplified Chinese'
+  es: Spanish
+  zh-hant: 'Traditional Chinese'
+  vi: Vietnamese
+es:
+  de: Alemán
+  zh-hans: 'Chino simplificado'
+  zh-hant: 'Chino tradicional'
+  ko: Coreano
+  es: Español
+  fr: Francés
+  fr-ca: Francés canadiense
+  en: Inglés
+  it: Italiano
+  ja: Japonés
+  pt-br: Portugués, Brasil
+  vi: Vietnamita
+fr:
+  de: Allemand
+  en: Anglais
+  zh-hans: 'Chinois simplifié'
+  zh-hant: 'Chinois traditionnel'
+  ko: Coréen
+  es: Espanol
+  fr: Français
+  fr-ca: français canadien
+  it: Italien
+  ja: Japonais
+  pt-br: Portugais, Brésil
+  vi: Vietnamien
+fr-ca:
+  de: Allemand
+  en: Anglais
+  zh-hans: 'Chinois simplifié'
+  zh-hant: 'Chinois traditionnel'
+  ko: Coréen
+  es: Espanol
+  fr: Français
+  fr-ca: français canadien
+  it: Italien
+  ja: Japonais
+  pt-br: Portugais, Brésil
+  vi: Vietnamien
+de:
+  de: Deutsch
+  en: Englisch
+  fr: Französisch
+  fr-ca: Franko Kanadier
+  it: Italienisch
+  ja: Japanisch
+  ko: Koreanisch
+  pt-br: Portugiesisch (Brasilien)
+  es: Spanisch
+  zh-hant: 'Traditionelles Chinesisch'
+  zh-hans: 'Vereinfachtes Chinesisch'
+  vi: Vietnamesisch
+it:
+  zh-hans: 'Cinese semplificato'
+  zh-hant: 'Cinese tradizionale'
+  ko: Coreano
+  fr: Francese
+  fr-ca: Canadese francese
+  ja: Giapponese
+  en: Inglese
+  it: Italiano
+  pt-br: Portoghese, Brasile
+  es: Spagnolo
+  de: Tedesco
+  vi: Vietnamita
+ja:
+  it: イタリア語
+  es: スペイン語
+  de: ドイツ語
+  fr: フランス語
+  fr-ca: フランス系カナダ人
+  pt-br: ポルトガル語、ブラジル語
+  ja: 日本語
+  zh-hans: 簡体字中国語
+  zh-hant: 繁体字中国語
+  en: 英語
+  ko: 韓国語
+  vi: 越南语
+ko:
+  de: 독일어
+  es: 스페인어
+  en: 영어
+  it: 이탈리아어
+  ja: 일본어
+  zh-hans: '중국어 간체'
+  zh-hant: '중국어 번체'
+  pt-br: 포르투갈어, 브라질
+  fr: 프랑스어
+  fr-ca: 프랑스계 캐나다인
+  ko: 한국어
+  vi: 베트남어
+pt-br:
+  de: Alemão
+  zh-hans: 'Chinês simplificado'
+  zh-hant: 'Chinês tradicional'
+  ko: Coreano
+  es: Espanhol
+  fr: Francês
+  fr-ca: Franco-canadense
+  en: Inglês
+  it: Italiano
+  ja: Japonês
+  pt-br: Português, Brasil
+  vi: Vietnamita
+zh-hans:
+  de: 德语
+  it: 意大利语
+  ja: 日语
+  fr: 法语
+  fr-ca: 加拿大法语
+  zh-hans: 简体中文
+  zh-hant: 繁体中文
+  en: 英语
+  pt-br: 葡萄牙语、巴西
+  es: 西班牙语
+  ko: 韩语
+  vi: 越南语
+zh-hant:
+  de: 德語
+  ja: 日語
+  fr: 法語
+  fr-ca: 加拿大法語
+  zh-hans: 簡體中文
+  zh-hant: 繁體中文
+  it: 義大利語
+  en: 英語
+  pt-br: 葡萄牙語、巴西
+  es: 西班牙語
+  ko: 韓語
+  vi: 越南語
+vi:
+  de: tiếng Đức
+  ja: tiếng Nhật
+  fr: người Pháp
+  fr-ca: Người Canada gốc Pháp
+  zh-hans: Tiếng Trung giản thể
+  zh-hant: truyền thống Trung Quốc
+  it: người Ý
+  en: Tiếng Anh
+  pt-br: Bồ Đào Nha, Brazil
+  es: người Tây Ban Nha
+  ko: Hàn Quốc
+  vi: Tiếng Việt

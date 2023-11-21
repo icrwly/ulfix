@@ -1,0 +1,27 @@
+.section.section--file-list {
+  background-color: transparent;
+  margin: 0 auto;
+  @include breakpoint($desktop) {
+    max-width: 100%;
+  }
+  &.section--bgcolor-black,
+  &.section--bgcolor-red {
+    .title-bar__description,
+    .item--file .item__title {
+      color: $white;
+    }
+  }
+  &.section--paragraph {
+    .paragraph-gutter .title-bar {
+      margin-bottom: $spacing-unit;
+      padding-bottom: $spacing-unit--s;
+    }
+  }
+  &.resources-files {
+    max-width: $large-desktop;
+    @include breakpoint(1260px) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+  }
+}

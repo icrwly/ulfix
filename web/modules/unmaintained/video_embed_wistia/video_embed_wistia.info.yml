@@ -1,0 +1,7 @@
+name: Video Embed Wistia
+type: module
+description: Provides Wistia handler for Video Embed Fields.
+core_version_requirement: ^9 || ^10
+package: Video Embed Field
+dependencies:
+  - video_embed_field:video_embed_field

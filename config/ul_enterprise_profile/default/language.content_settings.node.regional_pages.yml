@@ -1,0 +1,18 @@
+uuid: b1580b61-1bdc-4c0c-ad37-b4957d62d712
+langcode: de
+status: true
+dependencies:
+  config:
+    - node.type.regional_pages
+  module:
+    - content_translation
+third_party_settings:
+  content_translation:
+    enabled: true
+    bundle_settings:
+      untranslatable_fields_hide: '1'
+id: node.regional_pages
+target_entity_type_id: node
+target_bundle: regional_pages
+default_langcode: site_default
+language_alterable: true

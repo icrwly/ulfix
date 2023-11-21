@@ -1,0 +1,18 @@
+uuid: ee42233a-1e6a-405c-bfa9-799b233f1655
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.knowledge
+id: node.knowledge.publish_on
+field_name: publish_on
+entity_type: node
+bundle: knowledge
+label: 'Publish on'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: timestamp

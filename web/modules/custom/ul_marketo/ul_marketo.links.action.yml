@@ -1,0 +1,18 @@
+entity.marketo_form_type.add_form:
+  route_name: entity.marketo_form_type.add_form
+  title: 'Add Marketo Form type'
+  appears_on:
+    - entity.marketo_form_type.collection
+
+# Add a link on the page of Admin Marketo Form Type.
+entity.marketo_form.canonical:
+  route_name: entity.marketo_form.canonical
+  title: 'Manage Default Marketo Forms'
+  appears_on:
+    - entity.marketo_form_type.collection
+
+entity.marketo_form.collection:
+  route_name: entity.marketo_form.collection
+  title: 'Manage Default Marketo Forms'
+  appears_on:
+    - entity.marketo_form_type.collection

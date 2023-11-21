@@ -1,0 +1,19 @@
+<?php
+
+/**
+ * @file
+ * Hook for adding Zendesk block to Guidelines.
+ */
+
+/**
+ * Implements hook_theme().
+ */
+function ul_guidelines_zendesk_theme() {
+  $array = [
+    "ul_guidelines_zendesk_block" => [
+      "variables" => ["zendesk_url" => NULL],
+      "template" => "block--zendesk",
+    ],
+  ];
+  return $array;
+}

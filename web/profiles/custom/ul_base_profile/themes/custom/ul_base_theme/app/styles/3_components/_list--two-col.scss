@@ -1,0 +1,19 @@
+.list--two-col {
+  @include list-unordered;
+
+  &:not(.list--two-col--flexible) {
+    @include breakpoint($large-mobile) {
+      column-count: 2;
+      column-gap: $spacing-unit;
+    }
+  }
+
+  &--flexible {
+    &.is-two-col {
+      @include breakpoint($large-mobile) {
+        column-count: 2;
+        column-gap: $spacing-unit;
+      }
+    }
+  }
+}

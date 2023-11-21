@@ -1,0 +1,31 @@
+uuid: ced3cef6-c6b5-4694-9a97-c4b01e9feea7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_domain
+    - node.type.hub
+    - taxonomy.vocabulary.content_domain
+_core:
+  default_config_hash: hP3G48HaYAFavKDN2c-1I9JijTMWhsv7PdCS2KsTw0k
+id: node.hub.field_shared_domain
+field_name: field_shared_domain
+entity_type: node
+bundle: hub
+label: 'Content Domain'
+description: 'The content domain related to this experience hub.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_domain: content_domain
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

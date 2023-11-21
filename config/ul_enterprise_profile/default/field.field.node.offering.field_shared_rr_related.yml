@@ -1,0 +1,131 @@
+uuid: 3de12523-babc-4d5e-b441-a240c0bb64ff
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_rr_related
+    - node.type.offering
+    - paragraphs.paragraphs_type.right_rail_external_links
+    - paragraphs.paragraphs_type.right_rail_plain_content
+    - paragraphs.paragraphs_type.sidebar_curated_related
+  module:
+    - entity_reference_revisions
+id: node.offering.field_shared_rr_related
+field_name: field_shared_rr_related
+entity_type: node
+bundle: offering
+label: 'Right Rail Content'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:paragraph'
+  handler_settings:
+    target_bundles:
+      sidebar_curated_related: sidebar_curated_related
+      right_rail_external_links: right_rail_external_links
+      right_rail_plain_content: right_rail_plain_content
+    negate: 0
+    target_bundles_drag_drop:
+      accordion:
+        weight: -67
+        enabled: false
+      accordion_items:
+        weight: -66
+        enabled: false
+      basic_content:
+        weight: -65
+        enabled: false
+      call_to_action:
+        weight: -64
+        enabled: false
+      captioned_image:
+        weight: -63
+        enabled: false
+      crc_files:
+        weight: -62
+        enabled: false
+      curated_list:
+        weight: -57
+        enabled: false
+      curated_separate_list:
+        weight: -55
+        enabled: false
+      descript_link:
+        weight: -61
+        enabled: false
+      files:
+        weight: -60
+        enabled: false
+      hero:
+        weight: -59
+        enabled: false
+      image_gallery:
+        weight: -58
+        enabled: false
+      image_row:
+        weight: -56
+        enabled: false
+      interrupter_cta:
+        weight: -54
+        enabled: false
+      list_item:
+        weight: -53
+        enabled: false
+      list_item_plain_text:
+        weight: -40
+        enabled: false
+      location:
+        weight: -52
+        enabled: false
+      marketo_form:
+        weight: -51
+        enabled: false
+      menu_section:
+        weight: -50
+        enabled: false
+      people:
+        weight: -49
+        enabled: false
+      quote:
+        weight: -48
+        enabled: false
+      reference:
+        weight: -47
+        enabled: false
+      related_content:
+        weight: -46
+        enabled: false
+      right_rail_external_links:
+        weight: -44
+        enabled: true
+      right_rail_plain_content:
+        weight: -43
+        enabled: true
+      right_rail_plain_text_list:
+        weight: -35
+        enabled: false
+      sidebar_curated_related:
+        weight: -45
+        enabled: true
+      simple_menu:
+        weight: -42
+        enabled: false
+      single_related_content:
+        weight: -41
+        enabled: false
+      slide:
+        weight: -39
+        enabled: false
+      spotlight:
+        weight: -38
+        enabled: false
+      video:
+        weight: -37
+        enabled: false
+      view:
+        weight: -36
+        enabled: false
+field_type: entity_reference_revisions

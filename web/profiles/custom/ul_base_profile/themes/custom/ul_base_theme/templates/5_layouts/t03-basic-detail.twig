@@ -1,0 +1,61 @@
+{% extends '@ul_base_theme/1_core/1-column.twig' %}
+{% set mainClass = 'wrapper max-width--large-desktop ' ~ mainClass %}
+
+{% block page %}
+  {% block title %}
+    {% if t03Title %}
+      {% include '@ul_base_theme/4_regions/section--title.twig' with t03Title only %}
+    {% endif %}
+  {% endblock %}
+
+  {% set wysiwyg_content %}
+    {% block content %}
+      {% if gated %}
+        {% include '@ul_base_theme/1_core/wysiwyg-sample--short.twig' %}
+      {% else %}
+        {% include '@ul_base_theme/1_core/wysiwyg-sample--long.twig' %}
+      {% endif %}
+    {% endblock %}
+  {% endset %}
+
+  {% block body %}
+    {% embed '@ul_base_theme/4_regions/section--wysiwyg.twig' with { wysiwyg_content: wysiwyg_content } %}
+      {% block content %}
+        <div class="editor-content">
+          {{ wysiwyg_content }}
+        </div>
+      {% endblock %}
+    {% endembed %}
+  {% endblock %}
+
+  {% block gate %}
+    {% if gated %}
+      {% include '@ul_base_theme/4_regions/section--gate.twig' %}
+    {% endif %}
+  {% endblock %}
+
+  {% block meta %}
+    {% if not gated %}
+      {% block published %}
+        {% if t03Published %}
+          {% include '@ul_base_theme/4_regions/section--published.twig' with t03Published only %}
+        {% endif %}
+      {% endblock %}
+      {% block tags %}
+        {% if t03Tags %}
+          {% include '@ul_base_theme/4_regions/section--tags.twig' with { tags:t03Tags } only %}
+        {% endif %}
+      {% endblock %}
+      {% block references %}
+        {% if t03References %}
+          {% include '@ul_base_theme/4_regions/section--references.twig' with t03References only %}
+        {% endif %}
+      {% endblock %}
+      {% block author %}
+        {% if t03Author %}
+          {% include '@ul_base_theme/4_regions/section--author.twig' with t03Author only %}
+        {% endif %}
+      {% endblock %}
+    {% endif %}
+  {% endblock %}
+{% endblock %}

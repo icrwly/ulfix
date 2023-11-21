@@ -1,0 +1,26 @@
+uuid: a9195d76-7020-4684-8f9e-a295b97cb061
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.user.field_ul_id
+  module:
+    - user
+_core:
+  default_config_hash: u4xQix6c17SjSKgP3rHBx229Vt1uEGY_W_50IWFX6N8
+id: user.user.field_ul_id
+field_name: field_ul_id
+entity_type: user
+bundle: user
+label: 'UL ID'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  min: null
+  max: null
+  prefix: ''
+  suffix: ''
+field_type: integer

@@ -1,0 +1,33 @@
+.listing-item.listing-item--studio {
+	border-radius: 4px;
+	box-shadow: 0 1px 6px 0 rgba(0, 0, 0, 0.15);
+	display: block;
+	padding: 20px 29px 16px 21px;
+
+	a {
+		display: block;
+		margin-bottom: $spacing-unit/2;
+		width: 100%;
+
+		&:hover {
+			&::after {
+				color: $blueDark;
+			}
+		}
+
+		h3 {
+			@include font-size(16, 20);
+			color: $blueDark;
+			font-weight: 700;
+			margin: 0;
+		}
+	}
+
+	p {
+		&:not(.listing-item__label) {
+			color: $blueDark;
+			display: block;
+			padding: 0;
+		}
+	}
+}

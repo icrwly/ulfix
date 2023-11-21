@@ -1,0 +1,114 @@
+$carousel-button-size: 50px;
+
+.hero--news {
+
+  .carousel {
+    @include breakpoint($large-desktop) {
+      display: flex;
+    }
+  }
+
+  .carousel-container {
+    @include breakpoint($large-desktop) {
+      flex-basis: percentage(8/12);
+      max-width: percentage(8/12);
+    }
+
+    .swiper-container {
+      height: 100%;
+      max-width: 100%;
+    }
+
+    .swiper-navigation {
+      .swiper-button-prev {
+        #{$start-direction}: 0;
+        transform: translateY(-50%) scale($transform-direction);
+      }
+      .swiper-button-next {
+        #{$end-direction}: 0;
+        transform: translateY(-50%) scale($transform-direction);
+      }
+    }
+  }
+
+  .content-container {
+    position: relative;
+
+    @include breakpoint($large-desktop) {
+      display: block;
+      background-color: $white;
+      flex-basis: percentage(4/12);
+      max-width: percentage(4/12);
+    }
+  }
+
+  .hero__aside {
+    display: none;
+
+    @include breakpoint($desktop) {
+      display: flex;
+    }
+
+    @include breakpoint($large-desktop) {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+  }
+
+  .swiper-pagination {
+    bottom: $spacing-unit !important;
+
+    .swiper-pagination-bullet {
+      background: $white;
+      height: 15px;
+      margin: 0 8px !important;
+      opacity: .5;
+      width: 15px;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: $white;
+      opacity: 1;
+    }
+  }
+
+  .swiper-navigation {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+
+    .swiper-button {
+      background-color: $white;
+      background-image: none;
+      bottom:0;
+      font-size: 1rem;
+      height: $carousel-button-size;
+      line-height: 1;
+      margin: 0;
+      opacity: .5;
+      top:initial;
+      transform: translateY(0) scale($transform-direction) !important;
+      transition: all $transition;
+      width: $carousel-button-size;
+      &:hover {
+        opacity: 1;
+      }
+      @include breakpoint($tablet){
+        bottom:initial;
+        top:50%;
+        transform: translateY(-50%) scale($transform-direction);
+      }
+
+      .swiper-icon {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+  }
+}

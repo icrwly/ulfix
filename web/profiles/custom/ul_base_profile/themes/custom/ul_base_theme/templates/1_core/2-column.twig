@@ -1,0 +1,15 @@
+{# 2-column.twig #}
+<div class="main-container">
+  {% block before_content %}{% endblock %}
+  <main id="main-content" class="wrapper {{ mainClass }}">
+    {% block content_top %}{% endblock %}
+    <div class="column-wrapper {{ columnClass }}">
+      <div class="column main-column">
+        {% block page %}{% endblock %}
+      </div>
+      <div class="column side-column">
+        {% block aside %}{% endblock %}
+      </div>
+    </div>
+  </main>
+</div>

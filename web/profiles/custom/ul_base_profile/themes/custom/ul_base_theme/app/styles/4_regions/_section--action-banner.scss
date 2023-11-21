@@ -1,0 +1,288 @@
+.section.section--action-banner {
+  background-color: $red; // Default to red
+  color: $white;
+  padding: $spacing-unit--l;
+  // always spans 100% of container
+  max-width: none !important;
+
+  @include breakpoint(max-width $large-tablet - 1) {
+    text-align: center;
+  }
+
+  @include breakpoint($tablet) {
+    padding: $spacing-unit--xl;
+  }
+
+  @include breakpoint($desktop) {
+    padding-left: $spacing-unit--xxl;
+    padding-right: $spacing-unit--xxl;
+  }
+
+  &.is-inset {
+    box-shadow: $box-shadow--level-3;
+    max-width: calc(1400px - #{$spacing-unit--l * 2}) !important;
+    position: relative;
+    z-index: index($globalIndex, block);
+    @include breakpoint($desktop) {
+      margin-bottom: $spacing-unit--l;
+      margin-top: -$spacing-unit * 1.5;
+    }
+    @include breakpoint($desktop 1399px) {
+      margin-left: $spacing-unit--l;
+      margin-right: $spacing-unit--l;
+    }
+  }
+
+  .main-container & {
+    /*
+    margin-bottom: $spacing-unit--xl;
+    margin-top: $spacing-unit--xl;
+    @include breakpoint($desktop) {
+      margin-bottom: $spacing-unit--xxl;
+      margin-top: $spacing-unit--xxl;
+    }
+    */
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  .mega-menu & {
+    padding: $spacing-unit * 1.5;
+  }
+
+  .section__inner {
+    .mega-menu & {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+    .span-auto {
+      max-width: 100%;
+      width: 100%;
+      @include breakpoint($large-desktop) {
+        width: 50%;
+      }
+
+      .main-container & {
+        @include breakpoint($large-desktop) {
+          flex-basis: 100%;
+          width: 100%;
+        }
+      }
+    }
+
+    .span-12 {
+      &:not(.span-6-lt) {
+        @include breakpoint($large-desktop) {
+          .section__description {
+            margin-bottom: 0;
+          }
+          .section__buttons {
+            padding-top: 30px;
+            .button {
+              display: inline-block;
+            }
+          }
+        }
+      }
+    }
+
+    // Note: hardcoded to large-tablet, be sure to update if breakpoint changes
+    .span-6-lt {
+      + .span-6-lt {
+        position: relative;
+        @include breakpoint(max-width $large-tablet - 1) {
+          margin-top: $spacing-unit--xl;
+          padding-top: $spacing-unit--xl;
+        }
+
+        &:before {
+          content: '';
+          display: block;
+          opacity: .5;
+          @include breakpoint(max-width $large-tablet - 1) {
+            border-top: 1px solid $white;
+            left: 50%;
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            width: calc(100% - #{$spacing-unit--l/2});
+          }
+          @include breakpoint($large-tablet) {
+            border-left: 1px solid $white;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+          }
+        }
+
+        .mega-menu & {
+          margin-top: $spacing-unit * 1.5;
+          padding-top: $spacing-unit * 1.5;
+
+          &:before {
+            border-left: none;
+            border-top: 1px solid $white;
+            height: auto;
+            left: 50%;
+            position: absolute;
+            top: 0;
+            transform: translateX(-50%);
+            width: calc(100% - #{$spacing-unit--l * 2});
+          }
+        }
+      }
+
+      .mega-menu & {
+        flex-basis: 100%;
+        max-width: 100%;
+        width: 100%;
+      }
+
+      .button {
+        @include breakpoint($large-tablet) {
+          display: block;
+          margin-top: 30px;
+          max-width: 250px;
+        }
+        @include breakpoint($desktop) {
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .section__content {
+    @include breakpoint(max-width $large-tablet - 1) {
+      justify-content: center;
+    }
+
+    .mega-menu & {
+      // Override gutter-l in mega-menu
+      margin-left: -$grid-gutter;
+      margin-right: -$grid-gutter;
+      [class*='span-'] {
+        padding-right: $grid-gutter;
+        padding-left: $grid-gutter;
+      }
+    }
+  }
+
+  .section__header {
+    .mega-menu & {
+      flex-basis: percentage(8/12);
+      width: percentage(8/12);
+    }
+  }
+
+  .section__buttons {
+    @include breakpoint($desktop) {
+      display: flex;
+      flex-direction: column;
+      flex-wrap: wrap;
+      justify-content: right;
+      .main-container & {
+        align-items: flex-start;
+      }
+    }
+
+    .mega-menu & {
+      flex-basis: percentage(4/12);
+      width: percentage(4/12);
+    }
+
+    .inner-container {
+      margin-bottom: -$spacing-unit;
+      margin-left: -$spacing-unit/2;
+      margin-right: -$spacing-unit/2;
+      @include breakpoint($large-desktop) {
+        justify-content: flex-end;
+        display: flex;
+        flex-wrap: wrap;
+      }
+      .main-container & {
+        display: block;
+      }
+    }
+
+    .button {
+      margin: 0 $spacing-unit/2 $spacing-unit;
+      padding-left: $spacing-unit--l;
+      padding-right: $spacing-unit--l;
+      @include breakpoint(max-width $large-mobile - 1) {
+        display: block;
+      }
+
+      .mega-menu & {
+        display: block;
+        font-size: 1.2rem;
+        min-width: 0;
+        padding: $spacing-unit--s;
+        width: 100%;
+      }
+    }
+  }
+
+  .section__title {
+    @include font-smoothing;
+    font-size: 1.4rem;
+    font-weight: 600;
+    letter-spacing: .1em;
+    margin-bottom: $spacing-unit--s;
+    text-transform: uppercase;
+
+    .main-container & {
+      font-size: 2.8rem;
+      font-weight: 300;
+      letter-spacing: normal;
+      margin-bottom: $spacing-unit * 1.5;
+      text-transform: none;
+      @include breakpoint($tablet) {
+        font-size: 3.6rem;
+      }
+    }
+
+    .mega-menu & {
+      font-size: 1.8rem;
+      font-weight: 600;
+      letter-spacing: normal;
+      text-transform: none;
+    }
+  }
+
+  .section__description {
+    font-size: 2.4rem;
+    font-weight: 300;
+    @include breakpoint(max-width $desktop - 1) {
+      margin-bottom: $spacing-unit * 1.5;
+    }
+
+    .main-container & {
+      font-size: 1.8rem;
+      font-weight: 400;
+      margin-bottom: $spacing-unit * 2 !important;
+    }
+
+    .mega-menu & {
+      font-size: 1.4rem;
+      letter-spacing: .025rem;
+    }
+  }
+
+  .span-auto {
+    @include breakpoint($desktop) {
+      flex-basis: inherit;
+    }
+  }
+  .wrapper {
+    padding-left: 0;
+  }
+}
+
+/* interrupter CTA banners */
+.paragraph .section.section--action-banner {
+  margin: $spacing-unit--l;
+  box-shadow: 0 2px 24px -2px rgba(0,0,0,.375);
+}

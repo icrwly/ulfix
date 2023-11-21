@@ -1,0 +1,17 @@
+{# Paragraph "Marketo Inline Contact Form" template. #}
+{% if content.field_marketo_form.0 is not empty %}
+  {% set form_type = marketo.form_type %}
+  {% set class = 'section--paragraph marketo--block' %}
+  {% set gutterclass = "paragraph-gutter paragraph--action-banner" %}
+  {% if marketo.form_language %}
+    {% set form_language = marketo.form_language %}
+  {% else %}
+    {% set form_language = 'en' %}
+  {% endif %}
+
+  {% include "@ul_enterprise_theme/marketo/marketo-form--interrupter.html.twig" with {
+    marketo: marketo,
+    form_id: marketo.form_id
+  } %}
+
+{% endif %}

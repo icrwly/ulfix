@@ -1,0 +1,88 @@
+<svg id ="svg_water" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 650 685.3">
+  <style type="text/css">
+    @font-face {
+      font-family: 'OpenSans-Bold';
+      src: url('../fonts/opensans-bold-webfont.eot');
+      src: url('../fonts/opensans-bold-webfont.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/opensans-bold-webfont.woff2') format('woff2'),
+            url('../fonts/opensans-bold-webfont.woff') format('woff'),
+            url('../fonts/opensans-bold-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'OpenSans';
+      src: url('../fonts/opensans-regular-webfont.eot');
+      src: url('../fonts/opensans-regular-webfont.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/opensans-regular-webfont.woff2') format('woff2'),
+            url('../fonts/opensans-regular-webfont.woff') format('woff'),
+            url('../fonts/opensans-regular-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    @font-face {
+      font-family: 'OpenSans-Light';
+      src: url('../fonts/opensans-light-webfont.eot');
+      src: url('../fonts/opensans-light-webfont.eot?#iefix') format('embedded-opentype'),
+            url('../fonts/opensans-light-webfont.woff2') format('woff2'),
+            url('../fonts/opensans-light-webfont.woff') format('woff'),
+            url('../fonts/opensans-light-webfont.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
+  <g id="water_used_base" visibility="hidden">
+  <g id="m3">
+    <text transform="translate(97.9 528.4)" font-size="14" fill="#585858" font-family="OpenSans">Water used per sq. ft. in 2020</text>
+    <g id="m3_gallons">
+      <text transform="translate(209.7 573.3)" font-size="25" fill="#0b3c61" font-family="OpenSans-Light" font-weight="300">gallons</text>
+    </g>
+    <g >
+      <text id="m3_txt_1" transform="translate(97.9 573.1)" font-size="40" fill="#0b3c61" font-family="OpenSans-Light" font-weight="300">17.86</text>
+    </g>
+    <g>
+      <g>
+        <polyline points="62.5 548 62.5 567 21.7 567 21.7 526.2 42.1 526.2" fill="none" stroke="#0b3c61" stroke-miterlimit="10" stroke-width="2"/>
+        <rect x="19" y="523.5" width="5.3" height="5.29" fill="#fff" stroke="#0b3c61" stroke-miterlimit="10" stroke-width="2"/>
+        <rect x="59.9" y="564.3" width="5.3" height="5.29" fill="#fff" stroke="#0b3c61" stroke-miterlimit="10" stroke-width="2"/>
+      </g>
+      <path d="M58.7,514.2H76.1a0,0,0,0,1,0,0v17.4A17.4,17.4,0,0,1,58.7,549h0a17.4,17.4,0,0,1-17.4-17.4v0A17.4,17.4,0,0,1,58.7,514.2Z" transform="translate(-358.7 197.2) rotate(-45)" fill="none" stroke="#0b3c61" stroke-miterlimit="10" stroke-width="2"/>
+    </g>
+    <g>
+      <path d="M349.3,544.8V509.9a34.9,34.9,0,1,1-34.9,34.9,34.9,34.9,0,0,1,34.9-34.9h0Z" fill="#40b4e5"/>
+      <text transform="translate(330.4 550.9)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-52%</text>
+    </g>
+  </g>
+  <g id="m2">
+    <g >
+      <text id="m2_txt_1" transform="translate(368.8 266.1)" font-size="35" fill="#0b3c61" font-family="OpenSans-Light" font-weight="300">34,286,488.07</text>
+    </g>
+    <text transform="translate(465.4 452.8)" font-size="14" fill="#585858" font-family="OpenSans">2020</text>
+    <path id="m2_bar" d="M633.6,306.3V427.9H329.2V287.7c9.5,0,9.5,4,19,4s9.5-4,19-4,9.5,4,19,4,9.6-4,19.1-4,9.5,4,19,4,9.5-4,19-4,9.5,4,19,4,9.6-4,19.1-4,9.5,4,19,4,9.5-4,19-4,9.5,4,19,4,9.6-4,19.1-4,9.5,4,19,4,9.5-4,19-4,9.5,4,19.1,4,9.5-4,19-4Z" fill="#0b3c61"/>
+  </g>
+  <g id="m1">
+    <path id="m1_bar" d="M316.5,156V428.3H12.1V137.4c9.5,0,9.5,4,19,4s9.5-4,19-4,9.5,4,19.1,4,9.5-4,19-4,9.5,4,19,4,9.5-4,19-4,9.5,4,19,4,9.6-4,19.1-4,9.5,4,19,4,9.5-4,19-4,9.5,4,19,4,9.6-4,19.1-4,9.5,4,19,4,9.5-4,19-4,9.5,4,19.1,4,9.5-4,19-4Z" fill="#0b3c61"/>
+    <g >
+      <text id="m1_txt_1" transform="translate(52.7 122.2)" font-size="35" fill="#0b3c61" font-family="OpenSans-Light" font-weight="300">71,963,267.48</text>
+    </g>
+    <text transform="translate(148.3 453.9)" font-size="14" fill="#585858" font-family="OpenSans">2019</text>
+  </g>
+  <g id="center_dot">
+    <g>
+      <path d="M318.9,380.6V344.8a35.8,35.8,0,1,1-35.8,35.8,35.7,35.7,0,0,1,35.8-35.8h0Z" fill="#40b4e5"/>
+      <text transform="translate(300 384.9)" font-size="15" fill="#fff" font-family="OpenSans-Bold" font-weight="700">-52%</text>
+    </g>
+  </g>
+  <g id="m0">
+    <g>
+      <text transform="translate(12.3 46)" font-size="18" fill="#0b3c61" font-family="OpenSans">Total water used in gallons</text>
+      <g>
+        <text transform="translate(290.3 46.2)" font-size="14" fill="#585858" font-family="OpenSans">YoY change</text>
+        <circle cx="271.8" cy="41.2" r="9.2" fill="#40b4e5"/>
+      </g>
+    </g>
+  </g>
+  </g>
+</svg>

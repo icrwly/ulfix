@@ -1,0 +1,31 @@
+uuid: b826c366-5b49-4597-8104-269a850985ed
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_stakeholder_needs
+    - node.type.homepage
+    - taxonomy.vocabulary.stakeholder_needs
+_core:
+  default_config_hash: CbLWVJoteSlQqWm1_ZJL0mk2ZPROvg5Cx0nlY0kQaD4
+id: node.homepage.field_shared_stakeholder_needs
+field_name: field_shared_stakeholder_needs
+entity_type: node
+bundle: homepage
+label: 'Business Needs'
+description: '&bull; The stakeholder needs related to this homepage.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      stakeholder_needs: stakeholder_needs
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

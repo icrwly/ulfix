@@ -1,0 +1,19 @@
+uuid: ac2bfcc4-50a3-4ed6-b86c-c0a0626d926b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_banner_description
+    - node.type.hub
+id: node.hub.field_shared_banner_description
+field_name: field_shared_banner_description
+entity_type: node
+bundle: hub
+label: 'Banner Description - deprecated'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

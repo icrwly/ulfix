@@ -1,0 +1,8 @@
+uuid: 083fde83-9114-4da6-a138-aac73789b89f
+langcode: zh-hans
+status: true
+dependencies: {  }
+id: chinese_date
+label: 'Chinese Date'
+locked: false
+pattern: Y年n月j日

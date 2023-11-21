@@ -1,0 +1,6 @@
+ul_revision_log:
+  name: 'Content Types of UL Revision Log'
+  values: 'campaign_page homepage event help hub knowledge landing_page location market_access_profile news offering page person regional_pages resource tool thankyou_pages'
+  langcode: en
+_core:
+  default_config_hash: dFiJaX1lv9pTxsBOEVuPbhjJUgpxS8VOVdbtT7ngfro

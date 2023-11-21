@@ -1,0 +1,9 @@
+services:
+  ul_editorial.uninstall_validator:
+    class: Drupal\ul_editorial\UlEditorialUninstallValidator
+    public: false
+    decorates: filter.uninstall_validator
+    tags:
+      - { name: module_install.uninstall_validator }
+    decoration_priority: 3
+    arguments: ['@ul_editorial.uninstall_validator.inner', '@config.factory', '@plugin.manager.filter', '@entity_type.manager', '@string_translation']

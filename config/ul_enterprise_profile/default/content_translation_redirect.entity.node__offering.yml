@@ -1,0 +1,8 @@
+uuid: cc3f1e85-94a2-48ea-86c9-ebdbf77f9002
+langcode: en
+status: true
+dependencies: {  }
+id: node__offering
+label: 'Content: Offering'
+code: null
+message: ''

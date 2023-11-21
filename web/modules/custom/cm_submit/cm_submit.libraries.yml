@@ -1,0 +1,5 @@
+# Loaded only on admin edit pages.
+cm_submit.admin:
+  css:
+    theme:
+      css/cm_submit_admin.css: {}

@@ -1,0 +1,29 @@
+uuid: 5b5325cd-ec5e-4798-a9de-4ee3bcfd9362
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_domain
+    - node.type.resource
+    - taxonomy.vocabulary.content_domain
+id: node.resource.field_shared_domain
+field_name: field_shared_domain
+entity_type: node
+bundle: resource
+label: 'Content Domain'
+description: 'The content domain related to this resource. '
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: 'default:taxonomy_term'
+  handler_settings:
+    target_bundles:
+      content_domain: content_domain
+    sort:
+      field: name
+      direction: asc
+    auto_create: false
+    auto_create_bundle: ''
+field_type: entity_reference

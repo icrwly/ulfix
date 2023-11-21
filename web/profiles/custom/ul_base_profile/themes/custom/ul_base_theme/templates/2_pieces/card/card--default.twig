@@ -1,0 +1,121 @@
+{% extends "@ul_base_theme/2_pieces/card/card.twig" %}
+{% set class = class ~ " card--default" %}
+{% if featured %}
+  {% set class = class ~ " featured" %}
+{% endif %}
+
+{# For now, default cards are always clickable, leaving logic in place should that change #}
+{% set clickable = true %}
+
+{# If ctas are included, can't be wrapped in anchor #}
+{% if primary_cta or secondary_cta %}
+  {% set clickable = false %}
+{% endif %}
+
+{% if clickable %}
+  {% set class = class ~ " card--link" %}
+{% endif %}
+
+{% if image is empty and tags %}
+    {% set class = class ~ " card--no-image" %}
+{% endif %}
+
+{# If the date has been translated: #}
+{% set displayDate = false %}
+{% if date %}
+  {% set displayDate = date %}
+{% else %}
+  {% set date = false %}
+{% endif %}
+
+{% block content %}
+
+  {% if clickable %}
+    <a href="{{ link }}" aria-label="{{ title }}" title="{{ title }}">
+  {% endif %}
+
+  {% block inner %}
+    <div class="image-container">
+      {% block card_tags %}
+        {% if tags %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--card-tags.twig' with { widget: tags } only %}
+        {% endif %}
+      {% endblock %}
+      {% block card_image %}
+        {% if image %}
+          <img src="{{- image -}}" alt="{{- imageAlt -}}" />
+        {% endif %}
+      {% endblock %}
+    </div>
+    <div class="content-container">
+      {% block card_topic %}
+        {% if topics %}
+          {% include '@ul_base_theme/2_pieces/widget/widget--topics.twig' with {widget: topics} %}
+        {% endif %}
+      {% endblock %}
+      {% block card_date %}
+        {% if displayDate %}
+          <div class="date span-auto">{{ displayDate }}</div>
+        {% endif %}
+      {% endblock %}
+      {% block card_meta %}
+        {% if meta %}
+          <div class="meta span-auto">{{- meta -}}</div>
+        {% endif %}
+      {% endblock %}
+      {% block card_title %}
+        <h3>{{- title -}}</h3>
+      {% endblock %}
+      {% block card_description %}
+        {% if description %}
+          <p>{{- description -}}</p>
+        {% endif %}
+      {% endblock %}
+    </div>
+    {% block card_read_time %}
+      {% if readTime %}
+        <div class="bottom-row">
+          <div class="row">
+            <div class="read-time span-auto">{{- readTime -}}</div>
+          </div>
+        </div>
+      {% elseif primary_cta or secondary_cta %}
+        <div class="bottom-row bottom-row--cta">
+          <div class="row row--gutter-s align-items-center">
+            {% block primary_cta %}
+              {% if primary_cta %}
+                <div class="span-auto">
+                  {% include '@ul_base_theme/2_pieces/button.twig' with {
+                    link: primary_cta.url,
+                    color: 'blue',
+                    name: primary_cta.title,
+                    class: 'button--s',
+                    icon: primary_cta.icon,
+                    download: primary_cta.download
+                  } only %}
+                </div>
+              {% endif %}
+            {% endblock %}
+            {% block secondary_cta %}
+              {% if secondary_cta %}
+                <div class="span-auto">
+                  {% include '@ul_base_theme/2_pieces/button.twig' with {
+                    link: secondary_cta.url,
+                    name: secondary_cta.title,
+                    class: 'button--link button--s',
+                    icon: seconary_cta.icon
+                  } only %}
+                </div>
+              {% endif %}
+            {% endblock %}
+          </div>
+        </div>
+      {% endif %}
+    {% endblock %}
+  {% endblock %}
+
+  {% if clickable %}
+    </a>
+  {% endif %}
+
+{% endblock %}

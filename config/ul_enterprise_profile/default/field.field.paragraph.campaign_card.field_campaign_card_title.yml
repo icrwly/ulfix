@@ -1,0 +1,19 @@
+uuid: 32d8edc2-fc32-43f1-baf2-854371314de4
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_campaign_card_title
+    - paragraphs.paragraphs_type.campaign_card
+id: paragraph.campaign_card.field_campaign_card_title
+field_name: field_campaign_card_title
+entity_type: paragraph
+bundle: campaign_card
+label: Title
+description: 'Suggestion: 32 character limit.'
+required: true
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

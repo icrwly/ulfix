@@ -1,0 +1,20 @@
+uuid: 13139edc-1c4b-4e42-b48e-024186209e53
+langcode: en
+status: true
+dependencies:
+  config:
+    - media.type.crc_asset
+id: media.crc_asset.moderation_state
+field_name: moderation_state
+entity_type: media
+bundle: crc_asset
+label: 'Moderation state'
+description: 'The moderation state of this piece of content.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings:
+  handler: default
+  handler_settings: {  }
+field_type: entity_reference

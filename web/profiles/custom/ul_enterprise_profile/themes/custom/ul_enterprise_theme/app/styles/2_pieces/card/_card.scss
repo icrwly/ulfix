@@ -1,0 +1,50 @@
+.card {
+  background: $white;
+  .image-container {
+    height: auto;
+    background: $border-color;
+    @supports(object-fit: cover) {
+      max-height: 175px;
+    }
+    img {
+      height: 175px;
+      width: 120%;
+      max-width: none;
+      @supports(object-fit: cover) {
+        max-height: 175px;
+        object-fit: cover;
+        width: 100%;
+        max-width: 100%;
+      }
+    }
+  }
+  p {
+    line-height: 1.66;
+  }
+}
+
+.section--paragraph {
+  .span-3-ld .card {
+    .image-container {
+      height: auto;
+      img{
+        height: 130px;
+        @supports(object-fit: cover) {
+          height: 100%;
+          max-height: 130px;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+}
+
+.section--grid {
+  .span-6-t .card {
+    .image-container{
+        img {
+          width: 100%;
+        }
+    }
+  }
+}

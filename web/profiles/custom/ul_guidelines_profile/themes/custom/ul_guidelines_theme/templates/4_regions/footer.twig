@@ -1,0 +1,16 @@
+<footer class="footer">
+  <div class="footer__inner wrapper">
+    {% block footer_top %}
+      {% include '@ul_guidelines_theme/4_regions/footer--copyright.twig' %}
+    {% endblock %}
+    {% block footer_bottom %}
+      {% block footer__feedback %}
+        <div class="footer__links">
+          {% for link in footer.links %}
+            <a href="{{- link.href -}}">{{- link.name -}}</a>
+          {% endfor %}
+        </div>
+      {% endblock %}
+    {% endblock %}
+  </div>
+</footer>

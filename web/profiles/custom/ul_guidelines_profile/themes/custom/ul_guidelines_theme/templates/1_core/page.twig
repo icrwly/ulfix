@@ -1,0 +1,29 @@
+{# page.twig #}
+{% block pre_body %}
+    {% include '@ul_guidelines_theme/1_core/head.twig' %}
+{% endblock %}
+{% block body_open %}
+<body>
+{% endblock %}
+{% include '@ul_guidelines_theme/2_pieces/widgets/skip-content.twig' %}
+{% block body_top %}
+    {% include '@ul_guidelines_theme/4_regions/header.twig' %}
+    {% include '@ul_guidelines_theme/4_regions/header--mobile.twig' %}
+    {% include '@ul_guidelines_theme/4_regions/search.twig' %}
+{% endblock %}
+{% block pre_page %}{% endblock %}
+{% block page %}{% endblock %}
+{% block post_page %}{% endblock %}
+{% block footer %}
+    {% include '@ul_guidelines_theme/4_regions/footer.twig' %}
+{% endblock %}
+{% block page_scripts %}
+  {% include '@ul_guidelines_theme/1_core/global-scripts.twig' %}
+{% endblock %}
+{% block body_bottom %}{% endblock %}
+{% block body_close %}
+</body>
+{% endblock %}
+{% block post_body %}
+    </html>
+{% endblock %}

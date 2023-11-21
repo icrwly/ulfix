@@ -1,0 +1,10 @@
+<div class="footer__top">
+  <div class="wrapper">
+    {% block content %}
+      {% block footer_nav %}
+        {% include '@ul_base_theme/3_components/footer-nav.twig' with { items: footer_nav } only %}
+      {% endblock %}
+      {% include '@ul_base_theme/2_pieces/footer-choose-region.twig' %}
+    {% endblock %}
+  </div>
+</div>

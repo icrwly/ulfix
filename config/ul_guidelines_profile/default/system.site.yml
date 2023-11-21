@@ -1,0 +1,15 @@
+name: BrandHub
+mail: no-reply@hub.ul.com
+slogan: ''
+page:
+  403: ''
+  404: ''
+  front: /node/1
+admin_compact_mode: false
+weight_select_max: 100
+langcode: en
+default_langcode: en
+mail_notification: ''
+_core:
+  default_config_hash: xaCKDqtB2MUOOKbORhHeScGjZ03ae6kIeHKmFG-u2Cw
+uuid: 44245e06-f9cb-444d-8dc3-a49e5ffe87f3

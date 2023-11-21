@@ -1,0 +1,19 @@
+uuid: f97940f9-3c77-4f95-9c7c-6f1ec77bf2b6
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_menu_section_intro
+    - paragraphs.paragraphs_type.menu_section
+id: paragraph.menu_section.field_menu_section_intro
+field_name: field_menu_section_intro
+entity_type: paragraph
+bundle: menu_section
+label: 'Section Intro'
+description: 'Provide a brief description of this section.'
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

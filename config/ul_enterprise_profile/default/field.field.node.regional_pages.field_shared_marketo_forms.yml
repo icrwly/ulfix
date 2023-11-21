@@ -1,0 +1,29 @@
+uuid: a2f5c3f8-8114-4805-a04f-9769b0e29828
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_shared_marketo_forms
+    - node.type.regional_pages
+  module:
+    - tmgmt_content
+    - ul_marketo
+third_party_settings:
+  tmgmt_content:
+    excluded: false
+id: node.regional_pages.field_shared_marketo_forms
+field_name: field_shared_marketo_forms
+entity_type: node
+bundle: regional_pages
+label: 'Marketo Forms'
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    instance: Enterprise
+    sub_cou: ''
+    last_interest: null
+default_value_callback: ''
+settings: {  }
+field_type: marketo_meta
